@@ -12,4 +12,4 @@ Rouxtine ports the solver, trainers and alg data of
 
 ## Licence
 
-GPL-3.0. See [LICENSE](LICENSE).
+GPL-3.0-only. See [LICENSE](LICENSE).

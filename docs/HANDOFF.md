@@ -25,7 +25,8 @@ but it is a new Kotlin app, not a wrapper of the web app.
 - **Money:** a Ko-fi link in the app, nothing more. No paywalled features, no ads, no in-app
   purchases, so no Play Billing library. Whether a donation link is allowed in a Play build is
   being checked (see "Open").
-- **Licence:** GPL-3.0, required because the app ports onionhoney's GPL solver and data.
+- **Licence:** GPL-3.0-only (SPDX `GPL-3.0-only`), matching onionhoney's upstream exactly. GPL
+  is required because the app ports their GPL solver and data.
 - **minSdk:** as low as the stack allows. Owner's test phone: **Samsung Galaxy S25, Android 16
   (One UI 8)**; use it as the Roborazzi device profile.
 - **Audience and curriculum:** drills and training for every Roux level. The owner's own level
@@ -33,8 +34,9 @@ but it is a new Kotlin app, not a wrapper of the web app.
   they link (onionhoney's trainers are already known).
 - **Smart cubes:** support many Bluetooth protocols. The owner has none yet and will buy a cheap
   one for testing.
-- **Languages:** English at launch. All UI strings in resources from day one, ready for a
-  community translation platform (Weblate or Crowdin, both free for open source).
+- **Languages:** English at launch. All UI strings in resources from day one. Community
+  translations through **Weblate** (Hosted Weblate's free plan for libre projects), set up once
+  the first screens exist.
 - **Builds onto the phone:** the owner prefers whatever is safest and most widely used.
   Proposed: CI publishes each `main` build to a rolling GitHub pre-release, and Obtainium on the
   phone tracks it. Plain download from the release page is the fallback, with no login and no
@@ -65,18 +67,17 @@ but it is a new Kotlin app, not a wrapper of the web app.
 
 Research for these is in progress (notes will land in `docs/research/`):
 
-1. **Licence wording:** GPL-3.0-only (recommended, matches upstream exactly) or -or-later.
-2. **Donation link on Play:** whether Google Play allows a Ko-fi link, by region. If not, the
+1. **Donation link on Play:** whether Google Play allows a Ko-fi link, by region. If not, the
    Play build drops it and other builds keep it.
-3. **minSdk number:** the binding floor of the pinned libraries (probably 23), and what each
+2. **minSdk number:** the binding floor of the pinned libraries (probably 23), and what each
    lower level costs.
-4. **Signing and delivery details:** fixed debug key committed vs kept as a GitHub secret,
-   Obtainium status, Google's developer-verification rules for sideloaded apps, Samsung Auto
-   Blocker.
-5. **Which smart cube to buy first,** and the order to implement protocols.
-6. **Curriculum and content scope:** from the community-site analysis, e.g. teaching from zero,
+3. **Delivery checks:** Obtainium status, Google's developer-verification rules for sideloaded
+   apps, Samsung Auto Blocker. Signing is settled: a dedicated debug keystore committed to the
+   repo for `.debug` builds; a release key only the owner holds, kept in GitHub Actions
+   secrets, when public releases start.
+4. **Which smart cube to buy first,** and the order to implement protocols.
+5. **Curriculum and content scope:** from the community-site analysis, e.g. teaching from zero,
    OH, embedding vs linking videos, content that needs permission.
-7. **Translation platform:** Weblate or Crowdin, once UI strings settle.
 
 ## What exists now
 
