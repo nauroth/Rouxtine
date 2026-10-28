@@ -19,6 +19,10 @@ but it is a new Kotlin app, not a wrapper of the web app.
 
 ## Decided (confirmed by the owner)
 
+- **Core concept: modules and Rouxtines.** Every training tool is a toggleable **module**.
+  Users tie modules together into their own training regimen, a **Rouxtine**, focused on what
+  they want to progress on and what they need to get better at. All training hangs off this;
+  the details are being settled (see "Open").
 - **Repo:** `nauroth/rouxtine`, public, not a fork.
 - **Name:** Rouxtine. **Package id:** `io.github.nauroth.rouxtine`, with debug builds on
   `io.github.nauroth.rouxtine.debug` so both can be installed at once. No domain.
@@ -78,6 +82,9 @@ Research for these is in progress (notes will land in `docs/research/`):
 4. **Which smart cube to buy first,** and the order to implement protocols.
 5. **Curriculum and content scope:** from the community-site analysis, e.g. teaching from zero,
    OH, embedding vs linking videos, content that needs permission.
+6. **Rouxtine design:** what a module is, how a Rouxtine is built (blocks, stopping rules,
+   schedule), templates vs custom vs adaptive, how weaknesses are detected and fed back,
+   sharing. Prior-art research in progress (`docs/research/training-regimens.md`).
 
 ## What exists now
 
