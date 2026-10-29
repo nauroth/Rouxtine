@@ -72,7 +72,7 @@ Priority: **MVP** = first release, **v1** = next, **later**. The Reuse column li
 | 2D/3D cube view with sticker masking per stage. | MVP | Masks `src/lib/CubeLib.tsx:777-873`; 2D CMLL visualiser (`src/components/CubeSim2D.tsx`, `CaseVisualizer.tsx`). |
 | Timer, sessions, ao5/ao12, manual per-stage split entry. | MVP | Twisty Timer (GPL-3.0, Java, on Play) [43] for patterns. |
 | Curriculum: milestone gates (2-look → full CMLL by 20–30 s; EOLR at about 15 s; x2y CN). Why: matches the community path. | v1 | [2][9]; content links to [1]. |
-| Spaced repetition and weak-case weighting for CMLL/EOLR/4c/LP cases. None of the surveyed tools has SRS; SCT only weights undrilled cases. | v1 | New. Case IDs from `src/lib/Algs.tsx`. |
+| Spaced repetition and weak-case weighting for CMLL/EOLR/4c/LP cases. None of the surveyed tools has SRS; SCT only weights undrilled cases. **Correction (2026-10-28):** Cubedex has had auto-graded SRS with CMLL and EOLR sets since 2026-04-21; see [training-regimens.md](training-regimens.md) §1 and source [44] there. | v1 | New. Case IDs from `src/lib/Algs.tsx`. |
 
 **1 First Block**
 
