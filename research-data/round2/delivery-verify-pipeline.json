@@ -1,0 +1,445 @@
+{
+ "verdicts": [
+  {
+   "id": "delivery-1",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/README.md (outputs table): artifact-url '... Users must be logged-in in order for this URL to work.'",
+    "https://docs.github.com/en/actions/how-tos/manage-workflow-runs/download-workflow-artifacts: 'People who are signed into GitHub and have read access to a repository can download workflow artifacts.' / 'Read access to the repository is required to perform these steps.'"
+   ]
+  },
+  {
+   "id": "delivery-2",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/rest/actions/artifacts#download-an-artifact: 'Gets a redirect URL to download an archive for a repository. This URL expires after 1 minute... The :archive_format must be zip. OAuth tokens and personal access tokens (classic) need the repo scope to use this endpoint.' Status: 302 (also 410 Gone).",
+    "Same page: unlike the List endpoints, 'Download an artifact' does not carry the line 'This endpoint can be used without authentication ... if only public resources are requested', so a token is needed even for public repos."
+   ]
+  },
+  {
+   "id": "delivery-3",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization: retained 90 days by default; public repos 1-90 days; private repos 1-400 days.",
+    "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/action.yml and README: retention-days 'Minimum 1 day. Maximum 90 days unless changed from the repository settings page.'; README 'Artifacts are retained for 90 days by default.'"
+   ]
+  },
+  {
+   "id": "delivery-4",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/action.yml: archive 'If false ... only a single file can be uploaded. The name of the file will be used as the artifact name (ignoring the `name` parameter).'",
+    "git tags (git ls-remote / blobless clone of actions/upload-artifact): v7.0.0 = bbbca2d 'Support direct file uploads (#764)' committed 2026-02-25T21:04Z; v7.0.2 = cf430e0 (2026-10-07) is the highest tag; v7 floats to it.",
+    "v7.0.2 diff = 'Bump @actions/artifact to 6.3.1'; https://raw.githubusercontent.com/actions/toolkit/main/packages/artifact/RELEASES.md 6.3.0: 'Honor positive integer Retry-After seconds on HTTP 429 responses ... Unsupported or missing values use exponential backoff.'",
+    "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/README.md: 'right now we are not taking contributions' ... 'We will still provide security updates for this project and fix major breaking changes during this time.'"
+   ],
+   "correction": "Substance is right, two details are loose. (1) The v7.0.0 tag commit is dated 25 Feb 2026 at 21:04 UTC. The release's published_at could not be checked, because the session proxy blocks the GitHub API and HTML for repos outside the session. (2) The 429 change in v7.0.2 comes from @actions/artifact 6.3.x. It honours Retry-After on HTTP 429 from the artifact service API in general (the twirp client used by upload), not download retries specifically."
+  },
+  {
+   "id": "delivery-5",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/oprypin/nightly.link/blob/40f52e005caa271f22286b7479acb74d93ac3e46/src/nightly_link.cr: `if !tmp_link.partition(\"?\")[0].ends_with?(\".zip\")` -> 'Sorry, only *.zip downloads are supported by nightly.link for the moment.\\nSee <https://github.com/oprypin/nightly.link/issues/88>'; status defaults to 'success' (or 'completed').",
+    "nightly.link README / https://nightly.link/: 'Any public repository is accessible by default and visitors don't need to log in.' ... install the GitHub App 'so that downloads for your repositories don't share the global API rate limit. The throttling will likely become very bad over time.'",
+    "HEAD 40f52e0 committed 2026-10-22T17:25:44+02:00 ('Run the example upload on any commit')."
+   ]
+  },
+  {
+   "id": "delivery-6",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://cli.github.com/manual/gh_release_create: 'If a matching git tag does not yet exist, one will automatically get created from the latest state of the default branch. Use --target to point to a different branch or commit'; options --draft, --generate-notes, --latest, --notes, --notes-start-tag, --prerelease, --target '<branch> Target branch or full commit SHA', --title, --verify-tag.",
+    "Same page also: 'When you attach assets, gh release create creates a draft release, uploads each asset, and then publishes the release ... do not form a single atomic operation.' New flag --fail-on-no-commits."
+   ]
+  },
+  {
+   "id": "delivery-7",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://cli.github.com/manual/gh_release_delete: '--cleanup-tag Delete the specified tag in addition to its release'; '-y, --yes Skip the confirmation prompt'.",
+    "https://cli.github.com/manual/gh_release_upload: 'When using --clobber, existing assets are deleted before new assets are uploaded. If the upload fails, the original assets will be lost.'"
+   ]
+  },
+  {
+   "id": "delivery-8",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/rest/releases/releases#get-the-latest-release: 'The latest release is the most recent non-prerelease, non-draft release, sorted by the created_at attribute.'; make_latest: 'Drafts and prereleases cannot be set as latest.'",
+    "https://docs.github.com/en/repositories/releasing-projects-on-github/linking-to-releases: '/releases/latest/download/asset-name.zip'.",
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/github.dart: with verifyLatestTag on, Obtainium GETs '<releases>/latest' and throws on any non-200, so a prerelease-only repo errors out."
+   ],
+   "correction": "One addition: a prerelease is still reachable by its tag at https://github.com/OWNER/REPO/releases/download/<tag>/<asset> (the browser_download_url form). A constant asset name in the 'dev' release therefore gives a stable direct link."
+  },
+  {
+   "id": "delivery-9",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases: 'Git tags cannot be moved ... cannot be deleted while the release exists. If you delete the immutable release, you can delete the tag, but you cannot reuse the same tag name.' 'Release assets cannot be modified or deleted.' Title, notes, prerelease and latest flags stay editable.",
+    "https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/establish-provenance-and-integrity/prevent-release-changes: enabled by selecting 'Enable release immutability' (orgs: 'No policy' dropdown); 'immutability will only apply to future releases'. No statement of a default for new repos."
+   ]
+  },
+  {
+   "id": "delivery-10",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/softprops/action-gh-release/blob/6680cc089e59314c4460b839412c25fb6a71ce3b/action.yml: using 'node24'; tag v2.6.2/v2 action.yml: using 'node20'; tags: v3.0.3 (2026-08-29) is newest; HEAD 6680cc0 committed 2026-10-17.",
+    "README: 'If a tag already has a GitHub release, the existing release will be updated with the release assets.'; overwrite_files 'Defaults to true'; README links the Node 20 deprecation changelog.",
+    "src/github.ts passes target_commitish to updateRelease for an existing release, but https://docs.github.com/en/rest/releases/releases#update-a-release says target_commitish is 'Unused if the Git tag already exists', so the tag does not move."
+   ]
+  },
+  {
+   "id": "delivery-11",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/ncipollo/release-action/blob/1b9acf6ded5a3b65414f069bb0c2c847ac83a145/README.md: allowUpdates (default false), commit 'This will be used to create the tag if it does not exist.', immutableCreate, makeLatest (default 'legacy'), removeArtifacts (false), replacesArtifacts (true); example permissions 'contents: write'.",
+    "action.yml using 'node24'; tag v1.21.0 = 339a818 (2026-03-14); HEAD 1b9acf6 committed 2026-10-04 (docs-only commits since the tag). Obtainium's own release.yml pins ncipollo/release-action v1.21.0."
+   ]
+  },
+  {
+   "id": "delivery-12",
+   "verdict": "confirmed",
+   "evidence": [
+    "Blobless clone of marvinpinto/action-automatic-releases: HEAD d68defd committed 2022-01-29T16:08:39Z; newest tags 'latest' (2022-01-29), v1.2.1 (2021-06-03); action.yml declares using: 'node12', a runtime GitHub has removed."
+   ]
+  },
+  {
+   "id": "delivery-13",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/LawnchairLauncher/lawnchair/blob/2d072998677ff198a0abc3f19c22af9ad32b5574/.github/workflows/ci.yml: nightly-release job 'permissions: contents: write'; '# Note the # and () symbols are not supported in GitHub Release filenames, even manually'; APK_NAME=Lawnchair.Debug.<ref>.Nightly-CI_${{ github.run_number }}-<sha7>.apk; 'gh release view \"nightly\" && gh release delete \"nightly\" -y --cleanup-tag' then 'gh release create \"nightly\" \"./$APK_NAME\" -p -t \"Lawnchair Nightly\" --generate-notes'; build job writes keystore via 'echo ${{ secrets.KEYSTORE }} | base64 --decode > .../key.jks'.",
+    "Same file has no concurrency group, and gh release create has no --target. The workflow runs on any '*-dev' branch while the default branch is 16-dev (git ls-remote --symref), so a push to another *-dev branch would tag 16-dev HEAD.",
+    "Lawnchair build.gradle at the same SHA: falls back to signingConfigs.debug when keystore.properties is missing; nightly flavor applicationId 'app.lawnchair.nightly'; fixed versionCode 16_00_02_01_00 across nightlies."
+   ]
+  },
+  {
+   "id": "delivery-14",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency: 'there can be at most one running job or workflow in a concurrency group at any time' ... 'To also cancel any currently running job or workflow in the same concurrency group, specify cancel-in-progress: true.' Also new 'queue: max' (up to 100 pending; cannot combine with cancel-in-progress: true)."
+   ],
+   "correction": "Caveat: with cancel-in-progress: true, a run can be cancelled after 'gh release delete' and before 'gh release create' finishes. The dev release and tag would then be missing until the next successful run. Safer: leave the publish job non-cancellable (cancel-in-progress: false, so only the pending run is replaced), or cancel only the build job."
+  },
+  {
+   "id": "delivery-15",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes: the only control is the optional 'Previous tag' dropdown; the rule for the automatic choice is not stated. The notes 'include a list of merged pull requests, a list of contributors to the release, and a link to a full changelog'.",
+    "https://docs.github.com/en/rest/releases/releases#generate-release-notes-content-for-a-release: previous_tag_name 'Use to manually specify the range'; body described only as 'changes since last release'."
+   ]
+  },
+  {
+   "id": "delivery-16",
+   "verdict": "confirmed",
+   "evidence": [
+    "Blobless clone of ImranR98/Obtainium: tags v1.7.0 (dbb9c0d, 2026-10-17T03:38Z, pubspec 1.7.0+2358), v1.7.1 (2026-10-18, +2359), v1.7.2 (2026-10-24T01:35Z, +2360), v1.7.3 (fcd1807, 2026-10-25T00:45Z, +2361); main and dev both at fcd1807 (committed 2026-10-24 -04:00).",
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/.github/workflows/release.yml: 'flutter build apk --split-per-abi', renames '-normal' away (app-arm64-v8a-release.apk); sign.sh: apksigner sign, 'sha256sum ... > \"$apk\".sha256', 'gpg --batch --sign --detach-sig \"$apk\".sha256' (.sha256.sig).",
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/android/app/build.gradle.kts: applicationId 'dev.imranr.obtainium', minSdk = 26; README badges for IzzyOnDroid and F-Droid."
+   ],
+   "correction": "Release dates are from tag commits; published_at could not be read, because the GitHub API and HTML are blocked by the session proxy. Precisely, the signature files are '.sha256.sig' (a gpg detached signature over the .sha256 file)."
+  },
+  {
+   "id": "delivery-17",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/github.dart: request URL '<api>/repos/<o>/<r>/releases?per_page=100' (falls back to /tags); isReleaseExcluded: '(!includePrereleases && release[\"prerelease\"] == true)'; includePrereleases default false; no Actions-artifact code anywhere in lib/ (git grep 'actions/artifacts' = 0 hits)."
+   ]
+  },
+  {
+   "id": "delivery-18",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/github.dart: targetRelease['version'] = releaseTitleAsVersion ? nameToFilter (release name, falling back to tag) : tag_name ?? name."
+   ],
+   "correction": "One more option: put a changing version (for example 0.1.0-dev.123) in the release title and turn on 'Use release title as version string', optionally with versionExtractionRegEx. The tag can then stay 'dev' and the version still changes, and it can match the installed versionName."
+  },
+  {
+   "id": "delivery-19",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/providers/source_provider.dart: if releaseDateAsVersion -> version = apk.releaseDate!.microsecondsSinceEpoch.toString().",
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/services/version_service.dart versionDetectionPossible(): returns false when releaseDateAsVersion is set.",
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/github.dart: _getPublishDateFromRelease uses 'published_at'; with useLatestAssetDateAsReleaseDate the newest asset 'updated_at'/'created_at' (of filtered assets if any) is used.",
+    "https://github.com/ImranR98/Obtainium-Wiki/blob/536cea30d538205c582223dc7ea1eaea9b0a3a84/pages/app_tracking.en.md: 'Release Date as Version ... treats the release date as a pseudo-version'."
+   ]
+  },
+  {
+   "id": "delivery-20",
+   "verdict": "refuted",
+   "evidence": [
+    "https://github.com/ImranR98/apps.obtainium.imranr.dev/blob/f989b98cffe77f34230caac23f17144f45cfde8d/public/data/apps/complex/app.lawnchair.nightly.json: additionalSettings '{\"includePrereleases\":true,\"filterReleaseTitlesByRegEx\":\"Lawnchair.Nightly\",\"releaseDateAsVersion\":true}' (matches).",
+    "Shallow checkout of the same commit, parsing every config in public/data/apps/complex (378 files): 124 files contain the key 'releaseDateAsVersion', but only 7 configs set it true; 157 set it false."
+   ],
+   "correction": "The Lawnchair config is right, but the count is wrong. Only 7 crowdsourced configs actually set releaseDateAsVersion: true: app.lawnchair.nightly, app.revanced.android.youtube, com.duolingo, com.monero.app, git.artdeell.mjlaunch, me.magnum.melonds and su.xash.engine.test. 124 is the number of files that merely contain the key, most of them set to false. This makes the precedent thinner than claimed: Lawnchair Nightly is the clear rolling-prerelease example."
+  },
+  {
+   "id": "delivery-21",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/app_source.dart: 'apkFilterRegEx' (label filterAPKsByRegEx), 'invertAPKFilter', 'autoApkFilterByArch' (default true); GitHub (allowIncludeZips) adds 'includeZips' and 'zippedApkFilterRegEx'.",
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/assets/translations/en.json: 'Filter links by regex', 'Attempt to filter APKs by CPU architecture if possible', 'Include ZIP files', 'Filter APKs inside ZIP'."
+   ]
+  },
+  {
+   "id": "delivery-22",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/installers/stock_installer.dart canInstallSilently(): false unless installingPackageName is an Obtainium variant, sdkInt >= 31, and installed targetSdkVersion >= sdkInt - 3; Obtainium never silently installs itself.",
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/android/app/src/main/AndroidManifest.xml: UPDATE_PACKAGES_WITHOUT_USER_ACTION and ENFORCE_UPDATE_OWNERSHIP declared.",
+    "https://developer.android.com/reference/android/content/pm/PackageInstaller.SessionParams#setRequireUserAction(int): the platform requires the target 'API 34 or higher on Android B (API 36)' and 'API 35 or higher on Android C (API 37)', plus installer of record or update owner."
+   ],
+   "correction": "The claim describes Obtainium's own check correctly, but the OS rule is stricter. On Android 16 (API 36) the platform needs targetSdk 34 or higher (not 33) to skip the prompt, and 35 or higher on API 37. Rouxtine will target 36, so this does not bite. Obtainium's Shizuku and root installers can install silently whoever the installer of record is (lib/installers/shizuku_installer.dart: canInstallSilently => true)."
+  },
+  {
+   "id": "delivery-23",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api: 'Unauthenticated requests are associated with the originating IP address' ... 'The primary rate limit for unauthenticated requests is 60 requests per hour.' ... 'personal rate limit of 5,000 requests per hour'.",
+    "https://github.com/ImranR98/Obtainium-Wiki/blob/536cea30d538205c582223dc7ea1eaea9b0a3a84/pages/sources.en.md: 'you may run into a \"rate limit\" error ... You can get around this by getting a Personal Access Token'; steps use 'Fine-grained tokens'; also mentions an optional GitHub Proxy Prefix."
+   ]
+  },
+  {
+   "id": "delivery-24",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/ImranR98/Obtainium-Wiki/blob/536cea30d538205c582223dc7ea1eaea9b0a3a84/pages/deep_links.en.md: 'obtainium://add/<url>' pre-fills Add App; 'obtainium://app/<url-encoded JSON>' (and apps/ for arrays) 'shows a confirmation dialog with the raw JSON'; 'additionalSettings ... work the same'; 'Badging your project' section, recommends the https://apps.obtainium.imranr.dev/redirect?r=obtainium://app/... form; also obtainium://refresh.",
+    "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/android/app/src/main/AndroidManifest.xml: <data android:scheme=\"obtainium\" />; lib/pages/home.dart handles add/app/apps/refresh."
+   ]
+  },
+  {
+   "id": "delivery-25",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/services/core/java/com/android/server/pm/PackageManagerServiceUtils.java checkDowngrade(): throws INSTALL_FAILED_VERSION_DOWNGRADE if after < before; when equal it only checks baseRevisionCode and split revisions.",
+    "https://developer.android.com/studio/publish/versioning: 'The greatest value Google Play allows for versionCode is 2100000000.' 'You can't upload an APK to the Play Store with a versionCode you have already used'.",
+    "Real-world: Lawnchair nightlies ship a fixed versionCode 16_00_02_01_00 (build.gradle @2d07299) and still update."
+   ]
+  },
+  {
+   "id": "delivery-26",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts: github.run_number 'A unique number for each run of a particular workflow in a repository. This number begins at 1 for the workflow's first run, and increments with each new run. This number does not change if you re-run the workflow run.'"
+   ],
+   "correction": "The docs do not say what restarts the counter. It is per workflow, so a new or renamed workflow file is a new workflow; changing only the 'name:' key is not documented to reset it. Treat the reset as inference and keep an offset in the build script."
+  },
+  {
+   "id": "delivery-27",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://android.googlesource.com/platform/tools/base/+/refs/heads/mirror-goog-studio-main/build-system/gradle-core/src/main/java/com/android/build/gradle/internal/tasks/ValidateSigningTask.kt: 'If the keystore is the default debug keystore, it will be created if it is missing.' (createIfAbsent { createDefaultDebugStore(...) }).",
+    "https://developer.android.com/studio/publish/app-signing: debug keystore and certificate created in '$HOME/.android/debug.keystore'.",
+    "https://docs.github.com/en/actions/concepts/runners/github-hosted-runners: 'With the exception of single-CPU runners, each GitHub-hosted runner is a new virtual machine (VM)' (single-CPU runners are a container on a shared VM, also fresh)."
+   ],
+   "correction": "True unless the workflow restores ~/.android/debug.keystore from a cache. An actions/cache entry can be evicted, so it is not a stable key either."
+  },
+  {
+   "id": "delivery-28",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/studio/publish/app-signing: 'The system allows the update if the certificates match. If you sign the new version with a different certificate, you must assign a different package name'.",
+    "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/core/java/android/content/pm/PackageManager.java: INSTALL_FAILED_UPDATE_INCOMPATIBLE = -7, '...if a previously installed package of the same name has a different signature than the new package (and the old package's data was not removed).'"
+   ],
+   "correction": "Exception: APK Signature Scheme v3 key rotation (Android 9+, recommended only above API 31) lets an app move to a new key with a proof-of-rotation lineage: https://source.android.com/docs/security/features/apksigning/v3"
+  },
+  {
+   "id": "delivery-29",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/studio/publish/app-signing: 'Because the debug certificate is created by the build tools and is insecure by design, most app stores (including the Google Play Store) do not accept apps signed with a debug certificate'; 'the debug certificate ... expiration date of 30 years from its creation date'; 'A validity period of 25 years or more is recommended'; 'must have a validity period ending after 22 October 2033'.",
+    "keytool on Element X's committed debug.keystore: valid 2019-06-07 until 2049-05-30 (30 years)."
+   ]
+  },
+  {
+   "id": "delivery-30",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/element-hq/element-x-android/blob/046e1bce78c01af042dcc8bda93e0980fb984de3/app/build.gradle.kts: signingConfigs debug { keyAlias 'androiddebugkey', keyPassword 'android', storeFile './signature/debug.keystore', storePassword 'android' }; nightly signing from environmentOrGradleValue('ELEMENT_ANDROID_NIGHTLY_KEYID', 'signing.element.nightly.keyId') etc.; debug buildType applicationIdSuffix '.debug'; nightly = initWith(release), applicationIdSuffix '.nightly', versionNameSuffix '-nightly', firebaseAppDistribution { artifactType 'APK' ... }.",
+    "app/signature/debug.keystore at that SHA is a Java KeyStore; keytool -storepass android lists alias androiddebugkey."
+   ],
+   "correction": "Extra detail: Element X's 'release' build type is also signed with the committed debug config in Gradle, so its store signing happens outside this file. Its nightly is the initWith(release) precedent that claim delivery-35 describes."
+  },
+  {
+   "id": "delivery-31",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://github.com/organicmaps/organicmaps/blob/1b9a011b4272d69b002ee78b9d30d2483e50688d/android/groovy/application-signing.gradle: debug { storeFile 'app/debug.keystore', storePassword '12345678', keyAlias 'debug' }; release from secure.properties when present; buildTypes debug applicationIdSuffix '.debug' versionNameSuffix '-debug'; beta applicationIdSuffix '.beta' versionNameSuffix '-beta' signingConfig release.",
+    "android/app/debug.keystore exists at that SHA (JKS, opens with 12345678); android/app/secure.properties returns 404 (not committed)."
+   ]
+  },
+  {
+   "id": "delivery-32",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets: 'With the exception of GITHUB_TOKEN, secrets are not passed to the runner when a workflow is triggered from a forked repository.'; 'You can use Base64 encoding to store small binary blobs as secrets' ... 'Base64 only converts binary to text, and is not a substitute for actual encryption.'; 'To use secrets that are larger than 48 KB' ... gpg --symmetric workaround."
+   ]
+  },
+  {
+   "id": "delivery-33",
+   "verdict": "confirmed",
+   "evidence": [
+    "Update rule: https://developer.android.com/studio/publish/app-signing ('The system allows the update if the certificates match').",
+    "Fork rule: secrets not passed to fork-triggered workflows (use-secrets doc), so a committed keystore is the only key a fork build can use, and it matches.",
+    "https://developer.android.com/developer-verification/guides/android-developer-console: registration = 'Enter the SHA-256 certificate fingerprint'; 'Prove ownership: For existing package names, you must sign an APK with your private key'. A fingerprint is all that ties a package to an identity, so a public key's holders are all 'you'.",
+    "Precedent for the safe pattern: Lawnchair build.gradle falls back to signingConfigs.debug when the secret keystore is absent."
+   ],
+   "correction": "This is inference, but each step rests on documented rules. One addition: for a new package name the console asks only for the fingerprint, with no private-key proof, so first-come registration is cheap for anyone."
+  },
+  {
+   "id": "delivery-34",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/build/build-variants: example sets applicationIdSuffix = \".debug\" and create(\"staging\") { initWith(getByName(\"debug\")) ... applicationIdSuffix = \".debugStaging\" }; 'This is useful when you want to have both the debug and the release build on the same device, because no two apps can have the same application ID.'",
+    "https://developer.android.com/build/configure-app-module: 'Important: Once you publish your app, you should never change the application ID.'"
+   ]
+  },
+  {
+   "id": "delivery-35",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/develop/ui/compose/performance: 'Build in Release Mode with R8: Try running your app in release mode. Debug mode is useful for spotting many problems, but it imposes a performance cost'.",
+    "Precedent: Element X nightly build type = initWith(release) + applicationIdSuffix '.nightly' (app/build.gradle.kts @046e1bc)."
+   ]
+  },
+  {
+   "id": "delivery-36",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-37",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-38",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-39",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-40",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-41",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-42",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-43",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-44",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-45",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-46",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-47",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-48",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-49",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-50",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-51",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-52",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-53",
+   "verdict": "confirmed",
+   "evidence": [
+    "Blobless clone of r0adkll/upload-google-play: tags v1.1.5 (2026-04-20) newest, v1 floats; HEAD 744d577 committed 2026-09-06; action.yml using 'node24'.",
+    "Blobless clone of wzieba/Firebase-Distribution-Github-Action: v1.7.1 = HEAD bd49498 committed 2025-03-28; README '### `token` Deprecated! Don't use it ... Use `serviceCredentialsFileContent` instead.'; docker action pinned to ghcr.io/...:sha-344aa66."
+   ],
+   "correction": "The facts check out, but 'maintained' overstates the Firebase action: there have been no commits in about 19 months. Calling 'firebase appdistribution:distribute' directly, or using the Gradle plugin, avoids depending on it."
+  },
+  {
+   "id": "delivery-54",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-55",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-56",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-57",
+   "verdict": "not-checked",
+   "evidence": []
+  },
+  {
+   "id": "delivery-58",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/about/versions/oreo/android-8.0-changes: 'The Allow unknown sources system setting has been removed; in its place, the Install unknown apps permission manages unknown app installs from unknown sources.'; use canRequestPackageInstalls()."
+   ]
+  }
+ ],
+ "missing": [
+  "Since 1 October 2026 the 90-day (public) retention also deletes checks, workflow runs and commit statuses, not just artifacts and logs, so old run pages disappear too. Source: https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization",
+  "The 'Download an artifact' REST endpoint, unlike the list endpoints, is not marked usable without authentication. Even public-repo artifacts need a token, which is why nightly.link exists. Source: https://docs.github.com/en/rest/actions/artifacts#download-an-artifact",
+  "Stable direct link to a prerelease asset: https://github.com/OWNER/REPO/releases/download/dev/<asset>, the browser_download_url form. It needs a constant asset name, which Lawnchair's per-run names do not give. Source: https://docs.github.com/en/rest/releases/releases (browser_download_url example .../releases/download/v1.0.0/example.zip)",
+  "GitHub renames release-asset filenames that have special or non-alphanumeric characters or leading/trailing periods. Uploading a same-named asset errors until the old one is deleted, hence --clobber and overwrite_files. Source: https://docs.github.com/en/rest/releases/assets#upload-a-release-asset",
+  "gh release create with assets makes a draft, uploads, then publishes, and the steps are not atomic. So published_at, which Obtainium's releaseDateAsVersion uses, is set after the upload, and the 'no dev release' window covers the whole upload. Source: https://cli.github.com/manual/gh_release_create",
+  "'#' in a gh asset argument starts a display label, which is the likely reason behind Lawnchair's 'no # in filenames' comment. Source: https://cli.github.com/manual/gh_release_upload ('append text starting with # after the file name')",
+  "Generated release notes list merged pull requests and contributors, so direct pushes to main produce nearly empty notes. Another reason to write SHA plus git-log notes yourself. Source: https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes",
+  "cancel-in-progress: true can kill a run between 'gh release delete' and 'gh release create', leaving no dev release. Keep the publish job non-cancellable. A new 'queue: max' option exists but cannot combine with cancel-in-progress. Source: https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency",
+  "Platform silent-update rule: on Android 16 (API 36) the updated app must target API 34 or higher, and 35 or higher on API 37. This is stricter than Obtainium's 'OS SDK minus 3' heuristic. Source: https://developer.android.com/reference/android/content/pm/PackageInstaller.SessionParams#setRequireUserAction(int)",
+  "Obtainium's Shizuku and root installers report canInstallSilently = true regardless of installer of record. This is a fallback if the first install did not come from Obtainium. Source: https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/installers/shizuku_installer.dart",
+  "Alternative to the date pseudo-version: keep the rolling 'dev' tag but title each release with the versionName (e.g. 0.1.0-dev.123) and enable 'Use release title as version string'. The version then changes per build and can match the installed versionName. Source: https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/github.dart",
+  "On option C's 'rate-limit noise': Obtainium makes one /releases?per_page=100 call per check no matter how many releases exist (plus one more only if 'Verify the latest tag' is on). Per-build tags add clutter, not API calls. Source: https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/github.dart",
+  "Lawnchair precedent details: the nightly uses a separate applicationId (app.lawnchair.nightly), keeps the same versionCode on every nightly (16_00_02_01_00), and falls back to signingConfigs.debug when the secret keystore is missing (fork-safe). Its nightly job has no concurrency group. Source: https://github.com/LawnchairLauncher/lawnchair/blob/2d072998677ff198a0abc3f19c22af9ad32b5574/build.gradle",
+  "Obtainium's own release pipeline builds unsigned APKs in CI (uploaded as artifacts, draft release via ncipollo v1.21.0). The maintainer signs locally with apksigner and gpg-signs the sha256 (sign.sh), so the release key never reaches CI. Source: https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/sign.sh",
+  "APK Signature Scheme v3 key rotation (Android 9+, recommended above API 31) is the documented escape hatch if the dev or release signing key must change without a new package name. Source: https://source.android.com/docs/security/features/apksigning/v3",
+  "Developer verification: registering a new package name takes only the signing certificate's SHA-256 fingerprint. Private-key proof is required only for existing package names. Registering early is cheap, and so is squatting. Source: https://developer.android.com/developer-verification/guides/android-developer-console",
+  "The open-source-app-registration guide was last updated 2026-10-23, newer than the dates cited in delivery-36. Source: https://developer.android.com/developer-verification/guides/open-source-app-registration",
+  "Access note: the session proxy blocks api.github.com and github.com HTML for repositories outside the session, so release published_at dates and issue pages could not be read. Tag and commit dates came from git (git ls-remote and blobless clones) and file contents from raw.githubusercontent.com. Source: https://raw.githubusercontent.com/actions/upload-artifact/cf430e030ddbb5b0abf93d22962f4752f3646cd9/README.md (example of a raw read that worked)"
+ ]
+}

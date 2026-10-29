@@ -1,0 +1,241 @@
+{
+ "resources": [
+  {
+   "key": "gdoc:document:1dvGERLfN-0rVwN914HH1zRPHLfdM6d5rPfe0HxOMK08",
+   "url": "https://docs.google.com/document/d/1dvGERLfN-0rVwN914HH1zRPHLfdM6d5rPfe0HxOMK08",
+   "title": "EOLR (the 'EOLR Doc' / 'EOLR Doc #1' on the hubs)",
+   "author": "Not stated in the doc. PiKeeper's EOLRb doc calls it 'the EOLR solution taught in this doc', links to it and uses exactly the same case names, so it is probably from the same author or circle. That is not confirmed.",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced: it assumes 4a (EO) and 4b (ULUR) are already solid and teaches full EOLR",
+   "summary": "A single-tab Google Doc (tab t.0, no images) that covers the full EOLR case set for Roux LSE. Every case has a 2-gen M/U alg plus a written way to understand it. It is split into 9 sections, one per EO case. Each section header gives a short code for the case and the bad-edge positions in the reference orientation: 3/1 'arrow', 4/0, 2o/2, 2a/2, 1/1, 2o/0, 2a/0, 0/2 and 4/2 (6-flip). The solved-EO case is not covered. Inside each section, cases are named by where the two L/R edges (the UL/UR pieces) are relative to the bad edges: Stacked, Good, Bottom, Adjacent, Bad, Opposite, Best, Great, Decent, Mixed Adjacent, Oriented/Misoriented Opposite, UF Adjacent/Separated/Opposite, Sides and so on. Each name heading lists every L/R placement it covers and then gives one alg. Every case then has a one-line 'Recognition:' rule and either a 'Solution:' (the intuitive breakdown, ending with oriented centres) or an 'MC Solution:' (ending with misoriented centres, finished by an M), and sometimes both. Most breakdowns reduce the case to a simpler named case ('... Good 3/1 from there'), and those references are clickable links to the target heading. Together they form a chain that leads back to a few 3/1 arrow base cases. I counted 51 named cases covering 94 listed L/R placements: 3/1 has 5 (14 placements), 4/0 4 (6), 2o/2 6 (8), 2a/2 7 (14), 1/1 9 (15), 2o/0 6 (9), 2a/0 7 (15), 0/2 4 (8) and 4/2 3 (5). Linked from rouxcubing.com (LSE > EOLR), resources.rouxers.com (Last Six Edges > EOLR Docs), the Roux Reader LSE chapter and rouxl.es. Saved: plain-text and HTML exports. Structure: EO group (bad-edge pattern code + positions) > named L/R-placement class (with list of placements) > alg > Recognition > Solution / MC Solution, with internal links to the case each breakdown reduces to.",
+   "algSets": [
+    {
+     "name": "EOLR (EO + L/R edges, 2-gen M/U), all EO cases except EO-solved",
+     "caseCount": "51 named cases covering 94 L/R placements in 9 EO groups",
+     "notes": "One alg per named case. Groups by bad-edge pattern: 3/1 (5), 4/0 (4), 2o/2 (6), 2a/2 (7), 1/1 (9), 2o/0 (6), 2a/0 (7), 0/2 (4), 4/2 6-flip (3). Every case has a recognition sentence and an intuitive 'Solution' and/or 'MC Solution' that reduces it to another named case."
+    },
+    {
+     "name": "Misoriented-centre (MC) finishes",
+     "caseCount": "25 cases have an MC Solution, 31 have an oriented-centre Solution (some have both)",
+     "notes": "In MC cases EO+LR ends with the M-slice centres off by a quarter turn, fixed later in 4c"
+    }
+   ],
+   "drills": [
+    "Recognise in two steps: first the EO group from the bad-edge pattern, then the L/R placement class from the one-line recognition rule",
+    "Learn the 3/1 arrow cases first (Stacked, Good, Bad), then learn the other cases by reducing them to those ('X from there')",
+    "Practise MC (misoriented-centre) finishes as a separate skill, and know when ending with misoriented centres is the better choice",
+    "Solve cases intuitively first, then switch to the alg as the faster option"
+   ],
+   "infoTopics": [
+    "EOLR concept: orient edges and place UL/UR edges in one step",
+    "EO case taxonomy: 3/1 arrow, 4/0, 2o/2, 2a/2, 1/1, 2o/0, 2a/0, 0/2, 4/2 (6-flip)",
+    "L/R edge placement classes inside each EO case and how to recognise each",
+    "Misoriented centres (MC) as a legitimate EOLR ending",
+    "Reduction of complex EOLR cases to simpler ones (intuitive EOLR)"
+   ],
+   "appIdeas": [
+    "EOLR case browser grouped by the 9 EO patterns. Each case card shows the recognition rule, an animated alg (M/U only, so a solver can generate it) and a 'how it reduces' stepper",
+    "A reduction-graph view: show each case as a node pointing to the case it reduces to (e.g. to Good 3/1), and order lessons from the graph so prerequisite cases come first",
+    "A two-step recognition quiz: name the EO group, then the L/R placement class, timed separately to show which step is slow",
+    "An 'MC allowed' toggle in the EOLR trainer, plus a filter for cases whose best finish uses misoriented centres",
+    "An 'intuitive first' mode: the user solves the case freely and the app compares their move count with the reference and the reduction route"
+   ],
+   "license": "No licence, copyright or permission text in the doc. Anyone with the link can view it; otherwise the default is all rights reserved. Alg move sequences are factual and the app should generate its own with a solver. The recognition and solution prose and the case naming scheme are the author's wording, so paraphrase them or ask permission, and credit the source.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-4/eolr.txt (also eolr.html)"
+  },
+  {
+   "key": "gdoc:document:1CV3DEwIZYn0g4bnXDN6-2bxNpc7I0woFL1tnslhYQr4",
+   "url": "https://docs.google.com/document/d/1CV3DEwIZYn0g4bnXDN6-2bxNpc7I0woFL1tnslhYQr4",
+   "title": "Louis' full 2H EOLR (RH M moves) (linked as \"TDM's full 2H EOLR (RH M moves)\")",
+   "author": "TDM (hub link text). The doc's current title credits 'Louis', presumably the same person, Louis de Mendonça, known as TDM in the Roux community. Not stated inside the doc.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced (full EOLR, every L/R placement for every EO case)",
+   "summary": "A single-tab Google Doc. It is a compact, full two-handed ('2H') EOLR alg list tuned for M moves done with the right hand. The top has 4 numbered footnotes that set AUF conditions for some cases: AUF so the R, L or F face corners match the DF edge, and (RH version only) which of two solutions to use depending on whether the UL/UR stickers match the L/R corners. There are 11 sections, each headed by its bad-edge pattern code and an EO diagram: 11 embedded 3D cube images, all yellow with misoriented edge stickers in purple. The sections are 3/1F and 3/1B (arrow pointing front or back), 4/0, 0/2, 2o/0, 2o/2, 2a/0, 2a/2 (whose header still contains a stray 'THING.jpg' filename), 1/1F, 1/1B and 6-flip. Each line is one case, keyed by the two L/R edge positions (e.g. an 'XX YY:' pair), followed by an M/U alg. A few lines also have a footnote digit, a second alternative ('or'), or a parenthesised alg whose meaning is not explained. Count: 123 cases. 3/1F 15, 3/1B 15, 4/0 5, 0/2 5, 2o/0 9, 2o/2 9, 2a/0 15, 2a/2 15, 1/1F 15, 1/1B 15, 6-flip 5. 7 lines give two options and 5 are parenthesised. Almost every alg is M/U 2-gen; one 2o/0 case uses R/r moves. Footer: 'Last updated: 3/4/20'. There is no recognition text or explanation. Saved: text and HTML exports and the 11 EO diagrams (tdm-rh-imgs/). Structure: Footnote legend (AUF conditions) > EO-pattern section with EO diagram > one line per L/R position pair with alg (occasional 'or' alternative, parenthesised alg, footnote digit).",
+   "algSets": [
+    {
+     "name": "Full 2H EOLR, right-hand M moves",
+     "caseCount": "123",
+     "notes": "11 groups keyed by EO pattern (3/1 and 1/1 split by arrow/diagonal pointing F or B): 3/1F 15, 3/1B 15, 4/0 5, 0/2 5, 2o/0 9, 2o/2 9, 2a/0 15, 2a/2 15, 1/1F 15, 1/1B 15, 6-flip 5. Cases are named only by the L/R edge position pair, with footnoted AUF-to-corner conditions"
+    }
+   ],
+   "drills": [
+    "Drill one EO group at a time, cycling through all its L/R position pairs",
+    "Drill the corner-relative AUF footnote cases, where the AUF depends on which corners match DF",
+    "Pick the RH or LH sheet to match how you execute M moves"
+   ],
+   "infoTopics": [
+    "Full EOLR case enumeration by L/R edge position pair",
+    "Splitting arrow (3/1) and 1/1 cases by front/back orientation",
+    "Hand-specific M-move execution (RH vs LH M) and how it changes U-move directions in algs",
+    "AUF so corners match DF before certain EOLR algs"
+   ],
+   "appIdeas": [
+    "A handedness setting (right-hand vs left-hand M) that switches every LSE alg to the matching variant, since this source keeps one sheet per hand",
+    "A coverage grid for each EO pattern (rows and columns = L/R edge positions) that shows learned/unlearned/mastered for all 123 cases",
+    "Store the EO-diagram style (one colour for misoriented stickers, everything else plain) as a recognition-only cube render mode for EO/EOLR cards",
+    "Treat the corner-dependent AUF conditions as case metadata, so the trainer scrambles the corner state that makes each AUF matter",
+    "Generate and check all 2-gen EOLR algs with the app's own solver instead of copying this list"
+   ],
+   "license": "No licence, copyright or permission statement. Anyone with the link can view it; otherwise the default is all rights reserved. Move sequences are factual, but generate them with a solver anyway. The EO diagram images belong to the author or the renderer they came from, so do not reuse them. Credit TDM/Louis if the case organisation is followed.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-4/tdm-rh.txt (also tdm-rh.html, tdm-rh-imgs/)"
+  },
+  {
+   "key": "gdoc:document:15At5K7N1Yg1Qfh0_KZyUJZhBqLJVmXdPvLN1hmrRYoc",
+   "url": "https://docs.google.com/document/d/15At5K7N1Yg1Qfh0_KZyUJZhBqLJVmXdPvLN1hmrRYoc",
+   "title": "Louis' full 2H EOLR (LH M moves) (linked as \"TDM's full 2H EOLR (LH M moves)\")",
+   "author": "TDM / 'Louis' (same as the RH sheet; presumably Louis de Mendonça; not stated inside the doc)",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced (full EOLR)",
+   "summary": "The left-hand-M version of TDM's full two-handed EOLR sheet. It has the same layout and the same 11 EO diagrams as the RH sheet. The legend has only 3 AUF footnotes; the RH sheet's 4th note, choosing between two solutions by sticker match, is missing. Sections: 3/1F, 3/1B, 4/0, 0/2, 2o/0, 2o/2, 2a/0, 2a/2, 1/1F, 1/1B, 6-flip. There are 123 one-line cases keyed by L/R edge position pair, with the same per-group counts as the RH sheet (15/15/5/5/9/9/15/15/15/15/5). A line diff shows the algs are mostly the RH algs with U and U' swapped (sometimes M and M' too) and some lines reordered or relabelled, e.g. a UR/UL pair listed where the RH sheet uses UL/UR. Footer: 'Last updated: 9/8/18', so it is older than the RH sheet's 3/4/20. No recognition text or explanation. Saved: text and HTML exports and the 11 images (tdm-lh-imgs/). Structure: Same as the RH sheet: AUF footnote legend > EO-pattern section with EO diagram > one line per L/R position pair with alg.",
+   "algSets": [
+    {
+     "name": "Full 2H EOLR, left-hand M moves",
+     "caseCount": "123",
+     "notes": "Same 11-group structure and per-group counts as the RH sheet. U-direction-mirrored variants for players who do M moves with the left hand"
+    }
+   ],
+   "drills": [
+    "Same as the RH sheet: drill by EO group across all L/R pairs, using the LH-M variants"
+   ],
+   "infoTopics": [
+    "Left-hand M execution and the matching U-direction choices in EOLR algs",
+    "Full EOLR case enumeration by L/R edge position pair"
+   ],
+   "appIdeas": [
+    "Evidence that the M-hand preference changes the preferred alg for the same case. The app could store a per-case alg list with a 'preferred for RH-M / LH-M' tag, and let the user pick their M hand during onboarding",
+    "An automatic mirror (swap U/U', and M/M' where needed) to derive LH variants from RH variants, with each derived alg checked by the solver"
+   ],
+   "license": "No licence, copyright or permission statement. Anyone with the link can view it; otherwise the default is all rights reserved. Same handling as the RH sheet.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-4/tdm-lh.txt (also tdm-lh.html, tdm-lh-imgs/)"
+  },
+  {
+   "key": "gdoc:document:1OQ7hcB06bYbr8eH9SLTW2W5tozk9_nJ5MzqNgxHOnUk",
+   "url": "https://docs.google.com/document/d/1OQ7hcB06bYbr8eH9SLTW2W5tozk9_nJ5MzqNgxHOnUk",
+   "title": "EOLR/b (linked as \"EOLR & EOLRb\")",
+   "author": "Not stated. It reuses TDM's EO diagram images and the stray 'THING.jpg' header text, so it seems to have started as a copy of TDM's EOLR sheet.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced (EOLRb, i.e. EOLR that also sets up 4b/ULUR by looking at corner colours)",
+   "summary": "A single-tab Google Doc. It is an unpolished personal working document that mixes EOLR algs with EOLRb solutions. EOLRb choices use the corner colours so that the UL/UR edges finish already solved relative to the corners. A notation line says cases marked with a star are EOLRb solutions. Part 1 is a case list in 10 sections: Arrow (F), 6-Flip, 4/0, 2o/2 (LR), 2o/0 (FB), 0/2, 2a/0 (BL), 2a/2 (BL), 1/1 (F), 1/1 (B). Each has the same EO diagrams as TDM's sheet, 10 images in total. There are about 67 entries keyed by L/R edge position pair or by a U/D placement pattern. Many entries branch on a corner-relation condition: whether the L/R edge sits under SAME, OPP (opposite) or ADJ (adjacent) coloured corners. There are 32 stars, some entries are in red text, and several use non-MU moves (r/R/F-based) with alg.cubing.net links. Part 2 is long, unfinished draft notes on 1/1 cases. They are organised three different ways: by U/D layer placement; by L/R edge 'quality' (good/bad orientation), then relative position, then corners; and by relative position, then quality, then corners. Each branch gives a numbered step-by-step intuitive solution with move counts and probabilities (e.g. '7 or 9 moves, 1:3 probability'). Part 2 also defines 'DP = Default Position' (the two bad edges a U2 apart from being stacked) and starts a '2o/2 + 4/0' section that is never finished. Saved: text and HTML exports and the 10 images (eolr-eolrb-imgs/). Structure: Notation (star = EOLRb) > EO section with EO diagram > L/R position-pair entries with corner-relation (SAME/OPP/ADJ) sub-branches; then nested outline notes for 1/1 cases (three alternative hierarchies), a 'Default Position' definition and an unfinished 2o/2+4/0 outline.",
+   "algSets": [
+    {
+     "name": "EOLR + EOLRb mixed list (partial)",
+     "caseCount": "about 67 entries in 10 EO sections; 32 starred EOLRb solutions",
+     "notes": "Not a full set: picks selected L/R placements per EO case. Branches on whether the L/R edge is under SAME/OPP/ADJ corners. Some non-2-gen algs"
+    },
+    {
+     "name": "1/1 intuitive EOLRb decision notes",
+     "caseCount": "about 10 to 12 leaf branches per organisation scheme, given 3 times",
+     "notes": "Step-by-step reductions with move counts and probabilities. Unfinished"
+    }
+   ],
+   "drills": [
+    "Before choosing an EOLR solution, check the corner relation (SAME/OPP/ADJ corners over the L/R edges)",
+    "Use 'AUF to Default Position' as a habit to make 1/1 cases recognisable",
+    "Compare move counts and the chance of a good/best arrow when choosing between routes"
+   ],
+   "infoTopics": [
+    "EOLRb: choosing EOLR solutions by corner colours so ULUR (4b) is already solved",
+    "Corner-relation vocabulary: SAME, OPP and ADJ corners relative to an L/R edge",
+    "Good/bad L/R edge 'quality' and relative-position classes for 1/1 cases",
+    "'Default Position' for two bad edges",
+    "Move-count and probability trade-offs between intuitive EOLR routes"
+   ],
+   "appIdeas": [
+    "Add a corner-relation dimension (SAME/OPP/ADJ) to EOLR case keys so one data model covers both EOLR and EOLRb",
+    "Show the expected move count and probability for intuitive routes, so learners see why one route beats another",
+    "An 'AUF to Default Position' micro-drill for 1/1 recognition"
+   ],
+   "license": "No licence, copyright or permission statement. Anyone with the link can view it; otherwise the default is all rights reserved. It includes images apparently copied from TDM's sheet, so do not reuse those. Use it only as background.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-4/eolr-eolrb.txt (also eolr-eolrb.html, eolr-eolrb-imgs/)"
+  },
+  {
+   "key": "gdoc:document:1svAgKNnvBMtAfZ_K_RL-7XcK1WlrgP3cP8ph907Zaq4",
+   "url": "https://docs.google.com/document/d/1svAgKNnvBMtAfZ_K_RL-7XcK1WlrgP3cP8ph907Zaq4",
+   "title": "EOLRb (PiKeeper's EOLRb doc)",
+   "author": "PiKeeper (the preface says to contact them on the Roux Discord as @pikeeper)",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced: the preface says it assumes full EOLR is already learned",
+   "summary": "A single-tab Google Doc (no images) with STM-optimal EOLRb solutions for every EOLR case, built on top of the 'EOLR' doc, which it links to. Preface: when the EOLRb solution is just 'normal EOLR with a cancelled move at the end', it refers to that EOLR doc's solution. Many cases have several solutions of equal length, so readers should check their own solution's move count. There is no consensus on whether every case is worth learning. Comments and Discord messages are welcome. Structure: the same 9 EO groups (3/1, 4/0, 2o/2, 2a/2, 1/1, 2o/0, 2a/0, 0/2, 4/2) and the same named L/R-placement cases as the EOLR doc. A few cases are split further, e.g. 3/1 'Bad' into Misoriented Opposite / Diag / Misoriented / Mixed Opposite / Other. Each named case splits into sub-cases by how the L/R edge colours relate to the L/R corner colours: 'Matching', 'Opposite', 'Adjacent' or combinations, and 'Front'/'Sides' for where the L/R corners are. Each sub-case gives a 2-gen alg, a 'Recognition:' line and 'Solution (N move optimal)' with STM counts from 1 to 13. The solution is one of three kinds: 'Normal EOLR', 'Normal EOLR with cancellation at the end', or a separate intuitive reduction to another case. One case is marked '*Please don't learn this, the recognition is atrocious'. Count: 58 named cases with about 104 leaf sub-cases. By group: 3/1 10 named/18 leaves, 4/0 4/6, 2o/2 6/11, 2a/2 7/12, 1/1 11/21, 2o/0 6/13, 2a/0 7/11, 0/2 4/8, 4/2 3/4. Saved: text and HTML exports. Structure: Preface > EO group (bad-edge code + positions) > named L/R-placement case > corner-relation sub-case (Matching/Opposite/Adjacent, Front/Sides) with alg > Recognition > 'Solution (N move optimal)' + solution type.",
+   "algSets": [
+    {
+     "name": "EOLRb (EOLR that also sets up ULUR relative to the corners), STM-optimal",
+     "caseCount": "about 104 leaf sub-cases under 58 named cases in 9 EO groups",
+     "notes": "Sub-cases are keyed by how the L/R edges relate to their corners (Matching/Opposite/Adjacent; Front/Sides). Each has an optimal STM count and is tagged as normal EOLR, EOLR with an end cancellation, or a distinct solution. One case is explicitly not recommended"
+    }
+   ],
+   "drills": [
+    "Learn only the sub-cases where the EOLRb solution differs from normal EOLR or saves moves through a cancellation",
+    "Add a corner-colour check (does the L/R edge match, oppose or neighbour its corners?) to EOLR recognition",
+    "Compare your own solution's STM count with the stated optimum for each sub-case",
+    "Skip cases that the community or the author mark as not worth it because recognition is too hard"
+   ],
+   "infoTopics": [
+    "What EOLRb adds to EOLR and when it saves moves",
+    "Matching / Opposite / Adjacent corner-relation recognition",
+    "STM-optimal move counts per case",
+    "Move cancellation at the end of EOLR into 4b",
+    "Cost/benefit of learning cases whose recognition is hard"
+   ],
+   "appIdeas": [
+    "An EOLRb trainer layer on top of EOLR: case key = EO group + L/R placement + corner relation. Each case shows its 'delta vs EOLR' (moves saved) and a tag: same as EOLR / EOLR with cancellation / different",
+    "A learning-priority list: sort EOLRb sub-cases by moves saved and recognition difficulty, with an 'optional / not recommended' flag",
+    "A move-count challenge: the user solves EOLRb freely and is scored against the solver-computed STM optimum (the app should compute this, not copy the doc)",
+    "A corner-relation recognition drill: show only the U layer and the L/R edges, and ask Matching/Opposite/Adjacent"
+   ],
+   "license": "No licence or reuse statement. Anyone with the link can view it; otherwise the default is all rights reserved. The author invites comments and Discord messages, which gives a contact for asking permission. Compute optimal solutions with the app's own solver; credit PiKeeper for the sub-case scheme if it is adopted.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-4/pikeeper-eolrb.txt (also pikeeper-eolrb.html)"
+  },
+  {
+   "key": "gdoc:document:1L9v-iWOKkdnymCYud0IWmAT50cEWwWtxU443I4b21AA",
+   "url": "https://docs.google.com/document/d/1L9v-iWOKkdnymCYud0IWmAT50cEWwWtxU443I4b21AA/edit",
+   "title": "DFDB Recognition method for pauseless 4c (linked as \"Anto's DFDB\")",
+   "author": "Anto (Anto Kam, author of rouxl.es, which links the same method as a DFDB flowchart image). The final 'opposite DFDB' section is credited to XtremeCubez, with a link to their YouTube channel.",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced (LSE look-ahead: predicting the 4c case during 4b)",
+   "summary": "A single-tab Google Doc that teaches DFDB recognition, so 4c (the final M-slice edges) can be predicted before 4b (ULUR insertion) is finished, removing the pause between them. It has 20 embedded 3D cube images (yellow top, white DF/DB edges) and 7 worked examples, each given as a setup alg. The method is a short decision tree. (1) Define the DFDB edges: the two edges that belong in DF/DB. Their colours depend on the block colours. (2) Cycle (3-edge) or 2e2e (4-edge) case: just before the ULUR insertion (M2, or the M' U2 M'-style insertions), look at the U face. DFDB edges opposite each other mean 2e2e, adjacent mean a cycle. Everything after this is about cycles only. (3) Matching or non-matching centre: does the DFDB edge in the M-slice match the front or back centre? The back has to be worked out from what is visible at the front. (4a) Matching: after the M2, AUF so the U-layer DFDB edge lines up with the centre of its colour, i.e. the DFDB edges end up opposite. Then solve the remaining DFDB edge intuitively with short M/U2 triggers, sometimes 3 moves. (4b) Non-matching: the AUF after the M2 has to solve the corners, and you track where the DFDB edges go. If they are stacked (one on top of the other, e.g. FU/FD), a fixed two-move sequence turns it into a matching case. If they are opposite (e.g. FU/BD), the XtremeCubez section gives a fixed 4-step procedure: M or M' to bring the non-matching edge up, U2, M or M' to bring the resulting 'line' up, then U2 M2. No alg table; 3 procedure branches (matching; non-matching stacked; non-matching opposite) after the cycle/2e2e split. Saved: text and HTML exports and the 20 images (anto-dfdb-imgs/). Structure: Concept (DFDB edges, cycle vs 2e2e) > cycle-only rules > matching vs non-matching centre > matching procedure with 2 worked examples > non-matching procedure (corner-solving AUF, position tracking) > stacked rule with 1 example > opposite rule (credited to XtremeCubez) with 2 examples.",
+   "algSets": [
+    {
+     "name": "DFDB recognition decision tree for 4c cycle cases",
+     "caseCount": "2 top-level types (cycle vs 2e2e); cycles split into matching (1 branch) and non-matching (stacked or opposite), so 3 procedure branches",
+     "notes": "A recognition method, not an alg list. 7 worked examples given as setup scrambles; finishes are intuitive M/U2 triggers or short fixed sequences"
+    }
+   ],
+   "drills": [
+    "Before the ULUR M2, call out cycle or 2e2e from where the DFDB edges sit on U",
+    "Matching vs non-matching centre recognition, including working out the hidden back pieces from front information",
+    "Track the DFDB edge positions through the M2 + corner AUF, and call stacked vs opposite before turning",
+    "Pauseless 4b-to-4c transitions: run the whole LSE finish without stopping between 4b and 4c",
+    "Use the setup scrambles as repeatable practice cases"
+   ],
+   "infoTopics": [
+    "4c case types: cycle (3 edges) vs 2e2e (4 edges)",
+    "DFDB edges and how their colours depend on block colours",
+    "Matching vs non-matching centre",
+    "Stacked vs opposite DFDB after the ULUR insertion",
+    "Predicting 4c during 4b (look-ahead in LSE)",
+    "Intuitive 4c finishes with M/U2 triggers"
+   ],
+   "appIdeas": [
+    "A DFDB look-ahead drill: freeze the cube just before the ULUR insertion and ask a chain of questions (cycle or 2e2e? matching centre? stacked or opposite after the AUF?), then show the predicted 4c. Time each answer",
+    "Interactive flowchart lessons that step through the decision tree, with an animated cube highlighting the DFDB edges and the relevant centres",
+    "A 'pauseless LSE' timing metric: with a smart cube or turn-by-turn input, measure the gap between the end of 4b and the first 4c move",
+    "A partial-information view (front and top only) to practise working out the back pieces, matching the doc's 'deduce from the front' point",
+    "Highlight the DFDB edges in the colours of the user's chosen block colour scheme, since the doc stresses that they change with block colours"
+   ],
+   "license": "No licence, copyright or permission statement. Anyone with the link can view it; otherwise the default is all rights reserved. Part of the text is credited to XtremeCubez. Do not reuse the images or prose; re-express the decision tree in our own words and credit Anto (and XtremeCubez) as the source of the method.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-4/anto-dfdb.txt (also anto-dfdb.html, anto-dfdb-imgs/)"
+  }
+ ]
+}

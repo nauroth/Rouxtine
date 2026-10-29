@@ -1,0 +1,256 @@
+{
+ "verdicts": [
+  {
+   "id": "sdk-1",
+   "verdict": "confirmed",
+   "correction": "The list is right for the pinned set, which includes an explicit navigationevent-compose:1.2.0 dependency. Without that pin, the same stack resolves navigationevent to 1.1.1 (minSdk 23) through navigation3 1.2.0, activity 1.13.0 and adaptive-navigation3 1.3.0. The 24-floor AARs are then only material3(-ripple) 1.5.0-beta02, navigation3-runtime/ui 1.2.0 and the 4 datastore 1.3.0 AARs. The floor stays 24 either way.",
+   "evidence": [
+    "Independent Gradle 9.8.2 + AGP 9.5.0 project with a fresh GRADLE_USER_HOME (/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/proj). Read 105 AAR AndroidManifest.xml files from releaseRuntimeClasspath in Python (/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/aar-release-ne-min.tsv). Histogram: 10 x 24, 69 x 23, 8 x 21, 1 x 16, 17 x 14. Max is 24.",
+    "The 10 at 24 are exactly material3-android and material3-ripple-android 1.5.0-beta02, navigation3-runtime-android and navigation3-ui-android 1.2.0, navigationevent-android and navigationevent-compose-android 1.2.0, and datastore-android, datastore-core-android, datastore-preferences-android and datastore-preferences-core-android 1.3.0.",
+    "Without the navigationevent pin (/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/aar-release-min.tsv), navigationevent-android 1.1.1 = 23 and there are 8 AARs at 24. Module metadata: navigation3-runtime-android 1.2.0 requires navigationevent 1.1.1, and activity 1.13.0 requires 1.0.0.",
+    "The research table pins navigationevent-compose 1.2.0 (rouxtine docs/research/android-ui-stack.md line 141)."
+   ]
+  },
+  {
+   "id": "sdk-2",
+   "verdict": "confirmed",
+   "correction": "The failures are real, but which library the error names depends on dependency order (the merger reports the first conflict it meets). In an independently written project with the same pins, the errors named different libraries: minSdk 21 failed on 'version 23 declared in library [com.patrykandpatrick.vico:compose-m3-android:3.3.1]', and minSdk 23 failed on 'version 24 declared in library [androidx.compose.material3:material3-ripple-android:1.5.0-beta02]'.",
+   "evidence": [
+    "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/merge-21.log and merge-23.log: processDebugMainManifest fails (exit 1).",
+    "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/assemble-24.log: assembleDebug at minSdk 24 with desugar_jdk_libs 2.1.5 succeeds. My APK is 17,255,283 bytes (slightly different debug deps); the probe's APK is 17,354,254 bytes (about 17.4 MB).",
+    "aapt2 dump badging: minSdkVersion:'24', targetSdkVersion:'37', compileSdkVersion='37'."
+   ]
+  },
+  {
+   "id": "sdk-3",
+   "verdict": "confirmed",
+   "evidence": [
+    "I downloaded each AAR from dl.google.com or the Maven Central GCS mirror and read its AndroidManifest.xml. All declare minSdkVersion 23: Compose ui, ui-graphics, ui-text, foundation, foundation-layout, runtime and animation 1.12.1; adaptive, -layout, -navigation and -navigation3 1.3.0; lifecycle-runtime, -viewmodel, -viewmodel-compose, -runtime-compose, -viewmodel-navigation3 and -process 2.11.0; activity and activity-compose 1.13.0; core and core-ktx 1.19.1; graphics-shapes-android 1.1.0; room3-runtime-android 3.0.3; sqlite-android, -framework-android, -async-android and -bundled-android 2.7.1; hilt-lifecycle-viewmodel-compose and hilt-navigation-compose 1.4.0; appcompat 1.8.0; savedstate-android 1.4.0; window 1.5.0; Vico compose-android and compose-m3-android 3.3.1.",
+    "Vico 3.3.1 also brings 13 JetBrains Compose Multiplatform Android AARs (org.jetbrains.compose.ui/foundation/animation/runtime 1.12.0) onto the release classpath. All are minSdk 23."
+   ]
+  },
+  {
+   "id": "sdk-4",
+   "verdict": "confirmed",
+   "evidence": [
+    "Manifest minSdkVersion values: core-splashscreen 1.2.0 = 21; profileinstaller 1.4.0 and 1.4.1 = 21 (1.4.0 is what resolves); kable-core-android 0.45.0 = 21; kable-default-permissions 0.45.0 = 21; roborazzi and roborazzi-compose 1.77.0 = 21; hilt-android 2.60.1 = 14.",
+    "kotlinx-coroutines-android 1.11.0 and kotlinx-serialization-json(-jvm) 1.12.0 resolve to plain JARs.",
+    "javascriptengine 1.1.1 = 26 (1.1.1 is the latest on Google Maven; 1.0.0 is also 26)."
+   ]
+  },
+  {
+   "id": "sdk-5",
+   "verdict": "refuted",
+   "correction": "Two version boundaries are wrong or incomplete. material3-android switched from 23 to 24 at 1.5.0-alpha26 (12 Aug 2026), not alpha27. It was 23 from alpha02 (13 Aug 2025) through alpha25 (29 Jul 2026), not only from alpha10. The last minSdk-23 versions are later than stated: navigation3 1.2.0-alpha07 (24 from beta01), navigationevent 1.2.0-alpha03 (24 from alpha04), and datastore-core 1.3.0-alpha10 (24 from alpha11, not first at rc01). The other points hold. material3 1.4.0 is 21. In 1.4.0, MaterialExpressiveTheme is 'internal' and ButtonGroup, FloatingToolbar and LoadingIndicator are absent, so public Expressive APIs are 1.5.x-only. The emoji2 1.7.0 notes say 'minSdk is now 24', and the material3, navigation3, navigationevent and datastore notes have no 24 announcement.",
+   "evidence": [
+    "HTTP-range reads of every material3-android 1.5.0-* AAR manifest: alpha01 = 21, alpha02 to alpha25 = 23, alpha26 to beta02 = 24.",
+    "navigation3-runtime-android: 1.2.0-alpha01 to alpha07 = 23; beta01, rc01, 1.2.0 and 1.3.0-alpha01 to 03 = 24.",
+    "navigationevent-android: 1.1.x = 23; 1.2.0-alpha01 to alpha03 = 23; alpha04, rc01 and 1.2.0 = 24.",
+    "datastore-core-android: 1.2.1 = 23; 1.3.0-alpha01 to alpha10 = 23; alpha11, rc01 and 1.3.0 = 24.",
+    "material3-android-1.4.0-sources.jar MaterialTheme.kt: '@Composable internal fun MaterialExpressiveTheme'. In 1.5.0-alpha25 it is public.",
+    "developer.android.com/jetpack/androidx/releases/emoji2: 'minSdk is now 24.'"
+   ]
+  },
+  {
+   "id": "sdk-6",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/jetpack/androidx/versions (fetched 2026-10-29): 'AndroidX libraries have the default minSdk of 24 ... meant to cover 99% of Android users based on the Google Play Store check-in information ... updated at a yearly cadence. The default minSdk only affects new library releases, so already released artifacts aren't affected and might support a lower minSdk.'",
+    "Manifests: ui-android 1.13.0-alpha01 to beta02 = 24; lifecycle-runtime-android 2.12.0-alpha01 to alpha05 = 24; activity 1.14.0-alpha01 to alpha03 = 24; room3-runtime-android 3.1.0-alpha01/03 = 24; navigation3-runtime/ui-android 1.3.0-alpha01 to 03 = 24."
+   ]
+  },
+  {
+   "id": "sdk-7",
+   "verdict": "confirmed",
+   "correction": "Small nuance: compose runtime-android 1.12.1, the non-Compose lifecycle 2.11.0 artifacts and datastore 1.3.0 have minCompileSdk=34, and navigationevent 1.2.0 and activity 1.13.0 have 36. The 37 requirement comes from ui, foundation, animation, material3, navigation3, the lifecycle Compose artifacts, core 1.19.1, adaptive 1.3.0, the hilt Compose artifacts and Vico 3.3.1.",
+   "evidence": [
+    "aar-metadata.properties of material3-android 1.5.0-beta02, ui-android 1.12.1, navigation3-runtime-android 1.2.0, lifecycle-viewmodel-compose-android 2.11.0, core 1.19.1 and hilt-lifecycle-viewmodel-compose 1.4.0: minCompileSdk=37, minCompileMinorSdk=0, minAndroidGradlePluginVersion=9.1.0.",
+    "https://developer.android.com/build/releases/agp-9-5-0-release-notes: 'The maximum API level that Android Gradle plugin 9.5 supports is API level 37.'"
+   ]
+  },
+  {
+   "id": "sdk-8",
+   "verdict": "confirmed",
+   "correction": "Nuance: AAR metadata cannot flag plain JARs. kotlinx-datetime-jvm 0.8.0 is on the release runtime classpath, pulled by Kable's com.juul.tuulbox:coroutines-android 8.1.1 and by JetBrains material3 1.9.0 (via Vico). It references 26 java.time classes. I found no path to them from Kable: Kable uses only tuulbox BroadcastReceiverFlowKt, and tuulbox Dynamic delay calls kotlinx.datetime.ClockKt.asTimeSource, which uses kotlin.time. Keeping desugaring on at minSdk 24 covers this anyway.",
+   "evidence": [
+    "Of 105 AARs on releaseRuntimeClasspath, 87 have coreLibraryDesugaringEnabled=false and 18 have no flag or no metadata. None is true.",
+    "https://dl.google.com/dl/android/maven2/com/android/tools/desugar_jdk_libs/maven-metadata.xml: latest/release 2.1.5, lastUpdated 20250225101049. The 2.1.5 POM and JAR have Last-Modified Tue, 25 Feb 2025.",
+    "assembleDebug at minSdk 24 with coreLibraryDesugaring 2.1.5 on AGP 9.5.0 succeeds (l8DexDesugarLibDebug ran)."
+   ]
+  },
+  {
+   "id": "sdk-9",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-10",
+   "verdict": "confirmed",
+   "correction": "69.2% is right for the Dec 2025 data, but distributions.json was replaced on 29 Oct 2026 (Last-Modified 06:05:07 GMT). In the new data, 77.7% of devices are on API 31+.",
+   "evidence": [
+    "developer.android.com/develop/ui/compose/designsystems/material3: 'Dynamic color is available on Android 12 and above. ... If not, you should fall back to using a custom light or dark ColorScheme.' The snippet uses 'dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S'.",
+    "The Dec 2025 snapshot (Last-Modified 10 Dec 2025, saved 2026-10-28 at /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk/dist/distributions.json) gives 69.2% for 31+. The current file (/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk-verify-aar/dist/distributions-2026-10-29.json) gives 77.7%."
+   ]
+  },
+  {
+   "id": "sdk-11",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-12",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-13",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-14",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-15",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-16",
+   "verdict": "confirmed",
+   "evidence": [
+    "kable-default-permissions-0.45.0.aar AndroidManifest.xml (Maven Central, Last-Modified 15 Sep 2026): minSdkVersion 21; BLUETOOTH and BLUETOOTH_ADMIN maxSdkVersion=30; ACCESS_COARSE_LOCATION and ACCESS_FINE_LOCATION maxSdkVersion=30; BLUETOOTH_SCAN usesPermissionFlags=neverForLocation (tools:targetApi=s); BLUETOOTH_CONNECT; uses-feature bluetooth_le required=false. No ACCESS_BACKGROUND_LOCATION.",
+    "raw.githubusercontent.com/JuulLabs/kable/0.45.0/.../ScanPermissions.kt: SDK_INT <= P -> ACCESS_COARSE_LOCATION; SDK_INT <= R -> ACCESS_FINE_LOCATION; else BLUETOOTH_SCAN.",
+    "developer.android.com/develop/connectivity/bluetooth/bt-permissions: BLUETOOTH and BLUETOOTH_ADMIN maxSdkVersion=\"30\"; 'some BLE beacons are filtered from the scan results'; 'If your app supports a service and can run on Android 10 (API level 29) or Android 11, you must also declare the ACCESS_BACKGROUND_LOCATION permission'."
+   ]
+  },
+  {
+   "id": "sdk-17",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-18",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-19",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-20",
+   "verdict": "confirmed",
+   "evidence": [
+    "appcompat 1.8.0 AAR minSdkVersion 23. Its .module runtime deps include fragment 1.5.4, emoji2 1.3.0, emoji2-views-helper 1.2.0, drawerlayout, cursoradapter, appcompat-resources and activity 1.8.0. In the resolved graph these become fragment 1.5.4, emoji2 and emoji2-views-helper 1.4.0, vectordrawable(-animated), viewpager, loader and others.",
+    "developer.android.com/guide/topics/resources/app-languages: 'Access the backward compatible APIs with Appcompat 1.6.0 or higher'; 'the activity hosting your Compose UI must extend AppCompatActivity'; autoStoreLocales with AppLocalesMetadataHolderService for Android 12 (API 32) and lower."
+   ]
+  },
+  {
+   "id": "sdk-21",
+   "verdict": "confirmed",
+   "evidence": [
+    "core-splashscreen-1.2.0.aar minSdkVersion 21. 1.2.0 is the latest on Google Maven.",
+    "developer.android.com/develop/ui/views/launch/splash-screen/migrate: 'If you migrate using the SplashScreen compat library, the system displays the same splash screen on all versions of Android.'"
+   ]
+  },
+  {
+   "id": "sdk-22",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-23",
+   "verdict": "confirmed",
+   "correction": "Minor points. The quoted sizes are MiB: in bytes, android-all-instrumented is 88.2 MB (7.0), 88.9 MB (7.1), 94.5 MB (8.0), 213.4 MB (16) and 238.7 MB (17), which is 84.1, 84.8, 90.1, 203.5 and 227.7 MiB. DefaultSdkProvider marks TIRAMISU with codename 'Tiramisu', not 'REL'. SDK 36 and 37 require Java 21 and SDK 34 and 35 require Java 17. A test cannot run below the app's minSdk: @Config(sdk=23) on a minSdk-24 app fails with 'Requires newer sdk version #24 (current version is #23)'. So Rouxtine's usable Robolectric range is 24 to 37.",
+   "evidence": [
+    "git ls-remote: refs/tags/robolectric-4.17^{} = 0706415db828e1bdcf4f0c820784fa760d0185a2. Commit date 2026-09-10 18:23:15 +0000 ('Bump version to 4.17.').",
+    "Maven Central metadata: latest/release 4.17, lastUpdated 20260910204321.",
+    "DefaultSdkProvider.java at tag robolectric-4.17: knownSdks M, N, N_MR1, O, O_MR1, P, Q, R, S, S_V2, TIRAMISU, UPSIDE_DOWN_CAKE, VANILLA_ICE_CREAM, BAKLAVA and CINNAMON_BUN ('17', '15733970', 'REL', 21). Artifact naming is android-all-instrumented:<ver>-robolectric-<rev>-i7.",
+    "robolectric.org/configuring: 'By default, Robolectric will run your code against the targetSdk ...'. Selection uses sdk, minSdk or maxSdk; the robolectric.enabledSdks property filters.",
+    "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/proj/app/build/test-results: sdk23 failure message."
+   ]
+  },
+  {
+   "id": "sdk-24",
+   "verdict": "confirmed",
+   "evidence": [
+    "ShadowNativeBitmap.java at robolectric-4.17: @Implements(value = Bitmap.class, minSdk = O, ...). HardwareRenderingScreenshot.canTakeScreenshot: RuntimeEnvironment.getApiLevel() >= P && pixelCopyRenderMode == hardware && useRealGraphics.",
+    "Reproduced in my own Robolectric 4.17 test (/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/proj/app/src/test/java/dev/verify/aar/SdkRangeTest.java, log /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/robo-test2.log), @GraphicsMode(NATIVE) Canvas.drawColor(RED) on a 4x4 Bitmap: sdk 24 pixel=0x0, sdk 25 pixel=0x0, sdk 26 pixel=0xffff0000, sdk 37 pixel=0xffff0000."
+   ]
+  },
+  {
+   "id": "sdk-25",
+   "verdict": "confirmed",
+   "correction": "Slight overstatement: 43 of the 52 RobolectricDeviceQualifiers constants in Roborazzi 1.77.0 contain 'notround-any'. The 9 TV, Wear OS and Automotive1024plandscape strings do not. All phone, tablet and desktop constants do.",
+   "evidence": [
+    "Reproduced: fullQualifier[24] failed with 'java.lang.NoSuchFieldError: Class android.content.res.Configuration does not have member field 'int colorMode'' at QualifierParser.java:468, which is parseWideColorGamut handling the 'any' wildcard.",
+    "The short string 'w360dp-h780dp-normal-long-xxhdpi-keyshidden-nonav' passes at SDK 24 and 25: px=1080x2340, dpi=480, dp=360x780, sw=360."
+   ]
+  },
+  {
+   "id": "sdk-26",
+   "verdict": "refuted",
+   "correction": "This was true when checked on 2026-10-28 but no longer is. Google replaced distributions.json on 29 Oct 2026 (Last-Modified Thu, 29 Oct 2026 06:05:07 GMT, ETag \"7093ede\", 22,446 bytes; the old file was ETag \"52eedb8\", Last-Modified 10 Dec 2025, 21,101 bytes). The JSON carries no collection date, and I found no press coverage yet. New per-version shares: 5.1 0.2%, 6.0 0.3%, 7.0 0.2%, 7.1 0.2%, 8.0 0.5%, 8.1 1.5%, 9 3.1%, 10 5.7%, 11 10.5%, 12 9.6%, 13 11.8%, 14 15.3%, 15 14.7%, 16 25.4%, 17 0.9%. Android 5.0 (API 21) is no longer listed. The Dec 2025 numbers in the claim match the old file exactly. 9to5google says the Dec 2025 data is 'based on data from December 1, 2025' over a '7-day period', with the previous update in April 2025.",
+   "evidence": [
+    "curl -D of https://dl.google.com/android/studio/metadata/distributions.json at 2026-10-29 08:26 UTC, saved to /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk-verify-aar/dist/distributions-2026-10-29.json with headers in dist/headers.txt. Re-fetched with a cache-buster: same ETag and sha256.",
+    "The earlier research snapshot /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk/dist/h.txt shows last-modified: Wed, 10 Dec 2025 23:26:48 GMT (fetched 2026-10-28 19:19 UTC). Its per-version values equal the claim.",
+    "web.archive.org was unreachable through the proxy (connection reset), so I could not get an independent archived copy.",
+    "https://9to5google.com/2026/01/30/android-16-is-on-7-5-of-devices-in-latest-distribution-numbers-update/"
+   ]
+  },
+  {
+   "id": "sdk-27",
+   "verdict": "confirmed",
+   "correction": "The arithmetic is right for the Dec 2025 data, but that data has been superseded. From the 29 Oct 2026 data: minSdk 21/22 99.9%, 23 99.7%, 24 99.4%, 26 99.0%, 28 97.0%, 29 93.9%, 31 77.7%, 33 68.1% (sum of shares 99.9%). Going from 24 to 23 now gains 0.3 points (Android 6.0), and going from 24 to 26 loses 0.4 points (Android 7.0 + 7.1 = 0.2 + 0.2).",
+   "evidence": [
+    "Recomputed from the Dec 2025 snapshot: 21 99.9, 23 99.5, 24 99.1, 26 98.3, 28 95.2, 29 90.7, 31 69.2. This matches the claim.",
+    "Recomputed from /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk-verify-aar/dist/distributions-2026-10-29.json: values as in the correction."
+   ]
+  },
+  {
+   "id": "sdk-28",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-29",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-30",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-31",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-32",
+   "verdict": "confirmed",
+   "correction": "In this environment, SDK 37 runs on JDK 21.0.12 failed with 'Failed to interact with raw FileDescriptor internals; perhaps JRE has changed?' (AndroidInterceptors.setInt uses jdk.internal.access.SharedSecrets) until the test JVM got --add-opens=java.base/jdk.internal.access=ALL-UNNAMED. SDK 24 to 26 runs did not need it.",
+   "evidence": [
+    "Roborazzi 1.77.0 RobolectricDeviceQualifiers.kt: no Samsung or Galaxy constant. MediumPhone = Pixel7 = 'w411dp-h914dp-normal-long-notround-any-420dpi-keyshidden-nonav'.",
+    "My Robolectric 4.17 run with 'w360dp-h780dp-normal-long-notround-any-xxhdpi-keyshidden-nonav': sdk 26 and sdk 37 give px=1080x2340, dpi=480, dp=360x780, sw=360 (/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/robo-test2.log). SDK 36 was not run."
+   ]
+  },
+  {
+   "id": "sdk-33",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "sdk-34",
+   "verdict": "confirmed",
+   "evidence": [
+    "developer.android.com/about/versions/17/release-notes: 'Android 17 has officially reached Platform Stability with Beta 3' (Beta 3 release date March 26, 2026); Beta 4 (April 16, 2026): 'start publishing your Android 17-targeted apps to the Google Play Store'. The top entry is Beta 4.1, release date June 1, 2026. The page has no 'stable release' text.",
+    "DefaultSdkProvider at robolectric-4.17: CINNAMON_BUN -> DefaultSdk(CINNAMON_BUN, \"17\", \"15733970\", \"REL\", 21)."
+   ]
+  },
+  {
+   "id": "sdk-35",
+   "verdict": "not-checked"
+  }
+ ],
+ "missing": [
+  "The minSdk-23 option is wrong to say it 'must drop M3 Expressive'. material3 1.5.0-alpha02 to alpha25 are minSdk 23, and alpha25 (29 Jul 2026, needs Compose 1.12.0-beta01+) has public MaterialExpressiveTheme, ButtonGroup and HorizontalFloatingToolbar. I resolved an alternative stack: material3 1.5.0-alpha25, navigation3 1.2.0-alpha07, datastore-preferences 1.2.1, navigationevent left transitive (1.1.1), with everything else as pinned. No AAR is above 23, and processReleaseMainManifest at minSdk 23 succeeds. The cost is being frozen on an older alpha. Sources: https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-android/1.5.0-alpha25/material3-android-1.5.0-alpha25-sources.jar and /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/merge-alt23.log",
+  "Corrected version caps for a minSdk-23 stack: material3 <= 1.5.0-alpha25, navigation3 <= 1.2.0-alpha07, navigationevent <= 1.2.0-alpha03 (or 1.1.x stable), datastore <= 1.3.0-alpha10 (or 1.2.1 stable). The options list says <=1.2.0-alpha05, <=1.2.0-alpha01 and <=1.3.0-alpha08. Source: AAR manifests under https://dl.google.com/dl/android/maven2/androidx/ (range reads by /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/rangeman.py)",
+  "New official distribution data appeared on 29 Oct 2026 (distributions.json Last-Modified 06:05:07 GMT). minSdk 24 now reaches 99.4%, 23 99.7%, 26 99.0%, 28 97.0%, 31 77.7% and 33 68.1%. Android 16 is 25.4%, and Android 17 appears at 0.9%. The cost of minSdk 26 over 24 shrinks to 0.4 points. Source: https://dl.google.com/android/studio/metadata/distributions.json",
+  "navigationevent's 24 floor comes only from the explicit navigationevent-compose:1.2.0 pin. navigation3 1.2.0 itself requires only navigationevent 1.1.1 (minSdk 23). Source: https://dl.google.com/dl/android/maven2/androidx/navigation3/navigation3-runtime-android/1.2.0/navigation3-runtime-android-1.2.0.module",
+  "Vico 3.3.1 is Compose Multiplatform. On Android it adds org.jetbrains.compose.* 1.12.0 AARs (ui, ui-graphics, ui-text, ui-backhandler, foundation, animation, runtime: 13 AARs, all minSdk 23), JetBrains lifecycle 2.9.6, savedstate 1.3.6 and material3 1.9.0 to the release classpath. Check APK size and duplicate classes when adopting it. Source: https://maven-central.storage-download.googleapis.com/maven2/com/patrykandpatrick/vico/compose-android/3.3.1/compose-android-3.3.1.module",
+  "Robolectric 4.17 at SDK 37 on JDK 21 needed --add-opens=java.base/jdk.internal.access=ALL-UNNAMED in my run (FileDescriptor interceptor). DefaultSdkProvider also requires Java 21 for SDK 36 and 37. Source: https://github.com/robolectric/robolectric/blob/robolectric-4.17/sandbox/src/main/java/org/robolectric/interceptors/AndroidInterceptors.java",
+  "With app minSdk 24, Robolectric refuses @Config(sdk=23) ('Requires newer sdk version #24'), so the runnable test range is the app minSdk to 37, not 23 to 37. Source: https://github.com/robolectric/robolectric/blob/robolectric-4.17/robolectric/src/main/java/org/robolectric/plugins/DefaultSdkProvider.java plus my test log /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-aar/robo-test2.log",
+  "Robolectric's own artifact fetcher and Gradle hit HTTP 429 from repo1.maven.org in this container. Setting -Drobolectric.dependency.repo.url to the Maven Central GCS mirror, and adding that mirror as a Gradle repository, fixed it. CI or an agent container may need the same. Source: https://robolectric.org/configuring/"
+ ]
+}

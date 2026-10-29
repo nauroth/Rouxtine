@@ -1,0 +1,409 @@
+{
+ "verdicts": [
+  {
+   "id": "algos-1",
+   "verdict": "refuted",
+   "evidence": [
+    "crates.io API: fsrs max_version 6.6.2, created 2026-08-29T03:48:20Z, BSD-3-Clause",
+    "Downloaded https://static.crates.io/crates/fsrs/fsrs-6.6.2.crate (vcs sha1 6088949b): src/ has no *_v7.rs files, no ModelVersion, no stability_fast; src/inference.rs:27 `DEFAULT_PARAMETERS: [f32; 21]` (FSRS-6 only)",
+    "fsrs-rs main @3be7d2a (2026-10-28T07:56Z): Cargo.toml still says version 6.6.2 but adds src/inference_v7.rs (34 defaults), model_v7.rs, training_v7.rs; README L166 'FSRS-6 and FSRS-7 are selected from the parameter count'; src/model.rs ModelVersion::from_param_count",
+    "ts-fsrs @b69d6ca packages/fsrs/CHANGELOG.md 6.0.0: 'ts-fsrs v6 introduces FSRS-7, the default model for DefaultScheduler'; npm tarball ts-fsrs-6.0.0 dist/index.mjs:1093 `options.version ?? \"FSRS-7\"`",
+    "npm registry time['6.0.0'] = 2026-10-28T14:11:50.137Z; FSRS-7 first appears (already as default) in 6.0.0-beta.10 (2026-09-22); beta.9 (2026-09-10) and earlier are FSRS-6 only",
+    "ts-fsrs docs/src/en-US/guide/model/fsrs-7.mdx: 34 weights, stability/stabilityFast/difficulty, fractional days, 'up to seven bounded Newton updates in log-time, with a bisection fallback'; packages/fsrs/src/models/fsrs-7/constants.ts:67 MIN_T = 1/86400",
+    "awesome-fsrs wiki The-Algorithm.md (wiki HEAD 7bcf7dc, 2026-07-28): newest section is '# FSRS-6'",
+    "py-fsrs @9446cb0 pyproject version 6.3.2, fsrs/scheduler.py DEFAULT_PARAMETERS has 21 values"
+   ],
+   "correction": "Everything checks out except the Rust part. The published fsrs crate 6.6.2 (2026-08-29) is FSRS-6 only (21 weights). FSRS-7 and the choice of model by parameter count exist only on fsrs-rs main (e.g. 3be7d2a, 2026-10-28), which is unreleased even though its Cargo.toml still says 6.6.2. So the only released FSRS-7 reference implementation is ts-fsrs 6.0.0 (npm). Also, FSRS-7 is not 'hours old' in ts-fsrs: it has been the DefaultScheduler default in the 6.0.0 betas since beta.10 (2026-09-22). Only the stable release is hours old. 'Not settled' still holds."
+  },
+  {
+   "id": "algos-2",
+   "verdict": "confirmed",
+   "evidence": [
+    "py-fsrs @9446cb0 fsrs/rating.py: Again=1, Hard=2, Good=3, Easy=4",
+    "fsrs/scheduler.py:31-54 DEFAULT_PARAMETERS = the 21 values quoted (FSRS_DEFAULT_DECAY=0.1542)",
+    "scheduler.py:164-188 defaults: desired_retention 0.9, learning_steps (1 min, 10 min), relearning_steps (10 min), maximum_interval 36500, enable_fuzzing True; _DECAY=-w20, _FACTOR=0.9**(1/_DECAY)-1",
+    "scheduler.py:232 elapsed_days = max(0,(now-last_review).days); review_card uses days_since_last_review < 1 -> _short_term_stability (L284, L370, L420)",
+    "scheduler.py:664-800: _initial_stability=w[G-1] (clamped to 0.001), _initial_difficulty=w4-e^(w5(G-1))+1, _next_interval rounds and clamps [1, maximum_interval], _short_term_stability max(increase,1) for Hard/Good/Easy, _next_difficulty mean reversion w7*D0(4)+(1-w7)*(D+(10-D)/9*(-w6(G-3))), _next_forget_stability min(long-term, S/e^(w17*w18)), _next_recall_stability with w15/w16",
+    "scheduler.py:818 fuzz not applied when interval_days < 2.5"
+   ]
+  },
+  {
+   "id": "algos-3",
+   "verdict": "confirmed",
+   "evidence": [
+    "srs-benchmark README @4ddb9fd (2026-10-25) L15: '10 thousand users ... ~727 million reviews'",
+    "L82 'Total number of reviews for evaluation: 349,923,850'; L140 '519,296,315' with same-day reviews",
+    "Table without same-day: FSRS-7 0.3401, FSRS-6 0.3460, FSRS-7 default param. 0.3620, FSRS-4.5 0.3625, HLR 0.4694, Ebisu v2 0.4989, MOVING-AVG 0.3369",
+    "Table with same-day: FSRS-7 0.3206, FSRS-6 0.3842, FSRS-7 default param. 0.3399",
+    "L46 quote 'the only version that can give realistic predictions of probability of recall for same-day reviews' verbatim; no 'FSRS-6 default' results row (L236 is only a CLI example)"
+   ],
+   "correction": "The numbers are right, but one nuance is missing. 'FSRS-7 defaults are clearly worse than optimised FSRS-6' is true only in the table without same-day reviews (0.3620 vs 0.3460). With same-day reviews evaluated, FSRS-7 with default weights (0.3399) beats optimised FSRS-6 (0.3842). That matters for Rouxtine's same-session drilling. MOVING-AVG beats plain FSRS-7 on log loss, but it is worse on AUC (0.7001 vs 0.7167). The README also says Anki's FSRS-7 should ship with recency weighting and scheduling penalties enabled (L49)."
+  },
+  {
+   "id": "algos-4",
+   "verdict": "confirmed",
+   "evidence": [
+    "py-fsrs LICENSE: MIT; PyPI fsrs 6.3.2 uploaded 2026-08-09T04:36Z, classifier MIT, extras 'optimizer' = torch/numpy/pandas/tqdm",
+    "ts-fsrs LICENSE MIT; packages/fsrs/package.json 6.0.0; packages/binding/package.json name @open-spaced-repetition/binding, licence MIT, built on fsrs-rs via napi-rs",
+    "fsrs-rs LICENSE BSD 3-Clause; crate 6.6.2 contains cost_adr.rs, simulation.rs, training.rs",
+    "fsrs-optimizer @ac2a82d LICENSE: BSD 3-Clause",
+    "awesome-fsrs @0ffe549 LICENSE: CC0 1.0 Universal",
+    "ankitects/anki main Cargo.toml [workspace.dependencies.fsrs] version = \"6.6.2\"; Cargo.lock fsrs 6.6.2 from crates.io"
+   ],
+   "correction": "Correct as stated. One fact is missing: ts-fsrs 6.0.0 has a runtime dependency, @open-spaced-repetition/srs-kit 1.0.0, which is BSD-3-Clause, not MIT (packages/srs-kit/LICENSE; npm metadata). DefaultScheduler is built on it. ts-fsrs 6 also needs Node >= 24. Because Anki pins crate 6.6.2, Anki is still on FSRS-6 (see algos-1)."
+  },
+  {
+   "id": "algos-5",
+   "verdict": "refuted",
+   "evidence": [
+    "awesome-fsrs @0ffe549 README L23-26, L39-41: Java rs-fsrs-java (v5), Scala fsrs4s (v6), Kotlin FSRS-Kotlin (v6) and android-fsrs (v4)",
+    "FSRS-Kotlin @670f2f8 (2025-08-07): only README.md, FSRS.kt (299 lines), models.kt; no LICENSE; README L52-53 says MIT; FSRS.kt imports app.arteh.flashcard.db.*, androidx.compose.runtime.mutableStateListOf, uses R.color.grad_*; models.kt uses @PrimaryKey/@ColorRes",
+    "android-fsrs @04be511 (2023-10-17): MIT, app/src/main/java/chat/sdk/android_fsrs/FSRS.kt with 17 weights (FSRS v4)",
+    "rs-fsrs-java @6afdf42: MIT, Cargo.toml crate-type cdylib, deps jni 0.21.1 and rs-fsrs rev 5e6d336, which has `type Weights = [f64; 19]` (FSRS-5)",
+    "fsrs4s (jwbargsten, HEAD 3c0d44b 2026-03-13): LICENSE Apache-2.0, Scala 3.3.7, 'Scala 3 implementation of FSRS-6 ... Based on py-fsrs', depends on cats-core and scala-logging; Maven Central org.bargsten:fsrs4s_3 latest 0.3.0 (lastUpdated 2026-03-13)",
+    "FsrsKt: Maven Central one.felsen.fsrskt:fsrskt 1.0.1 (lastUpdated 2026-07-23), POM 'Kotlin Multiplatform library that implements the FSRS-6', licence GPL v3; github.com/therockyt/fsrskt LICENSE GPLv3, 276 lines of Kotlin, no tests, last commit 2026-07-24",
+    "/home/user/rouxtine/README.md L15 'GPL-3.0-only' (commit b4f66d4, 2026-10-28)"
+   ],
+   "correction": "The descriptions of FSRS-Kotlin, android-fsrs and rs-fsrs-java are accurate. The headline is wrong. FsrsKt is a pure-Kotlin (Multiplatform) FSRS-6 library on Maven Central (one.felsen.fsrskt:fsrskt:1.0.1, July 2026). It is clearly licensed GPL-3.0, which fits GPL-3.0-only Rouxtine. It is young: 276 lines, no tests, and no commits since 2026-07-24. fsrs4s is a JVM FSRS-6 library under Apache-2.0 (0.3.0, 2026-03-13), but it pulls in the Scala 3 runtime and cats-core. A small, tested Kotlin port of py-fsrs is still reasonable. FsrsKt can also be vendored or used as a cross-check."
+  },
+  {
+   "id": "algos-6",
+   "verdict": "refuted",
+   "evidence": [
+    "anki main Cargo.toml: fsrs version 6.6.2; Cargo.lock fsrs 6.6.2",
+    "anki LICENSE: 'AGPL, version 3 or later', with portions BSD-3",
+    "Anki-Android-Backend LICENSE: GNU GPL v3; README: 'An interface for accessing Anki Desktop's Rust backend inside AnkiDroid'",
+    "awesome-fsrs README L68: 'Avorio uses its own FSRS-5 implementation in a shared Rust core, exposed to SwiftUI through UniFFI'",
+    "/home/user/rouxtine/README.md L13-15: Rouxtine licence is GPL-3.0-only (commit b4f66d4 'Record licence (GPL-3.0-only)...')"
+   ],
+   "correction": "The facts are right, but the conclusion is wrong. Rouxtine is GPL-3.0-only, so GPL-3.0 code from Anki-Android-Backend is licence-compatible. AGPL-3.0-or-later Anki code may be combined with it under GPLv3 section 13. Those parts would stay AGPL, but for an offline app the network-interaction clause has little effect. 'Should not take code from either' therefore needs a non-licence reason, such as size or fit. Depending on fsrs-rs (BSD-3) through JNI or UniFFI is still sound advice. Avorio's Rust core is FSRS-5."
+  },
+  {
+   "id": "algos-7",
+   "verdict": "confirmed",
+   "evidence": [
+    "docs.ankiweb.net/deck-options (redirects to /manual/deck-options): 'The default is 90%'; 'If you press \"Hard\" when you have failed to recall the information, all intervals will be unreasonably high'; Health Check: 'may not perform well: Low number of reviews (less than a few hundred)'; 'it is a passing grade, not a failing grade'",
+    "docs.ankiweb.net/leeches: 'When this counter reaches 8, Anki tags the note as a leech and suspends the card'; 'warnings occur at half the initial leech threshold ... every 4 lapses (at 12, 16, and so on)'"
+   ]
+  },
+  {
+   "id": "algos-8",
+   "verdict": "confirmed",
+   "evidence": [
+    "ts-fsrs @b69d6ca docs/src/en-US/guide/migration.mdx L37: 'Never reuse FSRS-6 weights or invent stabilityFast as 0.8 * stability'; L38 rebuild from complete history since creation or latest reset with actual reviewTime via Reschedule.replay(); L36 three distinct timestamps (lastReviewAt, dueAt, reviewTime); L128-132 34 weights, fractionalDays: true",
+    "fsrs-7.mdx: 'FSRS-3–6 weights and memory states cannot be directly converted to FSRS-7'",
+    "ts-fsrs packages/fsrs/src/models/fsrs-7/constants.ts:60-65 FSRS7_DEFAULT_WEIGHTS [0.1104, 2.2395, 3.9221, 11.7841, ...] (comment: 'fsrs-rs c9562d6: inference_v7.rs (also srs-benchmark FSRS7.init_w)')",
+    "fsrs-rs @3be7d2a src/inference_v7.rs:1-5 same 34 values",
+    "srs-benchmark README 'Default Parameters' FSRS-7: [0.041, 2.4175, 4.1283, 11.9709, ...]; but srs-benchmark models/fsrs_v7.py:87-88 init_w starts 0.1104"
+   ],
+   "correction": "Correct. Two clarifications. The 0.1104 defaults are in fsrs-rs main only; no released fsrs crate has FSRS-7 (algos-1). The srs-benchmark code (models/fsrs_v7.py init_w) matches the library defaults, so only the README's Default Parameters section differs. For replaying memory, the guide needs only rating and actual reviewTime. The three timestamps (lastReviewAt, dueAt, reviewTime) are needed for exact rollback."
+  },
+  {
+   "id": "algos-9",
+   "verdict": "confirmed",
+   "evidence": [
+    "supermemo.com reprint (Wozniak 1990, adapted 1998): 'I(1):=1 I(2):=6 for n>2: I(n):=I(n-1)*EF'; 'If interval is a fraction, round it up'; 'With all items associate an E-Factor equal to 2.5'; 'EF':=EF+(0.1-(5-q)*(0.08+(5-q)*0.02))'; 'If EF is less than 1.3 then let EF be 1.3'; 'lower than 3 ... without changing the E-Factor'; 'repeat again all items that scored below four ... until all of these items score at least four'; 'inherent flaws in their formulation'; 'versions 1.0-3.0 between December 13, 1987 and March 9, 1989'",
+    "super-memory.com re-probed 2026-10-28: https connection reset (curl 35); http 503"
+   ],
+   "correction": "Correct. One nuance: SM-2 times nothing, but grade 4 is defined as 'correct response after a hesitation', so the self-grade captures hesitation roughly."
+  },
+  {
+   "id": "algos-10",
+   "verdict": "confirmed",
+   "evidence": [
+    "keybr @05a37bc packages/keybr-math/lib/filter.ts: n==1 -> value=v, else value = alpha*v + (1-alpha)*value",
+    "packages/keybr-result/lib/keystats.ts: makeFilter(0.1) (half-life ln0.5/ln0.9 = 6.58 samples)",
+    "packages/keybr-lesson/lib/target.ts: confidence = speedToTime(targetSpeed)/timeToType; keybr-result/lib/result.ts speedToTime(v)=1000/(v/60) (chars/min)",
+    "packages/keybr-lesson/lib/settings.ts: targetSpeed numberProp 175 {min 75, max 750}; guided.recoverKeys default false",
+    "packages/keybr-lesson/lib/guided.ts:41-107: minSize=6; include new key only when every included key has bestConfidence>=1 (confidence>=1 if recoverKeys); focus least-confident included key with confidence<1",
+    "LICENSE: GNU AGPL v3; root package.json \"license\": \"GPL-3\" (mismatch)"
+   ],
+   "correction": "The algorithm details are right. Two nuances. (1) With alphabetSize > 0, keybr forces extra keys beyond 6 up to maxSize. (2) The licence argument is overstated. GPL-3.0-only Rouxtine may combine AGPL-3.0 code under GPLv3 section 13, and those parts would stay AGPL. Reimplementing is a reasonable choice, not a legal requirement. keybr's package.json says 'GPL-3', but its LICENSE file is AGPL-3.0. Treat it as AGPL."
+  },
+  {
+   "id": "algos-11",
+   "verdict": "confirmed",
+   "evidence": [
+    "keybr @05a37bc packages/keybr-lesson/lib/learningrate.ts: samples.slice(-30); requires hasData (>=5 samples, keybr-math util.ts); degree 3 if >20, 2 if >10, else 1; r2 >= 0.5 -> certainty, learningRate = derivative at last index, remainingLessons = first i in 1..50 with mSpeed(last+i) >= targetSpeed",
+    "packages/keybr-lesson/lib/learningsession.ts: break when gap > 3,600,000 ms OR when filteredTimeToType increased (b > a) and the tail already has >= 5 samples"
+   ],
+   "correction": "Mostly right, but the session rule is incomplete. findSession also cuts at the most recent slowdown (filtered time-to-type got worse) once the tail has at least 5 samples. So the fit usually covers only the samples since the last regression, not the whole session. If that tail has fewer than 5 samples, all of the last 30 samples are used. The reported learning rate is the derivative of the polynomial at the last sample."
+  },
+  {
+   "id": "algos-12",
+   "verdict": "confirmed",
+   "evidence": [
+    "pandas.DataFrame.ewm docs: com alpha=1/(1+com); span alpha=2/(span+1); halflife alpha=1-exp(-ln(2)/halflife); adjust=True 'Divide by decaying adjustment factor in beginning periods to account for imbalance in relative weightings'",
+    "keybr filter.ts: value = alpha*v + (1-alpha)*value (alpha weights the new sample)",
+    "Pelanek & Rihak nrhm-mastery.pdf s4.2.3: 'theta_k = alpha*theta_{k-1} + (1-alpha)*c_k' (alpha weights the old estimate)",
+    "NIST pmc324: 'EWMA_t = lambda*Y_t + (1-lambda)*EWMA_{t-1}'; 'lambda ... is usually set between 0.2 and 0.3'"
+   ]
+  },
+  {
+   "id": "algos-13",
+   "verdict": "confirmed",
+   "evidence": [
+    "CAE-elo.pdf (accepted manuscript, DOI 10.1016/j.compedu.2016.03.017; Crossref: Computers & Education 98:169-179, 2016): P(correct)=1/(1+e^-(theta_s-d_i)); theta_s += K(correct-P), d_i += K(P-correct); 'Initial values ... set to 0'",
+    "'closely related to the Rasch model (one parameter model)'; 'Previous work in student modeling used K = 0.4'",
+    "Conclusion: 'uncertainty function U(n) = a/(1+bn) provides a good starting point (e.g., with values a = 1, b = 0.05; once enough data are collected these values can be easily fitted using a grid search)'; 'useful to use different uncertainty function for items and for students'"
+   ],
+   "correction": "Correct. Context: a = 1, b = 0.05 were fitted on real data (Papousek et al. 2014). The paper's own simulation used a = 4, b = 0.5."
+  },
+  {
+   "id": "algos-14",
+   "verdict": "confirmed",
+   "evidence": [
+    "CAE-elo.pdf p.~6: 'theta_s := theta_s + K(E(t|s,p) - t_sp)' and printed 'd_p := theta_p + K(t_sp - E(t|s,p))' with E(t|s,p) = d_p - theta_s, t_sp = log time",
+    "Footnote 1: 'problem solving times are log-normally distributed (Jarusek and Pelanek, 2012)'"
+   ]
+  },
+  {
+   "id": "algos-15",
+   "verdict": "confirmed",
+   "evidence": [
+    "CAE-elo.pdf: 'Klinkenberg et al. (2011) use a \"high speed, high stakes\" rule ... S_si = (2correct_si - 1)(a_i d_i - a_i t_si)', d_i time limit, a_i discrimination",
+    "'stakes are high when a student answers quickly; with increasing response time the score goes towards zero'; 'may be appropriate for systems showing the timing information and deadlines ... Math Garden'; otherwise 'a different scoring rule needs to be applied, see for example Rihak (2015)'"
+   ]
+  },
+  {
+   "id": "algos-16",
+   "verdict": "confirmed",
+   "evidence": [
+    "nrhm-mastery.pdf (Crossref 10.1080/13614568.2018.1476596: New Review of Hypermedia and Multimedia, 2018, Pelanek & Rihak)",
+    "s4.2.3: theta_0 = 0, theta_k = alpha*theta_{k-1} + (1-alpha)*c_k, mastery theta_k >= T",
+    "s5.1.2: umimecesky.cz thresholds 0.5, 0.8, 0.95, 0.98, main 0.95; 'The value of alpha depended on the type of exercise ... For this exercise the system used alpha = 0.9'",
+    "MatMat experiment: 'EMA method with alpha = 0.8'; +T input linear from 0 to 14 s, '14 is set as a double of the median response time ... median response time has the response value 0.5'",
+    "Abstract: 'choice of data sources ... and the setting of thresholds are more important than the choice of a learner modeling technique'; 'optimized thresholds are between 1 and 8 for NCC' (simulated data)"
+   ],
+   "correction": "Correct. alpha = 0.9 was for the analysed basic two-option grammar exercises; on umimecesky.cz alpha varied by exercise type. The 1-8 NCC thresholds come from simulated BKT data."
+  },
+  {
+   "id": "algos-17",
+   "verdict": "confirmed",
+   "evidence": [
+    "glicko2.pdf Step 1: tau 'Reasonable choices are between 0.3 and 1.2', 'even as small as, say, tau = 0.2'; unrated: rating 1500, RD 350, volatility 0.06; mu=(r-1500)/173.7178, phi=RD/173.7178",
+    "glicko2.pdf: 'works best when the number of games in a rating period is moderate to large, say an average of at least 10-15 games per player'; 'if a player does not compete during the rating period, then only Step 6 applies'",
+    "goochjs/glicko2 @5f39e38 (2016-01-07) LICENCE.txt: two-clause BSD (clauses 1-2 only); RatingCalculator.java DEFAULT_RATING 1500, DEFAULT_DEVIATION 350, DEFAULT_VOLATILITY 0.06, DEFAULT_TAU 0.75"
+   ]
+  },
+  {
+   "id": "algos-18",
+   "verdict": "confirmed",
+   "evidence": [
+    "lila @ffa4be8 modules/puzzle/src/main/PuzzleFinisher.scala: 'we treat the solve as a game where the player is white and the puzzle is black', calculator.computeGame(chess.rating.glicko.Game(...))",
+    "Puzzle rating clamped to puzzle.glicko.rating +/- lila.rating.Glicko.maxRatingDelta; canUpdatePuzzleRating = RateLimit[UserId](300, 1.day)",
+    "ponder.weightOf: obvious theme win 0.1f / loss 0.4f; hinting 0.2/0.7; other 0.7/0.8; mix 1",
+    "modules/rating/src/main/Glicko.scala:52-69 maxVolatility 0.1, defaultVolatility 0.09, maxRatingDelta 700",
+    "lila COPYING.md: AGPL v3 or later; scalachess LICENSE: MIT; scalachess rating/src/main/scala/glicko/impl/README.md 'Loosely ported from java: https://github.com/goochjs/glicko2'"
+   ],
+   "correction": "Correct, with three details. The damping weight depends on the puzzle 'angle', i.e. the theme the user chose to practise. The user-side weight also drops by 0.2 (win) or 0.7 (loss) on provisional puzzles, floored at 0.1. Puzzle ratings are not updated for 'dubious' players or for 'clueless' players. scalachess's Glicko code is a port of goochjs/glicko2."
+  },
+  {
+   "id": "algos-19",
+   "verdict": "confirmed",
+   "evidence": [
+    "cubedex @8a8b5b9 LICENSE MIT; README 'You can use it offline', 'Compatible with smartcubes'",
+    "src/lib/srs.ts: aborted -> 'again'; hadMistake or >1.35x median of last 8 successful values (needs >=3) -> 'hard'; 'easy' needs previous 11 reviews all successful and both times <= baselines (when a baseline exists); else 'good'",
+    "srs.ts computeRetrievability = (1 + t/(9S))^-1; dueAt = reviewedAt + stabilityDays; UPWARD_GROWTH_THROTTLE_MS 2 min",
+    "src/hooks/useTrainingState.ts:193-195 MAX_RECOGNITION_MS 15000, SMART_REVIEW_RETRY_GAP 4, SMART_REVIEW_MAX_REPEATS_PER_PASS 2; L1139-1150 recognition = firstActionAt - caseShownAt, null above 15 s; L287-370 insertSlowCase sorts by best time",
+    "src/data/defaultAlgs.json keys include 'CMLL', 'L6E-EO', 'L6E-EOLR'",
+    "git history: srs.ts introduced in 113b8b3 (2026-04-21) 'add Smart Order toggle: anki-style spaced repetition'",
+    "/home/user/rouxtine/docs/research/roux-training-features.md:75 'None of the surveyed tools has SRS'; L153 lists Cubedex [42] among the surveyed tools"
+   ],
+   "correction": "Correct, with additions. Cubedex has had SRS since 2026-04-21 (commit 113b8b3). Retries in the same pass happen on abort, 'again' or a mistake, so a 'hard' caused by a mistake is retried, but a 'hard' caused by slowness is not (shouldRetryCaseInCurrentPass). The interval equals stability; there is no desired-retention solve. In slow-case mode, cases without a best time go first, then cases from slowest to fastest best time. Line 75 of the feature doc should be corrected."
+  },
+  {
+   "id": "algos-20",
+   "verdict": "refuted",
+   "evidence": [
+    "cstimer @5f8e46c LICENSE GPL v3",
+    "src/js/stats/recons.js calcRecons: data[--progress] = [tsStart, tsFirst, end, moveCnt, ...]; progress starts high (getRouxProgress returns 4 before FB) and falls, so higher indices are EARLIER steps",
+    "Merge loop: for data[i] with moveCnt == 1, j = i+1 (skipping 0-move entries); moves of step i appended to data[j]; data[j][2] = end of step i; data[i] zeroed",
+    "recons.js:292 stepData = [name, first-start, end-first, moves]",
+    "src/js/stats/stats.js:4 comment '[[penalty, phaseN end time, ..., phase1 end time], scramble, comment, timestamp of start, extension]'; L406 {OK:0, +2:2000, DNF:-1}",
+    "src/js/lib/cubeutil.js:262 moveSeq2str: move + '@' + timestamp; recons.js MoveCounterHTM counts a face once per same-axis run"
+   ],
+   "correction": "Everything is right except the merge direction. In calcRecons, data indices run in reverse solve order, and a one-move step is merged into the preceding step (the earlier non-empty one): that step's end time is extended, and the one-move step becomes zero-length. If no earlier non-empty step exists, nothing is merged. Also, MoveCounterHTM counts each face once within a run of same-axis moves (R L R counts 2)."
+  },
+  {
+   "id": "algos-21",
+   "verdict": "confirmed",
+   "evidence": [
+    "/home/user/roux-trainers HEAD b85221f (2026-10-28), origin nauroth/roux-trainers",
+    "src/lib/Selector.tsx: names[] + flags[] (0/1), getActiveNames",
+    "src/lib/Algs.tsx:385-417 all three alg generators return rand_choice(algs); src/lib/Math.ts:8 rand_choice = arr[rand_int(arr.length)]",
+    "grep for weight/recency/history in src: only cube move history, no performance weighting"
+   ]
+  },
+  {
+   "id": "algos-22",
+   "verdict": "confirmed",
+   "evidence": [
+    "gan-web-bluetooth @65173e2 LICENSE.txt MIT",
+    "src/gan-cube-protocol.ts:30-45 GanCubeMove localTimestamp 'null in case if bluetooth event was missed and recovered', cubeTimestamp 'for some cube models may be null'",
+    "src/gan-cube-protocol.ts:82-110 GanCubeGyroEvent with quaternion and optional velocity",
+    "src/utils.ts cubeTimestampLinearFit: fills missing cubeTimestamp with next-50 ms / prev+50 ms, then linregress against localTimestamp",
+    "README.md:127-131 'internal clock of the most GAN Smart Cubes is not ideally calibrated'; 'invented and firstly implemented by Chen Shuang in the csTimer'"
+   ]
+  },
+  {
+   "id": "algos-23",
+   "verdict": "confirmed",
+   "evidence": [
+    "speedcube-trainer @6e7606d: no LICENSE file; package.json has no licence field",
+    "README L64-65: 'the cube reports a half turn as two separate quarter events'",
+    "README L421-431: 'M = R L' x''; 'A real cube reports them 6-121ms apart'; fix: 'conjugate all the remaining moves'",
+    "src/cube/moveStream.ts:89-90 sliceWindow default 140, doubleWindow default 160",
+    "src/analysis/solve.ts:95-106 minPauseMs 180, pauseFactor 2.2, threshold = max(minPause, median gap * factor)",
+    "README L93-96 pre-first-move pause belongs to the step; L140-141 per-move median to find hesitation 'usually where a regrip is needed'"
+   ],
+   "correction": "Correct. Also, SCT merges two same-face quarter turns into a half turn within a 160 ms window (doubleWindow)."
+  },
+  {
+   "id": "algos-24",
+   "verdict": "confirmed",
+   "evidence": [
+    "speedcube-trainer @6e7606d src/analysis/recommend.ts: REFERENCE.roux FB {0.2,8,0.25}, SB {0.3,12,0.3}, CMLL {0.22,10,0.3}, EO {0.12,7,0.25}, LR {0.09,6,0.2}, L4C {0.07,5,0.15}; comment 'Reference profile for an intermediate solver (~20-30s)', no citation",
+    "excessMs = totalMean * (meanMs/totalMean - r.share); pauseHeavy = pauseRatio > ref + 0.08; moveHeavy = meanMoves > ref*1.25; slowHands = tps < 3.2 && !pauseHeavy",
+    "No LICENSE file in repo"
+   ],
+   "correction": "Correct. Insights fire only when a step's share is more than 0.04 above the reference. Causes are checked in order: pausing, then move count, then TPS."
+  },
+  {
+   "id": "algos-25",
+   "verdict": "confirmed",
+   "evidence": [
+    "gwern.net 1979-shea.pdf (J Exp Psychol: Human Learning and Memory 1979, 5(2):179-187) abstract: blocked vs random acquisition; retention after 10-min or 10-day delay; 'retention was greater following high interference (random) acquisition ... when retention was measured under changed contextual interference conditions'; transfer greater for random, 'most notable ... for the transfer task of greatest complexity'",
+    "Discussion: 'practice under a random (high interference) sequence impairs acquisition performance'",
+    "Method: RT = stimulus onset to release of start button; MT = release to ball placement; Discussion cites Hayes and Marteniuk (1976): RT related to time to 'transform input information into an appropriate response', MT to processes 'between the initiation and termination of a response'"
+   ]
+  },
+  {
+   "id": "algos-26",
+   "verdict": "confirmed",
+   "evidence": [
+    "link.springer.com/article/10.3758/BF03212979 (rendered via Playwright) abstract: '40 sets of data representing 7,910 learning series from 475 subjects in 24 experiments. The exponential function fit better than the power function in all the unaveraged data sets. Averaging produced a bias in favor of the power function. A new practice function ... the APEX function'",
+    "Crossref: Psychonomic Bulletin & Review 7:185-207, 2000"
+   ],
+   "correction": "The paper's findings are confirmed. The plateau-detection advice (fit A + B*e^(-n/tau) per learner) is a reasonable inference, not a statement from the paper."
+  },
+  {
+   "id": "algos-27",
+   "verdict": "unclear",
+   "evidence": [
+    "en.wikipedia.org Hick's_law (raw wikitext): T = b*log2(n+1); unequal probabilities T = bH with H = sum p_i log2(1/p_i + 1); stimulus-response compatibility section; exceptions for 'verbal response to familiar stimuli' with 'no relationship or only a subtle increase' (Longstreth et al. 1985)",
+    "Hyman 1953 (doi 10.1037/h0056940) not retrieved; doi.apa.org returns 403"
+   ],
+   "correction": "The formulas and limits match Wikipedia, but no primary source was checked. Wikipedia gives the unequal-probability formula without attributing it to Hyman (1953). The Rouxtine implications are inferences."
+  },
+  {
+   "id": "algos-28",
+   "verdict": "confirmed",
+   "evidence": [
+    "BDA3.pdf (stat.columbia.edu) s2.5 eq. 2.10: posterior mean weighted by precisions, 1/tau1^2 = 1/tau0^2 + 1/sigma^2; data 'shrunk' toward the prior mean by sigma^2/(sigma^2+tau0^2)",
+    "eq. 2.11-2.12: mu_n = (mu0/tau0^2 + n*ybar/sigma^2)/(1/tau0^2 + n/sigma^2), 1/tau_n^2 = 1/tau0^2 + n/sigma^2; 'if tau0^2 = sigma^2, then the prior distribution has the same weight as one extra observation'",
+    "BDA3 hierarchical chapters use 'partial pooling'"
+   ]
+  },
+  {
+   "id": "algos-29",
+   "verdict": "confirmed",
+   "evidence": [
+    "scipy.stats.theilslopes docs: 'computes the slope as the median of all slopes between paired values'; confidence-interval parameter alpha; refs Sen JASA 63:1379-1389 (1968) and Theil 1950",
+    "Commons Math 3.6.1 javadoc KendallsCorrelation: 'Kendall's Tau-b', 'O(n log n) algorithm described in William R. Knight's 1966 paper'",
+    "Maven Central commons-math3 versions end at 3.6.1 (POM last-modified 2016-03-17); org/apache/commons/commons-math4-legacy has 4.0-beta1"
+   ],
+   "correction": "Correct for commons-math3: 3.6.1 (2016) is its last release. The Commons Math 4 line exists as 4.0-beta1 (commons-math4-legacy), so 3.6.1 is the latest stable release, not the latest of any kind."
+  },
+  {
+   "id": "algos-30",
+   "verdict": "confirmed",
+   "evidence": [
+    "NIST pmc323: S_hi(i) = max(0, S_hi(i-1) + x_i - mu0 - k); S_lo(i) = max(0, S_lo(i-1) + mu0 - k - x_i); out of control when either exceeds h; 'better than Shewhart control charts when it is desired to detect shifts in the mean that are 2 sigma or less'",
+    "NIST pmc323 ARL table (k = 0.5): h=4: 336 (no shift), 8.38 (1 sigma); h=5: 930, 10.4",
+    "NIST pmc324: s_ewma^2 = lambda/(2-lambda) s^2; UCL/LCL = EWMA0 +/- k s_ewma with k = 3 or from Lucas & Saccucci tables; lambda usually 0.2-0.3"
+   ],
+   "correction": "The values are right. NIST's own instructions for reading the table ('add 0.5 to the first column') conflict with its row labels, but 336/930 and 8.38/10.4 are the standard k = 0.5 values."
+  },
+  {
+   "id": "algos-31",
+   "verdict": "confirmed",
+   "evidence": [
+    "arXiv 1012.0256v2 (Efraimidis, 'Weighted Random Sampling over Data Streams', 2015) s3.2: A-ES assigns key k_i = u_i^(1/w_i); 'items that possess the m largest keys form a weighted random sample'; Remark 1 P[X1 <= X2] = w2/(w1+w2)",
+    "Crossref 10.1016/j.ipl.2005.11.003: Efraimidis & Spirakis, 'Weighted random sampling with a reservoir', Information Processing Letters 97(5):181-185, 2006"
+   ],
+   "correction": "Correct. The cited arXiv PDF is Efraimidis's later survey, which describes A-ES. The 2006 IPL paper is the original."
+  },
+  {
+   "id": "algos-32",
+   "verdict": "confirmed",
+   "evidence": [
+    "ml-02.pdf (Machine Learning 47:235-256, 2002) s2: UCB1 'achieving logarithmic regret uniformly over n and without any preliminary knowledge about the reward distributions (apart from the fact that their support is in [0, 1])'; index = 'current average reward' + term 'related to the size (according to Chernoff-Hoeffding bounds ...) of the one-sided confidence interval'",
+    "Figure 1 (policy pseudo-code) is not extractable as text"
+   ],
+   "correction": "Correct. UCB1's guarantees assume rewards in [0, 1], so times or scores must be normalised first."
+  },
+  {
+   "id": "algos-33",
+   "verdict": "confirmed",
+   "evidence": [
+    "arXiv 2201.05197v3 abstract: Aitchison's logratio approach since his 1982 RSS paper, 'proposed to solve the problematic aspects of working with data with a fixed sum constraint'",
+    "Crossref 10.1214/22-STS880: Statistical Science 38(3):386-410, 2023 (Greenacre, Grunsky, Bacon-Shone, Erb, Quinn)"
+   ],
+   "correction": "Correct. The reappraisal also argues that plain pairwise logratios, or Box-Cox power transforms that allow zeros, are good enough, and that isometric logratios are not required."
+  },
+  {
+   "id": "algos-34",
+   "verdict": "confirmed",
+   "evidence": [
+    "worldcubeassociation.org/regulations 'Version: April 1, 2026'",
+    "9f1: under 10 min truncated to hundredths (except Multi-Blind); averages and means rounded",
+    "9f8: Ao5 removes best and worst, mean of 3; 9f9: one DNF/DNS counts as worst; more than one gives DNF",
+    "10e3: one move required -> +2; 10e4: more than one -> DNF",
+    "A3a1: 'strictly less than 15 seconds'; A4d1 +2 / A4d1+ 'exactly 15 seconds (i.e. 15.00), the time penalty (+2 seconds) must be applied'; A4d2 DNF / A4d2+ '17.00 ... DNF'"
+   ],
+   "correction": "Correct. The exact 15.00 and 17.00 boundaries come from the A4d1+ and A4d2+ clarifications. 'Store DNF as an outcome' is a design recommendation, not a regulation."
+  },
+  {
+   "id": "algos-35",
+   "verdict": "confirmed",
+   "evidence": [
+    "developer.android.com SystemClock: currentTimeMillis 'may jump backwards or forwards unpredictably'; uptimeMillis 'stops when the system enters deep sleep', basis for System.nanoTime(); elapsedRealtime/elapsedRealtimeNanos 'include deep sleep ... the recommend basis for general purpose interval timing'",
+    "developer.android.com MotionEvent: getEventTime() 'in the SystemClock.uptimeMillis() time base'; getEventTimeNanos() added in API level 34, same time base",
+    "/home/user/rouxtine/docs/research/timer-integration.md:196 'Use MotionEvent.getEventTime() and SystemClock.elapsedRealtime*()' with no caveat"
+   ]
+  },
+  {
+   "id": "algos-36",
+   "verdict": "confirmed",
+   "evidence": [
+    "developer.android.com Choreographer.FrameCallback: doFrame(frameTimeNanos) 'The time in nanoseconds when the frame started being rendered'; no clock base stated; deprecated for animations in favour of FrameData.getAnimationTimeNanos(); 'Only use this timestamps for frame timing information'",
+    "AOSP frameworks/base main core/java/android/view/Choreographer.java FrameCallback javadoc: frameTimeNanos is 'in the System.nanoTime() timebase. Divide this value by 1000000 to convert it to the SystemClock.uptimeMillis() time base'; 'the frame time is fixed at the time the frame was scheduled to start, regardless of when the ... callback actually runs'"
+   ],
+   "correction": "The doc page indeed omits the clock base, but the AOSP source states it: System.nanoTime(), the same base as uptimeMillis. That makes frame stamps directly comparable with MotionEvent.getEventTimeNanos(). The frame time is the scheduled vsync start, not the callback run time. A device check is still useful but not strictly needed."
+  },
+  {
+   "id": "algos-37",
+   "verdict": "confirmed",
+   "evidence": [
+    "Re-probed 2026-10-28: https://www.super-memory.com -> curl (35) connection reset; http:// -> 503",
+    "https://cubesolv.es/ -> curl (35) connection reset",
+    "https://api.github.com/repos/poliva/cubedex -> 403 'GitHub access to this repository is not enabled for this session'",
+    "doi.apa.org -> 403; journals.sagepub.com -> 403; http://cogprints.org -> redirects to web-archive.southampton.ac.uk -> 401 (curl)",
+    "speedsolving.com -> 403; reddit.com -> 403"
+   ]
+  }
+ ],
+ "missing": [
+  "Rouxtine's licence is GPL-3.0-only (/home/user/rouxtine/README.md L13-15; commit b4f66d4, 2026-10-28). The licence arguments in algos-5, 6 and 10 need revisiting: GPL-3.0 code (csTimer, Anki-Android-Backend, FsrsKt) is compatible, and AGPL-3.0 code (keybr, Anki, lila) may be combined under GPLv3 section 13. Unlicensed SCT stays ideas-only.",
+  "FSRS-7 is not in any released fsrs-rs crate. The crate 6.6.2 tarball (https://static.crates.io/crates/fsrs/fsrs-6.6.2.crate) is FSRS-6 only, and FSRS-7 is only on fsrs-rs main. Anki pins fsrs 6.6.2, so Anki and AnkiDroid still schedule with FSRS-6.",
+  "ts-fsrs 6.0.0 depends at runtime on @open-spaced-repetition/srs-kit 1.0.0, which is BSD-3-Clause (registry.npmjs.org/ts-fsrs/6.0.0; ts-fsrs packages/srs-kit/LICENSE). It requires Node >= 24. FSRS-7 has been the default since 6.0.0-beta.10 (2026-09-22).",
+  "There are JVM FSRS-6 libraries: FsrsKt, pure Kotlin Multiplatform, GPL-3.0, Maven one.felsen.fsrskt:fsrskt:1.0.1 (https://github.com/therockyt/fsrskt), and fsrs4s, Scala 3, Apache-2.0, org.bargsten:fsrs4s_3:0.3.0 (https://github.com/jwbargsten/fsrs4s).",
+  "srs-benchmark: with same-day reviews, FSRS-7 with default parameters (0.3399) beats optimised FSRS-6 (0.3842). The README says Anki's FSRS-7 should ship with recency weighting and scheduling penalties enabled (srs-benchmark README L49).",
+  "Cubedex has had SRS ('Smart Order toggle: anki-style spaced repetition') since commit 113b8b3, 2026-04-21 (https://github.com/poliva/cubedex/commit/113b8b3).",
+  "In AOSP, Choreographer.FrameCallback.doFrame's frameTimeNanos is in the System.nanoTime() timebase, the same base as uptimeMillis and MotionEvent event times (https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/core/java/android/view/Choreographer.java).",
+  "keybr's learning-session window also breaks at the latest slowdown in filtered time once the tail has at least 5 samples (packages/keybr-lesson/lib/learningsession.ts). keybr's package.json says 'GPL-3', but its LICENSE file is AGPL-3.0.",
+  "The Glicko code in scalachess (MIT) is 'loosely ported' from goochjs/glicko2 (BSD-2-Clause) (https://github.com/lichess-org/scalachess/blob/master/rating/src/main/scala/glicko/impl/README.md).",
+  "SCT also merges same-face quarter turns into half turns within 160 ms (doubleWindow, src/cube/moveStream.ts:90)."
+ ]
+}

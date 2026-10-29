@@ -1,0 +1,297 @@
+{
+ "resources": [
+  {
+   "key": "https://sites.google.com/site/athefre/main",
+   "url": "https://sites.google.com/site/athefre/main",
+   "title": "athefre: puzzle method development website",
+   "author": "Michael James Straughan (Athefre)",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced (CMLL recognition and prediction, EOLR, DFDB, ACMLL, pseudo/non-matching blocks); much of the site is non-Roux method theory",
+   "summary": "A Google Site (HTTP 200, rendered with Playwright) by Michael James Straughan, a Roux user since 2006 who calls himself the first xy2-neutral Roux solver. The main page is a bio and a list of his developments. Credits he claims: EOLR and half of EOLRb (2012), DFDB recognition for 4c (2012), the NMCLL 2 pseudo-corner recognition (2010), ATCRM (2021, with Tim Mosher), Straughan minimum-sticker recognition (2024), ACMLL (2022), algorithm unions, NBRS group notation, LEG-1 (2x2), and cubinghistory.com. Navigation: 3x3 Methods (Nautilus, APB, Solaris, Polaris, Aetherman: not Roux), Roux (ACMLL, CMLL Prediction, OCLL Prediction, EOLR, DFDB Recognition, Iterative/Trigger CMLL), Steps & Concepts (13 pages), Recognition (11 pages), Other Puzzles, Writings, CubingHistory.com, plus Discord invites. I read the main page, all 6 Roux pages and 13 concept and recognition pages (12 bear on Roux; A2 is a 2x2 method). Roux content: (1) ACMLL. Build F2B imperfectly (flipped pair, outside pair, swapped pairs, front cycle, spiral) and let the CMLL alg fix the blocks. He claims 2-6 moves saved in SB, all-R/U pair inserts and deeper inspection. Stats: flipped pair FR 9.81 moves / 11.81 MCC and BR 9.67 / 12.35, against normal CMLL at 10.02 / 12.31. Outside DFr 9.63 / 13.11, DBr 10.05 / 12.47. Learning order: flipped FR/BR, then Outside, then Swap FL/FR, then Front Cycle. (2) CMLL Prediction. Compares recognition systems by sticker count: Straughan 4, ATCRM 5, U-sticker+pattern 6, Hyperorientations 6. Adds 'Intuitive CP', which tracks three L/R (or F/B) stickers during the last SB pair, reads the U-sticker positions as +/- (adjacent or diagonal) and names the swap. (3) OCLL Prediction. Orientation-sticker targeting during the last 2-3 moves of common last-pair inserts. Primary and secondary corners to watch. Facts such as 'UBR does not move during R U R', R U' R', R U2 R''. Prefer tracking-friendly last-pair solutions (M2 U M' r U r' rather than R U' R' U R U R'). (4) EOLR history. The 2012 'Misoriented Centers Table' held 285 hand-found solutions including mirrors and inverses. It is the first EOLR, plus about half of EOLRb. (5) DFDB. Track the DF+DB (or UF+UB) stickers during 4b and set the AUF for 4c from them. Credits Louis de Mendonca with popularising it. Links the FUBU/BUFU video by 'Michał Ciebiad' (as the page spells it) and cubinghistory 4c history. (6) Iterative/Trigger CMLL. A CMLL set built from a few triggers, generated with Batch Solver, for people who struggle with memorisation. ATCRM pages: first read the orientation of the L/R-coloured stickers (8 orientations with sub-orientations, 84 patterns for 42 algs), then two fixed stickers. One rule for R/R' non-matching blocks and transformation: on the right-side corners, treat U/D colours as non-U/D and the reverse. Pseudo depths N, P1 (NMB), P2 (transformation), P3. 'CxLL Recognition Systems' classifies 12 systems with inventor and year. 'Three Corner CxLL' (Jan 2026) recognises CMLL from the visible stickers of UFL, UFR and UBR only. 'Intuitive Corner Recognition' uses side-sticker colour order. NBRS notation: dL is the Roux left block, dLR is F2B, dFR is a pair. L7E extends LSE to 7 edges; SL5C and Transformation are side topics. Straughan Recognition is covered in depth by deep-web-7, and ACMLL and CMLL Prediction (with their sheets) by deep-web-3.",
+   "drills": [
+    "ATCRM CMLL recognition: find the orientation of the four L/R-coloured stickers, then check two pre-set stickers. Add R/R' non-matching blocks and apply the right-side U/D flip rule",
+    "Straughan four-sticker CMLL tracking: follow FLU, FUR, RFU and RUB through the final SB pair and call the case before the insert finishes",
+    "Three-corner CMLL recognition using only the visible stickers of UFL, UFR and UBR (never UBL)",
+    "OCLL prediction: watch the two primary corners during the last 2-3 moves of the final pair insert, predict the CO case, then confirm with the secondary corner",
+    "Intuitive CP prediction: during the last pair find three L/R (or F/B) stickers, compare two opposite colours' U-sticker positions (+/-), and name the corner swap (left, right, front, back, diagonal)",
+    "ACMLL: insert the last SB pair flipped (FR/BR) or outside (DFr/DBr) with R/U moves only and finish with the matching ACMLL alg. Follow the suggested learning order",
+    "DFDB: during 4b track the DF/DB (or UF/UB) stickers and set the 4c AUF from them without pausing",
+    "Choose tracking-friendly last-pair solutions that leave the corners still until the final insert",
+    "Iterative/Trigger CMLL for learners: execute each CMLL as a chain of known triggers"
+   ],
+   "infoTopics": [
+    "Taxonomy of CMLL/CxLL recognition systems, with inventor and year: Waterman, Intuitive, 1-Side Sune, NMCxLL 2, ATCRM, Straughan positional, Straughan+ATCRM hybrid, NMCxLL, Hyperorientations, Permute First, Straughan object",
+    "Sticker counts per recognition system (4 / 5 / 6 / 6) and why fewer stickers help prediction",
+    "Pseudo depths: normal, P1 non-matching blocks, P2 transformation, P3 and beyond, and why L/R stickers keep their symmetry under L/R turns",
+    "ACMLL concept, benefits and movecount/MCC data",
+    "OCLL prediction mechanics for common final-pair inserts",
+    "EOLR/EOLRb origin (2012) and misoriented centres as a pseudo technique",
+    "DFDB origin, and its UF/UB variant",
+    "Group-reference notation (NBRS): dL, dR, dLR = F2B, dFR = pair, MES = core",
+    "xy2 colour neutrality for non-matching blocks",
+    "Transformation/conjugation (also used by 42), SL5C, L7E (an LSE extension for free-M-slice methods)"
+   ],
+   "algSets": [
+    {
+     "name": "ACMLL (Flipped Pair FR/BR/FL/BL, Outside DFr/DBr, Swapped Pairs, Front Cycle, Spiral)",
+     "caseCount": "43 per variant (per deep-web-3, which read the sheets)",
+     "notes": "Straughan and U-sticker recognition sheets, plus two-look sheets by junnoske. Recommended order: flipped FR/BR, Outside, Swap FL/FR, Front Cycle"
+    },
+    {
+     "name": "CMLL with ATCRM recognition (2H by Tim Mosher; OH document by Ryan Hudgens / OreKehStrah)",
+     "caseCount": "42 algs, 84 L/R-orientation patterns",
+     "notes": "Also covers NMCLL and CCLL (conjugated) with the same two-sticker step"
+    },
+    {
+     "name": "CMLL with Straughan recognition (object type) and Three Corner CMLL (position type, Jan 2026)",
+     "caseCount": "42 algs; 4 patterns per alg (162 patterns for CLL)",
+     "notes": "Same patterns for CLL, TCLL+ and TCLL-; a permute-first two-look document is also linked"
+    },
+    {
+     "name": "Original EOLR/EOLRb tables (2012 'Roux Misoriented Centers Table')",
+     "caseCount": "285 hand-found solutions including mirrors and inverses",
+     "notes": "All EOLR plus about half of EOLRb; uses misoriented centres; the speedsolving thread is now only on web.archive.org"
+    },
+    {
+     "name": "Iterative/Trigger CMLL",
+     "caseCount": "42 CMLL cases from a small trigger list",
+     "notes": "Generated with Batch Solver; aimed at learners, not top speed"
+    },
+    {
+     "name": "OCLL prediction document",
+     "caseCount": "5 last-pair inserts x 27 twist states (per deep-web-3)",
+     "notes": "Neutral to recognition system"
+    }
+   ],
+   "appIdeas": [
+    "CMLL trainer with a recognition-system setting (U-sticker+pattern, ATCRM, Straughan 4-sticker, three-corner). Highlight the stickers the chosen system reads, and optionally grey out the rest so the user practises minimal-sticker recognition",
+    "'Sticker budget' quiz: show only the 4 (Straughan) or 5 (ATCRM) relevant stickers and ask for the CMLL case or its alg",
+    "Last-pair prediction drill: freeze the cube 2-3 moves before the final SB insert. The user predicts the CO case (OCLL) or the full CMLL, then the insert animates. Score accuracy and time",
+    "Non-matching-block (pseudo) mode in the CMLL trainer: R, R' or R2 offsets, with ATCRM's right-side U/D flip rule shown as a hint",
+    "ACMLL module: generate F2B states with the last pair flipped or outside. Teach the R/U-only insert, then drill the ACMLL alg, ordered as Athefre suggests",
+    "Trigger-chip view of CMLL algs (Iterative/Trigger CMLL) as an easier-to-memorise beginner path",
+    "Hint in the SB trainer: prefer the tracking-friendly last-pair solution when two are equally fast",
+    "Glossary entries for NBRS notation (dL, dR, dLR, dFR) and the pseudo-depth terms. History cards for EOLR (2012) and DFDB (2012), credited to Athefre"
+   ],
+   "license": "No licence or terms on the site, so all rights are reserved by Michael James Straughan, and the Google Sites terms apply to hosting. The linked algorithm sheets are not licensed either. The recognition systems and techniques are ideas: reimplement them with the app's own diagrams and generated algs, credit Athefre (and Tim Mosher, Ryan Hudgens, junnoske where relevant), and link to the pages.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/athefre_main.txt (+ .html, .png); subpages /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/athefre_roux_*.txt (acmll, cmll-prediction, ocll-prediction, eolr, dfdb-recognition, iterativetrigger-cmll), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/athefre_recognition_*.txt (atcrm, acrm-guide, cxll-recognition-systems, intuitive-corner-recognition, three-corner-cxll, straughan-recognition, slice-derived-eo), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/athefre_steps-concepts_*.txt (nbrs, l7e, nmll, transformation, sl5c), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/athefre_other-puzzles_nmcll.txt"
+  },
+  {
+   "key": "https://www.cubingmethods.com/en/roux",
+   "url": "https://www.cubingmethods.com/en/roux",
+   "title": "CubingMethods: Roux method page",
+   "author": "unknown (cubingmethods.com)",
+   "kind": "guide-text",
+   "accessible": false,
+   "rouxRelevance": "unknown",
+   "level": "unknown (not readable)",
+   "summary": "INACCESSIBLE: blocked by the site's own bot protection, not the agent proxy. Playwright got HTTP 429 'Vercel Security Checkpoint - Failed to verify your browser, Code 21'. curl got the same 429 checkpoint page, and WebFetch also got 429. A Wayback availability lookup returned no snapshot, and CDX requests were cut by the relay. I did not try to get past the challenge. Context from rouxcubing.com only: it is listed under MISC > WEBSITES as 'CubingMethods', presumably a Roux method overview. deep-web-1 hit the same block on the /en/roux/tutorial subpage. Saved: the checkpoint page text, HTML and screenshot.",
+   "drills": [],
+   "infoTopics": [],
+   "algSets": [],
+   "appIdeas": [
+    "None until it can be read. Re-check from a normal browser later. If it is a step-by-step Roux overview, compare its step names and the case counts it quotes with the app's method overview screen"
+   ],
+   "license": "Unknown (page not readable). Treat as all rights reserved; link only.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubingmethods_roux.txt (+ .html, .png), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubingmethods_roux_curl.html, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/blocked_notes.txt"
+  },
+  {
+   "key": "https://reco.nz/?sort=id_desc&roux=on",
+   "url": "https://reco.nz/?sort=id_desc&Roux=on",
+   "title": "reco.nz: reconstruction database (Roux filter)",
+   "author": "reco.nz team (Angus, Chunky Girl, Boots, Monke); reconstructions by community members such as Stewy, kyh, eff, rebuc, Brest, Louis de Mendonca",
+   "kind": "reconstructions",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "all levels can study it; the data is mostly world-class 3x3 and OH Roux solves",
+   "summary": "A server-rendered reconstruction database (HTTP 200; rendered with Playwright and paged with curl). Important: the query parameter is case-sensitive. 'Roux=on' filters to Roux, but the lower-cased 'roux=on' in the key is ignored and lists every method (the first rows are CFOP and ZB). Counts with Roux=on, 50 rows per page: 1,186 Roux solves in total, 527 3x3 and 659 OH, and none for 4x4 or 5x5. Filters: sort by id, result, movecount or TPS (ascending or descending); Official/Unofficial; puzzle (3x3, 4x4-7x7, OH, SQ1); method (CFOP, Roux, ZB, ZZ, Petrus, Yau, Redux, Lin, Vandenbergh); solver multi-select; tags (WR, NAR, SAR, ER, AsR, OcR, AfR, NR, +2, DNF); and CFOP-only filters. List columns: ID, Puzzle, Result, Solver, Method, Date, Competition, Tags, Movecount, TPS, Reconstructed By. The newest Roux entries (Jul-Aug 2026) are Crimson Arradaza's OH world-record average of 7.72 at GAN Tarlac Speedcubing Open 2026, including a 6.82 single, and an NR average at Makati Heroes. The lowest 3x3 Roux movecounts are 27 STM (Zhouheng Sun 4.59, Fahmi Aulia Rachman 2.81) and 30 (Alexander Lau). A solve page shows the scramble and a step-commented solution: inspection, FB, SS (second square), SP (second pair), CMLL, LSE. It has a 'view at alg.cubing.net' link and a split table with columns Total/FB/SS/SP/CMLL/EOLR/EP and rows Time, Split %, STM, STPS, ETM, ETPS. Example 14020 (6.82 OH): FB 1.13s/8, SS 2.03/10, SP 0.40/4, CMLL 1.87/12, EOLR 1.39/14, 48 STM, 7.04 STPS. It also lists the other solves in the same average. Solver pages give per-method averages and F2B/L10P stage times and movecounts. Example: Crimson 3x3 Roux, 35 solves, 6.26 avg, 51.49 STM, F2B 3.14s/24.54, L10P 3.13s/26.94. OH: 25 solves, 8.31, 55.88 STM. About page: it succeeds speedcubedb, which succeeded cubesolv.es and the speedsolving Reconstruction Thread. It says it is '100% community driven, there will never be any sponsorships or ads'. FAQ: smart-cube recons were removed because of scramble randomness and because smart-cube times are not comparable. No API, licence or repository found.",
+   "drills": [
+    "Study a pro solve: inspect the scramble, plan FB (and SS), then compare with the reconstruction step by step",
+    "Benchmark your own step splits and movecounts against pro averages (e.g. F2B about 24-25 STM, L10P about 27 STM at the 6-second level)",
+    "Sort Roux 3x3 by movecount ascending to study the most efficient F2B and LSE solutions",
+    "Compare 2H and OH Roux solves by the same solver to see how OH changes the solution choices (OH L10P is longer: 30.7 against 26.9 STM)"
+   ],
+   "infoTopics": [
+    "Roux step names used in reconstructions: FB, SS, SP, CMLL, EOLR, EP (LSE)",
+    "Metrics: STM, ETM, STPS, ETPS, split %",
+    "F2B and L10P stage benchmarks for top solvers",
+    "History of reconstruction databases (speedsolving thread, cubesolv.es, speedcubedb, reco.nz)"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "Reconstruction viewer with a Roux split table (FB, SS, SP, CMLL, EOLR, EP x time, split %, STM, TPS), shared with the app's own smart-cube or manual reconstructions",
+    "'Pro benchmarks' screen comparing the user's F2B and L10P averages (time and STM) with reference values. Ask reco.nz before quoting their per-solver numbers",
+    "Outbound 'Study pro solves' links that use the correct case-sensitive query (https://reco.nz/?sort=movecount_asc&Roux=on&3x3=on, &OH=on, WR tag) rather than copying data",
+    "Inspection-practice mode fed by user-pasted scrambles and recons: plan first, then reveal the pro solution one step at a time",
+    "Step-commented solution format ('// FB', '// SS', '// SP', '// CMLL', '// LSE') as the app's import/export text format for recons"
+   ],
+   "license": "No licence, terms or API. Community-run and non-commercial; each reconstruction is the reconstructor's work. Link to it per solve or per filter. Do not scrape or bundle the dataset without the reco.nz team's permission. Scrambles and times are facts, but the curated database is theirs.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_roux.txt (+ .html, .png), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_notes.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_solve_14020.txt (+ .html), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_solve_12894.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_solver_Crimson_Arradaza.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_reco.nz_about.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_reco.nz_faq.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_reco.nz__sort_id_desc_roux_on.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reconz_reco.nz__sort_movecount_asc_Roux_on_3x3_on.txt"
+  },
+  {
+   "key": "https://www.reddit.com/r/rouxles",
+   "url": "https://www.reddit.com/r/rouxles/",
+   "title": "r/rouxles (Anto's subreddit)",
+   "author": "Antonio (Anto) Kam, per the hubs",
+   "kind": "reconstructions",
+   "accessible": false,
+   "rouxRelevance": "unknown",
+   "level": "unknown (not readable)",
+   "summary": "INACCESSIBLE: Reddit blocked every attempt, and the agent proxy was not the cause. A Playwright render was redirected to a js_challenge URL showing 'You've been blocked by network security. If you think you've been blocked by mistake, file a ticket'. about.json and new.json returned HTTP 403 with the same page. old.reddit.com answered 302, and WebFetch reports it cannot fetch www.reddit.com. I did not spoof a browser user agent or try any other workaround. Context comes only from the hubs. rouxcubing.com lists it as 'Anto's Reconstructions' under MISC > EXAMPLE SOLVES. The Roux Reader's FB chapter names r/rouxles, with SpeedCubeDB and CubeSolves, as a place for text reconstructions of solves by Kian, Alex and Sean. So it is most likely Anto Kam's subreddit of Roux solve reconstructions, but its content, size and activity were not verified. Saved: the block page text, HTML and screenshot.",
+   "drills": [],
+   "infoTopics": [],
+   "algSets": [],
+   "appIdeas": [
+    "Link it from the app's 'Example solves' resource list, next to reco.nz, once a human confirms it is still active"
+   ],
+   "license": "Reddit User Agreement. Posts belong to their authors and there is no open licence. Link only.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/reddit_rouxles.txt (+ .html, .png), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/blocked_notes.txt"
+  },
+  {
+   "key": "https://app.cubeast.com/public/share/oqfw8vwirswau7mxcyyaj4",
+   "url": "https://app.cubeast.com/public/share/oQfw8VwiRSwAU7MXcyYaj4",
+   "title": "eff's Cubeast average of 100 (2H Roux, smart cube)",
+   "author": "eff (solver); Cubeast (platform)",
+   "kind": "reconstructions",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced (5.58 s trimmed ao100); useful as a benchmark for every level",
+   "summary": "A public Cubeast share page (a JS app). I rendered it with Playwright, clicked through every tab and captured the public share API responses. It records 100 smart-cube solves by eff on a MoYu AI v10 with random-state scrambles. The share is about a year old (created 2025-06-18), with about 88 views and 1 like, and commenting needs sign-in. Header: 5.58s average with the 5 best and 5 worst discarded, best 3.85, worst 10.24, 48.54 average turns, 8.604 TPS. Tabs: Average statistics, with sub-tabs Overview (stacked step bar: Pickup, Left block, Right block, CMLL, LSE, Put-down), Steps, Cases ('Case recognition is available only to Premium users'), Stats and TPS (per-step bars). Also Solves (paged table of time, turns and TPS) and Rules (standard rules: cube timer, keyboard/touch and Stackmat allowed, 3s get-ready, 15s inspection, custom scrambles off). Mean per step: Left block 0.77s execution, 7.30 turns, 9.42 TPS. Right block 0.21s recognition + 1.63s execution = 1.84s, 16.41 turns, 10.04 TPS. CMLL 0.61s recognition + 0.69s execution = 1.30s, 10.65 turns, 15.30 TPS, skipped 3%. LSE 0.37s recognition + 1.32s execution = 1.70s, 14.23 turns, 10.70 TPS. Stats: inspection 6.12s, total recognition 1.19s, total execution 4.43s. A solve's detail view shows the scramble, method (Roux), ruleset, device, a time scrubber ('0s / 3.91s', '0 / 43' moves) and step tabs (Overview, Steps, Solution, Stats, TPS). Its stored moves carry millisecond timestamps (e.g. \"z'[0] y'[0] R'[0] D[84] F2[224]...\"). Cubeast's Roux method definition, from the public solving_methods API, has only 4 steps: Left block, Right block, CMLL (U-adjusted, with a case set) and LSE. Each is defined as a piece-state pattern with '(LR)' axis neutrality, e.g. Left block = edges BL, FL, DL + corners DBL, DLF. There is no FS/SS/last-pair or EO/EOLR/4c split. Context: eff also wrote the open-source 'smart-roux-timer' (github.com/eff917/smart-roux-timer, GPL-3.0). It is a Xiaomi Mi smart-cube Roux timer with FB/SB/CMLL/EO/EP phase detection, built with three.js and cubing/timer; its README and LICENSE are saved.",
+   "drills": [
+    "Benchmark: compare your own recognition and execution time per Roux step with eff's (RB 1.84s, CMLL 1.30s with 0.61s recognition, LSE 1.70s)",
+    "CMLL recognition pressure: at this level CMLL recognition (0.61s) is almost as long as its execution (0.69s), which argues for CMLL prediction during the last SB pair",
+    "TPS by step: SB and LSE run at about 10 TPS and CMLL at about 15 TPS. Train the blocks for fluency, not raw speed",
+    "Ao100 sessions on a smart cube with per-step analysis, then target the step with the worst recognition/execution ratio"
+   ],
+   "infoTopics": [
+    "Smart-cube Roux step detection and its limits (4 coarse steps)",
+    "Recognition versus execution time per step, defined as the pause before the first move of a step",
+    "Trimmed ao100 statistics, TPS, quarter/face/slice turn metrics",
+    "Reference split for a sub-6 2H Roux solver"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "Smart-cube Roux analysis with finer steps than Cubeast: FB, SS, last pair, CMLL, EO/EOLR, 4b, 4c. Show recognition and execution per step as a stacked bar, plus per-step TPS",
+    "Detect steps from piece-state patterns with LR-axis (x2/y2) neutrality, as Cubeast does, and store move lists with millisecond timestamps so any solve can be replayed and scrubbed",
+    "Free per-case stats (which CMLL case, its recognition time), which Cubeast keeps behind Premium",
+    "Read-only share link or export for a session (average, best, worst, per-step table) in a text format importable by reco.nz-style tools",
+    "Study eff's open-source smart-roux-timer (GPL-3.0) for Xiaomi phase detection; it is licence-compatible if Rouxtine stays GPL-3.0"
+   ],
+   "license": "Cubeast is a proprietary commercial web app and the share data belongs to eff and Cubeast. No terms page was found at /terms or /terms-of-service on www.cubeast.com. Link to it only. eff's separate smart-roux-timer repo is GPL-3.0.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubeast_notes.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubeast_share.txt (+ .html, .png), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubeast_tabs.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubeast_tabs2.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubeast_tab_*.png, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubeast_solve_detail.png, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cubeast-api/ (public share API JSON), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/eff-smart-roux-timer/ (README.md, LICENSE)"
+  },
+  {
+   "key": "https://localhost:3000",
+   "url": "http://localhost:3000/#/rouxsources?mainTab=1&subTab=3",
+   "title": "CMLLEO link on rouxcubing.com Roadmap (broken localhost URL)",
+   "author": "Knut Peterson (rouxcubing.com)",
+   "kind": "other",
+   "accessible": false,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced (rouxcubing.com Roadmap 'Advanced' row, CMLL column)",
+   "summary": "INACCESSIBLE: this is a developer URL left in rouxcubing.com's production code (Rouxdmap.tsx line 216: window.open('http://localhost:3000/#/rouxsources?mainTab=1&subTab=3') on the 'CMLLEO' item). It points at the visitor's own machine; from the sandbox the connection to localhost:3000 is refused. The intended page is surely https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=3, which I rendered: Rouxsources > CMLL > CMLL RECOGNITION. It has two groups. 'CMLL Recognition/Prediction': Athefre's CMLL Prediction, James Macdiarmid's Better CP Recog, John Mark's multi-angle playlist, Kian's multi-angle video, a multi-angle CMLL recognition Drive folder and Iuri's L CMLL recognition doc. 'EO Prediction during CMLL': Zhouheng's 'A New Framework For Predicting LSE EO From CMLL' video. Neither that tab nor OTHER CMLL has a CMLLEO alg set, so the roadmap item really means 'predict LSE EO from CMLL'. (CMLLEO in the wider community means choosing CMLL algs that also orient LSE edges.) The roadmap's 'Multi-angle recognition' item opens the same tab.",
+   "drills": [
+    "From the intended tab: predict LSE EO (count bad edges) before or during CMLL execution, following Zhouheng's framework",
+    "Multi-angle CMLL recognition, so you can recognise without an AUF before the alg"
+   ],
+   "infoTopics": [
+    "CMLLEO / EO prediction from CMLL",
+    "Multi-angle CMLL recognition resources"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "CMLL to EO prediction drill: show a CMLL case and its EO state before the alg; the user predicts the post-CMLL EO pattern (arrow, 4-0, 6-flip...); then reveal it",
+    "If the app links to rouxcubing.com tabs, link to https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=3, not the broken localhost URL. The site owner could be told about the bug"
+   ],
+   "license": "Not applicable (not reachable). rouxcubing.com footer: 'Copyright RouxCubing.com 2026'. Link only.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/localhost_notes.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/localhost_cmlleo_on_rouxcubing.txt (+ .html, .png), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/rouxcubing_othercmll.txt"
+  },
+  {
+   "key": "https://enbyne.tech/tools/laser",
+   "url": "https://enbyne.tech/tools/laser",
+   "title": "LaSEr v0.1 (Jade's LSE trainer)",
+   "author": "Jade (enbyne.tech)",
+   "kind": "trainer-tool",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner to advanced (full LSE and 4c for learners; EOLR, EOLR-b and misoriented centres for advanced)",
+   "summary": "A static Tailwind page with 7 ES modules (lse.js, then lse/frontend, globals, cube, solver, scrambler and dict). I downloaded and read them all, then drove the trainer with Playwright. I ran the page's own code in the browser only. Model: 6 LSE edges, a centre offset and a U offset packed in a 32-bit int; moves M, M', M2, U, U', U2, or QTM-only. Practice types: Full LSE; 4a (EO relative to centres; misoriented centres accepted); EOLR (EO plus the UL/UR pieces paired in DF+DB, UF+UB or UL+UR); EOLR-b (EO plus UL/UR solved relative to the corners); and 4c (random 4c states to full solve). Settings: Only use quarter turns, Always show solution (otherwise solutions stay hidden until you solve), Max solutions (8), colour pickers for all 6 faces, Show button controls, key bindings (defaults 8=U', 9=U, 0=U2, 3=M', 2=M, 1=M2, j=reset, Enter=new), Show backside, Show bottom, Highlight UL/UR edges. EOLR settings: Allow misoriented centers in scrambles, Allow misoriented centers in solved states, Start with random AUF, and 'Possible EO states' as integer weights. Defaults are 0-0:1, Arrow:8, 1F-1B:8, 4-0:1, 0-2:1, 2LR-2:2, 2FB-0:2, 2BL-2:4, 2BL-0:4, 6-flip:1, which sum to 32 (all even-parity EO states, so the default is uniform). Settings persist in localStorage. Session: Scramble shows a case on a flat net; the scramble text is never shown. You solve with big on-screen M/M'/U/U' buttons (touch handlers) or keys. Reaching the target bolds the move line and reveals all optimal solutions with move counts. Reset replays the case. Stats: solves, your average moves, average optimum, and average efficiency (optimum/yours, %). Measured over 40 cases per mode, first-solution length: Full LSE 7-13 (mean 10.1), 4a 1-8 (4.5), EOLR 4-10 (6.8), EOLR-b 4-11 (6.9), 4c 1-7 (4.1). The shown solution solved the displayed case in 30/30 cases per mode. A U U' detour lowered efficiency to 92.9% as expected. The broken misoriented-centre setting noted on resources.rouxers.com is confirmed and root-caused. With 'Allow misoriented centers in scrambles' off, 19/60 EOLR cases still had misoriented centres (Full LSE 9/40, 4a 16/40, EOLR-b 15/40). getRandomMC itself is correct. The cause is in dict.js: loopDict stores the neighbours of the solved state with an empty move list, so every dictionary solution drops its final move ('M U' gives \"U'\" instead of \"U' M'\"). The case is built as the inverse of that truncated solution, so the real case gets an extra move. That randomly flips the centre parity, the AUF and even the EO pattern: with only 6-flip weighted, just 42/60 cases were 6-flip. The solutions shown remain correct for the case actually shown. <M,U>-optimal EOLR-b for those 6-flip cases was 9-14 STM, mostly 9-11. Same author as the enbyne.tech EOLRb trainer (deep-web-4).",
+   "drills": [
+    "Full LSE from random states with optimal-solution feedback and an efficiency score",
+    "4a EO only, with or without misoriented centres",
+    "EOLR (UL/UR into any opposite pair of slots) and EOLR-b (UL/UR solved)",
+    "4c only: random M-slice permutations to solved",
+    "Weighted EO-state practice: raise the weight of the weak EO patterns (e.g. 6-flip, 2BL-0, 2LR-2)",
+    "QTM-only mode to learn quarter-turn-friendly solutions",
+    "Solve blind to the answer (hidden until solved), then compare with all optimal solutions"
+   ],
+   "infoTopics": [
+    "Definitions of the LSE sub-targets: 4a, EOLR (any opposite pair), EOLR-b, 4c",
+    "EO pattern names: 0-0, Arrow, 1F-1B, 4-0, 0-2, 2LR-2, 2FB-0, 2BL-2, 2BL-0, 6-flip, and their natural frequencies",
+    "Misoriented centres, in scrambles and as an accepted end state",
+    "Optimal LSE movecounts per sub-step"
+   ],
+   "algSets": [
+    {
+     "name": "LSE EO states (4a / EOLR / EOLR-b input classes)",
+     "caseCount": "10 named EO patterns; 32 EO states with default weights 1/8/8/1/1/2/2/4/4/1",
+     "notes": "Intuitive; solutions computed by BFS over <M,U>, no stored algs"
+    },
+    {
+     "name": "4c",
+     "caseCount": "random M-slice permutations with AUF",
+     "notes": "Full-solve target"
+    }
+   ],
+   "appIdeas": [
+    "One LSE trainer with five targets (Full, 4a, EOLR, EOLR-b, 4c) and shared settings, as here",
+    "Per-pattern weight sliders (or chips with a frequency) for EO states, defaulting to natural frequencies, plus a 'weak cases' auto-weighting from the user's history",
+    "Hidden-until-solved optimal solutions and an efficiency metric (optimal/yours) tracked over time per sub-target",
+    "Touch-first controls: four large M/M'/U/U' buttons (M2/U2 by double tap) and a keyboard layout option for tablets with keyboards",
+    "'Highlight UL/UR edges' toggle for beginners learning 4b",
+    "Correctness lesson: generate a random target state first, then solve it with a verified solver, and assert in unit tests that each generated case meets the filters (centre orientation, AUF, EO class). Never build a case as the inverse of a possibly truncated solution",
+    "Ship precomputed optimal tables (EOLR/EOLR-b/4c) instead of an on-device BFS"
+   ],
+   "license": "No licence, terms or source repository found. The JS is readable on the site but unlicensed, so reimplement the ideas and do not copy code. Credit Jade (enbyne.tech).",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/laser_notes.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/laser_test_log.txt, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/enbyne_laser.txt (+ .html, .png), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/laser_options_open.png, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/laser_session.png, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/laser-files/ (lse.js and lse/*.js)"
+  },
+  {
+   "key": "https://cuar03.github.io/web/3x3/eolrb/index.html",
+   "url": "https://cuar03.github.io/web/3x3/EOLRb/index.html",
+   "title": "non-MU EOLRbs | cuar03",
+   "author": "Neo (cuar03)",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "advanced (EOLRb)",
+   "summary": "One static HTML table (HTTP 200) using cubing.js twisty-player. Each case is drawn with an LSE-only stickering mask ('EDGES:-O-O-O-O----, CENTERS:-I-I--'), setup 'x2 y', and the alg used as the setup anchored at the end. It lists EOLRb cases whose best algs are not <M,U>-generated, which is why the rouxers hub says they are 'missing in trainers'. Purple lines are one-handed alternatives. 6-flip, with three sub-cases. (a) One LR edge on U, the other in DF: R U' r' U' M' U r U r' | r' F R U M' U' R' F' R, OH r' U r U M' U' r' U' R and (U) r U' r' U' M U r U R'. (b) One on U, the other in DB: r' F R U M' U' R' F' R (OH (U) r U' r' U' M U r U R') | R U' r' U' M' U r U r'. (c) UL/UR adjacent: r' F R U M' U' R' F' r U2 M' (OH r' U r U M' U' r' U' r U2 M') | R U' r' U' M' U r U R' U2 M'. '1/1f', UF/DB adjacent: R' F R U M' U' R' F' r (OH R' U r U M' U' r' U' r) | r U' r' U' M' U r U R'. '1/1b', UB/DF adjacent: r' F R U M U' R' F' R (OH r' U r U M U' r' U' R) | R U' r' U' M U r U r'. That is 5 cases, 10 two-handed algs and 6 OH alternatives, all variations of two skeletons: r' F R U M(') U' R' F' R/r and R U' r' U' M(') U r U r'/R'. For comparison, <M,U>-optimal EOLR-b for 6-flip cases on enbyne's laser was 9-14 STM, mostly 9-11. The 2H algs here are 9-11 moves, so the gain is ergonomics rather than movecount. The site's shared schemes.js also defines CMLL comparison stickerings (O, H, P, U1, U2, T1, T2, S1, S2, A1, A2, L1, L2 sprites), so other cuar03 sheets exist. The site root and /web/3x3/ return 404.",
+   "drills": [
+    "Learn the two alg skeletons and their M/M' and r/R endings, then map each 6-flip and 1/1 sub-case onto them",
+    "Recognise 6-flip EOLRb sub-cases by where the LR edges sit (U + DF, U + DB, UL/UR adjacent)",
+    "OH: drill the purple F-less variants (r' U r U M' U' r' U' R)"
+   ],
+   "infoTopics": [
+    "Why some EOLRb cases are better with r/R/F moves than with <M,U>",
+    "EOLRb case naming: 6-flip, 1/1f, 1/1b, and LR edge placement",
+    "2H versus OH alg choice for LSE"
+   ],
+   "algSets": [
+    {
+     "name": "Non-<M,U> EOLRb (Neo / cuar03)",
+     "caseCount": "5 cases (6-flip x3, 1/1f x1, 1/1b x1); 10 2H algs + 6 OH alternatives",
+     "notes": "Two skeletons: r' F R U M' U' R' F' R and R U' r' U' M' U r U r'. Each case is shown with an LSE-only twisty-player mask"
+    }
+   ],
+   "appIdeas": [
+    "Let the EOLRb trainer show a curated non-<M,U> alg next to the <M,U>-optimal BFS solutions for the cases where it is more ergonomic (6-flip, 1/1f, 1/1b)",
+    "OH flag per alg (shown here in purple) so the trainer can pick OH-friendly algs when OH mode is on",
+    "LSE-only stickering in diagrams (show only M-slice and UL/UR edges and the centres), as in the twisty-player mask used here",
+    "Group algs by skeleton in the learning screen to cut memorisation"
+   ],
+   "license": "No licence found. LICENSE/README were absent at the repo root on raw.githubusercontent.com (main and master) for cuar03/cuar03.github.io; the GitHub page returned 403 through the proxy and the API is not enabled for this session. Treat as all rights reserved. Short algs are close to facts: reproduce them only with credit to Neo, or re-derive them, and link the page.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cuar03_eolrb.txt (+ .html, .png), /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-6/cuar03_schemes.js"
+  }
+ ]
+}

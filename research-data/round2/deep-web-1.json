@@ -1,0 +1,315 @@
+{
+ "resources": [
+  {
+   "key": "https://www.facebook.com/groups/1482303418674425",
+   "url": "https://www.facebook.com/groups/1482303418674425/",
+   "title": "Roux Facebook group (linked from rouxcubing.com Home and MISC > SOCIAL MEDIA)",
+   "author": "Roux community (group admins not visible)",
+   "kind": "community",
+   "accessible": false,
+   "rouxRelevance": "roux-mixed",
+   "level": "all levels (community)",
+   "summary": "INACCESSIBLE: login wall. Playwright through the agent proxy got HTTP 200, but the page redirected to https://www.facebook.com/login/?next=...groups/1482303418674425/ and showed only the 'Log into Facebook' form. Group name, description, rules, member count and posts are not visible without an account, and I did not log in. A web search found nothing that names this group ID. Second-hand only, from the r/rouxcubing 'Resource Thread (2022 Edition)' by u/SciK3: 'the Roux Method Speedsolver's Discord and Facebook Group ... host weekly competitions with 3x3, OH, 4x4, and FMC only using Roux and Roux like methods. A 10$ SCS gift card is given to a random participant', and they help with Roux questions at every level. That matches the Weekly Competition / SpeedCubeShop sponsor pattern seen elsewhere in this crawl. Not verified on the group page itself.",
+   "drills": [
+    "(second-hand) Weekly Roux-only competitions: 3x3, OH, 4x4 (Meyer and similar Roux-style big-cube methods) and FMC"
+   ],
+   "infoTopics": [
+    "Community Q&A for Roux at every level (second-hand)",
+    "Weekly Roux-only competition events (second-hand)"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "A link-out only 'Community' card (Facebook group, Discord, subreddit), opened in the browser. Nothing in the app depends on the group's content",
+    "If the weekly-comp organisers agree, a 'This week's Roux comp' entry that loads the official scramble set and lets the user time 3x3/OH/4x4/FMC Roux solves locally, then submit on the organisers' own platform. Needs the organisers' permission; do not scrape"
+   ],
+   "license": "Facebook Terms of Service; group posts belong to their authors. Behind login, nothing reusable. Link only.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-1/facebook-group.txt"
+  },
+  {
+   "key": "https://www.reddit.com/r/rouxcubing",
+   "url": "https://www.reddit.com/r/rouxcubing/",
+   "title": "r/rouxcubing subreddit (feed, About/rules, wiki, pinned 'Resource Thread (2022 Edition)')",
+   "author": "Founded by u/SciK3 and u/ISwearImKarl (Mar 17 2019); community posts",
+   "kind": "community",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "all levels; most posters are beginners or intermediates (sub-50 to sub-16)",
+   "summary": "Rendered with Playwright: the subreddit feed, About, the wiki index, 3 wiki subpages and the pinned resource thread. Facts: created Mar 17 2019, public, about 3,856 members. A 'Just, thank you.' post by co-founder u/ISwearImKarl (Oct 2026) says the sub gets about 300 weekly visitors, has no active moderation, and the founders left about 6 years ago. Rules: (1) Must be related to Roux, (2) Advertising, (3) Keep criticism constructive, (4) Correct flair (Other, PB, News, Tutorial, Help, Solves). WIKI (WIP, last revised 6 years ago by SciK3): a Beginner Tutorial (column-by-column FB; SB the same way; 2-alg CMLL with Sune + J-perm, or 9-alg 2-look, or 42; LSE as 4a arrow EO, 4b M' U2 M / M U2 M' insert plus M2, 4c cycles/dots/rows/bars; links to Kian and CriticalCubing videos). 'Advanced and Obscure Techniques': FB recons with breakdowns (Kian 5.93: R2 r' F B' R' U R' F; CriticalCubing 6.00: r u' F U B U' B; Kangaroux 5.09: D' U' r U' L'), non-matching blocks, KCLL/CMLLEO, Pinkie Pie (OLLCP to skip 4a+4b), TCMLL, Tyrannical Caterpillar, 42/Briggs, EOLR, EOLRb, UFUB-first, DFDB-first giving EPLL. 'Similar Methods and Variations' lists only ZBroux, SpeedHeise2, 42, WaterRoux and Pikashit. RESOURCE THREAD (2022): curated links for Kian's tutorial, SpeedCubeDB (SBLS, CMLL, EO/4a; a later comment says speedcubedb.com 'has ceased to exist'), the RMS Roux MegaDoc, onionhoney Roux trainers ('trainers for every step of roux from First Square to First Block + DR to EOLRb to 4c'), cubegrass, TrainYu; F2B efficiency videos (Kian, CriticalCubing, Alex Lau FB, Iuri line blockbuilding, Kian FB SpeedBLD, multislotting, pair choice); Zhouheng FB+DR PDF, Kian and SCDB SBLS; CMLL sheets (SCDB, Anto 2H/OH/2-look, Teri, Kian); CMLL variants (ACRM recognition, NMCMLL, Conjugated CMLL, ACMLL, Pinkie Pie, TCMLL, Tyrannical Caterpillar, CMLLEO, a CMLL to EO-change visualiser); LSE (Kian EO, Anto lefty/righty EO flowchart, EOLR intro/doc, a Jeremy EOLRb trainer, Louis EOLR/EOLRb sheet for righty and lefty M, 4c recognition BU vs DFDB vs EZ4c; a 2023 comment says GodCubing now recommends DFDB); big cubes (Meyer the most common, plus CR4, Teri, Stadler and Lewis; TDM parity CMLL and parity 4c); Square-1 Lin method (Roux-like, not 3x3). RECENT FEED (Jul to Oct 2026), a good list of real user needs: 'Guys are there a app or something that can help me improve my fb sb cause im sub 25'; a sub-40 plateau ('all that I find out there is improve FB and SB. But I don't understand how'); 'Wanting to get better at planning first block on inspection' (asks for videos that give the scramble and talk slowly through the plan); 'Slowing down Kian: first 10 of 100 solves' (a user wrote out scrambles and FB colours so others can inspect, plan, then compare with Kian); Antisune 3-sticker CMLL recognition confusion; 'Apps for smart cubes?' (wants Roux insights; Cubeast needs a subscription); FBLP resources; cube choice for M-slice; 'lack of proper tutorials for roux'; a recon post with per-step STM/TPS and an accidental EOLRb then L4E; teaching a 5-year-old Roux. The main HTML, links and screenshot are saved too: reddit-rouxcubing.html/.links.txt/.png, reddit-resource-thread.txt, reddit-about.txt, reddit-wiki.txt, reddit-wiki-beginnertut.txt, reddit-wiki-advancedtut.txt, reddit-wiki-altmethods.txt.",
+   "drills": [
+    "Inspection planning of first square / full FB, then compare with a strong solver's solution for the same scramble (users do this by hand with Kian's 100-solves video)",
+    "Slow solves for efficiency; post a recon with per-step STM and TPS for critique",
+    "Learn 4a EO intuitively ('dont just put alg to case, try to understand how each case is being solved')",
+    "EOLR, then EOLRb (combine 4a+4b); 4c recognition with BU (easier) and then DFDB (faster)",
+    "SB last pair and SBLS study with algsheets (SpeedCubeDB, Kian)",
+    "CMLL progression: 2 algs (Sune + J-perm), then 9-alg 2-look, then 42; later CMLLEO/KCLL alternatives for EO influence",
+    "FB SpeedBLD (Kian) and 'influencing' with SB",
+    "Weekly Roux-only competitions (3x3, OH, 4x4, FMC) via the Discord/Facebook group"
+   ],
+   "infoTopics": [
+    "Roux step overview and beginner path (FB column-by-column, SB, CMLL 2/9/42, LSE 4a/4b/4c)",
+    "Top-solver FB recons with move-by-move breakdowns",
+    "Non-matching blocks",
+    "CMLL variants: CMLLEO/KCLL, Pinkie Pie, TCMLL, Tyrannical Caterpillar, ACMLL, NMCMLL, Conjugated CMLL, ACRM recognition",
+    "LSE variants: EOLR, EOLRb, UFUB-first, DFDB-first (EPLL), 4c recognition BU / DFDB / EZ4c",
+    "Roux-like methods: 42/Briggs, ZBroux, SpeedHeise2, WaterRoux, Pikashit",
+    "Big-cube Roux: Meyer, CR4, Teri, Stadler, Lewis; parity CMLL and parity 4c",
+    "Square-1 Lin method (Roux-like; not 3x3)",
+    "Hardware advice for Roux (M-slice friendly cubes); smart-cube apps for Roux"
+   ],
+   "algSets": [
+    {"name": "CMLL", "caseCount": "42", "notes": "beginner path: 2 algs (Sune + J-perm), then 9 (2-look), then 42"},
+    {"name": "2-look CMLL", "caseCount": "9", "notes": "7 orientation + 2 permutation"},
+    {"name": "SBLS / SB last slot", "caseCount": "not stated (SpeedCubeDB had SB last slot cases)", "notes": "Kian SBLS doc, SCDB SBLS"},
+    {"name": "EO / 4a", "caseCount": "9 (stated in the wiki beginner tutorial)", "notes": "learn intuitively; arrow method for beginners"},
+    {"name": "EOLR / EOLRb", "caseCount": "not stated; EOLRb adds 2 cases per EOLR case (wiki)", "notes": "intuitive; righty and lefty M versions (Louis sheet)"},
+    {"name": "4c", "caseCount": "4 cases (cycles, dots, rows, bars)", "notes": "recognition: BU, DFDB, EZ4c"},
+    {"name": "NMCMLL", "caseCount": "not stated", "notes": "CMLL with non-matching block colours"},
+    {"name": "ACMLL", "caseCount": "not stated", "notes": "CMLL when F2B is not perfectly formed"},
+    {"name": "Pinkie Pie (OLLCP-based)", "caseCount": "large, not stated", "notes": "Alex Lau; skips 4a and 4b"},
+    {"name": "TCMLL / Tyrannical Caterpillar", "caseCount": "not stated", "notes": "DFR corner any orientation; TC inserts FR during the alg"},
+    {"name": "CMLLEO / KCLL", "caseCount": "multiple algs per CMLL case", "notes": "EO influence; used by top solvers per wiki"},
+    {"name": "Conjugated CMLL (42 method)", "caseCount": "not stated", "notes": "Roux-like variant"},
+    {"name": "Parity CMLL and Parity 4c (TDM)", "caseCount": "not stated", "notes": "for Meyer and other reduction-style 4x4"},
+    {"name": "Lin PLL+1 (Square-1)", "caseCount": "not stated", "notes": "Square-1 only; out of scope for a 3x3/big-cube Roux app"}
+   ],
+   "appIdeas": [
+    "Answer the most common feed request ('an app to improve FB/SB at sub-25', 'improve FB and SB but I don't understand how'): an FB/SB coaching loop: scramble, timed inspection, enter or perform the plan, then show the optimal and an ergonomic 'good' solution with a move-by-move explanation, plus the user's running movecount against level targets",
+    "'Study a pro solve' mode: a built-in set of top-solver recons (scramble + FB colour + stage split). The user inspects and plans first, then steps through the pro solution one move at a time with tap-to-restart. This is exactly what u/ScottContini built by hand for Kian's 100 solves. Recons need their authors' permission or the user's own import",
+    "FB inspection-planning lesson that gives the scramble up front and walks the plan slowly, one decision per step (users say videos go too fast and often omit the scramble)",
+    "CMLL recognition drill with a selectable sticker scheme (for example 3-sticker 'UFL front, UFR right, UBR up' as in CriticalCubing), including the matching scheme for the mirror group. A user worked the Antisune mapping out by hand",
+    "Roux splits with a smart cube without a subscription (users ask for Roux insights and note Cubeast is paid)",
+    "Recon sharing format: steps labelled FB / SB / CMLL / EOLR(b) / L4E with STM and TPS, as the community already posts. Export it as text for Reddit/Discord",
+    "A 'Techniques library' screen with short, sourced explainers for the variants the community catalogues (CMLLEO/KCLL, NMCMLL, ACMLL, Pinkie Pie, TCMLL, TC, EOLR/EOLRb, UFUB, BU/DFDB/EZ4c) tagged by level, so advanced users have a map. Mark novelty techniques as such, as the wiki does",
+    "Big-cube Roux module scope: Meyer first (most common), then parity CMLL and parity 4c drills. Skip Square-1 Lin; it is not a cube-Roux method",
+    "Lefty/righty M support in LSE content and trainers (Louis' EOLR sheet and Anto's EO flowchart have both)",
+    "Glossary and notation onboarding: Reddit and Ruwix commenters struggle with Roux jargon (FB, SB, CMLL, LSE, 4a/4b/4c, EOLR, MC)"
+   ],
+   "license": "Reddit User Agreement; posts and comments belong to their authors, and wiki pages are user-written. No open licence, so nothing can be copied into the app without each author's permission; the API terms also restrict reuse. Link out; take ideas only.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-1/reddit-rouxcubing.txt"
+  },
+  {
+   "key": "https://www.cubingmethods.com/en/roux/tutorial",
+   "url": "https://www.cubingmethods.com/en/roux/tutorial",
+   "title": "Roux tutorial - cubingmethods.com (listed on rouxcubing.com as 'CubingMethods Tutorial (in progress)')",
+   "author": "unknown (not retrievable)",
+   "kind": "guide-text",
+   "accessible": false,
+   "rouxRelevance": "unknown",
+   "level": "beginner (per rouxcubing.com placement under ROUX FOR BEGINNERS)",
+   "summary": "INACCESSIBLE: the site's own bot protection. curl got HTTP 429 with 'x-vercel-mitigated: challenge' (Vercel Security Checkpoint). Playwright, tried twice (8 s and 20 s waits), got 429 'Vercel Security Checkpoint - Failed to verify your browser, Code 21'. WebFetch also got 429. The agent proxy did not block it; the host challenge did. I did not try to get around the challenge, and a public-archive lookup was refused by the session's permission policy, so it was not pursued. A web search turned up no cubingmethods.com result. All we know is from rouxcubing.com: a beginner text tutorial marked 'in progress'. Saved: the challenge page HTML/text/screenshot and response headers.",
+   "drills": [],
+   "infoTopics": [],
+   "algSets": [],
+   "appIdeas": [
+    "None until the content can be read. Re-check later from a normal browser; if it is a full beginner Roux tutorial, compare its step order with the app's beginner curriculum"
+   ],
+   "license": "Unknown (page not readable). Treat as all rights reserved.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-1/cubingmethods-roux-tutorial.txt"
+  },
+  {
+   "key": "https://grrroux.free.fr/method/intro.html",
+   "url": "http://grrroux.free.fr/method/Intro.html",
+   "title": "Gilles Roux's original Roux method pages (Intro, Step 1 to 4, Miscellaneous, plus James Straughan's NMCMLL table)",
+   "author": "Gilles Roux (inventor of the method); NMCMLL table by James Straughan",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced ('for experienced cubers'); also FMC",
+   "summary": "The primary source, fetched with curl (static HTML): Intro, Step_1, Step_2, Step_3, Step_3j (NMCMLL), Step_4, Miscellaneous, plus the home page and the beginner page. It dates from about 2003; the last note says 'Updated 2010/05'. Animations used a Java RubikPlayer applet that no longer runs. INTRO: four steps (1x2x3 on L; opposite 1x2x3; 4 remaining corners; 6 edges + 4 centers); standard notation with r = R M'; standard colour scheme. STEP 1: build on L if right-handed and plan about 10 moves in the 15 s inspection. Usually start with a 1x2x2, or two opposite edges for a remote 1x1x3, or two corner-edge pairs inserted together; 'the center may be the last piece'. Always use the same colours at first (Step 2 needs familiar colours), then grow colour neutral. Use the quarter-turn metric for speed. STEP 2: build a 1x2x2 (pair + missing edge), then the last pair. Each of the three parts should take under 2 s (5 s total). Use only U, R, M and r to keep the left-hand grip and avoid rotations. Never switch to the other 1x2x2 once you have spotted pieces. A horizontal-slice variant uses U/R/E/u. Lookup tables are given 'for people in lack of inspiration' (do not memorise). STEP 3 (CMLL): 8 orientation patterns (A to H) x 6 permutations, so 48 cells that reduce to 24 unique sequences by symmetry and inverses. Learn progressively, with two easy sequences (orientation + permutation) for unknown cases; it takes months. Free M slice means an R at either end can be r, l or L. Gives the A to H x 1 to 6 alg grid and an alternative 'fast sequences I use' grid. Possible improvement: non-matching blocks with L/R-colour recognition, via James Straughan's table (Step_3j: about 84 entries labelled A1-1 to H3-4, keyed by where the L/R stickers sit). STEP 4: EO definition (an edge is good if solvable in <U,D,L,R,F2,B2>). 4a: iterate one of three patterns (M' U2 M', M2, M' U M'). 4b: solve UL/UR keeping EO (U and M2 are free; an M/M' must be followed by U2 M/M'). 4c: 3 cases (U2 M U2, U2 M2 U2, E2 M E2). About 3 s total. Tips: orient centers early with r at the end of SB; recognise EO during CMLL; merge 4a and 4b; do not AUF too early before 4c. Optimisation: 28 special cases (9 EO pattern groups) where the L/R edge positions let you shorten EO by changing the final center orientation. MISCELLANEOUS: movecount by time budget (15 s about 48 moves, 30 s 43, 1 min 40, 5 min 37, 2 h under 28). Roux won the European Championship 2006 FMC and Belgian Open 2007 with it. Per-step skill table (speed / instant and progressive recognition / imagination) with target times: Step 1 2 s, Step 2 4 s, Step 3 2 s, Step 4 3 s. Links to Martin Mairhofer, Norbert Hantos (Hungarian) and Thomas Stadler (German). The site also has a commutator-based 'Easiest Method for Beginners', which is not Roux, plus cube workshop and video pages (not crawled).",
+   "drills": [
+    "Plan the whole first block in 15 s inspection (about 10 moves); practise with one fixed colour set first, then add neutrality",
+    "SB pace drill: 1x2x2 pair, missing edge and last pair, under 2 s each, only <U,R,M,r>, no mid-step switching",
+    "Look at the SB 1x2x2 and last-pair tables a few times until the cases become intuitive (not memorised)",
+    "CMLL learned progressively, with a 2-look fallback (orientation + permutation) for unknown cases",
+    "LSE 4a by iterating three patterns; then 4b under the EO-preserving rule; then 4c in 3 cases",
+    "Advanced LSE: orient centers with r at the end of SB; predict EO during CMLL; merge 4a+4b",
+    "FMC-style untimed Roux solves with movecount goals by time budget"
+   ],
+   "infoTopics": [
+    "Method origin and design rationale (Petrus and Waterman influences; why build on L; right-hand ergonomics)",
+    "Inspection strategy and colour choice vs colour neutrality",
+    "Quarter-turn metric for speed optimisation",
+    "SB construction strategy and <U,R,M,r> move restriction",
+    "CMLL naming system A to H x 1 to 6 (the original naming that Mark Fiend and others reuse)",
+    "Non-matching blocks and L/R-sticker recognition (NMCMLL)",
+    "Edge-orientation definition for LSE",
+    "LSE 4a/4b/4c procedure, 28 EO optimisation cases",
+    "Movecount vs thinking time; FMC with Roux",
+    "Skills profile and target time per step"
+   ],
+   "algSets": [
+    {"name": "CMLL (Roux original grid, orientation A-H x permutation 1-6)", "caseCount": "48 cells, 24 unique sequences (42 non-trivial cases)", "notes": "plus a second grid of 'fast sequences I use'"},
+    {"name": "SB 1x2x2 building table (R layer)", "caseCount": "40 (4 pair configurations x 10 edge positions)", "notes": "<M,U,R,r> solutions; 'fast but not optimal'"},
+    {"name": "SB last pair table", "caseCount": "35 (6 corner states x listed edge positions)", "notes": "intuitive reference"},
+    {"name": "LSE 4a EO patterns", "caseCount": "3 categories (M' U2 M', M2, M' U M')", "notes": "applied iteratively"},
+    {"name": "LSE 4c", "caseCount": "3", "notes": "U2 M U2, U2 M2 U2, E2 M E2"},
+    {"name": "LSE EO optimisation (center-orientation change)", "caseCount": "28 (9 groups)", "notes": "some for speed, some for FMC"},
+    {"name": "NMCMLL table (James Straughan)", "caseCount": "about 84 entries (A1-1 to H3-4; 83 parsed)", "notes": "works for matching and non-matching blocks; keyed by L/R sticker pattern"}
+   ],
+   "appIdeas": [
+    "A 'History / origins' screen quoting short attributed excerpts from Gilles Roux's design rationale (with permission or as brief quotation), linking to the original pages",
+    "Offer the original A-H x 1-6 CMLL naming as a switchable naming scheme next to the modern O/H/Pi/U/T/S/As/L names, so old sheets and Mark Fiend-style guides stay usable",
+    "SB pace targets: Gilles' '1x2x2 pair, missing edge, last pair under 2 s each' and the per-step targets (2/4/2/3 s) as optional split goals in the stats screen",
+    "'Time-budget' mode (FMC-lite): give 15 s / 30 s / 1 min / 5 min of thinking and compare the user's movecount with Gilles' table (48/43/40/37)",
+    "LSE center-orientation option: trainer for the 28 'change final center orientation' EO shortcuts, and an 'orient centers with r at the end of SB' drill",
+    "NMCMLL recognition via L/R sticker patterns (connect to the feature map's v1 NMCLL item). The table's structure is a good test oracle for case mapping",
+    "SB 'one fixed colour set first' guidance in onboarding, with a colour-neutrality ladder later"
+   ],
+   "license": "No licence or copyright notice anywhere on the pages, so all rights reserved by default. Facts and algorithms (move sequences) can be restated; do not copy prose or images. Ask Gilles Roux before quoting at length.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-1/grrroux/"
+  },
+  {
+   "key": "https://www.markfiend.com/roux.html",
+   "url": "http://www.markfiend.com/roux.html",
+   "title": "Learning the Roux method - markfiend.com",
+   "author": "Mark Fiend (markfiend), personal page",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner to intermediate (the author averaged about 40 s, PB 27.77)",
+   "summary": "A personal learning page, fetched with curl. It is about 2013 to 2014 (it cites a 5.55 s world record). Step 1: a 3x2x1 block on L (the author uses red D, yellow L), with a tip to plan all of it in inspection and execute without looking. Step 2: the opposite block with only R, r, M and U. Step 3, CMLL: uses Gilles Roux's A-H x 1-6 classification with nicknames (A skip, B Antisune, C Sune, D Bowtie, E Headlights, F Chameleon, G Superman, H 'H'). The 6 permutations are no swap, swap back, right, front, left and diagonal. Per-group recognition hints: B/C look for an opposite-colour pair in the U face, then check the F- or R-side sticker of UFR. D compares the U-face diagonal, then the F sticker of UFR against UBR. E/F compare the B-row U stickers and the U-row F stickers. G looks for matching pairs. H: H2/H4 and H3/H5 are the same case under U2. Each case has a sticker diagram and the author's alg, and sometimes a decomposition ('U' antisune U2 sune', 'F sexy-move x3 F''). It recommends 2-look CMLL first, after Waffle-Jim's guide: one alg per orientation, then an A case to permute; 2-look algs are highlighted. Step 4, L6E: EO definition, and the invisible DB edge's orientation is inferred because the number of bad edges is even. Example algs for 2 bad (adjacent/opposite), 4 bad (2U+2D, 4U), 3U + DF bad (M' U M'), 3U + DB bad (M U M), all 6 bad (R U' r' U' M' U r U r'). 4b: put UL/UR diagonally opposite, M' U2 M' to bring both into one layer, M2 to put them in D, then AUF and M2. 4c: intuitive with E2/M2/U2. UI detail: all diagrams are generated server-side from compact sticker strings (u_svg.php?c=<12 side stickers>, several strings for 'all four AUF views', and l6e_svg.php?e[]=ub&e[]=ul to grey out bad edges).",
+   "drills": [
+    "Plan the whole first block in inspection and execute it without looking",
+    "SB with only R, r, M, U",
+    "2-look CMLL first (one alg per orientation + one A-case permutation alg), then full CMLL",
+    "Infer DB edge orientation from parity while viewing only U and F",
+    "LSE 4a examples, then 4b (diagonal setup, M' U2 M', M2) and intuitive 4c"
+   ],
+   "infoTopics": [
+    "CMLL classification A-H x 1-6 with nicknames and per-group recognition cues",
+    "Two-look CMLL strategy",
+    "Alg decomposition into known triggers (sune, antisune, sexy-move)",
+    "LSE edge-orientation definition and parity inference for the hidden DB edge",
+    "4b and 4c procedures"
+   ],
+   "algSets": [
+    {"name": "CMLL (A-H x 1-6 naming)", "caseCount": "42 (A1 skip; H2=H4, H3=H5 under U2)", "notes": "one personal alg per case, some with trigger decompositions"},
+    {"name": "Two-look CMLL", "caseCount": "about 9 (7 orientation + A2/A6 permutation)", "notes": "highlighted in green on the page"},
+    {"name": "L6E EO example cases", "caseCount": "8 examples (2, 4 and 6 bad-edge cases)", "notes": "others reduce to these with M2 and U"}
+   ],
+   "appIdeas": [
+    "Per-group 'how to recognise' cue cards for CMLL (which two stickers to compare first, then the tie-breaker), shown in the recognition drill after a miss",
+    "Show alg decompositions into named triggers (sune, antisune, sexy, sledge) on the case sheet: easier memory and 2-look fallbacks",
+    "LSE EO lesson: 'you can see U and F only; the number of bad edges is even, so infer DB'. Make a quiz that hides DB and asks for its state",
+    "Compact sticker-string encoding for case diagrams (12 side stickers + U mask; several strings for the four AUFs). It suits a Compose Canvas renderer and lets user-made cases be shared as short text",
+    "Offer a 'personal alg list' that the user can highlight as 2-look or full and export, as Mark did by hand"
+   ],
+   "license": "No licence or copyright notice; personal site, so all rights reserved by default. Algorithms are facts; do not copy prose or diagrams.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-1/markfiend-roux.txt"
+  },
+  {
+   "key": "https://ruwix.com/the-rubiks-cube/different-rubiks-cube-solving-methods/roux-method",
+   "url": "https://ruwix.com/the-rubiks-cube/different-rubiks-cube-solving-methods/roux-method/",
+   "title": "Solve the Rubik's Cube with the Roux Method - Ruwix Tutorial",
+   "author": "Article by J8Cubes on Ruwix; CMLL algs and case names from Kian Mansour's CMLL list",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner",
+   "summary": "Fetched with curl (static HTML, ad-supported). Overview: invented by Gilles Roux in 2003; 4 steps FB, SB, CMLL, LSE/L6E; 'arguably the best OH method'; average about 48 moves for speedsolving and 28 for FMC. FB: two approaches, DL edge then two pairs ('usually inefficient', what beginners do) or blockbuilding (better long term, plannable in inspection), about 7 to 8 moves with fixed colours. SB: same block on R without breaking FB, easiest as DR edge then pairs, M moves allowed. CMLL: like COLL but ignoring the M slice (COLL algs work for CMLL, not the reverse). It recommends all 42, with a 2-look fallback of Sune/Antisune to orient and Jb/Y perms to permute. The 42 algs are grouped as O (2), H (4), Pi (6), U (6), T (6), S (6), As (6), L (6), with case names (Columns, Rows, Right/Left Bar, Back/Forward Slash, X Checkerboard, Front/Back Row, Mirror, Inverse, Pure, Front/Back Commutator, Diagonal, Adjacent/Diagonal Swap) and AUF prefixes. LSE: summarises Roux's original proposal (orient, UL/UR, M slice). The article then teaches a beginner variant: F/B centers, then insert DF/DB (M' U2 M, M U2 M', M' U M ...), then orient U edges (MU-only, or faster MURr algs such as r U R' U' M U R U' R'), then permute U edges with M-slice Ua/Ub/Z/H perms. It admits this is 'quite inefficient'. Comments: one user is lost in the jargon, another answers 'better to start off with CFOP', another calls it clunky, and one learned Roux from it. The sidebar and links point to CFOP/ZZ/F2L pages, which are not Roux.",
+   "drills": [
+    "Plan FB in the 15 s inspection with blockbuilding rather than DL-then-pairs",
+    "2-look CMLL with Sune/Antisune + Jb/Y-perm as a starter, then full 42",
+    "Beginner LSE: centers, DF/DB, EO, then M-slice EPLL"
+   ],
+   "infoTopics": [
+    "Roux overview, history and stats (2003, 48 moves speed, 28 FMC, OH suitability)",
+    "FB approaches (pairs vs blockbuilding) and SB without breaking FB",
+    "CMLL vs COLL",
+    "CMLL group naming O/H/Pi/U/T/S/As/L (Kian Mansour's names)",
+    "Beginner LSE variant via DF/DB first and M-slice EPLL"
+   ],
+   "algSets": [
+    {"name": "CMLL (Kian Mansour naming)", "caseCount": "42 (O 2, H 4, Pi 6, U 6, T 6, S 6, As 6, L 6)", "notes": "one alg per case with AUF"},
+    {"name": "2-look CMLL fallback", "caseCount": "4 (Sune, Antisune, Jb perm, Y perm)", "notes": "uses CFOP PLL algs for permutation"},
+    {"name": "Beginner LSE EO (MU-only and MURr)", "caseCount": "3 cases (0, 2 opposite, 2 adjacent oriented)", "notes": "after DF/DB insertion"},
+    {"name": "M-slice U-edge perms", "caseCount": "4 (Ua, Ub, Z, H)", "notes": "beginner LSE ending"}
+   ],
+   "appIdeas": [
+    "Avoid this page's beginner LSE path (DF/DB first + EPLL) in the curriculum; the community path is 4a/4b/4c then EOLR. At most mention it as a fallback",
+    "A naming-scheme map for CMLL (Kian O/H/Pi/U/T/S/As/L with case names vs Roux A-H x 1-6 vs nicknames such as Bowtie/Chameleon/Superman), so users can follow any sheet",
+    "An in-app glossary linked from every jargon term (the comments show beginners get lost in FB/SB/CMLL/LSE terms)",
+    "Present 'CMLL vs COLL' and the 4-alg 2-look as a quick on-ramp for CFOP switchers, with no other CFOP content"
+   ],
+   "license": "Ruwix is a commercial, ad-supported site; no licence on the page, so all rights reserved. The CMLL names and algs come from Kian Mansour's list (credit Kian). Do not copy text or images.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-1/ruwix-roux.txt"
+  },
+  {
+   "key": "https://rubiks.fandom.com/wiki/roux_method",
+   "url": "https://rubiks.fandom.com/wiki/Roux_Method",
+   "title": "Roux Method - Rubik's Cube Wiki (rubiks.fandom.com, 'Roux Wikicube page')",
+   "author": "Fandom wiki contributors",
+   "kind": "guide-text",
+   "accessible": false,
+   "rouxRelevance": "unknown",
+   "level": "beginner (per rouxcubing.com placement)",
+   "summary": "INACCESSIBLE: the site's own bot protection. curl and Playwright, tried twice (8 s and 20 s waits), both got HTTP 403 'Just a moment... Performing security verification' (Cloudflare). WebFetch got HTTP 402. The agent proxy did not block it; I did not try to get around the challenge, and a public-archive lookup was refused by the session's permission policy. Content unknown. rouxcubing.com lists it as both a beginner text tutorial and a 'Roux Wiki Page'. Saved: the challenge page HTML/text/screenshot.",
+   "drills": [],
+   "infoTopics": [],
+   "algSets": [],
+   "appIdeas": [
+    "None until readable. If it has a step summary under CC BY-SA, it could feed an attributed glossary; check the page footer first"
+   ],
+   "license": "Not verified. Fandom wiki text is usually CC BY-SA (3.0) unless the page says otherwise; check the footer before reusing anything.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-1/fandom-roux-method.txt"
+  },
+  {
+   "key": "https://www.scheopner.com/cube/index.php",
+   "url": "https://www.scheopner.com/cube/index.php",
+   "title": "How to Solve a Rubik's Cube using the Roux Method - Trevor Scheopner (tutorial + optimal FB/SB/LSE solvers)",
+   "author": "Dr. Trevor Scheopner (theoretical physicist; WCA 2025SCHE11)",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "Novice / Intermediate / Advanced for every step (Novice = knows how to solve; Intermediate from about sub-30; Advanced from about sub-20)",
+   "summary": "A modern (July 2025) and data-driven tutorial, fetched with curl: index, firstblock, secondblock, cmll, lse, three solver pages, notation, laws, resources, plus the non-Roux 'Super Method' pages. OVERVIEW: up-to-date Roux stats (6 of the top 100 3x3 averages and 32 of the top 100 OH; four Rouxers officially sub-6; OH WRs; Worlds 2023/2025 OH wins), and 'Roux's Potential': STM-optimal analysis of each step. Idealised step breakdown: FB 5.5 turns at 9 TPS, 0.61 s, 17% of the solve. SB 12.75 turns at 13 TPS, 0.98 s, 27%. CMLL 10.75 turns at 13 TPS, 0.83 s, 23%. LSE 13 turns at 11 TPS, 1.18 s, 33%. Total 42 turns, 11.7 TPS, 3.60 s (3.71 s if x2y-neutral). 'Achievable turns' and 'solve fraction' are offered as practice targets. FIRST BLOCK: 1,330,560 cases per fixed block, all solved STM-optimally in Python. Optimal mean by neutrality: fixed 6.21 (max 8), y2 5.84, x2y2 5.50, x2y 5.19, full 4.74 (max 6). Advice: get under about 9 moves before working on neutrality, learning y2, then x2y2, then x2y. Novice: L center then two corner-edge pairs; orientation rules for pairing (bottom sticker on the turning face; fix a bad edge with a double turn); insert ends with F or B; under 13 moves; use extra inspection time. Intermediate: '3 pairs of 2' (square & pair) or '2 pairs of 3' (lines); 'Don't cross the line' anti-case; under 10 moves; plan the first square or line. Advanced: nonlinear double pairing, simultaneous (F2 B2) moves, track DR in inspection, under 9 moves. 19 SVG examples, several with 'Meh / Good / Optimal' tiers. SECOND BLOCK: 1,088,640 cases, optimal in <U,R,r,M>: mean 9.96, sd 1.10, median 10, 95th percentile 11, max 14. Novice: DR edge then pairs with open-slot / insert / close-slot, under 22. Intermediate: set up the insertion and pair while inserting, square & pair more common than lines, under 19. Advanced: under 16 (13 possible). 12 examples. CMLL: 2-look 9 algs (7 orientation + J/Y) averages 20.47 moves vs 1-look 10.75. Gives all 42 (43 with solved) with a probability (P) and an algorithm order (O, how many repeats return to start, 'useful for practice'). A 'standard sticker' recognition system: S1 to S4 on UBL, UBR, UFR, UFL. Intermediate formulas use 3 stickers from one angle; advanced formulas add the 4th for any-angle recognition. Recommended learning order: H, Pi, Bowtie, Headlights, Chameleon, Sune, Antisune. LSE: 184,320 states, optimal in <M,U,E2>: mean 11.13, median 11, 95th percentile 14, max 20 (two 20-move states given). Novice LSEa covers the 12 EO cases with nicknames and a systematic 'XA/YB' code (bad U edges, adjacent/opposite, bad D edges, front/back) and a flowchart; hidden DB inferred from parity. LSEb: diagonal setup, M' U2 M(') and M2. LSEc: 4 cases (CW 3-cycle U2 M' U2 M; CCW M' U2 M U2; H M2 U2 M2 U2; Dots M' E2 M E2). Intermediate: optimal EO algs for the 9 non-solved cases (mirrors merged), cancellations between substeps, and DFDB recognition (friend edges, Matching vs Non-Matching Center, 'raising the dots') with a flowchart. Advanced EOLR defers to Kian's guide. SOLVERS (tools): three server-side PHP forms (POST, no client code, no public source found). (1) Roux FB STM Optimal Solver: 24 checkboxes for the DL-edge colour pairs you solve with (choose your neutrality set), scramble in WCA orientation (white top, green front), returns the optimal FB. My test, with a random scramble and DL green-white/blue-white, returned 'r2 B2 M' F' E' B'. (2) Roux SB STM Optimal Solver (<U,R,r,M>): sample 'R2 U2 M' U'' returned 'U' R2'. (3) Roux LSE STM Optimal Solver (<M,U,E2>): sample 'M2 U M' U'' returned 'U M U' M2'. The resources page links the Roux solver stats sheet, Discord, the Rouxers tutorial, Kian's site, grrroux, csTimer, Cube Explorer, VisualCube and reco.nz. Not Roux: 'Super Method' (Thick-V / Last 5 Edges / Last 5 Corners beginner method), 'Laws of the cube' (general cube theory; useful background), notation page. Excluded from Roux content.",
+   "drills": [
+    "FB inspection with extra time at first (beyond 15 s) until all pieces can be found and planned",
+    "FB: compare your solution with the optimal one for the same scramble and selected neutrality (FB solver)",
+    "FB/SB/LSE movecount targets per level: FB under 13 / 10 / 9, SB under 22 / 19 / 16, LSE near 11 to 13",
+    "Neutrality ladder once FB is under about 9 moves: y2, then x2y2, then x2y",
+    "SB: practise pairing + insertion together; prefer the most efficient pieces, not the first seen",
+    "CMLL: 2-look then 1-look, learned in the order H, Pi, Bowtie, Headlights, Chameleon, Sune, Antisune; then any-angle recognition with the 4th standard sticker",
+    "CMLL alg practice by repeating each alg its order (O) times to return to solved",
+    "LSE: slow solves focused on cancellations between 4a/4b/4c; learn the EO flowchart; then DFDB",
+    "Pace targets: compare your step time fractions with FB 17% / SB 27% / CMLL 23% / LSE 33%"
+   ],
+   "infoTopics": [
+    "Current Roux competitive stats (July 2025) and community survey share",
+    "STM / slice-turn metric; simultaneous moves such as (U D') counted as one",
+    "Optimal movecount distributions for FB (by neutrality), SB (<U,R,r,M>), CMLL (1- vs 2-look), LSE (<M,U,E2>)",
+    "Idealised step breakdown (turns, TPS, time, solve fraction)",
+    "Colour neutrality cost/benefit and learning order",
+    "FB pairing orientation rules; square & pair vs line approaches; the crossed-line anti-case",
+    "SB open-slot / insert / close-slot; line SB",
+    "CMLL standard-sticker (S1 to S4) recognition, case probabilities and alg orders",
+    "LSE EO case taxonomy (12 cases, XA/YB code), 4b procedure, 4c cases, DFDB recognition (Matching/Non-Matching Center, raising dots)",
+    "Cube theory background (pieces, parity laws, God's and Devil's numbers): general, not Roux-specific"
+   ],
+   "algSets": [
+    {"name": "CMLL 1-look", "caseCount": "42 (43 incl. solved; 3 O + 4 H + 6x6)", "notes": "each with probability P and algorithm order O, plus intermediate/advanced recognition formulas"},
+    {"name": "CMLL 2-look", "caseCount": "9 (7 orientation + J-perm adjacent + Y-perm diagonal)", "notes": "averages 20.47 moves vs 10.75 for 1-look"},
+    {"name": "LSE EO (4a) cases", "caseCount": "12 (incl. solved); 9 non-solved with mirrors merged", "notes": "named (D-Line, 1+1, V, U-Line, Arrow, Cross, 6 Flip ...) with optimal M/U solutions"},
+    {"name": "LSE 4c", "caseCount": "4 non-solved (CW/CCW 3-cycle, H, Dots)", "notes": "novice algs; DFDB recognition at intermediate level"},
+    {"name": "FB optimal solutions", "caseCount": "1,330,560 states per fixed block", "notes": "solver, not a memorised set"},
+    {"name": "SB optimal solutions <U,R,r,M>", "caseCount": "1,088,640 states", "notes": "solver"},
+    {"name": "LSE optimal solutions <M,U,E2>", "caseCount": "184,320 states", "notes": "solver"}
+   ],
+   "appIdeas": [
+    "Level-gated content (Novice / Intermediate / Advanced per step) with promotion hints at about sub-30 and sub-20, matching the feature map's curriculum gates",
+    "Movecount benchmarks in stats: show the user's FB/SB/LSE movecounts against level targets (13/10/9, 22/19/16) and the computer optimum distributions (FB 6.21 fixed down to 4.74 full CN; SB 9.96; LSE 11.13). Compute these locally with the app's own solvers rather than copying the charts",
+    "Neutrality advisor: from the user's FB solves, estimate the saving from y2 / x2y2 / x2y / full CN (Scheopner's means: 6.21, 5.84, 5.50, 5.19, 4.74). Suggest neutrality only once FB averages under about 9",
+    "FB solver UI: let the user tick the exact DL-edge colour pairs they solve with (24 checkboxes) to define their neutrality set, then show optimal solutions only for that set",
+    "Three-tier solution reveal ('Meh / Good / Optimal') for FB/SB trainer cases, each with a one-line explanation of what the better solution does differently",
+    "Split-balance chart: the user's per-step time fraction vs the ideal 17 / 27 / 23 / 33%, to show which step is lagging",
+    "CMLL standard-sticker recognition drill: show only the 3 intermediate stickers from one angle, then advanced any-angle mode with the 4th; teach the S1 to S4 formula per case",
+    "CMLL case cards with probability (P) and order (O); an 'order loop' drill (repeat the alg O times, solved again) for execution practice without rescrambling",
+    "LSE EO case map using the XA/YB code (0/2, 1/1, 2a/0, 2a/2, 2o/0, 2o/2, 3/1, 4/0, 4/2) as stable case IDs for the EO trainer and its flowchart",
+    "DFDB guided drill: after 4b, ask 'friend edges opposite or adjacent?' then 'matching or non-matching center?', then show the raise-the-dots plan",
+    "Anti-pattern warnings in FB lessons (the crossed-line case costs 4 extra moves)"
+   ],
+   "license": "No licence or copyright notice on any page (the site template is HTML5-UP-style, but no content licence), so all rights reserved by default. The solvers are server-side with no public source (a web search found no repo; GitHub search is scoped out for this session). Statistics are facts and can be recomputed independently; do not copy prose, SVG diagrams or charts. Ask the author before embedding or linking the solvers as a service.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-1/scheopner/"
+  }
+ ]
+}

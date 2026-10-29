@@ -1,0 +1,478 @@
+{
+ "hub": "https://resources.rouxers.com/",
+ "sourceRepo": "https://github.com/rouxers/resources (branch main, HEAD 0339ab07295b701fa22c79402374ca1c7884c6d6, 2026-09-11; Hugo 0.163.3 + hugo-book theme; 12 commits since 2020-09-28, active authors Anto Kam and eff)",
+ "license": "rouxers/resources: none found. No LICENSE/COPYING file at HEAD or in history, GitHub API license is null, README is the stock Hugo-Book starter text; the site footer only says 'Roux Resources - Made by the Roux community' (https://github.com/rouxers/resources ; https://resources.rouxers.com/). Treat the link list and the two images (eo-flowchart.png, dfdb-guide.png) as all-rights-reserved: link to them, re-draw rather than copy, or ask the authors. Theme only: themes/hugo-book is MIT, Copyright (c) 2018 Alex Shpak (https://github.com/alex-shpak/hugo-book). Other org repos: rouxers/book (The Roux Reader, book.rouxers.com) is MIT, 'Copyright (c) 2020 Rouxers' (https://github.com/rouxers/book/blob/master/LICENSE); rouxers/tutorial (tutorial.rouxers.com) has no licence file, none found (https://github.com/rouxers/tutorial).",
+ "blocked": [
+  "https://github.com/rouxers and https://github.com/orgs/rouxers/repositories: HTTP 403 from the agent proxy ('sessions are bound to their configured repositories'); org repos were listed through the GitHub MCP search tool instead",
+  "gh api repos/rouxers/resources (tree, metadata) and gh api orgs/rouxers/repos: HTTP 403 (repository not enabled for this session). Repo content came from a public git clone and raw.githubusercontent.com",
+  "https://github.com/rouxers/resources (web page, linked from /docs/contributing/): HTTP 403 from the proxy",
+  "https://dune.fandom.com/wiki/Litany_Against_Fear: HTTP 403 Cloudflare 'Just a moment...' bot challenge from the site itself, not the proxy (non-Roux link)",
+  "YouTube watch/youtu.be pages: HTTP 429 rate limit for plain curl. Not a block: titles and channels were fetched through YouTube oEmbed (youtube-oembed-titles.tsv)"
+ ],
+ "pages": [
+  {
+   "view": "/ (homepage, the whole resource list; Hugo monopage since commit 4d9ad13, 2026-09-07)",
+   "url": "https://resources.rouxers.com/",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/page_index.html ; text: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/page_index.txt ; links: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/links.json",
+   "summary": "Single curated link page 'Roux Resources' (568 words, last modified 2026-09-11 by eff). Two H1 groups. 'Roux Resources': General Resources (rouxcubing.com by Knut Peterson, Roux Method Speedsolvers Discord, One-Handed Solvers' Discord); Beginner Tutorials (two collapsible Q&As: already-can-solve -> Donovan's Roux guide or Kian Mansour's beginner Roux playlist; never-solved -> Kian's tutorial or tutorial.rouxers.com, noting Roux is 'a fairly good beginner method'); First Block (Neo's block-recognition sheet, Shadowslice 'Frameworks' doc, Teoidus FB-in-inspection video with note to 'panic find' a BL edge rather than DL, onionhoney FB/FBLP/FB analyzer trainers); Second Block (Kian's SBLP algs + Louis' tricks doc, onionhoney Second Square trainer); CMLL (rouxcubing CMLL alg-resource list 2H+OH, James Macdiarmid 'Better CP Recognition' for recognizing from all angles); Last Six Edges (advice: learn EOLR and beyond intuitively, e.g. a different EO for EOLR, a different EOLR for EOLRb; Teoidus intermediate LSE crash course, Crys DFDB 4c video, Roux Reader dots-avoidance section, onionhoney LSE trainers, Jade's enbyne.tech EOLRb trainer and LSE 'laser' trainers (misoriented-centres option noted broken), Neo's non-<M,U> EOLRb algs; collapsibles: 4a EO flowchart image, DFDB written guide image, EOLR Docs #1/#2 + Optimal EOLR spreadsheet); Miscellaneous (described as 'unexplored algsets/techniques': Straughan recognition / Three Sticker Tracking, TCMLL OH-only, ACMLL, CEOR = CPFB + COLS); Big Cubes (Kian's Meyer 4x4 tutorial, Fengyuan Lou's Meyer pastebin guide, Louis' parity CMLL sheet). 'Important General Stuff': Speedsolving Advice (Charlie Eggins practice guide, Antoine Cantin on planning F2B in inspection, Dylan Miller lookahead guide (CFOP-based, principles transfer), Jayden McNeill on gatekeeping info); Competition Advice (Zucker Abudi on anxiety, Litany Against Fear, 'The old man lost his horse'); Fingertricks (Anto Kam OH fingertricks, Jayden McNeill 'Why you suck at turning'); Reconstructions (reco.nz Roux filter, eff's example-solves sheet, Fahmi's and eff's Cubeast ao100 shares); Roux Lore (Athefre's cubinghistory Roux article, rouxcubing acronyms/definitions tab, Zhouheng's Midori coaching video); Contributing blurb. No original long-form teaching text except the two embedded images and short notes. Site has client-side search (fuse) and a precaching service worker.",
+   "level": "mixed",
+   "topics": [
+    "Roux community hubs (Discord, OH Discord, rouxcubing.com)",
+    "beginner on-ramps (with and without prior cubing)",
+    "First Block recognition, frameworks, inspection",
+    "Second Block / SBLP algorithms and tricks",
+    "CMLL alg resources and all-angle recognition",
+    "LSE fundamentals, EO (4a), EOLR, EOLRb, 4c DFDB recognition, dots avoidance, misoriented centres",
+    "experimental sets (Straughan/3-sticker tracking, TCMLL, ACMLL, CEOR)",
+    "big cubes (Meyer, parity CMLL)",
+    "practice methodology, inspection planning, lookahead",
+    "competition nerves",
+    "fingertricks incl. OH",
+    "reconstructions and example solves",
+    "Roux history and glossary"
+   ],
+   "techniques": [
+    "FB in inspection; 'panic find' BL edge instead of DL edge",
+    "block recognition (Neo)",
+    "Frameworks approach to blocks (Shadowslice)",
+    "FBLP, FB analyzer (onionhoney)",
+    "Second square / SBLP algorithms",
+    "CMLL recognition from all angles (CP recognition)",
+    "4a EO by flowchart (lefty vs righty M variants)",
+    "EOLR and EOLRb learned intuitively via alternative solutions",
+    "4c recognition with the DFDB system",
+    "avoiding Dots in EOLRb / 4c non-cycle influencing",
+    "LSE with misoriented centres",
+    "Straughan recognition / Three Sticker Tracking",
+    "planning F2B in inspection",
+    "lookahead drills and progressions",
+    "OH fingertricks",
+    "Meyer method for 4x4 (Roux-style big cube)"
+   ],
+   "algSets": [
+    "SBLP (Kian/Louis doc)",
+    "CMLL (2H and OH resource list via rouxcubing)",
+    "EOLR (docs #1, #2, optimal EOLR spreadsheet)",
+    "EOLRb incl. non-<M,U> cases (Neo)",
+    "4a EO cases (flowchart)",
+    "4c (DFDB)",
+    "TCMLL (OH)",
+    "ACMLL",
+    "CEOR (CPFB + COLS)",
+    "parity CMLL for big cubes (Louis)"
+   ],
+   "drills": [
+    "Train FB/FBLP/SS/LSE with onionhoney trainers (already ported in this repo)",
+    "EOLRb and LSE drilling on Jade's enbyne.tech trainers (EOLRb, 'laser'), incl. misoriented-centre scrambles",
+    "Practise full FB solutions in 15s inspection (Teoidus) and extend planning to F2B (Antoine Cantin)",
+    "Lookahead drills and progressions (Dylan Miller video; principles only, CFOP content)",
+    "Structured practice routine (Charlie Eggins 'How to get ahead of 99% of cubers')",
+    "CMLL recognition from every AUF angle (James Macdiarmid)",
+    "Learn EOLR/EOLRb by finding alternative EO/EOLR solutions rather than rote algs",
+    "Study reconstructions (reco.nz, eff example solves, Cubeast ao100 shares) to compare against your own solves",
+    "Competition-nerves coping (anxiety talk, recite Litany Against Fear)"
+   ],
+   "stubs": "None on the live page. 'Miscellaneous' is explicitly 'unexplored' sets. Jade's LSE trainer link carries a 'currently broken' note for its misoriented-centres setting."
+  },
+  {
+   "view": "/docs/ (Hugo section list page)",
+   "url": "https://resources.rouxers.com/docs/",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/page_docs_.html ; text: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/page_docs_.txt",
+   "summary": "Auto-generated section page titled 'Docs' with no body content and no child listing; only the site menu (Resources, Contributing, GitHub).",
+   "level": "n.a.",
+   "stubs": "Empty section page (all former per-topic docs pages were merged into the homepage on 2026-09-07)."
+  },
+  {
+   "view": "/docs/contributing/",
+   "url": "https://resources.rouxers.com/docs/contributing/",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/page_docs_contributing_.html ; text: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/page_docs_contributing_.txt",
+   "summary": "Contribution guide: the site is fully hosted on GitHub (rouxers/resources); add resources through a pull request or the per-page 'Edit this page' button; uses the Hugo Book theme and its shortcodes (details, hints, etc.). Info hint links back to the main page.",
+   "level": "n.a.",
+   "topics": [
+    "community contribution via GitHub PRs"
+   ]
+  },
+  {
+   "view": "/tags/ (Hugo taxonomy page)",
+   "url": "https://resources.rouxers.com/tags/",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/page_tags_.html ; text: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/page_tags_.txt",
+   "summary": "Empty 'Tags' taxonomy page; no tags are used in any content.",
+   "level": "n.a.",
+   "stubs": "Empty taxonomy."
+  },
+  {
+   "view": "repo rouxers/resources: content/_index.md (raw markdown of the homepage, main @ 0339ab0)",
+   "url": "https://raw.githubusercontent.com/rouxers/resources/main/content/_index.md",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/repo-content/current/_index.md",
+   "summary": "Hugo front matter (title 'Roux Resources', weight 1, bookToC true) plus the markdown for every section listed above; uses {{% details %}} shortcodes for the Beginner Q&As, the 4a EO flowchart, the DFDB guide and the EOLR docs; images eo-flowchart.png and dfdb-guide.png come from assets/. Byte-identical to the cloned file.",
+   "level": "mixed"
+  },
+  {
+   "view": "repo rouxers/resources: content/docs/contributing.md",
+   "url": "https://raw.githubusercontent.com/rouxers/resources/main/content/docs/contributing.md",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/repo-content/current/docs/contributing.md",
+   "summary": "Front matter (weight 6, title Contributing), a {{% hint info %}} back-link, and the PR / Edit-this-page / Hugo Book shortcode guidance. These two files are the only files under content/ at HEAD.",
+   "level": "n.a."
+  },
+  {
+   "view": "repo history: content/ before the monopage merge (commit 4223ed1, 2026-09-07)",
+   "url": "https://github.com/rouxers/resources/tree/4223ed1/content",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/repo-content/history-4223ed1-pre-monopage/ (_index.md, docs/fb.md, sb.md, cmll.md, lse.md, big-cubes.md, other.md, tutorials.md, contributing.md); git log: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/repo-git-log.txt",
+   "summary": "Earlier multi-page layout: an intro _index.md (pointing to rouxcubing.com and the Discord), and docs pages. docs/fb.md had grown into the full list (titled 'Rouxsources') that became today's homepage. Differences from today: a 'Communities' section with an older Discord invite (discord.gg/B6GmMgq), no EOLR Docs block, no Jade EOLRb trainer link, Straughan note said 'Three Sticker Deduction' (now 'Three Sticker Tracking'), SBLP doc titled 'Second Block Last Pairs'.",
+   "level": "mixed",
+   "stubs": "docs/sb.md, docs/cmll.md and docs/big-cubes.md were empty headings; docs/lse.md had an empty 'Links' list plus the two images; docs/other.md only linked rouxcubing.com. All deleted in commit 4d9ad13 'feat: monopage'."
+  },
+  {
+   "view": "asset /eo-flowchart.png (Last Six Edges > details 'Edge Orientation (4a) flowchart')",
+   "url": "https://resources.rouxers.com/eo-flowchart.png",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/asset-eo-flowchart.png (2820x1405 PNG; identical to repo assets/eo-flowchart.png)",
+   "summary": "Diagram titled 'LSE Edge Orientation (Step 4a)', split into 'Lefty M Moves' and 'Righty M Moves'. Cubes show only misoriented edge stickers in red. Flowchart: the 6-flip case takes M' U M' (righty: M' U' M') to reach a smaller case; 2-flip/other cases are listed with the sequence that converts them (M2', M' U M, M' U2 M', M' U M'; righty M2', M' U' M, M' U2' M', M' U' M') into one of two final 4-flip states (arrow / four-on-top), finished by M' U M' or M U M' (righty M' U' M' or M U' M'). It is a ready-made spec for a 4a EO reference screen or EO recognition drill.",
+   "level": "beginner",
+   "topics": [
+    "LSE step 4a edge orientation"
+   ],
+   "techniques": [
+    "EO case reduction flowchart",
+    "lefty vs righty M-move variants"
+   ],
+   "algSets": [
+    "4a EO"
+   ]
+  },
+  {
+   "view": "asset /dfdb-guide.png (Last Six Edges > details 'DFDB Written Guide')",
+   "url": "https://resources.rouxers.com/dfdb-guide.png",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/asset-dfdb-guide.png (1896x2436 PNG; identical to repo assets/dfdb-guide.png)",
+   "summary": "Illustrated written explanation of the DFDB recognition method for 4c (author unnamed; white-bottom pictures). Before inserting the LR edges (shown with M2, but also applies to M' U2 M, M' U2 M' and mirrors), determine which D edge (DF/DB piece) will end up on the bottom. Case 1: it matches its F/B centre -> insert LR, AUF so the D pieces are opposite; exactly one matches its U/D centre (3: bottom or 4: top); bring the non-matching one to the top with a quarter M, U2, fix centres. Case 2: it does not match its F/B centre -> insert LR, AUF to solve corners; the top D piece is either on top of the bottom one (5: do M2 U2 to reach 3 or 4, predictable in advance) or opposite it (6: quarter M to put the non-matching D piece on top, U2, then put the D centre on top and U2 M2).",
+   "level": "intermediate",
+   "topics": [
+    "LSE step 4c recognition",
+    "planning 4c during 4b"
+   ],
+   "techniques": [
+    "DFDB 4c recognition and prediction"
+   ],
+   "algSets": [
+    "4c"
+   ],
+   "drills": [
+    "Predict the 4c case before inserting the LR edges (4b), then execute 4c without a pause"
+   ]
+  },
+  {
+   "view": "GitHub org rouxers: repository list",
+   "url": "https://github.com/rouxers",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxers-hub/github-org-rouxers-repos.json",
+   "summary": "3 public repos (via GitHub MCP search 'org:rouxers'): rouxers/book (The Roux Reader, mdBook, CNAME book.rouxers.com, authors Zhouheng Sun and Antonio Kam, also a Chinese edition; MIT, Copyright (c) 2020 Rouxers; last push 2022-01-15); rouxers/resources (this site; no licence file; last push 2026-09-11); rouxers/tutorial (Roux Tutorial, mdBook, CNAME tutorial.rouxers.com, author Antonio Kam, companion site for the UC Berkeley Rubik's Cube DeCal; no licence file; last push 2025-02-16; 3 open issues). The github.com org web page itself was refused by the proxy.",
+   "level": "n.a."
+  }
+ ],
+ "links": [
+  {
+   "text": "rouxcubing.com: A general list of Roux resources maintained by Knut Peterson",
+   "url": "https://rouxcubing.com",
+   "where": "/ > Roux Resources > General Resources"
+  },
+  {
+   "text": "Roux Method Speedsolvers Discord",
+   "url": "https://discord.com/invite/VJunGCZBGZ",
+   "where": "/ > Roux Resources > General Resources"
+  },
+  {
+   "text": "One-Handed Solvers’ Discord Server",
+   "url": "https://discord.gg/rMxzsG4mXs",
+   "where": "/ > Roux Resources > General Resources"
+  },
+  {
+   "text": "Roux guide (YouTube: \"Donovan's Roux Tutorial (Part 1/5) Left Block / playlist \"Donovan's Roux Tutorial - Best on YouTube!\"\" by Lubix Cube) [HTTP 429 from crawler: rate-limited, title via oEmbed]",
+   "url": "https://www.youtube.com/watch?v=ESYJ-DFx0Qo&list=PL754ADDA2E38A21AA",
+   "where": "/ > Roux Resources > Beginner Tutorials > [details] I already know how to solve a Rubik’s Cube. How do I learn Roux?"
+  },
+  {
+   "text": "Kian’s tutorial (YouTube: \"How to Solve the Rubik's Cube Tutorial (Roux Method for Beginners)\" by Kian Mansour)",
+   "url": "https://www.youtube.com/playlist?list=PLBHocHmPzgIjnAbNLHDycgaCP5IqiwnU9",
+   "where": "/ > Roux Resources > Beginner Tutorials > [details] I already know how to solve a Rubik’s Cube. How do I learn Roux?"
+  },
+  {
+   "text": "Kian’s tutorial (YouTube: \"How to Solve the Rubik's Cube Tutorial (Roux Method for Beginners)\" by Kian Mansour)",
+   "url": "https://www.youtube.com/playlist?list=PLBHocHmPzgIjnAbNLHDycgaCP5IqiwnU9",
+   "where": "/ > Roux Resources > Beginner Tutorials > [details] I don’t know how to solve a Rubik’s Cube. How can I get started?"
+  },
+  {
+   "text": "web-based Roux tutorial that you can use instead",
+   "url": "https://tutorial.rouxers.com/",
+   "where": "/ > Roux Resources > Beginner Tutorials > [details] I don’t know how to solve a Rubik’s Cube. How can I get started?"
+  },
+  {
+   "text": "Neo’s insight on recognizing blocks",
+   "url": "https://docs.google.com/spreadsheets/d/16Ow0vWEFsGoPAGWD8LSUPrQ_L4BGskEa4gXBAnuGlvk/edit?usp=drivesdk",
+   "where": "/ > Roux Resources > First Block"
+  },
+  {
+   "text": "Shadowslice’s “Frameworks” tutorial",
+   "url": "https://docs.google.com/document/d/1JPLt7uJmPr6sn__4jJxvWsiVTiaexGm1vt95mRtN-6I/edit?usp=drivesdk",
+   "where": "/ > Roux Resources > First Block"
+  },
+  {
+   "text": "Teoidus’s comprehensive inspection tutorial (note that nowadays it is recommended to ““panic find”” a BL edge instead of a DL edge) (YouTube: \"Finding an Efficient First Block in Inspection\" by teoidus) [HTTP 429 from crawler: rate-limited, title via oEmbed]",
+   "url": "https://youtu.be/0Cq3YDud1dA",
+   "where": "/ > Roux Resources > First Block"
+  },
+  {
+   "text": "Zhouheng’s First Block trainers (contains FB, FBLP, and an FB analyzer)",
+   "url": "https://onionhoney.github.io/roux-trainers/#fb",
+   "where": "/ > Roux Resources > First Block"
+  },
+  {
+   "text": "Kian’s Second Block Last Pair Algs and Louis’ other tricks",
+   "url": "https://docs.google.com/document/d/1bX50jAOM_veHsVJeLYGvSrH4uW9xrubep1zOSLdE4Vk/edit?tab=t.0",
+   "where": "/ > Roux Resources > Second Block"
+  },
+  {
+   "text": "Zhouheng’s Second Square trainer",
+   "url": "https://onionhoney.github.io/roux-trainers/#fb",
+   "where": "/ > Roux Resources > Second Block"
+  },
+  {
+   "text": "List of many CMLL Algorithm Resources (2H and OH)",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=0",
+   "where": "/ > Roux Resources > CMLL"
+  },
+  {
+   "text": "James Macdiarmid’s insight on recognizing cases from all angles (YouTube: \"Better CP Recognition\" by James Macdiarmid) [HTTP 429 from crawler: rate-limited, title via oEmbed]",
+   "url": "https://www.youtube.com/watch?v=vwBR-N29t3k",
+   "where": "/ > Roux Resources > CMLL"
+  },
+  {
+   "text": "Teoidus’s tutorial for the fundamentals (YouTube: \"Crash Course in Intermediate LSE\" by teoidus) [HTTP 429 from crawler: rate-limited, title via oEmbed]",
+   "url": "https://youtu.be/jqa4wcZMq9Y",
+   "where": "/ > Roux Resources > Last Six Edges"
+  },
+  {
+   "text": "Crys’s DFDB tutorial (YouTube: \"Roux: Fastest Way to Recognize 4c! (DFDB system)\" by crystalcuber)",
+   "url": "https://www.youtube.com/watch?v=wvSBSZ_cyzc",
+   "where": "/ > Roux Resources > Last Six Edges"
+  },
+  {
+   "text": "Roux Reader’s guide for avoiding Dots",
+   "url": "https://book.rouxers.com/en/lse.html#eolrb-4c-non-cycle-influencing",
+   "where": "/ > Roux Resources > Last Six Edges"
+  },
+  {
+   "text": "Zhouheng’s LSE Trainers",
+   "url": "https://onionhoney.github.io/roux-trainers/#eopair",
+   "where": "/ > Roux Resources > Last Six Edges"
+  },
+  {
+   "text": "Jade’s EOLRb Trainer",
+   "url": "https://enbyne.tech/tools/EOLRb",
+   "where": "/ > Roux Resources > Last Six Edges"
+  },
+  {
+   "text": "Jade’s LSE Trainers (note that the setting for not giving scrambles with Misoriented Centers is currently broken)",
+   "url": "https://enbyne.tech/tools/laser",
+   "where": "/ > Roux Resources > Last Six Edges"
+  },
+  {
+   "text": "Neo’s EOLRb algorithms (that are missing in trainers as none are <M, U> gen)",
+   "url": "https://cuar03.github.io/web/3x3/EOLRb/index.html",
+   "where": "/ > Roux Resources > Last Six Edges"
+  },
+  {
+   "text": "EOLR Doc #1",
+   "url": "https://docs.google.com/document/d/1dvGERLfN-0rVwN914HH1zRPHLfdM6d5rPfe0HxOMK08/edit?tab=t.0#heading=h.phjfa966vtn",
+   "where": "/ > Roux Resources > Last Six Edges > [details] EOLR Docs"
+  },
+  {
+   "text": "EOLR Doc #2",
+   "url": "https://docs.google.com/document/d/1rb5M9_5CTlozLu9acFIgqq9LYYKaUdnMDX0vcLOURT4/edit?tab=t.0#heading=h.56gpiofdcy0g",
+   "where": "/ > Roux Resources > Last Six Edges > [details] EOLR Docs"
+  },
+  {
+   "text": "Optimal EOLR Spreadsheet",
+   "url": "https://docs.google.com/spreadsheets/d/1sLrjfuVFF41es4W371zeKBR1n98-TLXCigrqrRhnjtQ/edit?gid=1330121609#gid=1330121609",
+   "where": "/ > Roux Resources > Last Six Edges > [details] EOLR Docs"
+  },
+  {
+   "text": "Straughan Recognition (see the Three Sticker Tracking section)",
+   "url": "https://sites.google.com/site/athefre/recognition/straughan-recognition",
+   "where": "/ > Roux Resources > Miscellaneous"
+  },
+  {
+   "text": "TCMLL (algorithms only for OH)",
+   "url": "https://docs.google.com/spreadsheets/d/1ucLxYATDLN82UuJuEaDLFuKhaVHlKUaqicId2_LNISA/edit?usp=sharing",
+   "where": "/ > Roux Resources > Miscellaneous"
+  },
+  {
+   "text": "ACMLL",
+   "url": "https://sites.google.com/site/athefre/roux/acmll",
+   "where": "/ > Roux Resources > Miscellaneous"
+  },
+  {
+   "text": "CEOR (to do CPFB instead of FB, and COLS instead of SBLP)",
+   "url": "https://docs.google.com/spreadsheets/d/1F0zPKlARw3GUTODys_wrtfP7cqgzS7Kse_Cwv67XBQA/edit?gid=1547543598#gid=1547543598",
+   "where": "/ > Roux Resources > Miscellaneous"
+  },
+  {
+   "text": "Kian’s Meyer tutorial (YouTube: \"4x4 Meyer Method Tutorial\" by Kian Mansour)",
+   "url": "https://www.youtube.com/watch?v=-L86AodUUzE",
+   "where": "/ > Roux Resources > Big Cubes"
+  },
+  {
+   "text": "Fengyuan Lou’s guide for everything you need to know about Meyer",
+   "url": "https://pastebin.com/av0MbjDe",
+   "where": "/ > Roux Resources > Big Cubes"
+  },
+  {
+   "text": "Louis’ parity CMLL algorithms",
+   "url": "https://docs.google.com/spreadsheets/d/1KY3DT86JLpPUDb98km4ck_hrpdRooC8vg2U8Y1zJipk/edit?gid=2015768980#gid=2015768980",
+   "where": "/ > Roux Resources > Big Cubes"
+  },
+  {
+   "text": "Charlie Eggins’ practice guide (YouTube: \"How to get ahead of 99% of cubers\" by Swift Cubing - Charlie Eggins Speedcuber) [HTTP 429 from crawler: rate-limited, title via oEmbed]",
+   "url": "https://youtu.be/4PIMiKQHCXE",
+   "where": "/ > Important General Stuff > Speedsolving Advice"
+  },
+  {
+   "text": "Antoine Cantin’s insights on planning far in inspection (yes, planning F2B and beyond is completely doable) (YouTube: \"How Xuanyi can plan full F2L in inspection and more\" by Antoine Cantin) [HTTP 429 from crawler: rate-limited, title via oEmbed]",
+   "url": "https://youtu.be/BUD5OJB9F6M",
+   "where": "/ > Important General Stuff > Speedsolving Advice"
+  },
+  {
+   "text": "Dylan Miller’s Lookahead guide (for CFOP, but the same principles can apply to Roux) (YouTube: \"The Comprehensive 3x3 Lookahead Guide (Tips, Drills, And Progressions)\" by Dylan Miller)",
+   "url": "https://youtu.be/pitj8kFJqn8",
+   "where": "/ > Important General Stuff > Speedsolving Advice"
+  },
+  {
+   "text": "Jayden McNeill’s insight on gatekeeping information",
+   "url": "https://pastebin.com/rcczqYWT",
+   "where": "/ > Important General Stuff > Speedsolving Advice"
+  },
+  {
+   "text": "Zucker Abudi’s insights on anxiety and thoughts (you can apply this to competition nerves) (YouTube: \"Here's Proof You Don't Have Free Will\" by zuckerabudi)",
+   "url": "https://youtu.be/jDuyKbJusKY",
+   "where": "/ > Important General Stuff > Competition Advice"
+  },
+  {
+   "text": "Frank Herbert’s Litany Against Fear (memorize and recite if you wish) [HTTP 403 from crawler: blocked]",
+   "url": "https://dune.fandom.com/wiki/Litany_Against_Fear",
+   "where": "/ > Important General Stuff > Competition Advice"
+  },
+  {
+   "text": "The Huainanzi’s “The old man lost his horse”",
+   "url": "https://en.wikipedia.org/wiki/The_old_man_lost_his_horse#Translation",
+   "where": "/ > Important General Stuff > Competition Advice"
+  },
+  {
+   "text": "Anto’s OH fingertricks (for many types of moves, even shows multiple ways for some) (YouTube: \"[Antonio Kam] OH fingertricks\" by Cubing Scene)",
+   "url": "https://www.youtube.com/watch?v=4WK0cORg6CQ",
+   "where": "/ > Important General Stuff > Fingertricks"
+  },
+  {
+   "text": "Jayden McNeill’s insight on fingertricks (YouTube: \"Why you suck at turning\" by Jayden McNeill)",
+   "url": "https://youtu.be/KJdV8EhhnKU",
+   "where": "/ > Important General Stuff > Fingertricks"
+  },
+  {
+   "text": "The reconstruction database (contains Roux solves)",
+   "url": "https://reco.nz/?sort=id_desc&Roux=on",
+   "where": "/ > Important General Stuff > Reconstructions"
+  },
+  {
+   "text": "eff’s Example Solves (2H)",
+   "url": "https://docs.google.com/spreadsheets/d/1WvcXC7tXIxxnzPmsMBbV43SuVs33oaUW3LSDFzVAriQ/edit?gid=0#gid=0",
+   "where": "/ > Important General Stuff > Reconstructions"
+  },
+  {
+   "text": "Fahmi’s Cubeast average of 100 (2H)",
+   "url": "https://cbst.link/s/uvbYM9h8xn79c5rjRSfsZr",
+   "where": "/ > Important General Stuff > Reconstructions"
+  },
+  {
+   "text": "eff’s Cubeast average of 100 (2H)",
+   "url": "https://app.cubeast.com/public/share/oQfw8VwiRSwAU7MXcyYaj4",
+   "where": "/ > Important General Stuff > Reconstructions"
+  },
+  {
+   "text": "Athefre’s article on the origins and developments of Roux",
+   "url": "https://www.cubinghistory.com/3x3/Methods/Roux",
+   "where": "/ > Important General Stuff > Roux Lore"
+  },
+  {
+   "text": "Roux Acronyms and Definitions",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=4&subTab=5",
+   "where": "/ > Important General Stuff > Roux Lore"
+  },
+  {
+   "text": "Zhouheng’s encounter with Midori (YouTube: \"Coaching session with Midori\" by Zhouheng Sun (jeffrey)) [HTTP 429 from crawler: rate-limited, title via oEmbed]",
+   "url": "https://youtu.be/pwRMbsdIWHE",
+   "where": "/ > Important General Stuff > Roux Lore"
+  },
+  {
+   "text": "contributing page",
+   "url": "https://resources.rouxers.com/docs/contributing/",
+   "where": "/ > Important General Stuff > Contributing"
+  },
+  {
+   "text": "Image: A flowchart for LSE edge orientation. (saved as asset-eo-flowchart.png)",
+   "url": "https://resources.rouxers.com/eo-flowchart.png",
+   "where": "/ > Roux Resources > Last Six Edges > [details] Edge Orientation (4a) flowchart"
+  },
+  {
+   "text": "Image: A written description for how the DFDB recognition method works. (saved as asset-dfdb-guide.png)",
+   "url": "https://resources.rouxers.com/dfdb-guide.png",
+   "where": "/ > Roux Resources > Last Six Edges > [details] DFDB Written Guide"
+  },
+  {
+   "text": "go here",
+   "url": "https://resources.rouxers.com/",
+   "where": "/docs/contributing/ > Contributing"
+  },
+  {
+   "text": "pull request",
+   "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request",
+   "where": "/docs/contributing/ > Contributing"
+  },
+  {
+   "text": "can be found here [HTTP 403 from crawler: blocked]",
+   "url": "https://github.com/rouxers/resources",
+   "where": "/docs/contributing/ > Contributing"
+  },
+  {
+   "text": "Hugo Book",
+   "url": "https://themes.gohugo.io/themes/hugo-book/",
+   "where": "/docs/contributing/ > Contributing"
+  },
+  {
+   "text": "these shortcodes",
+   "url": "https://book.alxs.dev/docs/content/shortcodes/",
+   "where": "/docs/contributing/ > Contributing"
+  },
+  {
+   "text": "Discord Server (old invite, only in the pre-monopage history; replaced by discord.com/invite/VJunGCZBGZ)",
+   "url": "https://discord.gg/B6GmMgq",
+   "where": "repo history 4223ed1 content/docs/fb.md > Important General Stuff > Communities"
+  },
+  {
+   "text": "rouxers/book: The Roux Reader (mdBook), source of book.rouxers.com; licence: MIT",
+   "url": "https://github.com/rouxers/book",
+   "where": "GitHub org rouxers (repo listing)"
+  },
+  {
+   "text": "rouxers/resources: source of resources.rouxers.com (Hugo, hugo-book theme); licence: no licence file",
+   "url": "https://github.com/rouxers/resources",
+   "where": "GitHub org rouxers (repo listing)"
+  },
+  {
+   "text": "rouxers/tutorial: Roux Tutorial (mdBook), source of tutorial.rouxers.com; licence: no licence file",
+   "url": "https://github.com/rouxers/tutorial",
+   "where": "GitHub org rouxers (repo listing)"
+  },
+  {
+   "text": "hugo-book theme (submodule themes/hugo-book), MIT, Copyright (c) 2018 Alex Shpak",
+   "url": "https://github.com/alex-shpak/hugo-book",
+   "where": "rouxers/resources .gitmodules"
+  }
+ ],
+ "notes": "Coverage: all 4 sitemap URLs fetched (static Hugo HTML, no JS rendering needed); every file under content/ fetched raw from main (only content/_index.md and content/docs/contributing.md exist) and checked byte-identical with a clone; the pre-monopage content/ (8 files at 4223ed1) was also saved from git history. The live link list holds 49 article links on / (47 unique URLs; onionhoney #fb and Kian's playlist each appear twice) plus 5 on /docs/contributing/ and 2 embedded images. Every external link answered 200 except the blocked/rate-limited ones listed. What matters for Rouxtine: (1) The hub is a link directory, not teaching content. Its value is the curated taxonomy (FB, SB, CMLL, LSE, Misc/experimental, Big Cubes, Speedsolving, Competition, Fingertricks, Reconstructions, Lore), which maps well onto an in-app 'Learn/Resources' screen with outbound links (allowed without a licence). (2) Trainer gaps compared with onionhoney: Jade's enbyne.tech EOLRb trainer and LSE 'laser' trainers (with misoriented-centre scrambles); EOLRb cases that are not <M,U>-generated (Neo's list); 4c DFDB prediction; a 4a EO flowchart reference with lefty/righty variants; CMLL all-angle recognition; reconstructions viewer/example solves; big-cube Roux (Meyer, parity CMLL) if 4x4 is ever in scope; experimental sets (TCMLL for OH, ACMLL, CEOR/COLS, Straughan three-sticker tracking) as an advanced tier. (3) Content to keep Roux-only: the Dylan Miller lookahead link is CFOP-based ('principles transfer'); reuse only generic lookahead principles. (4) Level coverage: beginner (Kian/Donovan tutorials, tutorial.rouxers.com, 4a flowchart), intermediate (SBLP, CMLL recognition, LSE fundamentals, DFDB), advanced (EOLR/EOLRb, F2B inspection planning, misoriented centres, experimental sets). (5) Attribution names for credits screens: Knut Peterson (rouxcubing.com), Zhouheng Sun/onionhoney, Antonio (Anto) Kam, eff, Kian Mansour, Donovan (Lubix), Teoidus, Crys (crystalcuber), Neo (cuar03), Shadowslice, Louis, Jade (enbyne.tech), James Macdiarmid, Athefre, Fengyuan Lou, Jayden McNeill, Fahmi. Follow-up candidates for other crawlers (not fetched here, out of scope): enbyne.tech/tools/EOLRb and /laser, cuar03.github.io EOLRb list, the Google Docs/Sheets (SBLP, EOLR docs, optimal EOLR, TCMLL, CEOR, parity CMLL, Neo block recognition, Frameworks), pastebin av0MbjDe (Meyer) and rcczqYWT (gatekeeping), athefre Straughan/ACMLL pages, cubinghistory Roux article. Scripts: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/rouxers-hub/ (extract.py, build_result.py). Clones: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/rouxers-resources-git, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/rouxers-book-meta/repo, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/rouxers-tutorial-meta/repo."
+}

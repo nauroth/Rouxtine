@@ -1,0 +1,231 @@
+{
+  "resources": [
+    {
+      "key": "gdoc:document:12AC3GM32M9U1IGUvFjkTOH6pq2GDPtT-v_NJgz9a4zs",
+      "url": "https://docs.google.com/document/d/12AC3GM32M9U1IGUvFjkTOH6pq2GDPtT-v_NJgz9a4zs/",
+      "title": "Roux Beginner Supplemental Guide (linked as \"Noblion's Beginner Reference Sheet\")",
+      "author": "Noblion (per the rouxcubing.com link text; the doc itself names no author)",
+      "kind": "guide-text",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "beginner (first-time Roux solvers; supplements a text tutorial)",
+      "summary": "A single-tab Google Doc. It is a picture-plus-moves reference for a complete beginner Roux solve in 3 numbered parts, with 34 embedded images. Most images are 3D isometric renders in which unsolved or irrelevant pieces are ghosted, so only the pieces that matter show in colour. (1) 'Solve the left and right blocks' has two 2-column tables (case image | move sequence). Left Block has 6 piece-insertion cases: placing the DL edge and inserting the front and back pairs. Right Block has 10 cases: inserting the DR edge, then pairs in various orientations. Each case has one short intuitive sequence of 1 to 3 moves. (2) 'Solve the Corners' is a 2-alg beginner corner method. Sune is repeated for orientation, with a written setup rule (set up so exactly one yellow corner faces up, put it front-left, repeat Sune). One corner-swap alg (J-perm) does permutation, recognised by 'two matching colours on the same side' (headlights), or applied once when there are none. (3) LSE: the edge-orientation step defines good and bad edges against the U/D colours and uses a 3-move flip sequence plus two 'Front Swap' and 'Back Swap' M2-style swaps to reach a 3-top/1-bottom bad-edge state. It then resolves that state with an 'arrow' rule: point the top arrow at the bottom bad edge, then do U and M once each. Next, UL/UR: move the two yellow side-colour edges to the bottom with the swaps, set U so the front stickers are opposite the bottom centre (2 options), then M2 and U/U'. Last, the M-slice: a 6-case table (pure M/U2 sequences) plus a written method for the remaining 3-cycle cases (find the isolated edge, put it on top, U2, repeat). Saved: plain-text export, HTML export and the extracted images (beginner-ref-imgs/).",
+      "algSets": [
+        {"name": "Left block (FB) beginner piece insertions", "caseCount": "6", "notes": "Image + 1-3 move intuitive sequence per case: DL edge placement and front/back pair insertions"},
+        {"name": "Right block (SB) beginner piece insertions", "caseCount": "10", "notes": "DR edge insertion plus pair insertions; R/r and U moves only"},
+        {"name": "Beginner corner orientation (repeated Sune)", "caseCount": "1 alg (applied 1-3 times)", "notes": "Setup rule given in prose; not a CMLL/OCLL case table"},
+        {"name": "Beginner corner permutation (J-perm swap)", "caseCount": "1 alg", "notes": "Recognised by headlights; done once more when there are no headlights"},
+        {"name": "Beginner EO tools (flip + front swap + back swap)", "caseCount": "3 sequences", "notes": "Paired with an 'arrow' rule for the 3-top/1-bottom state"},
+        {"name": "M-slice finish (4c-style) table", "caseCount": "6 + a 3-cycle procedure", "notes": "6 pictured M/U2 cases; the remaining cases are handled by an isolated-edge 3-cycle method"}
+      ],
+      "drills": [
+        "Piece-by-piece F2B insertion practice (6 left-block + 10 right-block mini cases)",
+        "Corner orientation by repeated Sune with a setup rule, then a one-alg corner swap",
+        "EO via the arrow method: get to 3 bad on top and 1 bad on bottom, then point and insert",
+        "UL/UR: move both edges to the bottom, align U opposite the centre, M2 then U",
+        "Final M-slice: memorise 6 pictured cases, or use the isolated-edge 3-cycle procedure"
+      ],
+      "infoTopics": [
+        "Beginner Roux step order: left block, right block, corners, LSE",
+        "Good/bad edge definition for Roux EO (U/D colour facing U/D)",
+        "Headlight recognition for corner permutation",
+        "Arrow EO method for beginners",
+        "UL/UR by placing edges in the D layer and matching against the centre",
+        "4c/M-slice 3-cycle reasoning (isolated edge vs solved edge)"
+      ],
+      "appIdeas": [
+        "Beginner course with a 'ghost' renderer: draw irrelevant pieces translucent grey so only the pieces of the current step show, as this doc's images do",
+        "Interactive mini-case cards for FB/SB insertions (6 + 10), each animated on the 3D cube, with 'try it yourself' follow-along",
+        "2-look beginner corners (Sune repeat + one swap) as a gentle step before 2-look CMLL, with a headlight-recognition quiz",
+        "Arrow-method EO drill: show an LSE state, ask the learner to reach 3/1 and then point the arrow; check with the solver",
+        "M-slice 4c table as a 6-case flashcard set plus a 3-cycle 'find the isolated edge' recognition quiz",
+        "Use as a beginner-track checklist: every step needs at most 1 to 3 memorised sequences"
+      ],
+      "license": "No licence, credit line or permission terms stated in the doc. Publicly viewable Google Doc only; treat text and images as all rights reserved. The move sequences are standard beginner facts and can be re-derived independently; do not copy the images or prose without asking Noblion.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-0/beginner-ref-sheet.txt"
+    },
+    {
+      "key": "gdoc:document:1JPLt7uJmPr6sn__4jJxvWsiVTiaexGm1vt95mRtN-6I",
+      "url": "https://docs.google.com/document/d/1JPLt7uJmPr6sn__4jJxvWsiVTiaexGm1vt95mRtN-6I",
+      "title": "Frameworks: a structured approach to blocks (tab: 'First Block (Frameworks)')",
+      "author": "Shadowslice (per the rouxcubing.com and resources.rouxers.com link text)",
+      "kind": "guide-text",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate to advanced (inspection and FB planning; SB approach choice)",
+      "summary": "A short single-tab prose guide (about 1,100 words, no images, no algs) on planning First Block in inspection through 'frameworks'. A framework is an intermediate cubestate 1-4 moves from solved FB that you know well enough to finish automatically. You plan only 3-4 moves to the framework instead of 6-10 to a full FB, and you scan the scramble for features that suggest which 'type of block' to aim for. Line-line and square-pair are named as the simplest 1-move frameworks. Concrete training prescription: learn all 3-move and some 4-move FB cases with onionhoney's Block Trainer (linked to onionhoney.github.io/roux-trainers/#fb). Minimum benchmarks are 90% success at depth 3 and 50% at depth 4, with solutions found 'near-instantly'. Then stop grinding and move to real solves, because pattern recognition only develops on real scrambles. Scramble features that push you towards a framework: free pairs, mismatched pairs, corner-edge configurations. Practice method: high volume; start with unlimited inspection; try several frameworks per scramble; learn when to abandon one quickly; treat trainer work and real solves as a feedback loop. Addenda: zwischenzugs (in-between moves that influence other pieces without disrupting the solution, likened to FMC), used to carry FB's last moves into SB; tracing how each framework moves SB pieces, for lookahead; three SB 'frameworks' (pair-first/classical: most efficient but harder lookahead; DR-first: easiest lookahead and least efficient, the common beginner approach; DR-neutral: one SB edge plus its pair, pairs possibly out of order with F R' F'-type moves), and choosing among them by cubestate; why top solvers say they 'don't plan FB' (they plan to a framework subconsciously); and why planning FBSS directly is not recommended (most good FBSS solutions are FB then SS anyway). Saved: text and HTML export.",
+      "algSets": [],
+      "drills": [
+        "Block Trainer (FB) at depth 3 until at least 90% success and depth 4 until at least 50%, solving near-instantly",
+        "Real solves with unlimited inspection, planning only to a framework, then reducing inspection time naturally",
+        "For each scramble, try several frameworks and compare which is most promising",
+        "Scan scrambles for free pairs, mismatched pairs and corner-edge configurations",
+        "Practise abandoning a poor framework quickly",
+        "Trace where SB pieces go as you execute each framework (lookahead into SB)",
+        "Use zwischenzug-style insertions at the end of FB to pair or place SB pieces",
+        "Alternate SB approaches (pair-first, DR-first, DR-neutral) and learn which cubestates suit each"
+      ],
+      "infoTopics": [
+        "FB inspection planning depth and the 'framework' concept (positions 1-4 moves from FB)",
+        "Line-line and square-pair as the simplest frameworks",
+        "Recognition features: free pairs, mismatched pairs, corner-edge configurations",
+        "Zwischenzugs (influencing without disruption) in Roux blockbuilding",
+        "SB approaches: pair-first vs DR-first vs DR-neutral, with trade-offs in efficiency, ergonomics and lookahead",
+        "Out-of-order pair insertion with F R' F'-type moves",
+        "Why top solvers 'don't plan FB'; FB vs FBSS planning"
+      ],
+      "appIdeas": [
+        "Give the FB/Block trainer explicit depth levels with mastery gates taken from this guide: 90% at depth 3 and 50% at depth 4, then prompt 'start applying in real solves'",
+        "A 'Framework spotter' drill: show a scramble, the learner names or inputs a 1-4-move-from-FB target position, and the solver scores how close it is to optimal FB and lists the best frameworks it could have chosen",
+        "Tag FB cases by framework type (line-line, square-pair, etc.) so the trainer can filter and the learner builds a framework vocabulary",
+        "Inspection-time ladder: start unlimited, then shrink the allowed inspection as success stays high",
+        "'Give up fast' drill: show a scramble for N seconds; the learner says whether a given framework is good; the solver confirms",
+        "FB-to-SB tracing quiz: after the learner's FB plan, ask where a chosen SB piece ends up",
+        "SB approach analyser: for a given post-FB state, show the shortest pair-first, DR-first and DR-neutral solutions side by side",
+        "Lesson cards on zwischenzugs and FBSS planning for the advanced track"
+      ],
+      "license": "No licence or permission terms stated; public view-only Google Doc. Treat the prose as all rights reserved: paraphrase the ideas (frameworks, benchmarks) with credit to Shadowslice, and ask before quoting at length.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-0/frameworks.txt"
+    },
+    {
+      "key": "gdoc:spreadsheets:16Ow0vWEFsGoPAGWD8LSUPrQ_L4BGskEa4gXBAnuGlvk",
+      "url": "https://docs.google.com/spreadsheets/d/16Ow0vWEFsGoPAGWD8LSUPrQ_L4BGskEa4gXBAnuGlvk",
+      "title": "Recognising blocks via its \"L/R\" stickers (linked as \"SB Pair Inspection\" / \"Neo's insight on recognizing blocks\")",
+      "author": "Fahmi and Neo (per rouxcubing.com); 'Neo' (per resources.rouxers.com). The hidden 'SB Theory' tab credits Rodney Kinney's HTR Theory as its basis.",
+      "kind": "guide-text",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate (recognition concept); the hidden SB Theory tab is aimed at beginners",
+      "summary": "A Google Sheet with 1 visible tab ('Recognition', gid 146348617) and 2 hidden tabs ('List' and 'SB Theory'). The hidden tabs come through the public xlsx export; htmlview lists only the visible tab. 'Recognition' argues in 5 rows of prose that SB pairs should be recognised by the colours of the square they will form, the pair's 'L/R' (side) stickers, rather than as CFOP F2L pairs. Reasons given: short blockbuilding solutions become intelligible; solutions that form different pieces but the same squares are grouped together; and a pair after a square can be recognised from just 2 stickers. Two worked examples, one FB and one SB. The cost: it gives up attributes such as EO, which 'more efficient solutions have shown' are not useful here. Each example is drawn with visualcube IMAGE() formulas that use sticker masks: only the relevant stickers are coloured and the rest transparent, some with arrows. It links to Shadowslice's Frameworks doc ('Discussed here'). Hidden 'List' holds 64 SB pair cases, each with a right-slot solution and its mirrored left-slot version. Trailing M-slice restores are in parentheses. The list is imported by IMPORTRANGE from a private sheet (401 when fetched). It has instructions for drilling them in namisama269's 3BLD-Alg-Trainer by pasting the algs and an 'Initial Mask' string that hides all stickers except the relevant ones, 'because Zhouheng's [onionhoney's] trainers can't partially cover such stickers, yet'. A screenshot shows a masked cube. Hidden 'SB Theory' is a beginner system: a table of corner location (in U, in RDF, in RDB) by destination (RDF, RDB), giving generic move families ('any R* U* R* sequence that twists the corner and keeps it on U', continue arrows), so a learner can solve an SB pair from 2 corner attributes before learning algs. Saved: CSV of the visible tab, a text dump of all 3 tabs (values, links, IMPORTRANGE note), the xlsx and the embedded screenshot.",
+      "algSets": [
+        {"name": "SB pair cases recognised by L/R stickers (hidden 'List' tab)", "caseCount": "64 (each with a mirrored left-side version)", "notes": "Flat list, no grouping or names; right-slot alg in col A, mirror in col D; M-slice restore moves in parentheses; imported from a private source sheet"},
+        {"name": "SB Theory corner-location system (hidden tab)", "caseCount": "3 corner locations x 2 destinations (6 cells)", "notes": "Generic move families rather than fixed algs; mirror rule for the RDB row; based on Rodney Kinney's HTR Theory"},
+        {"name": "Recognition examples (visible tab)", "caseCount": "about 4 examples", "notes": "Illustrative FB/SB solutions with sticker-masked visualcube diagrams"}
+      ],
+      "drills": [
+        "Recognise SB pairs from only the 2 side ('L/R') stickers of the target square",
+        "Drill the 64 pair cases in a 3BLD alg trainer with an initial sticker mask so only the relevant stickers are visible",
+        "Practise each case's mirror for the left side",
+        "Beginner: solve a SB pair by classifying the corner as in U / RDF / RDB and its destination, then applying the matching move family"
+      ],
+      "infoTopics": [
+        "Square-colour recognition vs CFOP F2L-style pair recognition",
+        "Why EO-style attributes matter little for efficient blockbuilding solutions",
+        "Grouping solutions by the square formed rather than the pieces moved",
+        "Corner-location/destination framework for intuitive SB pairs (after Rodney Kinney's HTR Theory)",
+        "Mirroring right-slot solutions to left-slot (FB) solutions"
+      ],
+      "appIdeas": [
+        "A sticker-mask mode in the case renderer and trainer: show only selected stickers (for example the pair's side stickers) with everything else grey or transparent. This is the exact gap the sheet points out in onionhoney's trainers",
+        "'Square-colour recognition' drill for SB pairs: flash a masked cube for a short time and the learner picks or enters the solution; track recognition time separately from execution",
+        "Mirror toggle on every block-pair case (right slot vs left slot) so the same case set trains FB and SB",
+        "Show optional trailing M restores as a distinct style (for example dimmed) instead of parentheses",
+        "Beginner 'SB pair system' lesson: an interactive corner-location x destination grid with arrows, before any algs",
+        "Group solver-generated pair solutions by the square they form rather than by F2L case"
+      ],
+      "license": "No licence or permission terms stated. Public view-only sheet whose alg list is imported from a private source, so the list's provenance is unclear. Treat as all rights reserved: credit Fahmi and Neo for the recognition idea, and regenerate the case set and solutions with the app's own solver rather than copying the list.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-0/sb-pair-inspection.alltabs.txt"
+    },
+    {
+      "key": "gdoc:document:1bX50jAOM_veHsVJeLYGvSrH4uW9xrubep1zOSLdE4Vk",
+      "url": "https://docs.google.com/document/d/1bX50jAOM_veHsVJeLYGvSrH4uW9xrubep1zOSLdE4Vk/edit",
+      "title": "Second Block Algs (linked as \"Kian's Second Block Last Pair Algs and Louis' other tricks\")",
+      "author": "Kian and Louis (per resources.rouxers.com link text; section heading names Louis). Commonly attributed to Kian Mansour and Louis de Mendonça, but the doc does not say so",
+      "kind": "alg-sheet",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate to advanced",
+      "summary": "A single-tab Google Doc of SB alg tables with 63 embedded 2D isometric case diagrams. Only the F2B and relevant SB pieces are coloured: red/green/white for the FR pair, the rest dark. Section 1, 'Front Pair Cases with DR Solved', covers the last SB pair (FR corner + edge) with the DR edge and back (BR) square already solved. It has 7 two-column tables of image + alg cells: 47 real cases, plus 1 joke cell that shows the solved state with filler text ('Pizza would be Proud', 'LOLOLOL...'). Each case lists 1 to 7 alternative algs, mostly R/r/U/M with some F and D. Many alternatives are marked '(free slot)', meaning they need the BR slot free or use D moves. Cases are grouped implicitly, without headings, by where the FR corner is and how it is twisted (in U facing front, right or up; in the DFR slot), with the edge position varying inside each group. A final group covers edge-in-slot and both-in-slot situations. No case names, numbers or recognition text. Section 2, 'Louis' Multislotting and F-Move Happy Place', has 15 image + alg cells (1 to 3 algs each) of F/f/S/B-move tricks: pair inserts that also fix or keep other SB pieces, a pair-swap image, and insertions when DR or the other pair is not yet solved. Saved: text and HTML export plus all 63 images (sb-algs-imgs/).",
+      "algSets": [
+        {"name": "SB last pair (FR) with DR and back square solved", "caseCount": "47 (+1 joke 'solved' cell)", "notes": "1-7 alternative algs per case; '(free slot)' variants; grouped by corner location/twist; no names or recognition notes"},
+        {"name": "Louis' multislotting and F-move tricks", "caseCount": "15", "notes": "F, f, S, (F B') and D-free tricks for inserting pairs while handling other SB pieces"}
+      ],
+      "drills": [
+        "Learn a preferred alg for each of the 47 last-pair cases, with alternates for when the back slot is free",
+        "Practise F-move and multislotting inserts for SB pairs when DR or the other pair is unsolved"
+      ],
+      "infoTopics": [
+        "SB last-pair cases with DR + back square solved",
+        "Using a free back slot or D moves for shorter inserts",
+        "M-slice-based pair solutions (M/r interplay)",
+        "Multislotting and F-move tricks in SB"
+      ],
+      "appIdeas": [
+        "SB last-pair alg trainer set (about 47 cases) generated by the app's own solver, shown in this doc's FR-pair-only colouring style",
+        "Per-case 'alternatives' list with tags such as 'needs free back slot', 'uses D', 'uses F', 'M-slice', so the learner can pick a main alg and see situational ones",
+        "A trainer filter for state preconditions (DR solved, back pair solved or free) so the same case drills cover DR-first and DR-neutral approaches",
+        "An 'F-move tricks' mini-set (about 15) in the advanced SB section, practised in context (scramble to that state, then insert)",
+        "Group cases by corner location/twist in the case browser, as here, but add the names and recognition hints the doc lacks"
+      ],
+      "license": "No licence or permission terms stated; public view-only Google Doc. Treat the diagrams and compilation as all rights reserved. Case definitions and move sequences can be regenerated by solver; credit Kian and Louis if their alg choices are referenced, and ask before reusing images.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-0/sb-algs.txt"
+    },
+    {
+      "key": "gdoc:spreadsheets:1xd1LMv-0EOlEEOOPODLPzFSDZzFmd4D_KVxpgnkHrJ8",
+      "url": "https://docs.google.com/spreadsheets/d/1xd1LMv-0EOlEEOOPODLPzFSDZzFmd4D_KVxpgnkHrJ8/edit#gid=0",
+      "title": "SB Last Slot Algs (Google Sheets) - deleted",
+      "author": "unknown",
+      "kind": "alg-sheet",
+      "accessible": false,
+      "rouxRelevance": "roux-3x3",
+      "level": "unknown (presumably intermediate)",
+      "summary": "Inaccessible: the file has been deleted. Every public endpoint returns HTTP 410 with Google's 'Sorry, the file you have requested has been deleted' page: htmlview, export?format=csv&gid=0, /edit and /pubhtml. rouxcubing.com still lists it under F2B > Second Block as 'Second Block Last Slot Algs'. Contents unknown; judging by the title, it is an SB last-slot alg sheet that overlaps the 'Second Block Algs' doc in this batch. The rouxcubing link is dead and should be reported upstream. The saved file is the 410 response page only.",
+      "algSets": [],
+      "drills": [],
+      "infoTopics": [],
+      "appIdeas": [
+        "No content to use; the SB last-pair set from 'Second Block Algs' (and the app's own solver) covers this topic"
+      ],
+      "license": "Unknown (file deleted).",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-0/sb-last-slot.htmlview.html"
+    },
+    {
+      "key": "gdoc:spreadsheets:1JTHl4hlsvxWD9bOW8EJQQwMKfhwuipw1IXYVtKcvhe8",
+      "url": "https://docs.google.com/spreadsheets/d/1JTHl4hlsvxWD9bOW8EJQQwMKfhwuipw1IXYVtKcvhe8/edit?usp=sharing",
+      "title": "RUroux/CPRoux Spreadsheet (linked as \"Edde's CP Roux Sheet\")",
+      "author": "Edde (per the rouxcubing.com link text; the sheet links to edde.github.io tools). It credits Trangium for the cp-nautilus FR-in-DF idea",
+      "kind": "alg-sheet",
+      "accessible": true,
+      "rouxRelevance": "roux-oh",
+      "level": "advanced / experimental (a CP-first Roux variant; the sheet itself says most FR-in-DF algs are untested)",
+      "summary": "A Google Sheet with 10 visible tabs and 1 hidden tab: Main, CMLL, WV, SV, FR in DF, TCMLL, DR flipped, FR flipped, (S)L5C, Sune, and hidden 'Last pair setup', which is empty apart from 'WIP'. It collects algs and tricks for CP-first Roux, also called RUroux: 2-gen reduction during FB. Steps: CPFB (influence DR), SS (influence OCLS, done in dRf or dRb), OCLS (orient corners and finish the last slot, influence EO), LSE (EOLR or L7E). It is explicitly not a general Roux guide and does not cover LSE or SS. Its OH focus: 'it's unclear if L7E is particularly good for OH', so it recommends CMLL/WV/TCMLL before L5C. The Main tab explains the method, defines L5C and SL5C (Short Last 5 Corners: algs that need only U* R' to finish, set up for an edge insert), and describes Trangium's FR-in-DF idea (FR edge parked in DF, solved with r U' R' alongside L5C; about 1 move more than plain SS). It notes that R and r are often interchangeable for edge influence (marked by underlining) and that algs were generated with Batch Solver in RUr-gen. It links CPFB resources: UCPT doc, YruRU CP tracing, Circlets, CEOR-Zero, 2-gen FB doc, a 0-move CPFB sheet and edde.github.io/FBtrainer. It also links 2 Discord servers (the 0-move server, preferred for RUroux, and the CEOR server) and has a to-do list (more ACMLL, BLS, conjugation, 'tyrannical caterpillar' for L5C). Every alg tab follows one structure: a case image from a visualcube IMAGE() formula built from the first alg (inverse case), with a sticker mask and a 'Plane view'/'3D view' toggle. Up to 6 alternatives per case each carry auto-computed STM and SQTM counts, and some tabs show a per-group or per-set average STM. Cases have no names; they are grouped by subset headings. Saved: CSV of all 10 visible tabs, the xlsx (including the hidden tab), a text dump of every tab with links, and the Main-tab illustration.",
+      "algSets": [
+        {"name": "CMLL (2-gen, CP already solved)", "caseCount": "7", "notes": "OCLL-like 7 cases, 2-4 RU algs each with STM/SQTM"},
+        {"name": "Winter Variation (WV)", "caseCount": "27", "notes": "Groups: sexy spam 6, cancel into Sune/OCLL 6, insert->Sune 5, pure RU 6, wide r moves 4; RUr-gen from Batch Solver; group average STM"},
+        {"name": "Summer Variation (SV)", "caseCount": "27", "notes": "3 rows of 9; uses U as pre-AUF; sorted by STM then SQTM; set average STM"},
+        {"name": "FR in DF (cp-nautilus-style L5C)", "caseCount": "51 (43 without CMLL)", "notes": "DFR corner in UFR 27, DFR corner in DFR 24; marked untested"},
+        {"name": "TCMLL (twisted DFR corner)", "caseCount": "16", "notes": "TCMLL+ 8, TCMLL- 8; average STM including AUF noted"},
+        {"name": "DR flipped", "caseCount": "24", "notes": "CMLL 8, TCMLL+ 8, TCMLL- 8 with a flipped DR edge"},
+        {"name": "FR flipped", "caseCount": "24", "notes": "CMLL 8, TCMLL+ 8, TCMLL- 8 with a flipped FR edge"},
+        {"name": "(S)L5C - Last 5 Corners / Short L5C", "caseCount": "50", "notes": "DFR in UFR 27, DFR in DFR 23"},
+        {"name": "Sune (EO-influencing OCLS)", "caseCount": "29", "notes": "16 EO-influencing shortest cases (2 rows of 8) + 13 'inserting FR edge' cases"}
+      ],
+      "drills": [
+        "Learn CP tracing for CPFB (UCPT or YruRU-style) before using the alg sets",
+        "Plan SS to influence the OCLS case (done in dRf or dRb)",
+        "Learn OCLS subsets in order: CMLL, WV, TCMLL, and so on, then use them as L5C algs",
+        "Optional: the FR-in-DF setup (park the FR edge in DF) and solve it together with L5C"
+      ],
+      "infoTopics": [
+        "CP-first Roux / RUroux step structure (CPFB, SS, OCLS, LSE)",
+        "OCLS families: CMLL (2-gen), WV, SV, TCMLL, DR/FR flipped, (S)L5C, Sune-based EO influence",
+        "L5C vs SL5C definitions",
+        "FR-in-DF (cp-nautilus) trick by Trangium",
+        "R vs r interchangeability for LSE EO influence",
+        "Alg generation with Batch Solver (RUr-gen) and STM vs SQTM metrics",
+        "OH considerations (L7E vs CMLL-style finishes)",
+        "Community: 0-move Discord (RUroux) and CEOR server"
+      ],
+      "appIdeas": [
+        "An optional advanced/experimental 'CP-first Roux (RUroux)' module, mainly for OH, with OCLS sets generated in-app (RUr-gen) instead of copied. Keep it Roux-only and show linked non-Roux methods (YruRU, CEOR) only as CP-tracing background, if at all",
+        "Show STM and SQTM automatically for every alg, with per-group and per-set averages, as the sheet's formulas do; useful for ranking alternatives",
+        "Case diagrams generated from the inverse of the main alg, with a sticker mask that shows only the pieces that matter, and a plane/3D view toggle",
+        "Tag algs where R and r are interchangeable so the trainer can show the edge-influence variant",
+        "A CPFB tracing trainer (like edde.github.io/FBtrainer or a 0-move CPFB drill) as the entry point for the CP-first track",
+        "Mark sets or algs as 'untested/experimental' in the library, as the sheet does for FR in DF"
+      ],
+      "license": "No licence or permission terms stated; public view-only sheet. Treat the compilation as all rights reserved. Most algs were machine-generated with Batch Solver, so regenerate them with the app's solver and credit Edde (and Trangium for FR-in-DF) for the set structure.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-0/cp-roux.alltabs.txt"
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+{
+ "verdicts": [
+  {
+   "id": "cubes-1",
+   "verdict": "refuted",
+   "correction": "Minor count error at SpeedCubeShop. On 2026-10-28 its smart-cubes collection lists 29 smart puzzles, not 28: 16 GAN, 9 MoYu and 4 QiYi-protocol (QiYi AI x2 and X-Man Tornado V4 AI x2, one being the Zephyr Edition published 2026-05-20). TheCubicle's numbers are right: 36 smart puzzles, of which 18 GAN, 12 MoYu (counting the AI Mirror 3x3, not the AI Slide Klotski), 5 QiYi-protocol and 1 TokTok. The conclusion holds: GAN is 55% of SCS listings and 50% of TheCubicle's, and QiYi-protocol cubes are about 14% at both shops.",
+   "evidence": [
+    "https://speedcubeshop.com/collections/smart-cubes/products.json?limit=250 -> 29 products: GAN 16, MoYu 9, QiYi 2 + X-Man 2 (fetched 2026-10-28)",
+    "https://www.thecubicle.com/collections/smart-cubes-and-bluetooth/products.json?limit=250 -> 50 products incl. timers/robots/accessories; 36 smart puzzles = GAN 18, MoYu 12 (+ AI Slide Klotski), QiYi/X-Man 5, TokTok 1",
+    "https://speedcubeshop.com/collections/bluetooth-smart-cubes/products.json -> same 29 puzzles plus 2 timers and 2 robots",
+    "Re-checked 2026-10-29: speedcubeshop.com/collections/smart-cubes/products.json?limit=250 still returns 29 products (GAN 16, MoYu 9, QiYi 2, X-Man Designs 2)"
+   ]
+  },
+  {
+   "id": "cubes-2",
+   "verdict": "refuted",
+   "correction": "One wrong point: an EU price does exist. atoutcubes.com (FR) lists 'GAN16 UI Max Smart Cube Maglev UV Minions' at EUR 139.90, in stock (schema.org InStock). No EU price was found for the standard edition. Everything else checks out: GAN $139.99 (published 2026-06-25), TheCubicle $139.99 (created 2026-06-30, published 2026-07-03), SpeedCubeShop $125.96 with list $139.95 (published 2026-07-09). GAN's page says 'current top-tier flagship smart cube'. SWB commit 436e88a (2026-10-19, 'Add GAN 16 UI capture replay coverage') adds a gan-gen4 fixture whose HARDWARE event reads hardwareName GAN16ui, SW 2.4, productDate 2026-01-09, gyroSupported true. Two nuances. The 45 h battery is '15 hours standalone plus 30 hours via GanPod', so the cube alone lasts 15 h. And GAN's newest flagship overall is the non-smart GAN17 MagDrive (2026-08-10); the 16 ui MAX is the newest smart flagship.",
+   "evidence": [
+    "https://www.atoutcubes.com/en/smart-cubes-robots/70807-gan16-ui-smart-cube-maglev-max-uv-minions-4000000001263.html (price 139.9 EUR, InStock)",
+    "https://www.gancube.com/collections/all/products.json (gan16-ui-maglev-max UV Coated 139.99, published 2026-06-25; gan17-magdrive-3x3-speed-cube published 2026-08-10, non-smart)",
+    "https://www.gancube.com/products/gan16-ui-maglev-max (comparison table: 'Battery Life 45h (15h standalone + 30h via GanPod)')",
+    "https://speedcubeshop.com/products/16-ui-maglev-max-uv ('Battery: Up to 45 hours — 15 hours standalone plus 30 hours via GanPod'; 'intelligent gyroscope')",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GAN16ui_FF89_gan-gen4_2026-10-19T17-09-34.json",
+    "Re-checked 2026-10-29: atoutcubes GAN16 UI Max Minions page still EUR 139.90 InStock; cuboss.com wc/store search 'gan 16' returns only the non-smart 'GAN 16 MagLev Max UV' (EUR 74.99), no ui model"
+   ]
+  },
+  {
+   "id": "cubes-3",
+   "verdict": "refuted",
+   "correction": "The EU price is the i4 Leap's, not the i4's. cuboss.com sells the GAN i4 as one variable product. Its EUR 54.99 variant is 'Leap Frosted'. The GAN i4 MagLev costs EUR 64.99 (Frosted) or EUR 69.99 (UV), all in stock. atoutcubes.com (FR) lists the i4 MagLev UV at EUR 69.90 and the i4 Leap Frosted at EUR 53.90, both in stock. So the 'Options considered' line 'EUR 54.99 at cuboss for the GAN i4' should name the i4 Leap. The rest is confirmed. US i4 prices: $62.96 (SCS UV, on sale) to $69.99 (GAN/TheCubicle UV), with $64.95-64.99 for the matte MagLev. US i4 Leap prices: $49.46 (SCS sale) to $54.99 (GAN/TheCubicle). The GANi4 capture is gan-gen4 (HARDWARE GANi4, productDate 2025-12-11, gyro). GAN's page reads '30-hr Burst. Gyroscope on.', '200-hr Marathon. Gyroscope off. Recording disabled for minimal drain.' and '10-Min Charge 10-Hr Grind'. SCS copy says 'contact-free Hall-effect sensing' on the i4 Minions page but 'Electromagnetic induction ... 0-contact' elsewhere. No capture names the i4 Leap.",
+   "evidence": [
+    "https://cuboss.com/wp-json/wc/store/v1/products/78354 (Variant: Leap Frosted, EUR 54.99, In stock)",
+    "https://cuboss.com/wp-json/wc/store/v1/products/80916 (Variant: MagLev Frosted, EUR 64.99, In stock)",
+    "https://cuboss.com/wp-json/wc/store/v1/products/78355 (Variant: MagLev UV, EUR 69.99, In stock)",
+    "https://www.atoutcubes.com/en/2081-smart-cubes-robots (GAN i4 MagLev UV EUR 69.90; GAN i4 Leap Frosted EUR 53.90)",
+    "https://www.gancube.com/products/gan-i4-smart-cube (rendered: '30-hr Burst / Gyroscope on.', '200-hr Marathon / Gyroscope off. Recording disabled for minimal drain.')",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GANi4_A26E_gan-gen4_2026-04-14T11-38-02.json",
+    "Re-checked 2026-10-29: https://cuboss.com/wp-json/wc/store/v1/products/78354 still 'Variant: Leap Frosted' 5499 EUR in stock; /78355 'Variant: MagLev UV' 6999 EUR in stock"
+   ]
+  },
+  {
+   "id": "cubes-4",
+   "verdict": "confirmed",
+   "correction": "One nuance on 'no longer listed'. TheCubicle still has sold-out product pages for 'GAN Mini ui Free Play' ($114.99) and 'GAN12 ui Free Play' ($119.99/$134.99), though not in its smart collection, so 'no longer sold' is more accurate. cuboss.com also keeps a sold-out 'GAN 12 M UI Free Play' (EUR 119.99). The GAN14 ui FreePlay was not found at SCS, TheCubicle or gancube.com. GAN12 ui Maglev prices: GAN $105.99 (compare-at $129.99), SCS $119.95, TheCubicle $119.99 ('PowerPod, 2026 Edition', listed 2026-06-11) and $138.99 (10th Anniversary). atoutcubes also lists a 'Gan 12 UI MagLev UV PowerPod V2' at EUR 125.90 (in stock) next to the EUR 139.90 10th-anniversary box (in stock). The gan-web-bluetooth README mapping matches the claim word for word.",
+   "evidence": [
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/README.md#L91-L104",
+    "https://www.thecubicle.com/search/suggest.json?q=freeplay -> 'GAN Mini ui Free Play' available=false",
+    "https://www.atoutcubes.com/en/smart-cubes-robots/67349-gan-12-ui-maglev-uv-10th-anniversary-box-set-4000000000921.html (139.9 EUR, InStock)",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GAN12ui--B3C_gan-gen2_2026-04-14T11-40-51.json (HARDWARE 'GANuiB3C', gyro)",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GAN12uiFp-753_gan-gen2_2026-04-14T11-34-36.json (HARDWARE 'uiFp 753')"
+   ]
+  },
+  {
+   "id": "cubes-5",
+   "verdict": "confirmed",
+   "correction": "Detail: GAN sells the Frosted at $35.99 and the UV at $48.99; its Ten Years set ($41.99) is sold out. TheCubicle's in-stock listing is the 10th Anniversary UV edition at $44.99; its plain i Carry 2 listings ($35.99/$48.99) are sold out. SCS shows $44.06 and sold out. GAN's own i-Series table gives 'Battery life About 700h', 'Gyroscope /' and 'Rechargable x'. csTimer #407 is still open with Fedotov's 2024-07-27 quotes. SWB carries the iCarry2 workaround comments ('moves beyond the edge will be spoofed with D' and 'facelets state event at 255 move counter').",
+   "evidence": [
+    "https://www.gancube.com/collections/all/products.json (gan356-i-carry-2-puzzle-cube-for-pros variants)",
+    "https://www.gancube.com/products/gancube-gan356-i-carry-e-smart-cube (i Series comparison table)",
+    "https://github.com/cs0x7f/cstimer/issues/407",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L561-L650"
+   ]
+  },
+  {
+   "id": "cubes-6",
+   "verdict": "confirmed",
+   "correction": "Prices and battery are confirmed: i Carry E $25.99 (GAN Frosted, TheCubicle), $29.95 (SCS), EUR 25.99 at cuboss (in stock); GAN's UV variant at $32.99 is sold out. i Carry 4 (GAN listing 2026-01-19) is $31.46-35.95 at SCS and $34.99-39.99 at GAN and TheCubicle; atoutcubes has it at EUR 31.90. GAN's own i-Series table shows no gyroscope and no recharging for the i Carry E, i Carry 4 and i Carry 2, with about 150 h for the E and the 4. A lead on the protocol, unconfirmed: SWB's gan-gen2 fixture 'GANicXXX' reports HARDWARE hardwareName 'GANicEqV', software 3.12, gyroSupported false. That fits an i Carry E on Gen2, but the fixture is not labelled. The 'GANic' prefix is also used by the GAN251 ui 2x2 ('GANic251' in csTimer), so the name alone does not settle it.",
+   "evidence": [
+    "https://www.gancube.com/products/gancube-gan356-i-carry-e-smart-cube (table: GAN356 i carry E / GAN i carry 4 / GAN356 i carry 2; 'Battery life About 150h About 150h About 700h'; 'Gyroscope / / /')",
+    "https://cuboss.com/shop/gan-356-i-carry-e-3x3-smart-cube/ (EUR 25.99, in stock via wc/store API)",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GANicXXX_gan-gen2_2026-04-14T11-39-47.json (HARDWARE hardwareName 'GANicEqV', gyroSupported false)",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/attachment/device-name-scan-filters.ts",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/gancube.js#L362"
+   ]
+  },
+  {
+   "id": "cubes-7",
+   "verdict": "confirmed",
+   "correction": "Confirmed. GAN12 ui SP: $89.95/99.95 at SCS, $89.99/99.99 at TheCubicle and GAN (GAN listing 2025-07-25), EUR 89.90/99.90 at atoutcubes. SCS copy: '6 angle sensors on the core improve motion capture accuracy and help reduce missed move detection'. GAN356 i3 V2: $59.99 and only at TheCubicle, not on gancube.com or SCS. TheCubicle's copy describes it as rechargeable ('15 hours of active playtime'), with 'Smart Core 3.0' and 'gyroscope-based motion capture'. Neither model name appears in SWB, csTimer or the gan-web-bluetooth README.",
+   "evidence": [
+    "https://speedcubeshop.com/products/gan-12-ui-sp-3x3-magnetic-uv-coated-bluetooth-smart-cube",
+    "https://www.thecubicle.com/products/gan356-i3-v2-3x3",
+    "https://www.atoutcubes.com/en/2081-smart-cubes-robots"
+   ]
+  },
+  {
+   "id": "cubes-8",
+   "verdict": "confirmed",
+   "correction": "Confirmed. csTimer commit 7c13949 (2024-07-29, Luke Burong): 'enable automatic MAC address discovery for bound WeiLong V10 Ai smartcubes'. In csTimer issue #518 a V10 AI shows up as 'WCU_MY32_431D'. SWB 1e44c2c (2026-04-15) reads 'improved support for no-gyro moyu32 devices (cheap v10ai)', with a WCU_MY32_A388 fixture, and 7bbd5e9 (2026-04-17) reads 'send moyu32 init burst when probing mac addresses (fix for cheap v10ai)'. Prices: SCS $53.06 (ball-core) and $80.96 (MagLev UV), TheCubicle V10 AI Lite $32.99, cuboss EUR 57.99 in stock. atoutcubes also has it at EUR 54.90 and EUR 70.99 (UV), both on order.",
+   "evidence": [
+    "https://github.com/cs0x7f/cstimer/commit/7c13949489d7789d3be6593bd729578b4b6284b5",
+    "https://github.com/cs0x7f/cstimer/issues/518",
+    "https://github.com/poliva/smartcube-web-bluetooth/commit/1e44c2c8b9c4ba44f9157673e9443e4d4b44ac62",
+    "https://cuboss.com/shop/moyu-weilong-v10-ai-3x3/"
+   ]
+  },
+  {
+   "id": "cubes-9",
+   "verdict": "confirmed",
+   "correction": "Prices, dates and UNVERIFIED status are confirmed. V11 AI: $114.95-125.95 at SCS, $115.99-125.99 at TheCubicle, first listed 2025-07-17/21. Super AoLong AI: $121.46-159.95 at SCS, $134.99-159.99 at TheCubicle, listed 2025-11-01/07; SCS says 'Gyroscope magnetic core' and 'up to 30 hours'. AoLong V5 AI: $42.99/$47.99/$69.99 at TheCubicle (2026-10-23) and $80.95 at SCS. The gyroscope and WCU CUBE app details come from SCS ('the only AoLong V5 AI with a gyroscope core'; 'App: WCU CUBE'); TheCubicle's page says only 'more details coming soon!'. cuboss lists only the non-AI V11, Super AoLong and AoLong V5. But the EU does sell these: atoutcubes lists the WeiLong V11 AI Maglev Gyroscope UV at EUR 115.90 (in stock, last items) and the Super AoLong AI at EUR 134.90 and EUR 149.90 (19th Anniversary), both out of stock.",
+   "evidence": [
+    "https://speedcubeshop.com/products/aolong-ai-3x3-v5-magnetic-maglev-ball-core-uv-coated-bluetooth-smart-cube",
+    "https://speedcubeshop.com/products/moyu-super-aolong-ai-3x3-magnetic-maglev-20-magnet-ball-core-uv-coated-bluetooth-smart-cube",
+    "https://www.thecubicle.com/products/moyu-weilong-v11-ai-3x3-maglev-uv ('free WCU CUBE app', 'up to 30 hours')",
+    "https://www.atoutcubes.com/en/smart-cubes-robots/67656-weilong-v11-ai-3x3-maglev-gyroscope-uv-4000000000907.html (115.9 EUR, InStock)",
+    "https://cuboss.com/wp-json/wc/store/v1/products?search=aolong",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_WCU_MY33_AF9E_moyu32_2026-04-14T11-53-23.json"
+   ]
+  },
+  {
+   "id": "cubes-10",
+   "verdict": "refuted",
+   "correction": "The EU prices are slightly wrong. atoutcubes' EUR 22.90 is its 'QiYi Smart cube 3x3 bluetooth UV' listing (out of stock). Its standard 'QiYi Smart cube 3x3 bluetooth' costs EUR 19.90: the black (art) version is in stock and the stickerless one is sold out. So the cheapest EU price found is EUR 19.90, not EUR 22.99. cuboss EUR 22.99 (in stock) and the US prices are confirmed: SCS $22.95/$26.95 UV, TheCubicle $22.99/$26.99 UV. The QY-QYSC-S fixture reports gyroSupported false with no GYRO events, and SWB's QiYi capabilities default to gyroscope:false, turned on only by a 0xCC 0x10 quaternion packet.",
+   "evidence": [
+    "https://www.atoutcubes.com/en/smart-cubes-robots/67110-66544-qiyi-smart-cube-3x3-4000000007487.html (QiYi Smart cube 3x3 bluetooth, black: 19.9 EUR, InStock)",
+    "https://www.atoutcubes.com/en/smart-cubes-robots/67110-66545-qiyi-smart-cube-3x3-4000000007487.html (stickerless: 19.9 EUR, OutOfStock)",
+    "https://www.atoutcubes.com/en/smart-cubes-robots/67327-qiyi-smart-cube-3x3-bluetooth-uv-4000000007487.html (title 'QiYi Smart cube 3x3 bluetooth UV', 22.9 EUR, OutOfStock)",
+    "https://cuboss.com/shop/qiyi-smart-cube-3x3/ (EUR 22.99, in stock)",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_QY-QYSC-S-A0E6________qiyi_2026-04-14T11-37-22.json",
+    "Re-checked 2026-10-29: atoutcubes 'QiYi Smart cube 3x3 bluetooth' (black) still EUR 19.90, schema.org InStock"
+   ]
+  },
+  {
+   "id": "cubes-11",
+   "verdict": "confirmed",
+   "correction": "Confirmed. US: TheCubicle $59.99 (on sale from $69.99), $79.99 with power bank and $99.99 Zephyr LE; SCS $79.95 and $89.95 Zephyr (compare-at $99.95). cuboss EUR 79.99, in stock. atoutcubes is cheaper: EUR 69.90 in stock (EUR 79.90 with charging box, out of stock). The fixture has 214 GYRO events and HARDWARE gyroSupported true. SCS copy: 'App-based tutorials (layer-by-layer, CFOP, Roux)' in 'Smart Player Pro'.",
+   "evidence": [
+    "https://speedcubeshop.com/products/x-man-tornado-v4-ai-3x3-magnetic-uv-coated-charging-case-bluetooth-smart-cube",
+    "https://cuboss.com/shop/x-man-tornado-v4-ai-3x3-m-uv/",
+    "https://www.atoutcubes.com/en/2081-smart-cubes-robots",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_XMD-TornadoV4-i-034C__qiyi_2026-04-14T11-46-25.json"
+   ]
+  },
+  {
+   "id": "cubes-12",
+   "verdict": "confirmed",
+   "correction": "Market part confirmed: particula-tech.com lists Rubik's Connected $49.95, GoCube Edge Full Pack $79.95, GoCube 2x2 $49.95 and a GoCube Bundle Pack $109.95. getgocube.com and www.getgocube.com 301 to particula-tech.com. Neither SCS nor TheCubicle search finds them. SWB code matches: UART service 6e400001-...-e50e24dcca9e, sum-mod-256 checksum, cubeTimestamp null. One nuance: SWB enables orientation for any name starting 'GoCube' except 'GoCubeX'. Whether the Edge has it depends on its advertised name, which was not verified.",
+   "evidence": [
+    "https://particula-tech.com/products.json",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gocube.ts#L11-L45"
+   ]
+  },
+  {
+   "id": "cubes-13",
+   "verdict": "confirmed",
+   "correction": "Confirmed. giiker.com lists 'SUPERCUBE i3S' at $39.99 with available=false. TheCubicle's 'XiaoMi Giiker Cube' ($41.99) is tagged Availability_Discontinued and is unavailable. cuboss search for 'giiker' returns nothing, and SCS search finds no Giiker. The SWB giiker.ts constants match: 0xaadb/0xaadc, a 36-byte DECRYPT_KEY applied when raw[18] === 0xa7, and cubeTimestamp null.",
+   "evidence": [
+    "https://giiker.com/products.json",
+    "https://www.thecubicle.com/products/xiaomi-giiker-cube.js",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/giiker.ts#L11-L60"
+   ]
+  },
+  {
+   "id": "cubes-14",
+   "verdict": "refuted",
+   "correction": "'Only cubing.js implements its BLE protocol' is wrong. HEYKUBE's own Python library is MIT-licensed, controls the cube over BLE, and is documented at heykube-python.readthedocs.io with source at github.com/heykube/heykube_python. Among the browser drivers, cubing.js is the only one (SWB and csTimer have no HeyKube code). The availability part is confirmed: TheCubicle says 'This product has been discontinued indefinitely or we aren't sure when it will be back in stock' ($99.99, tag Availability_Discontinued), while heykube.com shows '$69.95 IN STOCK', '(c) 2022, HEYKUBE' and an open Python API.",
+   "evidence": [
+    "https://heykube-python.readthedocs.io/en/latest/ ('Free software: MIT license'; Edit on GitHub -> github.com/heykube/heykube_python)",
+    "https://www.heykube.com/",
+    "https://www.thecubicle.com/products/heykube-3x3",
+    "https://github.com/cubing/cubing.js/blob/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/smart-puzzle/Heykube.ts"
+   ]
+  },
+  {
+   "id": "cubes-15",
+   "verdict": "confirmed",
+   "correction": "Nuance on price: only the White variant ($98.99) is in stock at TheCubicle; the Black at $74.99 is sold out. The eX-Mars Connect app (seller 'Smart Cube Labs Co., Ltd.') opens with 'Welcome to eX-Mars & TokTok Cubing World!'. Its latest version is 1.0.11 from 2024-02-19, which suggests little recent activity. There is no TokTok code in SWB, csTimer or cubing.js (connect.ts lists GAN, GoCube, HeyKube, QiYi and GiiKER only).",
+   "evidence": [
+    "https://www.thecubicle.com/products/toktok-cube-3x3.js (White 98.99 available; Black 74.99 unavailable)",
+    "https://apps.apple.com/np/app/ex-mars-connect/id6451303338",
+    "https://github.com/cubing/cubing.js/blob/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/smart-puzzle/connect.ts#L6-L18"
+   ]
+  },
+  {
+   "id": "cubes-16",
+   "verdict": "confirmed",
+   "correction": "Confirmed. atoutcubes files the 'Monster Go AI Bluetooth 3x3' under /plus-distribue/ ('no longer distributed') at EUR 26.90, OutOfStock. SWB defines the Gen1 service 0000fff0 plus Device Information 180a, LZ-compressed key blobs and a poll loop. The MHC nameFilter is namePrefix 'MHC'. 'AiCube' devices use the Gen2 driver with GAN_ENCRYPTION_KEYS[1] and get gyroscope=false.",
+   "evidence": [
+    "https://www.atoutcubes.com/en/plus-distribue/49170-49173-monster-go-ai-bluetooth-3x3.html",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-definitions.ts#L1-L21",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu-mhc.ts#L366-L374",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-smart-cube.ts#L155-L164",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.ts#L115-L123"
+   ]
+  },
+  {
+   "id": "cubes-17",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-18",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-19",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-20",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-21",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-22",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-23",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-24",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-25",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-26",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-27",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-28",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-29",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-30",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-31",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-32",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-33",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-34",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-35",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-36",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-37",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-38",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-39",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-40",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-41",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-42",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-43",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-44",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-45",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-46",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-47",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-48",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-49",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "cubes-50",
+   "verdict": "not-checked"
+  }
+ ],
+ "missing": [
+  "MoYu Super WeiLong V2 AI is a current MoYu smart 3x3 that the research does not mention. It sells in the EU: atoutcubes lists 'MoYu Super WeiLong V2 AI (Ball-Core Maglev UV)' at EUR 139.90 and the 18th Anniversary edition at EUR 169.90, both in stock. It is absent from the SCS and TheCubicle smart collections. csTimer issue #488 (closed 'not planned' on 2025-08-02) reports that 'The cube is recognized, but does not record cube turns', and no open driver names it. Its protocol is therefore unknown and possibly not MoYu32. Sources: https://www.atoutcubes.com/en/3x3-cubes/67548-super-weilong-v2-ai-18th-anniversary-4000000020264.html and https://github.com/cs0x7f/cstimer/issues/488",
+  "GAN i4 endurance mode may stop move reporting, not only the gyro. GAN's page says '200-hr Marathon. Gyroscope off. Recording disabled for minimal drain.' Rouxtine should test what a Gen4 i4 sends in this mode and tell users to use Performance ('30-hr Burst. Gyroscope on.') for timed solves. Source: https://www.gancube.com/products/gan-i4-smart-cube",
+  "The GAN16 ui MAX's 45 h battery figure counts its charging pod: '15h standalone + 30h via GanPod'. The cube alone lasts 15 h. Sources: https://www.gancube.com/products/gan16-ui-maglev-max and https://speedcubeshop.com/products/16-ui-maglev-max-uv",
+  "GAN's own i-Series comparison table (i Carry E, i Carry 4, i Carry 2) lists all three as non-rechargeable and without a gyroscope, at about 150 h, 150 h and 700 h. So none of the cheap GANs gives orientation data. Source: https://www.gancube.com/products/gancube-gan356-i-carry-e-smart-cube",
+  "An unlabelled SWB Gen2 capture may cover the i Carry E. Fixture 'GANicXXX' reports HARDWARE hardwareName 'GANicEqV', software 3.12, gyroSupported false. SWB treats 'GANicXXX' as an advertising alias of 'GANic*' names. csTimer shows the 'GANic' prefix is shared with the GAN251 ui 2x2 ('GANic251'). Sources: https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GANicXXX_gan-gen2_2026-04-14T11-39-47.json and https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/gancube.js#L362",
+  "atoutcubes.com (FR) is a much broader EU source than cuboss. On 2026-10-28 its in-stock listings were: GAN16 UI Max Minions EUR 139.90, GAN i4 MagLev UV EUR 69.90, i4 Leap EUR 53.90, i Carry 4 EUR 31.90 (SSL EUR 43.90, Minions EUR 38.90), GAN12 ui SP EUR 89.90/99.90, GAN12 ui MagLev PowerPod V2 EUR 125.90, Tornado V4 AI UV EUR 69.90 and QiYi Smart Cube EUR 19.90 (black). The WeiLong V11 AI (EUR 115.90) was down to its last items. The Super AoLong AI (EUR 134.90/149.90) was out of stock. Source: https://www.atoutcubes.com/en/2081-smart-cubes-robots",
+  "Smart 2x2s are on the same shelves and some connect through the same drivers. GAN251 ui sells for $71.96-79.99 in the US and EUR 79.99 at cuboss. SWB lists support for the MoYu WeiPo V5 AI 2x2 ('WCU_MY22', MoYu32 driver with 24 facelets, added 2026-10-17). A Roux-only 3x3 app must detect and reject 2x2s; SWB and csTimer tell them apart by name ('GAN251', 'GANic251', 'WCU_MY22'). Sources: https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/README.md#L40-L48 and https://cuboss.com/shop/gan-251-m-ui-2x2-smart-cube-ball-core-uv/",
+  "TheCubicle re-listed the GAN12 ui MagLev as a 'PowerPod, 2026 Edition' ($119.99, 2026-06-11). Every public capture of a GAN12 ui is the older Gen2 'GAN12ui'. The Maglev's Gen4 mapping comes from the 2024 gan-web-bluetooth README, so the 2026 revision's protocol is unconfirmed. Source: https://www.thecubicle.com/collections/smart-cubes-and-bluetooth/products.json",
+  "The GAN356 i3 V2 is sold only at TheCubicle; it is not on gancube.com or at SCS. TheCubicle describes it as rechargeable (15 h), with a gyroscope and 'Smart Core 3.0', so it differs from the i Carry line. Source: https://www.thecubicle.com/products/gan356-i3-v2-3x3",
+  "HEYKUBE publishes its own MIT-licensed Python BLE library, an open implementation besides cubing.js. Source: https://heykube-python.readthedocs.io/en/latest/"
+ ]
+}

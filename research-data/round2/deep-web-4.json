@@ -1,0 +1,346 @@
+{
+ "resources": [
+  {
+   "key": "https://www.dropbox.com/scl/fi/q9rx51ex5p8so2mrn7xxx/tcmll-1a-compilation-full.mp4?rlkey=ce2rok823r3hwmbu8e8l0afz1&e=1&st=jp38qn6q&dl=0",
+   "url": "https://www.dropbox.com/scl/fi/q9rx51ex5p8so2mrn7xxx/tcmll-1a-compilation-full.mp4?rlkey=ce2rok823r3hwmbu8e8l0afz1&e=1&st=jp38qn6q&dl=0",
+   "title": "tcmll-1a compilation, full.mp4 (Cordelia's TCMLL 1a execution compilation)",
+   "author": "Cordelia, per the rouxcubing.com link text. She is also one of the four authors of the 'franz + cordelia + tyler + alavaro' TCMLL alg sheet linked next to it. The video itself names no one.",
+   "kind": "video",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced (TCMLL extends full CMLL; for solvers who already know the 42 CMLLs)",
+   "summary": "This is a public Dropbox shared link to one MP4 file, 'tcmll-1a compilation, full.mp4'. It needs no login. The file is 1,690,842,852 bytes and runs 11:12 (671.8 s). Video is H.264 1920x1080 at 29.97 fps; audio is AAC. The faststart MP4 was created on 2025-10-18 with Apple Core Media. I downloaded it once with curl (TLS verified), probed it with ffprobe and sampled frames with ffmpeg. To find every case title, I scanned the bottom of the frame at 2 fps for the white caption text. That gave 42 caption runs, and I read each caption frame. The file was then deleted; the frames are kept. The footage shows only hands executing algorithms on a 3x3, with no alg text, diagrams, slow motion or move overlay. There are two recording sessions: a white table with an aurora Speedcubeshop mat (about 0-260 s) and a wooden table with a dark Speedcubeshop mat. Each case is performed several times. Its name is burned in as a caption when the case starts, about every 15 s. The 42 captions use 8 'shape' groups taken from twisted-corner naming. Each group has subcases named by permutation pattern: Pac-Man 6 (Almost Solved, Left Bar, Right Bar, Left Opp, Right Opp, Diag); Shuriken 3 (RU-gen, Adj Swap, Diag Swap); Stingray 4 (RU-gen, Diag, Close Bar, Line); Gun 6 (RU-gen, Bars, Checkerboard, Front Slash, Back Slash, Diag); Hammer 6 (RU-gen, Back Bar, Front Bar, Left Column, Right Column, Diag); Turtle 6 (RU-gen, Hidden Diagonal, Bars, Checkerboard, Diag Swap, Upper Triangle); Car 4 (RU-gen, Right Column, Perpendicular Bars, Parallel Bars); Spaceship 7 (RU-gen, Checkerboard, Hidden Diagonal, Bars, Bars (DF-safe), Diag Swap, Slash). Every group starts with an 'RU-gen' case. 'Bars (DF-safe)' shows that alternative algs are kept for when DF must not be disturbed. The hub glossary defines TCMLL ('Tic-Tac') as 'an extension of CMLL to solve the top four corners and twist the bottom right corner to the correct orientation'. The video never explains '1a'. It is probably a subset label from the companion alg sheet, such as one twist direction, but that is unverified. The audio is mostly quiet with short peaks (mean -36 dB) and was not transcribed. This is an execution reference, to be watched alongside the TCMLL alg sheet.",
+   "drills": [
+    "Execution study: for each named TCMLL case, watch the repeated executions and copy the grips and finger tricks",
+    "Learn TCMLL one shape group at a time (Pac-Man, Shuriken, Stingray, Gun, Hammer, Turtle, Car, Spaceship), starting with each group's RU-gen case as the video does",
+    "Practise the DF-safe alternative where DF must be kept (Spaceship - Bars vs Bars (DF-safe))"
+   ],
+   "infoTopics": [
+    "What TCMLL is: CMLL that also fixes a twisted bottom-right (DFR) corner",
+    "TCMLL case naming: 8 twisted-corner shape groups x permutation subcases (RU-gen, Bars, Opp, Diag, Swap, Checkerboard, Slash, Column, Triangle, Hidden Diagonal)",
+    "Execution style for the TCMLL '1a' subset (how fast, which grips)",
+    "Alternative algs chosen by constraint (DF-safe)"
+   ],
+   "algSets": [
+    {
+     "name": "TCMLL 1a (cases captioned in this compilation)",
+     "caseCount": "42",
+     "notes": "Pac-Man 6, Shuriken 3, Stingray 4, Gun 6, Hammer 6, Turtle 6, Car 4, Spaceship 7. The algs are not shown in text; they are in the linked 'franz + cordelia + tyler + alavaro' TCMLL Google Sheet (not read here). '1a' is not explained in the video."
+    }
+   ],
+   "appIdeas": [
+    "TCMLL as a 'later' advanced CMLL module: a case browser grouped by the 8 community shape names, with the subcase names shown here (RU-gen, Bars, Diag, Checkerboard, Slash, Column, Swap, Triangle), so app names match what users see in sheets and videos",
+    "Alg tags in the alg model: 'RU-gen', 'DF-safe' (preserves DF), and similar, so the trainer can prefer a constrained alternative (e.g. after DF has been influenced)",
+    "Per-case reference video: store an external URL plus a start time per case. This compilation's 42 caption timestamps (in savedTo) could serve as cue points if the author agrees. Link out; never re-host",
+    "Let users attach their own execution clip or URL to a case, for 'compare with reference' execution practice",
+    "The two-session, hands-only, captioned format is a cheap template for community execution compilations the app could link per set (CMLL, TCMLL, EOLR)"
+   ],
+   "license": "No licence or terms stated; this is a personal Dropbox share. Link to it; don't download, re-host or embed without the author's permission.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/tcmll-1a-video.txt (metadata + 42 captions with timestamps; frames and caption montages in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/video/)"
+  },
+  {
+   "key": "https://www.speedsolving.com/wiki/index.php?title=conjugated_cxll",
+   "url": "https://www.speedsolving.com/wiki/index.php?title=Conjugated_CxLL",
+   "title": "Conjugated CxLL - Speedsolving Wiki",
+   "author": "Speedsolving.com wiki contributors (not verifiable; page blocked)",
+   "kind": "guide-text",
+   "accessible": false,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced / experimental (Roux-derived variant technique)",
+   "summary": "NOT ACCESSIBLE. Cloudflare bot protection blocks the page. curl got HTTP 403 with 'cf-mitigated: challenge'. Playwright stayed on 'Just a moment... Performing security verification' (Ray ID a5201e2f9e23f268). WebFetch also got 403. I did not route around it. Background comes from a web search snippet of this wiki page and from cubinghistory.com/Techniques/Pseudo (HTTP 200, text saved). Conjugated CxLL (CCxLL) solves the last five corners when the second block is a 1x2x2 square with its last corner missing. You orient one corner and place it at UBR above the square, then do an R move. That leaves a 'pseudo' state with four unsolved corners in the U layer. A normal CxLL/CMLL alg solves them relative to the conjugated corner, and an R' undoes the setup. This cuts the 614 algs of L5C down to 42. It was found independently by Michael James Straughan (2012, for his A2 method, using CLL; he also applied it to OLLCP, ELL and CLL+1) and by Joseph Briggs (2017, for his Roux-based '42' method, 'Conjugated CMLL'). Briggs named it CCxLL. Recognition systems exist from Briggs (U/D sticker orientation, then a sticker pattern compared with the bottom corner's right sticker), Jason Wong (three methods) and ATCRM (Straughan + Tim Mosher, 2021). The rouxcubing.com hub lists it under CMLL > Other CMLL, next to L5C/SL5C. A related data point: tao-yu's Alg-Trainer has a '42 (Shadowslice)' set with 672 entries. That is 42 CMLL cases x 4 pre-setups (R, R U, R U', R U2) x 4 post-setups, scrambled with an 'L7E' generator. Shadowslice is the forum name the trainer credits for the 42 method.",
+   "drills": [
+    "From background only: drill the R-conjugated CMLL. Leave the SB last-pair corner unsolved, move a U corner above the DBR square, do R, recognise the pseudo CMLL, execute, then R'",
+    "Recognition practice for pseudo CMLL states (Briggs, Jason Wong or ATCRM systems)"
+   ],
+   "infoTopics": [
+    "Conjugation (setup move + alg + undo) applied to CMLL",
+    "L5C vs Conjugated CMLL: 614 algs vs 42",
+    "The 42 method (Roux-based: FB, 1x2x2 SB square, CCMLL, then edges)",
+    "History: Straughan (A2, 2012), Briggs (42, 2017); recognition methods"
+   ],
+   "algSets": [
+    {
+     "name": "Conjugated CMLL (CCxLL)",
+     "caseCount": "42 base algs (CMLL), used under R conjugation",
+     "notes": "From background; the wiki page itself was not read."
+    },
+    {
+     "name": "L5C (comparison)",
+     "caseCount": "614",
+     "notes": "Cited as the full last-five-corners set that CCxLL replaces."
+    }
+   ],
+   "appIdeas": [
+    "Optional advanced lesson 'CMLL with a setup': how the 42 CMLL algs solve five corners through an R conjugation, as an introduction to conjugation and pseudo states for advanced Roux solvers",
+    "Experimental trainer mode (later): CMLL generator with SB's last corner unsolved, so the user practises the setup + CMLL + undo flow, reusing the CMLL engine with a 4x4 pre/post set as in Alg-Trainer's '42' set",
+    "Glossary entries for CCxLL, L5C, SL5C and pseudo states, linking to the wiki and cubinghistory pages instead of copying them"
+   ],
+   "license": "Not verified, because the page is blocked. Speedsolving wiki text is community-written. Link to it; don't copy it.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/speedsolving-cxll.txt (block record + cubinghistory.com/Techniques/Pseudo text as background)"
+  },
+  {
+   "key": "https://tao-yu.github.io/alg-trainer",
+   "url": "https://tao-yu.github.io/Alg-Trainer/",
+   "title": "Alg Trainer (Tao Yu)",
+   "author": "Tao Yu (tao-yu on GitHub). The algs come from many authors credited in the page and set names (algdb, Justin Taylor, Jabari Nuruddin, Chad Batten, and others).",
+   "kind": "trainer-tool",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "all levels of alg learners; for Roux, from learning full CMLL to OH CMLL and variant sets",
+   "summary": "A static JS alg-memorisation trainer. I rendered it with Playwright, selected CMLL, turned on the virtual cube, generated 4 tests, then switched to OH CMLL. I also read the source from a clone of tao-yu/Alg-Trainer (last commit cb95945, 2024-06-14; MIT, 'Copyright (c) 2017-2021 Tao Yu'). The README says the author learned full ZBLL (493 algs) in 58 days with it. The picker lists 63 alg sets, mostly CFOP/ZZ/2x2. The Roux-relevant ones are 'CMLL' (42 cases: O 2, H 4, Pi 6, U 6, T 6, S 6, aS 6, L 6; several algs per case separated by '/') and 'OH CMLL' (42). Roux-variant sets are '42 (Shadowslice)' (672 = 42 CMLL x 4 pre x 4 post R-conjugations) and 'ZBLSE (John McWilliams)'. ZBLSE has 247 M/U-move edge cases grouped by EO pattern (Oriented 8, 6-Flip 9, 2o/2 16, 0/2 9, Arrow F/B 30+30, 4/0 9, 2o/0 16, 2a/0 30, 1/1 F/B 30+30, 2a/2 30). It is scrambled with the ZBLL generator, so it looks like an edges-first step before ZBLL; its scope is not documented. 'L5E' sets (Justin Taylor, 216; L5EP 12; 2-look FR+EO 18) are last-five-edges sets with the FR edge, not core Roux. A session works like this. Pick a set and optionally tick subsets (unticked = whole set). Enter/Tab/Space gives a scramble, and you set up the case on a real cube or use the virtual cube. Space stops the timer and shows the alg(s). Backspace shows the alg without timing, and the arrow keys browse earlier tests. With the virtual cube, the timer stops by itself when the cube is solved and Esc resets the case. Settings: Use Virtual Cube; Hide timer; Show Scramble; Use Real Scrambles; Random AUF; 'Scramble subsequent steps'; Go in order; 'Don't show alg after stopping timer'; Mirror across M / S, each with a Randomize option; Auto-fix algorithm rotation; line style; 3x3/2x2 virtual cube; Giiker i3S/i3SE Bluetooth; user-defined alg set (paste one alg per line, # comments, 'Add currently selected algs'); preorientation; custom colour scheme; editable key bindings (default layout after Ryan Heise). Preorientation is either full colour neutrality (24 orientations) or three boxes: a fixed rotation, then random repeats of two rotations. The defaults are '', 'x2', 'y', i.e. Roux x2/y colour neutrality. The random part shows in green in front of the scramble (e.g. 'x2 y2 x2 B' R' ...'). For CMLL and OH CMLL, 'Scramble subsequent steps' first applies 100 random LSE triggers (M2, M U M, M U M', M U' M, ..., M' U2 M') before the inverse alg. Then obfuscate() re-solves premoves + inverse alg with a two-phase solver, padding to at least 16 moves. So the scramble shows neither the alg nor a solved LSE, and the trainer explains this on scramblingNote.html. A right-hand 'Algset Statistics' panel showed, for CMLL, mean 10.429 STM / 11.690 SQTM (10.833 / 12.262 including AUF) over 42 algs. The times list shows a running mean. The virtual cube is a flat net that toggles to 3D or hidden on click. A mobile.html beta has the same settings. Sample CMLL test: scramble 'L' F' D' F' L' B' R' B' R2 ...', with three algs shown for the case, such as 'L' U R U' L U R' U'.",
+   "drills": [
+    "Full CMLL memorisation: random case from all 42 or chosen groups (O/H/Pi/U/T/S/aS/L), timed, alg revealed on stop",
+    "OH CMLL with an OH-specific alg list",
+    "'Go in order' pass through a group, then random",
+    "Self-test: 'Don't show alg after stopping timer', check with the left arrow only when unsure",
+    "Mirror training (across M or S, fixed or random) to learn mirrored executions",
+    "Virtual-cube execution (keyboard) with auto-stop on solved",
+    "Recognition in context: CMLL with a scrambled LSE (subsequent-steps prescramble) and random AUF under x2/y colour neutrality",
+    "Custom drill lists: paste your own algs as a user-defined set"
+   ],
+   "infoTopics": [
+    "Why scrambles must not be the inverse alg (the obfuscation method is explained on scramblingNote.html)",
+    "Preorientation and colour neutrality settings (x2/y for Roux)",
+    "Alg-set statistics: mean STM/SQTM with and without AUF",
+    "Alg credits per set"
+   ],
+   "algSets": [
+    {
+     "name": "CMLL",
+     "caseCount": "42",
+     "notes": "O 2, H 4, Pi 6, U 6, T 6, S 6, aS 6, L 6; multiple algs per case; mean 10.43 STM (10.83 incl. AUF)"
+    },
+    {
+     "name": "OH CMLL",
+     "caseCount": "42",
+     "notes": "T, U, L, S, AS, Pi 6 each; H 4; O 2"
+    },
+    {
+     "name": "42 (Shadowslice)",
+     "caseCount": "672",
+     "notes": "42 CMLL algs wrapped in R / R U / R U' / R U2 setups and matching undos (conjugated CMLL for the 42 method). Scrambled with an L7E generator."
+    },
+    {
+     "name": "ZBLSE (John McWilliams)",
+     "caseCount": "247",
+     "notes": "M/U edge algs grouped by EO pattern (Oriented, 6-Flip, 2o/2, 0/2, Arrow F/B, 4/0, 2o/0, 2a/0, 1/1 F/B, 2a/2); ZBLL-style prescramble; exact definition not documented"
+    },
+    {
+     "name": "L5E (Justin Taylor) / L5EP (Justin, Micki) / 2-Look L5E FR+EO",
+     "caseCount": "216 / 12 / 18",
+     "notes": "Last five edges incl. FR (R/M/U/S/r moves); Roux-adjacent variants, not core Roux"
+    }
+   ],
+   "appIdeas": [
+    "Adopt the 'scramble subsequent steps' idea for CMLL: put a random LSE state after the CMLL case (or sample LSE random-state, as planned) so recognition happens in a realistic position. The trigger list M2, M U M, M U M', M U' M, ..., M' U2 M' is a cheap fallback generator",
+    "Algset statistics card per selection (alg count, mean STM/SQTM, with and without AUF), recomputed when the user swaps in alternative algs",
+    "Preorientation model: default random x2 + y for Roux, a 'full CN' toggle, and the random rotation shown in a distinct colour before the scramble",
+    "Self-test mode: hide the alg after stopping and reveal only on demand. Combine with SRS grading (reveal = lapse)",
+    "Mirror across M / S toggles (fixed or randomised) for CMLL; OH and left-handed users need mirrored executions",
+    "History navigation: swipe back and forth through previous cases with their scramble and alg (Android equivalent of the arrow keys)",
+    "User-defined sets: paste algs (one per line, # comments) or 'start from current selection' to build a personal subset",
+    "Virtual cube with flat / 3D / hidden toggle and auto-stop when solved; the 'hidden' mode suits real-cube users",
+    "Smart cube: they support only Giiker. Our planned native BLE should feed the same 'auto-stop when solved' path",
+    "Bring in the OH CMLL list as a separate per-case alg preference (licence: MIT for the code; the alg lists are compilations, so credit the sources)"
+   ],
+   "license": "MIT (LICENSE: Copyright (c) 2017-2021 Tao Yu). The page says 'open source ... subject to the MIT licence'. Code and data can be reused with the copyright notice. The alg lists are compiled from credited sources (algdb, named cubers), so keep their attribution. MIT code can go into a GPL-3.0 app.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/alg-trainer.txt (page text, 63 set names, sample tests); source clone in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/repos/tao-yu_Alg-Trainer; screenshots in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/shots/algtrainer-*.png"
+  },
+  {
+   "key": "https://ksim.kirjava.xyz",
+   "url": "http://ksim.kirjava.xyz/",
+   "title": "kSim 2 (Rubik's cube simulator and toolkit)",
+   "author": "Kirjava (Thom; GitHub kirjavascript)",
+   "kind": "trainer-tool",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "intermediate to advanced (simulator with stage scramblers; keyboard-driven)",
+   "summary": "The site is HTTP-only. The HTTPS version presents a certificate for another host, so curl refused it and verification was not disabled. The agent proxy tunnels only HTTPS, so Playwright could not load http:// directly. I fetched index.html (a 45-byte stub that loads /root.js) and root.js (1.38 MB webpack bundle) with curl. I served them to Playwright through request interception, then picked the CMLL and LSE scramblers and scrambled. I also read the source from a clone of kirjavascript/kSim (React 15 + MobX + three.js; last commit 65ed7bf, 2020-03-15; served build last modified 2020-05-23). The README says 'kSim 2 is a rubik's cube simulator and toolkit' and thanks Lucas Garron, Josef Jelinek (ACube), Shuang Chen (min2phase), Justin Jaffray and Michael Gottlieb. The UI has collapsible panels. Cube: scrambler select, a colour picker per face, 'Set Scramble Orientation'. Display: Classic, Flat or Three view, opacity, zoom, X/Y camera sliders, facelet borders. Solver: ACube in a web worker, with HTM/QTM/STM metric and Slices / All / Optimal checkboxes, showing the ACube state string. Keymap: an editable key-to-moves table, defaulting to the csTimer-style layout i=R, k=R', j=U, f=U', h=M, g=M'. Timer: status, scramble, times with best and current ao5/ao12/ao100. Move History: a rewind slider over your moves, 'Condense moves'. About: 'Clear all data'. State persists in localStorage. Scramblers (min2phase random-state subsets): Random State, CMLL, LSE, LL, OLL, PLL, CLL, ELL, LSLL, 2GLL, ZBLL (+U/T/AS/S/Pi/H), OLLCP (+subsets), Edges Only, Corners Only. CMLL is a random state of the four U corners and the six LSE edges with F2B solved. The six LSE edges are painted grey, so only the corners and blocks show; I confirmed this in the screenshot. LSE is a random-state LSE plus a random AUF and a random M2, so the centres are off half the time. Session flow: Space gives a new scramble (status 'ready'). The first non-rotation move starts the timer. It stops itself when every face shows one colour among its non-grey stickers, so in CMLL mode the solve ends when the corners and AUF are done. Esc resets the cube, and a reset during a running solve records a DNF. Sample CMLL scramble: 'F R' F' L2 B2 R B2 R B2 U' B2 U B2 R2 D B2 D2 R2 L2'.",
+   "drills": [
+    "CMLL on a virtual cube from random-state scrambles, with LSE edges greyed so only corner recognition matters; timed, auto-stopping when corners and AUF are solved",
+    "Random-state LSE practice including centres offset by M2",
+    "Check your solution against ACube optimal solutions in HTM/QTM/STM, with or without slice moves",
+    "Replay a solve with the move-history rewind slider"
+   ],
+   "infoTopics": [
+    "Random-state stage scrambles for CMLL and LSE",
+    "Sticker masking (grey stickers) as a way to show only the relevant pieces",
+    "Optimal partial-state solving (ACube) and metrics"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "A generic 'stage complete' rule that ignores masked stickers: solved when each face shows one colour among non-masked stickers. One predicate covers CMLL (corners + AUF), EO, EOLR and so on once the mask is set",
+    "CMLL scrambler as random state of corners + LSE with the LSE edges greyed. It matches our MVP plan and confirms users accept grey edges during CMLL practice",
+    "LSE scrambles that add a random M2 (misaligned centres), so misoriented-centre cases come up naturally",
+    "Move history with a rewind slider and 'condense moves' for reviewing a virtual solve",
+    "Partial-state solver screen (ACube-style): paint or select a stage state and list optimal solutions by metric and move set (with or without slices)",
+    "Per-user keymap editor for hardware keyboards (Android tablets and Chromebooks)"
+   ],
+   "license": "No LICENSE file. package.json says 'ISC' but it is the unchanged 'boilerstate' boilerplate, so treat it as unlicensed (all rights reserved). Reimplement the ideas; don't copy code. The bundled min2phase and ACube have their own licences.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/ksim.txt (page text per state + source notes); bundle at /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/ksim-root.js; source clone in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/repos/kirjavascript_ksim; screenshots /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/shots/ksim-*.png"
+  },
+  {
+   "key": "https://bestsiteever.ru/zbll",
+   "url": "https://bestsiteever.ru/zbll/",
+   "title": "ZBLL trainer next (Roman Strakhov)",
+   "author": "Roman Strakhov (GitHub Roman-)",
+   "kind": "trainer-tool",
+   "accessible": true,
+   "rouxRelevance": "not-roux",
+   "level": "advanced (ZBLL is a CFOP/ZZ last-layer set). Listed on rouxcubing.com under CMLL trainers as a model trainer UI",
+   "summary": "The linked URL fails TLS: 'SSL certificate problem: self-signed certificate'. I did not disable verification. The author's repo github.com/Roman-/zbll names https://www.bestsiteever.net/zbll as the site, and commit 4215205 (2025-10-26) changed the TLD from .ru to .net. So I rendered bestsiteever.net/zbll with Playwright (Select view, Hotkeys, Timer view) and read the Vue 3 + Pinia source (last commit e57eaef, 2025-10-26). The older version is Roman-/zbll-trainer (last commit e7bf54e, 2024-11-29). The content is ZBLL: 472 cases, grouped by OLL shape (H 40; L, Pi, S, T, U, aS 72 each), then COLL, then ZBLL. Each case has several algs and precomputed scrambles grouped by length. This is not Roux content and must not go into the app. Its training design is fully reusable for CMLL, EOLR and TCMLL. Selection: click a group picture to select or deselect the group, click its header to expand. Group colour shows state: green = all, yellow = some, white = none. 'start' practises at random; 'recap each case once' runs through every selected case once. Picking: recap mode draws only cases not yet done this round, then falls back to random. Random mode picks the least-practised case 20% of the time and is uniform otherwise. The scramble uses the shortest length common to all selected cases, so length gives nothing away. It is one of several stored algs, re-expressed after a random y rotation, choosing the version with fewer B moves. Timer: hold space (configurable start delay, default 100 ms), release to start, space to stop. Each result card shows the case picture, scramble, setup, the alg list, a 'Selected' toggle, 'Add to starred preset' and a personal note for the case. Deleting a result (e.g. a misscramble) also gives back its recap credit. Presets save named case selections. Hotkeys: Alt+T timer/select, Delete or Alt+Z delete result, Shift+Delete clear session, Alt+S select/deselect current case, Alt+R recap, Alt+A add to starred, arrows/Home/End to move through results. Settings: scramble size, timer size, font and precision, timer update (on, off, seconds only), start delay, top or side pictures, scramble appendix, light/dark and about two dozen Bootstrap themes, 19 UI languages from community translations. Pictures come from sr-puzzlegen, and the page loads Google Analytics.",
+   "drills": [
+    "Random practice over a chosen case subset, weighted toward least-practised cases",
+    "Recap: every selected case exactly once, then back to random",
+    "Review loop: mark slow or failed cases as selected/starred from the result card, then train the starred preset"
+   ],
+   "infoTopics": [
+    "Case hierarchy browsing (shape group, then sub-group, then case) with pictures",
+    "Per-case alg lists and setups"
+   ],
+   "algSets": [
+    {
+     "name": "ZBLL (not Roux; reference only)",
+     "caseCount": "472",
+     "notes": "H 40; L, Pi, S, T, U, aS 72 each. Not for the app."
+    }
+   ],
+   "appIdeas": [
+    "Case-selection grid for CMLL / EOLR / TCMLL: tap the group picture to toggle the whole group, tap the header to expand, show group state with tri-state colour (all / some / none) and an 'n/total' count in the header",
+    "Two start buttons: 'Practise' (random) and 'Recap each case once', with recap progress in the top bar ('n to recap')",
+    "Coverage weighting: about 20% of picks go to the least-practised case. A cheap first step before full SRS",
+    "Equal-length scrambles across the selection, plus random y re-expression, so the scramble never identifies the case",
+    "Result card: case picture, scramble, setup, alg list, 'select/deselect', 'add to starred preset', personal note per case. Deleting a result restores its recap credit",
+    "Named presets ('to learn', 'starred') of case selections",
+    "Hold-to-start timer with a configurable delay; keyboard shortcuts for tablets; per-user timer font, size and precision",
+    "Community translation workflow (19 languages) as a model for app localisation"
+   ],
+   "license": "Neither Roman-/zbll nor Roman-/zbll-trainer has a LICENSE file (the default is all rights reserved). Reimplement the ideas; don't copy code or data. The content (ZBLL) is out of scope for Rouxtine anyway.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/zbll-trainer.txt (page text, hotkeys, source notes); index at /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/zbll-index.html; source clones in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/repos/Roman-_zbll and Roman-_zbll-trainer; screenshots /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/shots/zbll-*.png"
+  },
+  {
+   "key": "https://rouxl.es/images/lseeo.png",
+   "url": "https://rouxl.es/images/LSEEO.png",
+   "title": "LSE Edge Orientation (Step 4a) flowchart",
+   "author": "Antonio Kam ('Anto'), rouxl.es (GitHub Pages repo Rouxles/rouxles.github.io)",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner to intermediate (first step after arrow-only intuitive EO)",
+   "summary": "This is a PNG (1358x677, 186 KB; added to the repo 2020-06-04, Last-Modified 2020-10-16), shown on rouxl.es/lse.html under the collapsible 'EO Flowchart'. I read it directly and from enlarged crops. Its title is 'LSE Edge Orientation (Step 4a)'. There are two mirrored panels, 'Lefty M Moves' (using U) and 'Righty M Moves' (using U'). Each state is a small grey 3D cube with red stickers marking the visible misoriented edges. Arrows show how each state reaches one of two finishing states with a 3-move trigger. In the lefty panel, the 6-flip goes by M' U M' into the 'M' U M' group. Two states use M2'. Two states use M' U M. Two use M' U2 M', including four bad edges on top. Three use M' U M'. The finishing states are the 'arrow' (3 bad on top + DF), solved by M' U M', and a second 4-bad state solved by M U M'. The righty panel repeats the tree with U' (M' U' M, M' U2' M', M' U' M', finishing with M' U' M' and M U' M'). The lse.html page around it calls the flowchart 'optimal MU solutions for each EO case'. It gives an LSE progression: (1) learn the EO flowchart; (2) track the LR edges during EO and force one LR edge to the D layer, to go 4a into 4b without a pause; (3) learn DFDB recognition, for 4b into 4c without a pause; (4) learn EOLR ('Don't avoid misoriented centers'). The same page links a DFDB guide image, an MC DFDB image, EOLR docs (RH and LH M), the EOLRb trainer (old jeremyg.nl address, now enbyne.tech) and an LSE sim (jeremyg.nl/LSEV.htm, now HTTP 503).",
+   "drills": [
+    "Learn EO as a flowchart: identify the state, apply the trigger, reach an arrow, finish",
+    "Choose lefty (U) or righty (U') M-move habits and learn the matching tree",
+    "Follow the rouxl.es LSE progression: EO flowchart, then force an LR edge to D during EO, then DFDB recognition, then EOLR"
+   ],
+   "infoTopics": [
+    "LSE step 4a (edge orientation) and the 'arrow' finishing state",
+    "Bad-edge patterns (6-flip, 4 on top, 2-bad and 4-bad states)",
+    "Lefty vs righty M-move preference (U vs U' triggers)",
+    "LSE learning progression (4a, then 4b with LR to D, then DFDB 4c, then EOLR)"
+   ],
+   "algSets": [
+    {
+     "name": "LSE EO flowchart (4a), lefty",
+     "caseCount": "12 states (10 set-up states + 2 finishing states) incl. 6-flip",
+     "notes": "Triggers: M2', M' U M, M' U2 M', M' U M'; finishes M' U M' and M U M'"
+    },
+    {
+     "name": "LSE EO flowchart (4a), righty",
+     "caseCount": "12 states",
+     "notes": "Mirror with U': M2', M' U' M, M' U2' M', M' U' M'; finishes M' U' M' and M U' M'"
+    }
+   ],
+   "appIdeas": [
+    "Interactive EO flowchart lesson: show an EO state, the user picks the next trigger from 4 chips, the cube animates to the next node, and it ends at the arrow. Wrong picks show the right branch",
+    "Lefty/righty M-preference setting applied everywhere LSE solutions are shown (U-first vs U'-first variants)",
+    "Use the rouxl.es progression as the LSE curriculum gates: EO flowchart, then the 'LR edge to D during EO' drill, then DFDB 4c recognition, then EOLR",
+    "Cube pictures with only the bad-edge stickers coloured (rest grey) as the EO case icon style"
+   ],
+   "license": "No licence stated (repo Rouxles/rouxles.github.io has no LICENSE). Link to it; recreate the flowchart content from our own solver output, don't copy the image.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/lseeo.txt (transcription + rouxl.es LSE page text); image /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/lseeo.png; crops in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/crops/lseeo-*.png"
+  },
+  {
+   "key": "https://basilio.dev/cubing/images/algs-eolr.jpg",
+   "url": "https://basilio.dev/cubing/images/ALGS-EOLR.jpg",
+   "title": "Bas's EOLR Cheat Sheet",
+   "author": "Basilio Noris ('Bas', B4silio), dated 04.08.2023, 'Thank you Anto!'",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced (EOLR)",
+   "summary": "This is a JPEG (4266x7500, 2.9 MB, Last-Modified 2023-08-04) from the 'Bas's Guides and algsheets' section of basilio.dev/cubing. I read it from row and half-row crops; the small print is partly hard to read. It organises EOLR into 9 EO classes named <bad edges on U>/<bad edges on D>: 3/1 (arrow), 2a/2, 4/0, 2o/2, 2o/0, 0/2, 2a/0, 1/1 and 4/2 (6-flip). Each case diagram is a top-face grid with DB drawn above and DF below. A thick outline marks an unoriented edge. Dark red means the L/R edge's sticker is on top or visible; light red means it is on the side or hidden. Under each diagram is the bold opening and a strategy note; the full EOLR solution is in small print above. Examples: 3/1 'Good Arrows' M, M' U' M', M' U' M; 'OK Arrow' U M' U2 M U 'Switch to good'. Four 3/1 'BAD CASES' are handled with 'M' U M' then solve LR'. 2a/2: 'M2 U' Switch to good arrow', 'M' U M' U Stack bad edges and bring down', 'U2 M U2 M' U' Stack bad non-LR edge with LR, keep on bottom'. 4/0: 'M' U2 M' U2 Swap twice', 'M' U2 M U2 Bring to top'. 2o/2: 'Switch and stack', 'M2 U M' U2 M' U2 Turn into 4/0 and solve'. 2o/0: 'M' U M U' Put on top', 'M' U' M U Works in any direction'; one bad case uses the non-MU 'R U R' U' M' U R U' r' Standard OLL'. 0/2: 'Keep on Top and replace', 'Keep corners on sides, then align with UF color'. 2a/0 and 1/1 have keep/bring-to-top/bottom strategies, and several bad cases 'switch to 1/1' or 'switch to OK arrow'. 4/2 (all bad), e.g. 'M' U M U2 M' U' M' U' Bring adjacent and switch to 1/1 case'. Dashed boxes mark bad cases in every class. A footnote says the cases can be mirrored about different axes. In total there are 51 main diagrams (3/1 8, 2a/2 7, 4/0 4, 2o/2 6, 2o/0 6, 0/2 4, 2a/0 7, 1/1 6, 4/2 3) plus small alternates. It is a strategy map, not an exhaustive alg list: it teaches how to steer each EO class into a good arrow or a 1/1 while placing the L/R edges. The site also hosts an Audio Timer (microphone pause detection: look vs turn time, alg splits, split by voice), a Recon Viewer and a CMLL sheet (ALGS-CMLL.jpg, not read).",
+   "drills": [
+    "For each EO class, learn the strategy family (switch to good arrow, stack bad edges, turn into 4/0, switch to 1/1) before memorising full solutions",
+    "Recognise the class from bad-edge counts (U/D) plus where the L/R stickers face (visible vs hidden)",
+    "Learn the 'bad case' fallbacks (e.g. M' U M' then solve LR) for when EOLR recognition fails",
+    "Practise mirrors of each case (the sheet leaves symmetry to the reader)"
+   ],
+   "infoTopics": [
+    "EOLR case taxonomy: 9 EO classes (3/1, 2a/2, 4/0, 2o/2, 2o/0, 0/2, 2a/0, 1/1, 4/2)",
+    "Good / OK / bad arrows",
+    "L/R edge sticker visibility as part of recognition",
+    "Strategy heuristics: stacking bad edges, keeping LR on top or bottom, converting classes",
+    "A non-MU alg (OLL-style R U R' U' M' U R U' r') as an EOLR option"
+   ],
+   "algSets": [
+    {
+     "name": "EOLR (strategy cheat sheet)",
+     "caseCount": "51 main diagrams over 9 EO classes",
+     "notes": "3/1 8, 2a/2 7, 4/0 4, 2o/2 6, 2o/0 6, 0/2 4, 2a/0 7, 1/1 6, 4/2 3; mirrors implied; full solutions in small print (partly legible, transcribed in savedTo)"
+    }
+   ],
+   "appIdeas": [
+    "EOLR trainer taxonomy: filter chips by EO class (3/1, 2a/2, 4/0, 2o/2, 2o/0, 0/2, 2a/0, 1/1, 4/2) and by 'good / OK / bad' arrow, with mirrors folded in",
+    "Show a strategy hint (e.g. 'stack bad edges and bring down') before revealing the solution. Hints can be authored per case family and checked against our solver's optimal lines",
+    "Compact EOLR case icon for Compose: top-face grid + DF/DB tabs, outlined bad edges, two shades for the L/R sticker (visible vs side)",
+    "'Bad case' fallback mode: teach the safe 2-step path (EO then LR) alongside the 1-look solution and show the move-count cost",
+    "Allow non-MU algs (e.g. R U R' U' M' U R U' r') as alternatives in the EOLR alg model",
+    "Idea from the same site: microphone-based pause detection (look vs turn time, auto alg splits) for a timer without a smart cube"
+   ],
+   "license": "No licence stated on the image or page. Link to it; build our own sheet from solver output.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/algs-eolr.txt (transcription with legend, per-row strategies, counts); image /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/algs-eolr.jpg; crops in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/crops/eolr-*.png"
+  },
+  {
+   "key": "https://enbyne.tech/tools/eolrb",
+   "url": "https://enbyne.tech/tools/EOLRb",
+   "title": "EOLRb trainer (Jade, enbyne.tech)",
+   "author": "Jade ('JBG', enbyne.tech; formerly jeremyg.nl)",
+   "kind": "trainer-tool",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced (EOLR / EOLRb)",
+   "summary": "A small static page plus four scripts (lset_base.js, eolr_solver.js, eolrdict9.js, eolr_draw.js, v0.51). I fetched all four and read them, then drove the page with Playwright. In the browser I generated 4 cases, replayed each first listed solution with the default keys and confirmed the 'solved' readout; I did not run any downloaded code outside the browser. I analysed the solution table in Python as data. The model is LSE-only: 6 edges in slots UL, UR, UB, UF, DF, DB (L/R = the UL/UR pieces, X = M-slice pieces, lowercase = misoriented), a U offset and an M-centre offset; moves are U, U', U2, M, M', M2. As coded, the target 'EOLRb' is: every edge oriented and the UL/UR edges solved relative to the corners, so only 4c remains. A looser, unused EOLR check accepts L and R paired in any opposite pair of slots. Cases: L and R are placed at random in any of the six slots. The EO pattern comes from 8 checkboxes: 3LRF-1F (arrow), 1F-1B, 4-0, 0-2, 2LR-2, 2FB-0, 2BL-0, 2BL-2. There is no 6-flip option, and centres are always aligned. Solutions come from a precomputed table of 960 states (8 patterns x 30 L/R placements x 4 U offsets) with 2,720 solutions. All are optimal (equal length within a state), 1 to 5 per state, 3 to 14 STM. Mean optimal length: arrow 7.6, 2BL-2 8.4, 0-2 9.2, 2FB-0 9.4, 1F-1B 9.6, 2BL-0 10.1, 4-0 10.4, 2LR-2 10.7. The scramble is the inverse of the first optimal solution, hidden by default (Ctrl shows it). 'Allow mirrors' swaps M and M'. 'Add random AUF (may give unoptimal solutions)', off by default, adds AUF only where it changes the case: arrow and 1F-1B get any of 4, 4-0 and 0-2 get none, the rest get 0 or 1. Session: Enter gives a new case. You solve it on a flat canvas net (U face from above with the side stickers of U-layer pieces, F face and DF below, B/DB above) by typing moves. Default keys are S=M, D=M', K=U, L=U'; Esc rebinds them, saved in localStorage. Space redoes the same case and Shift shows the solutions. When your moves reach EOLRb, the page shows 'Your solution' in bold with its STM count and lists the optimal ones. Example: scramble 'U' M U M' U M2', you 'M2 U' M U' M' 5 STM', optimal 'M2 U' M U' M' (5STM)'. Other options: Show bottom (DF/DB bottom stickers), Show back, a 6-colour scheme (U,F,D,B,L,R), and 'Orientations': 24 checkboxes for colour on U and colour on F (colour neutrality). It is keyboard-only, with no touch support and no timer or stats. The cubing page describes it as 'Based on the LSETool backend ... practice any EO set for EOLRb, on any colour scheme. Also suitable for just EOLR'. The same author offers LSETool online (optimal LSE/EOLR solver) and two Google Docs: 'EOLR described' (every EOLR case explained, 'Hardly any algs!') and 'OH CMLL'. rouxl.es links the old jeremyg.nl/EOLRb address, which now returns 503.",
+   "drills": [
+    "EOLRb by EO pattern: tick any of the 8 patterns (start with the arrow, add the harder 4-0 / 2LR-2), solve on the virtual LSE, compare your STM with the optimal",
+    "Redo the same case (Space) until you find the optimal line",
+    "Mirror and random-AUF variants for recognition from every angle",
+    "Colour-neutral EOLR: tick several U/F colour pairs"
+   ],
+   "infoTopics": [
+    "EOLRb definition (EO + UL/UR solved, straight into 4c) vs the looser EOLR end state",
+    "EO pattern names: 3LRF-1F arrow, 1F-1B, 4-0, 0-2, 2LR-2, 2FB-0, 2BL-0, 2BL-2",
+    "Optimal move counts per pattern"
+   ],
+   "algSets": [
+    {
+     "name": "EOLRb optimal solutions (precomputed table)",
+     "caseCount": "960 states / 2,720 optimal solutions",
+     "notes": "8 EO patterns x 30 L/R placements x 4 U offsets; 1-5 optimal solutions per state, 3-14 STM. No 6-flip, no misaligned centres"
+    }
+   ],
+   "appIdeas": [
+    "Precompute the whole EOLR/EOLRb optimal table at build time (with our own LSE solver, incl. 6-flip and misaligned centres) and ship it as a small asset: instant, offline, no on-device search",
+    "'Your solution vs optimal' result: after the user reaches the target, show their STM next to the optimal STM and all optimal lines",
+    "Touch-first LSE input: four big buttons or swipe gestures for M, M', U, U' (plus M2/U2 by double tap), mirroring the keyboard model. This is the most phone-friendly kind of virtual-cube drill",
+    "Pattern filter chips with the community names (arrow 3LRF-1F, 1F-1B, 4-0, 0-2, 2LR-2, 2FB-0, 2BL-0, 2BL-2) plus the missing 6-flip and misoriented-centre options",
+    "AUF randomisation only where it changes the case, and an M/M' mirror toggle",
+    "Colour-neutrality picker as a 6x4 grid of U/F colour pairs, plus a custom colour scheme",
+    "Redo-case and hidden-scramble defaults (the scramble here is the inverse of the solution, so hiding it matters; ours should be random-state anyway)",
+    "Flat LSE net view (U face + F/DF + B/DB strips) with optional bottom and back stickers, as a compact 2D view for LSE trainers"
+   ],
+   "license": "No licence, terms or source repo found. The JS is readable on the site but unlicensed, so reimplement and generate our own table. Site: enbyne.tech, a Dutch sole proprietorship of the same author.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/eolrb.txt (page text, session log, code and table analysis); scripts in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/eolrb-files/; screenshots /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-4/shots/eolrb-*.png"
+  }
+ ]
+}

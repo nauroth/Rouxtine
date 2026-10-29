@@ -1,0 +1,529 @@
+{
+ "verdicts": [
+  {
+   "id": "domains-1",
+   "verdict": "confirmed",
+   "evidence": [
+    "GET https://kovaaks.com/webapp-backend/playlist/playlists?page=0&max=3 (2026-10-28) returned total 388182; each playlist has keys playlistName, subscribers, scenarioList, playlistCode, playlistId, published, steamId, steamAccountName, webappUsername, description, aimType, playlistDuration; scenarioList entries {author, aimType, playCount, scenarioName, webappUsername, steamAccountName}",
+    "Top 3 (MICRO GOLD MINE 97670, GON MACHINE for VALO v2 97667, VALORANT 79199): playCount histogram {1:27, 2:6, 3:3}",
+    "max=10 call and the rendered kovaaks.com/kovaaks/playlists list both sort by subscribers descending, so these are the three most-subscribed"
+   ],
+   "correction": "Entries carry more fields than listed (author, steam/webapp names, playlistDuration). 'Fixed number of runs per block' is an inference from playCount."
+  },
+  {
+   "id": "domains-2",
+   "verdict": "confirmed",
+   "evidence": [
+    "API: MICRO GOLD MINE playlistCode 'KovaaKsTrollingDesertsandGasmask', 97,670 subscribers; search=Voltaic Novice Benchmarks S5 -> playlistCode 'KovaaKsBouncingSilverBinding', 46,707 subscribers, published 2024-12-22; total 388,182",
+    "steamcommunity.com/app/824270/discussions/0/3774617156468221911: OP Feb 26, 2023 subscribed from a splash-screen ad and couldn't find the playlist; reply Mar 4, 2023: 'You have to go to your playlists and search the playlist name not the playlist code.'"
+   ]
+  },
+  {
+   "id": "domains-3",
+   "verdict": "confirmed",
+   "evidence": [
+    "steamcommunity.com/app/824270/discussions/0/2248931052754715779: OP May 24, 2020 'I think it's a good idea, since most of players are using someone elses routine'",
+    "Reply by 'chris' tagged [developer], May 25, 2020: 'You can actually do this now! It's a bit manual, but playlists are stored here: ...\\FPSAimTrainer\\Saved\\SaveGames\\Playlists'",
+    "Developer, May 26, 2020: 'We definitely plan to enable easier sharing of lists - just wanted to share a way to do it before we get to it. :)'"
+   ],
+   "correction": "The developer called file copying 'a bit manual' and didn't say it was the only way. 'Borrowing routines was the dominant usage' rests on one user's unsupported assertion, so it isn't evidence."
+  },
+  {
+   "id": "domains-4",
+   "verdict": "confirmed",
+   "evidence": [
+    "Rendered https://kovaaks.com/kovaaks/playlists with Playwright: nav has 'Benchmark Tracker'; list shows NAME / AUTHOR / SUBSCRIBERS",
+    "Clicking 'Voltaic Novice Benchmarks S5' shows 'Tammas Dexter', 'Published 12/22/2024', 'Aim types Clicking 34% Tracking 33% Switching 33%', '18 scenarios', and a SCENARIOS/AUTHOR/PLAYS table (each 1)"
+   ],
+   "correction": "Subscriber count appears in the list view, not the detail panel. The share code wasn't visible in the rendered detail text."
+  },
+  {
+   "id": "domains-5",
+   "verdict": "confirmed",
+   "evidence": [
+    "app.voltaic.gg blog 'Announcing the Voltaic Season 5 Aiming Benchmarks BETA for KovaaKs!' by sini, 25 Dec 2024: 'test your skills at Novice, Intermediate, and Advanced levels'; 'categorized ... Clicking, Tracking, and Target Switching. Each category is further divided into subcategories ... introducing a third \"hybrid\" category for each main skill (linear, control, stability)'",
+    "Same post: 'In one week from now we will reset all ranks, meaning everyone will go into the new season in 2024-2025 with a fresh new rank.'",
+    "KovaaK's API lists 'Voltaic Novice Benchmarks S5' as an ordinary playlist (author Tammas, description 'Official Voltaic Season 5 - Novice Benchmark Playlist'); the site list also has 'Voltaic Intermediate Benchmarks S5'"
+   ],
+   "correction": "The post describes a one-off reset for this season, not a stated per-season policy. The post itself never says 'playlist' (it links bit.ly/VTKovaaKsS5); the playlist distribution is shown by the KovaaK's API."
+  },
+  {
+   "id": "domains-6",
+   "verdict": "confirmed",
+   "evidence": [
+    "aimlabs.com article, Mr Aimlabs, December 26, 2025: 'Start by heading to the Create tab ... Select Manage Your Playlists ... search the task library ... Order tasks to match how you want to warm up, peak, and cool down during a session.'",
+    "'Set more repetitions on tasks that you are working to drill ... Shorter focused playlists can often outperform long unfocused sessions'",
+    "'remember to upload the playlist to the Steam Workshop as that will be required for it to be searchable for other players'"
+   ],
+   "correction": "The article also allows remixing someone else's playlist."
+  },
+  {
+   "id": "domains-7",
+   "verdict": "confirmed",
+   "evidence": [
+    "HTML page returns 403 to curl; Zendesk API https://support.aimlabs.com/api/v2/help_center/en-us/articles/12140984985623.json returns the article: 'This unique link ... contains all the necessary information, including the tasks, specific settings, and the order of the playlist.'",
+    "Recipient steps: 'Open the Playlist Deeplink. This will prompt you to confirm whether you want to open the AimlabsLinkHandler ... The game will now launch and after a short while it will prompt you to download the playlist or not.'",
+    "API vote_sum -35, vote_count 69 => 17 up / 52 down; edited 2026-09-03; text says 'current as of early 2026'"
+   ]
+  },
+  {
+   "id": "domains-8",
+   "verdict": "confirmed",
+   "evidence": [
+    "aimlabs.com 'The Aimlabs Official Benchmarks First Season is Now Live!' (June 20, 2025): 'three separate tiers: Entry, Intermediate, and Elite. Each of the tiers feature 24 tasks separated into three aiming categories, tapping, tracking, and switching, which are then expanded four different subcategories, with your top score in each subcategory counting toward your ranking.'",
+    "'What Does Your Aimlabs Benchmarks Rank Actually Mean?' (April 8, 2026): 'The current season has 270,106 ranked players on PC'; 'Your highest score in each subcategory counts toward your overall skill point total'; 'it's a floor set by your least developed one'; 'Spend some time training those specific subcategories ... and then come back to the Benchmarks periodically'"
+   ],
+   "correction": "Benchmarks Season 2 is now live: aimlabs.com posts of 2026-10-20 and 2026-10-27 reference 'Season 2 Tapping/Tracking Benchmarks'. The 270,106 figure is for the earlier season."
+  },
+  {
+   "id": "domains-9",
+   "verdict": "confirmed",
+   "evidence": [
+    "store.playstation.com/en-is/concept/10003284 (PS5, release 4/11/2025): 'AIMLABS+ MEMBERS ONLY FEATURES' lists CONTROLABS, PROGRESSION ('Pick a game specific training program, assess your skill, reach goals, and complete missions to increase your Tier!'), ADAPTIVE TASKS ('Play every task at your optimal difficulty level...'), TASK TUNING, ADVANCED AIM ANALYSIS ('Reveal your aim strengths + weaknesses...'), PLAYLIST OF THE DAY, AIMLABS ACADEMY, PLAYER STREAKS ('Track your training progress by playing every day!')"
+   ],
+   "correction": "The list also includes Controlabs and Aimlabs Academy. Benchmarks are listed as a free 'INCLUDED FEATURE'. The source is the console listing; PC gating wasn't checked here."
+  },
+  {
+   "id": "domains-10",
+   "verdict": "confirmed",
+   "evidence": [
+    "steamcommunity.com/app/714010/negativereviews (toprated, English), fetched 2026-10-28: 270 helpful, Nov 30, 2024: 'Every screen has 9 ads for premium service ... You want to analyse your results? ADAPTIVE TASK: a screen of 3 SUBSCRIBE NOW buttons 10cm away from one another.'",
+    "140 helpful, Jan 10, 2025: 'previously free features ar now locked behind a Paywall'",
+    "120 helpful, 'Posted: July 30' (current year): 'Absolute corporate bloated slop ... getting lost navigating through this hell of a UI'"
+   ],
+   "correction": "The single most-helpful negative review (280, June 18, 2023) is about a subscription silently added to the cart."
+  },
+  {
+   "id": "domains-11",
+   "verdict": "confirmed",
+   "evidence": [
+    "steamcommunity.com/app/824270/negativereviews toprated: 464 helpful, June 28, 2023: 'how are you gonna make people pay for your trainer and then have a subscription inside it too'",
+    "207 helpful, March 18, 2023: 'I don't think its nice to put features behind a paywall in a paid product.'; also 192 helpful Dec 8, 2022 'why a paid aim trainer has a premium plan in it'"
+   ]
+  },
+  {
+   "id": "domains-12",
+   "verdict": "refuted",
+   "evidence": [
+    "keybr.com/help is JS-rendered; source packages/page-help/lib/HelpPage.tsx (repo HEAD 05a37bc, 2026-09-28): starts with 'E N I T R L'; 'The target letter is included in every generated word'; 'it is very likely that the typing speed of the previous letters will degrade ... become red again ... This is expected, your goal is still the same, to make the new target letter green to unlock the next one.'",
+    "packages/keybr-lesson/lib/guided.ts: minSize = 6; with default recoverKeys=false a new key is included when includedKeys.every(key => key.bestConfidence >= 1), i.e. each key was ONCE at target speed; focus = included key with lowest bestConfidence below 1",
+    "packages/keybr-lesson-ui/lib/Key.tsx colours keys by current confidence, so red keys do not block unlocking by default",
+    "packages/keybr-lesson/lib/settings.ts: lesson.guided.naturalWords defaults to true; en.json: 'Use the dictionary words as much as possible, and if not many such words are available, then use computer-generated pseudo-words'; guided.ts uses dictionary words filtered to the included letters plus the focused letter, padded with pseudo-words when fewer than 15 match"
+   ],
+   "correction": "By default (Prefer natural words = on), guided lessons use real dictionary words from the allowed letters and fall back to pseudo-words only when few match, mostly at the start. The default unlock rule needs every included letter to have reached target speed at least once (best confidence), not to be green now. Older letters can be red and the next letter still unlocks. Only the opt-in recoverKeys requires current confidence. The target letter is the included key with the lowest best-ever confidence, not the currently slowest key."
+  },
+  {
+   "id": "domains-13",
+   "verdict": "confirmed",
+   "evidence": [
+    "keybr-lesson/lib/target.ts: confidence = speedToTime(targetSpeed) / timeToType; keybr-result/lib/result.ts speedToTime(v) = 1000/(v/60) ms per char",
+    "keybr-result/lib/keystats.ts: makeFilter(0.1); keybr-math/lib/filter.ts is exponential smoothing; bestTimeToType = min of filtered values",
+    "settings.ts: targetSpeed default 175 (min 75, max 750); recoverKeys default false; alphabetSize 0..1 (guided.ts forces keys up to minSize + round((n-6)*alphabetSize)); dailyGoal default 30 (min 0, max 120)",
+    "dailygoal.ts sums result.time for results timestamped today, goal in minutes; keybr-lesson-ui styles.ts mixColors(slow, fast, confidence), clamped at 1, so fully green at >=1"
+   ]
+  },
+  {
+   "id": "domains-14",
+   "verdict": "confirmed",
+   "evidence": [
+    "keybr-lesson/lib/lessontype.ts: LessonType.ALL = GUIDED, WORDLIST, BOOKS, CUSTOM, CODE, NUMBERS; settings.ts default type GUIDED",
+    "settings.ts: capitals (0..1), punctuators (0..1), repeatWords (1..10), plus per-type options (wordListSize, book, customText, numbers.benford, code.syntax)"
+   ]
+  },
+  {
+   "id": "domains-15",
+   "verdict": "confirmed",
+   "evidence": [
+    "groups.google.com/g/keybr/c/b4D1xFvS-48 (4,252 views): title matches; Sep 30, 2020 OP: 'can't get past the letter R and T as soon as my confidence level goes up to 0.98 ... it would fall back down to 0.92 or 0.94'",
+    "OP: 'i have been trying to ad new letters from the settings but after three or four rounds it reverts back to T and R'",
+    "Reply Oct 16, 2020: 'The threshold is 35wpm/175cpm but for each key ... The solution is to ONLY focus on accuracy ... Set sample length to the shortest possible ... Manually increasing alphabet size is also an option, but I found this to reduce my accuracy'"
+   ],
+   "correction": "This is a single thread, so it shows one user stuck rather than a general pattern. The OP was typing on a phone with an OTG keyboard."
+  },
+  {
+   "id": "domains-16",
+   "verdict": "confirmed",
+   "evidence": [
+    "monkeytype.com/about is JS-rendered; source frontend/src/ts/components/pages/AboutPage.tsx (HEAD 5478cd7, 2026-10-28): 'By default, this website uses the most common 200 words in the English language'; static/languages/english.json has 200 words",
+    "AboutPage stats: wpm, raw wpm, acc, char, 'consistency - based on the variance of your raw wpm ... Calculated using the coefficient of variation of raw wpm and mapped onto a scale from 0 to 100'; results screen has 'a graph of your wpm and raw over the duration of the test'"
+   ],
+   "correction": "Modes also include custom and zen (packages/schemas/src/shared.ts PersonalBestsSchema: time, words, quote, custom, zen)."
+  },
+  {
+   "id": "domains-17",
+   "verdict": "confirmed",
+   "evidence": [
+    "frontend/src/ts/commandline/lists/result-screen.ts: subgroup 'Practice words...' with missed, slow, both, custom...",
+    "frontend/src/ts/test/practise-words.ts: limit = 20 for missed-only or slow-only, else 10; slow words sliced to Math.min(limit, Math.round(typedWords.length * 0.2)); notice 'Test too short to classify slow words.'"
+   ],
+   "correction": "The custom option can also drill missed bigrams (biwords)."
+  },
+  {
+   "id": "domains-18",
+   "verdict": "confirmed",
+   "evidence": [
+    "frontend/src/ts/test/weak-spot.ts: perCharCount = 50 (running average with adjustRate 1/count, capped at 50); incorrectPenalty = 5000 ms; wordSamples = 20, picks highest average score",
+    "test/funbox/funbox-functions.ts: 'weakspot' funbox calls WeakSpot.getWord, so it is an opt-in funbox"
+   ],
+   "correction": "Scores live in an in-memory module object (const scores), so they aren't persisted across page loads."
+  },
+  {
+   "id": "domains-19",
+   "verdict": "confirmed",
+   "evidence": [
+    "frontend/src/ts/components/modals/ShareTestSettings.tsx: checkboxes mode, mode2, customText, punctuation, numbers, language, difficulty, funbox; '<Show when={url().length > 2000}> The URL is over 2000 characters long - it might not work'",
+    "packages/schemas/src/users.ts: StreakHourOffsetSchema = z.number().min(-11).max(12).step(0.5); UserStreakSchema {lastResultTimestamp, length, maxLength, hourOffset}; profile exposes streak and maxStreak",
+    "backend dal/user.ts updateStreak: +1 if last result was yesterday (with hourOffset), reset to 1 otherwise, so the streak is daily"
+   ]
+  },
+  {
+   "id": "domains-20",
+   "verdict": "confirmed",
+   "evidence": [
+    "itunes.apple.com/lookup?id=1351617981: averageUserRating 4.27972, userRatingCount 286, version 3.0.6, currentVersionReleaseDate 2026-09-24; description: 'Modacity is the Deliberate Practice System for serious musicians - helping you plan, record, reflect'; Premium unlocks Practice Statistics, Unlimited Deliberate Practice Mode, All Metronome Features, Unlimited cloud-sync notes & recordings, Practice Folders, Full History Log, Practice Break Reminders; '$12.99 USD per month or $129 USD per year'",
+    "modacity.co: 'Create practice playlists or make it up as you go. Modacity will show you how much time you're spending, track your progress, and even help you set reminders.'; 'We'll even display your notes right on your practice screen'; 'listen to old recordings to hear just how much you've improved'"
+   ],
+   "correction": "'what I actually need to practice' comes from a user testimonial about the 'star system', not from a feature description."
+  },
+  {
+   "id": "domains-21",
+   "verdict": "confirmed",
+   "evidence": [
+    "The cited URL https://doublebasshq.com/2018/09/modacity-and-forscore.html returns HTTP 404; doublebassblog.org/... 301-redirects to it; Wayback (web.archive.org) blocked by proxy (connection reset / WebFetch refused)",
+    "Same loop verified on ensembleschools.com/blog/apps-for-musicians/ (published 2022-04-20): 'When you press the Deliberate Practice button, you are presented with a number of categories of things to improve on. You select one of those categories, and then you get a list of options of strategies ... prompting you to record yourself ... After that, it asks you \"did you improve?\" If \"yes\", you have the chance to move on to something else, or keep doing what you were doing. If \"no\", it lets you go back to the list of strategies'",
+    "App Store description: 'Write what needs work mid-session, rate how it went, and come back to it next time.'"
+   ],
+   "correction": "The cited source is dead. The loop description is third-party and from 2018 to 2022, so the current UI is unverified. The free tier now has a limited Deliberate Practice Mode, since Premium unlocks 'Unlimited Deliberate Practice Mode'."
+  },
+  {
+   "id": "domains-22",
+   "verdict": "confirmed",
+   "evidence": [
+    "support.melodics.com/en/articles/6777027-practice-mode (Rhys, December 8, 2025; dateModified 2025-12-08): BPM Slider; 'Auto BPM ... Melodics will automatically ramp up the speed by 10 BPM if you're nailing it, until it reaches the tracks natural tempo.'; 'Select \"Loop\" ... click in the timeline to create a loop'; Wait Mode 'the performance will pause until you hit the correct note'"
+   ]
+  },
+  {
+   "id": "domains-23",
+   "verdict": "confirmed",
+   "evidence": [
+    "15091765 (May 14, 2026): four systems; Stardom 'it's not a skill rating, it's a dedication rating'; 'Each instrument has 15 Stages'",
+    "15091931 Stages (May 14, 2026): 'three progress dials ... complete the Stage Warm-ups for that Stage, then play lessons and songs at the same Grade'; 'Rehearse - a space to practice the Stage. Set loops'; Stages unlock in order, no skipping",
+    "15092017 scoring: 'Timing precision' + 'Note streaks'; 'Platinum ... it's no longer the ceiling - it's a checkpoint'",
+    "15091960 Weekly Goals: 'matched to your current Stage'; 'refresh every Monday at midnight, based on your local time zone'; bonus XP"
+   ]
+  },
+  {
+   "id": "domains-24",
+   "verdict": "refuted",
+   "evidence": [
+    "support.melodics.com/en/articles/16979766-weekly-streaks (Rhys, September 17, 2026): 'Reach your daily goal on at least three days in a week and your streak locks in'; 'The longer your streak runs, the more XP you earn'; 'You earn Streak Freezes as you collect XP and climb the Stardom ranks. If your Weekly Streak is about to break at the end of the week, a Freeze is applied automatically.'",
+    "FAQ 'What happened to my daily streak?' answer: 'It's still running. Click your profile in the top right, open the Insights tab, and scroll to the bottom.'; 'A daily streak still needs you to reach your daily goal every day'; a day counts at 'your 5 minute daily goal'"
+   ],
+   "correction": "Weekly Streaks and auto-applied freezes are correct. But the daily streak was not dropped. It still runs (now shared across instruments) and moved to the Insights tab, and freezes don't apply to it. Melodics added a weekly layer and demoted the daily streak rather than moving away from it."
+  },
+  {
+   "id": "domains-25",
+   "verdict": "confirmed",
+   "evidence": [
+    "HTML 403 to curl; Zendesk API support.yousician.com/api/v2/help_center/en-us/articles/201558312.json (edited 2025-09-10): 'You can access your Daily Session and Continue Learning, which takes you to the instrument learning path in the Learn -> Path tab.'",
+    "'When you want to play for missing silver and gold stars, check out the Workouts tab.'; 'The Activity tab displays your daily and weekly playing activities. You can set your goal for a session and choose to play for stars or minutes.'; 'Streaks tab. It showcases how many weeks you've played in a row.'"
+   ],
+   "correction": "The article says 'learning path', not 'linear'."
+  },
+  {
+   "id": "domains-26",
+   "verdict": "confirmed",
+   "evidence": [
+    "Zendesk API article 206912609 'The best way to practice guitar' (edited 2025-09-30): Practice mode slows songs; 'Wait To Play ... pauses the song until you play the correct note'; 'Auto-adjust speed ... slowing down or speeding up based on how you play'; loop sliders; 'move on, then cycle back ... aim to get reasonably confident with each song, e.g. collecting most silver stars. Move on to the next song ... Later, cycle back to earlier songs to collect missing stars'",
+    "Article 204796991 (piano, edited 2026-03-27): 'Auto-adjust speed ... It works from 25% to 125% in 5% increments.'"
+   ],
+   "correction": "The 25 to 125% range is documented for piano only."
+  },
+  {
+   "id": "domains-27",
+   "verdict": "confirmed",
+   "evidence": [
+    "itunes RSS id=959883039 pages 1-10 (500 reviews, 2025-09-17..2026-10-22): 2026-09-17 r1 'even if you put advanced it still makes you do like 30 minutes of beginner levels ... it locks that section till you do the beginner levels'",
+    "2026-08-16 r1 'won't let you skip when it's not in your skill level'; 2026-09-27 r3 'you only get 10 playing minutes per day'; 2026-08-05 r3 'it won't record your time practiced unless you're actually following along with the song ... it begins crediting you less time every time you play or practice previously completed times'"
+   ],
+   "correction": "A counter-review (2026-09-07, 3 stars) says 'I also appreciate the ability to skip lessons', so skipping is at least partly possible."
+  },
+  {
+   "id": "domains-28",
+   "verdict": "confirmed",
+   "evidence": [
+    "help.strongapp.io/article/105-about-templates (last updated May 20, 2021): 'A Workout Template ( known previously as Routine)'; create from scratch or 'Save as Template' from History; 'You can create up to 3 Workout Templates with the free version of Strong.'",
+    "article/107 (last updated January 4, 2022): 'apply to the iPhone version ... Folders will be coming to Android soon'; archive templates; hide sample templates via Settings > Bonus Options > Show Example Templates"
+   ],
+   "correction": "The help articles are 4 to 5 years old, so 'iPhone only' folders may be out of date. 'Unit is the exercise set' is interpretation."
+  },
+  {
+   "id": "domains-29",
+   "verdict": "confirmed",
+   "evidence": [
+    "help.strongapp.io/article/177-update-template (last updated May 26, 2021): Update Template ('displayed in Red if this is destructive'), Update Values Only, Update Template and Values, Keep Original Template; 'you can also hide it via Strong Settings'; 'We will be making adjustments to the Update Template process in future versions of Strong to reduce confusion.'",
+    "itunes RSS id=464254577: 2026-06-19 r2 'Illogical Workout Finish': 'There is no way to make skipped sets carry over to future workouts without losing other changes ... depending on which of the 3 illogical \"finish workout\" options'"
+   ],
+   "correction": "The 'reduce confusion' promise dates from 2021. A 2025-12-25 review still calls the options confusing."
+  },
+  {
+   "id": "domains-30",
+   "verdict": "confirmed",
+   "evidence": [
+    "help.strongapp.io/article/109-share-workout-or-template (last updated May 19, 2021): 'We use the standard share sheets for both iPhone and Android'; 'simply tap the link/URL'; 'The recipient will be required to have Strong installed on their device in order to import'"
+   ]
+  },
+  {
+   "id": "domains-31",
+   "verdict": "confirmed",
+   "evidence": [
+    "itunes RSS id=464254577: 2026-08-07 r2 'not allowing users to create more than 3 diy workout templates unless they pay a subscription should be borderline illegal.'; 2026-05-16 r1 'Only 3 free templates and a $99 lifetime license. Get a $1 notebook and a box of pens.'"
+   ],
+   "correction": "Several 5-star reviews (2026-08-19, 2026-05-04) accept the 3-template cap."
+  },
+  {
+   "id": "domains-32",
+   "verdict": "confirmed",
+   "evidence": [
+    "Zendesk API help.hevyapp.com article 35119778922263 (edited 2026-10-07): Routine limit 'Limit of 4' vs Unlimited; Data history '3 months' vs 'All time'; Custom exercises 'Limit of 7'; Warm up Calculator and Trainer 'Unavailable' on free",
+    "hevyapp.com/features/share-folders-routines/: 'People who click the link will be taken to hevy.com ... where they can see the routine and save it to their profile'; folders can be shared as a link or saved as an image showing each routine",
+    "Article 36011518408983: 26 programs plus seven routine categories under Explore; 'Save Program' creates a folder of its routines"
+   ],
+   "correction": "Programs save as folders. Individual library routines save singly."
+  },
+  {
+   "id": "domains-33",
+   "verdict": "confirmed",
+   "evidence": [
+    "Zendesk API help.hevyapp.com article 38387296276375 (created 2026-02-13): 'This choice only appears if you've reordered exercises, or if you have added or removed exercises or sets. It will not appear for changes to reps or weight. Those adjustments are saved automatically based on the routine settings and your previous values.'"
+   ]
+  },
+  {
+   "id": "domains-34",
+   "verdict": "confirmed",
+   "evidence": [
+    "Zendesk API article 38385724273047 (edited 2026-10-07): 'Hevy Trainer is a new feature for Hevy Pro users'; 'progressive overload feature that will let you know when to increase your weight and by how much'; 'Progress Report, exclusive to Hevy Trainer'; 'Our programs are generated using an algorithm and do not rely on AI'"
+   ],
+   "correction": "The questionnaire also asks gender, birthday, weight and height."
+  },
+  {
+   "id": "domains-35",
+   "verdict": "confirmed",
+   "evidence": [
+    "Zendesk API help.fitbod.me article 360004429814 (edited 2026-09-14): My Plan = goal, experience level, equipment, training split, preferences (duration, warm-ups/cooldowns, cardio, exercise variability, supersets)",
+    "'Fitbod assigns every muscle group a recovery percentage from 0% to 100%. Muscles typically take up to 7 days'; 'The Body tab shows this as a heat map'; 'Recommend More, Less, or Exclude'; 'Every time you skip, replace, delete or manually add an exercise, that informs future recommendations'; 'periodically schedules Max Effort Days to reassess'; 'after a training break it lowers weight recommendations'; new users 'deliberately conservative'"
+   ]
+  },
+  {
+   "id": "domains-36",
+   "verdict": "confirmed",
+   "evidence": [
+    "Zendesk API help.fitbod.me article 42333470514455 (created 2026-07-30): triggers include importing from 'Apple Health (iPhone), Health Connect (Android), Fitbit, or Strava'; 'a workout can change without you doing anything in Fitbod'; 'Edits you make to a recommended workout before you start it aren't saved separately'; 'To keep your edits, tap Start Workout. At that point, the workout is set.'"
+   ]
+  },
+  {
+   "id": "domains-37",
+   "verdict": "confirmed",
+   "evidence": [
+    "itunes RSS id=1041517543 (500 reviews, 2026-07-08..2026-10-26): 2026-10-14 r1 'So random.  No logic.'; 2026-09-29 r1 'changes workouts every week'; 2026-09-25 r3 'really bizarre changes and choices in training on the day-to-day ... classic lifts are neglected and the weights jump up too high too fast'; 2026-10-17 r1 'Same exercises month after month year after year'"
+   ],
+   "correction": "The 2026-09-25 reviewer links the changes to Fitbod's new 'AI insights'."
+  },
+  {
+   "id": "domains-38",
+   "verdict": "confirmed",
+   "evidence": [
+    "support.chess.com/en/articles/10319322 (May 1, 2025) and 10319267: 'Here are the approximate times we use': Level 1 4 hours, 2 1 day, 3 3 days, 4 1 week, 5 2 weeks, 6 1 month, 7 3 months, 8 6 months; 'Each move in a variation has its own timer'; 'If you make a mistake, the system resets the timing'; late review: 'you may get a position wrong, and it will reset to Level 1'"
+   ],
+   "correction": "Chess.com calls the times 'approximate'."
+  },
+  {
+   "id": "domains-39",
+   "verdict": "confirmed",
+   "evidence": [
+    "Cited APKMirror page blocked (HTTP 403 / Cloudflare challenge in Playwright)",
+    "Primary alternative: chess.com/news/view/announcing-chessable-3 (updated May 26, 2023), 'Even More Benefits For PRO Members' list includes 'Track difficult moves you have trouble remembering.' and 'Customize your study schedule.'",
+    "Current App Store (v3.0.5, 2026-10-21) and Google Play descriptions list PRO as 300+ short courses, Unlimited Variation Preview and Full offline training, with no mention of difficult moves"
+   ],
+   "correction": "This was confirmed for 2023 marketing via Chess.com's Chessable 3.0 announcement. The 2026 store listings no longer mention it."
+  },
+  {
+   "id": "domains-40",
+   "verdict": "confirmed",
+   "evidence": [
+    "chess.com/forum/view/general/chessable-7, post dated Jan 30, 2020: 'So you can't work too fast if you want to repeat. otherwise you will wake up to 300 reviews ... After I started to review I had 240 moves/positions to review one morning'",
+    "zwischenzug.gg/p/how-to-use-chessable (Nate Solon, Oct 14, 2023): 'Do: Complete all reviews before learning new material.'; 'I usually do ten minutes/day ... If I can't finish them in ten minutes, it's fine, they just wait until the next day ... if you consistently need much more than ten minutes ... you're probably trying to learn way too many lines too quickly.'"
+   ]
+  },
+  {
+   "id": "domains-41",
+   "verdict": "confirmed",
+   "evidence": [
+    "itunes RSS id=1523279049 (215 reviews 2021-01..2026-10): 2024-11-07 r1 'the app would not load without internet, despite claiming to support offline play'; 2025-03-23 r2 'all the content I used to have was removed and I have to pay if I want to study it again'",
+    "Many more offline complaints from PRO buyers: 2025-02-02, 2025-07-30, 2025-11-21 ('intentionally left it non-functional for a year'), 2025-12-30"
+   ],
+   "correction": "Offline Mode is itself a PRO feature (App Store/Google Play 2026: 'Offline Mode - Download courses ... (PRO feature)'). So these complaints come from paying users."
+  },
+  {
+   "id": "domains-42",
+   "verdict": "confirmed",
+   "evidence": [
+    "aimchess.com: 'you need to work on your time management because you're behind on the clock for 78% of your moves'; 'measure your skill set across six core aspects ... Then we compare you to others with the same rating'; six aspects Tactics, Endgame, Advantage capitalization, Resourcefulness, Time management, Opening performance; 'personalized puzzles built from your mistakes'; 'Personalized Study Plan each week'",
+    "aimchess.com pricing: Standard Free 'One 40 game analysis report per month', 'Weekly personalized study plan', 'One daily training session (core lessons)', 'One daily warm up'; Premium '$7.99 Billed monthly'; annual $57.99"
+   ],
+   "correction": "The cited App Store listing conflicts. It gives 'Monthly Subscriptions are $9.99 per month, or ... Annual Subscription for $71.99' and a free tier of 'any 15 lessons per day'. The app was last updated 2024-06-28 (v1.3.1) and the website footer says 2021, so treat pricing as unsettled. Aimchess belongs to Chess.com through its Play Magnus Group acquisition, closed 2022-12-16."
+  },
+  {
+   "id": "domains-43",
+   "verdict": "confirmed",
+   "evidence": [
+    "aimchess.com: 'Aimchess personalized puzzles increase your rating 31% faster than standard tactics puzzles *based on a 12 week randomized field experiment conducted by researchers at the University of British Columbia comparing the effects of training with personalized lessons vs generic lessons.'",
+    "A web search found no matching UBC paper; the study stays unverified"
+   ],
+   "correction": "Confirmed only as a vendor claim, as the original claim already says."
+  },
+  {
+   "id": "domains-44",
+   "verdict": "confirmed",
+   "evidence": [
+    "itunes RSS id=1524941307: 2023-09-03 r4 'Upon opening the app there is a list of lists with no particular order of difficulty, frequency, priority, expected duration ... Needs direction for user to know what to start with'; 2024-04-19 r3 'A lot of the daily training plan takes a lot of time and doesn't help me learn. All of my statistics fluctuate and don't seem to mean much.'",
+    "itunes lookup id=1524941307: averageUserRating 3.88265, userRatingCount 196; apps.apple.com page shows '196 Ratings'"
+   ]
+  },
+  {
+   "id": "domains-45",
+   "verdict": "refuted",
+   "evidence": [
+    "lila HEAD ffa4be8 (2026-10-28) modules/puzzle/src/main/PuzzleTheme.scala: 75 'val X = PuzzleTheme(...)' definitions (74 player-visible plus hidden checkFirst); the '77' matches a raw grep count of 'PuzzleTheme(' that includes the case class and apply lines",
+    "categorized has 10 groups: recommended, phases, motifs, advanced, mates, mateThemes ('Mate themes', 19 patterns), specialMoves, goals, lengths, origin",
+    "conf/routes: /training/:angleOrId, /training/:angle/$color<white|black|random>, /training/openings, /training/of-player, /training/coordinate; puzzle.xml 'fromMyGames'",
+    "PuzzleDifficulty.scala deltas -600/-300/0/+300/+600 confirmed; but app/controllers/Puzzle.scala setDifficulty stores it in a session cookie and PuzzleSession.setDifficulty/setAngleAndColor carry the same difficulty across angle changes"
+   ],
+   "correction": "There are 75 theme definitions (74 visible plus 1 hidden), not 77. There are ten categories, including 'Mate themes', which the claim omits. Difficulty is one per-user session setting that carries across themes, not a per-theme setting. URL addressing and the delta values are correct."
+  },
+  {
+   "id": "domains-46",
+   "verdict": "confirmed",
+   "evidence": [
+    "modules/puzzle/src/main/PuzzlePath.scala nextFor: rating = perf.glicko.intRating + difficulty.ratingDelta; ratingFlex = (100 + |1500 - rating|/4) * compromise.atMost(4); excludes previousPaths unless compromise == 5; falls back top -> good -> all tiers; compromise increments to 5",
+    "PuzzleSelector.scala: looks up the user's existing round and returns PuzzleAlreadyPlayed, retrying up to 5 times before serving it"
+   ],
+   "correction": "Selection picks a precomputed 'path' bucket first, then a puzzle within it. The widening runs up to compromise 5, with the multiplier capped at 4. At the last step it stops excluding previously used paths, so repeats are possible. Easiest and Hardest skip the 'top' tier."
+  },
+  {
+   "id": "domains-47",
+   "verdict": "confirmed",
+   "evidence": [
+    "PuzzleDashboard.scala: dayChoices = 1,2,3,7,10,14,21,30,60,90; performance = puzzleRatingAvg - 500 + round(1000 * firstWins/nb); themes filtered by nb > global.nb / 40; weak: failed >= 3 && performance < global, take topThemesNb = 8; strong: firstWins >= 3 && performance > global",
+    "translation/source/puzzle.xml: 'Improvement areas', 'Train these to optimise your progress!', 'Strengths', plural nbToReplay '%s to replay'",
+    "conf/routes: GET /training/replay/$days/:theme; PuzzleReplay.scala selects rounds with w != true in the window"
+   ],
+   "correction": "Length, mate-in-N, evaluation and origin themes are excluded from the dashboard as 'irrelevantThemes', and the query caps at 10,000 rounds."
+  },
+  {
+   "id": "domains-48",
+   "verdict": "confirmed",
+   "evidence": [
+    "translation/source/puzzle.xml streakDescription: 'Solve progressively harder puzzles and build a win streak. There is no clock, so take your time. One wrong move, and it's game over! But you can skip one move per session.'; streakSkipExplanation: 'Only works once per run.'"
+   ]
+  },
+  {
+   "id": "domains-49",
+   "verdict": "confirmed",
+   "evidence": [
+    "anki HEAD 82e5848 (2026-10-28) rslib/src/deckconfig/mod.rs DEFAULT_DECK_CONFIG_INNER: new_per_day 20, reviews_per_day 200, maximum_review_interval 36_500, leech_action LeechAction::TagOnly, leech_threshold 8, desired_retention 0.9; Default for DeckConfig: learn_steps [1.0, 10.0], relearn_steps [10.0]",
+    "proto/anki/deck_config.proto: LEECH_ACTION_SUSPEND = 0, LEECH_ACTION_TAG_ONLY = 1",
+    "docs.ankiweb.net/manual/leeches.md: 'When this counter reaches 8, Anki tags the note as a leech and suspends the card.'; deck-options.md: options grouped into presets shared by decks"
+   ]
+  },
+  {
+   "id": "domains-50",
+   "verdict": "confirmed",
+   "evidence": [
+    "docs.ankiweb.net/manual/filtered-decks.md: example 'is:due prop:due>-7'; orders include Random, Most lapses, Relative overdueness ('When using FSRS, overdueness is calculated based on each card's retrievability'); 'enable second filter'; turning off 'Reschedule cards based on my answers' gives a 'preview mode'; cards return to their home deck",
+    "Custom Study presets: Increase today's new card limit, Increase today's review card limit, Review forgotten cards, Review ahead, Preview new cards, Study by card state or tag"
+   ]
+  },
+  {
+   "id": "domains-51",
+   "verdict": "confirmed",
+   "evidence": [
+    "docs.ankiweb.net/manual/leeches.md: counter reaches 8; 'These warnings occur at half the initial leech threshold ... every 4 lapses (at 12, 16, and so on)'; remedies Editing (rewrite), Deleting, Waiting ('leave one of the words suspended until you have learned the other one well')"
+   ]
+  },
+  {
+   "id": "domains-52",
+   "verdict": "confirmed",
+   "evidence": [
+    "awesome-fsrs wiki ABC-of-FSRS.md (clone, last commit 2026-07-28): R, S ('time, in days, required for R to decrease from 100% to 90%'), D; 'FSRS-6, uses 21 parameters'; default params 'found by running the FSRS optimizer on several hundred million reviews from ~10k users'; 'Values between 70% and 97% are considered reasonable'; '20-30% fewer reviews than with SM-2 ... (2026-02-12 udpate: the figure is based on simulation results)'",
+    "docs.ankiweb.net/manual/deck-options.md: 'There is no need to optimize your parameters frequently: once every month is sufficient.'; 'Easy Days ... spend less time on Anki on some days of the week'; desired retention default 90%, 'recommend you keep it lower than 97%'"
+   ]
+  },
+  {
+   "id": "domains-53",
+   "verdict": "confirmed",
+   "evidence": [
+    "docs.ankiweb.net/manual/exporting.md: 'If false, Anki will assume that you are sharing the deck with other people, and will remove the entire scheduling information, including marked and leech tags.'; 'If some notes in the deck package have previously been imported, Anki will keep the version with the most recent modification time.'",
+    "manual/importing/packaged-decks.md: newer notes update by default; 'Anki 23.10 introduced more flexibility: You can choose to unconditionally update notes and note types ... or ... never update existing objects', plus note-type merge"
+   ],
+   "correction": "Since Anki 23.10, newer-wins is only the default. Importers can choose always-update or never-update, and can merge note types."
+  },
+  {
+   "id": "domains-54",
+   "verdict": "confirmed",
+   "evidence": [
+    "forums.ankiweb.net/t/45566 (2024-06-03): 'I missed 4 days ... now today I am left with 806 reviews'; Keks 2024-06-04: 'The backlog issue is a frequent question that deserves to be in the FAQ.'",
+    "t/25107 (2022-12-03): 'haven't practised French ... about two years ... about 1,700 reviews'; reply quotes the manual: 'Sorting by ascending intervals will ensure cards with shorter delays are shown first'",
+    "t/63114 (2025-06-25): Danika_Dakika: 'There's no way to do that' in reply to 'act as if nothing happened'"
+   ],
+   "correction": "Volunteers don't agree on remedies. One suggests postpone add-ons, another suspending overdue cards, and Danika_Dakika argues against both."
+  },
+  {
+   "id": "domains-55",
+   "verdict": "confirmed",
+   "evidence": [
+    "Melodics weekly-streaks article (2026-09-17): 3 of 7 days, auto-applied freezes; daily streak still running in Insights",
+    "Yousician article 201558312: 'how many weeks you've played in a row'",
+    "monkeytype packages/schemas/src/users.ts hourOffset -11..12 step 0.5; backend updateStreak daily",
+    "keybr settings.ts dailyGoal minutes (default 30); PS Store Aimlabs: 'PLAYER STREAKS ... playing every day!' under AIMLABS+ MEMBERS ONLY"
+   ],
+   "correction": "Each fact checks out, but 'moving to weekly cadence' rests mainly on Melodics, which still runs a daily streak alongside, and on Yousician. Aimlabs' paid streak is daily, Monkeytype's is daily, and keybr has no streak, only a daily-minutes goal."
+  },
+  {
+   "id": "domains-56",
+   "verdict": "refuted",
+   "evidence": [
+    "Aimchess App Store description: 'Adaptive Tactics ... Struggling with specific kinds of puzzles? We'll show you them more often'. This steers practice toward weaknesses automatically.",
+    "Hevy Trainer article 38385724273047: automatic program generation plus 'progressive overload feature that will let you know when to increase your weight and by how much'",
+    "Melodics Weekly Goals (15091960): lessons 'chosen to build the specific skills you'll need to pass the next Stage', refreshed automatically each Monday",
+    "PS Store: Aimlabs+ 'ADAPTIVE TASKS: Play every task at your optimal difficulty level'",
+    "keybr guided mode and Anki/FSRS adapt continuously with no separate assessment step, and Lichess's dashboard is a rolling-window view rather than a periodic re-test"
+   ],
+   "correction": "Fitbod is not the only automatic rewriter. Aimchess adaptive tactics, Hevy Trainer, Aimlabs+ Adaptive Tasks/Progression and Melodics Weekly Goals all adjust or generate practice automatically, though only Fitbod regenerates whole sessions silently. 'Every domain separates assessment from practice' is also overstated: typing (keybr) and flashcards (Anki) have no separate assessment. Lichess's dashboard is a continuous window, not a periodic re-test."
+  },
+  {
+   "id": "domains-57",
+   "verdict": "confirmed",
+   "evidence": [
+    "Re-tested 2026-10-28: https://bn.lichess.org/@/lichess/blog -> 403; https://api.github.com/search/issues?q=repo:aradzie/keybr.com+stuck -> 403; store.steampowered.com/appreviews/714010?json=1 redirects to https://store.steampowered.com/ homepage",
+    "No primary page describing Chessable's difficult-move algorithm was found; only Chess.com's 2023 PRO perk line 'Track difficult moves you have trouble remembering'"
+   ],
+   "correction": "Workarounds were missed. lichess.org/@/lichess/blog (the main host) returns 200. Zendesk help centres that return 403 in HTML (support.aimlabs.com, support.yousician.com, help.hevyapp.com, help.fitbod.me) serve articles through /api/v2/help_center/en-us/articles/<id>.json. The cited Modacity source (doublebasshq.com) is 404 and web.archive.org is unreachable through the proxy. APKMirror and chessable.com/pro return 403 (Cloudflare)."
+  }
+ ],
+ "missing": [
+  "keybr guided lessons default to natural dictionary words ('Prefer natural words', lesson.guided.naturalWords=true); pseudo-words fill in only when few real words fit the unlocked letters. Source: github.com/aradzie/keybr.com packages/keybr-lesson/lib/settings.ts and guided.ts; packages/keybr-intl/translations/en.json settings.naturalWords.description",
+  "keybr unlocks a new letter when every included letter has reached target speed at least once (bestConfidence); key colours show current confidence. Red letters therefore don't block progress by default; recoverKeys=true makes the gate strict. Source: packages/keybr-lesson/lib/guided.ts, packages/keybr-lesson-ui/lib/Key.tsx",
+  "Melodics kept the daily streak (5-minute daily goal, now shared across instruments, shown under Profile > Insights) next to the new Weekly Streak; freezes apply only to weekly. Source: https://support.melodics.com/en/articles/16979766-weekly-streaks",
+  "Aimlabs Benchmarks Season 2 is live (aimlabs.com posts 2026-10-20 'Train for Every Season 2 Tapping Benchmark...' and 2026-10-27 'Play The Trackmaxxing Routine...'), and Aimlabs publishes subcategory-targeted playlists per season. Source: https://aimlabs.com/articles/category/benchmarks/",
+  "Chessable 3.0 (May 2023) added Puzzle Connect: personalised puzzles from the user's Chess.com mistakes (10 for basic, up to 1,000 for PRO). PRO perks then listed 'Track difficult moves' and 'Customize your study schedule'; Offline Mode is PRO-only. Source: https://www.chess.com/news/view/announcing-chessable-3 and the App Store lookup id=1523279049",
+  "Aimchess and Chessable are both Chess.com properties, through the Play Magnus Group acquisition closed 2022-12-16. Source: https://www.chess.com/news/view/chesscom-acquires-pmg. The Aimchess iOS app was last updated 2024-06-28 (v1.3.1), and its App Store pricing ($9.99/mo, $71.99/yr, free = 15 lessons/day) differs from aimchess.com ($7.99/mo, $57.99/yr). Source: https://itunes.apple.com/lookup?id=1524941307",
+  "Lichess puzzle difficulty is one session-wide setting that carries across themes, not per theme. The dashboard excludes length, mate-in-N, evaluation and origin themes ('irrelevantThemes') and caps at 10,000 rounds. A 'Mate themes' category with 19 patterns exists. Source: lila app/controllers/Puzzle.scala, modules/puzzle/src/main/PuzzleSession.scala, PuzzleDashboard.scala, PuzzleTheme.scala",
+  "Monkeytype has custom and zen modes besides time/words/quote. Weakspot scores are in-memory only and reset on reload. Source: packages/schemas/src/shared.ts; frontend/src/ts/test/weak-spot.ts",
+  "Since Anki 23.10, importers choose update-if-newer (default), always-update or never-update, and can merge note types. Source: https://docs.ankiweb.net/manual/importing/packaged-decks.md",
+  "Hevy Library has 26 prebuilt programs and seven routine categories (At home, Travel, Dumbbells only, Band, Cardio & HIIT, Gym, Bodyweight). Library routines are fully editable after saving. Source: help.hevyapp.com article 36011518408983 (via Zendesk API)",
+  "Strong's help-centre articles on templates and sharing were last updated 2021-2022, so the 'iPhone-only folders' and 'reduce confusion' statements may be stale. Source: help.strongapp.io/article/105, 107, 109, 177",
+  "Yousician users can skip some lessons: a 2026-09-07 App Store review says 'I also appreciate the ability to skip lessons'. That cuts against the 'forced linear path' framing. Source: https://itunes.apple.com/us/rss/customerreviews/page=1/id=959883039/sortby=mostrecent/json",
+  "A Fitbod reviewer (2026-09-25) ties the erratic plans to newly added 'AI insights', so Fitbod appears to have shipped AI features in 2026. No Fitbod primary source was checked. Source: https://itunes.apple.com/us/rss/customerreviews/page=1/id=1041517543/sortby=mostrecent/json"
+ ]
+}

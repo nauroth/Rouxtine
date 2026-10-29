@@ -1,0 +1,364 @@
+{
+ "resources": [
+  {
+   "key": "https://rouxl.es/images/dfdb.png",
+   "url": "https://rouxl.es/images/DFDB.png",
+   "title": "DFDB Guide (Anto's DFDB flowchart image)",
+   "author": "Anto Kam (Rouxles), rouxl.es",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate (LSE: after the EO flowchart, for pauseless 4b-to-4c; also used with EOLR)",
+   "summary": "One PNG (1896x2436, HTTP 200) that rouxcubing.com labels 'Anto's DFDB - Google Docs'. It is really an image on rouxl.es, also shown on rouxl.es/lse.html under a 'DFDB Guide' button. The top half has two decision trees of 3D cube renders, numbered (1)-(6). The bottom half is a text guide to DFDB recognition for LSE step 4c. It calls the two edges that belong in DF and DB the 'D edges'. Before inserting UL/UR in 4b (shown with M2, but the guide says it also applies to M' U2 M, M' U2 M' and their mirrors), you work out which D edge will land on the bottom. Branch 1: that edge matches its F/B centre. Insert, then AUF so the two D edges are opposite each other. Both now match their F/B centres and exactly one matches its U/D centre: either the bottom one (3) or the top one (4). Bring the D edge that does not match its U/D centre to the top with an M quarter turn, do U2, then fix centres. Branch 2: that edge does not match its F/B centre. Insert, then AUF to solve the corners. The top D edge is now either stacked over the bottom one (5) or opposite it (6). Case 5: M2 U2 turns it into 3 or 4, and you can predict which beforehand. Case 6: start as in 3/4 (M quarter turn, U2), but end by putting the D centre on top and doing U2 M2. I transcribed all the text into the saved file. The same rouxl.es page has two companion images, also saved: LSEEO.png, an EO (4a) flowchart in lefty and righty M versions, and MCDFDB.png, which covers the misoriented-centre 4c cases 'Separated' and 'Together'.",
+   "drills": [
+    "Before inserting UL/UR, call out which D edge will end on DB and whether it matches its F/B centre",
+    "Classify the 4c state into cases 3/4/5/6 and run the prescribed M quarter / U2 / centre fix without pausing",
+    "Repeat the prediction for each insertion type: M2, M' U2 M, M' U2 M' and their mirrors",
+    "Case 5: predict whether M2 U2 leads to case 3 or 4 from the U/D-centre match of the D edge"
+   ],
+   "infoTopics": [
+    "DFDB recognition for LSE 4c",
+    "'D edges' terminology (the DF/DB pieces)",
+    "Matching an edge to its F/B centre versus its U/D centre",
+    "AUF choice after UL/UR insertion: D edges opposite, or corners solved",
+    "Predicting 4c during 4b (pauseless 4b to 4c)",
+    "Misoriented-centre 4c (companion MCDFDB image): dots case E2 M E2, stack or diagonal placement"
+   ],
+   "algSets": [
+    {
+     "name": "LSE 4c via DFDB recognition",
+     "caseCount": "2 top-level branches, 4 terminal cases (3, 4, 5, 6)",
+     "notes": "Intuitive M/U procedures, not fixed algs. Shown for M2 insertion; the guide says it generalises to M' U2 M / M' U2 M' and mirrors."
+    }
+   ],
+   "appIdeas": [
+    "4b-to-4c prediction drill: show the state just before the UL/UR insertion and ask two quick questions (which D edge lands on DB; does it match its F/B centre). Then show the 4c case and time how long recognition takes.",
+    "Interactive DFDB flowchart drawn from our own cube renderer, not this image. Each node is tappable and animates its M/U sequence, and the same diagram works for every insertion type.",
+    "Filters in the LSE/4c trainer for insertion type (M2, M' U2 M, M' U2 M', mirrors) and centre state (aligned or misoriented), so the DFDB branches can be drilled one at a time",
+    "Glossary entry for 'D edges', 'F/B centre match' and 'U/D centre match', reused across all 4c content"
+   ],
+   "license": "No licence stated. Hosted on rouxl.es, a GitHub Pages site (repo Rouxles/Rouxles.github.io) with no LICENSE file, so all rights are reserved by Anto Kam. Link to it, or re-explain the technique with our own diagrams and words. Do not bundle the image.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/dfdb.txt (transcription); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/dfdb.png (raw image); companions /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/rouxles_LSEEO.png, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/rouxles_MCDFDB.png"
+  },
+  {
+   "key": "https://www.reddit.com/r/cubers/comments/69rubn/made_a_roux_4c_cycle_bu_recog_guide",
+   "url": "https://www.reddit.com/r/Cubers/comments/69rubn/made_a_roux_4c_cycle_bu_recog_guide/",
+   "title": "Made a Roux 4c cycle BU recog guide (r/Cubers post, 'Alex's BU Guide')",
+   "author": "unknown (rouxcubing.com credits 'Alex'; the post could not be loaded)",
+   "kind": "guide-text",
+   "accessible": false,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate-advanced (4c recognition), not verified",
+   "summary": "NOT ACCESSIBLE. Reddit blocked every attempt. www.reddit.com .json returned HTTP 403 'You've been blocked by network security'. old.reddit.com returned HTTP 403 'whoa there, pardner! ... blocked due to a network policy'. WebFetch reports it cannot fetch from www.reddit.com. A Playwright render was refused by this session's permission policy as bot-check circumvention, and I did not retry it. Both 403 bodies are saved. The context below comes only from a web search snippet of the speedsolving wiki, not from this post. In the BU method you track the sticker that will reach BU after step 4b. Comparing it with other stickers gives the starting AUF and slice move for the 4c cycle. Several Roux solvers came up with it around 2010, and Alex Lau re-proposed it in 2012. The hub lists this post next to DFDB and EZ4c as 4c recognition systems.",
+   "drills": [],
+   "infoTopics": [
+    "BU recognition for LSE 4c (from the hub label and secondhand wiki snippet; post content not verified)"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "In the 4c trainer, let the user pick a 'recognition system' (DFDB, BU, EZ4c) that changes the hints and explanation shown for each case. The BU explanation must be written from primary sources once the post or the wiki can be read."
+   ],
+   "license": "Unknown, since the post could not be loaded. Under Reddit's User Agreement the poster keeps copyright. Link only.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/reddit_bu.txt (access log); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/reddit_bu_403.html; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/reddit_bu_old_403.html"
+  },
+  {
+   "key": "https://drive.google.com/file/d/1z_of4sv1a9yvtzhfd78wp_kghgmo4hrm/view",
+   "url": "https://drive.google.com/file/d/1Z_oF4Sv1A9YvTzHFD78wp_kGHGmO4Hrm/view",
+   "title": "EZ4c Diagram ('Normal Diagram.png' on Google Drive)",
+   "author": "John Mark Grimes (per rouxcubing.com link text)",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate (4b/4c recognition, for solvers already doing EO and UL/UR insertion)",
+   "summary": "A public Google Drive image named 'Normal Diagram.png' (850x1100). The viewer page has no other text; the file downloaded with HTTP 200. It is a hand-annotated decision flowchart for the EZ4c way to predict 4c. Legend: blue = 'Opp' (opposite), red = 'Same'. The root is an oriented LSE state with a white arrow marking the piece to track. A same/opposite colour comparison sends you to one of two second-level states, and a second comparison sends you to one of six leaves. Each leaf says how to insert UL/UR and finish: 'Insert UL UR and AUF the wrong way then raise the dot', 'Insert UL UR then AUF correctly then do M2 U2 then raise the dot', 'Insert UL UR then AUF correctly then raise the dot' (twice), the M2 U2 variant again, and 'Insert UL UR then AUF the wrong direction then raise the dot'. A hand-drawn red line and double arrow tie together leaves with the same outcome. So the system answers two same/opposite questions during 4b. They tell you whether to AUF correctly or deliberately 'wrong', and whether an extra M2 U2 is needed, so that 4c always ends with 'raising the dot'. The image never defines 'raise the dot'; I read it as the final M-slice step that fixes the mismatched centre and edge, but have not confirmed that.",
+   "drills": [
+    "During 4b, answer two same/opposite colour comparisons and choose the leaf before inserting UL/UR",
+    "Practise the deliberately 'wrong' AUF variant and the M2 U2 variant until the ending is automatic"
+   ],
+   "infoTopics": [
+    "EZ4c recognition system for LSE 4c",
+    "Same/opposite colour comparisons as recognition cues",
+    "Choosing AUF direction (correct or 'wrong') to set up the 4c finish",
+    "Planning 4c during 4b"
+   ],
+   "algSets": [
+    {
+     "name": "EZ4c decision leaves",
+     "caseCount": "6 leaves (2 comparison levels)",
+     "notes": "Intuitive M/U endings: AUF correct or wrong, optional M2 U2, then 'raise the dot'"
+    }
+   ],
+   "appIdeas": [
+    "A two-question 'Same or Opp?' quiz card for 4c recognition, timed. Tapping a colour pair is faster than reading text.",
+    "Offer EZ4c as one selectable recognition system in the 4c trainer, next to DFDB and BU. Each case then shows the hint for the system the user chose.",
+    "Teach the 'deliberately wrong AUF' idea explicitly: show both AUF choices and the 4c each one leads to"
+   ],
+   "license": "No licence stated. A public Google Drive file, so the author keeps all rights. Link only, and re-create the decision logic in our own diagrams.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/ez4c.txt (transcription); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/ez4c_normal_diagram.png (raw image); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/pw_ez4c_drive.txt"
+  },
+  {
+   "key": "https://sites.google.com/view/nautilus-method/l5e?authuser=0",
+   "url": "https://sites.google.com/view/nautilus-method/l5e?authuser=0",
+   "title": "Nautilus L5E (Nautilus method site, L5E variant)",
+   "author": "athefre (the site's own method; it links athefre's ATCRM page). The progression was written with Silky; the arrow-L5E idea is credited to trangium.",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "not-roux",
+   "level": "advanced / alternative method (not Roux)",
+   "summary": "One page of the Google Site for Nautilus, a separate method first proposed in 2006 that grew out of Roux-like blockbuilding. It is not Roux, so its content is out of scope for Rouxtine. Steps: (1) 1x2x3 first block at dL. (2) 2x2x2 at dbr, recommended as right 1x2x2 then the DB edge; the site says Melkor's HARCS runs gave this the lowest move count. (3) The dFR pair with rRUM. (4) NCLL, the U corners with DF ignored, or TNCLL (Silky's 'Naughty-Ness' variant). (5) L5E, all five last edges, ideally in one alg. Its beginner/intermediate/advanced progression: beginner uses 7 CO + 2 CP algs, 5 EO algs and 16 L5EP algs. When an L5EP case is unknown you insert DF with M' U2 M and then do EPLL. Intermediate learns 42 NCLL and the 60 'arrow-state' L5E cases. Advanced uses full L5E (245 cases) plus pseudo and non-matching blocks with ATCRM recognition. The Benefits section argues against Roux LSE and quotes figures that matter for Rouxtine: LSE with EOLR takes about 13-14 moves against about 11.5 for L5E; there are 655 NCLLEO cases against 1,311 CMLLEO cases; the 4c dots case is awkward; and 3-cycle prediction during EOLR is hard. It also defines the LSE 'arrow state': three misoriented U edges plus a misoriented DF, the last EO state before M' U M or M' U' M. I also saved the Overview page and CSV exports of the first tab of each linked sheet.",
+   "drills": [
+    "(Nautilus, not Roux) Progression tiers: beginner 2-look corners and 2-look L5E, then intermediate NCLL plus arrow-state L5E, then advanced full L5E",
+    "Fallback for an unknown last-step case: solve one piece first (M' U2 M), then a known small set (EPLL)"
+   ],
+   "infoTopics": [
+    "Nautilus method steps (FB, 2x2x2, last pair, NCLL/TNCLL, L5E)",
+    "LSE arrow state definition (shared with Roux EO)",
+    "Move-count comparison: Roux LSE with EOLR (13-14) vs L5E (11.5)",
+    "CMLLEO (1,311 cases) vs NCLLEO (655 cases)",
+    "Pseudo / non-matching blocks and ATCRM corner recognition",
+    "Criticism of Roux 4c: dots case and 3-cycle prediction"
+   ],
+   "algSets": [
+    {
+     "name": "NCLL",
+     "caseCount": "42",
+     "notes": "Nautilus; nearly identical to CMLL"
+    },
+    {
+     "name": "TNCLL",
+     "caseCount": "not stated",
+     "notes": "Nautilus variant by Silky"
+    },
+    {
+     "name": "L5E (full)",
+     "caseCount": "245",
+     "notes": "Nautilus last five edges"
+    },
+    {
+     "name": "Arrow-state L5E",
+     "caseCount": "60",
+     "notes": "Nautilus intermediate subset"
+    },
+    {
+     "name": "L5EP",
+     "caseCount": "16",
+     "notes": "the first 4 are EPLL"
+    },
+    {
+     "name": "Beginner CO / CP / L5 EO",
+     "caseCount": "7 / 2 / 5",
+     "notes": "Nautilus beginner sheet"
+    }
+   ],
+   "appIdeas": [
+    "Do not add Nautilus content (the app is Roux only). Ideas that transfer to Roux:",
+    "Use the 'arrow state' as a named anchor in the LSE EO lesson and trainer: the last EO state before M' U M / M' U' M",
+    "Fallback hints in tiered alg trainers: when a user meets a case they have not learned yet (e.g. an EOLR case), show the 2-look route they already know instead of only the full solution",
+    "Show average move counts per step (e.g. LSE with and without EOLR) in lessons, to motivate learning the next tier",
+    "For pseudo/non-matching blocks in Roux, note that CMLL recognition needs a reference-colour method (ATCRM-style)"
+   ],
+   "license": "No licence stated on the Google Site or the linked Google Sheets, so all rights are reserved. Content is out of scope (non-Roux); at most link it as 'related methods', or leave it out.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/nautilus_l5e.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/pw_nautilus_l5e.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/pw_nautilus_overview.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/nautilus_sheets/"
+  },
+  {
+   "key": "https://www.speedcubing.ch/l%c3%b6sungsanleitungen/4x4-stadler-methode",
+   "url": "https://www.speedcubing.ch/l%C3%B6sungsanleitungen-1/4x4-stadler-methode/",
+   "title": "4x4 Stadler Methode (Speedcubing.ch, German/English)",
+   "author": "Thomas Stadler, Speedcubing Schweiz",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-bigcube",
+   "level": "beginner-intermediate big cube, for solvers who already use Roux on 3x3",
+   "summary": "The linked URL (/lösungsanleitungen/4x4-stadler-methode/) now returns HTTP 404. The page moved to /lösungsanleitungen-1/4x4-stadler-methode/ (HTTP 200), which I used. It is a bilingual German/English step-by-step guide on a Swiss shop site. Thomas Stadler built the method in summer 2007 for Roux users; it got his name after a video from the 2007 Worlds in Budapest. His best was 1:07 (Aug 2012), and he still solves all big cubes this way. Steps: (1) white centre on L; (2) yellow centre on R; (3) white 1x3x4 block on L, pairing edges in the two middle slices and joining them to corners (like Roux FB); (4) yellow 1x3x4 block on R (like SB); (5) CMLL, or 2-look corners; (6) the remaining four centres using only the two inner slices and U, keeping the blue-orange-green-red order; (7) pair two edge pairs in the middle slices and park them at UL/UR, with 4 pictured cases built on l D2 l' U2 / r' D2 r U2. Setup moves handle a flipped DB or UF edge (D' B R' B' ... B R B' D; F U' R U ... U' R' U F), and an edge at FD is moved with D2. (8) Pair the other 4 edge pairs the same way. (9) From here the inner slices turn together: LSE EO. (10) UL/UR pairs; a single misoriented pair means parity. (11) Last 4 edge pairs (4c). (12) Parity: 3 algs, for one flipped pair (r2 B2 U2 l U2 r' U2 r U2 F2 r F2 l' B2 r2), two opposite pairs swapped (r2 U2 r2 (Uu)2 r2 u2), and both at once. Every alg is also given in the site's own digit notation. There is a 1-page PDF of edge-pairing cycles on the middle slices: 3-cycles A1-A4 and 4-cycles B1-B4 and C1-C3, with B4 and C3 left blank. There is also a WMV video with audio (10.9 MB), a YouTube video (tXALDxMliMU) and a French write-up on francocube.com. I transcribed the text, the step-7 images and the PDF.",
+   "drills": [
+    "Centres on L/R first, then 1x3x4 blocks using the inner slices to pair edges (FB/SB on 4x4)",
+    "Remaining centres using only the inner slices and U, without breaking the blocks",
+    "Middle-slice edge pairing: l D2 l' U2 family, parking pairs at UL/UR, with setup moves for flipped edges",
+    "4x4 LSE with the inner slices moving together (EO, UL/UR, 4c)",
+    "Spot parity at the EO/UL-UR stage (one misoriented pair) and finish with one of 3 parity algs"
+   ],
+   "infoTopics": [
+    "Stadler method for 4x4 (Roux-based big-cube method)",
+    "Centre order constraint (blue-orange-green-red) when solving centres in the slices",
+    "Edge pairing in the M-slices with D2/U2 commutator-like cycles",
+    "4x4 parity: OLL-style single flipped pair, PLL-style opposite swap, combined",
+    "History: named by forum users after a 2007 Worlds video"
+   ],
+   "algSets": [
+    {
+     "name": "Stadler step-7 edge pairing",
+     "caseCount": "4 cases + 2 setup variants + D2 rule",
+     "notes": "Built from l D2 l' U2 and r' D2 r U2"
+    },
+    {
+     "name": "Stadler middle-slice pairing cycles (PDF)",
+     "caseCount": "11 diagrams (9 with algs: A1-A4, B1-B3, C1-C2)",
+     "notes": "3-cycles and 4-cycles on the inner slices, standard plus digit notation"
+    },
+    {
+     "name": "4x4 Roux parity",
+     "caseCount": "3",
+     "notes": "one pair flipped; two opposite pairs swapped; both"
+    }
+   ],
+   "appIdeas": [
+    "Possible later big-cube Roux module: a Stadler/4x4-Roux lesson path (centres L/R, 1x3x4 blocks, CMLL, slice centres, slice edge pairing, LSE with paired slices, parity), kept separate from the 3x3 core",
+    "4x4 parity trainer with the 3 cases, recognised at the 4x4 LSE EO step (a single misoriented pair)",
+    "Edge-pairing cycle drill for the inner slices, using our own diagrams of the 3- and 4-cycles",
+    "Treat 'last updated / moved URL' as normal: resource links in the app need periodic link checks (this one moved from /lösungsanleitungen/ to /lösungsanleitungen-1/)"
+   ],
+   "license": "Copyright Thomas Stadler / Speedcubing Schweiz. No licence is given, and the site is a commercial shop (Jimdo). Link only; describe the method's steps in our own words. Alg strings are facts, but do not reuse the images, PDF or video.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/stadler.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/speedcubing_ch_stadler_moved.html; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/speedcubing_ch_stadler.html (404 at linked URL); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/stadler_algs.pdf; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/stadler_algs_page-1.png; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/stadler_imgs/"
+  },
+  {
+   "key": "https://www.speedsolving.com/wiki/index.php/roux_method",
+   "url": "https://www.speedsolving.com/wiki/index.php/Roux_method",
+   "title": "Roux method - SpeedSolving.com Wiki",
+   "author": "SpeedSolving wiki contributors",
+   "kind": "guide-text",
+   "accessible": false,
+   "rouxRelevance": "roux-3x3",
+   "level": "all levels (method overview)",
+   "summary": "NOT ACCESSIBLE: Cloudflare bot protection on the site. curl got HTTP 403 with the 'Just a moment...' challenge, and ?action=raw also got 403. Playwright stayed on 'Performing security verification ... Performance and Security by Cloudflare' after 90 s. WebFetch got HTTP 403. I did not retry, because getting further would mean bypassing a bot check. The challenge page and the Playwright text are saved. The following comes only from web-search snippets and is unverified. The page describes Roux as based on blockbuilding and corners-first methods, with FB, SB, CMLL (42 algs) and LSE. Gilles Roux created it around 2003. LSE is called easy to master, with easy lookahead and fast 2-gen MU TPS; the drawbacks are heavy M use and an M slice that gets harder on big cubes. The wiki covers 4c recognition systems (BU, DFDB, FUBU, EZ-4c).",
+   "drills": [],
+   "infoTopics": [
+    "Roux overview: FB, SB, CMLL, LSE (unverified, from search snippets)",
+    "4c recognition systems BU / DFDB / FUBU / EZ-4c (unverified)"
+   ],
+   "algSets": [
+    {
+     "name": "CMLL",
+     "caseCount": "42",
+     "notes": "from search snippet of the wiki's CMLL page, unverified"
+    }
+   ],
+   "appIdeas": [
+    "A method-overview/history screen with an outbound link to the wiki page. Its text cannot be reused until the licence and content are checked."
+   ],
+   "license": "Not confirmed, because the page was blocked. SpeedSolving wiki pages normally carry a CC BY-SA 3.0 footer, but this was not seen this session, so treat the content as not reusable until checked.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/ssw_roux.txt (access log); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/ssw_roux_cloudflare_403.html; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/pw_ssw.txt"
+  },
+  {
+   "key": "https://sites.google.com/view/kianroux/home",
+   "url": "https://sites.google.com/view/kianroux/home",
+   "title": "Roux Method Guide by Kian",
+   "author": "Kian Mansour (WCA 2015MANS03, formerly PenguinsDontFly); RH OH CMLLs by Kavin Tangtartharakul",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "beginner to advanced (beginner tutorial playlist through EOLR; 2H and OH)",
+   "summary": "A Google Site with 7 pages, all fetched. Each page holds an embedded YouTube video or playlist plus a linked Google Doc; I exported all 5 docs as text. Home: Kian is a Canadian Roux solver (sub-7 2H, sub-10 OH) and a former OH world-record holder (9.54 average); the page embeds that average and links his WCA profile and channel. Roux Tutorial: an embedded beginner playlist covering the full method. Second Block: a doc of efficient SB solutions. 'Front Pair Cases with DR Solved' has 48 case images in 7 tables, and 'Louis' Multislotting and F-Move Happy Place' has 15 cases; about 189 alg lines overall. rouxl.es links the same doc as 'Second Block Algs'. CMLL: 42 cases named by recognition pattern (O adjacent/diagonal swap; H columns/rows/column/row; Pi, U, T, S, As with Right/Left Bar, Back/Forward Slash, X Checkerboard, Columns, Rows, Front/Back Row; L mirror/inverse/pure/front commutator/diag/back commutator). Each case has at least two algs: the first preserves edge orientation and the second flips edges. Kian's fastest is in bold, and he recommends learning the bold ones first. There is also an execution video. OH CMLL: two algs per case, right-handed (blue, from Kavin Tangtartharakul) and left-handed (black, Kian's own). EO: every LSE EO case with its MU solution (purple stickers mark misoriented edges); about 9 algs, including the 6-flip R U' r' U' M' U r U r' and y2 mirrors. EOLR: EO and UL/UR solved together, which merges 4a and 4b. There are about 60 intuitive cases, and the doc groups 62 UL/UR-position lines under 10 EO cases (Arrow, 6-flip, 4/0, 2o/2, 2o/0, 0/2, 2a/0, 2a/2, 1/1 F, 1/1 B). Some lines say 'continue with misoriented'. It links Jade Geels' EOLRb trainer (enbyne.tech/tools/EOLRb) and an EOLR explanation playlist.",
+   "drills": [
+    "Follow the tutorial playlist (beginner), then SB case study, then CMLL, then OH CMLL, then EO, then EOLR",
+    "SB: learn efficient last-pair cases with DR solved, then multislotting and F-move cases",
+    "CMLL: learn the bolded (fastest) alg per case first, then the EO-flipping alternative",
+    "OH: learn the handedness-appropriate OH CMLL set",
+    "LSE EO: memorise the MU solution for every EO case",
+    "EOLR: learn about 60 intuitive cases by EO group and UL/UR position; drill with the EOLRb trainer"
+   ],
+   "infoTopics": [
+    "CMLL case naming by sticker pattern",
+    "EO-preserving vs EO-flipping CMLL alternatives",
+    "OH CMLL for right-handed vs left-handed solvers",
+    "LSE EO case solutions (misoriented edges in purple)",
+    "EOLR concept: combine 4a and 4b by placing UL/UR edges on D during EO",
+    "EOLR grouping by EO case notation (arrow, 6-flip, 4/0, 2o/2, 2a/0, 1/1 ...)",
+    "SB last-pair cases, multislotting, F moves in SB"
+   ],
+   "algSets": [
+    {
+     "name": "CMLL (2H)",
+     "caseCount": "42",
+     "notes": ">=2 algs per case: EO-preserving first, EO-flipping second; fastest in bold"
+    },
+    {
+     "name": "OH CMLL",
+     "caseCount": "42",
+     "notes": "RH (Kavin) and LH (Kian) alg per case"
+    },
+    {
+     "name": "SB front pair with DR solved",
+     "caseCount": "48 (images)",
+     "notes": "about 189 alg lines in the whole doc"
+    },
+    {
+     "name": "SB multislotting / F-move cases",
+     "caseCount": "15 (images)",
+     "notes": "'Louis' Multislotting and F-Move Happy Place'"
+    },
+    {
+     "name": "LSE EO",
+     "caseCount": "about 9",
+     "notes": "MU solutions incl. 6-flip R U' r' U' M' U r U r'"
+    },
+    {
+     "name": "EOLR",
+     "caseCount": "about 60 (62 lines in 10 EO groups)",
+     "notes": "intuitive MU; some cases chain to 'continue with misoriented'"
+    }
+   ],
+   "appIdeas": [
+    "Per-case alg variants tagged 'keeps EO' / 'flips EO' in the CMLL library. Add a CMLL-to-EO drill: after a CMLL case is shown with an LSE EO state, pick the variant that leaves the better EO case.",
+    "A per-user 'my fastest' star on alg variants, with a suggested learning order (learn starred/bold first)",
+    "Global handedness settings: OH hand (LH/RH) chooses the OH CMLL set, and M-hand (lefty/righty M) chooses EO/EOLR solutions",
+    "EOLR browser grouped by EO case, then UL/UR position. Show the 'continue with misoriented' links as a navigable chain, and offer a drill mode per EO group.",
+    "SB last-pair trainer seeded from 'DR solved' front-pair cases, with a separate multislot/F-move bonus set",
+    "Learn-tab pattern: each step page has one video, one alg doc and one trainer button (link out to the videos)"
+   ],
+   "license": "No licence stated on the Google Site or the linked Docs, so Kian Mansour holds the copyright. Alg move strings are facts, but the doc layouts, case images and videos are not reusable. Link out to the videos and docs and write our own case data.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/kianroux.txt (all 7 pages + 5 docs); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/kian_docs/; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/pw_kianroux_*.txt"
+  },
+  {
+   "key": "https://rouxl.es",
+   "url": "https://rouxl.es/",
+   "title": "Rouxles",
+   "author": "Anto Kam (Rouxles; YouTube channel Rouxles; runs r/rouxles reconstructions)",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "beginner to intermediate (resource hub with progression paths; 2H and OH)",
+   "summary": "A small static Bootstrap 4 site on GitHub Pages (repo Rouxles/Rouxles.github.io, CNAME rouxl.es, last modified 2020-10-16). I crawled all 7 pages: home, First Block, Second Block, CMLL, LSE, Reconstructions and Other Roux Solvers. It is mostly a curated link hub, plus three LSE images and two progression lists. Home links the Roux Discord (#resources) and Facebook group, r/rouxles (Anto's reconstruction subreddit), onionhoney's block trainer, the Cubegrass block trainer and Kian's site. It ends with the advice to treat steps 'as a transition to the next one rather than a binary switch'. FB: for CFOP switchers, FB 'is quite similar to planning a cross'; it links Louis de Mendonça's FB series, Teoidus' efficient FB in inspection, and Tao Yu's 'stop doing F2L pairs'. SB: if you plan FB+DR in inspection, SB is like 2 CFOP pairs; it links SB algs (the same doc as Kian's), SB LS cases and SS algs for pair-first approaches. CMLL: links the community 2H and OH CMLL sheets and gives an OH CMLL progression: (1) simple OH fingertricks (F*, Fw*, D*; L moves are not needed), (2) 2-look CMLL, (3) full CMLL without eidos, (4) full CMLL with eidos, eased in gradually rather than forced. LSE: three collapsible images, all saved. The EO flowchart (4a) comes in lefty and righty M versions, about 12 EO states per side, each labelled with its MU move, ending on two finishing cases (lefty M' U M' / M U M', righty M' U' M' / M U' M'). The DFDB guide is a separate resource in this batch. MC DFDB covers misoriented centres: Separated (dots: E2 M E2; else stack or place diagonally then M2 U2) and Together (AUF, keep the F/B-matching edge on D, then a 4-move oriented 3-cycle or just AUF). LSE also links EOLR docs (RH M and LH M), the EOLRb trainer and an LSE sim. The LSE progression: EO flowchart, then track LR edges during EO and force one onto D (pauseless 4a to 4b), then DFDB for pauseless 4b to 4c, then EOLR without avoiding misoriented centres. The page also says 'Learn the next one when you feel you're ready to - no need to wait for sub-x'. Reconstructions: r/rouxles, a Roux reconstructions spreadsheet, cubesolv.es and speedcubedb.com. Other Roux solvers: channels and sites for Kian Mansour, Iuri Grangeiro, Zhouheng Sun, Kavin Tangtartharakul, Sean Patrick Villanueva, Kangaroux and Tudor Lin.",
+   "drills": [
+    "OH CMLL path: OH fingertricks (F*, Fw*, D*) also in F2B, then 2-look CMLL, then full CMLL, then full CMLL with eidos",
+    "LSE path: EO flowchart, then track LR edges during EO and force one LR edge to D for pauseless 4a to 4b, then DFDB recognition for 4b to 4c, then EOLR including misoriented centres",
+    "FB: plan FB (or FB+DR) in inspection like a cross; study reconstructions",
+    "Study reconstructions at your own pace (r/rouxles, spreadsheet, cubesolv.es, speedcubedb)"
+   ],
+   "infoTopics": [
+    "Steps as transitions rather than separate stages",
+    "Switching from CFOP: FB vs cross planning, SB vs 2 F2L pairs",
+    "OH CMLL fingertricks and eidos",
+    "LSE EO flowchart with lefty vs righty M",
+    "DFDB and misoriented-centre (MC) DFDB recognition",
+    "EOLR with RH M or LH M",
+    "Where to find reconstructions and Roux solvers' channels"
+   ],
+   "algSets": [
+    {
+     "name": "LSE EO flowchart (4a)",
+     "caseCount": "about 12 states per side (lefty M and righty M)",
+     "notes": "image LSEEO.png"
+    },
+    {
+     "name": "MC DFDB (misoriented centres 4c)",
+     "caseCount": "2 (Separated, Together)",
+     "notes": "image MCDFDB.png"
+    },
+    {
+     "name": "Linked: 2H CMLL / OH CMLL sheets, EOLR RH-M / LH-M docs, SB algs, SB LS cases, SS algs",
+     "caseCount": "not counted (external Google Docs/Sheets)",
+     "notes": "not crawled in this batch"
+    }
+   ],
+   "appIdeas": [
+    "Ordered skill trees per step (OH CMLL path, LSE path) with no time gates, saying 'move on when ready - no need to wait for sub-x'",
+    "Lefty-M / righty-M toggle applied to EO flowchart, EOLR and LSE content",
+    "Transition drills: EO while tracking LR edges (force one LR edge to D), then DFDB during 4b, so the trainer scores the pause between steps and not just each step",
+    "Misoriented-centre toggle in the 4c/EOLR trainers, with MC DFDB hints",
+    "A curated Resources screen (community, reconstructions, solvers' channels) with outbound links only"
+   ],
+   "license": "No licence: Rouxles/Rouxles.github.io has no LICENSE or LICENSE.md at the repo root (checked through raw.githubusercontent.com; CNAME and README exist). github.com and the GitHub API were refused through this session's proxy, so the full file tree was not listed. All rights reserved by default; link only, and redraw the flowcharts ourselves.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/rouxles.txt (all 7 pages); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/rouxles_*.html; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/rouxles_LSEEO.png; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/rouxles_MCDFDB.png; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-5/dfdb.png"
+  }
+ ]
+}

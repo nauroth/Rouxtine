@@ -1,0 +1,733 @@
+{
+  "shortAnswer": "Yes, you can ask for donations, and nothing needs rewriting. The GPL also allows selling the app or premium features. The catch: all code stays public, so anyone can rebuild the premium version and share it free. The real limits come from Google Play. Inside a Play app, tips that unlock anything and paid features must go through Google Play Billing. Links to PayPal or Ko-fi are banned in the app and the store listing, except through EU/US programs that need a registered business. Play Billing is a closed Google library. Shipping it alongside onionhoney's GPL code needs his written one-paragraph permission. He wrote essentially all the code you'd port, so you only need to ask one person. Plan: launch with donation links on GitHub, your website and F-Droid, and ask onionhoney now. Later, add a Play tip jar or supporter themes, keeping the F-Droid build fully unlocked.",
+  "claims": [
+    {
+      "id": "license-1",
+      "topic": "upstream-licence",
+      "claim": "onionhoney/roux-trainers' LICENSE is the unmodified FSF GPLv3 text. It matches gnu.org/licenses/gpl-3.0.txt except for a missing final newline, and its 'How to Apply' template is left unfilled (LICENSE:634-655). Nothing in the repo says 'version 3 only' or 'or later': no statement in README.md, no 'license' field in package.json ('private': true), and no licence headers in src/ or public/. A git grep of master, gh-pages and the dependabot branches finds no 'later version', 'SPDX' or 'General Public' outside LICENSE. GitHub's sidebar labels the repo 'GPL-3.0 license' (70 stars, 13 forks on 2026-10-28).",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/package.json",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/README.md",
+        "https://www.gnu.org/licenses/gpl-3.0.txt",
+        "https://github.com/onionhoney/roux-trainers",
+        "/home/user/roux-trainers/LICENSE"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-2",
+      "topic": "upstream-licence",
+      "claim": "GPLv3 s.14 says: 'If the Program does not specify a version number of the GNU General Public License, you may choose any version ever published by the Free Software Foundation' (LICENSE:575-577). The FSF FAQ #LicenseCopyOnly warns that 'Just putting a copy of the GNU GPL in a file in your repository does not explicitly state that the code ... may be used under the GNU GPL'. So the upstream version is technically ambiguous. In practice, treat it as GPL-3.0, the text that ships with it. Every GPL version is copyleft, so the ambiguity opens no non-GPL route. Rouxtine should put explicit SPDX headers on its own files, e.g. GPL-3.0-or-later.",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L571-L577",
+        "https://www.gnu.org/licenses/gpl-faq.html#LicenseCopyOnly",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-3",
+      "topic": "upstream-licence",
+      "claim": "Upstream added LICENSE on 2020-06-26 in commit d9873e8 ('add min2phase solver to cmll'). The same commit vendored src/lib/min2phase/min2phase.js (1,313 lines).",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/commit/d9873e8a00547f8d8381d7e9e5fd7d1d42494bd3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-4",
+      "topic": "copyright-holders",
+      "claim": "Copyright holders of the code Rouxtine would port: git blame of upstream master (0129460) attributes every line of src/lib/Solver.tsx, Pruner.tsx, CubeLib.tsx, Algs.tsx, Analyzer.ts, Evaluator.tsx and src/components/CubeSim.tsx to Zhouheng 'Jeffrey' Sun (GitHub onionhoney), under several e-mail identities. Upstream has 84 commits. The only other human committer is Eric Xu (GitHub ericx20, merged PR #21, 2023-08-19). His 3 commits change only src/components/TopBarView.tsx (+14/-5 lines of mobile UI styling), which is not planned for porting. The dependabot branches were never merged. The GitHub contributors API was blocked by the session proxy (HTTP 403, not retried), so this list comes from a full clone of the git history.",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/commits/master",
+        "https://github.com/onionhoney/roux-trainers/pull/21",
+        "https://github.com/onionhoney/roux-trainers"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-5",
+      "topic": "copyright-holders",
+      "claim": "Upstream also vendors third-party code that is not onionhoney's. src/lib/min2phase/* is a lightly modified copy of cubing/min2phase.js (Lucas Garron, 2018, commit a465b5e). Its LICENSE.md says: 'This code is dual-licensed under: MIT, GPLv3 or later. Projects deriving from it may license both or just one.' Its package.json says 'GPL-3.0-or-later'. src/lib/three/OrbitControls.js comes from three.js (MIT). The npm dependencies are permissive: three MIT, sr-visualizer ISC, comlink Apache-2.0, chroma-js BSD-3-Clause AND Apache-2.0.",
+      "sources": [
+        "https://github.com/cubing/min2phase.js/blob/a465b5e458fc1850299cab3c6254973c7f4c76ae/LICENSE.md",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/src/lib/min2phase/min2phase.js",
+        "https://registry.npmjs.org/three/latest",
+        "https://registry.npmjs.org/sr-visualizer/latest"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-6",
+      "topic": "copyright-holders",
+      "claim": "Correction to research/roux-training-features.md s.4, which lists min2phase as GPL-3.0-or-later only. Since commit 4d183b9 (2023-02-21, Chen Shuang), the README of cs0x7f/min2phase (Java) carries both a 'License GPLv3' section and a 'License MIT' section ('Copyright (c) 2023 Chen Shuang'). The headers of individual source files, e.g. src/Search.java, still show only GPL-3.0-or-later. So the author offers min2phase under MIT, but the files' own headers have not been updated.",
+      "sources": [
+        "https://github.com/cs0x7f/min2phase/blob/4d183b9eff8119cac72bc50ef35a7d8990740e06/README.md",
+        "https://github.com/cs0x7f/min2phase/commit/4d183b9eff8119cac72bc50ef35a7d8990740e06",
+        "https://github.com/cs0x7f/min2phase/blob/master/src/Search.java"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-7",
+      "topic": "gpl-monetization",
+      "claim": "(a) Donations: GPLv3 puts no limit on asking for voluntary donations. s.10 forbids only imposing 'a license fee, royalty, or other charge for exercise of rights granted under this License' (LICENSE:463-466). A voluntary tip that unlocks nothing is not such a charge. FSF FAQ #DoesTheGPLAllowRequireFee: 'You can charge people a fee to get a copy from you. You can't require people to pay you when they get a copy from someone else.' Any limits on how donations are collected come from store policy, not from the GPL.",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L463-L466",
+        "https://www.gnu.org/licenses/gpl-faq.html#DoesTheGPLAllowRequireFee",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-8",
+      "topic": "gpl-monetization",
+      "claim": "(b) Paid app: GPLv3 s.4 says: 'You may charge any price or no price for each copy that you convey' (LICENSE:205). The preamble says recipients may distribute copies 'and charge for them if you wish'. FSF FAQ #DoesTheGPLAllowMoney: 'Yes, the GPL allows everyone to do this ... there is no limit on what price you can charge.' The FSF page 'Selling Free Software' says: 'we encourage people who redistribute free software to charge as much as they wish or can.'",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L205",
+        "https://www.gnu.org/licenses/gpl-faq.html#DoesTheGPLAllowMoney",
+        "https://www.gnu.org/philosophy/selling.html",
+        "https://web.archive.org/web/20261023080040/https://www.gnu.org/philosophy/selling.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-9",
+      "topic": "gpl-monetization",
+      "claim": "Practical effect of (b) and (c): FAQ #DoesTheGPLRequireAvailabilityToPublic says 'if someone pays your fee and gets a copy, the GPL gives them the freedom to release it to the public, with or without a fee.' s.6d requires the Corresponding Source to be offered 'in the same way through the same place at no further charge' (LICENSE:275-286). FAQ #DoesTheGPLAllowDownloadFee says the same: for GPLv3 binaries, source must be offered 'at no further charge'.",
+      "sources": [
+        "https://www.gnu.org/licenses/gpl-faq.html#DoesTheGPLRequireAvailabilityToPublic",
+        "https://www.gnu.org/licenses/gpl-faq.html#DoesTheGPLAllowDownloadFee",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L275-L286",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-10",
+      "topic": "gpl-monetization",
+      "claim": "(c) Premium features via in-app purchase are allowed, but the premium code ships in the APK. It is therefore part of the Corresponding Source and must be published under the GPL (s.1, s.5c: 'license the entire work, as a whole', LICENSE:222). s.10 forbids further restrictions. Under s.3 and FAQ #DRMProhibited, a GPL program's paywall does not count as an effective technological protection measure, so anyone may patch out the unlock check and redistribute the result. FAQ #GPLCommercially: modified programs may be sold 'but only under the terms of the GNU GPL'. Precedent: Tasks.org's F-Droid flavour simply unlocks every pro feature (see the Tasks.org claim).",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L222",
+        "https://www.gnu.org/licenses/gpl-faq.html#DRMProhibited",
+        "https://www.gnu.org/licenses/gpl-faq.html#GPLCommercially",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-11",
+      "topic": "gpl-monetization",
+      "claim": "Premium delivered as a server-side service, e.g. cloud sync or backup of solve history, carries no source obligation for the server. The GPL (not the AGPL) applies when copies are conveyed. FAQ #GPLRequireSourcePostedPublic: 'The GPL does not require you to release your modified version ... if you release the modified version to the public in some way, the GPL requires you to make the modified source code available.' New server code that is never distributed can therefore use any licence. The in-app purchase that sells it still has to follow Play policy.",
+      "sources": [
+        "https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-12",
+      "topic": "gpl-monetization",
+      "claim": "A Kotlin port of the TypeScript code is a derivative work. FAQ #TranslateCode: 'Under copyright law, translation of a work is considered a kind of modification ... If the original program is licensed under certain versions of the GNU GPL, the translated program must be covered by the same versions of the GNU GPL.' The s.0 definition of 'modify' covers copying or adapting 'all or part of the work' (LICENSE:84).",
+      "sources": [
+        "https://www.gnu.org/licenses/gpl-faq.html#TranslateCode",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L84",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-13",
+      "topic": "play-billing-licence",
+      "claim": "The Google Maven POM of com.android.billingclient:billing:9.1.0 declares the licence 'Android Software Development Kit License' (url https://developer.android.com/studio/terms.html). 9.1.0 is the latest version; maven-metadata lastUpdated is 2026-06-18. The billing 7.0.0 POM and billing-ktx 9.1.0 POM declare the same licence. No -sources.jar is published (HTTP 404), but a javadoc jar is. classes.jar contains 337 obfuscated classes in com/google/android/gms/internal/play_billing (zza, zzaa, ...). The library is closed source.",
+      "sources": [
+        "https://dl.google.com/android/maven2/com/android/billingclient/billing/maven-metadata.xml",
+        "https://dl.google.com/android/maven2/com/android/billingclient/billing/9.1.0/billing-9.1.0.pom",
+        "https://dl.google.com/android/maven2/com/android/billingclient/billing/9.1.0/billing-9.1.0.aar",
+        "https://dl.google.com/android/maven2/com/android/billingclient/billing-ktx/9.1.0/billing-ktx-9.1.0.pom"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-14",
+      "topic": "play-billing-licence",
+      "claim": "Dependencies and manifest of billing 9.1.0. The POM pulls in, at compile scope, com.google.android.gms play-services-base 18.5.0, play-services-basement 18.9.0, play-services-location 19.0.0 and play-services-tasks 18.2.0. It also pulls in com.google.android.datatransport transport-api, transport-backend-cct and transport-runtime. The AAR manifest requests the com.android.vending.BILLING permission and queries InAppBillingService.BIND. minSdkVersion is 23 in 9.1.0 and 8.3.0, but 21 in 8.0.0 and 7.1.1. For Q4 (support as many versions as possible): billing 8.3+ needs API 23. Billing 8.0.0 still allows API 21 and stays usable until 2027-08-31.",
+      "sources": [
+        "https://dl.google.com/android/maven2/com/android/billingclient/billing/9.1.0/billing-9.1.0.pom",
+        "https://dl.google.com/android/maven2/com/android/billingclient/billing/8.0.0/billing-8.0.0.aar",
+        "https://dl.google.com/android/maven2/com/android/billingclient/billing/8.3.0/billing-8.3.0.aar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-15",
+      "topic": "play-billing-licence",
+      "claim": "Android SDK License Agreement, s.3.1: Google grants 'a limited, worldwide, royalty-free, non-assignable, non-exclusive, and non-sublicensable license to use the SDK solely to develop applications for compatible implementations of Android'. s.3.4: 'you may not copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK.' s.3.5 exempts only the SDK's own open-source components. These terms cannot be passed on under GPL terms: no source is available, and recipients may not modify the library. So the billing library is 'GPL-incompatible' in the FSF's sense.",
+      "sources": [
+        "https://developer.android.com/studio/terms"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-16",
+      "topic": "play-billing-licence",
+      "claim": "In-app purchases on Play require this library. Google's deprecation FAQ (last updated 2026-10-23): 'By Aug 31, 2026, all new apps and updates to existing apps must use Billing Library version 8 or later', with an extension possible until Nov 1, 2026. Version 8 can be used until Aug 31, 2027 and version 9 until Aug 31, 2028.",
+      "sources": [
+        "https://developer.android.com/google/play/billing/deprecation-faq"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-17",
+      "topic": "play-billing-licence",
+      "claim": "The System Library exception (s.1) does not cover the Play Billing Library. It applies to code 'included in the normal form of packaging a Major Component' (kernel, window system, compiler, object-code interpreter) that 'serves only to enable use of the work with that Major Component' (LICENSE:123-132). The billing AAR is a Maven artifact compiled into each app's APK, not part of the Android OS image. FAQ #GPLStaticVsDynamic: static or dynamic linking 'is making a combined work'. FAQ #FSWithNFLibs also says 'there may also be legal issues with combining certain nonfree libraries with GPL-covered free software.' This is an interpretation; no court ruling was found.",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L123-L132",
+        "https://www.gnu.org/licenses/gpl-faq.html#SystemLibraryException",
+        "https://www.gnu.org/licenses/gpl-faq.html#GPLStaticVsDynamic",
+        "https://www.gnu.org/licenses/gpl-faq.html#FSWithNFLibs",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-18",
+      "topic": "play-billing-licence",
+      "claim": "Who can grant a s.7 exception. FAQ #GPLIncompatibleLibs: to link with a library 'not covered by the system library exception, you need to provide permission'. It adds: 'Only the copyright holders for the program can legally release their software under these terms ... if you want to use parts of other GPL-covered programs by other authors in your code, you cannot authorize the exception for them. You have to get the approval of the copyright holders of those programs.' For a library whose source cannot be distributed, the FAQ says to drop the bracketed Corresponding-Source sentence. GPLv3 s.7 says: 'You may place additional permissions on material, added by you to a covered work, for which you have or can give appropriate copyright permission'. Downstream recipients may remove such permissions (LICENSE:345-358).",
+      "sources": [
+        "https://www.gnu.org/licenses/gpl-faq.html#GPLIncompatibleLibs",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L345-L358",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-19",
+      "topic": "play-billing-licence",
+      "claim": "Who must agree for Rouxtine: (1) the owner and any Rouxtine contributors, for their own code, and (2) Zhouheng Sun (onionhoney), for the ported roux-trainers code, since he is its sole author. Eric Xu matters only if TopBarView code is reused. No other GPL author's permission is needed if the app takes code only from MIT sources: min2phase (MIT option), smartcube-web-bluetooth (MIT), gan-web-bluetooth (MIT). That means copying no code from csTimer, open-gan or tnoodle-lib, which are GPL-3.0, and taking only ideas from Twisty Timer.",
+      "sources": [
+        "https://www.gnu.org/licenses/gpl-faq.html#GPLIncompatibleLibs",
+        "https://github.com/onionhoney/roux-trainers/commits/master",
+        "https://github.com/cs0x7f/min2phase/blob/4d183b9eff8119cac72bc50ef35a7d8990740e06/README.md",
+        "https://github.com/poliva/smartcube-web-bluetooth/blob/master/package.json",
+        "https://github.com/afedotov/gan-web-bluetooth/blob/master/package.json"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-20",
+      "topic": "play-billing-licence",
+      "claim": "Standard exception wording, from the SPDX 'GPL-3.0-linking-exception' (seeAlso: FSF FAQ #GPLIncompatibleLibs): 'Additional permission under GNU GPL version 3 section 7: If you modify this Program, or any covered work, by linking or combining it with [name of library] (or a modified version of that library), containing parts covered by the terms of [name of library's license], the licensors of this Program grant you additional permission to convey the resulting work.' The '-linking-source-exception' variant adds a sentence requiring the library's source; that sentence must be dropped for Play Billing.",
+      "sources": [
+        "https://spdx.org/licenses/GPL-3.0-linking-exception.html",
+        "https://spdx.org/licenses/GPL-3.0-linking-source-exception.html",
+        "https://github.com/spdx/license-list-data/blob/main/json/exceptions/GPL-3.0-linking-exception.json"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-21",
+      "topic": "play-billing-licence",
+      "claim": "Real-world wording, all from small projects. (1) Terpoir's LICENSING.md, merged 2026-10-11, has a 'Google Play libraries' s.7 permission. It names the 'Google Play Libraries' as the Maven groups com.google.android.play, com.google.android.gms and com.android.billingclient. It says the Corresponding Source 'shall not include the source code for the parts of the Google Play Libraries used', and it 'does not extend to any other library that is not free software'. It applies to the play flavour only; the foss build fails if one of those libraries appears. (2) ics-openvpn's doc/LICENSE.txt has GPLv2 'special exception' clauses by Arne Schwabe for OpenSSL and Apache-2.0 libraries. Its README asks contributors to sign a CLA to 'retain my ability to relicense'. (3) Psysonic issue #1772, opened 2026-10-18, collects 'I agree to the additional permission above for my contributions' comments (about 28 so far) for a s.7 app-store permission. Code from contributors who don't respond will be rewritten.",
+      "sources": [
+        "https://github.com/nolsen311/Terpoir/blob/main/LICENSING.md",
+        "https://github.com/nolsen311/Terpoir/pull/24",
+        "https://github.com/schwabe/ics-openvpn/blob/master/doc/LICENSE.txt",
+        "https://github.com/schwabe/ics-openvpn/blob/master/README.md",
+        "https://github.com/Psysonic/psysonic/issues/1772"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-22",
+      "topic": "play-billing-licence",
+      "claim": "Well-known GPL apps that ship Play Billing do not carry an explicit Play-library exception. Tasks.org, OsmAnd, Twisty Timer (through the anjlab wrapper) and Mullvad were checked by searching their LICENSE/README files for 'Google', 'billing' and 'exception'; none was found. Each relies in practice on its main copyright holder distributing the build. That works without a written grant only for code the distributor owns, which is the issue for third-party contributors' code. No enforcement case was found.",
+      "sources": [
+        "https://github.com/tasks/tasks/blob/4d7792727f1a96c92410fa00665a5e657681600f/LICENSE",
+        "https://github.com/osmandapp/OsmAnd/blob/master/LICENSE",
+        "https://github.com/aricneto/TwistyTimer/blob/2fcd6f7d2697a0810f37245ac033f1da12448382/LICENSE.txt",
+        "https://github.com/mullvad/mullvadvpn-app/blob/main/LICENSE.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-23",
+      "topic": "precedent",
+      "claim": "Tasks.org (org.tasks) is GPL-3.0 and grew from Astrid's open-source code (README). app/build.gradle.kts defines a 'generic' and a 'googleplay' flavour (L126, L130). Only googleplay adds play.billing.ktx (L295), Firebase, Crashlytics and Play services. In the generic flavour, BillingClientImpl is an empty stub, and Inventory.hasPro returns true when IS_GENERIC, so all pro features, including premium themes (purchasedThemes()), are unlocked. Play builds open PurchaseActivity. Non-Play builds open https://tasks.org/donate (TaskListFragment.kt:621). On Play the app is free with in-app purchases (500K+ downloads). F-Droid builds the 'generic' flavour; its metadata lists License GPL-3.0-only, Donate https://tasks.org/donate, Liberapay 'tasks' and a Bitcoin address. This is the closest precedent for a 'premium UI' tier.",
+      "sources": [
+        "https://github.com/tasks/tasks/blob/4d7792727f1a96c92410fa00665a5e657681600f/app/build.gradle.kts#L126-L130",
+        "https://github.com/tasks/tasks/blob/4d7792727f1a96c92410fa00665a5e657681600f/app/build.gradle.kts#L295",
+        "https://github.com/tasks/tasks/blob/4d7792727f1a96c92410fa00665a5e657681600f/app/src/generic/java/org/tasks/billing/BillingClientImpl.kt",
+        "https://github.com/tasks/tasks/blob/4d7792727f1a96c92410fa00665a5e657681600f/app/src/main/java/org/tasks/billing/Inventory.kt#L63-L77",
+        "https://github.com/tasks/tasks/blob/4d7792727f1a96c92410fa00665a5e657681600f/app/src/main/java/com/todoroo/astrid/activity/TaskListFragment.kt#L617-L633",
+        "https://play.google.com/store/apps/details?id=org.tasks",
+        "https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/org.tasks.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-24",
+      "topic": "precedent",
+      "claim": "Twisty Timer (com.aricneto.twistytimer), a cubing timer, is 'GNU GPL v3 ... either version 3 of the License, or (at your option) any later version' (README). It sells one-time 'donation_tier1'..'donation_tier5' Play products (DonateDialog.java:50-62) through com.anjlab.android.iab.v3:library:2.0.3 (app/build.gradle:88). That wrapper is Apache-2.0, but its POM depends on the proprietary com.android.billingclient:billing:4.0.0. The Play listing shows the app free with in-app purchases and 1M+ downloads. contributors.txt names 9 contributors. There is no F-Droid metadata (fdroiddata metadata/com.aricneto.twistytimer.yml returns 404), and the last commit is from 2023-01-06.",
+      "sources": [
+        "https://github.com/aricneto/TwistyTimer/blob/2fcd6f7d2697a0810f37245ac033f1da12448382/README.md",
+        "https://github.com/aricneto/TwistyTimer/blob/2fcd6f7d2697a0810f37245ac033f1da12448382/app/build.gradle#L88",
+        "https://github.com/aricneto/TwistyTimer/blob/2fcd6f7d2697a0810f37245ac033f1da12448382/app/src/main/java/com/aricneto/twistytimer/fragment/dialog/DonateDialog.java#L50-L62",
+        "https://repo1.maven.org/maven2/com/anjlab/android/iab/v3/library/2.0.3/library-2.0.3.pom",
+        "https://play.google.com/store/apps/details?id=com.aricneto.twistytimer",
+        "https://github.com/aricneto/TwistyTimer/blob/2fcd6f7d2697a0810f37245ac033f1da12448382/contributors.txt"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-25",
+      "topic": "precedent",
+      "claim": "OsmAnd (copyright OsmAnd BV) is GPLv3 'or (at your option) any later version' for code. Its UI/UX resources are CC-BY-NC-ND 4.0, and the LICENSE adds that 'Publishing applications using the OsmAnd UI/UX code to Google Play, Amazon Market, or Apple Store must be done with written permission.' build-common.gradle:413 adds com.android.billingclient:billing:8.0.0 to every flavour (gplayFree, gplayFull, nightlyFree, huawei). The huawei flavour uses Huawei IAP instead. F-Droid's recipe removes billing with `sed -i -e \"/.*com.android.billingclient.*/d\" build-common.gradle` and publishes the app as 'OsmAnd~'. F-Droid flags it NonFreeAssets and NonFreeNet, with License GPL-3.0-only and Donate https://osmand.net/pricing. On Play, OsmAnd+ is a paid app with in-app purchases (US listing showed $69.99 on 2026-10-28). The README says: 'By buying OsmAnd+ and subscribing to OsmAnd Pro ... you help'.",
+      "sources": [
+        "https://github.com/osmandapp/OsmAnd/blob/master/LICENSE",
+        "https://github.com/osmandapp/OsmAnd/blob/master/OsmAnd/build-common.gradle",
+        "https://github.com/osmandapp/OsmAnd/blob/master/OsmAnd/build.gradle",
+        "https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/net.osmand.plus.yml",
+        "https://play.google.com/store/apps/details?id=net.osmand.plus",
+        "https://github.com/osmandapp/OsmAnd/blob/master/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-26",
+      "topic": "precedent",
+      "claim": "Conversations (eu.siacs.conversations) is GPL-3.0. Its free flavour goes to F-Droid; its playstore flavour adds installreferrer and FCM push. The README table lists address-book integration and public channel search as F-Droid-only, and 'Fallback via FCM' as Play-only. The README still says 'If you bought the App on Google Play', but on 2026-10-28 the US Play listing showed a free 'Install' button and no in-app-purchase badge. F-Droid metadata: License GPL-3.0-only, Liberapay iNPUTmice. Treat it as a historical paid-on-Play precedent; its current pricing could vary by region.",
+      "sources": [
+        "https://codeberg.org/iNPUTmice/Conversations/src/branch/master/README.md",
+        "https://codeberg.org/iNPUTmice/Conversations/src/branch/master/build.gradle",
+        "https://play.google.com/store/apps/details?id=eu.siacs.conversations",
+        "https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/eu.siacs.conversations.yml"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-27",
+      "topic": "precedent",
+      "claim": "DAVx5 (at.bitfire.davdroid) is GPLv3. It is a paid app on Play (US listing: '$6.49 Buy', with an in-app-purchase badge) and free on F-Droid, which builds the 'ose' flavour. F-Droid metadata: License GPL-3.0-only, Donate https://www.davx5.com/donate, Liberapay DAVx5, Bitcoin. The README asks users to support the project by 'donating to DAVx5 or purchasing it'.",
+      "sources": [
+        "https://github.com/bitfireAT/davx5-ose/blob/main-ose/README.md",
+        "https://play.google.com/store/apps/details?id=at.bitfire.davdroid",
+        "https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/at.bitfire.davdroid.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-28",
+      "topic": "precedent",
+      "claim": "AntennaPod is GPL-3.0. playFlavor.gradle defines 'free' and 'play' flavours; play adds Google Play services wearable. The app is free on Play with no in-app-purchase badge (1M+ downloads). F-Droid builds the 'free' flavour (metadata License GPL-3.0-only).",
+      "sources": [
+        "https://github.com/AntennaPod/AntennaPod/blob/develop/playFlavor.gradle",
+        "https://github.com/AntennaPod/AntennaPod/blob/develop/app/build.gradle",
+        "https://github.com/AntennaPod/AntennaPod/blob/develop/README.md",
+        "https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/de.danoeh.antennapod.yml",
+        "https://play.google.com/store/apps/details?id=de.danoeh.antennapod"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-29",
+      "topic": "precedent",
+      "claim": "Mullvad VPN (Android) is GPL-3.0. It has a BILLING flavour dimension with 'oss' (the default) and 'play'. Only play adds lib/billing, which implements com.android.billingclient. F-Droid lists the app as GPL-3.0-or-later with the NonFreeNet anti-feature.",
+      "sources": [
+        "https://github.com/mullvad/mullvadvpn-app/blob/main/android/app/build.gradle.kts",
+        "https://github.com/mullvad/mullvadvpn-app/blob/main/android/lib/billing/build.gradle.kts",
+        "https://github.com/mullvad/mullvadvpn-app/blob/main/LICENSE.md",
+        "https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/net.mullvad.mullvadvpn.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-30",
+      "topic": "precedent",
+      "claim": "Shattered Pixel Dungeon is GPL-3.0 and on Play. It has no Play Billing in its android build. Its shared core code contains a 'Support the Game' SupporterScene that opens https://www.patreon.com/ShatteredPixel, and the text lists Patreon perks (early-access betas, polls). The docs ask anyone who plans to publish a modified version on Google Play to contact the author first, citing Google policy. Whether the Patreon button appears in the Play build was not verified.",
+      "sources": [
+        "https://github.com/00-Evan/shattered-pixel-dungeon/blob/master/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/SupporterScene.java",
+        "https://github.com/00-Evan/shattered-pixel-dungeon/blob/master/core/src/main/assets/messages/scenes/scenes.properties",
+        "https://github.com/00-Evan/shattered-pixel-dungeon/blob/master/docs/getting-started-android.md",
+        "https://github.com/00-Evan/shattered-pixel-dungeon/blob/master/android/build.gradle"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-31",
+      "topic": "precedent",
+      "claim": "Dual-licensing precedent: linphone-android (copyright Belledonne Communications) 'is dual licensed, and is available either: under a GNU/GPLv3 license, for free (open source) ... under a proprietary license, for a fee, to be used in closed source applications.' This works only because Belledonne holds the copyright.",
+      "sources": [
+        "https://github.com/BelledonneCommunications/linphone-android/blob/master/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-32",
+      "topic": "play-policy",
+      "claim": "Google Play Payments policy (fetched 2026-10-28), s.1: 'Developers charging for app downloads from Google Play must use Google Play's billing system'. s.2: apps 'requiring or accepting payment for access to in-app features or services, including any app functionality, digital content or goods ... must use Google Play's billing system for those transactions unless Section 3, 8, or 9 applies.' Its examples include 'app functionality or content (such as an ad-free version of an app or new features not available in the free version)'. A premium UI or theme pack is such a feature. A paid upfront app is billed by Play itself, so it needs no billing library in the APK.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/9858738"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-33",
+      "topic": "play-policy",
+      "claim": "Payments policy s.3: 'Google Play's billing system must not be used in cases where ... payments include peer-to-peer payments, online auctions, and tax exempt donations'. A developer who is not a registered charity cannot use the tax-exempt donation exception.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/9858738"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-34",
+      "topic": "play-policy",
+      "claim": "Anti-steering rule: 'Other than the conditions described in Section 3, Section 8, and Section 9, apps may not lead users to a payment method other than Google Play's billing system.' This covers leading users there via 'An app's listing in Google Play' and 'In-app webviews, buttons, links, messaging, advertisements, or other calls to action'. Google's FAQ: 'Outside of your app, you are free to communicate with your users about alternative purchase options.' So donation links belong on the website, GitHub README/FUNDING.yml and F-Droid metadata. They should not appear in the Play build or the Play listing, unless the app is enrolled in a regional program or the tips exception below applies.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/9858738",
+        "https://support.google.com/googleplay/android-developer/answer/10281818"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-35",
+      "topic": "play-policy",
+      "claim": "Tips and contributions: the FAQ in 'Understanding Google Play's Payments policy' says: 'In cases where 100% of the tip or contribution from a user goes to the creator and the payment does not grant access to any digital content or services (including stickers, badges, special emojis etc.), then we regard this as a peer-to-peer payment and use of Google Play's billing system is not required. If any of these things is not true, then Google Play's billing system must be used.' Google does not say whether an app's own developer counts as the 'creator'; the wording targets creator-tipping. A no-perks Ko-fi or Liberapay link may qualify. A 'supporter' badge or unlock clearly turns the payment into a digital good that requires Play Billing.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/10281818"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-36",
+      "topic": "play-policy",
+      "claim": "EEA (DMA): two programs exist. (1) Alternative billing, with or without user choice. (2) The external offers program, which links users out of the app. Both require 'Developer must be registered as a business'. External offers also require: integrating the external offers APIs; that enrolled apps 'may not use Google Play Billing or user choice billing'; and no mention of outside purchases on the store listing. External-offers fees since 2026-06-04: 0% initial acquisition; ongoing 10% for auto-renewing subscriptions and 20% for other digital items, or 10% on the first $1M; EUR 1.20 per linked app install. Alternative-billing fees start at 10% on the first $1M.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/14372887",
+        "https://support.google.com/googleplay/android-developer/answer/12348241",
+        "https://support.google.com/googleplay/android-developer/answer/13821247"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-37",
+      "topic": "play-policy",
+      "claim": "US (Epic v. Google): the Ninth Circuit upheld the injunction on 2025-09-12. From 2025-10-29, for US users Google 'will not require the use of Google Play Billing' and will not prohibit links to transactions. The current route is the programs launched 2025-12-09: external content links and alternative billing. Both require enrollment and APIs. Enrolled developers must report and pay service fees from 2026-10-01; the deadline for reporting app downloads from external links was moved to 2027-02-01. Google and Epic signed a new settlement on 2026-03-04, and a revised Modified Injunction is pending.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/15582165",
+        "https://support.google.com/googleplay/android-developer/answer/16470497",
+        "https://support.google.com/googleplay/android-developer/answer/16497028"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-38",
+      "topic": "play-policy",
+      "claim": "Rest of world: user choice billing (an alternative system offered next to Play Billing) is available in Australia, Brazil, Indonesia, Japan, South Africa, the UK and the EEA. Outside the EEA and Japan it is limited to non-gaming apps. India and South Korea allow alternative billing at a service fee 4 points lower. Japan has an external payments program. Everywhere else, digital in-app goods must use Play Billing.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/13821247",
+        "https://support.google.com/googleplay/android-developer/answer/10281818",
+        "https://support.google.com/googleplay/android-developer/answer/16787536"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-39",
+      "topic": "play-policy",
+      "claim": "Play service fees as of 2026-10. For users in AU, EEA, JP, UK and US: 10% on the first $1M of annual earnings, plus a 5% billing fee when Play Billing is used. Above that, standard rates are 20% for new installs and 25% for existing installs, each plus the 5% billing fee. In remaining markets: 15% on the first $1M, 30% above, and 15% on auto-renewing subscriptions.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/112622"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-40",
+      "topic": "play-policy",
+      "claim": "Developer Distribution Agreement (effective 2025-09-15), s.5.3: the developer grants users 'a nonexclusive, worldwide, and perpetual license to perform ... display ... and use the Product'. A developer EULA is allowed, but the agreement 'will supersede the EULA' where they conflict. Nothing in it requires restricting GPL rights, which is consistent with the many GPL apps on Play listed above.",
+      "sources": [
+        "https://play.google/developer-distribution-agreement.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-41",
+      "topic": "play-policy",
+      "claim": "Spam policy, under 'Repetitive Content': it disallows 'Creating multiple apps with highly similar functionality, content, and user experience.' A separate, otherwise identical paid 'supporter' app next to the free app is a policy risk. A single app with an in-app supporter purchase avoids that risk.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/9899034"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-42",
+      "topic": "f-droid",
+      "claim": "F-Droid Inclusion Policy: apps must be FLOSS. It says: 'The implementation of proprietary tracking or advertising libraries and analytics tools such as Google Play Services and Firebase and Crashlytics and proprietary ad/tracking SDKs are strictly forbidden in all applications. Upstream developers must implement either a FLOSS alternative or a build flavour that does not require these dependencies.' Binaries from Google Maven 'must still be freely licensed, simply being included in one of those repositories is not enough.' The Play Billing Library has a proprietary licence and depends on play-services-*, so it must be absent from the F-Droid build. Tasks.org, AntennaPod, Conversations and Mullvad each ship a separate flavour for this; F-Droid's OsmAnd recipe deletes the billingclient line.",
+      "sources": [
+        "https://f-droid.org/docs/Inclusion_Policy/",
+        "https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/net.osmand.plus.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-43",
+      "topic": "f-droid",
+      "claim": "F-Droid anti-feature identifiers: Ads, NonFreeDep (requires a non-free app installed on the device), NonFreeNet ('promotes or depends entirely on a proprietary network service'), Tracking ('user or activity data is tracked or leaks, by default'), NonFreeAssets (for example artwork under CC NC/ND), NonFreeAdd (promotes non-free add-ons), TetheredNet, KnownVuln, NoSourceSince, NSFW and DisabledAlgorithm. Apps that use proprietary ad SDKs are not accepted at all. A Rouxtine F-Droid build with external donation links and no analytics would need none of these labels.",
+      "sources": [
+        "https://f-droid.org/docs/Anti-Features/",
+        "https://f-droid.org/docs/Build_Metadata_Reference/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-44",
+      "topic": "f-droid",
+      "claim": "F-Droid donation metadata fields: Donate (a list of URLs with scheme https://, taler://, bitcoin: or litecoin:; opencollective.com and liberapay.com links get special display); Liberapay (user or group name); OpenCollective (name); Bitcoin; Litecoin. The Inclusion Policy adds: 'All donation links need verification by upstream developers ... F-Droid contributors can consider funding.json, FUNDING.yml or README files.' F-Droid warns that auto-generated 'button code' links (PayPal, Stripe, Ko-Fi, Patreon) can break.",
+      "sources": [
+        "https://f-droid.org/docs/Build_Metadata_Reference/",
+        "https://f-droid.org/docs/Inclusion_Policy/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-45",
+      "topic": "f-droid",
+      "claim": "F-Droid quality rules: the app 'should have been actively developed for at least 3 months', unless it has proven users, the author already maintains other F-Droid apps, or it is built for an event. It needs a unique application ID, ideally from a domain the developer owns. A fork must use a new ID, name and icon.",
+      "sources": [
+        "https://f-droid.org/docs/Inclusion_Policy/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-46",
+      "topic": "f-droid",
+      "claim": "GitHub's FUNDING.yml supports github (Sponsors), ko_fi, liberapay, open_collective, buy_me_a_coffee and others, plus up to four custom URLs such as a PayPal.me link. It shows a 'Sponsor' button on the repo, and F-Droid accepts it as donation-link verification.",
+      "sources": [
+        "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository",
+        "https://f-droid.org/docs/Inclusion_Policy/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-47",
+      "topic": "rewrite-scope",
+      "claim": "Planned parts that derive from GPL roux-trainers code (features doc s.2, s.4, s.5), with upstream line counts. Cube model and notation: CubeLib.tsx 1,188, Defs.tsx 221, Math.ts 66. Stage pruning tables: Pruner.tsx 1,013. IDA* solver: Solver.tsx 279 and CachedSolver.tsx 69. Solve analyzer: Analyzer.ts 258. Ergonomic evaluators: Evaluator.tsx 280 plus two_gram_v1.json (9 KB). Alg data and case generators: Algs.tsx 423 (42 CMLL, the NMCLL map, OLLCP, 'my 2h algs'). Trainer state machines: src/reducers, 1,448 lines. The 3D renderer: CubeSim.tsx 485 (three.js). That is about 3.8k core lines plus about 1.5k of trainer logic. Everything else in the plan (UI, timer, BLE, stats) is new code or uses MIT libraries.",
+      "sources": [
+        "/home/user/roux-trainers/docs/roux-android/research/roux-training-features.md",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/src/lib",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/src/reducers",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/src/components/CubeSim.tsx"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-48",
+      "topic": "rewrite-scope",
+      "claim": "Permissive alternatives, with licences checked in each repo. Solvers: cube.js (ldez/cubejs), a Kociemba two-phase solver in JS, MIT, by Petri Lehtinen and Ludovic Fernandez. min2phase (Java) and min2phase.js have an MIT option. kewb (Rust two-phase solver) is MIT. cubing.js is 'MPL-2.0 OR GPL-3.0-or-later'. twsearch (cubing, general puzzle solver) is MPL-2.0. Smart cubes: smartcube-web-bluetooth 4.1.0 and gan-web-bluetooth 3.0.2 are both MIT. GPL code to avoid copying: hkociemba/RubiksCube-TwophaseSolver (GPL-3.0), muodov/kociemba (GPL-2.0), efrantar/rob-twophase (GPL-3.0, not MIT), tnoodle-lib (GPL-3.0), csTimer (GPL-3.0), open-gan (GPL-3.0). open-gan's NOTICE says its GAN code was ported from MIT gan-web-bluetooth, so port from that upstream instead.",
+      "sources": [
+        "https://github.com/ldez/cubejs/blob/master/LICENSE",
+        "https://github.com/cs0x7f/min2phase/blob/master/README.md",
+        "https://github.com/luckasRanarison/kewb/blob/master/LICENSE",
+        "https://github.com/cubing/cubing.js/blob/main/package.json",
+        "https://github.com/cubing/twsearch/blob/main/Cargo.toml",
+        "https://github.com/poliva/smartcube-web-bluetooth/blob/master/package.json",
+        "https://github.com/afedotov/gan-web-bluetooth/blob/master/package.json",
+        "https://github.com/hkociemba/RubiksCube-TwophaseSolver/blob/master/LICENSE",
+        "https://github.com/muodov/kociemba/blob/master/LICENSE",
+        "https://github.com/efrantar/rob-twophase/blob/master/LICENSE",
+        "https://github.com/thewca/tnoodle-lib/blob/master/LICENSE",
+        "https://github.com/cs0x7f/cstimer/blob/master/LICENSE",
+        "https://github.com/turnerglenn-cmyk/open-gan/blob/main/NOTICE"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-49",
+      "topic": "rewrite-scope",
+      "claim": "Rough size of an independent, non-GPL implementation of the GPL-derived core (an estimate, not measured): cube model and move parser 0.8-1.2k Kotlin lines; IDA* with Roux stage masks and sparse pruning tables 1.5-2.5k; analyzer and evaluators 0.5-0.8k; trainer state machines about 1k. That totals about 3-5k lines, roughly 3-6 developer-weeks. This is close to the Kotlin port the features doc already plans (s.5), which needs rewritten sparse tables anyway. The renderer is new Compose code either way. Scrambles can use min2phase under MIT. The CMLL algs would need re-sourcing with author permission or generating with the new solver.",
+      "sources": [
+        "/home/user/roux-trainers/docs/roux-android/research/roux-training-features.md"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "license-50",
+      "topic": "rewrite-scope",
+      "claim": "Ideas are free; code expression is not. 17 U.S.C. s.102(b): 'In no case does copyright protection for an original work of authorship extend to any idea, procedure, process, system, method of operation, concept, principle, or discovery'. IDA*, pruning tables and two-phase search can therefore be reimplemented from published descriptions. A line-by-line translation of roux-trainers would still be a derivative work (FAQ #TranslateCode). The owner has read the GPL code, so an independent rewrite should work from algorithm descriptions and specs, not from the TS files.",
+      "sources": [
+        "https://www.law.cornell.edu/uscode/text/17/102",
+        "https://www.gnu.org/licenses/gpl-faq.html#TranslateCode"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-51",
+      "topic": "alg-copyright",
+      "claim": "Copyright in alg lists. US: Feist v. Rural (499 U.S. 340, 1991) holds 'facts are not copyrightable; the other, that compilations of facts generally are', with 'copyright in a factual compilation is thin'. 37 CFR 202.1(a) excludes 'Words and short phrases ... mere listing of ingredients or contents'. EU: the Database Directive 96/9/EC protects a database's selection or arrangement where it is 'the author's own intellectual creation' (Art. 3(1)). It also grants a sui generis right against extracting a substantial part of a database built with 'substantial investment in either the obtaining, verification or presentation of the contents' (Art. 7(1)). That right matters for an EU-based owner copying whole alg sheets. No court ruling or official guidance specific to Rubik's-cube move sequences was found, so this is unknown. Short single algs are likely unprotectable as methods or facts; curated sheets may be protected compilations or databases.",
+      "sources": [
+        "https://www.law.cornell.edu/supremecourt/text/499/340",
+        "https://www.law.cornell.edu/cfr/text/37/202.1",
+        "https://www.law.cornell.edu/uscode/text/17/102",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:31996L0009"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-52",
+      "topic": "alg-copyright",
+      "claim": "roux-trainers' Algs.tsx credits no sources for its 42 CMLL algs. They are standard community algs, e.g. o_adjacent_swap 'R U R' F' R U R' U' R' F R2 U' R''. Line 73 is commented '// my 2h algs'. The file and its selection are GPL as part of the repo, but onionhoney's copyright in each individual move sequence is doubtful. To be safe, get the algs from authors who grant permission, or generate them with the app's own solver.",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/src/lib/Algs.tsx#L28-L73"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-53",
+      "topic": "dual-licence",
+      "claim": "The copyright holder can relicense. FAQ #ReleaseUnderGPLAndNF: 'If you are the copyright holder for the code, you can release it under various different non-exclusive licenses at various times.' FAQ #DeveloperViolate: the developer 'is not bound by' the GPL. FAQ #CanDeveloperThirdParty: rights already granted under the GPL 'cannot be withdrawn'. So onionhoney can give Rouxtine (a) a s.7 permission for Google Play libraries, (b) a permissive licence (MIT/Apache-2.0) for his code, or (c) a private non-exclusive licence. Earlier releases stay GPL either way.",
+      "sources": [
+        "https://www.gnu.org/licenses/gpl-faq.html#ReleaseUnderGPLAndNF",
+        "https://www.gnu.org/licenses/gpl-faq.html#DeveloperViolate",
+        "https://www.gnu.org/licenses/gpl-faq.html#CanDeveloperThirdParty",
+        "https://web.archive.org/web/20261023105423/https://www.gnu.org/licenses/gpl-faq.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "license-54",
+      "topic": "dual-licence",
+      "claim": "The ask is small. The code to port has one author (Zhouheng Sun). Compare Psysonic, which needs agreement from about 30 contributors. The vendored min2phase and three.js parts are already available under MIT. If Rouxtine wants to keep the option of a Play-libraries exception or dual licensing for its own code, it should state the inbound terms in CONTRIBUTING from the first commit (DCO plus 'contributions are under GPL-3.0-or-later with the Play-libraries permission'), or use a CLA as ics-openvpn does. Otherwise every future contributor becomes another person to ask.",
+      "sources": [
+        "https://github.com/onionhoney/roux-trainers/commits/master",
+        "https://github.com/Psysonic/psysonic/issues/1772",
+        "https://github.com/schwabe/ics-openvpn/blob/master/README.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "license-55",
+      "topic": "gpl-monetization",
+      "claim": "A non-code 'premium assets' route exists, using OsmAnd's model. OsmAnd keeps its code GPLv3 but puts UI/UX resources under CC-BY-NC-ND and requires written permission to publish them on Google Play. F-Droid labels such apps NonFreeAssets. Whether assets bundled in the APK escape s.5c ('the whole of the work, and all its parts') is contested, and nothing settles it for Rouxtine. It would also conflict with a community-first image.",
+      "sources": [
+        "https://github.com/osmandapp/OsmAnd/blob/master/LICENSE",
+        "https://f-droid.org/docs/Anti-Features/",
+        "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/LICENSE#L222"
+      ],
+      "confidence": "low"
+    }
+  ],
+  "options": [
+    {
+      "name": "A. GPL + donations outside the app (no Play Billing)",
+      "summary": "License Rouxtine under GPL-3.0-or-later and port roux-trainers as planned. Ask for donations on GitHub Sponsors, Ko-fi, Liberapay or Open Collective through FUNDING.yml, the README, the website and F-Droid metadata. Show the donate screen only in the F-Droid flavour. The Play flavour has no payment UI and no donation links.",
+      "pros": [
+        "No permission or rewrite needed; works today",
+        "Matches community-first (everything free everywhere)",
+        "No proprietary library, so a clean F-Droid build",
+        "Simplest Play compliance"
+      ],
+      "cons": [
+        "Play users (the biggest audience) never see a donation prompt",
+        "Donation income is usually small",
+        "Google's 'tips are P2P' FAQ is ambiguous, so in-app links on Play stay off"
+      ]
+    },
+    {
+      "name": "B. GPL + Play Billing tip jar (supporter purchase), with a s.7 Play-libraries permission",
+      "summary": "Same as A, plus one-time 'support' products in a `play` flavour, as Twisty Timer and Tasks.org do. It needs a written s.7 permission from onionhoney covering his ported code, plus the owner's own permission text (Terpoir-style wording). The F-Droid/`foss` flavour has no billing and shows external donation links.",
+      "pros": [
+        "Lets Play users give money inside the app",
+        "Features stay identical for everyone (pure tip)",
+        "Only one upstream author to ask"
+      ],
+      "cons": [
+        "Google's 15% fee (10% + 5% billing fee in EEA/UK/US)",
+        "Needs onionhoney's agreement and a flavour split",
+        "Ships a closed Google library with telemetry dependencies (datatransport) in the Play build",
+        "Billing 8.3+ raises minSdk to 23 (8.0.0 allows 21 until 2027-08-31)"
+      ]
+    },
+    {
+      "name": "C. GPL + premium cosmetic tier (themes/UI) via Play Billing, unlocked on F-Droid",
+      "summary": "Tasks.org model: on Play, premium themes, expressive UI packs or extra stats views are sold as in-app products or a subscription. The F-Droid/foss build unlocks everything. Training content (drills, trainers, solver) stays free for all levels.",
+      "pros": [
+        "Proven by Tasks.org (500K+ Play installs)",
+        "Gives a reason to pay beyond goodwill",
+        "Keeps learning features free (community-first)"
+      ],
+      "cons": [
+        "Same permission and fee issues as B",
+        "Anyone can rebuild or redistribute the unlocked app (GPL)",
+        "Paywalling cosmetics can still annoy some community members",
+        "More code paths to maintain"
+      ]
+    },
+    {
+      "name": "D. Paid app on Play, free on F-Droid/GitHub",
+      "summary": "DAVx5 model (and Conversations historically): the Play listing has an upfront price and the app is free elsewhere. Paid downloads need no billing library in the APK, so no exception is needed.",
+      "pros": [
+        "No proprietary library and no permission needed",
+        "Simple: one SKU handled by Play",
+        "Proven by GPL apps (DAVx5 $6.49, OsmAnd+)"
+      ],
+      "cons": [
+        "Conflicts with community-first: beginners on Play hit a paywall",
+        "Buyers may legally share the APK",
+        "A separate free 'lite' Play app risks the Repetitive Content spam policy"
+      ]
+    },
+    {
+      "name": "E. Ask onionhoney for a dual licence or permissive relicense",
+      "summary": "Request that Zhouheng Sun license his roux-trainers code to Rouxtine under MIT/Apache-2.0 (or GPL plus a broad s.7 permission). Rouxtine's own code could then use any licence, including open core with proprietary premium modules.",
+      "pros": [
+        "Single copyright holder, so the request is tractable",
+        "Removes all linking questions",
+        "Keeps the option of a later premium or proprietary module"
+      ],
+      "cons": [
+        "He may say no or not respond",
+        "Older versions stay GPL anyway",
+        "A closed premium module would cost F-Droid inclusion for that build and some community goodwill"
+      ]
+    },
+    {
+      "name": "F. Independent (clean) reimplementation of the GPL-derived core",
+      "summary": "Write the cube model, IDA* stage solver, pruning tables, analyzer and trainers from algorithm descriptions, with no roux-trainers code. Use min2phase (MIT option) for scrambles and the MIT smart-cube libraries. The app can then take any licence.",
+      "pros": [
+        "Full licensing freedom without anyone's consent",
+        "Chance to design sparse tables and Kotlin-native APIs from scratch (already needed per s.5)"
+      ],
+      "cons": [
+        "About 3-6 developer-weeks (estimate) plus re-validation against known-good solutions",
+        "Contamination risk: the owner has read the GPL code",
+        "Gives up the GPL goodwill from building on onionhoney's work"
+      ]
+    },
+    {
+      "name": "G. Server-side premium (sync, backup, cross-device stats)",
+      "summary": "Keep the app fully GPL and free. Sell an optional hosted service whose server code is new and never distributed. It is sold in-app via Play Billing (needs the B-style permission) or outside the app.",
+      "pros": [
+        "Charges for an ongoing cost (hosting) rather than for features",
+        "Server code need not be GPL"
+      ],
+      "cons": [
+        "Running a service is an ongoing burden",
+        "F-Droid may flag NonFreeNet if the service is proprietary",
+        "Still needs Play Billing or EEA/US programs to sell in-app"
+      ]
+    }
+  ],
+  "recommendation": "Do not rewrite. Release Rouxtine under GPL-3.0-or-later and port roux-trainers as planned. At launch, use option A: donation links (GitHub Sponsors, Ko-fi or Liberapay) in FUNDING.yml, the README, the website and F-Droid metadata. Show an in-app 'Support' screen only in the F-Droid/foss flavour, and keep the Play flavour free of payment links. Now, before porting, open an issue on onionhoney/roux-trainers or contact Zhouheng Sun. Ask for a written GPLv3 s.7 additional permission covering linking with the Google Play libraries (com.android.billingclient, com.google.android.gms, com.google.android.play), or better, permission to use his code under MIT/Apache-2.0. He is the sole author of everything you would port. Put the same Play-libraries permission (Terpoir/FSF wording) on Rouxtine's own code from day one, with a CONTRIBUTING/DCO statement so contributions arrive under it. Set up `play` and `foss` build flavours from the start, with Play Billing only in `play`. Once onionhoney agrees, add a Play tip jar (option B) and optionally cosmetic 'supporter' themes (option C). Keep every drill and trainer free at every level, and keep the F-Droid build fully unlocked as Tasks.org does. Avoid a paid upfront app (D), because it conflicts with the community goal. Fall back to rewriting only the solver/cube core (F, about 3-6 weeks) if onionhoney refuses and Play Billing is still wanted. Use min2phase under its MIT option and the MIT smart-cube libraries rather than csTimer, open-gan or tnoodle code. If the owner is a registered business in the EEA, the external offers program is a later alternative.",
+  "openQuestions": [
+    "Will Zhouheng Sun (onionhoney) grant a s.7 Play-libraries permission, or an MIT/Apache relicense of his roux-trainers code? Nobody has asked yet.",
+    "Is the owner (or will Rouxtine be) a registered business? The EEA alternative billing and external offers programs require one.",
+    "Does Google treat a developer's own no-perks donation link as a 'tip to a creator' (peer-to-peer, so allowed without Play Billing)? The FAQ does not say. Ask Play Console support before shipping any in-app link on Play.",
+    "Some upstream commits came from Stanford-network machines (sunz@stanford.edu, SUNet hostnames). Whether Stanford's IP policy claims any rights was not checked; most likely it does not, but ask onionhoney.",
+    "cs0x7f/min2phase's MIT grant is in the README, while the source file headers still say GPL-3.0-or-later. Ask Chen Shuang to confirm the MIT option covers the source files, or rely on the README grant.",
+    "smartcube-web-bluetooth credits Chen Shuang/csTimer (GPL) for the cube-timestamp linear-fit idea. Confirm that no csTimer code was copied before porting that function under MIT.",
+    "F-Droid policy says nothing about feature-gated F-Droid builds. Tasks.org avoids the question by unlocking everything. It is unknown whether a gated F-Droid build would draw an anti-feature.",
+    "Conversations' current Play pricing is unclear: the US listing on 2026-10-28 is free, but the README still mentions buying it. It may vary by region or have changed recently.",
+    "The GitHub contributors API and HTML pages for unattached repos were blocked by the session proxy (403). The contributor list comes from a full git clone and was not cross-checked against GitHub's contributor graph."
+  ]
+}

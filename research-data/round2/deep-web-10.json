@@ -1,0 +1,147 @@
+{
+  "resources": [
+    {
+      "key": "https://i.imgur.com/97lzroz.png",
+      "url": "https://i.imgur.com/97lzRoZ.png",
+      "title": "LSE Edge Orientation (Step 4a) flowchart, righty-M half",
+      "author": "Unsigned. It is the right half of the 'LSE Edge Orientation (Step 4a)' chart also hosted at rouxl.es/images/LSEEO.png (Antonio Kam's site). Stanley Su added the full chart to rouxers/tutorial in 2021-10 (PR #1). Antonio Kam swapped in this imgur copy on 2021-10-25.",
+      "kind": "alg-sheet",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "beginner (embedded in the beginner LSE page of tutorial.rouxers.com)",
+      "summary": "The direct image fetched with HTTP 200: a 1361x1180 RGBA PNG of 210,485 bytes, Last-Modified 2021-10-25 23:37 GMT. The imgur HTML page is a JS shell with no uploader or date. The image has no text besides move labels. It holds 12 isometric cube drawings in dark grey. Every misoriented edge is drawn fully red, on both stickers. Each case is drawn from the angle you execute it. Arrows lead every case to one of two 'arrow' targets (3 bad edges on U + 1 bad on D). I transcribed the cases by reading sticker positions and inferring the hidden DB edge from even parity. Six-flip: M' U' M', which leads to the middle group. Top row, M2': UB UR + DF DB, and UL UB + DF DB. Middle row 1, M' U' M: UB + DF, and UF UB. Middle row 2, M' U2' M': UF UL UB UR, and UL UR + DF DB. Bottom row, M' U' M': UF + DB, UB UR, and DF DB. Targets: front arrow UL UF UR + DF, solved by M' U' M', and back arrow UL UB UR + DB, solved by M U' M'. I checked every case with a sticker-level M/U simulation. Each drawn case plus its label gives a 3+1 arrow, and both arrow algorithms leave all 6 edges oriented. The chart covers every EO shape up to AUF: 4+2, 4+0, 2 adjacent+2, 2 opposite+2, 2 opposite+0, 2 adjacent+0, 1+1 and 0+2. It names only 5 distinct algorithms. The worst path (six-flip) is about 3 triggers plus 2 AUFs, roughly 11 moves. Context: the tutorial page offers it as the 'Flowchart Approach' (more memorisation) next to the 'Intuitive Approach'. That approach uses the arrow plus the swap M' U2 M / M U2 M' and counts misoriented edges toward a 4-bad state. History: the page first linked rouxl.es/images/LSEEO.png. Commit 9d64d2e (2021-10-04, Stanley Su) then embedded a local EO_flowchart.png with both lefty and righty halves. Commit b035752 (2021-10-25, Antonio Kam) replaced it with this righty-only imgur copy. The lefty half uses U where the righty half uses U' (M' U M', M' U M, M' U2 M', M U M'), and its case drawings are mirrored. Note: 'M2'' and 'U2'' mark the turning direction of a half turn.",
+      "drills": [
+        "Recognise the EO shape (count bad edges on U and D, adjacent vs opposite), pick the flowchart branch and execute it from the drawn angle",
+        "Arrow drill: AUF the arrow tip over the bad D edge, then M' U' M' (front) or M U' M' (back)",
+        "Swap drill (from the same page): M' U2 M / M U2 M' to turn 2+2 into 3+1",
+        "Brute-force fallback: if a case is unclear, apply an arrow trigger and re-count until you reach 4 bad edges in an arrow"
+      ],
+      "infoTopics": [
+        "Edge orientation relative to the U/D centres (the white or yellow centre must be on U or D)",
+        "Bad edges always come in even numbers, so a hidden edge can be inferred",
+        "The 'arrow' (3 bad on U + 1 bad on D) as the single target state",
+        "M turns follow L, not R",
+        "Lefty vs righty M execution changes U to U' in every trigger"
+      ],
+      "algSets": [
+        {
+          "name": "Beginner LSE EO flowchart (righty M)",
+          "caseCount": "12 drawings: 10 setup cases + 2 arrow targets, 5 distinct algorithms",
+          "notes": "Algorithms: M' U' M', M2', M' U' M, M' U2' M', M U' M'. Lefty version (rouxl.es/images/LSEEO.png): M' U M', M2', M' U M, M' U2 M', M U M'. All checked by simulation."
+        }
+      ],
+      "appIdeas": [
+        "Beginner EO trainer: generate a random EO state (32 edge-flip patterns times AUF), ask which flowchart branch applies, let the user execute it, and verify with the cube engine. The flowchart is a small, closed decision tree, well suited to a tap-the-branch interaction",
+        "A global 'M hand: lefty / righty' preference that mirrors every EO trigger (U <-> U') and the case drawings, as the source chart does",
+        "EO-mask cube rendering: grey cube with only the misoriented edges highlighted, both stickers, colour-neutral. Add a second cue (outline or dot) besides red so it works for colour-blind users",
+        "Show hidden edges: the chart relies on parity to imply DB. A flat 6-dot EO map (UF UL UB UR DF DB) or a back-view toggle removes the guesswork",
+        "Offer the two approaches side by side, as the tutorial does: flowchart (memorise 5 triggers) vs intuitive (arrow + swap + counting), with a 'brute force until arrow' hint",
+        "Draw our own version from the facts (case to trigger mappings re-derived and unit-tested in the engine) rather than reusing the image"
+      ],
+      "license": "No licence is stated on the image, on imgur, on rouxl.es or in rouxers/tutorial (that repo has no LICENSE). Treat the drawing as all rights reserved by its author (Antonio Kam / Stanley Su). The case-to-move facts are freely re-derivable, so draw our own diagrams.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-10/lse-eo-flowchart.png; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-10/lse-eo-flowchart.txt (transcription); /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-10/rouxl.es-LSEEO.png (full lefty+righty chart); verification: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/deep-web-10/eo_sim.out"
+    },
+    {
+      "key": "https://raw.githubusercontent.com/rouxles/roux-tutorial/master/fbdr/zhouheng%27s%20fbdr%20guide.pdf",
+      "url": "https://raw.githubusercontent.com/Rouxles/roux-tutorial/master/fbdr/Zhouheng%27s%20FBDR%20Guide.pdf",
+      "title": "The FB+DR Guide",
+      "author": "Zhouheng Sun (onionhoney, author of the Roux Trainers this project forks). It is in Antonio Kam's (Rouxles) repo; the later edits were committed as 'Jeffrey Sun', whose commit address matches Zhouheng Sun.",
+      "kind": "guide-text",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate to advanced. Prerequisite: plan FB in inspection in under 15 s; the author says realistically sub-12, aiming to go from 10 s to 7 s",
+      "summary": "The raw file fetched with HTTP 200: 184,614 bytes, a 7-page letter-size PDF built by pdfTeX on 2020-07-21. It is byte-identical to the copy in the local clone of Rouxles/roux-tutorial, which also holds the LaTeX source and 10 figure SVGs. The figures are VisualCube-style, with only the FB, LP and DR pieces coloured. Batch deep-web-2 also covered this guide, under the github.com blob URL; this entry adds checked content. Thesis: the key to Roux is F2B, the key to F2B is SB, and the key to SB is planning FB + DR in inspection. Learning path: (1) plan FB under 15 s; (2) learn more than 2 solutions on average per FB last-pair (LP) case, including slightly worse ones that move DR differently; (3) learn the DR tier list; (4) drill LP+DR 'optimally' with onionhoney's #fbdr trainer, which has an LP-only option; (5) adopt the common techniques; (6) practise until LP+DR is half tracked, half recalled. DR tier list: Good = oriented, 0-2 moves; Okay = 3 moves (misoriented on the M slice, or in DF/DB); Bad = 4-5 moves (RD, RF, RB, RU, LU). Techniques: preserve a good DR; DR flipped in the FB slot, fixed by a bottom insertion; DR in DF/DB, fixed with r2, F2/B2 insertion or r F; DR flipped on R or on U, fixed with B/F before a top or bottom insertion; DR before FBLP ('nonlinear'); LP edge in DF/DB near its slot. There are 10 worked examples (setup + commented solution) and 5 alternative solutions, which use a '*' insertion notation such as 'U2 * F'' with '*: R'. Section 4.3 gives the procedure: track DR to after the FS, look up its tier, and influence it only if LP does not get harder. The author tracks DR only after deciding LP is easy. Section 5: don't force it, avoid the 5-move DR placements, and pair FB+DR with strong SS that influences the SS pair while inserting DR. Section 6 links Kian Mansour's and Kavin Tangtartharakul's YouTube channels. Verified with a sticker-level simulation (tools/deep-web-10/cube_sim.py). All 10 setups leave the FS solved with LP open. All 15 solutions complete FB. 14 of 15 leave DR in the Good tier, and 6 solve it outright. The exception is example 2's alternative, which deliberately keeps DR at DB (3 moves). The line the guide says to avoid (R2 U r2 F') leaves DR flipped in FR, 5 moves, confirming the advice. BFS over <R,U,M,r> reproduces the tier list exactly for the 18 placements left after FB. Good (7): DR solved (0); FR, BR, UR oriented (1); UF, UB, UL oriented (2). Okay (6): DF and DB in either orientation; UF and UB misoriented (3). Bad (5): UL and UR misoriented (4); FR, BR, DR misoriented (5). Answer to the guide's reader exercise, the keyhole u' R u: DR flipped in FR becomes solved, and UF with the D colour on F becomes FR oriented (1 move). It turns FR-oriented and UF-oriented DR into the 5-move bad case, and leaves the other placements unchanged.",
+      "drills": [
+        "Plan FS + LP + DR within inspection, execute, then compare with the trainer's solutions",
+        "Multiple solutions: for each LP case, find at least 2 distinct solutions, including ones that land DR differently",
+        "LP-only drill first, then LP+DR",
+        "DR placement call-out: after the FS, name the DR tier (Good 0-2 / Okay 3 / Bad 4-5)",
+        "Replay the 10 worked examples from their setups until each technique is automatic",
+        "Keyhole exploration (u' R u): predict where DR ends up before executing",
+        "SS with DR good but unsolved: influence the SS pair while inserting DR"
+      ],
+      "infoTopics": [
+        "Why FB+DR planning pays off: more time to inspect the rest of SB during FB execution",
+        "DR tier list by move count and orientation",
+        "DR influencing techniques: preserve; flip in FB slot + bottom insertion; r2 / F2 / B2 / r F from DF/DB; B/F influence before top or bottom insertion; DR-first (nonlinear)",
+        "Top insertion (F' or B for a left FB) vs bottom insertion (F or B')",
+        "Spotting 'good patterns' where LP and DR influence align",
+        "When not to influence: extra FB moves vs DR gain",
+        "Link to SS pair influence; example-solve study (Kian Mansour, Kavin Tangtartharakul)"
+      ],
+      "algSets": [
+        {
+          "name": "FB last pair + DR influencing worked examples",
+          "caseCount": "10 cases (15 solutions including alternatives)",
+          "notes": "Preserve good DR (2), DR in FB slot flipped (1), DR in DF/DB (2), DR flipped on R (2), DR flipped on U (2), DR before FBLP (1). All checked by simulation."
+        },
+        {
+          "name": "DR tier list (DR placement after FB)",
+          "caseCount": "18 placements in 3 tiers: Good 7, Okay 6, Bad 5",
+          "notes": "Move counts with <R,U,M,r> computed by BFS; they match the guide's text exactly."
+        }
+      ],
+      "appIdeas": [
+        "Ship the computed 18-entry DR placement table (0-5 moves with <R,U,M,r>) as engine data. Show a DR tier badge after each FB/LP solution, and rank alternative solutions by length plus the DR tier they leave",
+        "'Find 2+ solutions' mode for the FB/LP trainer, following the guide's heuristic of more than 2 solutions per case",
+        "Technique tags on generated solutions (preserve / flip-in-slot / DF-DB insert / B-F influence / DR-first) with a filter, so users drill one technique at a time",
+        "Masked diagrams: grey out everything except the FB, LP and DR pieces, as the guide's figures do",
+        "Render the guide's insertion notation ('U2 * F'' with '*: R') as an expanded alg with the inserted move highlighted",
+        "Interactive keyhole exercise: pick a DR start, play u' R u, and see the resulting tier (answers computed above)",
+        "Unit-test every lesson setup and solution against the cube engine, as done here, so community-sourced lesson content cannot ship with typos",
+        "Gate the module: suggest it once FB inspection planning is reliable (user-set target, default about sub-12), then LP-only, then LP+DR, then SS with a good DR"
+      ],
+      "license": "None: no LICENSE in Rouxles/roux-tutorial in any commit, and no copyright or licence line in the PDF or LaTeX. All rights reserved by default (Zhouheng Sun). Positions, move sequences and tier facts can be re-derived (as done here). Ask Zhouheng Sun before reproducing the text or examples verbatim.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-10/zhouheng-fbdr-guide.pdf; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-10/zhouheng-fbdr-guide.txt; checks: /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/deep-web-10/fbdr_check.out, /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/deep-web-10/keyhole.out"
+    },
+    {
+      "key": "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/mathjax.js?config=tex-ams-mml_htmlormml",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML",
+      "title": "MathJax 2.7.1 loader (cdnjs)",
+      "author": "The MathJax Consortium",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "not-roux",
+      "level": "n/a (site chrome)",
+      "summary": "HTTP 200: 63,048 bytes of minified JS. The config file it pulls (config/TeX-AMS-MML_HTMLorMML.js) also returns 200 at 243,725 bytes. The header reads 'Copyright (c) 2009-2017 The MathJax Consortium, Apache License 2.0', version 2.7.1. tutorial.rouxers.com includes it in every page <head> only because its mdBook config sets mathjax-support = true (book.toml in rouxers/tutorial). None of the 13 Markdown pages contains TeX or math delimiters, so the script loads on every page and renders nothing. MathJax 2.x is the superseded generation (v3/v4 are current). No cubing content, no drills, no algs.",
+      "drills": [],
+      "infoTopics": [
+        "How tutorial.rouxers.com is built: mdBook with mathjax-support enabled but unused"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Nothing to adopt. Rouxtine renders notation natively in Compose. If tutorial pages are ever shown in a WebView, strip this unused script (it is a third-party CDN request on every page)"
+      ],
+      "license": "Apache-2.0 (MathJax Consortium). Not needed by the app.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-10/mathjax-2.7.1.js"
+    },
+    {
+      "key": "https://github.com/rouxles/roux-tutorial",
+      "url": "https://github.com/Rouxles/roux-tutorial",
+      "title": "Rouxles/roux-tutorial (predecessor of tutorial.rouxers.com)",
+      "author": "Antonio Kam (Rouxles); FBDR guide by Zhouheng Sun",
+      "kind": "other",
+      "accessible": false,
+      "rouxRelevance": "roux-3x3",
+      "level": "mixed (planned beginner, method-switcher and progression tracks; contains an intermediate/advanced FBDR guide)",
+      "summary": "BLOCKED: github.com returned HTTP 403 from the session proxy ('GitHub access to this repository is not enabled for this session'). The response body is saved; I did not route around the block. The description below comes from the anonymous git clone the earlier hub-tutorial batch already left in the scratchpad (crawl/tutorial/repo-rouxles). It has 6 commits, 2020-07-06 to 2020-07-20, and no later activity. README: a written Roux tutorial, 'as there are not many good resources out there'. It planned three parts: absolute beginners; people trying Roux after another method; and 'resources to improve, and a general idea of when to learn them', hoped for before 2021. The third part was never written; tutorial.rouxers.com (rouxers/tutorial) shipped only the first two. Files: README.md, an empty styles.css, and draft-ideas/. beginners.md suggests alg.cubing.net for visuals, revealing steps progressively, beginner notation, beginner CMLL via 'Sune spam + T perm', and LSE as 4a EO (general idea + flowchart), 4b both edges on the bottom then M2, 4c DF/DB with M' U2 M swaps. forouxners.md is only a naming note. progression.md has 'main links' for all levels: Kian example solves, Zhouheng's trainer, cubegrass ('only useful up to a certain point'), rouxl.es. Also fbdr/: Zhouheng's FBDR Guide.pdf, its LaTeX source main.tex and 10 SVG figures (see the separate FBDR guide entry). No licence file in any commit.",
+      "drills": [
+        "None of its own beyond the FBDR guide's drills; the drafts only list resources (example solves, the onionhoney trainer, cubegrass)"
+      ],
+      "infoTopics": [
+        "Planned structure of a Roux course: beginner / method-switcher / progression roadmap",
+        "Beginner simplifications: two-look CMLL with Sune + T perm; LSE split into 4a EO, 4b ULUR via M2, 4c DF/DB swaps with M' U2 M",
+        "Teaching UX notes: progressive reveal of steps, visual alg players, notation primer"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Build the roadmap the authors never finished: a 'what to learn next' path keyed to the user's current step times, with Roux-only milestones (FB planning, FB+DR, CMLL, EOLR, and so on)",
+        "Onboarding branch for people who can already solve the cube by some other method: skip cube basics and go straight to Roux blocks. Teach no other method's content",
+        "Progressive reveal in lessons: show one step at a time with an embedded animated player",
+        "Beginner LSE as three named sub-steps (4a / 4b / 4c), matching the community's step numbering"
+      ],
+      "license": "None: no LICENSE or COPYING file in any of the 6 commits. All rights reserved by default (Antonio Kam; FBDR guide by Zhouheng Sun). Link to it, or ask the authors.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-10/roux-tutorial-repo.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-10/github-roux-tutorial.403.json"
+    }
+  ]
+}

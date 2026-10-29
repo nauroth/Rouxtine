@@ -1,0 +1,301 @@
+{
+ "verdicts": [
+  {
+   "id": "sdk-1",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-2",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-3",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-4",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-5",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-6",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-7",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-8",
+   "verdict": "confirmed",
+   "correction": "The documentation parts hold. The AAR-metadata part (no library needs desugaring) was not re-checked here. Two nuances: (1) desugaring is not only about java.time. It also covers java.nio.file and the Java 11+ APIs that Android added after 24 (the java8-support page lists them), although Kotlin code rarely touches them. (2) The same page says D8 cannot desugar MethodHandle.invoke/invokeExact, which need minSdk 26 or shrinking. This matters only if a future dependency uses them; the minSdk 24 probe build shows none does today. The official snippet still shows desugar_jdk_libs 2.0.3, but 2.1.5 is the latest on Google Maven.",
+   "evidence": [
+    "https://developer.android.com/reference/java/time/Instant ('Added in API level 26')",
+    "https://developer.android.com/studio/write/java8-support (isCoreLibraryDesugaringEnabled = true; coreLibraryDesugaring(...); 'Desugar doesn't support MethodHandle.invoke or MethodHandle.invokeExact... you need to specify minSdkVersion 26 or higher'; page last updated 2025-05-19)",
+    "https://raw.githubusercontent.com/Kotlin/kotlinx-datetime/master/README.md line 419: 'If you target Android devices running below API 26, you need to use Android Gradle plugin 4.0 or newer and enable core library desugaring'",
+    "https://dl.google.com/dl/android/maven2/com/android/tools/desugar_jdk_libs/maven-metadata.xml: latest/release 2.1.5, lastUpdated 20250225101049; 2.1.5 POM Last-Modified Tue, 25 Feb 2025 10:10:56 GMT"
+   ]
+  },
+  {
+   "id": "sdk-9",
+   "verdict": "confirmed",
+   "correction": "The material3 1.5.0-beta02 android/jvmAndAndroid sources have exactly the listed API-level branches: DynamicTonalPalette @RequiresApi(31) with an SDK_INT >= 34 split, WideNavigationRail 33/34 back callbacks, SOFT_INPUT on 30+ in ModalBottomSheet and BasicEdgeToEdgeDialog, the CalendarModel O/N split, isLaptop on O_MR1 and accessibility on TIRAMISU. One correction to the conclusion that Expressive looks the same on 24+ apart from dynamic colour: material3-ripple draws with the platform RippleDrawable, and the official M3 page says 'sparkle ripple is available on Android 12 and above'. So ripples look different below 31. Stretch overscroll is the same 'regardless of API level' (Foundation 1.1+).",
+   "evidence": [
+    "https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-android/1.5.0-beta02/material3-android-1.5.0-beta02-sources.jar (grep of SDK_INT/@RequiresApi)",
+    "https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-ripple-android/1.5.0-beta02/material3-ripple-android-1.5.0-beta02-sources.jar (Ripple.android.kt: 'Android specific Ripple implementation that uses a RippleDrawable under the hood')",
+    "https://developer.android.com/develop/ui/compose/designsystems/material3 (System UI section: sparkle ripple Android 12+; stretch overscroll regardless of API level)"
+   ]
+  },
+  {
+   "id": "sdk-10",
+   "verdict": "confirmed",
+   "correction": "The quote and snippet are verbatim (page last updated 2026-10-28). The 69.2% figure is correct for the Dec 2025 feed, but the feed was republished on 29 Oct 2026 (Last-Modified 06:05:07 GMT). In the new data, API 31+ is 77.7% (12: 9.6, 13: 11.8, 14: 15.3, 15: 14.7, 16: 25.4, 17: 0.9).",
+   "evidence": [
+    "https://developer.android.com/develop/ui/compose/designsystems/material3: 'Dynamic color is available on Android 12 and above. If dynamic color is available, you can set up a dynamic ColorScheme. If not, you should fall back to using a custom light or dark ColorScheme.' with 'val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S'",
+    "https://dl.google.com/android/studio/metadata/distributions.json (fetched 2026-10-29 08:12 GMT, etag 7093ede, last-modified Thu, 29 Oct 2026 06:05:07 GMT; saved at /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk-verify-device/distributions.json)"
+   ]
+  },
+  {
+   "id": "sdk-11",
+   "verdict": "confirmed",
+   "correction": "Both quotes are verbatim. A newer API also exists: Compose ui 1.13.0-beta02 adds Modifier.blur(block: BlurScope.() -> Unit), a progressive blur. Its docs say 'A uniform radius renders on Android 12 (API 31) and above; spatially-varying radii (gradients and custom shaders) require Android 13 (API 33) and above. Below these versions the modifier is ignored.'",
+   "evidence": [
+    "https://developer.android.com/develop/ui/views/graphics/agsl: 'Android Graphics Shading Language (AGSL) is used by Android 13 and above to define the behavior of programmable RuntimeShader objects.'",
+    "https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/blur.modifier: 'Note this effect is only supported on Android 12 and above. Attempts to use this Modifier on older Android versions will be ignored.' plus the 1.13.0-beta02 progressive-blur note quoted above"
+   ]
+  },
+  {
+   "id": "sdk-12",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/reference/android/graphics/Paint#setFontVariationSettings(java.lang.String): Added in API level 26",
+    "https://developer.android.com/reference/android/graphics/Typeface: create(Typeface family, int weight, boolean italic) Added in API level 28",
+    "https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui-text-android/1.12.1/ui-text-android-1.12.1-sources.jar: PlatformTypefaces.android.kt SDK_INT >= 26 / >= 28 gates, AndroidDefaultTypeface and AndroidGenericFontFamilyTypeface SDK_INT < 28 branches"
+   ]
+  },
+  {
+   "id": "sdk-13",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/reference/android/view/HapticFeedbackConstants: KEYBOARD_PRESS and TEXT_HANDLE_MOVE added API 27; CONFIRM, REJECT, GESTURE_START and GESTURE_END API 30; TOGGLE_ON/OFF, SEGMENT_TICK, SEGMENT_FREQUENT_TICK, DRAG_START, GESTURE_THRESHOLD_ACTIVATE and NO_HAPTICS API 34",
+    "https://dl.google.com/dl/android/maven2/androidx/core/core/1.19.1/core-1.19.1-sources.jar: HapticFeedbackConstantsCompat has fallback branches at SDK_INT < 34, < 30 and < 27 and sets NO_HAPTICS where nothing fits"
+   ]
+  },
+  {
+   "id": "sdk-14",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/about/versions/oreo/android-8.0: 'Android 8.0 (API level 26) introduces adaptive launcher icons.'",
+    "https://developer.android.com/develop/ui/views/launch/icon_design_adaptive (last updated 2026-10-22): 'save your adaptive icon to res/mipmap-anydpi-v26/ic_launcher.xml'; 'starting with Android 13 (API level 33), users can theme their adaptive icons'; 'Starting with Android 16 QPR 2, Android automatically themes app icons for apps that don't provide their own.'"
+   ]
+  },
+  {
+   "id": "sdk-15",
+   "verdict": "confirmed",
+   "correction": "One addition: NotificationManagerCompat.createNotificationChannel(NotificationChannelCompat) 'doesn't do anything on older SDKs which don't support Notification Channels', so the compat API can replace a hand-written SDK_INT >= 26 guard.",
+   "evidence": [
+    "https://developer.android.com/develop/ui/views/notifications/channels: 'Starting in Android 8.0 (API level 26), all notifications must be assigned to a channel'; 'Guard this code with a condition on the SDK_INT version'; 'To support devices running Android 7.1 (API level 25) or lower, you must also call setPriority()'",
+    "https://developer.android.com/develop/ui/views/notifications/notification-permission: 'Android 13 (API level 33) and higher supports a runtime permission'; sample gates on SDK_INT >= TIRAMISU",
+    "https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat#createNotificationChannel(androidx.core.app.NotificationChannelCompat)"
+   ]
+  },
+  {
+   "id": "sdk-16",
+   "verdict": "confirmed",
+   "correction": "Everything checks out. One documentation nuance: the current official page asks for ACCESS_FINE_LOCATION on Android 11 and lower and no longer mentions the COARSE-on-28-and-below allowance that Kable's source comment cites. Kable's device-SDK-based COARSE check on 28 and below matches the older guidance. kable-default-permissions declares both COARSE and FINE capped at 30, so either works.",
+   "evidence": [
+    "https://developer.android.com/develop/connectivity/bluetooth/bt-permissions (last updated 2026-10-28): legacy BLUETOOTH/BLUETOOTH_ADMIN maxSdkVersion=30; 'BLUETOOTH_ADVERTISE, BLUETOOTH_CONNECT, and BLUETOOTH_SCAN permissions are runtime permissions'; neverForLocation 'some BLE beacons are filtered from the scan results'; ACCESS_FINE_LOCATION maxSdkVersion 30; 'If your app supports a service and can run on Android 10 (API level 29) or Android 11, you must also declare the ACCESS_BACKGROUND_LOCATION'",
+    "Kable git tag 0.45.0, kable-core/src/androidMain/kotlin/scan/requirements/ScanPermissions.kt: SDK_INT <= P -> ACCESS_COARSE_LOCATION; SDK_INT <= R -> ACCESS_FINE_LOCATION; else BLUETOOTH_SCAN",
+    "https://maven-central.storage-download.googleapis.com/maven2/com/juul/kable/kable-default-permissions/0.45.0/kable-default-permissions-0.45.0.aar (sha256 0c5ee7be...2a13): manifest matches the claim exactly, including bluetooth_le required=false and minSdkVersion 21"
+   ]
+  },
+  {
+   "id": "sdk-17",
+   "verdict": "confirmed",
+   "correction": "The code claim holds. On the docs: neither bt-permissions nor find-ble-devices mentions the location toggle. The only official mention found is on the Companion Device pairing page: 'companion device pairing requires Location Services to be enabled'.",
+   "evidence": [
+    "Kable git tag 0.45.0, LocationServicesEnabled.kt: 'if (SDK_INT > R) return' ... throw UnmetRequirementException(LocationServicesDisabled, \"Location services are required for scanning but are disabled\")",
+    "Kable git tag 0.45.0, BluetoothLeScannerAndroidScanner.kt: checkScanPermissions() at line 62, then checkLocationServicesEnabled() at line 100 before the scan starts",
+    "https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing"
+   ]
+  },
+  {
+   "id": "sdk-18",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://dl.google.com/dl/android/maven2/androidx/navigationevent/navigationevent-android/1.2.0/navigationevent-android-1.2.0-sources.jar: OnBackInvokedInput.android.kt 'if (Build.VERSION.SDK_INT == 33) { OnBackInvokedCallback { dispatchOnBackCompleted() } } else { // >= 34 createOnBackAnimationCallback() }'",
+    "https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture: 'Starting with Android 15, the developer option for predictive back animations is no longer available. System animations such as back-to-home, cross-task, and cross-activity now appear for apps that have opted in'",
+    "https://developer.android.com/about/versions/16/behavior-changes-16: 'For apps targeting Android 16 (API level 36) or higher and running on an Android 16 or higher device, the predictive back system animations ... are enabled by default. Additionally, onBackPressed is not called and KeyEvent.KEYCODE_BACK is not dispatched anymore.'"
+   ]
+  },
+  {
+   "id": "sdk-19",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/about/versions/15/behavior-changes-15: 'Apps are edge-to-edge by default on devices running Android 15 if the app is targeting Android 15'; 'Configuration.screenWidthDp and screenHeightDp sizes no longer exclude the system bars'",
+    "https://developer.android.com/about/versions/16/behavior-changes-16: 'For apps targeting Android 16 (API level 36), R.attr#windowOptOutEdgeToEdgeEnforcement is deprecated and disabled' (it still works on an Android 15 device)",
+    "https://developer.android.com/develop/ui/compose/system/setup-e2e: 'To enable edge-to-edge on previous Android versions, call enableEdgeToEdge()'; 'except in 3-button navigation mode, where it applies a translucent scrim'",
+    "https://dl.google.com/dl/android/maven2/androidx/activity/activity/1.13.0/activity-1.13.0-sources.jar EdgeToEdge.kt: EdgeToEdgeApi23 sets navigationBarColor = navigationBarStyle.darkScrim and only isAppearanceLightStatusBars; Api26 adds isAppearanceLightNavigationBars; Api28 LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES; Api29 isNavigationBarContrastEnforced; Api30 cutout ALWAYS; Api35 transparent bars with ColorProtection"
+   ]
+  },
+  {
+   "id": "sdk-20",
+   "verdict": "confirmed",
+   "correction": "The documentation parts are confirmed. The appcompat 1.8.0 minSdk and dependency part was not re-checked here (AAR lens). The page also says 'you can also implement the framework APIs directly if you need to', so AppCompat is strongly recommended but not strictly required.",
+   "evidence": [
+    "https://developer.android.com/guide/topics/resources/app-languages (last updated 2026-10-23): 'Access the backward compatible APIs with Appcompat 1.6.0 or higher'; 'the automatic per-app language feature supports apps that run Android 13 (API level 33) or higher'; 'Caution: If you're using Compose with setApplicationLocales, you must extend your activity from AppCompatActivity. Otherwise, setting the app locale won't work.'; autoStoreLocales mention"
+   ]
+  },
+  {
+   "id": "sdk-21",
+   "verdict": "confirmed",
+   "correction": "The migration-guide quote is verbatim, but the compat library's own reference does spell out the API differences. It says: 'On API 31+ (Android 12+) this class calls the platform methods. Prior API 31, the platform behavior is replicated with the exception of the Animated Vector Drawable support on the launch screen.' It also says: 'On API < 31, windowSplashScreenAnimatedIcon cannot be animated' (put an AVD in res/drawable-v31 for 31+); an icon background needs Theme.SplashScreen.IconBackground; adaptive icons are cropped below 31; and 'On API 21-22, the icon isn't displayed until the application starts'. So the splash is the same on 24+ except that the icon is static below 31. The splash-screen guide and the 1.0.0 release notes say 'from API 23', while the 1.2.0 AAR manifest declares minSdkVersion 21 (re-downloaded).",
+   "evidence": [
+    "https://developer.android.com/develop/ui/views/launch/splash-screen/migrate",
+    "https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen",
+    "https://developer.android.com/develop/ui/views/launch/splash-screen ('brings the Android 12 splash screen to all devices from API 23')",
+    "https://dl.google.com/dl/android/maven2/androidx/core/core-splashscreen/1.2.0/core-splashscreen-1.2.0.aar (uses-sdk minSdkVersion 21)"
+   ]
+  },
+  {
+   "id": "sdk-22",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/topic/performance/baselineprofiles/overview 'Compilation behavior across Android versions' table: 5-6 (21-23) Full AOT; 7-8.1 (24-27) 'Baseline Profiles are installed by androidx.profileinstaller on the first run'; 9+ (28+) 'Play uses Baseline Profiles during app installs ... and Cloud profiles'; 'Cloud Profiles only support Android devices running Android 9 (API level 28) or higher'"
+   ]
+  },
+  {
+   "id": "sdk-23",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-24",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-25",
+   "verdict": "not-checked",
+   "correction": "Outside the platform/device lens (library AAR metadata, build tooling or Robolectric tooling); left to the other verification lenses."
+  },
+  {
+   "id": "sdk-26",
+   "verdict": "refuted",
+   "correction": "The claim was true when written, but it is now superseded. Google republished distributions.json on 29 Oct 2026 (HTTP Last-Modified Thu, 29 Oct 2026 06:05:07 GMT, etag 7093ede, 22446 bytes; the 28 Oct copy was Last-Modified 10 Dec 2025, 21101 bytes). The new feed drops Android 5.0/API 21 and adds Android 17. Shares: 5.1 0.2%, 6.0 0.3%, 7.0 0.2%, 7.1 0.2%, 8.0 0.5%, 8.1 1.5%, 9 3.1%, 10 5.7%, 11 10.5%, 12 9.6%, 13 11.8%, 14 15.3%, 15 14.7%, 16 25.4%, 17 0.9% (sum 99.9%). The feed itself does not state the sampling window. No press write-up of the new data was found yet. The 9to5Google article does say the previous update was 'based on data from December 1, 2025', following April 2025.",
+   "evidence": [
+    "https://dl.google.com/android/studio/metadata/distributions.json (fresh copy /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk-verify-device/distributions.json, headers in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk-verify-device/distributions.headers; previous copy /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/dl/sdk/dist/distributions.json)",
+    "https://9to5google.com/2026/01/30/android-16-is-on-7-5-of-devices-in-latest-distribution-numbers-update/"
+   ]
+  },
+  {
+   "id": "sdk-27",
+   "verdict": "refuted",
+   "correction": "The arithmetic is correct for the Dec 2025 feed (re-computed: 21 99.9, 23 99.5, 24 99.1, 26 98.3, 28 95.2, 29 90.7, 31 69.2). Its premise that this is the newest data, about 11 months old, no longer holds. From the 29 Oct 2026 feed, cumulative reach is: minSdk 22 99.9%, 23 99.7%, 24 99.4%, 26 99.0%, 28 97.0%, 29 93.9%, 31 77.7%, 33 68.1%. Going from 24 to 23 now gains 0.3 points (Android 6.0); going from 24 to 26 loses 0.4 points (7.0 + 7.1 = 0.4%). The option list should update: minSdk 23 is '+0.3 points (99.7% vs 99.4%)' and minSdk 26 'loses 0.4%'.",
+   "evidence": [
+    "https://dl.google.com/android/studio/metadata/distributions.json (Last-Modified 29 Oct 2026 06:05:07 GMT), tabulated with /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk-verify-device/dist.py"
+   ]
+  },
+  {
+   "id": "sdk-28",
+   "verdict": "confirmed",
+   "correction": "Detail from the same newsroom footnote: 6.2 inches is the full rectangle; with the rounded corners it is 6.0 inches. The skin page's 1080 x 2340 at 6.2 inches gives 415.7 ppi, consistent with '~416 ppi'.",
+   "evidence": [
+    "https://news.samsung.com/global/samsung-galaxy-s25-series-sets-the-standard-of-ai-phone-as-a-true-ai-companion (dated 'January 23, 2025'): Galaxy S25 '6.2-inch FHD+', 'Dynamic AMOLED 2X Display', 'Super Smooth 120Hz refresh rate (1~120Hz)', 'Android 15 One UI 7', 'Bluetooth v 5.4'",
+    "https://developer.samsung.com/galaxy-emulator-skin/galaxy-s.html: Galaxy S25 'Resolution 1080 x 2340 pixels (~416 ppi density)'"
+   ]
+  },
+  {
+   "id": "sdk-29",
+   "verdict": "unclear",
+   "correction": "No primary source for the Android-reported density was found. The secondary evidence agrees with 480 dpi / 360x780 dp. yesviz lists the S25 at viewport 360 x 780 with density '3 xxhdpi', and the installed Playwright 1.63.0 'Galaxy S24' descriptor is viewport 360x780 at deviceScaleFactor 3. The Samsung skin download link (/emulatorskin/file/8808cd45-...) returns HTTP 302 to /login, so it could not be read. Firebase Test Lab's public page doesn't list the S25, and gcloud has no credentials here. Keep the claim as 'most likely' until `adb shell wm density` is run on the owner's phone.",
+   "evidence": [
+    "https://yesviz.com/devices/samsung-s25/",
+    "node: require('playwright').devices['Galaxy S24'] -> viewport {width:360,height:780}, deviceScaleFactor 3 (playwright 1.63.0)",
+    "https://developer.samsung.com/emulatorskin/file/8808cd45-9deb-45ec-a712-e825a9c72ac6 -> 302 /login?redirectURL=..."
+   ]
+  },
+  {
+   "id": "sdk-30",
+   "verdict": "confirmed",
+   "correction": "These facts are now out of date: the Galaxy S25 has been receiving stable One UI 9, based on Android 17 (API 37), since 28 Sep 2026 (Korea first, including users coming from One UI 8.5). The owner's S25 may already run API 37, where targetSdk 37 behaviour changes apply.",
+   "evidence": [
+    "https://developer.android.com/reference/android/os/Build.VERSION_CODES: BAKLAVA 'Added in API level 36' value 36; CINNAMON_BUN 'Added in API level 37' value 37",
+    "https://developer.android.com/guide/topics/manifest/uses-sdk-element: 'It's not possible to specify that an app either targets or requires a minor SDK version.'; table Android 17 = 37 CINNAMON_BUN, Android 16 = 36 BAKLAVA",
+    "https://9to5google.com/2025/09/15/samsung-one-ui-8-galaxy-s25-stable-update/",
+    "https://www.androidauthority.com/samsung-one-ui-9-galaxy-s25-fold-7-flip-7-stable-3716021/ (Sep 28, 2026)"
+   ]
+  },
+  {
+   "id": "sdk-31",
+   "verdict": "confirmed",
+   "correction": "A primary Samsung source also confirms it. Samsung's own support page says 'Navigation bar settings for Buttons and Swipe gestures can be found in device settings, with Buttons enabled by default' and gives the path 'Settings > Display > Navigation bar'. The 9to5Google article (Aug 2025) adds that One UI 8.5 might add a setup-time choice; whether shipped One UI 8.5/9 setup does this was not confirmed. Even so, an S25 first set up on One UI 7 keeps buttons unless the user changes it. No usage-share data was found, so 'most S25 users' is an inference.",
+   "evidence": [
+    "https://9to5google.com/2025/08/04/samsung-android-gesture-navigation-one-ui-8/: 'Samsung defaults its devices to the three-button setting, and doesn't present users with an option to pick between buttons and gesture navigation during setup'",
+    "https://www.samsung.com/uk/support/mobile-devices/optimised-navigation-bar-functions-on-galaxy-devices/"
+   ]
+  },
+  {
+   "id": "sdk-32",
+   "verdict": "unclear",
+   "correction": "Checked: Roborazzi 1.77.0 RobolectricDeviceQualifiers has no Samsung/Galaxy constant, and MediumPhone and Pixel7 are both 'w411dp-h914dp-normal-long-notround-any-420dpi-keyshidden-nonav'. The proposed S25 string depends on the unverified 480 dpi default (see sdk-29). The Robolectric measurements were not re-run (test-tooling lens).",
+   "evidence": [
+    "https://raw.githubusercontent.com/takahirom/roborazzi/1.77.0/roborazzi/src/main/java/com/github/takahirom/roborazzi/RobolectricDeviceQualifiers.kt lines 30 and 45"
+   ]
+  },
+  {
+   "id": "sdk-33",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://developer.android.com/google/play/requirements/target-sdk (last updated 2026-10-28): 'Starting August 31 2026: New apps and app updates must target Android 16 (API level 36) or higher'; extension to November 1, 2026; no 2027 / API 37 entry",
+    "https://support.google.com/googleplay/android-developer/answer/11926878: same dates; existing apps must target API 35+ 'to remain available to new users on devices running Android OS higher than your app's target API level'; no 2027 entry"
+   ]
+  },
+  {
+   "id": "sdk-34",
+   "verdict": "confirmed",
+   "correction": "Stronger primary evidence of the stable release exists. source.android.com's site-updates page has a June 2026 entry, 'Android 17 release: Android 17 has been released', and android-latest-release points to android17-release. Developer.android.com now also has Android 17 QPR1 (API 37.1; QPR1 Beta 9 on Aug 17, 2026) and QPR2 Beta (API 37.2; Beta 7.1 on Oct 16, 2026) sections. The Robolectric part was not re-checked.",
+   "evidence": [
+    "https://developer.android.com/about/versions/17/release-notes: Beta 3 (March 26, 2026) 'Android 17 has officially reached Platform Stability with Beta 3'; Beta 4 (April 16, 2026) 'start publishing your Android 17-targeted apps to the Google Play Store'; newest entry Beta 4.1 June 1, 2026",
+    "https://source.android.com/docs/whatsnew/site-updates (June 2026 'Android 17 release')",
+    "https://developer.android.com/about/versions/17/qpr2/release-notes"
+   ]
+  },
+  {
+   "id": "sdk-35",
+   "verdict": "confirmed",
+   "correction": "Each listed item is accurate. For background audio, the precise rule is: a foreground service with while-in-use capabilities, or the exact-alarm permission plus USAGE_ALARM streams; some restrictions apply to all apps on Android 17. The list leaves out other targetSdk 37 changes: a RemoteViews/widget bitmap memory limit that throws IllegalArgumentException (relevant if Rouxtine ships a home-screen widget); static final fields becoming unmodifiable through reflection or JNI; ECH on by default; Activity Security/BAL hardening (MODE_BACKGROUND_ACTIVITY_START_ALLOWED to be replaced); accessibility for complex IME physical-keyboard typing; hiding passwords from physical input devices; SMS OTP protection; safer native DCL; CP2 PII and SQL restrictions; and the setContentCaptureEnabled deprecation. All-app changes on Android 17 (whatever the target): app memory limits (kill reason 'MemoryLimiter'), autonomous Bluetooth re-pairing on bond loss, implicit URI grant restrictions, per-app keystore limits and the usesCleartextTraffic deprecation plan.",
+   "evidence": [
+    "https://developer.android.com/about/versions/17/behavior-changes-17 (last updated 2026-10-28)",
+    "https://developer.android.com/about/versions/17/behavior-changes-all",
+    "https://developer.android.com/about/versions/16/behavior-changes-16",
+    "https://dl.google.com/android/studio/metadata/distributions.json (API 37 descriptionBlocks list the same targeting-17 items)"
+   ]
+  }
+ ],
+ "missing": [
+  "The official distribution feed was updated on 29 Oct 2026 (Last-Modified 06:05:07 GMT). Android 16 is now 25.4% and Android 17 0.9%, API 21 is gone, and reach is: minSdk 23 99.7%, 24 99.4%, 26 99.0%, 31 77.7%. The research and option list still use the Dec 2025 numbers (99.5/99.1/98.3/69.2). Source: https://dl.google.com/android/studio/metadata/distributions.json",
+  "The Galaxy S25 is getting stable One UI 9 (Android 17, API 37) from 28 Sep 2026 (Korea first, then other markets), so the owner's test phone may already run API 37 and show targetSdk 37 behaviour. Sources: https://www.androidauthority.com/samsung-one-ui-9-galaxy-s25-fold-7-flip-7-stable-3716021/ and https://www.sammyfans.com/2026/09/28/samsung-galaxy-s25-one-ui-9-stable-update/",
+  "Android 17 is officially released: source.android.com's site updates for June 2026 say 'Android 17 has been released'. Android 17 QPR1 (API 37.1) and a QPR2 beta (API 37.2, Beta 7.1 on 16 Oct 2026) also exist. Minor SDK versions can't be targeted (uses-sdk docs), but the APIs they add need Build.VERSION.SDK_INT_FULL checks (added in API 36). Sources: https://source.android.com/docs/whatsnew/site-updates and https://developer.android.com/about/versions/17/qpr2/release-notes and https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT_FULL",
+  "Companion Device Manager is an option for smart-cube pairing on Android 8+. It scans and pairs BLE devices 'without requiring the ACCESS_FINE_LOCATION permission' but 'requires Location Services to be enabled'. It doesn't exist on 7.x, so minSdk 24 still needs the Kable location path there. Source: https://developer.android.com/develop/connectivity/bluetooth/companion-device-pairing",
+  "Android 17 app memory limits apply to all apps on Android 17, whatever the target. Apps over the limit are killed with 'MemoryLimiter:AnonSwap' in ApplicationExitInfo. This matters if Rouxtine keeps large solver pruning tables in memory; test with `adb shell am memory-limiter`. Source: https://developer.android.com/about/versions/17/behavior-changes-all",
+  "Targeting API 37 also caps RemoteViews bitmap memory for app widgets (an IllegalArgumentException over the limit) and makes static final fields unmodifiable through reflection. Both matter if Rouxtine adds a home-screen widget or uses reflection-heavy libraries. Source: https://developer.android.com/about/versions/17/behavior-changes-17",
+  "Compose ui 1.13.0-beta02 adds a progressive Modifier.blur(block). A uniform radius renders on API 31+ and varying radii on API 33+; below that the modifier is ignored. Source: https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/blur.modifier",
+  "The SplashScreen compat reference says the icon cannot be animated below API 31 (put an AVD in drawable-v31), that an icon background needs Theme.SplashScreen.IconBackground, and that adaptive icons get cropped below 31. Source: https://developer.android.com/reference/kotlin/androidx/core/splashscreen/SplashScreen",
+  "Material 3 ripples use the platform RippleDrawable, and the 'sparkle ripple is available on Android 12 and above', so touch feedback looks different below API 31 even with Expressive. Source: https://developer.android.com/develop/ui/compose/designsystems/material3",
+  "D8 cannot desugar MethodHandle.invoke/invokeExact. Any future dependency that uses them would need minSdk 26 or R8 shrinking to remove the calls. Source: https://developer.android.com/studio/write/java8-support",
+  "NotificationManagerCompat.createNotificationChannel(NotificationChannelCompat) is a no-op on pre-26 devices, so a manual SDK_INT guard isn't needed. Source: https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat",
+  "Samsung's own support page confirms that 'Buttons' is the default navigation type and gives the path Settings > Display > Navigation bar. This is primary evidence for sdk-31. Source: https://www.samsung.com/uk/support/mobile-devices/optimised-navigation-bar-functions-on-galaxy-devices/",
+  "Android 17 adds autonomous Bluetooth re-pairing after bond loss for all apps: ACTION_PAIRING_REQUEST gains EXTRA_PAIRING_CONTEXT, and ACTION_KEY_MISSING is sent only if re-pairing fails. This is relevant only to smart cubes that bond. Source: https://developer.android.com/about/versions/17/behavior-changes-all"
+ ]
+}

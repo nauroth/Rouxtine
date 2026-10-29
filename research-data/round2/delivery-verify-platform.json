@@ -1,0 +1,278 @@
+{
+  "verdicts": [
+    {"id": "delivery-1", "verdict": "not-checked"},
+    {"id": "delivery-2", "verdict": "not-checked"},
+    {"id": "delivery-3", "verdict": "not-checked"},
+    {"id": "delivery-4", "verdict": "not-checked"},
+    {"id": "delivery-5", "verdict": "not-checked"},
+    {"id": "delivery-6", "verdict": "not-checked"},
+    {"id": "delivery-7", "verdict": "not-checked"},
+    {"id": "delivery-8", "verdict": "not-checked"},
+    {"id": "delivery-9", "verdict": "not-checked"},
+    {"id": "delivery-10", "verdict": "not-checked"},
+    {"id": "delivery-11", "verdict": "not-checked"},
+    {"id": "delivery-12", "verdict": "not-checked"},
+    {"id": "delivery-13", "verdict": "not-checked"},
+    {"id": "delivery-14", "verdict": "not-checked"},
+    {"id": "delivery-15", "verdict": "not-checked"},
+    {"id": "delivery-16", "verdict": "not-checked"},
+    {"id": "delivery-17", "verdict": "not-checked"},
+    {"id": "delivery-18", "verdict": "not-checked"},
+    {"id": "delivery-19", "verdict": "not-checked"},
+    {"id": "delivery-20", "verdict": "not-checked"},
+    {"id": "delivery-21", "verdict": "not-checked"},
+    {"id": "delivery-22", "verdict": "not-checked"},
+    {"id": "delivery-23", "verdict": "not-checked"},
+    {"id": "delivery-24", "verdict": "not-checked"},
+    {"id": "delivery-25", "verdict": "not-checked"},
+    {"id": "delivery-26", "verdict": "not-checked"},
+    {"id": "delivery-27", "verdict": "not-checked"},
+    {"id": "delivery-28", "verdict": "not-checked"},
+    {"id": "delivery-29", "verdict": "not-checked"},
+    {"id": "delivery-30", "verdict": "not-checked"},
+    {"id": "delivery-31", "verdict": "not-checked"},
+    {"id": "delivery-32", "verdict": "not-checked"},
+    {
+      "id": "delivery-33",
+      "verdict": "confirmed",
+      "correction": "Holds as an inference. Only the developer-verification part falls under this lens; the update-compatibility part follows from the documented same-certificate rule. Registration binds package name + SHA-256 certificate fingerprint to the verified identity, so a public private key lets anyone produce APKs that pass as the owner's registered app.",
+      "evidence": [
+        "https://developer.android.com/studio/publish/app-signing: 'The system allows the update if the certificates match. If you sign the new version with a different certificate, you must assign a different package name to the app'",
+        "https://developer.android.com/developer-verification/guides/android-developer-console (last updated 2026-09-30): 'Add your key: Enter the SHA-256 certificate fingerprint from your app's signing key pair'; 'The registration process links your app to your verified developer identity'",
+        "https://developer.android.com/developer-verification/guides/faq: 'The Android Developer Console lets you add and verify multiple signing keys for a single package' (Mar 23, 2026)"
+      ]
+    },
+    {"id": "delivery-34", "verdict": "not-checked"},
+    {"id": "delivery-35", "verdict": "not-checked"},
+    {
+      "id": "delivery-36",
+      "verdict": "confirmed",
+      "correction": "Nuance: ownership proof is only needed for existing package names. A brand-new package name is registered with just the package name and SHA-256 fingerprint ('If the open-source repository uses your signing key to distribute the app, you don't need to complete any further steps'). The open-source registration guide is now dated 2026-10-23.",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides (last updated 2026-08-18): 'Android requires all apps to be registered by verified developers for users to install them on certified Android devices'; steps: sign up for ADC if you distribute outside Play, verify identity, register package names",
+        "https://developer.android.com/developer-verification/guides/android-developer-console (last updated 2026-09-30): 'Prove ownership: For existing package names, you must sign an APK with your private key and upload it. The Android Developer Console provides a snippet to add to the APK's asset folder'",
+        "https://developer.android.com/developer-verification/guides/open-source-app-registration (last updated 2026-10-23): 'create a file named adi-registration.properties in the assets folder, and paste the snippet in the file'"
+      ]
+    },
+    {
+      "id": "delivery-37",
+      "verdict": "confirmed",
+      "evidence": [
+        "https://developer.android.com/developer-verification timeline table: 'August 2026 | Developer APIs, limited distribution accounts, and power user advanced flow launch'; 'September 30, 2026 | Protections begin for all users who install apps from participating stores in Brazil, Indonesia, Singapore, and Thailand on certified devices running Android 7+'; '2027 and beyond | Verification capability will be expanded globally for all apps on certified Android devices in 2027'",
+        "https://developer.android.com/developer-verification/guides lists the seven stores (Google Play, HONOR App Market, OPPO App Market, Galaxy Store, Palm Store, V-Appstore, GetApps) and adds 'The verification capability will soon be expanded to all third-party Android app stores'",
+        "https://android-developers.googleblog.com/2026/06/android-developer-verification.html (18 June 2026, updated July 15, 2026): same stores, dates and '2027 and beyond: ... we'll expand the Android verification requirement globally'"
+      ]
+    },
+    {
+      "id": "delivery-38",
+      "verdict": "confirmed",
+      "correction": "Nuance: the FAQ also says that outside Play, enforcement 'will only apply to mobile and tablet form factors in the selected regions'. I found no October 2026 change; the FAQ page is dated 2026-09-30.",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides/faq: 'The September 30, 2026 deadline only applies to the specific participating stores. If you distribute your app through other stores, or if users sideload your app directly, these new verification requirements won't apply to your app yet ... we still recommend that you plan to complete your verification before the global rollout begins in 2027. Last updated: July 15, 2026'",
+        "Same FAQ: 'Enforcement starting September 30, 2026, is limited only to the specific stores mentioned in the blog post' (June 18, 2026)"
+      ]
+    },
+    {
+      "id": "delivery-39",
+      "verdict": "confirmed",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides/faq: 'As a developer, you are free to install apps without verification with ADB' (Sept 3, 2025); 'The waiting period does not apply to ADB installs' (Mar 23, 2026); 'Unregistered apps can only be installed or updated when the advanced flow is enabled or by using ADB so if the advanced flow is disabled updates to unregistered apps will fail' (Mar 25, 2026)",
+        "https://android-developers.googleblog.com/2026/06/android-developer-verification.html: 'Unregistered apps can be sideloaded with Android Debug Bridge (adb) or advanced flow'"
+      ]
+    },
+    {
+      "id": "delivery-40",
+      "verdict": "confirmed",
+      "correction": "Extra details from Android Authority (2026-08-18): turning the flow off briefly gives a 10-minute grace period to turn it back on without another 24-hour wait, and the Android Developer Verifier can also be installed from Google Play to get the flow sooner.",
+      "evidence": [
+        "https://support.google.com/android/answer/17588095?hl=en: 'Open the Settings app. Tap System Developer options. Turn on Allow apps from unverified developers ... This will include a 24-hour security delay ... keep the advanced flow on for seven days or indefinitely ... tap Install anyway'",
+        "https://developer.android.com/developer-verification/guides/faq: steps 'Confirm you aren't being coached', 'Restart your phone and reauthenticate', 'one-time, one-day wait', 'biometric authentication ... or device PIN', '7 days or indefinitely'; 'Is there an ADB command to bypass the 24-hour waiting period? This option is not supported at this point' (Mar 25, 2026)",
+        "https://www.androidauthority.com/google-android-advanced-flow-sideloading-rollout-begins-3700073/ (datePublished 2026-08-18): 'Google has started rolling out Android's advanced flow ... The rollout involves a new Android Developer Verifier system service'"
+      ]
+    },
+    {
+      "id": "delivery-41",
+      "verdict": "confirmed",
+      "correction": "Nuance: since 28 Sep (Korea) and 5 Oct 2026 (US), the S25 has been getting One UI 9, which is Android 17. It may no longer be on Android 16, but it is covered either way.",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides/faq: 'It will apply to all certified Android devices running Android 7 or higher. These updates are delivered through Google Play services' (Mar 23, 2026)",
+        "https://support.google.com/android/answer/17065026?hl=en: 'This initiative applies to certified Android devices running Android 8 and up'; footnote: 'Android Open Source Project (AOSP) and non-certified devices are exempt ... does not apply in regions where Google Mobile Services are unsupported or in territories subject to applicable trade sanctions'; verifier package com.google.android.verifier",
+        "https://www.android.com/certified/partners/ lists SAMSUNG"
+      ]
+    },
+    {
+      "id": "delivery-42",
+      "verdict": "refuted",
+      "correction": "The device cap is out of date. Google edited the limited-distribution guide on 2026-10-28, and it now says 'Share apps with up to 50 devices that end-users have explicitly authorized'. A copy fetched on 2026-10-28, from the version dated 2026-10-23, said 20. The FAQ (June 18, 2026), the guides comparison table (2026-08-18) and the overview page still say 20, so Google's docs currently disagree. The rest of the claim holds: the account is free and needs no government ID; it requires a Google Account with 2-Step Verification, a linked Google payments profile (legal name and address) and a contact email; sharing uses a QR-code or link handshake with user consent; and accounts can move from limited to full but not back.",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides/limited-distribution (last updated 2026-10-28, fetched 2026-10-29): 'Register apps. Share apps with up to 50 devices that end-users have explicitly authorized.'; 'This account is free.'; '2-Step verification ... Google payments profile ... Contact email address'; 'you don't need to provide a government ID'",
+        "https://developer.android.com/developer-verification/guides/faq: 'This lets you share apps with up to 20 specific devices for testing and personal use at no cost and without ID verification' (June 18, 2026); 'We would support migrating limited distribution accounts to full accounts but not the other way around' (June 8, 2026)",
+        "https://developer.android.com/developer-verification/guides (2026-08-18) table: 'Distribute to up to 20 devices'"
+      ]
+    },
+    {
+      "id": "delivery-43",
+      "verdict": "confirmed",
+      "correction": "Nuance: individuals also need proof of address and a phone number verified by one-time password, as well as a government photo ID.",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides/faq: 'The $25 fee for the Full Distribution account in the ADC ...' (Mar 25, 2026); 'If you use Play App Signing ... Your eligible apps will be part of the automatic registration process'; 'add and verify multiple signing keys for a single package'",
+        "https://developer.android.com/developer-verification/guides/full-distribution (2026-08-18): 'Individuals must submit a government-issued photo ID and proof of address document'; organizations: 'D-U-N-S number' and 'Your organization's website must be verified using Google Search Console'",
+        "https://developer.android.com/developer-verification/guides/google-play-console (2026-09-30): 'You can also use the Play Console to register apps you distribute outside of Google Play'"
+      ]
+    },
+    {
+      "id": "delivery-44",
+      "verdict": "confirmed",
+      "correction": "Nuance: first-come, first-served applies to 'any developer with a known key'. The exception route needs 'an additional review, and that package name may also be used by other developers'.",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides/android-developer-console: 'Majority cluster ... more than 50% of all installs'; 'Sizeable cluster: If no single key has over 50% installs, any developer with a \"sizeable cluster\" (50 or more installs) can register'; 'First-come, first-serve basis: If no sizeable cluster exists, any developer with a known key can register'",
+        "https://developer.android.com/developer-verification/guides/faq: 'If you lose your signing key you won't be able to register your packages' (Mar 23, 2026)"
+      ]
+    },
+    {
+      "id": "delivery-45",
+      "verdict": "confirmed",
+      "correction": "Detail: the Status API is at androiddeveloperidstatus.googleapis.com, uses an API key and has a default quota of 1,000 requests per day. With certificateFingerprint it can return REGISTERED_WITH_ANOTHER_CERTIFICATE_FINGERPRINT.",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides/android-developer-console: 'Android Developer ID Status API: Lets you check if a package name has already been registered and verify eligibility. Android Developer Console API: Lets you register and manage package names and keys directly within your development environment or CI/CD pipeline'",
+        "https://developer.android.com/developer-verification/guides/faq: registration status shown in Android Studio 'when you generate a signed App Bundle or APK (available in Android Studio Panda 4 and higher)' (June 18, 2026)",
+        "https://developer.android.com/developer-verification/guides/check-registration-status (2026-09-04): CheckPackageRegistrationStatus, '1,000 requests per day'"
+      ]
+    },
+    {
+      "id": "delivery-46",
+      "verdict": "confirmed",
+      "correction": "The inference matches the docs. Two points to add. First, an individual full-distribution account still costs $25 and needs a government photo ID and proof of address. A free limited-distribution account can also register packages but caps devices. Second, a new package name needs only its SHA-256 to register, so registering early is cheap.",
+      "evidence": [
+        "https://developer.android.com/developer-verification/guides: 'Search Console: Organizations need to provide their organization's website' (no website requirement stated for individuals)",
+        "https://developer.android.com/developer-verification/guides/open-source-app-registration: 'Register a new app ... Enter the package name ... Click Add key, and enter the SHA-256 certificate fingerprint ... you don't need to complete any further steps'",
+        "https://developer.android.com/developer-verification/guides/android-developer-console: first-come, first-served below 50 installs"
+      ]
+    },
+    {
+      "id": "delivery-47",
+      "verdict": "confirmed",
+      "evidence": [
+        "https://firebase.google.com/docs/app-distribution/android/distribute-cli (2026-10-28): 'You must sign the APK with your debug key or app signing key'; 'appdistribution:distribute ... --app'; 'available in the App Distribution dashboard ... for 150 days (five months)'",
+        "https://firebase.google.com/docs/app-distribution/troubleshooting: 'Add a maximum of 500 testers to a Firebase project'; 'Add a maximum of 200 testers to an App Distribution group'; 'App Distribution supports a maximum of 1,000 releases'",
+        "https://firebase.google.com/docs/app-distribution/android/distribute-console?apptype=aab: 'To upload AABs to App Distribution, you must link your Firebase app to an app in Google Play'; the Play app must be on a track and 'The app's review in Google Play is complete and the app is published'"
+      ]
+    },
+    {
+      "id": "delivery-48",
+      "verdict": "confirmed",
+      "correction": "Nuance: invitations expire after 30 days and can be accepted with any Google account. AAB releases need the Play Store's 'Internal app sharing' switch turned on.",
+      "evidence": [
+        "https://firebase.google.com/docs/app-distribution/get-set-up-as-a-tester?platform=android (2026-10-28): 'sign in with Google and accept the invitation'; 'You can download Firebase App Tester from the in-browser prompt that appears after you accept the invite'; 'If you need to install unknown apps, see ...'; 'In Firebase App Tester, select the app you want to install and tap Download'",
+        "https://firebase.google.com/docs/app-distribution/android/set-up-alerts: 'Beta: The Firebase App Distribution iOS and Android SDKs are beta releases'"
+      ]
+    },
+    {
+      "id": "delivery-49",
+      "verdict": "refuted",
+      "correction": "This is true only for APK uploads. AAB releases in App Distribution are served by Google Play: the Play Store installs them through internal app sharing, after Google re-signs them with a test signing key. By Samsung's documented rule, which lets Google Play installs through, that route should pass Auto Blocker; this was not tested. The catch is that it needs a Play developer account and a linked Play app already published on at least the internal track. The test key also differs from the GitHub-build key, so those builds cannot update each other. For APKs the claim holds: App Tester is not a participating store, and APK installs are sideloads that are subject to Auto Blocker and to the 2027 global rollout.",
+      "evidence": [
+        "https://firebase.google.com/docs/app-distribution/android/distribute-console?apptype=aab: 'Run optimized APKs (served by Google Play)'; 'Generated APKs are automatically resigned by Google Play using a test app signing key certificate'",
+        "https://firebase.google.com/docs/app-distribution/get-set-up-as-a-tester?platform=android: 'To download an Android App Bundle (AAB) release ... Open the Google Play Store app ... tap the Internal app sharing switch to turn it on'",
+        "https://www.samsung.com/au/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/: 'Apps downloaded from approved app stores, such as Galaxy Store and Google Play Store, can be installed'"
+      ]
+    },
+    {
+      "id": "delivery-50",
+      "verdict": "confirmed",
+      "evidence": [
+        "https://support.google.com/googleplay/android-developer/answer/14151465?hl=en: 'Developers with personal accounts created after November 13, 2023, must run a closed test for their app with a minimum of 12 testers who have been opted in continuously for at least 14 days'; track table: Internal testing 'Requirements to access track: None.'"
+      ]
+    },
+    {
+      "id": "delivery-51",
+      "verdict": "confirmed",
+      "correction": "Nuance: a user opted into the internal test cannot also be in a closed or open test.",
+      "evidence": [
+        "https://support.google.com/googleplay/android-developer/answer/9845334?hl=en: 'An internal test can have up to 100 testers per app'; 'Users need a Google Account or a Google Workspace account to join a test'; 'it becomes available to testers within minutes'; 'Internal tests might not be subject to standard Play policy or security reviews'; 'Each tester needs to opt in using the link'"
+      ]
+    },
+    {
+      "id": "delivery-52",
+      "verdict": "confirmed",
+      "correction": "Nuance: you must also be at least 18.",
+      "evidence": [
+        "https://support.google.com/googleplay/android-developer/answer/6112435?hl=en: 'There is a US$25 one-time registration fee'; 'you may be asked for a valid government ID and a credit card'; 'personal account owners must verify access to an Android device using the Play Console mobile app before publishing apps'",
+        "https://developer.android.com/guide/app-bundle: 'From August 2021, new apps are required to publish with the Android App Bundle'"
+      ]
+    },
+    {
+      "id": "delivery-53",
+      "verdict": "confirmed",
+      "correction": "Calling wzieba's action 'maintained' is generous. It has had no commit in 19 months, and it is a Docker action on node:20-alpine. Calling firebase-tools directly avoids depending on it. r0adkll/upload-google-play's action.yml uses node24.",
+      "evidence": [
+        "git clone of github.com/r0adkll/upload-google-play: tag v1.1.5 (2026-04-20); HEAD 744d577 2026-09-06 'Bump brace-expansion (#284)'; action.yml using: 'node24'",
+        "git clone of github.com/wzieba/Firebase-Distribution-Github-Action: tag v1.7.1 = HEAD bd49498 2025-03-28; README: '### token ... Deprecated! ... Use serviceCredentialsFileContent instead'; Dockerfile 'FROM node:20-alpine'"
+      ]
+    },
+    {
+      "id": "delivery-54",
+      "verdict": "confirmed",
+      "correction": "Nuance: only secondary sources say turning it off needs authentication (biometric or PIN); I found no Samsung page stating it. Samsung's FAQ adds that it also blocks updates to already-installed sideloaded apps.",
+      "evidence": [
+        "https://docs.samsungknox.com/admin/fundamentals/whitepaper/samsung-knox-mobile-security/system-security/samsung-auto-blocker/ (last updated 2025-03-07): 'only available on Galaxy devices running One UI 6.0 (Android 14) or later'; 'Only apps from official stores such as the Google Play Store and Galaxy Store can be installed'; 'Blocks commands by USB cable'; 'Blocks software updates by USB cable'",
+        "https://www.samsung.com/ca/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/ (updated Jul 15, 2026): 'Settings ... Security and privacy ... Auto Blocker'; 'If you choose to install apps from outside the Galaxy Store or Google Play Store, Auto Blocker will prevent the installation unless the feature is turned off'",
+        "https://www.samsung.com/au/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/ (updated Jul 22, 2026) FAQ 'Apps I downloaded are not updating': '...the app was downloaded from a source other than an authorised store, it cannot be updated while the Auto Blocker feature is on'",
+        "https://innovation-village.com/how-to-turn-off-auto-blocker-on-samsung-galaxy-phones/ (2026-10-18, secondary): 'You will be required to authenticate via biometric scan or PIN before disabling it'"
+      ]
+    },
+    {
+      "id": "delivery-55",
+      "verdict": "confirmed",
+      "correction": "This is now firmer. Samsung's own FAQ says devices released with One UI 6.1.1 or later have it on by default, and the S25 launched on One UI 7. Devices that updated from older versions keep their earlier setting.",
+      "evidence": [
+        "https://news.samsung.com/uk/protect-your-device-your-way-with-samsung-auto-blocker (31 Oct 2023): 'Auto Blocker is an opt-in package ... the feature is off by default'",
+        "https://docs.samsungknox.com/admin/fundamentals/whitepaper/samsung-knox-mobile-security/system-security/samsung-auto-blocker/: 'and is enabled by default. You can choose to disable it in the initial setup menu or on your device's Security & Privacy settings page'",
+        "https://www.samsung.com/au/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/: 'For Galaxy devices released with One UI 6.1.1, the Auto Blocker feature is set to On by default'; 'For devices that are updating to One UI 6.1.1 from a previous One UI version, the setting value for Auto Blocker remains the same'"
+      ]
+    },
+    {
+      "id": "delivery-56",
+      "verdict": "confirmed",
+      "correction": "Only USB debugging is reported to be blocked. No source says whether wireless debugging works with Auto Blocker on.",
+      "evidence": [
+        "https://forum.developer.samsung.com/t/s24-ultra-developer-option-usb-debugging-greyed-out/29526 (rendered): 'When I enabled Security and privacy > Auto Blocker, it would turn USB Debugging off and grey it out'; later replies: 'turned off autoblocker completely in security settings and it allowed me to enable usb debugging'",
+        "https://www.samsung.com/ca/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/: 'Blocks commands by USB cable'"
+      ]
+    },
+    {
+      "id": "delivery-57",
+      "verdict": "confirmed",
+      "correction": "It is no longer only a teardown. Android Authority later reported it as shipped in One UI 8.5, though I found no Samsung first-party page. The advice holds because Samsung says updates to sideloaded apps are blocked while Auto Blocker is on. The S25 is now moving to One UI 9, which keeps Auto Blocker and, in beta, adds a 'Security Report' of blocked installs.",
+      "evidence": [
+        "https://www.androidauthority.com/one-ui-8-5-auto-blocker-auto-turn-on-apk-teardown-3599873/ (rendered): string 'Turn on Auto blocker automatically 30 minutes after it is turned off'; 'this is an optional setting'",
+        "https://www.androidauthority.com/samsung-one-ui-9-auto-blocker-update-3666893/ (published 2026-05-14): 'with One UI 8.5 adding the ability for Auto Blocker to re-enable itself after 30 minutes of being turned off'",
+        "https://innovation-village.com/how-to-turn-off-auto-blocker-on-samsung-galaxy-phones/ (2026-10-18): 'For Galaxy phones running One UI 8.5 or newer ... automatically reactivates the security feature 30 minutes after it is disabled'",
+        "https://www.samsung.com/au/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/: sideloaded apps 'cannot be updated while the Auto Blocker feature is on'"
+      ]
+    },
+    {
+      "id": "delivery-58",
+      "verdict": "confirmed",
+      "evidence": [
+        "https://developer.android.com/about/versions/oreo/android-8.0-changes: 'The Allow unknown sources system setting has been removed; in its place, the Install unknown apps permission manages unknown app installs from unknown sources'; 'To determine whether an unknown source can install apps using the package installer, you should instead use the return value of canRequestPackageInstalls()'"
+      ]
+    }
+  ],
+  "missing": [
+    "The Galaxy S25 is now getting One UI 9 (Android 17, API 37): stable since 28 Sep 2026 in Korea and 5 Oct 2026 in the US, for carrier-locked and unlocked models. 'One UI 8 / Android 16' assumptions may be stale. If delivery-22's 'OS SDK minus 3' rule is right, Obtainium silent updates on Android 17 need targetSdk 34 or higher. Sources: https://www.androidauthority.com/samsung-one-ui-9-galaxy-s25-fold-7-flip-7-stable-3716021/ and https://www.androidauthority.com/samsung-one-ui-9-galaxy-s25-fold-7-flip-7-us-rollout-3719221/",
+    "Auto Blocker also blocks updates to sideloaded apps, not just first installs: 'it cannot be updated while the Auto Blocker feature is on'. It also blocks work-profile app installs and updates. So Obtainium background updates fail whenever Auto Blocker is on, including after a 30-minute auto re-enable. Source: https://www.samsung.com/au/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/",
+    "One UI 9 (beta, May 2026) adds an Auto Blocker 'Security Report' listing blocked installs over 7 days or a month. Maximum restrictions then blocks USB connections entirely, not only USB commands. Source: https://www.androidauthority.com/samsung-one-ui-9-auto-blocker-update-3666893/",
+    "Missing option: Google Play internal app sharing. You upload an APK or AAB signed with any key, debuggable builds allowed, and version codes may be reused. Google re-signs it with an Internal App Sharing key. Each link allows up to 100 downloaders and expires after 60 days. The Play Store installs it, which by Samsung's rule should pass Auto Blocker. It needs a Play Console account but no review or testing-track requirements. Because of the re-signing, it cannot update builds signed with the GitHub key. Source: https://support.google.com/googleplay/android-developer/answer/9844679?hl=en",
+    "Option E overstates its setup cost. Play internal testing has 'Requirements to access track: None' and can be used 'before completing your app setup' or for 'apps that are not fully configured', so a store listing and policy forms are not needed to start internal testing. Sources: https://support.google.com/googleplay/android-developer/answer/14151465?hl=en and https://support.google.com/googleplay/android-developer/answer/9845334?hl=en",
+    "Option E's 'different key from GitHub builds' can be avoided. For a new app, Play App Signing lets you choose and upload your own app signing key instead of having Google generate one. Play-delivered and GitHub/Obtainium builds can then share one certificate and update each other. Source: https://developer.android.com/studio/publish/app-signing ('or you would like to choose the app signing key for a new app instead of having Google generate it ... Upload your app's signing key to Play App Signing')",
+    "Missing option for the dev package from 2027: a free limited-distribution Android Developer Console account. It needs no ID and can register the .dev package and share it with explicitly authorized devices: 50 per the guide updated 2026-10-28, 20 per the FAQ. The owner's phones would then avoid the advanced flow. It is meant for 'testing and personal use', so the public release still needs a full account ($25, government photo ID and proof of address) or Play. Sources: https://developer.android.com/developer-verification/guides/limited-distribution and https://developer.android.com/developer-verification/guides/full-distribution",
+    "Firebase AAB distribution goes through Google Play internal app sharing. Testers enable 'Internal app sharing' in the Play Store, and Google Play re-signs the generated APKs with a test app signing key. It needs a Play-linked app already published on at least the internal track. Sources: https://firebase.google.com/docs/app-distribution/android/distribute-console?apptype=aab and https://firebase.google.com/docs/app-distribution/get-set-up-as-a-tester?platform=android",
+    "Play-side verification details. New apps created in Play Console have their package name registered automatically. Play developers had to register any remaining Play apps by 30 Sep 2026 'to avoid global removal from Google Play'. Sources: https://developer.android.com/developer-verification/guides/google-play-console and https://android-developers.googleblog.com/2026/06/android-developer-verification.html",
+    "Scope limits of enforcement. Outside Play, enforcement 'will only apply to mobile and tablet form factors in the selected regions'. Checks do not run in comprehensively sanctioned countries or where Google Mobile Services are unsupported, and AOSP and non-certified devices are exempt. Sources: https://developer.android.com/developer-verification/guides/faq and https://support.google.com/android/answer/17065026?hl=en",
+    "Advanced flow practicalities. Switching it off briefly gives a 10-minute grace period without a new 24-hour wait. The flow also governs updates to unregistered apps. The Android Developer Verifier (com.google.android.verifier) can be installed from Google Play. Developer options need not stay on after enabling. Sources: https://www.androidauthority.com/google-android-advanced-flow-sideloading-rollout-begins-3700073/, https://support.google.com/android/answer/17065026?hl=en and https://developer.android.com/developer-verification/guides/faq",
+    "A cheap CI guard is available. The Android Developer ID Status API (androiddeveloperidstatus.googleapis.com, API key, 1,000 requests per day) can check whether io.github.nauroth.rouxtine is registered and whether it matches the project's certificate fingerprint (REGISTERED_WITH_ANOTHER_CERTIFICATE_FINGERPRINT). Source: https://developer.android.com/developer-verification/guides/check-registration-status",
+    "Later F-Droid or IzzyOnDroid distribution affects registration. If a repository re-signs the app, as F-Droid does without reproducible builds, its key must be added to the registration. If the repository build reaches 50 or more installs before that key is registered, ownership must be proven by publishing a version with assets/adi-registration.properties. A repository using the developer's own key needs no extra step. Source: https://developer.android.com/developer-verification/guides/open-source-app-registration",
+    "Firebase specifics that affect a dev channel. The CLI's binary_download_uri 'expires after one hour'. Tester invitations expire after 30 days, and a build shows an expiry notice 30 days before its 150-day limit. Source: https://firebase.google.com/docs/app-distribution/android/distribute-cli"
+  ]
+}

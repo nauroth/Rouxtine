@@ -1,0 +1,235 @@
+{
+ "resources": [
+  {
+   "key": "gdoc:document:150UxosBFn5Trhi16wa4qv2u06mTweXHSsDH6iv5JeRc",
+   "url": "https://docs.google.com/document/d/150UxosBFn5Trhi16wa4qv2u06mTweXHSsDH6iv5JeRc/edit",
+   "title": "C-Roux4 4x4 Speedcubing Method (doc tab 'CR4 4x4 Speedcubing Method'; hub link text 'CriticalCubing's CR4 Tutorial')",
+   "author": "CriticalCubing (stated in the doc: '(by CriticalCubing)')",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-bigcube",
+   "level": "Beginner to intermediate big-cube. It assumes the reader already solves 3x3 with Roux (FB, SB, CMLL, LSE) and can pair 4x4 centres and edges. There are no algs to learn.",
+   "summary": "A single-tab Google Doc (about 4.7 KB of text, plus 7 rendered 3D 4x4 state images, one per step). It explains CR4 (also called C-Roux4 or Critical-Roux4), a 4x4 method that reduces the cube to 3x3 while building the Roux First Block early, then finishes with normal Roux. There are 7 steps. (1) Two opposite centres, which are the FB and SB centres, so the L/R colours when white/yellow are on D/U. (2) First Block as a 1x3x4 block on L. The doc lists several ways to build it: pair DL and the 2 FB edges and then add corners; make a square and expand it; insert DL and then freestyle; or a line approach. The author prefers pairing the 3 edges first. (3) Two adjacent centres (on D and B) while pairing any edge into DB. (4) Pair 3 edges and park them in the R slice without breaking FB or the B centre, either freestyle or by pairing in DF. (5) The last two centres using inner-layer moves, so the R-slice edges are untouched and MU LSE-style TPS can be used. (6) Finish edge pairing: pair 2, then 2 more, and the last one pairs itself. (7) SB, CMLL, LSE, plus parity if any. Stated pros and cons: lots of freedom, highly intuitive, relies on M slices, and a move count comparable to other 4x4 methods. Two example solves give a scramble and step-commented solutions, each linked to an alg.cubing.net 4x4 replay. Parity is mentioned but no parity algs are given. No licence. Linked from rouxcubing.com BIG CUBES > BIG CUBE TUTORIALS > CR4.",
+   "algSets": [],
+   "drills": [
+    "Opposite-centres-first: on scrambled 4x4s, build only the two FB/SB (L/R colour) centres and time it",
+    "4x4 First Block with each approach the doc lists (3 edges then corners; square and expand; DL first then freestyle; line), then compare which one is fastest",
+    "Two adjacent centres (D and B) while pairing any free edge into DB in the same step",
+    "Pair 3 edges into the R slice while protecting FB and the B centre (freestyle vs pairing in DF)",
+    "Last two centres with inner-slice moves only, aiming for LSE-like MU TPS",
+    "Final edge pairing as 2 + 2 (the last edge is automatic) using the U layer and DF",
+    "Full CR4 solves with step splits, then the 3x3 Roux stage with parity handling",
+    "Replay and copy the two example solves"
+   ],
+   "infoTopics": [
+    "CR4 / C-Roux4 step order and the reasoning behind it",
+    "Colour scheme: the first two centres are the FB/SB (L/R) colours when white/yellow are on D/U",
+    "4x4 FB building variants (edge pairs then corners, square expansion, DL first, line)",
+    "Keeping the R slice and inner layers free so centres can be finished with MU-style moves",
+    "Big-cube Roux finishes with SB, CMLL and LSE, with OLL/PLL parity handled at the end",
+    "Pros and cons of a Roux-based 4x4 method (freedom and intuition vs M-slice reliance)"
+   ],
+   "appIdeas": [
+    "Big-cube section: a CR4 step-by-step guide with one 3D 4x4 state image per step, following the doc's 7 steps",
+    "A 4x4 timer with CR4 step splits (opposite centres, FB, adjacent centres + DB edge, 3 R-slice edges, last 2 centres, edge pairing, 3x3 Roux stage), like the 3x3 Roux step splitter",
+    "Link the CR4 guide to the big-cube parity trainers (parity CMLL, parity 4c), because CR4 ends in Roux LSE with possible parity",
+    "4x4 example-solve player that replays scramble + step-commented solutions (the doc's own examples are alg.cubing.net links)",
+    "A big-cube method chooser listing CR4 next to other Roux-based 4x4 approaches, with the doc's stated pros and cons"
+   ],
+   "license": "None stated. Treat it as all rights reserved by CriticalCubing: link out, or ask permission before reusing the text or images.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-5/cr4.txt (also cr4.html and cr4-imgs/ with the 7 step images)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1KY3DT86JLpPUDb98km4ck_hrpdRooC8vg2U8Y1zJipk",
+   "url": "https://docs.google.com/spreadsheets/d/1KY3DT86JLpPUDb98km4ck_hrpdRooC8vg2U8Y1zJipk/edit#gid=2015768980",
+   "title": "Bigcube Parity OLL/PLL and C(M)LL (hub link texts: 'TDM's Parity CMLL', 'Louis' parity CMLL algorithms')",
+   "author": "TDM / Louis according to the hub link texts, presumably Louis de Mendonça. The sheet itself names no author. It thanks 'Rob Yau (+ others) for most of the cool algs' and says 'Last updated: July 2025'.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-bigcube",
+   "level": "Advanced big-cube: the user is expected to know full CMLL and at least one OLL-parity alg",
+   "summary": "A Google Sheet with 6 visible tabs (About, OLL, PLL, C(M)LL, 4c, QR) and 4 hidden tabs that only the xlsx export shows (OLL (old), PLL (no images), CLL + edge control, CLL E2 + parity). All were saved. The About tab defines four named single-dedge-flip OLL-parity algs that the other tabs use as macros: DP (double parity), LP (Lucas parity), BDP (back DP) and BLP (back LP). For each it says whether it flips UF or UB, gives equivalences (DP U2 = U2 BDP, LP U2 = U2 BLP) and explains that '(P)' means any parity alg with the flipped edge in UF. A UB-flipping alg can be used from a U2-offset angle, and the AUFs after it may change. '(cancel)' marks a cancellation, alternatives are in cell notes, and every case has at least one Lucas-parity alg. The Roux-relevant core is the C(M)LL tab: 43 rows (the 42 CMLL cases plus solved corners). Each row gives an alg that solves the corners and fixes OLL parity together, usually a short CMLL/OLL-style trigger plus a (P) macro at a stated AUF. Rows are grouped by the 8 corner-orientation sets: O (solved/adj/diag), S, A, T, L, U, H and P (Pi). The set headers carry recognition hints, for example the oriented corner location, or the angle from which a named CO alg would solve orientation. Each case has a nickname (sune, nik, apple, Lapple, Ashit, sexysledge, T long/short, goodadj, front/back comm, checkerboard, bars, E2, pure, good, bad, diag and so on). A '*' marks algs that do not preserve F2L. These use wide/M-slice moves, which I infer are still F2B-safe for Roux. 37 C(M)LL cells have notes with alternative algs. The 4c tab links to TDM's Parity 4c doc, says its algs are 'bad and I doubt they're worth learning', and recommends using DFDB recognition to force either a skip or an opposite swap on U and then doing parity. The OLL tab (54 OLL-parity cases with 4x4 top-view images, 18 notes) and the PLL tab (22 PLL-parity cases with images, names and some recognition notes, 18 notes) are for reduction/CFOP last layer and are not Roux. QR holds one QR-code image, which I did not decode. Hidden drafts: CLL + edge control has 43 CLL cases, each marked 'CLL' or 'E2'/'HAX', with a few edge-state variants. CLL E2 + parity is an incomplete enumeration of 192 last-layer edge states in 4 groups of 48 (labelled 1!p, 1p, 3!p, 3p), with a fill counter and ZBLL/OLLCP notes. No licence.",
+   "algSets": [
+    {
+     "name": "Parity C(M)LL (CMLL + 4x4 OLL parity in one step)",
+     "caseCount": "43 (42 CMLL cases + solved corners)",
+     "notes": "Per set: O 3 (solved, adj, diag), S 6, A 6, T 6, L 6, U 6, H 4, P/Pi 6. Each case has one main alg written as a CMLL-style part plus a (P)/DP/LP/BDP/BLP parity macro at a given AUF. 37 cells have notes with alternatives. '*' marks algs that break F2L (wide/M-slice moves)."
+    },
+    {
+     "name": "Named OLL-parity base algs (DP, LP, BDP, BLP)",
+     "caseCount": "4",
+     "notes": "Single-dedge-flip parity algs, used as macros in the other tabs. DP and LP flip UF, BDP and BLP flip UB. DP U2 = U2 BDP and LP U2 = U2 BLP."
+    },
+    {
+     "name": "Bigcube OLL parity (OLL with one flipped dedge), CFOP/reduction",
+     "caseCount": "54",
+     "notes": "Not Roux. There are 2 EO states (3 edges oriented, 1 edge oriented), each with 27 cases: O 1, S 4, A 4, T 4, L 4, U 4, H 2, Pi 4. The hidden old version also lists the bad/good edge position (F/R/B/L). The current tab shows case images and has 18 notes."
+    },
+    {
+     "name": "Bigcube PLL parity, CFOP/reduction",
+     "caseCount": "22",
+     "notes": "Not Roux. 2 pure edge-parity cases (opposite, adjacent edges) and 20 named PLL+parity cases (Oa/Ob, W, adjacent/diagonal corners, M, Ca/Cb, Ka/Kb, Ba/Bb, Da/Db, Pa/Pb, X, Q, Sa/Sb). Some have recognition notes. There are 18 notes with alternatives."
+    }
+   ],
+   "drills": [
+    "Learn the four parity macros (DP, LP, BDP, BLP) and which edge each flips",
+    "Parity CMLL recognition: identify the CMLL case and notice the flipped dedge, then choose the AUF so the flipped edge sits in UF or UB as the alg needs",
+    "Drill each of the 43 C(M)LL parity cases with the (P) slot filled by your own preferred parity alg, including the AUF changes after parity",
+    "Practise the cancellations marked (cancel) between parity alg and CMLL part",
+    "Parity 4c strategy: use DFDB recognition to force a skip or an opposite swap on U, then do one parity alg"
+   ],
+   "infoTopics": [
+    "4x4 OLL parity in Roux: fixing it together with CMLL instead of during LSE",
+    "Parity alg families (double parity, Lucas parity, and their back/UB variants) and how they swap via U2",
+    "Notation conventions: (P) placeholder, (cancel) markers, AUF in parentheses, U(') ambiguity",
+    "F2L preservation (CFOP) vs F2B preservation (Roux) when choosing big-cube CMLL algs",
+    "Recommended strategy for 4c parity (DFDB recognition)"
+   ],
+   "appIdeas": [
+    "Big-cube Roux 'parity CMLL' trainer: the 42 CMLL cases (+ solved) on a 4x4 top-layer diagram with a flipped dedge, reusing the app's CMLL case taxonomy plus a parity flag",
+    "User setting for the preferred parity alg (DP, LP, BDP, BLP or custom) that fills '(P)' placeholders in alg templates, adjusting AUFs automatically",
+    "Alg data model: allow macro tokens such as (P) and annotations such as (cancel), so one stored case can show several equivalent forms",
+    "Carry over only the Roux-relevant parts (C(M)LL, 4c advice); leave out the OLL/PLL parity tabs, which are CFOP/reduction and out of scope",
+    "Show the set-level recognition hints (CO angle definitions) and the nicknames as optional labels",
+    "Credit TDM/Louis and Rob Yau, and ask permission before bundling any of these algs"
+   ],
+   "license": "None stated. The sheet credits Rob Yau (+ others) for most algs and says 'Last updated: July 2025'. Treat it as all rights reserved: ask TDM/Louis before bundling algs, or link out.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-5/ (paritycmll-<gid>.csv for the 6 visible tabs, paritycmll.xlsx, paritycmll-sheets/xlsx-*.csv for all 10 tabs incl. hidden, paritycmll-xlsx/ unzipped with case images, htmlview-1KY3DT86JLpPUDb98km4ck_hrpdRooC8vg2U8Y1zJipk.html)"
+  },
+  {
+   "key": "gdoc:document:1iT22CcA3wGJHfoAQPriFbNNaTYJoUKYUOskYINH5Ypw",
+   "url": "https://docs.google.com/document/d/1iT22CcA3wGJHfoAQPriFbNNaTYJoUKYUOskYINH5Ypw/edit?tab=t.0",
+   "title": "Bigcube parity 4c (hub link text 'TDM's Parity 4c')",
+   "author": "TDM according to the hub link text, presumably Louis de Mendonça. The doc names no author.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-bigcube",
+   "level": "Advanced big-cube Roux (LSE with PLL/edge-swap parity)",
+   "summary": "A single-tab Google Doc (about 2 KB). The intro says the algs are written for 4x4 and work on bigger cubes by substituting wide moves (for example Rw -> 3Rw on 6x6). It describes itself as an attempt at a complete list that also documents simple known tricks, warns that many solutions are probably not optimal, puts the worst ones in italics, and asks for better solutions. The 'Oriented centres' section has 24 cases, each with 1 to 3 algs; 9 cases have an italic (worst) alg. The 'Misoriented centres' section is empty except for a note asking for contributions. Cases are named by which two M-slice edges are swapped: U swap (UF/UB), D swap, F swap, B swap, and the diagonal UFDB and UBDF swaps. Each has '+ M2' / 'M2 +' variants for the centre offset. Four-cycle cases are named O / O' (+M2), or by composite names that describe the front/back or top/bottom halves in 3x3 4c terms (for example 'Front U2M2U2, back E2M'E2M'). My inference: 24 = the 12 odd permutations of the four M-slice edges (6 swaps + 6 four-cycles) x 2 centre states (solved or M2), so the oriented-centre set is complete. The algs are built from a standard 4x4 edge-swap parity alg conjugated with M/U setups, some written in [A: B] conjugate notation. The Parity CMLL sheet's 4c tab calls these algs 'bad' and recommends forcing a U swap or skip through DFDB recognition instead. No licence.",
+   "algSets": [
+    {
+     "name": "Parity 4c, oriented centres (Roux step 4c with 4x4 edge-swap/PLL parity)",
+     "caseCount": "24",
+     "notes": "Named by which M-slice edges are swapped (U, D, F, B, UFDB, UBDF) or by 4-cycle descriptions (O, O', front/back and top/bottom composites), each with or without an M2 centre offset. 1 to 3 algs per case, with the worst in italics (9 cases have an italic alg)."
+    },
+    {
+     "name": "Parity 4c, misoriented centres",
+     "caseCount": "0 (section is an empty placeholder)",
+     "notes": "The author asks for contributions; no cases are listed."
+    }
+   ],
+   "drills": [
+    "After ULUR on a 4x4, recognise which M-slice edges are swapped (U/D/F/B/diagonal) or cycled, and whether the centres are M2 off",
+    "Case drill of the 24 oriented-centre parity 4c cases",
+    "Alternative strategy drill: use DFDB recognition to force a U swap or skip, then one standard parity alg (the parity CMLL sheet's advice)"
+   ],
+   "infoTopics": [
+    "How 4x4 PLL parity shows up in Roux LSE as an odd permutation of the M-slice edges",
+    "Scaling 4x4 parity algs to bigger cubes by changing wide-move depth",
+    "Centre states in big-cube LSE (oriented, M2 offset, misoriented)",
+    "Using conjugates of one parity alg to cover all cases"
+   ],
+   "appIdeas": [
+    "Big-cube LSE parity trainer: 24 oriented-centre cases, generated from the odd-permutation set rather than copied. The app could also generate the 24 misoriented-centre cases the doc leaves blank",
+    "Recognition drill: show the UF/UB/DF/DB edges of a 4x4 (or a 3x3-style M-slice view with a parity marker) and ask the user to name the swap type",
+    "Teach both approaches: direct parity 4c algs, or the DFDB-forced-U-swap strategy recommended in the parity CMLL sheet",
+    "Wide-move depth setting so displayed algs adapt to 4x4/5x5/6x6"
+   ],
+   "license": "None stated. Treat it as all rights reserved: link out or ask TDM before reuse. The algs are simple conjugates of a standard parity alg and could be regenerated independently.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-5/parity4c.txt (also parity4c.html, which keeps the italics)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1WvcXC7tXIxxnzPmsMBbV43SuVs33oaUW3LSDFzVAriQ",
+   "url": "https://docs.google.com/spreadsheets/d/1WvcXC7tXIxxnzPmsMBbV43SuVs33oaUW3LSDFzVAriQ/edit?gid=0#gid=0",
+   "title": "'im the twizzler baby' (sheet title); tab '50 2h roux example solves (assuming best fb+ss)'; hub link texts 'Eff's Example Solves' / 'eff's Example Solves (2H)'",
+   "author": "Eff, according to the hub link texts (Eff also appears in the hubs' list of Rouxer YouTube channels)",
+   "kind": "reconstructions",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "Intermediate to advanced 2H: it uses EOLRb, CMLLEO, EOFBb and cancellations, and has a 38 STM average",
+   "summary": "One tab with 50 two-handed Roux example solves. The tab title says they assume the best FB+SS, so FB and SS are idealised rather than inspection-realistic. Columns: scramble; a link to the alpha.twizzle.net editor with the scramble as setup and the solution split by step with // comments; then move counts per step: fb, sb (which includes SS), cmll, lse and total. Move counts are in STM and include AUFs. An averages row gives FB 5.98, SS+SB 12.04, CMLL 9.82, LSE 10.50 and total 38.34. A 'woaj' row gives the per-column minimums (3, 6, 0, 0) and their sum (9). Ranges: FB 3-8, SS+SB 6-16, CMLL 0-15 (2 skips), LSE 0-15 (1 skip), total 26-46. The step labels in the comments are inspection, FB, SS, SB, CMLL, CMLL(EO), EOLRb (31 times), 4c (34), LSE, EOFBb, pseudopair, 'with dot avoidance', 'cancelling into' and 'with 4c influence'. There are 13 standalone notes on ergonomics and choices: 'eido' the U2' with the thumb on top, M' with the right ring finger, avoid a risky regrip, finger-trick M as r' R, skip an available OLLCP, choose an SS that preserves the next pair, pick a CMLL because it gives a better EOLRb. No algs are taught and there is no licence.",
+   "algSets": [],
+   "drills": [
+    "Solve each scramble yourself first, then compare your per-step move counts with Eff's",
+    "Move-count targets for advanced 2H: FB about 6, SS+SB about 12, CMLL about 10, LSE about 10.5 STM",
+    "Pseudo-pair FB starts, and SS choices that set up the next pair",
+    "EOLRb with dot avoidance and with 4c influence; recognising when EOFBb is better",
+    "CMLL choice for a better EOLRb (CMLLEO-style influence) and cancelling steps into each other",
+    "Ergonomics notes: thumb-on-top U2', ring-finger M', avoiding regrips"
+   ],
+   "infoTopics": [
+    "Per-step STM benchmarks for advanced 2H Roux",
+    "EOLRb, EOFBb, CMLLEO and dot avoidance in real solves",
+    "Step cancellations and influencing the next step",
+    "2H finger-trick and grip choices for Roux"
+   ],
+   "appIdeas": [
+    "Example-solve library format: scramble + step-labelled, commented solution + per-step STM, replayable on the app's 3D cube",
+    "Benchmark view: compare a user's step move counts with a reference set (for example the averages here), per step",
+    "'Try it first' mode: show the scramble, let the user solve or enter a solution, then reveal the expert's annotated solution",
+    "Technique tags on each step (EOLRb, EOFBb, CMLLEO, pseudopair, dot avoidance, cancellation) so solves can be filtered",
+    "Importer for alpha.twizzle.net and alg.cubing.net URLs (setup-alg/setup + alg with // comments) into the app's recon model"
+   ],
+   "license": "None stated. Treat it as all rights reserved by Eff: link to it, or ask permission before bundling the solves or comments.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-5/eff2h-0.csv (also eff2h.xlsx and htmlview-1WvcXC7tXIxxnzPmsMBbV43SuVs33oaUW3LSDFzVAriQ.html)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1XfbJ7zC_GRNjeLxmcUX_lyGmNhLqb-coG8Jl94UGOGA",
+   "url": "https://docs.google.com/spreadsheets/d/1XfbJ7zC_GRNjeLxmcUX_lyGmNhLqb-coG8Jl94UGOGA/edit?gid=0#gid=0",
+   "title": "Example Solves Archive",
+   "author": "Not stated",
+   "kind": "reconstructions",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "All levels: videos are tagged with the solver's estimated global average (Roux 3x3 from 6.6 s to 18 s, Roux OH from 9.5 s to 17 s)",
+   "summary": "A Google Sheet index of YouTube example-solve videos for every WCA event, with 18 tabs: 3x3, 2x2, 4x4, 5x5, 6x6, 7x7, 3BLD, FMC, OH, WF, Clock, Megaminx, Pyraminx, Skewb, Square-1, 4BLD, 5BLD and MBLD. All were fetched. Each tab groups video links by method, with columns 'Estimated Global' (the solver's level), 'Solver' and sometimes 'Extra info' (for example 'Cyotheking Style'). Most tabs contain only a method heading and no videos: 5x5-7x7 Reduction, 3BLD and 4BLD 3-Style, FMC Various, WF CFOP, Clock Pochmann, Megaminx asking for help, Pyraminx V First, Skewb NS. Roux content: the 3x3 tab's Roux section has 14 entries (13 unique videos, because Iuri Grangeiro's is listed twice with 9.8 and 10.1): 10 by Kian Mansour, 1 by Vincent Wong (the video is now on the Kangaroux channel), 1 by Kavin Tangtartharakul, 1 by Iuri Grangeiro and 1 by Yuval Porat (a sub-20 solver). The OH tab's Roux section has 8 Kian Mansour OH example-solve videos. Everything else is not Roux: CFOP (1 3x3, 1 OH), ZZ (6), 2x2 EG/CLL (8), 4x4 Yau (17), Square-1 (1), 5BLD (2) and an MBLD improvement video. I checked all 21 Roux video IDs through YouTube oEmbed on 2026-10-29 and all are live. The Google redirect timestamps in some links point to the sheet being built around early 2019 (my inference). No licence.",
+   "algSets": [],
+   "drills": [
+    "Watch example solves from solvers slightly faster than you (using the estimated global average) and pause to predict the next step",
+    "Watch Kian Mansour's OH Roux example solves for OH-specific technique"
+   ],
+   "infoTopics": [
+    "Example solves by top Roux solvers at several skill levels (2H and OH)",
+    "Using the solver's estimated global average as a level indicator for learning material"
+   ],
+   "appIdeas": [
+    "A curated 'Watch' list of Roux example-solve videos (2H and OH), filtered to Roux only and sortable by the solver's estimated average so users find solves near their level",
+    "External-video metadata model: solver, estimated average, event (2H/OH), style note, availability check date",
+    "Link out to YouTube instead of embedding or copying, and re-check availability periodically (as was done here via oEmbed)"
+   ],
+   "license": "None stated for the sheet. The videos belong to their uploaders. Link only.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-5/ (exarchive-<gid>.csv for all 18 tabs, exarchive.xlsx, htmlview-1XfbJ7zC_GRNjeLxmcUX_lyGmNhLqb-coG8Jl94UGOGA.html, oembed.tsv with the video checks)"
+  },
+  {
+   "key": "gdoc:spreadsheets:16OiJavT44OOGgxPjxk8sJ4NvTnfqM8oz2miVH0rB3bs",
+   "url": "https://docs.google.com/spreadsheets/d/16OiJavT44OOGgxPjxk8sJ4NvTnfqM8oz2miVH0rB3bs/edit",
+   "title": "Roux Reconstructions (hub link text 'Roux Reconstruction Database')",
+   "author": "Maintainer not stated. Named contributors: Kian Mansour (analysis of Sean Villanueva's 5.98 average), Iuri Grangeiro, Vincent Wong, Louis de Mendonça, Pyjam, Ryan Peh and Antonio Kam.",
+   "kind": "reconstructions",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "Intermediate to advanced (fast 2H and OH Roux solves, including world-class averages)",
+   "summary": "A Google Sheet with 4 tabs. 'Info' gives the title, says to use the tabs, and says each solve's comments are cell notes on its link. 'Described Reconstructions/Example Solves' has Sean Villanueva's 5.98 average (5 solves). It links to Kian Mansour's analysis video with per-solve timestamps, and the cell notes hold each solve's step-commented reconstruction with ETM and TPS. It also has Sean's 4.98 single, linked to Iuri Grangeiro's breakdown video, plus a language column ('en'). 'Reconstructions' has 16 rows (8 2H, 7 OH, 1 unspecified): 15 alg.cubing.net recon links and 1 YouTube video. Solvers are Iuri Grangeiro, Ryan Peh, Antonio Kam, Ryan Peh + Antonio Kam, Vincent Wong, Louis de Mendonça and Pyjam. Remarks include 'Regripless solution', 'Sub-20 STM', 'F2B found by Ryan', 'LSE Skip (7.58)' and 'Strong SB Influencing'. 'Submit Solves' links a Google Form that was still accepting entries on 2026-10-29 (it asks for a type, then a video/example-solve link or text). The most reusable part is the technique-tag checkbox taxonomy, grouped by step. First Block: DL + 2 Pairs, Line-line 2x2x1 + pair, Line-Line, BL Edge fix, Non-Matching Centers, Premade Square. Second Block: Edge First, Pair First, Blockbuilding, Multislotting. CMLL: EO Influencing. LSE: Oriented Centers, Misoriented Centers, EOLRb (direct), EOBF. Tag use across the 16 reconstructions: Edge First 10, Oriented Centers 10, Blockbuilding 10, Line-Line 6, Line-line 2x2x1 + pair 6, Multislotting 6, DL + 2 Pairs 4, Misoriented Centers 4, EOLRb 3, Pair First 2, EO Influencing 2, EOBF 1. There are 22 solves in all, so the database is small and has not grown much. All 3 YouTube videos are live (oEmbed, 2026-10-29). No licence.",
+   "algSets": [],
+   "drills": [
+    "Study reconstructions filtered by technique (for example Line-Line FB, Multislotting SB, misoriented-centre LSE) and copy the approach on the same scramble",
+    "Replay the 5.98 average solves with ETM/TPS to see what world-class efficiency and turning speed look like",
+    "OH Roux recon study (7 OH entries)"
+   ],
+   "infoTopics": [
+    "A taxonomy of FB approaches (DL + 2 pairs, line-line, 2x2x1 + pair, BL edge fix, non-matching centres, premade square)",
+    "SB approaches (edge first, pair first, blockbuilding, multislotting)",
+    "EO influencing during CMLL; LSE with oriented vs misoriented centres, EOLRb and EOBF",
+    "ETM and TPS analysis of fast averages"
+   ],
+   "appIdeas": [
+    "Use this step-grouped technique taxonomy as the app's tagging schema for recons and the user's own solves (FB/SB/CMLL/LSE approach tags), with filters in a recon library",
+    "Compute and show ETM and TPS per solve from a recon plus time, as the analysis notes do",
+    "Fields per recon: solver, event (2H/OH), language of commentary, remarks, link; link out to existing recon sites (alg.cubing.net, reco.nz) instead of copying",
+    "If the app ever has shared content: a community submission flow like the sheet's Google Form, with technique tags chosen at submit time"
+   ],
+   "license": "None stated. Community-contributed and openly collected through a form, but there are no reuse terms. Treat it as all rights reserved by each contributor; reuse the tag taxonomy idea and link to individual recons.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-5/ (reconDB-<gid>.csv for the 4 tabs, reconDB.xlsx with notes and hyperlinks, reconDB-sheet-<gid>.html, reconDB-form.html, htmlview-16OiJavT44OOGgxPjxk8sJ4NvTnfqM8oz2miVH0rB3bs.html)"
+  }
+ ]
+}

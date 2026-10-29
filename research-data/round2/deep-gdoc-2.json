@@ -1,0 +1,247 @@
+{
+ "resources": [
+  {
+   "key": "gdoc:spreadsheets:1WHnksK4yyv63sv3Es-PuKfnFRtZGafqp6rEuEfOx-cg",
+   "url": "https://docs.google.com/spreadsheets/d/1WHnksK4yyv63sv3Es-PuKfnFRtZGafqp6rEuEfOx-cg/edit",
+   "title": "OH CMLL List (Anto's OH CMLL)",
+   "author": "Anto Kam (Rouxles). The sheet has no byline. Attribution comes from the rouxcubing.com label \"Anto's OH CMLL\", and YouTube oEmbed shows all 55 linked alg videos belong to the channel \"Rouxles [Anto]\" (@Rouxles). Case images are served from rouxl.es (formerly rouxles.github.io).",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-oh",
+   "level": "intermediate to advanced (OH Roux solvers learning or refining full 1-look CMLL); this is the reference OH CMLL sheet that rouxcubing.com embeds and tutorial.rouxers.com /intermediate/cmll.html links to",
+   "summary": "A Google Sheet with 10 tabs: Info, one tab per corner-orientation (OCLL) group (O, H, PI, U, T, S, AS, L), and a hidden 'template' tab. It holds a full 1-look OH CMLL set: 42 cases and about 124 algorithms, written for left-hand OH, so the algs use R/U/F/r/f moves. A cell comment tells the solver to use the left index finger to push the UBL corner for L moves. Each group tab uses the same grid. Row 1 holds the case slot numbers 1-6; O uses only slots 3 and 6, and H uses 1, 2, 3 and 6. Row 2 gives the pattern name. Row 3 has an =IMAGE() formula that builds the case picture URL as rouxl.es/images/333/cmll/<Group><slot>.png. From row 4 down, each column lists the main alg first, then alternatives, each with its pre-AUF in brackets. Pattern names: O = Adjacent Swap / Diagonal Swap. H = Columns / Row / Column / Rows. Pi, AS and S use Right/Left Bar, Back/Forward Slash, X Checkerboard and Columns. U and T use Front/Back Row, Rows, Columns and Bars. L = Pure / Front Commutator / Good / Best / Back Commutator / Diagonal. The Info tab says italic algs are not main algs: they are alternatives used to influence LSE edge orientation (16 italic algs). 55 algs are HYPERLINKs to short demo videos on the Rouxles YouTube channel, titled by case id (for example 'Pi1 1', 'Pi1 2'). Every one of the 42 cases has at least one video, and 13 cases have a second one for an alternative alg. The algs are OH-specific: z rotations with D moves, wide moves, and cell comments on fingertricks ('Table R2' table abuse; the left-index push for L/L'). The hidden template tab is an older layout with 42 VisualCube (cubing.net) plan-view images at stage=cmll. Saved: CSV per tab, the xlsx export, the htmlview, an all-tabs text dump with style and comment markers, and the oEmbed titles of the 55 videos.",
+   "algSets": [
+    {
+     "name": "OH CMLL (full 1-look CMLL, left-hand OH)",
+     "caseCount": "42 (O 2, H 4, Pi 6, U 6, T 6, S 6, AS 6, L 6), about 124 algs in total",
+     "notes": "Grouped by OCLL shape. Each case has a slot number (rouxl.es image id, e.g. Pi3, As5, H6, O3) and a sticker-pattern name. Main alg first, alternatives below it, pre-AUF in brackets. Italic = EO-influencing alternative (16)."
+    },
+    {
+     "name": "Linked alg demo videos (Rouxles YouTube)",
+     "caseCount": "55 videos covering all 42 cases",
+     "notes": "One video per main alg, plus a second alg's video for 13 cases. Titled '<caseId> <n>'."
+    }
+   ],
+   "drills": [
+    "Learn full CMLL group by group, one OCLL tab at a time",
+    "Watch each alg's execution video and copy the OH fingertricks",
+    "Pick the italic (EO-influencing) alternative when it gives a better LSE EO state",
+    "Practise OH-specific execution: table-abuse R2, left-index push for L moves, z-rotation/D-move variants"
+   ],
+   "infoTopics": [
+    "Full CMLL case set for OH Roux, grouped by OCLL shape",
+    "Case naming by side-sticker pattern (bars, slashes, checkerboard, rows/columns, pure/commutator/diagonal for L)",
+    "OH alg choice (R/U/F-heavy, wide moves, z+D variants)",
+    "Using alternative CMLL algs to influence LSE edge orientation",
+    "OH fingertricks: table abuse, index push for L moves"
+   ],
+   "appIdeas": [
+    "OH CMLL trainer mode that takes the solver's OH hand and auto-mirrors algs (R<->L, f<->f' etc.). The right-handed copy of this sheet was mirrored by hand.",
+    "Per-alg tags: main, alternative, EO-influencing (italic here), each with a short fingertrick note such as 'table R2' or 'push UBL with left index'",
+    "Canonical CMLL case ids that match the rouxl.es image ids (O3, O6, H1, H2, H3, H6, Pi1-6, U1-6, T1-6, S1-6, As1-6, L1-6), with a mapping table to other sources' names and numbers. Kian's and Derin's numbering and names differ.",
+    "Link out to the Rouxles demo video for each case. Link, do not embed or copy, unless permission is obtained.",
+    "Render case images in-app (plan view, CMLL stage mask), as the hidden VisualCube template tab does, instead of reusing rouxl.es images",
+    "Let the user choose their alg per case from several candidates, and drive the trainer from that choice"
+   ],
+   "license": "No licence or permission terms are stated anywhere in the sheet or doc, so default copyright applies to the author's selection and presentation. The demo videos (Rouxles YouTube) and the rouxl.es case images are Anto's own content. The app must link to them, not copy them, unless Anto gives permission.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-2/1WHnksK4yyv63sv3Es-PuKfnFRtZGafqp6rEuEfOx-cg.alltabs.txt (plus .gid*.csv per tab, .xlsx, .htmlview.html, and anto-videos-oembed.tsv)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1n0RW9g889rg7Lk4xh1WpQlzwM-QtTgnz5O1Oj-WEXBs",
+   "url": "https://docs.google.com/spreadsheets/d/1n0RW9g889rg7Lk4xh1WpQlzwM-QtTgnz5O1Oj-WEXBs/edit",
+   "title": "Right Handed OH CMLL List",
+   "author": "刘埃尔, per the rouxcubing.com label \"刘埃尔's Right-Handed OH CMLL\". The Info tab says \"(sheet copied from anto's)\".",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-oh",
+   "level": "intermediate to advanced (OH Roux solvers who turn with the right hand)",
+   "summary": "A copy of Anto's OH CMLL sheet, with the same 10 tabs, the same per-case grid, the same rouxl.es =IMAGE() case pictures and the same Info text, including 'italic algs only to influence EO'. The algs are rewritten as L-face (L/l/F/f/U) versions for right-hand OH. Coverage: the same 42 cases in O 2, H 4, Pi 6, U 6, T 6, S 6, AS 6, L 6. There are about 95 algs in total, and 9 of them are italic EO-influencing alternatives. The alg choices are not a pure mechanical mirror: many cases list different or extra alternatives. Unlike Anto's sheet, no alg is hyperlinked to a video. One cell comment names a fingertrick variant: 'swag R (swag L for right handers)'. The hidden 'template' tab with VisualCube images is kept. Saved: CSV per tab, the xlsx, the htmlview and an all-tabs text dump.",
+   "algSets": [
+    {
+     "name": "Right-hand OH CMLL (L-face mirror set)",
+     "caseCount": "42 (O 2, H 4, Pi 6, U 6, T 6, S 6, AS 6, L 6), about 95 algs",
+     "notes": "Same case ids, pattern names and images as Anto's sheet. Main alg first; italic = EO-influencing alternative (9)."
+    }
+   ],
+   "drills": [
+    "Learn full CMLL for right-hand OH, one OCLL group at a time",
+    "Use the italic alternatives to steer LSE edge orientation"
+   ],
+   "infoTopics": [
+    "Mirroring an OH alg set from left-hand to right-hand turning",
+    "OH fingertrick naming ('swag' move)",
+    "EO-influencing alternative CMLL algs"
+   ],
+   "appIdeas": [
+    "OH hand setting that switches every alg sheet to its mirror automatically, with optional per-case overrides when the best mirror differs from the plain mirror",
+    "Keep case ids and images identical across the left-hand and right-hand variants, so stats carry over if a solver switches hands",
+    "Community 'variant of' links between alg sets (this set is derived from Anto's)"
+   ],
+   "license": "No licence or permission terms are stated anywhere in the sheet or doc, so default copyright applies to the author's selection and presentation. The sheet is an attributed derivative of Anto's sheet ('copied from anto's'), so any reuse would need permission from both 刘埃尔 and Anto.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-2/1n0RW9g889rg7Lk4xh1WpQlzwM-QtTgnz5O1Oj-WEXBs.alltabs.txt (plus .gid*.csv per tab, .xlsx, .htmlview.html)"
+  },
+  {
+   "key": "gdoc:spreadsheets:13B4247VUgoPhPsoEKktQVHsxiPFGuzAOmAXTxc-IsiY",
+   "url": "https://docs.google.com/spreadsheets/d/13B4247VUgoPhPsoEKktQVHsxiPFGuzAOmAXTxc-IsiY/edit",
+   "title": "Sevilz' OH CMLL (file title 'Sevilzww OH CMLL')",
+   "author": "Sevilz (YouTube @sevilzww). The Info tab also says 'Subscribe to Zhouheng Sun', which reads as a shout-out rather than a byline.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-oh",
+   "level": "advanced (OH Roux solvers optimising CMLL alg choice, EO effects and move counts)",
+   "summary": "A Google Sheet on the same template as Anto's: the same tab ids, the same rouxl.es =IMAGE() case pictures and the same hidden VisualCube 'template' tab. Tabs: Info, O, H, PI, U, S, AS, L, T, plus a 'CMLL Statistics' tab. It covers all 42 CMLL cases with 56 algs, written for left-hand OH (R/U/F-based). Info gives the conventions. Top alg = main alg. Bold = EO-preserving: the alg does not change edge orientation, so use it only when all edges are already oriented (2 algs). Underlined = an alg for angle coverage, meaning it executes the case from another AUF (11 algs). Info also jokes 'Dont use my algs unless you really think my turning is better than anto's turning'. Every alg except the two O algs has an embedded EO/EP effect diagram (54 PNGs, 300x453). The diagrams come from badochov's CMLL Visualiser. They show the U-face case corners plus the six LSE edges; a light-blue highlight marks an edge that will flip, and an arrow shows where it goes ('flipping first, arrows second'). The CMLL Statistics tab gives each case (Skip, O3, O6, H1-H4, Pi1-6, U1-6, S1-6, As1-6, L1-6, T1-6) a probability (2/81 for most cases; 1/81 for H1 and H4; 1/162 for O6 and for the skip). It also gives the main alg's STM, computed by a REGEXREPLACE formula that strips AUFs, rotations, primes and 2s, then the expected pre-AUF (0, 0.5 or 0.75), then a probability-weighted cost. Totals: average 10.5 STM, 0.63 pre-AUF, 11.20 weighted expected moves. Per-subset averages range from L at 9.54 to H at 12.75. Cell comments on the O algs name OH U2 fingertrick variants ('feido U2', 'beido'). Case-name quirk: the U tab labels slot 1 'Back Row' and slot 6 'Front Row', the reverse of Anto's sheet, even though both use the same images (U1.png, U6.png). Saved: CSV per tab, the xlsx, the htmlview, an all-tabs dump with bold/underline markers, and the 54 extracted EO diagrams in sevilz-media/ (named by tab and cell).",
+   "algSets": [
+    {
+     "name": "OH CMLL (Sevilz, left-hand OH)",
+     "caseCount": "42 cases, 56 algs",
+     "notes": "Top row = main alg (42). Bold = EO-preserving alternative (2). Underlined = angle-coverage alternative (11). Each alg has an EO/EP effect diagram below it."
+    },
+    {
+     "name": "CMLL Statistics table",
+     "caseCount": "43 rows (42 cases + skip) + 8 subset rows",
+     "notes": "Columns: probability, STM of main alg (formula), expected pre-AUF, weighted cost. Totals give 10.5 STM, 0.63 pre-AUF, 11.20 expected moves."
+    }
+   ],
+   "drills": [
+    "Choose CMLL algs by their effect on LSE edge orientation (read the flip/arrow diagram)",
+    "Use EO-preserving algs only when all edges are already oriented",
+    "Learn angle-coverage algs to skip the pre-AUF",
+    "Compare alg sets by probability-weighted move count"
+   ],
+   "infoTopics": [
+    "Effect of each CMLL alg on the six LSE edges (which flip, where they move)",
+    "EO-preserving CMLL algs",
+    "Angle coverage and the expected pre-AUF cost (0, 0.5 or 0.75 per case)",
+    "CMLL case probabilities (2/81, 1/81, 1/162) and the expected CMLL move count",
+    "OH U2 fingertrick variants"
+   ],
+   "appIdeas": [
+    "Compute each CMLL alg's EO/EP effect on the LSE edges with the app's cube model, and draw it as an overlay: flip highlight plus arrows, as badochov's visualiser does. No need to copy the images.",
+    "CMLL statistics screen: probability-weighted expected STM plus pre-AUF for the user's chosen algs, per subset and overall, recomputed whenever the user swaps an alg",
+    "Alg tags 'EO-preserving' and 'angle coverage'. The trainer presents a case at a random AUF and accepts any alg that solves it without a pre-AUF.",
+    "An EO-aware CMLL drill: show the case plus the current LSE edge state; the user picks the alg that leaves the best EO (feeds an EOLR or EO-prediction module)",
+    "Canonical case ids decoupled from pattern names, since U1/U6 'Front Row'/'Back Row' labels are swapped between this sheet and Anto's"
+   ],
+   "license": "No licence or permission terms are stated anywhere in the sheet or doc, so default copyright applies to the author's selection and presentation. The EO diagrams were made with a third-party tool (badochov's CMLL Visualiser), so the app should generate its own diagrams.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-2/13B4247VUgoPhPsoEKktQVHsxiPFGuzAOmAXTxc-IsiY.alltabs.txt (plus .gid*.csv per tab incl. CMLL Statistics, .xlsx, .htmlview.html, sevilz-media/)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1pful9u4oOiB2mzqICBZYJyHWF2VzTaRoha9fq8R8oTw",
+   "url": "https://docs.google.com/spreadsheets/d/1pful9u4oOiB2mzqICBZYJyHWF2VzTaRoha9fq8R8oTw",
+   "title": "2 Look CMLL (linked as 'OH CMLL List'; rouxcubing.com mislabels the embed 'OH CMLL (embedded above)')",
+   "author": "Not stated. The sheet shares the hidden 'template' tab and the tab id 998485561 with Anto's OH CMLL sheet, so it was made from a copy of that sheet, probably by Anto/rouxcubing.com (unconfirmed).",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner (first CMLL method, before full CMLL)",
+   "summary": "A small Google Sheet with 2 visible tabs and a hidden VisualCube 'template' tab. 'Orientation' lists 7 corner-orientation cases in 3 groups, labelled by the number of oriented corners. Group 0 is H and Pi (pictured as H1 and Pi1). Group 1 is Sune and Antisune (S1, plus an embedded AS image). Group 2 is U, T and L (U6, T5, plus an embedded L image). Each case has a picture (rouxl.es =IMAGE() or an embedded PNG) and 1-2 standard two-hand algs, 11 algs in all. 'Permutation' covers the 2 O cases: Adjacent Swap (O3) and Diagonal Swap (O6), with 2 algs each, 4 in all. The sheet has no prose, no names and no recognition tips; only the group numbers explain the structure. The algs are ordinary 2H algs, not OH-specific, despite the link text. Saved: CSV per tab, the xlsx, the htmlview, an all-tabs dump, and the 2 embedded images in 2look-media/.",
+   "algSets": [
+    {
+     "name": "2-look CMLL: corner orientation",
+     "caseCount": "7 cases (H, Pi, S, As, U, T, L), 11 algs",
+     "notes": "Grouped by number of oriented corners (0/1/2); one picture per case"
+    },
+    {
+     "name": "2-look CMLL: corner permutation",
+     "caseCount": "2 cases (adjacent swap, diagonal swap), 4 algs",
+     "notes": "Pictured as O3 and O6"
+    }
+   ],
+   "drills": [
+    "Recognise the orientation case by counting oriented corners (0, 1 or 2), then by shape",
+    "Recognise adjacent vs diagonal swap after orientation",
+    "Learn 9 algs as a stepping stone to 1.5-look and full CMLL"
+   ],
+   "infoTopics": [
+    "2-look CMLL structure (orient corners, then permute)",
+    "Grouping OCLL cases by the number of oriented corners"
+   ],
+   "appIdeas": [
+    "Beginner 2-look CMLL module: 7 orientation cases + 2 permutation cases, grouped 0/1/2 oriented corners, with a two-question recognition drill (how many oriented? which shape?)",
+    "Learning path: 2-look CMLL -> 1.5-look (Derin) -> full CMLL, with progress carried over (OCLL shapes stay the same)",
+    "Fix the hub label confusion inside the app by naming sets precisely (2H 2-look vs OH)"
+   ],
+   "license": "No licence or permission terms are stated anywhere in the sheet or doc, so default copyright applies to the author's selection and presentation. ",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-2/1pful9u4oOiB2mzqICBZYJyHWF2VzTaRoha9fq8R8oTw.alltabs.txt (plus .gid*.csv per tab, .xlsx, .htmlview.html, 2look-media/)"
+  },
+  {
+   "key": "gdoc:document:1YLIB3U-1UKNpTn-XiN-8VXmC8lQgeYgLyEpELgVCc1w",
+   "url": "https://docs.google.com/document/d/1YLIB3U-1UKNpTn-XiN-8VXmC8lQgeYgLyEpELgVCc1w",
+   "title": "Derin's 1.5 Look CMLL Algorithms",
+   "author": "Derin Eryilmaz (Discord @derineryilmaz). The doc says it 'Used template from Kian's CMLLs' and links to Kian Mansour's CMLL doc.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner to intermediate (a bridge for solvers who know 2-look CMLL but do not want to learn all 42 algs yet)",
+   "summary": "A single-tab Google Doc. The rouxcubing.com link text calls it 'Google Sheets', but it is a doc. It has 49 embedded case images in Kian's template style: top-view diagrams named U6.JPG, Pi1.JPG and so on. The intro defines 1.5-look CMLL for solvers who know 2-look (7 orientation + 2 permutation algs) and do not want to learn all 42 1-look algs. It says the solutions were generated by 'a simple program' from the author's alg preferences and may not be the most efficient. Method: each case is solved by an optional U move plus one of nine base algs (stage 1). This turns the case into one of seven pictured base cases, whose alg (stage 2) finishes CMLL. Stage 2 is shown in brackets, but the point is that only stage 1 must be memorised. The base table names the nine algs: X, XX, XXX (the F-sexy-F' family repeated 1-3 times), Sune, Stash, Sledge, AntiSune, AntiStash and AntiSledge. AntiStash and AntiSledge have no picture because they are used only as stage-1 moves. Then come 8 tables, one per OCLL group (O, H, Pi, U, T, S, As, L), covering all 42 cases. Each cell holds a case picture, the pattern name (e.g. Right Bar, Back Slash, Checkerboard, Columns, Rows; for L: Mirror, Inverse, Pure, Front Commutator, Diag, Back Commutator) and its stage-1 recipe with the stage 2 in brackets. 9 cases are solved outright by a single base alg plus AUF, so they are 1-look already. The other 33 need two steps; 2 cases list two alternatives. The case numbering and naming follow Kian's template, not Rouxles': for example U1 is 'Forward Slash' here but 'Front Row' in Anto's sheet. Saved: text export, HTML export, and the 49 extracted images in derin-15look-imgs/.",
+   "algSets": [
+    {
+     "name": "1.5-look CMLL base algs",
+     "caseCount": "9 algs (7 pictured base cases + 2 setup-only algs)",
+     "notes": "X/XX/XXX, Sune/AntiSune, Sledge/AntiSledge, Stash/AntiStash"
+    },
+    {
+     "name": "1.5-look CMLL case table",
+     "caseCount": "42 cases (O 2, H 4, Pi 6, U 6, T 6, S 6, As 6, L 6)",
+     "notes": "Each case = optional U + one base alg (stage 1), with stage 2 in brackets. 9 cases finish in stage 1, 33 need stage 2, and 2 list alternatives. Pictures and names follow Kian's template numbering."
+    }
+   ],
+   "drills": [
+    "Memorise only stage 1 for each case (recognise case -> AUF + base alg); stage 2 is recognised fresh as a known 2-look case",
+    "Learn the 9 cases that one base alg solves outright first ('free' 1-look cases)",
+    "Use as a stepping stone between 2-look and full CMLL"
+   ],
+   "infoTopics": [
+    "What 1.5-look CMLL is and why (fewer algs than full CMLL, faster than 2-look)",
+    "Base-alg vocabulary: Sune/AntiSune, Sledge/AntiSledge, Stash/AntiStash, X/XX/XXX",
+    "Composing two known algs to solve any CMLL case",
+    "Solutions can be generated by a program from a chosen set of base algs"
+   ],
+   "appIdeas": [
+    "1.5-look CMLL learning mode. Drill case -> stage-1 (AUF + base alg); after stage 1, the app shows the resulting base case and the user solves it from their 2-look knowledge.",
+    "Generate the 1.5-look decompositions in-app with the cube model from the base algs the user already knows, as Derin did with a script, instead of copying the doc's table",
+    "Flag cases a 2-look alg already solves outright, as early wins on the road to full CMLL",
+    "Name mapping layer: Kian/Derin numbering and names vs Rouxles ids, so cards and stats line up across sources"
+   ],
+   "license": "No licence or permission terms are stated anywhere in the sheet or doc, so default copyright applies to the author's selection and presentation. The layout and images come from Kian's CMLL template, so the template's author has a claim as well. The author invites suggestions via Discord.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-2/1YLIB3U-1UKNpTn-XiN-8VXmC8lQgeYgLyEpELgVCc1w.txt (plus .html and derin-15look-imgs/)"
+  },
+  {
+   "key": "gdoc:document:1_GJF5lYnAWwxxkxLlBSnaHFayjEVd8-PG7tnDUwk71o",
+   "url": "https://docs.google.com/document/d/1_GJF5lYnAWwxxkxLlBSnaHFayjEVd8-PG7tnDUwk71o/edit?tab=t.0#heading=h.oa3c40cij0jg",
+   "title": "Iuri's L CMLL Recog (browser title 'Iuri's L Recog')",
+   "author": "Recognition method by Iuri Grangeiro, 'originally posted in comments in RMS'; document written by Alex Friedman",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced (full-CMLL users improving L-case recognition)",
+   "summary": "A short single-tab Google Doc subtitled 'works from every angle'. It has one embedded figure: the 6 L CMLL cases (Mirror, Inverse, Pure, Front Commutator, Diag, Back Commutator), each with blue arrows joining the stickers used for recognition. It defines two oriented corners. The pure corner has no U-colour side stickers next to it, and goes to UFR for the Pure case. The diag corner sits between the U-colour side stickers, and goes to UFR for the Diag case. The method sorts L cases by how the two top stickers relate: the same colour, opposite colours, or adjacent colours. Same: look for the opposite colour on an oriented corner's side. Its absence tells you where it is. The diag corner must be on R with the opposite colour on R, and the pure corner on L with the opposite colour on F/B. Opposite: the U-colour side stickers of the misoriented corners point toward the diag corner. Put it in UFR; its side matching a top colour gives the case. Adjacent: the oriented corner whose side colours match the two top colours goes to UFR, and whether it is the pure or the diag corner gives the case. The doc gives Iuri's original description, lightly edited. It covers doing only right-hand versions of the algs vs R/L mirrors, which Iuri thinks he uses in feet, and the claim that always looking at the same sticker locations keeps it fast. Alex's step-by-step paraphrase follows. It contains no algorithms. Saved: text export, HTML export, and the figure in lcmll-recog-imgs/.",
+   "algSets": [
+    {
+     "name": "L CMLL cases (recognition only, no algs)",
+     "caseCount": "6",
+     "notes": "Mirror, Inverse, Pure, Front Commutator, Diag, Back Commutator; recognised via pure/diag corners and the same/opposite/adjacent relation of the top stickers"
+    }
+   ],
+   "drills": [
+    "Recognise L cases from any AUF without turning U first",
+    "Classify the top-sticker relation (same / opposite / adjacent), then find the pure or diag corner",
+    "Decide which corner goes to UFR before executing"
+   ],
+   "infoTopics": [
+    "Angle-independent L CMLL recognition",
+    "Definitions of the pure corner and the diag corner",
+    "Recognition by the same/opposite/adjacent colour relation of stickers",
+    "Executing only right-side versions vs mirrored algs"
+   ],
+   "appIdeas": [
+    "'Recognise from any angle' drill for L CMLL: show the case at a random AUF, ask for the case name and which corner goes to UFR, and time the recognition separately from execution",
+    "Staged hints: first ask 'top stickers same/opposite/adjacent?', then 'where is the pure/diag corner?', then the case",
+    "Recognition-hint overlays on case images (arrows between the stickers to compare), generated in-app, as a reusable feature for every CMLL group",
+    "A glossary entry for 'pure corner' and 'diag corner' linked from the L cases"
+   ],
+   "license": "No licence or permission terms are stated anywhere in the sheet or doc, so default copyright applies to the author's selection and presentation. The recognition method is Iuri Grangeiro's and the write-up is Alex Friedman's; credit both if the idea is taught in the app.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-2/1_GJF5lYnAWwxxkxLlBSnaHFayjEVd8-PG7tnDUwk71o.txt (plus .html and lcmll-recog-imgs/)"
+  }
+ ]
+}

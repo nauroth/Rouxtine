@@ -1,0 +1,308 @@
+{
+ "resources": [
+  {
+   "key": "https://github.com/rouxles/roux-tutorial/blob/master/fbdr/zhouheng's%20fbdr%20guide.pdf",
+   "url": "https://github.com/Rouxles/roux-tutorial/blob/master/fbdr/Zhouheng's%20FBDR%20Guide.pdf",
+   "title": "The FB+DR Guide (7-page PDF, LaTeX, built 2020-07-21)",
+   "author": "Zhouheng Sun (onionhoney, author of the Roux Trainers this project forks); hosted in Jeffrey Sun's Rouxles/roux-tutorial repo",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced (the guide says it is for people who can plan FB in inspection, realistically sub-12)",
+   "summary": "The github.com blob page returned 403 through the proxy. The same PDF came from raw.githubusercontent.com (200, 184,614 bytes) and from a git clone of Rouxles/roux-tutorial, which also holds the LaTeX source fbdr/latex/main.tex and images. Latest commit 208d44a (2020-07-20, Jeffrey Sun): 'Update PDF since anto hasn't set up jenkins'. The guide teaches one thing: plan FB last pair (LP) together with DR (the DR edge, i.e. SB's bottom edge) in inspection, so that SB starts with DR in a good spot. Section 2, learning path: (1) plan FB in under 15 s most of the time; (2) learn several solutions per LP case (heuristic: more than 2 per random case on average, including slightly worse ones that move DR in unique ways); (3) learn the DR tier list; (4) practise LP+DR 'optimally' with the onionhoney FBDR trainer (#fbdr, with an LP-only option); (5) adopt the common techniques; (6) practise until LP+DR is half tracked and half recalled. Section 3, DR tier list: Good = oriented and 0-2 moves (on the U or R layer); Okay = 3 movers (misoriented on the M slice, or in DF/DB); Bad = misoriented, 4-5 moves (RD, RF, RB, RU, LU). Section 4, influencing techniques: preserve an already good DR; DR flipped in the FB slot (bottom insertion orients it to U); DR in DF/DB (r2, F2/B2 insertion, or r F); DR flipped on R (influence with B/F before a top insertion); DR flipped on U (before a bottom insertion); DR before FBLP ('nonlinear' solves); the LP edge in DF/DB near its slot. There are 10 worked examples, each with a setup scramble and one or two commented solutions (e.g. 'Setup: F2 U F' r2 F' U' R' U' / r U2 // move DR to a safe place / R U r F' // insert pair and solve DR'). Section 4.3 gives a procedure: track DR to after FS, look up its tier, and check that the influencing technique doesn't make LP harder. The author tracks DR only after deciding LP is easy. There is an open exercise: which DR positions end up good after the keyhole u' R u? Section 5 advice: don't force DR influence; avoid the 5-move DR positions; strong FB+DR needs strong SS skills (influence the SS pair while inserting DR). Section 6 points to Kian Mansour's and Kavin Tangtartharakul's YouTube channels and the FBDR trainer.",
+   "drills": [
+    "Plan FS + LP + DR in 15 s inspection, then execute; compare with the FBDR trainer's solutions",
+    "For each LP case, find at least 2 distinct solutions, including ones that place DR differently",
+    "LP-only drill (trainer option) before full LP+DR",
+    "Classify DR placement after FS into the Good / Okay / Bad tiers",
+    "Practise the 10 worked examples (setup given) until each technique is automatic",
+    "Exploration: find which initial DR positions end up good after the edge keyhole u' R u",
+    "Practise SS with DR in a good but unsolved position: influence the SS pair while inserting DR"
+   ],
+   "infoTopics": [
+    "Why FB+DR planning matters (time to inspect the rest of SB during FB execution)",
+    "Prerequisite: full FB planned in inspection under 15 s",
+    "DR tier list by move count and orientation (0-2 / 3 / 4-5 movers)",
+    "DR influencing techniques: preserve, flipped in FB slot plus bottom insertion, DF/DB with r2/F2/B2/r F, flipped on R or U with B/F inserts, DR before FBLP (nonlinear)",
+    "Top insertion (F' or B for a left FB) vs bottom insertion (F or B')",
+    "How to spot 'good patterns': influence DR without making LP harder",
+    "Trade-off: extra FB moves vs a better DR; when not to influence",
+    "Linking FB+DR to SS pair influence"
+   ],
+   "algSets": [
+    {
+     "name": "FB+DR worked examples (setup + commented solution)",
+     "caseCount": "10",
+     "notes": "Categories: preserve good DR (2), DR in FB slot flipped (1), DR in DF/DB (2), DR flipped on R (2), DR flipped on U (2), DR before FBLP (1). Most have an alternative solution."
+    }
+   ],
+   "appIdeas": [
+    "DR tier badge in the FB last pair (+DR) trainer: after each solution, show where DR ends up (Good 0-2 / Okay 3 / Bad 4-5 movers), and rank solutions by length plus the resulting DR tier, not by length alone",
+    "Technique tags on generated FBDR solutions (preserve, flipped-in-slot bottom insert, r2/F2/B2 insert, B/F influence before top/bottom insertion, nonlinear DR-first), so users can filter cases by the technique they are learning",
+    "'Find 2+ solutions' mode: before reveal, the user enters or confirms two different LP solutions; matches the guide's >2-solutions-per-case heuristic",
+    "Curriculum gate from the guide: FB planned in under 15 s, then LP-only, then LP+DR, then techniques. Suggest the module around sub-12 (configurable)",
+    "Lesson pack of the 10 worked examples as playable setups with the author's comments (needs permission; no licence)",
+    "Show a 'no influence' baseline next to each influencing solution with the movecount difference, to teach 'don't force it'",
+    "Chain FB+DR straight into the SS trainer with DR in a good but unsolved spot (matches the guide's closing advice)"
+   ],
+   "license": "No licence file in Rouxles/roux-tutorial and no licence statement in the PDF, so all rights are reserved by default. Facts and technique names can be paraphrased. Ask Zhouheng Sun (and the repo owner) before reproducing the examples or text.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-2/zhouheng-fbdr-guide.txt"
+  },
+  {
+   "key": "https://sites.google.com/view/kianroux/second-block",
+   "url": "https://sites.google.com/view/kianroux/second-block",
+   "title": "Roux Method Guide by Kian - Second Block (embedded Google Doc of SB last-slot algs)",
+   "author": "Kian Mansour (Canadian Roux solver, former OH WR average holder; WCA 2015MANS03); one section credited to 'Louis'",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced",
+   "summary": "A Google Sites page (nav: Home, Roux Tutorial, Second Block, CMLL, OH CMLL, EO, EOLR) with one line of text and an embedded Google Doc (id 1bX50jAOM_veHsVJeLYGvSrH4uW9xrubep1zOSLdE4Vk), which was exported and parsed. The doc has two sections, each a 2-column table of case images (rendered 3D cubes, green/red sides, the white sticker marks the D-colour piece) with algorithms under each. (1) 'Front Pair Cases with DR Solved': 48 cells over 7 tables, about 168 algorithms. Each case has 1-7 alternatives mixing R/r/M/U triggers with F and D inserts, e.g. 'U R U' R'', 'r U r'', 'R' F R F'', 'U' M U2 r U' r''. Some algs are marked '(free slot)', meaning they need the back slot open. One cell is vandalised: its algorithms are replaced by junk text ('Pizza would be Proud', 'LOLOLOL...'). (2) 'Louis' Multislotting and F-Move Happy Place': 15 cases (about 21 algs) with short F/f/S/B-move solutions that solve the pair and DR or both slots together, e.g. 'F R2 F'', 'F' U' F R2', 'f R f' R2', '(F B') R2 (F' B)', 'U2 S R2 S' R2', 'R2 U2 R2 U2 R2'. It is linked from rouxcubing.com under F2B > Second Block > 'Second Block Last Slot Algs', next to the SCDB SBLS page.",
+   "drills": [
+    "Learn 2-3 alternatives per front-pair case and choose by the next step (free slot or not)",
+    "Learn the multislotting / F-move cases for when both SB slots are unsolved and DR is placed"
+   ],
+   "infoTopics": [
+    "SB last pair (front pair) with DR solved: case-by-case efficient solutions",
+    "Algs that need the other slot free ('free slot' annotation)",
+    "Multislotting and F-move inserts (Louis' cases)",
+    "Mixing r/M/U triggers with F/D inserts for SB"
+   ],
+   "algSets": [
+    {
+     "name": "Front Pair Cases with DR Solved",
+     "caseCount": "48 (about 168 algs; 1 cell vandalised)",
+     "notes": "Multiple alternatives per case; some marked '(free slot)'"
+    },
+    {
+     "name": "Louis' Multislotting and F-Move Happy Place",
+     "caseCount": "15 (about 21 algs)",
+     "notes": "F/f/S/B-based short solutions"
+    }
+   ],
+   "appIdeas": [
+    "In the SB last pair reference and trainer, tag each alg with conditions such as 'needs free slot' or 'uses F/S/B', and filter on them (e.g. hide free-slot algs when the back slot is filled; hide F moves for OH)",
+    "Advanced 'multislot' SB module: cases where both SB slots are open and an F-move insert solves pair + DR together",
+    "Several ranked alternatives per case, with the user picking their main alg; extra ones stay as 'know also' (Kian lists 3-7 per case)",
+    "Lesson: public editable docs drift (one cell here is vandalised). Ship curated, versioned case data rather than scraping live docs"
+   ],
+   "license": "No licence stated on the Google Site or the doc; Google Sites terms apply. All rights reserved by default: link to it, or ask Kian Mansour before including the algs. Alg sequences are short and facts-like, but the compilation is his.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-2/kian-sb-algs-structured.txt"
+  },
+  {
+   "key": "https://speedcubedb.com/a/3x3/sbls",
+   "url": "https://speedcubedb.com/a/3x3/SBLS",
+   "title": "Second Block Last Slot - SpeedCubeDB",
+   "author": "SpeedCubeDB, created by Gil Zussman (algorithms crowd-submitted and voted)",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced",
+   "summary": "The page was rendered with Playwright and all 65 cases parsed into a structured list, plus one case page (U_UB) with 'More Algorithms' expanded. There are 65 SBLS cases (SB last pair: DFR corner + FR edge, with the back square and DR done) in 6 groups. Each case has a short name: corner state + edge position, with 'm' = misoriented edge. Groups: Corner on U facing up 'U ..' (14), Corner on U oriented 'Up ..' (14), Corner on U misoriented 'Um ..' (14), Corner on D solved 'D ..' (7), Corner on D facing forward 'Dp ..' (8), Corner on D facing side 'Dm ..' (8). Edge positions: UB, UR, UF, UL, FR, DB, DF and their m versions (for D-corner cases the U edges collapse to 'U'/'Um'). Each case shows a setup alg, the top 1-4 algs, and a 'More Algorithms' expander with up to about 10 alternatives (U UB has 10). There are 223 algs on the page in total. Per-alg UI: an animated cube player with play/step/scrub slider, speed and fullscreen, plus 'open in cubedb'. Each alg has a 3-state learnt flag (0/1/2: not learnt / learning / learnt), a bookmark and voting, saved with Google sign-in. Group headers show progress counters ('0/14'). There is also a cross-colour selector (default white; display setup z2), 'Related Sets' (CMLL, EO 4a) and a filter. Case images are pre-rendered PNGs. The site shows ads ('Discover more' blocks) and has a PayPal donate link and a privacy policy. The site's 'Practice' trainer (/t) only covers PLL, so SBLS has no trainer there. Azusa's OH SBLP guide uses the same 65 cases with identical setups.",
+   "drills": [
+    "Learn SBLS cases group by group, using the learnt/learning flags and group counters",
+    "Compare alternatives and vote; pick one main alg per case"
+   ],
+   "infoTopics": [
+    "SB last slot case taxonomy by corner location/orientation and edge location/orientation",
+    "Setup algs for every case",
+    "Ergonomic alternatives using R, r, M, U with occasional F/B/D/L/S"
+   ],
+   "algSets": [
+    {
+     "name": "SBLS (Second Block Last Slot)",
+     "caseCount": "65",
+     "notes": "Groups: U facing up 14, U oriented 14, U misoriented 14, D solved 7, D facing forward 8, D facing side 8; 223 algs listed in total"
+    }
+   ],
+   "appIdeas": [
+    "Use the community case IDs (U/Up/Um/D/Dp/Dm + edge position + m) as stable SB-LP case keys, so users can cross-reference SCDB and Azusa's OH guide",
+    "Per-case 3-state learning status (not learnt / learning / learnt) with progress counters per group; feeds the SRS weighting already planned for v1",
+    "Alg card: animated player with scrubber, step and speed, a setup alg shown under the case, and an expandable list of alternatives",
+    "SB last pair trainer filtered by these 6 groups, with random AUF and front/back slot options. SCDB has no SBLS trainer, so this fills a gap",
+    "Do not copy SCDB alg data (no licence). Generate solutions with the existing sb/lpsb pruners, let users add their own algs, and link to the SCDB case page"
+   ],
+   "license": "No licence or terms of use on the page; footer has 'Created By Gil Zussman', a privacy policy and a donate link. The site is ad-supported and the algs are user-submitted. Treat the data as not reusable without permission; linking is fine.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-2/scdb-sbls-structured.txt"
+  },
+  {
+   "key": "https://drive.google.com/file/d/1mexeymfu0oqkwmfhjk1joa3r4qofk4c4/view",
+   "url": "https://drive.google.com/file/d/1MeXeYMFU0OQKWMfHJk1Joa3R4qOFK4c4/view",
+   "title": "Azusa's OH SBLP - Front and Back (Drive file 'Azusa's One Handed sblp guide.pdf')",
+   "author": "Azusa (only this name is given)",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-oh",
+   "level": "intermediate to advanced (OH)",
+   "summary": "The Drive viewer page was rendered, and the PDF came from the public direct-download link (834,758 bytes, 15 A4 pages; a Google Docs export, PDF title 'Azusa's OH SBLP - Front and Back'). It is a one-handed SB last pair sheet covering all 65 SBLS cases, with the same case names and setup algs as SpeedCubeDB. It has 6 sections: Corner on U facing up (14, unlabelled rows), Corner on U oriented 'Up ..' (14), Corner on U misoriented 'Um ..' (14), Corner on D solved 'D ..' (7), Corner on D facing forward 'Dp ..' (8), Corner on D facing the side 'Dm ..' (8). From page 4 a navigation row links the six sections. Each row has two halves. Front: the FR-slot case image with its setup, plus 1-5 OH algs. Back: the same case mirrored into the BR slot (front-back mirror, R<->R', U<->U'), with its own setup and mirrored algs. So the OH solver can finish SB in whichever slot is open without rotating. The algs use almost only R, r, U, M (rare F: e.g. 'U' R' F R F' R U' R''). Examples: Up UB front 'R U R'' / back 'R' U' R'; Um UR 'U R U' R'' / 'U' R' U R'; D DB 'r U M' U' R'' / 'r' U' M U R'. That makes 130 slot-specific case entries.",
+   "drills": [
+    "Learn each SBLP case for both the front (FR) and back (BR) slot so either can be the last slot in OH",
+    "Drill mirrored pairs together (front alg and its front-back mirror)"
+   ],
+   "infoTopics": [
+    "OH SB last pair: avoiding F/B/D moves and rotations",
+    "Front-back mirroring of SB algs (R U R' <-> R' U' R)",
+    "SBLS case taxonomy (same as SCDB)"
+   ],
+   "algSets": [
+    {
+     "name": "OH SBLP front (FR slot)",
+     "caseCount": "65",
+     "notes": "1-5 algs per case, mostly <R, r, U, M>"
+    },
+    {
+     "name": "OH SBLP back (BR slot, mirrored)",
+     "caseCount": "65",
+     "notes": "Front-back mirrors of the front algs"
+    }
+   ],
+   "appIdeas": [
+    "Slot selector in the SB-LP trainer: Front / Back / Both. Generate back cases automatically by front-back mirroring and keep per-slot stats",
+    "OH profile: rank or filter generated SB solutions to <R, r, U, M> (penalise F, B, D, S, L), shared with a global 'OH mode' switch",
+    "Section jump chips for the 6 corner groups (the PDF's nav row) in the alg browser",
+    "Ship OH as a profile on the same case IDs, not a separate set, so one learning status can track 2H and OH algs per case"
+   ],
+   "license": "No licence stated; a personal Google Drive file shared by link. All rights reserved by default: link only, or ask the author.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-2/oh-sblp-guide.txt"
+  },
+  {
+   "key": "https://devagio.github.io/yruru/index.html",
+   "url": "https://devagio.github.io/YruRU/index.html",
+   "title": "YruRU Method (site linked by rouxcubing.com as 'CPFB')",
+   "author": "Yash Mehta (devagio), 2020; later edits by contributors (mike-zb, Cailyn, coder13)",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-oh",
+   "level": "advanced (OH, experimental)",
+   "summary": "This is a guide site for YruRU, a CP-first one-handed method in the CEOR family. YruRU is a separate method, not Roux. rouxcubing.com links it under Misc Blockbuilding > 'CPFB' only because its CP-Line pages teach corner permutation (CP) recognition and solving during the first line/block, which Roux OH solvers use for CPFB (FB with CP solved, so the rest of F2B can be <R, r, U> and CMLL shrinks). I rendered index, about, examples and all 5 CP-Line pages, and cloned devagio/YruRU (65 commits, 2020-05-16 to 2025-08-12, no LICENSE). Usable for Roux: (1) Numbering system: with the line in DL, U corners are numbered 1-4, and the corners belonging in DFR/DBR are 5 and 6. Positions are odd or even, and there are 3 'friend' pairs (UFL-UBL, UBR-UFR, DFR-DBR). x2 y2 neutrality is recommended over x2 y. (2) Beginner tracing: mental swaps to make 5 and 6 friends, read the 'thread' in a direction set by 5's parity, and reduce to one of 6 CP cases (12 = solved, 13, 21, 23, 31, 32). A swap table gives 3 swap options per case, with mnemonics. (3) Advanced tracing: 30 possible configurations of corners 5/6. 6 are already friends, 8 are one U or R move away, and 16 have named trace 'circlets' (Letter N, Inverted N, Diamond, Arrow Head, Lightning Bolt, Inverted Lightning Bolt, Letter V with an arm, Inverted V with an arm). The site claims CP recognition in under 3 s. (4) Execution with DL corners solved: triggers F' U' F (UFL-UFR), F' U F or F R' F' (UFR-UBR), F R F' (UBR-UBL), F R2 F', F' U2 F; any moves in R, U and slices preserve CP; wide moves place the DL edge. (5) DL corners unsolved: one swap option; set up so F/F2/F' solves the DL corners and CP. Special case: CP already solved, use F U F or F' R' F'. Nightmare case: DFL twisted in place, so pick another orientation (once in about 2000 solves for x2 y2 neutral). Stats: CP-Line takes 4-5 moves and about 1 double move. The about page says the Roux-like branch, 'YRoux', would combine SB with CMLL, which reduces to 7 algs once CP is solved (108 algs, or 54 with M pre-moves). Not for Rouxtine: pEO-extension, EOBF, F2L and 2GLL (84 algs) are YruRU's own steps.",
+   "drills": [
+    "CP recognition in inspection: find corners 5 and 6, recall the circlet, locate 4, read the CP case (target under 3 s)",
+    "Choose among the 3 swap options for the case and execute with an F-trigger while forming the DL line",
+    "Handle DL-corners-unsolved and special/nightmare cases"
+   ],
+   "infoTopics": [
+    "Corner permutation (CP) and why <R, U> / <R, r, U> solving needs it",
+    "Corner numbering, position parity, friend pairs",
+    "CP case notation (ordered pairs 12/13/21/23/31/32) and swap table",
+    "Trace circlets for the 30 configurations of corners 5/6",
+    "F-move triggers that swap corner pairs (F' U' F, F R F', F' U F, F R' F', F R2 F', F' U2 F)",
+    "Orientation neutrality advice (x2 y2 over x2 y)",
+    "YRoux idea: CP-first Roux where SB is combined with a 7-case CMLL"
+   ],
+   "algSets": [
+    {
+     "name": "CP swap table",
+     "caseCount": "6 CP cases x 3 swap options",
+     "notes": "12 = solved"
+    },
+    {
+     "name": "CP trace circlets",
+     "caseCount": "30 configurations (16 named circlets)",
+     "notes": "Advanced recognition"
+    },
+    {
+     "name": "CP-Line execution triggers",
+     "caseCount": "3 base swaps (+ alternatives)",
+     "notes": "F' U' F / F' U F or F R' F' / F R F'; also F R2 F', F' U2 F"
+    },
+    {
+     "name": "2GLL (YruRU-only, out of scope)",
+     "caseCount": "84",
+     "notes": "Not Roux; exclude"
+    }
+   ],
+   "appIdeas": [
+    "Advanced OH 'CPFB' module (later): CP recognition drill. Show a scramble or a corners-only view, the user taps one of the 6 CP cases or the pair to swap, and the app times the answer",
+    "Circlet flashcards: show the 5/6 corner configuration, answer with the circlet name and direction",
+    "Chain CP recognition into the CEOR-trainer-style CPFB mode (FB + CP solved, restricted move set), then SB in <R, r, U>",
+    "Keep only the CP technique. Do not include YruRU/CEOR method steps (pEO, EOBF, 2GLL) in a Roux-only app; link out for background"
+   ],
+   "license": "devagio/YruRU has no LICENSE file, so all rights are reserved by default. The CP tracing method (an idea) can be reimplemented. Do not copy text or images without permission (contact address is given on the site).",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-2/yruru-index.txt"
+  },
+  {
+   "key": "https://www.speedsolving.com/wiki/index.php?title=ceor",
+   "url": "https://www.speedsolving.com/wiki/index.php?title=CEOR",
+   "title": "CEOR - SpeedSolving.com Wiki",
+   "author": "SpeedSolving wiki contributors",
+   "kind": "guide-text",
+   "accessible": false,
+   "rouxRelevance": "not-roux",
+   "level": "advanced (OH method background)",
+   "summary": "Not accessible: Cloudflare bot check. Playwright got a 'Just a moment... Performing security verification' page (Ray ID a51ff67edd4cf981) and timed out; WebFetch returned HTTP 403. Not routed around. Background from a web search and cubinghistory.com/3x3/Methods/CEOR (saved as ceor-cubinghistory.txt). CEOR stands for 'Corner Permutation, Edge Orientation and stripe, Right block'. It is a CP-first 3x3 method family: (1) CP-Line, a 1x1x3 line in DL while permuting corners; (2) extend to a 2x2x3 at dL while orienting edges; (3) 1x2x3 block on dR in <R, U>; (4) last layer. Credits: Gilles Roux 2003 (first known proposal, not developed), Noa Arthurs (Noah's CP Block 2.0, 2013, the modern form), Joseph Briggs 2015, C2GR (Zborowski 2017), YruRU (Yash Mehta 2020, new CP recognition). The family was merged under the name CEOR in 2021. It is a separate method and not Roux. rouxcubing.com lists it under Misc Blockbuilding because its CP-Line/CPFB and RU-gen block-building ideas carry over to Roux OH (see YruRU CP-Line and Edde's CEOR trainer).",
+   "drills": [],
+   "infoTopics": [
+    "CEOR steps and history (from secondary sources only)",
+    "Relation of CP-Line to Roux CPFB"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "At most a glossary entry ('CPFB comes from CP-first methods such as CEOR/YruRU') with an external link; no CEOR content in a Roux-only app"
+   ],
+   "license": "SpeedSolving wiki content: the licence could not be checked because the page was blocked. Do not reuse.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-2/ceor-wiki.txt"
+  },
+  {
+   "key": "https://edde.github.io/ceortrainer",
+   "url": "https://edde.github.io/CEORtrainer/",
+   "title": "CEOR trainer ('Speedcubing Trainer')",
+   "author": "Edde (GitHub Edde/edde.github.io; CEORtrainer folder, 2025-05-24 to 2025-06-12)",
+   "kind": "trainer-tool",
+   "accessible": true,
+   "rouxRelevance": "roux-oh",
+   "level": "intermediate to advanced (OH block-building)",
+   "summary": "A static JS trainer, rendered with Playwright, driven through all 8 modes, and its source read from a clone of Edde/edde.github.io. It drills block-building with a restricted move set, by exact optimal move count. Modes and level ranges: '0-move FB RrUuS' (3-9) and '0-move FB RrUu' (3-9) build the left 1x2x3 using only R r U u (+S), from a z'-rotated start, with solutions ending in z; 'Extension RrUu' (3-8) extends a line to the block; 'CPFB RrUuFfS' (3-8) solves FB plus corner permutation (a CP-class state is tracked so later steps can be <R, U>); 'FB RrUuFfS' (3-8); 'Right Block' RU-gen (3-11); 'SS RUr' (3-9) is the Roux second square; '222 Block RUr' (3-10). Session flow: choose mode and level, press 'Generate New Scramble' or Enter. The page shows the scramble and a cube-net image (sr-puzzlegen-style 'puzzleGen' SVG) with only the target block's stickers coloured. Space or a tap on the timer starts and stops a timer while you solve. Enter or the button reveals up to 5 optimal solutions (10 for 0-move modes), ordered by an SQTM count (half turns counted twice). Then the next case. How cases are made: a random move sequence of length L in the mode's move set is accepted only if its optimal solution is exactly L. The shown scramble is lengthened with 5-6 random moves and re-solved, so it doesn't give the case away. Solutions come from precomputed BFS prune tables shipped as JS data (up to 24 MB) plus a short IDA-style search. Sample run: CPFB level 5, scramble 'u r2 S U' R' U' r' u' S2 f2 R'', solutions 'R f2 S r' S2 / R f' F' R' S2 / f' U f' U' S''. A 'Right hand' checkbox mirrors L<->R (the README's left-hand mode). Session history table columns: Mode, Level, Scramble, Time, Moves. Cells are editable, so you can type your own movecount. It saves to localStorage, shows 5 rows with 'Show More', and has 'Export Session' (CSV) and 'Reset Session'.",
+   "drills": [
+    "Solve FB (or CPFB) at an exact optimal length using an OH move set (no F for 0-move modes)",
+    "CPFB: build FB while fixing corner permutation, then compare with optimal solutions",
+    "SS in <R, U, r> and a right block in <R, U> (RU-gen F2B finish after CPFB)",
+    "Timed solve and self-reported movecount per case, exported as CSV"
+   ],
+   "infoTopics": [
+    "Restricted move sets for OH (RrUu, RrUuS, RrUuFfS, RU, RUr)",
+    "CPFB: first block with corner permutation solved",
+    "Optimal solution length as a difficulty measure"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "Difficulty = exact optimal move count. Generate random-move cases in the stage's move set, keep those whose optimum equals the target, then pad and re-solve the scramble so the case isn't recognisable. Cheaper than random-state for small move sets",
+    "Move-set profiles per trainer (2H full; OH <R, r, U, u, M, S>; no-F; RU-gen) used both for generation and for ranking solutions; an OH Roux FB/SS/SB track built on these",
+    "CPFB mode for advanced OH: FB solved and corners in the <R, U>-solvable class; pair it with the YruRU-style CP recognition drill",
+    "Session table with editable movecount, CSV export and reset (fits the timer/sessions MVP)",
+    "Left/right-hand mirror switch for OH lefties, applied to scramble, mask and solutions",
+    "Hardware keys: Space for timer, Enter for next/reveal; on Android map to tap zones and volume keys",
+    "Ship prune tables as compact binary assets, not 24 MB of JS: an APK size lesson"
+   ],
+   "license": "Edde/edde.github.io has no LICENSE file (README only says 'Mainly for various cubing-related projects'), so all rights are reserved by default. Reimplement the ideas; don't copy code or data tables. The bundled puzzleGen.min.js (webpack 'puzzleGen', apparently sr-puzzlegen) has no licence header in the bundle.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-2/ceortrainer-run-explore.txt"
+  },
+  {
+   "key": "https://cubegrass.appspot.com/block_trainer",
+   "url": "https://cubegrass.appspot.com/block_trainer/",
+   "title": "Cube Grass Block Trainer",
+   "author": "Unknown (cubegrass.appspot.com, a Google App Engine site that also hosts a 2x2 first layer calculator and a cards memo trainer)",
+   "kind": "trainer-tool",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner to intermediate (block efficiency); the roux-tutorial draft calls it 'only useful up to a certain point'",
+   "summary": "An old jQuery page that calls a server endpoint, get_block.php?levels=<list>&block=<mode>. It was rendered, and 7 sample responses were saved as cubegrass/samples.jsonl. Block modes and selectable levels (level = optimal move count): 2x2x2 (1-8) and '2x2x2 > 2x2x3' (1-9) are not Roux; 'Roux FB' (1-9); 'Roux SB' (1-14); 'Roux SB (First square)' (1-10), i.e. SS; 'Roux SB (Last pair)' (3-9). Several levels can be selected at once and one is picked per case. Each response holds alg_long (the scramble), alg_short (the optimal solution; several are separated by ';', e.g. 'U Rw2 U2 Rw' U R2;U' R2 U2 Rw U R2') and img, a 54-character sticker string drawn as a 2D net on a canvas. Non-target stickers are grey; colours are white U, green F, red R, orange L. FB solutions use outer face turns (e.g. 'B U' R' F R' F D2', HTM). SB modes use <R, Rw, M, U>, so FB stays intact. Session: the page loads with a case; Space reveals the solution or loads the next case; Enter always loads a new one. No timer, stats, history or settings beyond mode and level. The Roux Reader FAQ recommends it for 'identifying optimal solutions for blocks' (with the onionhoney trainer), and tutorial.rouxers.com links it as 'Cubegrass SB, SS, SP Trainers'.",
+   "drills": [
+    "See the masked scramble, find the optimal FB / SB / SS / SB-LP solution at a chosen length, then reveal",
+    "Mix several optimal lengths in one session"
+   ],
+   "infoTopics": [
+    "Optimal solutions for Roux FB, SB, SB first square and SB last pair",
+    "Masked 2D net showing only the pieces that matter"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "Difficulty as a multi-select of optimal lengths per stage (FB 1-9, SB 1-14, SS 1-10, SB-LP 3-9 are realistic ranges)",
+    "Show all optimal solutions, not just one; then rank them by ergonomics (where onionhoney's evaluator improves on this)",
+    "Masked 2D net preview as a lightweight alternative to 3D",
+    "Avoid its limits: FB solutions in raw HTM with B/D/L turns are poor for humans. Prefer Roux-ergonomic move sets and offer x2y/CN orientation"
+   ],
+   "license": "No licence, author or terms on the site; the server code is closed (only block_trainer.js and jQuery are public). Don't reuse; reimplement the concept (already covered by the onionhoney solvers).",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-2/cubegrass-block.txt"
+  }
+ ]
+}

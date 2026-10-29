@@ -1,0 +1,229 @@
+{
+  "resources": [
+    {
+      "key": "https://themes.gohugo.io/themes/hugo-book",
+      "url": "https://themes.gohugo.io/themes/hugo-book/",
+      "title": "Book (Hugo Book theme) on the Hugo Themes gallery",
+      "author": "Alex Shpak (theme); gallery page by the Hugo Authors",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "not-roux",
+      "level": "n/a (website tooling for contributors to resources.rouxers.com)",
+      "summary": "Gallery entry on themes.gohugo.io (HTTP 200, rendered with Playwright). It holds the theme's metadata and nothing about cubing. Tagline: 'Hugo documentation theme as simple as plain book'. License MIT, 4095 GitHub stars, last updated 2026-09-04, author Alex Shpak, tags docs/multilingual/popular. The Download button points to github.com/alex-shpak/hugo-book and the Demo button to book.alxs.dev. The page no longer embeds the README (rendered body about 500 characters). The rouxers Contributing page links it only to name the theme resources.rouxers.com is built with. That site is Markdown in the GitHub repo rouxers/resources, with hugo-book pinned as the submodule themes/hugo-book. No drills, techniques or alg content.",
+      "drills": [],
+      "infoTopics": [
+        "How resources.rouxers.com is built (Hugo static site + Hugo Book theme, Markdown files in rouxers/resources, 'Edit this page' leads to a GitHub pull request)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "If Rouxtine bundles guide text adapted from resources.rouxers.com, keep it as plain Markdown in the repo (the same model the hub uses). Community fixes can then come in as pull requests, and each guide screen can carry a 'Suggest an edit' link to the source file, like Hugo Book's 'Edit this page'.",
+        "Not a source of training content; no feature to adopt beyond the content workflow."
+      ],
+      "license": "Theme: MIT (shown on the gallery page; rouxers/resources .gitmodules also records MIT, Copyright (c) 2018 Alex Shpak). Gallery page: Hugo site content; Hugo logos copyright Steve Francia. Nothing here is needed in the app.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/hugo-themes-hugo-book.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/hugo-themes-hugo-book.html"
+    },
+    {
+      "key": "https://book.alxs.dev/docs/content/shortcodes",
+      "url": "https://book.alxs.dev/docs/content/shortcodes/",
+      "title": "Shortcodes - Hugo Book documentation (demo site)",
+      "author": "Alex Shpak",
+      "kind": "guide-text",
+      "accessible": true,
+      "rouxRelevance": "not-roux",
+      "level": "n/a (contributor documentation)",
+      "summary": "Hugo Book's own docs site (HTTP 200; the index page and all 10 shortcode subpages rendered with Playwright, pages dated October 25, 2026, available in English, Chinese and Hebrew). The index says 'All interactive shortcodes work without JavaScript using CSS-only techniques'. It explains the two delimiters: {{< >}} passes inner content as raw HTML, while {{% %}} renders inner content as Markdown and is needed for nesting. Shortcodes: hint (info/success/warning/danger callouts, plus GitHub alerts NOTE/TIP/IMPORTANT/WARNING/CAUTION); details (a collapsible HTML5 <details> with title and an open flag); tabs (tab groups with named tabs); columns (a Markdown list shown as up to 3 side-by-side columns, ratio such as 1:2); steps (an ordered list shown as numbered steps with connectors); buttons (href or relref links; external links open in a new tab); mermaid (diagrams, library loaded on first use); katex (math); asciinema (terminal recordings); experimental image (click-to-expand, caption, lazy loading) and OpenAPI. The rouxers Contributing page links this so contributors can use these blocks. Its Markdown (repo content crawled earlier) uses {{% details %}} 13 times and {{% hint %}} once, so collapsible sections and callouts are the only components the Roux hub actually uses.",
+      "drills": [],
+      "infoTopics": [
+        "Hugo Book shortcode syntax (hint, details, tabs, columns, steps, buttons, mermaid, katex, asciinema, image, OpenAPI)",
+        "Markdown vs raw-HTML shortcode delimiters and nesting rules",
+        "CSS-only interactive components (no JavaScript required)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "To render guide content ported from resources.rouxers.com, the Markdown renderer only needs two custom blocks. 'details' maps to an M3 expandable card or ListItem with a chevron, collapsed by default and honouring 'open'. 'hint' maps to tonal callout cards (info = secondaryContainer, success = tertiaryContainer, warning and danger = errorContainer variants), each with an icon and text, not colour alone.",
+        "Useful patterns for the app's own lesson screens: 'tabs' (for example left-hand vs right-hand or two-handed vs OH alg variants, or alternative algs for one CMLL case); 'steps' for numbered beginner walkthroughs such as the FB, SB, CMLL and LSE stages; and click-to-expand images for case diagrams.",
+        "The docs site ships Hebrew, so the theme supports RTL. If Rouxtine localises its guides, test RTL layout of cube notation, which stays LTR inside RTL text."
+      ],
+      "license": "Theme code MIT (Alex Shpak). The demo/docs site footer says 'Hugo Book - © CC BY 4.0' for the documentation text. Only syntax is described here; nothing needs copying.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/alxs-shortcodes.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/alxs-sc-hints.txt (and alxs-sc-*.txt, alxs-intro.txt, alxs-home.txt in the same directory)"
+    },
+    {
+      "key": "https://github.com/alex-shpak/hugo-book",
+      "url": "https://github.com/alex-shpak/hugo-book",
+      "title": "alex-shpak/hugo-book (GitHub repository)",
+      "author": "Alex Shpak",
+      "kind": "other",
+      "accessible": false,
+      "rouxRelevance": "not-roux",
+      "level": "n/a",
+      "summary": "BLOCKED: the session proxy returned HTTP 403 ('GitHub access to this repository is not enabled for this session'), and the gh API gave the same 403. An attempt to read the files through raw.githubusercontent.com was refused by the permission system as routing around the block, so it was not pursued. What is known from other sources: this is the source repo of the Hugo Book documentation theme. resources.rouxers.com (rouxers/resources) includes it as the git submodule themes/hugo-book. themes.gohugo.io lists it as MIT, 4095 stars, last updated 2026-09-04. Its features are documented at book.alxs.dev (see that entry). It has no cubing content.",
+      "drills": [],
+      "infoTopics": [],
+      "algSets": [],
+      "appIdeas": [
+        "None directly. This is the theme of the Roux resources hub, not a training resource."
+      ],
+      "license": "MIT, Copyright (c) 2018 Alex Shpak (per the rouxers/resources .gitmodules note and the themes.gohugo.io listing; the LICENSE file itself was not readable because GitHub is blocked).",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/github-alex-shpak-hugo-book.blocked.txt"
+    },
+    {
+      "key": "https://github.com",
+      "url": "https://github.com",
+      "title": "GitHub (bare homepage link)",
+      "author": "GitHub, Inc.",
+      "kind": "other",
+      "accessible": false,
+      "rouxRelevance": "not-roux",
+      "level": "n/a",
+      "summary": "BLOCKED: the session proxy answered HTTP 400 ('Request path could not be canonicalized'), so github.com web pages are not reachable here. Not routed around. The link is a generic pointer to GitHub's homepage, not a cubing resource. It appears in The Roux Reader's contributing paragraph: 'A basic knowledge of [Github](https://github.com) and running simple commands from the terminal would be helpful... download the binary for mdbook, clone this repo and make edits to the Markdown files locally, generate the book by running mdbook serve... and submit a pull request when you're done! The book will be automatically [rebuilt].' Nothing to analyse beyond that workflow.",
+      "drills": [],
+      "infoTopics": [
+        "Contribution workflow of The Roux Reader (Markdown in a GitHub repo, PR-based edits)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "None. A generic link."
+      ],
+      "license": "n/a (GitHub terms of service; no content used).",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/github-com.blocked.txt"
+    },
+    {
+      "key": "https://github.com/rust-lang/mdbook/releases",
+      "url": "https://github.com/rust-lang/mdBook/releases/",
+      "title": "mdBook releases (GitHub)",
+      "author": "The Rust Project (rust-lang/mdBook)",
+      "kind": "other",
+      "accessible": false,
+      "rouxRelevance": "not-roux",
+      "level": "n/a",
+      "summary": "BLOCKED: the session proxy returned HTTP 400 for github.com/rust-lang/mdBook/releases/. Not routed around. mdBook is the Rust static-book generator that builds The Roux Reader (book.rouxers.com). The Reader's contributing section tells editors to download the mdbook binary from this releases page, clone the repo, edit the Markdown, preview with 'mdbook serve' and open a pull request. Secondary info from a web search of third-party packagers (not verified against the blocked page): latest stable is v0.5.4 (ALT Linux build dated 2026-07-07, after 0.5.3 in May 2026), licensed MPL-2.0. No cubing content.",
+      "drills": [],
+      "infoTopics": [
+        "Toolchain of The Roux Reader (mdBook, Markdown chapters, 'mdbook serve' preview)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "The Roux Reader's source is plain mdBook Markdown with a SUMMARY.md table of contents, so its chapters map easily onto an in-app reader (one screen per chapter, TOC from SUMMARY.md). Whether its text can be bundled depends on the Reader's own licence, which is a separate check (see the book.rouxers.com hub results)."
+      ],
+      "license": "mdBook itself: MPL-2.0 (per its README and distro packages, found by web search). It is a build tool only and would not ship in the app.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/github-mdbook-releases.blocked.txt"
+    },
+    {
+      "key": "https://fmcsolves.cubing.net/fmc_tutorial_eng.pdf",
+      "url": "https://fmcsolves.cubing.net/fmc_tutorial_ENG.pdf#section.2.1",
+      "title": "Fewest Moves Tutorial: Solving a Rubik's Cube with as few moves as possible (Version 3, Revision 3.04, August 2023), section 2.1 Blockbuilding",
+      "author": "Sebastiano Tronto",
+      "kind": "guide-text",
+      "accessible": true,
+      "rouxRelevance": "roux-mixed",
+      "level": "intermediate to advanced (2.1 Blockbuilding suits any solver who knows a block method; the later FMC chapters on NISS, insertions and DR are advanced and outside Roux speedsolving)",
+      "summary": "A 72-page A4 LaTeX PDF (HTTP 200, 800 KB, created 2023-08-19), extracted with pdftotext. It is a fewest-moves (FMC) tutorial, not a Roux guide. The Roux Reader links section 2.1 because it is the best compact write-up of method-agnostic blockbuilding, which is the core skill of Roux FB and SB. Section 2.1 covers: 2.1.1 Align then join (make two pieces joinable by one move, then join; this scales from pairs to a square + pair = 3x2x1). 2.1.2 Move it out of the way (protect a built pair before a move that would break it). 2.1.3 Destroy and restore (break a block temporarily and rebuild it, worked R' F R F'). 2.1.4 Keyhole (use unsolved slots to place pieces). 2.1.5 One move, two goals. 2.1.6 Influence later steps (build sub-optimally when it gives a better continuation; example L2 B R B makes two squares). 2.1.7 Pay attention to EO. 2.1.8 Which block should I build? It gives Erik Jernqvist's 'good start' move counts: square + pair 3, 2x2x2 4, two squares 5, 2x2x3 9, F2L-1 14, F2L 17. 2.1.9 Ready-made blocks, with three strategies: expand them; expand while building others (usually best); ignore them and build new ones. It adds that knowing when to throw a block away is hard but important. 2.1.10 Tricks to get fast: brute-force every single move (U, U2, U', R...) looking for new pairs, and mentally check all 8 possible 2x2x2s without test moves. It notes that Alexander Lau (2014 European Champion, 'Roux method master') plans the whole 3x2x1 first block in 15 s of inspection and partly plans the second block. It suggests a planning game: a friend scrambles with 3 moves, you find them, then 4, 5... ('if you can reach 9 or 10 moves, congratulations'). Roux-specific parts: 1.2 lists the Roux steps (3x2x1, opposite 3x2x1, CMLL, LSE). It says to learn Roux's first two steps for blockbuilding, and to avoid standard M/U LSE in FMC because M counts as 2 moves in HTM. 1.7.2 gives Roux tips: build both blocks at once; try non-matching blocks (the second block can be any of the 4 that fit opposite the first); influence CMLL while finishing SB, and LSE during CMLL. 3.9 says Roux can be considered a corners-first method. Other chapters: skeletons, corner/edge/block commutators, insertions, EO-first and Domino Reduction, inverse scramble, pseudo blocks, premoves, NISS, skew centers, how to practice (no time limit vs competition simulation, compare with masters' solves, hard scrambles, deliberate practice of one sub-step, fast scrambling) and rotationless solution writing. It links Waffle's and Kian Mansour's Roux tutorials.",
+      "drills": [
+        "Align-then-join recognition: look at a scramble and find every pair that one move would join (blockbuilding warm-up; directly useful for FB/SB pair making)",
+        "Brute-force pair search: try each single move in turn (U, U2, U', R, R2, R'...) and check after each whether a pair formed",
+        "Mental survey of all possible starts without test moves: for each candidate block (in Roux, each FB location and colour), find its pieces and plan how to join them, then compare costs",
+        "Planning/'calculation' game: a partner scrambles a solved cube with N moves (start N=3) and you must find the moves; raise N toward 9-10. Trains inspection planning (Lau-style full-FB planning)",
+        "Deliberate sub-step practice: take a scramble, build only the start (FB in Roux) repeatedly until satisfied with the move count, then change scramble; untimed",
+        "Compare with the masters: practise on scrambles that experts have already solved and compare your block solution with theirs; study expert reconstructions",
+        "Compare first-block solutions to an optimal solver (the tutorial cites HARCS) to measure efficiency",
+        "Move-count benchmarks: aim for Jernqvist-style targets for each block type (square + pair in 3, two squares in 5, and so on)",
+        "Roux-in-FMC habits: build both blocks at the same time; try non-matching second blocks; influence CMLL while finishing SB",
+        "Hard-scramble practice: try known 'hard' scrambles to learn worst-case handling"
+      ],
+      "infoTopics": [
+        "Blockbuilding fundamentals: align then join, move it out of the way, destroy and restore, keyhole, one move two goals, influence later steps, pay attention to EO",
+        "Choosing which block to build; move-count targets for starts",
+        "Handling ready-made blocks and knowing when to discard a block",
+        "Finding starts fast: brute force pair search, surveying all 8 2x2x2 blocks mentally",
+        "Inspection planning and look-ahead (Alexander Lau planning a full first block in inspection)",
+        "Roux overview (FB, SB, CMLL, LSE) and Roux tips (simultaneous blocks, non-matching/pseudo blocks, influencing CMLL and LSE)",
+        "Pseudo/non-matching blocks and premoves",
+        "Roux as a corners-first-style method",
+        "Notation: OBTM/HTM metrics, inner-slice moves counting 2 in HTM, wide moves, rotations; rotationless writing",
+        "FMC-specific (non-Roux): skeletons, commutators, insertions, NISS, EO-first, Domino Reduction, skew centers, time management"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "'Find the pair' micro-drill: show a 3D scrambled cube and ask which single move joins a corner-edge pair (multiple choice or tap the move). Score speed and accuracy. Feed it FB/SB-relevant pieces only (for example the DL or DR block pieces).",
+        "'Calculate N' planning drill: apply a random N-move sequence (N from 3, adaptive up to 10) to a solved cube and ask the user to enter the inverse. A Roux variant shows an FB scramble with an optimal FB of N moves, hides the cube after timed inspection, and has the user type or perform the planned FB. This trains Lau-style full-FB inspection planning.",
+        "Efficiency feedback in FB/SB trainers: after each block, show the user's move count next to the optimal (the app's solver) and a target band, in the spirit of Jernqvist's benchmark table but with Roux targets (FB, square, SB). Track the trend over sessions.",
+        "Ready-made-block decision drill: generate scrambles that contain a pre-built pair or square, and ask the user to choose: expand it, build around it, or ignore it. Then reveal the optimal FB for each choice.",
+        "Lesson cards for an in-app 'Blockbuilding principles' guide (align-join, move it out of the way, destroy-restore, one move two goals, influence later steps), each with a short animated example. The tutorial is CC BY 4.0, so wording and structure can be adapted with credit to Sebastiano Tronto. Its examples credit other solvers and Ryan Heise's site, so make our own example scrambles.",
+        "Non-matching second block awareness: in the SB trainer, an optional mode that accepts any of the 4 SBs that fit opposite FB (pseudo SB) and shows the fixing premove. This builds the flexibility the tutorial recommends."
+      ],
+      "license": "Creative Commons Attribution 4.0 (CC BY 4.0), stated in the PDF: free to redistribute, remix and adapt with credit. LaTeX sources are at github.com/sebastianotronto/fmctutorial (not checked: GitHub blocked). Example solves inside credit third parties (Goljan, Razoux-Schultz, Disarò, Bubendorf) and techniques from ryanheise.com, so paraphrase those rather than copying.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/fmc_tutorial_ENG.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/fmc_tutorial_ENG.pdf"
+    },
+    {
+      "key": "https://speedcubedb.com/r/index",
+      "url": "http://speedcubedb.com/r/index/",
+      "title": "SpeedCubeDB reconstructions index (dead link)",
+      "author": "Gil Zussman (SpeedCubeDB)",
+      "kind": "reconstructions",
+      "accessible": false,
+      "rouxRelevance": "unknown",
+      "level": "n/a (page gone)",
+      "summary": "NOT FOUND: http://speedcubedb.com/r/index/ returns 301 to https, then HTTP 404 ('The requested URL was not found on this server'); /r/ and /r are also 404. The Wayback Machine was not reachable from this session (web.archive.org tunnel reset, archive.org API 429), so the old content was not recovered. The Roux Reader linked it in the First Block chapter as a place to study top solvers' reconstructions. The live speedcubedb.com (HTTP 200, 'Created By Gil Zussman') no longer has a reconstruction section in its menu. It is now an algorithm database for 3x3, 2x2, 4x4, 5x5, Square-1, Megaminx, Pyraminx and Skewb, plus Practice (only a PLL trainer at /t), Scramble Analyzer, 2-Sided PLL Recognition, Cross Trainer and an SQ1 CSP tracing tool. Google sign-in tracks 'learned' counts per set (shown as 0/N). The 3x3 alg DB has Roux-relevant sets: CMLL (42 cases, filterable by the 8 OLL-shape groups O/H/L/Pi/Sune/Anti Sune/T/U; several algs per case with a setup and 'More Algorithms'), Second Block Last Slot (SBLS, 65 cases grouped by where the corner sits) and Edge Orientation 4a (EO4A, 9 cases), with a 'Cross Color' setting for the case images. The rest is CFOP/ZZ material (F2L, OLL, PLL, COLL, WV, SV, ZBLL...), out of scope. Ads appear on set pages.",
+      "drills": [],
+      "infoTopics": [
+        "(Live site, not the dead page) Roux alg sets: CMLL grouped by OLL shape, SBLS by corner location, EO4A cases"
+      ],
+      "algSets": [
+        {
+          "name": "CMLL (live speedcubedb.com/a/3x3/CMLL, not the dead /r/ page)",
+          "caseCount": "42",
+          "notes": "Groups with case counts: Anti Sune 6, H 4, L 6, Pi 6, O ('Solved': Adjacent, Diagonal) 2, Sune 6, T 6, U 6 = 42; several algs per case with a setup alg and 'More Algorithms'; learned counter per group when signed in"
+        },
+        {
+          "name": "Second Block Last Slot (SBLS)",
+          "caseCount": "65",
+          "notes": "Groups: corner on D facing forward (8), facing side (8), solved (7), corner on U facing up (14), misoriented (14), oriented (14); r/M/U/R algs"
+        },
+        {
+          "name": "Edge Orientation (4a) (EO4A)",
+          "caseCount": "9",
+          "notes": "LSE 4a EO cases such as All 6, 2 Top 2 Bot, Bottom 2, Top 2 Front 2, 4 Top, 2 Top Opp, 2 Top Adj, 1 Top 1 Bot; M/U algs"
+        }
+      ],
+      "appIdeas": [
+        "The 'learned N of M' counter per case group (for example CMLL Sune 2/6) is a simple, motivating progress view for Rouxtine's alg sets; store it per user and show it on each group chip.",
+        "Offer several algs per case with a 'More algorithms' expander and a persistent 'my alg' choice; show the setup alg so users can drill on a physical cube.",
+        "SBLS grouped by corner location is a good way to organise an SB last-pair reference or trainer in the app."
+      ],
+      "license": "No licence or reuse terms shown; site and data are the owner's (Gil Zussman). Reconstruction content could not be inspected. Do not copy alg lists or images; link out or use our own generated sets.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/speedcubedb-r-index.404.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/speedcubedb-home.txt (and speedcubedb-a-3x3*.txt, speedcubedb-t.txt)"
+    },
+    {
+      "key": "https://cubesolv.es",
+      "url": "http://cubesolv.es",
+      "title": "CubeSolves (reconstruction database)",
+      "author": "Justin Jaffray (site, repo justinj/reconstruction-database); reconstructions by community contributors",
+      "kind": "reconstructions",
+      "accessible": true,
+      "rouxRelevance": "roux-mixed",
+      "level": "intermediate to advanced (studying top solvers' reconstructions)",
+      "summary": "A server-rendered reconstruction database (Bootstrap 3 + jQuery + selectize). It loads over plain HTTP, the URL the Roux Reader links. HTTPS connections to cubesolv.es reset through the session proxy, so pages were fetched with curl over HTTP and parsed. Effectively unmaintained: the newest entry is an 8x8BLD solve added Dec 25, 2022; before that, additions stop at Mar 9, 2020. Size: the contributors page shows 5,239 reconstructions; the home list has 54 pages of 100. Top reconstructors: Brest 3,371, Stuart Clark 340, Chris Dickson 242, Hagen Seah 97, Bill Hammill 68, others fewer. List columns: Solver, Event, Single (record badge such as WR/NR/OcR), Average (badge), Result, Competition (or 'Unofficial'), Date Added. Events include 2x2 to 17x17, 3x3OH, 3x3Feet, the BLD events, FMC, Megaminx, Pyraminx, Skewb, Square-1, and a Roux-specific '3x3RouxLSE' (timed LSE-only solves). Filtering is one search box: a substring match over solver, competition, event, tags and result, with selectize token suggestions. There is no method filter. Step comments are not searchable (queries 'CMLL', '2nd block' and 'Lblock' return 0), and a combined 'roux,3x3OH' query returned 0. Method tags are sparse: 'roux' returns only 14 rows (12 Lau LSE solves, plus Gilles Roux and Fabian Auroux matched by name). Roux solves have to be found by solver: Alexander Lau 130 (118 3x3 from 2013-2014, 12 3x3RouxLSE), Thom Barlow 94 (88 3x3, 2013-2017), Kian Mansour 46 (3x3 and 3x3OH, 2017-2019), Sean Patrick Villanueva 11 (2019-2020), Bryan Rusinque 2, Jabari Nuruddin 2, Gilles Roux 1 (11.97 unofficial). Each solve page shows the scramble and the solution as move lines with step comments (Roux convention: inspection, 1st square, 1st block, 2nd square, 2nd block, CMLL, EO, UL/UR, EP). It has a Stats table with per-step Time, ETM, ETPS, STM and STPS, which groups Roux steps as Lblock, Rblock, F2B, CMLL, LSE and L10P. Example: Kian Mansour's 5.64 at WC2019 was 38 ETM at 6.74 ETPS, with FB 7 moves in 1.70 s, SB 10 in 1.37, F2B 17 in 3.07, CMLL 9 in 1.13, LSE 12 in 1.44 and L10P 21 in 2.57. The page also shows the surrounding average (5 linked solves, trimmed ones in parentheses, '= 7.59'), tags, a Video dropdown (YouTube), a Playback dropdown (Roofpig animation), and links to alg.cubing.net (type=reconstruction, setup = scramble) and kSim. Every solve credits 'Reconstructed by' and links its Source (usually a speedsolving.com post) and the solver's and competition's WCA pages. LSE-only entries record a 'Timer' reaction step (for example 0.16 s) separately from the solve.",
+      "drills": [
+        "Study pro reconstructions step by step: replay a top Rouxer's solve (Lau, Kian, Barlow, Villanueva) with its step labels and compare its FB/SB move counts and TPS to your own",
+        "LSE-only timed attempts (the '3x3RouxLSE' event: M/U-only LSE scrambles, Lau's average of 12 = 1.85 s) as a benchmark drill"
+      ],
+      "infoTopics": [
+        "Roux step-labelling convention for reconstructions (1st square, 1st block, 2nd square, 2nd block, CMLL, EO, UL/UR, EP)",
+        "Per-step split statistics: time, ETM/STM move counts, ETPS/STPS turn speed; Roux groupings F2B and L10P",
+        "Typical elite Roux move counts and splits (for example FB 7, SB 10, CMLL 9, LSE 12 moves)",
+        "Reconstruction provenance (reconstructor credit, source post, video)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Reconstruction viewer for a 'Learn from the pros' or own-solve review screen: scramble on top; solution lines tagged with Roux step chips; animated playback scrubbed by step; a stats table per step (time, STM/ETM, TPS) with F2B and L10P subtotals, the way cubesolv.es computes them.",
+        "Use cubesolv.es's step vocabulary as the canonical step model for the app's solve annotations and timer splits: inspection, FB square, FB, SB square, SB, CMLL, EO, UL/UR (4b), EP (4c), grouped into F2B and L10P. Then smart-cube or manual splits can be compared directly with published pro splits.",
+        "First-class filters missing on cubesolv.es: method (Roux only in our case), event (3x3 / OH), solver, and step-level metrics (for example 'FB under 8 moves'). Let users search by step content too.",
+        "An 'LSE sprint' mode modelled on the 3x3RouxLSE event: random M/U LSE states, timed with reaction time split off, and averages of 5/12 compared to a pro benchmark.",
+        "Show averages in context (ao5 with trimmed solves in parentheses) and link each solve to its neighbours, as solve pages do here.",
+        "Always store and show provenance on bundled or linked reconstructions: reconstructor, source link, video link."
+      ],
+      "license": "No licence shown on the site; footer reads '© Justin Jaffray'. The source repo github.com/justinj/reconstruction-database could not be checked (GitHub blocked by the proxy), so its licence is unverified. Reconstructions are volunteer work credited per solve and sourced from forum posts. Do not bulk-import; link out per solve, or ask the maintainer and reconstructors for permission before bundling any data.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/cubesolves-home.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-8/cubesolves-solve-5464.txt (and cubesolves-*.html/.txt: queries, solves 900/1519/5139, contributors, custom.js)"
+    }
+  ]
+}

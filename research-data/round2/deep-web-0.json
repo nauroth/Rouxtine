@@ -1,0 +1,226 @@
+{
+  "resources": [
+    {
+      "key": "https://basilio.dev/cubing/megasurvey6",
+      "url": "https://basilio.dev/cubing/megasurvey6/",
+      "title": "Cubers Megasurvey - Learning from ourselves (r/Cubers 6th Megasurvey, 2022 data, published Apr 2023)",
+      "author": "Basilio Noris (b4silio), with the r/Cubers mods; reviewed by Shawn Boucke (SpeedCubeReview)",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "roux-mixed",
+      "level": "all levels (informational; no drills)",
+      "summary": "A general cubing survey write-up: about 1,410 respondents, 160+ questions, a 92-page Keynote PDF and a cleaned raw .xlsx (991 columns). It is not a trainer, but it has real Roux-specific sections. rouxcubing.com cites it for 'Roux is about 6% of cubers'. Roux numbers from the PDF charts and my own pass over the raw data (49 respondents named Roux as their main method; small sample): (1) Median 3x3 global average by main method: Roux 16.49 vs CFOP 16.50, ZZ 12.50. Page title: 'Roux is faster than CFOP but it takes longer to master it'. Roux medians by experience run 38.7 (under 3 months), 32.5 (about 6 months), 25.3 (1 year), 14.5 (1.5 years), 13.2 (3 years). CFOP runs 38.3, 22.5, 17.8, 17.3, 14.3, so 'the learning curve is harsher for Roux'. (2) OH, from the raw data: Roux mains median OH 20.4 (n=20) vs CFOP 31.2 (n=232). 45% of Roux mains practise OH, against 28% of all respondents. (3) Roux orientation neutrality: Fixed (y or y2) 21%, Dual (x2 y) 57%, Full (x y) 14%, Reduced (x2 y2) 4%, Quad 3%. Median averages by neutrality: Full 14.5, Fixed 14.3, Dual 14.0, Quad 13.9, Reduced 12.1. The overall conclusion: dual colour neutrality learns fastest. (4) Roux inspection planning ('Always' / 'Mostly' / 'Only if easy'): FS or line 65/23/13%; full FB 16/37/47%; FB+SS 91% and FB+SB 93% 'only if easy'. 70% of fast learners do not use a strict 15 s inspection. (5) 18 of the 21 Meyer 4x4 users are Roux mains. Among Roux mains, 4x4 methods are Meyer 18, Yau 15, Reduction 10, K4 5, Hoya 4. (6) Learning: 43 of 49 Roux mains know full CMLL. Roux mains use on-device alg sheets 40/49, sheets by others 28, an alg trainer 26, YouTube 19, their own sheets 15, a smart cube with a trainer 6. Bulk 'whole set over several days' (14) beats '1-2 algs a day' (7). (7) Smart cubes (all respondents): 33% own one, 17% stopped using it. Main uses: solve analysis and splits 79% (up from 67%), online competing 51%, alg trainers 37%. Drawbacks: cube performance 55%, having to use an app 50%, battery 46%, connection 43%, weight 37%. The author's note: 'Dear smart cube software developers, please put more effort in your analytics!' (8) Timers: csTimer 58% and Twisty Timer (Android) 17%; among Roux mains csTimer 38/44 and Twisty Timer 9. (9) Roux Weekly Comp on Facebook: 3% of respondents and 12 of 49 Roux mains. Also saved: the PDF text (megasurvey6-pdf.txt), my Roux analysis (megasurvey6-roux-analysis.txt) and the PDF/xlsx with page renders (megasurvey6-files/). No later edition is hosted (megasurvey7 returns 404). The Wayback Machine was not used.",
+      "drills": [
+        "None directly. Implied: an inspection-planning progression from FS/line to full FB to FB+SS (most Roux mains always plan FS, but only 16% always plan the full FB)",
+        "Implied: colour or orientation-neutrality practice (x2 y dual is the norm and learns fastest)",
+        "Implied: OH Roux practice (Roux mains' OH median is about 11 s faster than CFOP mains')",
+        "Implied: bulk alg-set learning repeated over several days vs 1-2 algs a day (both styles are common)"
+      ],
+      "infoTopics": [
+        "Is Roux competitive: Roux vs CFOP vs ZZ medians, and Roux's harsher first-year learning curve",
+        "Roux share of the community (about 6% main; 47% of respondents know Roux)",
+        "Roux orientation-neutrality options (fixed, dual x2y, reduced x2y2, full xy, quad) and their speeds",
+        "How far Roux solvers plan in inspection",
+        "Roux OH advantage",
+        "Roux-based 4x4 (Meyer) adoption among Roux mains",
+        "How cubers learn algs (tools, bulk vs incremental)",
+        "What cubers want from smart cubes (analytics) and what bothers them",
+        "Which timers cubers use (csTimer, Twisty Timer)"
+      ],
+      "algSets": [
+        {"name": "CMLL", "caseCount": "42", "notes": "Survey only asks whether you know it: 43 of 49 Roux mains, 74 of 780 respondents overall"}
+      ],
+      "appIdeas": [
+        "'Why Roux?' info card with credited stats: Roux median 16.49 vs CFOP 16.50, an OH edge (Roux mains' OH median 20.4 vs 31.2), and the 34% Roux share of the WCA OH top-100 that rouxcubing.com shows",
+        "Beginner onboarding that sets expectations for Roux's harsher first year (32.5 vs 22.5 at about 6 months, catching up by about 1.5 years), plus early block-building drills and progress messages",
+        "Orientation-neutrality selector in every block trainer, using the survey's vocabulary: Fixed (y/y2), Dual (x2 y, default), Reduced (x2 y2), Full (x y)",
+        "Inspection-planning ladder: level 1 FS/line, level 2 full FB, level 3 FB+SS, with a 15 s strict or relaxed toggle",
+        "Two alg-learning modes in the SRS: 'whole set over several days' and 'N new algs per day'",
+        "An offline alg-sheet view with user-editable algs, because on-device sheets are the most-used learning tool",
+        "Smart cubes: lead with analytics (per-stage Roux splits, TPS, pauses, trends). Keep smart-cube use optional with low hassle: fast reconnect, battery level, no account needed",
+        "Import sessions from csTimer and Twisty Timer exports, the two timers most Roux mains use",
+        "Solve-time distribution histogram, like Basilio's 'Fancy Charts' generator on basilio.dev/cubing",
+        "Give big-cube Roux (Meyer) priority: most Meyer users are Roux mains",
+        "Roux 'what to learn at which speed' milestone map (sub-60, 30, 20, 15, 12, 10), modelled on the survey's CFOP-only page 63"
+      ],
+      "license": "No licence stated on the page, the PDF or the data. The PDF and cleaned raw xlsx (Megasurvey6-RAW.zip) are freely downloadable; authorship is Basilio Noris and the r/Cubers mods. Cite aggregate statistics with attribution and a link. Do not bundle the raw response data in the app.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-0/megasurvey6.txt"
+    },
+    {
+      "key": "https://speedcubeshop.com/rouxcomp",
+      "url": "https://speedcubeshop.com/rouxcomp",
+      "title": "SpeedCubeShop sponsor link for the Roux Weekly Competition",
+      "author": "SpeedCubeShop (commercial store)",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "not-roux",
+      "level": "n/a",
+      "summary": "Sponsor link from the Weekly Competition #607 post ('Sponsored by SpeedCubeShop ... Use code ROUX for 5% off'; one random competitor each week wins a $5 SCS gift card). The link resolves, but the target page is gone. Redirect chain: speedcubeshop.com/rouxcomp → www.speedcubeshop.com/pages/roux?utm_source=weekly_roux&utm_medium=community_sponsorship&utm_campaign=weekly_roux → speedcubeshop.com/pages/roux → www.speedcubeshop.com/ → speedcubeshop.com/. So the /pages/roux landing page no longer exists, and the link lands on the store homepage, which has no Roux-specific content. The Wayback Machine was not reachable (archive.org returned 429; web.archive.org was blocked by egress policy; not routed around). No training or informational value. It only matters as a pattern: a cube store sponsors a Roux community event with a discount code and a prize draw. Homepage text is saved in speedcubeshop-rouxcomp.txt.",
+      "drills": [],
+      "infoTopics": [],
+      "algSets": [],
+      "appIdeas": [
+        "Possible funding route for the owner's donations/IAP question: an optional, clearly labelled 'Support / Gear' link or sponsor credit (store discount code) kept out of training screens. The Roux weekly comp already runs on this model. Product listings are not Roux content, so keep them out of the app"
+      ],
+      "license": "Commercial Shopify storefront; site terms apply. No content to reuse.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-0/speedcubeshop-rouxcomp-redirects.txt"
+    },
+    {
+      "key": "https://bit.ly/rmsweeklycompsummary",
+      "url": "https://bit.ly/RMSWeeklyCompSummary",
+      "title": "RMS Weekly Comp Participation Summary (Google Sheet)",
+      "author": "Roux weekly competition organiser (rouxcubing.com; contact via Discord _knut_)",
+      "kind": "community",
+      "accessible": true,
+      "rouxRelevance": "roux-mixed",
+      "level": "all levels",
+      "summary": "A bit.ly link (bitly preview title 'RMS Weekly Comp Participation Summary') to a public view-only Google Sheet (ID 1AA5fmcd-pbZQBdR_nbBzqdjg_O8JUXASUMCtEDXNUIc) with one tab, 'Sheet1'. I fetched it via CSV export on 2026-10-28. It is a header 'Week #607 Participation' and a table Name | 3x3 | OH | FMC | 4x4, with an 'x' per event entered: 5 participants so far this week. Its purpose, from the rouxcubing.com post: 'Check whether or not you participated this week yet'. RMS is presumably the Facebook 'Roux Method Speedsolvers' group (the survey calls it 'Roux Weekly Comp on Facebook'). The comp's four Roux-only events are 3x3 (Roux and variants ZBroux, Pinky Pie), OH, FMC (STM, linear only), and 4x4 (Rouxduction, Meyer, Stadler). It is not a results or reconstruction database: no times, only participation flags. The bitly preview page is saved too (rms-weekly-summary-sheet.txt) and the raw CSV is in rms-summary-sheet/sheet1.csv.",
+      "drills": [
+        "Weekly competition practice across Roux 3x3, Roux OH, Roux FMC and Roux-based 4x4"
+      ],
+      "infoTopics": [
+        "Which events of the Roux weekly comp you have entered this week"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "A local 'Roux Weekly' checklist (3x3 / OH / FMC / 4x4 done this week), with a countdown to the Sunday 5 pm US Eastern deadline",
+        "Do not scrape this sheet into the app: it lists participants' names. Any live integration needs the organiser's permission",
+        "Same week-by-event grid as a pattern for the app's own 'weekly challenge' streaks"
+      ],
+      "license": "No licence. A Google Sheet shared by link (view-only). Contains participants' self-chosen display names, which is personal data; do not redistribute.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-0/rms-weekly-summary.txt"
+    },
+    {
+      "key": "https://forms.gle/h5xocwvgknz92fqt8",
+      "url": "https://forms.gle/H5xoCWvGKnZ92fQt8",
+      "title": "RMS Weekly: 3x3 (Google Form)",
+      "author": "Roux weekly competition organiser (rouxcubing.com)",
+      "kind": "community",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "all levels",
+      "summary": "Submission form for the Roux weekly comp's 3x3 event. It redirects to docs.google.com/forms/d/e/1FAIpQLSd7XTLTpHVYWfYSY_qwPplmoBcSkyQ3KT85baM7sAFUtPrbEQ/viewform. Three required short-text fields with no form description: 'Please write your name as you want it to appear in the results' (entry.1612763881), 'What country do you wish to represent?' (entry.1406995794), and '3x3 Average of 5' (entry.1891516673). There is no per-solve entry and no validation, so it runs on trust. Context from the #607 post: 5 random-state 3x3 scrambles per week; Roux and variants (ZBroux, Pinky Pie) only; WCA regs as far as possible (inspection, penalties); keyboard timing allowed; due Sunday 5 pm Eastern. Last week's results image showed 8 ranked competitors in 3x3. The form structure, taken from FB_PUBLIC_LOAD_DATA_, is in forms-structure.txt.",
+      "drills": [
+        "Weekly Ao5 on 5 fixed scrambles under WCA-style inspection, Roux only"
+      ],
+      "infoTopics": [
+        "Roux weekly comp rules: Roux and variants only (ZBroux, Pinky Pie), WCA regs, trust-based"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "'Roux Weekly' competition mode: show the week's 5 scrambles, time them with WCA inspection (+2/DNF), and compute the WCA Ao5",
+        "Then open a prefilled Google Form URL (viewform?usp=pp_url&entry.1612763881=<name>&entry.1406995794=<country>&entry.1891516673=<ao5>) so the user taps Submit themselves in the browser. This keeps the comp's trust-based flow. Save name and country once",
+        "Getting the scrambles needs the organiser's cooperation: the rouxcubing.com post is a hashed static .md file that is replaced weekly, so ask for a stable feed",
+        "Treat the comp's allowed-variant list (ZBroux, Pinky Pie) as in scope for Rouxtine's 'Roux only' rule"
+      ],
+      "license": "Google Form; Google Forms terms. No licence. The form is the organiser's.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-0/form-3x3.txt"
+    },
+    {
+      "key": "https://forms.gle/ugrlw3k1d5kkmgfm9",
+      "url": "https://forms.gle/UgRLW3K1d5KkMGfM9",
+      "title": "RMS Weekly: OH (Google Form)",
+      "author": "Roux weekly competition organiser (rouxcubing.com)",
+      "kind": "community",
+      "accessible": true,
+      "rouxRelevance": "roux-oh",
+      "level": "all levels",
+      "summary": "Submission form for the Roux weekly comp's one-handed event. It redirects to docs.google.com/forms/d/e/1FAIpQLSc8UONRnQy09U2Kwv3kKAQYam9psk4Tz_seDiXPEGpJsR7glw/viewform. It is identical in structure to the 3x3 form, with the same entry IDs: name (entry.1612763881), country (entry.1406995794) and 'OH Average of 5' (entry.1891516673), all required short text. Context: 5 OH scrambles per week, Roux only, WCA-style, keyboard allowed. Last week's results image showed 5 OH competitors. OH is where Roux is strongest: per rouxcubing.com, 34% of the WCA OH top-100 averages are Roux solvers.",
+      "drills": [
+        "Weekly OH Ao5 on 5 fixed scrambles, Roux only"
+      ],
+      "infoTopics": [
+        "Roux as an OH method (part of the weekly comp)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "OH as a first-class session type: OH Ao5 for the weekly comp, plus an OH flag on every trainer (OH-friendly alg choices, which the CMLL/LSE trainers could filter on)",
+        "Same prefilled-form submission as for 3x3 (same entry IDs; OH form ID 1FAIpQLSc8UONRnQy09U2Kwv3kKAQYam9psk4Tz_seDiXPEGpJsR7glw)"
+      ],
+      "license": "Google Form; Google Forms terms. No licence.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-0/form-oh.txt"
+    },
+    {
+      "key": "https://forms.gle/1p9vugzma1pibwvl9",
+      "url": "https://forms.gle/1P9VUgZmA1pibwvL9",
+      "title": "RMS Weekly: FMC (Google Form)",
+      "author": "Roux weekly competition organiser (rouxcubing.com)",
+      "kind": "community",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate to advanced (efficiency practice)",
+      "summary": "Submission form for the Roux weekly comp's fewest-moves event. It redirects to docs.google.com/forms/d/e/1FAIpQLSesoZf3sP7M9wvTHA4hNuB0QRffIX4PgCMG_pHLL07m9Xlkqw/viewform. Four required short-text fields: name (entry.1612763881), country (entry.1406995794), 'FMC Result' (entry.1891516673), and 'Paste an \"alg.cubing.net\" link for your solution' (entry.20976419). The rules make this a Roux efficiency drill rather than WCA FMC: 'FMC is counted in STM, and is meant as efficiency practice. Techniques that can't be done linearly (like NISS and insertions) cannot be used.' Roux and variants only, 1 scramble per week (WCA-style R' U' F padded). Last week's winner was 43 STM, a linear FB/SB/CMLL/LSE solve (see the bit.ly/4zTaaa7 entry).",
+      "drills": [
+        "Weekly linear Roux FMC: one scramble, write the most efficient Roux solution, count in STM, with no NISS or insertions"
+      ],
+      "infoTopics": [
+        "Roux FMC as efficiency practice; STM vs HTM counting; why NISS and insertions are excluded (linear solving)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Roux efficiency (linear FMC) trainer: scramble plus a step-by-step solution editor (FB / SB / CMLL / LSE comments). Validate with the cube model, show STM and HTM live, and compare each step with solver optima using onionhoney's analyze_roux_solve",
+        "Export the solution as an alg.cubing.net link (setup= and alg= params) for this form's link field, or as a Twizzle link. Prefill the form with entry.1891516673=<STM count> and entry.20976419=<link>",
+        "Optional 60-minute FMC timer; untimed by default because the comp frames it as practice"
+      ],
+      "license": "Google Form; Google Forms terms. No licence.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-0/form-fmc.txt"
+    },
+    {
+      "key": "https://forms.gle/bhnjncvecpvfwbp2a",
+      "url": "https://forms.gle/bHNjncvEcPvFWBP2A",
+      "title": "RMS Weekly: 4x4 (Google Form)",
+      "author": "Roux weekly competition organiser (rouxcubing.com)",
+      "kind": "community",
+      "accessible": true,
+      "rouxRelevance": "roux-bigcube",
+      "level": "intermediate to advanced",
+      "summary": "Submission form for the Roux weekly comp's 4x4 event. It redirects to docs.google.com/forms/d/e/1FAIpQLSdWBydzBDmfEVDS5WD3UhtPigwEu_qwwK-cS0BBDCTrPYCaRw/viewform. It has the same three required fields and entry IDs as 3x3 and OH, with '4x4 Average of 5' as the result field (entry.1891516673). Rule 5 of the comp: 'Only Roux based methods are allowed on 4x4 (Rouxduction, Meyer, Stadler).' 5 random-state 4x4 scrambles per week (with Fw/Rw/Uw wide moves). Last week's results image showed 3 4x4 competitors. This confirms which big-cube Roux methods the community recognises.",
+      "drills": [
+        "Weekly 4x4 Ao5 with a Roux-based method (Rouxduction, Meyer or Stadler)"
+      ],
+      "infoTopics": [
+        "Roux-based 4x4 methods recognised by the community: Rouxduction, Meyer, Stadler"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Big-cube Roux module scoped to Rouxduction, Meyer and Stadler, matching the comp's definition of 'Roux-based'",
+        "4x4 session type (WCA 4x4 random-state scrambles) with the same weekly-comp prefilled submission flow (same entry IDs)"
+      ],
+      "license": "Google Form; Google Forms terms. No licence.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-0/form-4x4.txt"
+    },
+    {
+      "key": "https://bit.ly/4ztaaa7",
+      "url": "https://bit.ly/4zTaaa7",
+      "title": "Winning Roux weekly FMC solution (Anomic, 43 moves STM) on alg.cubing.net",
+      "author": "Anomic (competitor); hosted on alg.cubing.net (Lucas Garron)",
+      "kind": "reconstructions",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate to advanced",
+      "summary": "A bit.ly link to an alg.cubing.net reconstruction: last week's (#606) winning Roux FMC solution. Setup: R' U' F B2 D' L2 D2 F2 L2 F2 U R2 D B2 L D F' D U' R2 B2 F' R' F2 R' U' F. Solution, with step comments: y x' // inspection | R' r' D2 R U' R2 D' // FB (7) | U' R' U2 R' U' R' U M2 U' r' U r // SB (12) | F R' F' R U2 R U' R' U R U2' R' // CMLL (12) | U2 M U M' U' M2 U' M' U2 M2 U2 M' // LSE (12). I verified it with the cubing.js 0.52.4 KPuzzle: it solves the scramble, 7+12+12+12 = 43 STM. alg.cubing.net reports 50 HTM, 64 QTM, 43 STM and 45 ETM (7 slice moves), so under WCA counting it would be 50. The CMLL is onionhoney's 'pi_back_slash' alg without its leading U (src/lib/Algs.tsx:36). LSE is 12 moves of pure <M,U>. Useful as a reference for per-step Roux efficiency and for the alg.cubing.net URL format: setup= and alg= params, '_' for space, '-' for prime, %0A for newline, // comments. alg.cubing.net is frozen; its successor is Twizzle (alpha.twizzle.net/edit, part of cubing.js).",
+      "drills": [
+        "Linear Roux efficiency: FB in about 7, SB in about 12, CMLL about 12, LSE about 12 STM (one winning data point)",
+        "Study the reconstruction: inspection rotation choice (y x'), FB with r/D moves, SB finished with an M2 and r' U r insert"
+      ],
+      "infoTopics": [
+        "Step-labelled Roux reconstruction format",
+        "STM vs HTM counting for Roux (slice moves)",
+        "Using a 2-gen-ish CMLL (Pi case) inside FMC"
+      ],
+      "algSets": [
+        {"name": "CMLL", "caseCount": "42", "notes": "Uses the Pi 'back slash' case alg F R' F' R U2 R U' R' U R U2' R'"},
+        {"name": "LSE", "caseCount": "", "notes": "Solved intuitively in 12 <M,U> moves"}
+      ],
+      "appIdeas": [
+        "Reconstruction viewer with step labels and per-step move counts in STM, HTM or ETM",
+        "Import and export alg.cubing.net and Twizzle URLs (parse setup/alg params and // comments) so community solutions open in the app",
+        "Auto-segment an imported solution into FB/SB/CMLL/LSE when it has no comments, using analyze_roux_solve",
+        "'Weekly FMC gallery': show the winning solution next to the user's attempt, step by step (needs the organiser's permission to republish solutions)",
+        "Benchmark the user's step move counts against reference efficiency targets"
+      ],
+      "license": "alg.cubing.net code: MIT (cubing/alg.cubing.net, Lucas Garron, development frozen). Successor cubing.js/Twizzle: MPL-2.0 OR GPL-3.0-or-later. The solution itself is the competitor's submission: credit Anomic if shown.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-0/fmc-solution-anomic-analysis.txt"
+    }
+  ]
+}

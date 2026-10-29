@@ -1,0 +1,447 @@
+{
+  "shortAnswer": "Use minSdk 24 (Android 7.0). It is the hard floor of the planned stack: Material 3 Expressive, Navigation 3, navigationevent and DataStore all require 24. A test build fails at 23 and builds at 24. Google's AndroidX default is now also 24, and every upcoming AndroidX release needs it. On Google's latest figures (1 Dec 2025), 24+ reaches 99.1% of Play devices; 23 would add only 0.4% and cost M3 Expressive. Supporting 24-25 costs a little: legacy launcher icons, guarded notification channels, desugaring if we use java.time, location permission plus location-on for smart cubes on Android 7-11, and screenshot tests only on 26+. Keep compileSdk 37 (the libraries require it) and targetSdk 37 (Play needs 36+). Your S25 is API 36, 1080x2340 at about 360x780 dp.",
+  "recommendation": "Set minSdk = 24 (Android 7.0), compileSdk = 37, targetSdk = 37, and update the 26 in android-ui-stack.md, cloud-toolchain.md and HANDOFF.md. Why 24: it is the hard floor of the chosen stack (M3 Expressive via material3 1.5.0-beta02, Navigation 3 1.2.0, navigationevent 1.2.0, DataStore 1.3.0), verified by a manifest-merge probe that fails at 23 and builds at 24. It is AndroidX's official default, and every upcoming AndroidX release already requires it. It reaches 99.1% of Play devices (Dec 2025 data), 0.8 points more than 26. 23 would add only 0.4% (Android 6.0), would mean dropping M3 Expressive back to material3 1.4.0 and pinning old Nav3/DataStore, and would block every future AndroidX update, so it is not worth it. 21 is impossible because Compose 1.12 itself is 23. What to build for 24-25: legacy PNG launcher icons beside the adaptive icon; notification channels and POST_NOTIFICATIONS behind SDK checks; dynamic colour (31+), AGSL (33+) and blur (31+) behind gates with static fallbacks; and enableEdgeToEdge() from day one, testing 3-button and gesture navigation. Enable core library desugaring only if app code uses java.time or kotlinx-datetime. It is cheap and the probe builds with it. Alternatively store epoch millis and format with android.icu, which is available from 24. Use AppCompatActivity only if an in-app language picker is wanted before Android 13; otherwise use ComponentActivity plus generateLocaleConfig for Android 13+. For smart cubes on 7-11, request location permission and prompt for location services; kable-default-permissions already has the right manifest. Testing: Roborazzi goldens at SDK 37 (and optionally 36) with the S25 qualifier, plus MediumPhone and a tablet. Robolectric behaviour tests at @Config(sdk=[24]) use the short qualifier, because screenshots cannot render below 26. Before a release, run one real Android 7.x device or an API 24 emulator on the owner's PC.",
+  "claims": [
+    {
+      "id": "sdk-1",
+      "topic": "minSdk floor",
+      "claim": "The binding minSdk floor of the planned stack is 24. In the fully resolved release runtime classpath (AGP 9.5.0, Compose BOM 2026.09.00 + material3 1.5.0-beta02 and the other pinned libraries), the only AARs that declare minSdkVersion 24 in their AndroidManifest.xml are: material3-android and material3-ripple-android 1.5.0-beta02, navigation3-runtime-android and navigation3-ui-android 1.2.0, navigationevent-android and navigationevent-compose-android 1.2.0, and datastore-android, datastore-core-android, datastore-preferences-android and datastore-preferences-core-android 1.3.0. Nothing declares more than 24.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-android/1.5.0-beta02/material3-android-1.5.0-beta02.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/navigation3/navigation3-runtime-android/1.2.0/navigation3-runtime-android-1.2.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/navigation3/navigation3-ui-android/1.2.0/navigation3-ui-android-1.2.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/navigationevent/navigationevent-android/1.2.0/navigationevent-android-1.2.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/navigationevent/navigationevent-compose-android/1.2.0/navigationevent-compose-android-1.2.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/datastore/datastore-android/1.3.0/datastore-android-1.3.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/datastore/datastore-core-android/1.3.0/datastore-core-android-1.3.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/datastore/datastore-preferences-android/1.3.0/datastore-preferences-android-1.3.0.aar",
+        "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk/probe/app/build.gradle.kts (listLibMinSdk task over releaseRuntimeClasspath, run 2026-10-28)"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-2",
+      "topic": "minSdk floor",
+      "claim": "A throwaway Gradle probe with the full pinned dependency set confirms the floor. processDebugMainManifest fails at minSdk 21 (first error: hilt-lifecycle-viewmodel-compose 1.4.0 declares 23) and at minSdk 23 ('uses-sdk:minSdkVersion 23 cannot be smaller than version 24 declared in library [androidx.navigationevent:navigationevent-android:1.2.0]'). At minSdk 24 the merge passes, and assembleDebug with core library desugaring builds a 17.4 MB unminified APK whose manifest has minSdkVersion 24 and targetSdkVersion 37, compileSdkVersion 37.",
+      "sources": [
+        "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk/probe/app/build.gradle.kts",
+        "https://dl.google.com/dl/android/maven2/androidx/navigationevent/navigationevent-android/1.2.0/navigationevent-android-1.2.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/hilt/hilt-lifecycle-viewmodel-compose/1.4.0/hilt-lifecycle-viewmodel-compose-1.4.0.aar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-3",
+      "topic": "minSdk per library",
+      "claim": "Libraries that declare minSdk 23 at the pinned versions: Compose ui, ui-graphics, ui-text, foundation, foundation-layout, runtime, animation 1.12.1; material3-adaptive adaptive, -layout, -navigation, -navigation3 1.3.0; lifecycle-runtime, -viewmodel, -viewmodel-compose, -runtime-compose, -viewmodel-navigation3, -process 2.11.0; activity and activity-compose 1.13.0; core and core-ktx 1.19.1; graphics-shapes 1.1.0; room3-runtime 3.0.3 (and the androidx.sqlite 2.7.1 artifacts it pulls; sqlite-bundled-android 2.7.1 is also 23); hilt-lifecycle-viewmodel-compose and hilt-navigation-compose 1.4.0; appcompat 1.8.0; savedstate 1.4.0; window 1.5.0; Vico compose-android and compose-m3-android 3.3.1.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui-android/1.12.1/ui-android-1.12.1.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/compose/material3/adaptive/adaptive-navigation3-android/1.3.0/adaptive-navigation3-android-1.3.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/lifecycle/lifecycle-viewmodel-navigation3-android/2.11.0/lifecycle-viewmodel-navigation3-android-2.11.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/activity/activity-compose/1.13.0/activity-compose-1.13.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/core/core/1.19.1/core-1.19.1.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/graphics/graphics-shapes-android/1.1.0/graphics-shapes-android-1.1.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/room3/room3-runtime-android/3.0.3/room3-runtime-android-3.0.3.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/appcompat/appcompat/1.8.0/appcompat-1.8.0.aar",
+        "https://maven-central.storage-download.googleapis.com/maven2/com/patrykandpatrick/vico/compose-android/3.3.1/compose-android-3.3.1.aar",
+        "https://maven-central.storage-download.googleapis.com/maven2/com/patrykandpatrick/vico/compose-m3-android/3.3.1/compose-m3-android-3.3.1.aar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-4",
+      "topic": "minSdk per library",
+      "claim": "Libraries at or below 21: core-splashscreen 1.2.0 (21), profileinstaller 1.4.x (21), Kable kable-core-android 0.45.0 (21) and kable-default-permissions 0.45.0 (21), Roborazzi roborazzi and roborazzi-compose 1.77.0 (21), Dagger hilt-android 2.60.1 (14). kotlinx-coroutines-android 1.11.0 and kotlinx-serialization-json 1.12.0 resolve to plain JARs with no manifest, so they set no floor. androidx.javascriptengine 1.1.1, which roux-training-features.md mentions for sandboxed JS, declares minSdk 26 and would need a runtime gate or a minSdk of 26.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/core/core-splashscreen/1.2.0/core-splashscreen-1.2.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/profileinstaller/profileinstaller/1.4.1/profileinstaller-1.4.1.aar",
+        "https://maven-central.storage-download.googleapis.com/maven2/com/juul/kable/kable-core-android/0.45.0/kable-core-android-0.45.0.aar",
+        "https://maven-central.storage-download.googleapis.com/maven2/com/juul/kable/kable-default-permissions/0.45.0/kable-default-permissions-0.45.0.aar",
+        "https://maven-central.storage-download.googleapis.com/maven2/io/github/takahirom/roborazzi/roborazzi-compose/1.77.0/roborazzi-compose-1.77.0.aar",
+        "https://maven-central.storage-download.googleapis.com/maven2/com/google/dagger/hilt-android/2.60.1/hilt-android-2.60.1.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/javascriptengine/javascriptengine/1.1.1/javascriptengine-1.1.1.aar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-5",
+      "topic": "minSdk floor history",
+      "claim": "The 24 floor is recent and was not announced in these libraries' release notes; the AAR manifests show it. material3-android was 21 at 1.5.0-alpha01, 23 at alpha10 to alpha25, and 24 from alpha27 onwards (beta01, beta02). navigation3-runtime was 23 at 1.2.0-alpha05 and 24 from 1.2.0-beta01. navigationevent was 23 at 1.2.0-alpha01 and 24 by alpha04. datastore-core was 23 at 1.3.0-alpha08 and 24 at rc01. The stable material3 1.4.0 is still 21, but M3 Expressive APIs exist only in 1.5.x, so using M3 Expressive means minSdk 24 or higher. The only explicit release note found is emoji2 1.7.0: 'minSdk is now 24'.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-android/1.5.0-alpha25/material3-android-1.5.0-alpha25.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-android/1.5.0-alpha27/material3-android-1.5.0-alpha27.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-android/1.4.0/material3-android-1.4.0.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/navigation3/navigation3-runtime-android/1.2.0-beta01/navigation3-runtime-android-1.2.0-beta01.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/datastore/datastore-core-android/1.3.0-rc01/datastore-core-android-1.3.0-rc01.aar",
+        "https://developer.android.com/jetpack/androidx/releases/emoji2",
+        "https://developer.android.com/jetpack/androidx/releases/compose-material3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-6",
+      "topic": "minSdk floor future",
+      "claim": "AndroidX's documented default minSdk is now 24: 'AndroidX libraries have the default minSdk of 24... The default minSdk is meant to cover 99% of Android users based on the Google Play Store check-in information... The default value is updated at a yearly cadence.' The next releases already follow it: compose ui-android 1.13.0-beta02, lifecycle-runtime-android 2.12.0-alpha05, activity 1.14.0-alpha03, room3-runtime-android 3.1.0-alpha03 and navigation3-runtime-android 1.3.0-alpha03 all declare minSdk 24. Picking 23 would freeze Rouxtine on today's versions.",
+      "sources": [
+        "https://developer.android.com/jetpack/androidx/versions",
+        "https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui-android/1.13.0-beta02/ui-android-1.13.0-beta02.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/lifecycle/lifecycle-runtime-android/2.12.0-alpha05/lifecycle-runtime-android-2.12.0-alpha05.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/activity/activity/1.14.0-alpha03/activity-1.14.0-alpha03.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/room3/room3-runtime-android/3.1.0-alpha03/room3-runtime-android-3.1.0-alpha03.aar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-7",
+      "topic": "compileSdk",
+      "claim": "compileSdk 37 is mandatory for this stack. The AAR metadata (META-INF/com/android/build/gradle/aar-metadata.properties) of Compose 1.12.1, material3 1.5.0-beta02, navigation3 1.2.0, the lifecycle Compose artifacts 2.11.0, core 1.19.1 and hilt-lifecycle-viewmodel-compose 1.4.0 says minCompileSdk=37, minCompileMinorSdk=0, minAndroidGradlePluginVersion=9.1.0. AGP 9.5.0's maximum supported API level is 37.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-android/1.5.0-beta02/material3-android-1.5.0-beta02.aar",
+        "https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui-android/1.12.1/ui-android-1.12.1.aar",
+        "https://developer.android.com/build/releases/agp-9-5-0-release-notes"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-8",
+      "topic": "desugaring",
+      "claim": "No library in the resolved graph needs core library desugaring: every AAR's metadata has coreLibraryDesugaringEnabled=false or omits it. java.time classes are 'Added in API level 26', so desugaring matters only if Rouxtine's own code uses java.time below 26. kotlinx-datetime also says that below API 26 you must enable core library desugaring. To enable it, set compileOptions.isCoreLibraryDesugaringEnabled = true and add coreLibraryDesugaring(\"com.android.tools:desugar_jdk_libs:2.1.5\"). 2.1.5 is the latest on Google Maven, published 2025-02-25. The minSdk 24 probe builds with it under AGP 9.5.0.",
+      "sources": [
+        "https://developer.android.com/reference/java/time/Instant",
+        "https://developer.android.com/studio/write/java8-support",
+        "https://github.com/Kotlin/kotlinx-datetime/blob/master/README.md",
+        "https://dl.google.com/dl/android/maven2/com/android/tools/desugar_jdk_libs/maven-metadata.xml",
+        "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk/probe/app/build.gradle.kts"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-9",
+      "topic": "Compose/M3 on old APIs",
+      "claim": "material3 1.5.0-beta02's Android sources have only a few API-level branches, and none of them is in the Expressive theme, motion or shape code. Dynamic colour needs API 31 (dynamicLight/DarkColorScheme are @RequiresApi(S)) and uses a different neutral-palette mapping on 31-33 than on 34+. The modal WideNavigationRail registers a back callback on 33 and a predictive-back animation callback on 34+. ModalBottomSheet and the edge-to-edge dialog use SOFT_INPUT_ADJUST_NOTHING on 30+. The DatePicker's java.time overloads are @RequiresApi(26), and below 26 it uses a legacy calendar model with ICU formatting on 24+. Laptop detection needs 27+ and an accessibility-state query needs 33+. Expressive components should therefore look the same on API 24+ apart from dynamic colour.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/compose/material3/material3-android/1.5.0-beta02/material3-android-1.5.0-beta02-sources.jar"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "sdk-10",
+      "topic": "Compose/M3 on old APIs",
+      "claim": "Dynamic colour is Android 12+ only: 'Dynamic color is available on Android 12 and above... If not, you should fall back to using a custom light or dark ColorScheme.' The official snippet gates on Build.VERSION.SDK_INT >= Build.VERSION_CODES.S, which is API 31. On the Dec 2025 distribution, 69.2% of devices are on 31+.",
+      "sources": [
+        "https://developer.android.com/develop/ui/compose/designsystems/material3",
+        "https://dl.google.com/android/studio/metadata/distributions.json"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-11",
+      "topic": "Compose/M3 on old APIs",
+      "claim": "AGSL is 'used by Android 13 and above to define the behavior of programmable RuntimeShader objects' (API 33). Compose Modifier.blur 'is only supported on Android 12 and above. Attempts to use this Modifier on older Android versions will be ignored.' Any shader or blur cube effects therefore need a plain fallback below 33 or 31.",
+      "sources": [
+        "https://developer.android.com/develop/ui/views/graphics/agsl",
+        "https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui/1.12.1/ui-1.12.1-sources.jar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-12",
+      "topic": "Compose/M3 on old APIs",
+      "claim": "Variable-font axes are ignored below API 26. In Compose ui-text 1.12.1, setFontVariationSettings returns the typeface unchanged when SDK_INT < 26, and asset fonts load without variation settings. Below 28, weight synthesis can only produce bold or normal. Expressive type that relies on variable weight or width axes will show the font's default instance on Android 7.x.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui-text-android/1.12.1/ui-text-android-1.12.1-sources.jar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-13",
+      "topic": "Compose/M3 on old APIs",
+      "claim": "Haptics degrade gracefully. Compose maps HapticFeedbackType to androidx.core HapticFeedbackConstantsCompat, and core 1.19.1 substitutes older constants below API 34 (toggle and segment ticks), below 30 (confirm and reject) and below 27, with NO_HAPTICS where nothing fits.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/core/core/1.19.1/core-1.19.1-sources.jar",
+        "https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui-android/1.12.1/ui-android-1.12.1-sources.jar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-14",
+      "topic": "adaptive icons",
+      "claim": "'Android 8.0 (API level 26) introduces adaptive launcher icons.' The adaptive icon XML goes in res/mipmap-anydpi-v26, so API 24-25 devices need legacy bitmap launcher icons in the density mipmap folders. Themed (monochrome) icons need Android 13 (API 33). From Android 16 QPR2, the system auto-themes icons for apps that don't provide one.",
+      "sources": [
+        "https://developer.android.com/about/versions/oreo/android-8.0",
+        "https://developer.android.com/develop/ui/views/launch/icon_design_adaptive"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-15",
+      "topic": "notifications",
+      "claim": "'Starting in Android 8.0 (API level 26), all notifications must be assigned to a channel.' The docs say to guard channel creation with SDK_INT >= 26, and to call setPriority() for Android 7.1 and lower. POST_NOTIFICATIONS is a runtime permission from Android 13 (API 33); request it only when SDK_INT >= 33.",
+      "sources": [
+        "https://developer.android.com/develop/ui/views/notifications/channels",
+        "https://developer.android.com/develop/ui/views/notifications/notification-permission"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-16",
+      "topic": "BLE permissions",
+      "claim": "Bluetooth permissions differ by version. On Android 12+ (API 31+), BLUETOOTH_SCAN (with usesPermissionFlags=\"neverForLocation\" if scans are never used for location; some beacons are then filtered) and BLUETOOTH_CONNECT are runtime permissions. On Android 11 and lower (API 30 and below), declare BLUETOOTH and BLUETOOTH_ADMIN with maxSdkVersion=30, plus ACCESS_FINE_LOCATION, which is a runtime permission and can be capped with maxSdkVersion=30. Scanning from a service on API 29-30 also needs ACCESS_BACKGROUND_LOCATION. Kable 0.45.0 checks ACCESS_COARSE_LOCATION on API 28 and below, ACCESS_FINE_LOCATION on 29-30, and BLUETOOTH_SCAN on 31+. kable-default-permissions 0.45.0 ships exactly this manifest: BLUETOOTH/BLUETOOTH_ADMIN/COARSE/FINE location capped at 30, BLUETOOTH_SCAN with neverForLocation, BLUETOOTH_CONNECT, and bluetooth_le required=false.",
+      "sources": [
+        "https://developer.android.com/develop/connectivity/bluetooth/bt-permissions",
+        "https://github.com/JuulLabs/kable/blob/0.45.0/kable-core/src/androidMain/kotlin/scan/requirements/ScanPermissions.kt",
+        "https://maven-central.storage-download.googleapis.com/maven2/com/juul/kable/kable-default-permissions/0.45.0/kable-default-permissions-0.45.0.aar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-17",
+      "topic": "BLE location services",
+      "claim": "On API 30 and below, Kable 0.45.0 refuses to scan when the system location toggle is off. checkLocationServicesEnabled() returns early only if SDK_INT > R. Otherwise it throws UnmetRequirementException(LocationServicesDisabled, 'Location services are required for scanning but are disabled'), and it runs right before every scan. Rouxtine's smart-cube pairing UI on Android 7-11 must therefore request location permission and also prompt the user to turn location on. The official permissions page doesn't mention the toggle.",
+      "sources": [
+        "https://github.com/JuulLabs/kable/blob/0.45.0/kable-core/src/androidMain/kotlin/scan/requirements/LocationServicesEnabled.kt",
+        "https://github.com/JuulLabs/kable/blob/0.45.0/kable-core/src/androidMain/kotlin/BluetoothLeScannerAndroidScanner.kt"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-18",
+      "topic": "predictive back",
+      "claim": "Predictive back by API level, as the stack implements it: navigationevent 1.2.0 (used by activity 1.13 and Navigation 3) registers a platform OnBackInvokedCallback on API 33 (completion only) and an OnBackAnimationCallback with progress events on API 34+. Below 33 there is only the classic back press, with no preview animation. Starting with Android 15, system back-to-home, cross-task and cross-activity animations appear for opted-in apps. For apps targeting 36 on Android 16+, those animations are on by default, onBackPressed is not called and KEYCODE_BACK is no longer dispatched.",
+      "sources": [
+        "https://dl.google.com/dl/android/maven2/androidx/navigationevent/navigationevent-android/1.2.0/navigationevent-android-1.2.0-sources.jar",
+        "https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture",
+        "https://developer.android.com/about/versions/16/behavior-changes-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-19",
+      "topic": "edge-to-edge",
+      "claim": "Edge-to-edge: apps targeting 35 are edge-to-edge by default on Android 15. For apps targeting 36 on Android 16, windowOptOutEdgeToEdgeEnforcement is 'deprecated and disabled'. enableEdgeToEdge() is the call that makes older versions edge-to-edge too. activity 1.13.0 implements it per API: API 23-25 can set light status-bar icons but always paints the navigation bar with the dark scrim (light nav-bar icons need 26+); display-cutout short-edges mode needs 28+; navigation-bar contrast enforcement needs 29+. In 3-button navigation it applies a translucent nav-bar scrim. For apps targeting 35+, Configuration.screenWidthDp and screenHeightDp include the system bars.",
+      "sources": [
+        "https://developer.android.com/develop/ui/compose/system/setup-e2e",
+        "https://developer.android.com/about/versions/16/behavior-changes-16",
+        "https://developer.android.com/about/versions/15/behavior-changes-15",
+        "https://dl.google.com/dl/android/maven2/androidx/activity/activity/1.13.0/activity-1.13.0-sources.jar"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-20",
+      "topic": "per-app language",
+      "claim": "Per-app languages arrived in Android 13 (LocaleManager, API 33), and generateLocaleConfig works for apps on API 33+. For Android 12 and lower, the backport is AppCompat 1.6.0+ AppCompatDelegate.setApplicationLocales(). With Compose, 'the activity hosting your Compose UI must extend AppCompatActivity... Otherwise, setting the app locale won't work.' Use the AppLocalesMetadataHolderService autoStoreLocales entry, or store the locale yourself and apply it before onCreate. appcompat 1.8.0 is minSdk 23 and adds fragment, emoji2-views-helper and other View-era dependencies.",
+      "sources": [
+        "https://developer.android.com/guide/topics/resources/app-languages",
+        "https://dl.google.com/dl/android/maven2/androidx/appcompat/appcompat/1.8.0/appcompat-1.8.0.aar",
+        "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk/probe/app/build.gradle.kts"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-21",
+      "topic": "splash screen",
+      "claim": "Use the core-splashscreen compat library (1.2.0, minSdk 21). Per Google's migration guide, 'If you migrate using the SplashScreen compat library, the system displays the same splash screen on all versions of Android.' The guide doesn't spell out which API levels show the icon background or an animated icon.",
+      "sources": [
+        "https://developer.android.com/develop/ui/views/launch/splash-screen/migrate",
+        "https://dl.google.com/dl/android/maven2/androidx/core/core-splashscreen/1.2.0/core-splashscreen-1.2.0.aar"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "sdk-22",
+      "topic": "startup performance",
+      "claim": "Baseline profiles: on Android 7-8.1 (API 24-27), androidx.profileinstaller installs them on the app's first run. On API 28+, Play also uses them at install time and adds Cloud Profiles. Android 5-6 (API 21-23) does a full AOT compile at install instead. So minSdk 24 is the lowest level where baseline profiles do anything.",
+      "sources": [
+        "https://developer.android.com/topic/performance/baselineprofiles/overview"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-23",
+      "topic": "testing (Robolectric SDK range)",
+      "claim": "Robolectric 4.17 (git tag robolectric-4.17, committed 2026-09-10) knows SDKs 23 (M) to 37 (CINNAMON_BUN): DefaultSdkProvider registers M, N, N_MR1, O, O_MR1, P, Q, R, S, S_V2, TIRAMISU, UPSIDE_DOWN_CAKE, VANILLA_ICE_CREAM, BAKLAVA and CINNAMON_BUN. By default it runs tests against targetSdk (37 here). Other levels are selected with @Config(sdk=...) or minSdk/maxSdk, or filtered with -Drobolectric.enabledSdks. Each SDK is a separate android-all-instrumented download, measured here at 85 MB (7.0 and 7.1), 91 MB (8.0), 204 MB (16) and 228 MB (17).",
+      "sources": [
+        "https://github.com/robolectric/robolectric/blob/robolectric-4.17/robolectric/src/main/java/org/robolectric/plugins/DefaultSdkProvider.java",
+        "https://robolectric.org/configuring/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-24",
+      "topic": "testing (screenshots below 26)",
+      "claim": "Roborazzi screenshots cannot render on SDK 24-25. Robolectric's native-graphics Bitmap shadow (ShadowNativeBitmap) is minSdk = O (26), and HardwareRenderingScreenshot.canTakeScreenshot needs API >= P (28) for hardware-accelerated capture with real shadows. Measured in the probe: with @GraphicsMode(NATIVE), Canvas.drawColor(RED) on a Bitmap gives a red pixel at SDK 26, 36 and 37 but 0x0 (nothing drawn) at SDK 24 and 25. Screenshot goldens must run at SDK 26+ (28+ for elevation and shadows). Old-API coverage comes from behaviour tests at @Config(sdk=[24]) plus a real or emulated Android 7 device.",
+      "sources": [
+        "https://github.com/robolectric/robolectric/blob/robolectric-4.17/shadows/framework/src/main/java/org/robolectric/shadows/ShadowNativeBitmap.java",
+        "https://github.com/robolectric/robolectric/blob/robolectric-4.17/shadows/framework/src/main/java/org/robolectric/shadows/HardwareRenderingScreenshot.java",
+        "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk/probe/app/src/test/java/dev/probe/minsdk/Sdk24ProbeTest.java"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-25",
+      "topic": "testing (qualifier gotcha)",
+      "claim": "Full-length device qualifier strings, like every RobolectricDeviceQualifiers constant ('...-notround-any-...'), crash Robolectric 4.17 on SDK 24 and 25 with 'NoSuchFieldError: Class android.content.res.Configuration does not have member field int colorMode'. QualifierParser reads the 'any' after the round qualifier as the wide-colour-gamut wildcard and writes Configuration.colorMode, which only exists from API 26. A shorter string without 'notround-any', such as 'w360dp-h780dp-normal-long-xxhdpi-keyshidden-nonav', works on SDK 24-25 (measured: 1080x2340 px, 480 dpi, 360x780 dp).",
+      "sources": [
+        "https://github.com/robolectric/robolectric/blob/robolectric-4.17/shadows/framework/src/main/java/org/robolectric/android/QualifierParser.java",
+        "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk/probe/app/src/test/java/dev/probe/minsdk/Sdk24ProbeTest.java"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-26",
+      "topic": "distribution",
+      "claim": "The newest official distribution data is the Android Studio New Project wizard feed (distributions.json, Last-Modified 10 Dec 2025). Press reports date it to the 7 days ending 1 Dec 2025, with the previous update in April 2025. Google publishes it irregularly; nothing newer was found as of 2026-10-28. It counts only devices that access Google Play. Per-version shares: 5.0 0.1%, 5.1 0.3%, 6.0 0.4%, 7.0 0.4%, 7.1 0.4%, 8.0 0.8%, 8.1 2.3%, 9 4.5%, 10 7.8%, 11 13.7%, 12/12L 11.4%, 13 13.9%, 14 17.2%, 15 19.3%, 16 7.4-7.5%.",
+      "sources": [
+        "https://dl.google.com/android/studio/metadata/distributions.json",
+        "https://9to5google.com/2026/01/30/android-16-is-on-7-5-of-devices-in-latest-distribution-numbers-update/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-27",
+      "topic": "distribution",
+      "claim": "Cumulative reach computed from the 1 Dec 2025 data: minSdk 21 reaches 99.9%, minSdk 23 99.5%, minSdk 24 99.1%, minSdk 26 98.3%, minSdk 28 95.2%, minSdk 29 90.7% and minSdk 31 69.2%. Going from 24 to 23 gains 0.4 points (Android 6.0); going from 24 to 26 loses 0.8 points (Android 7.0 and 7.1). The data is about 11 months old, so today's share of old versions is likely smaller.",
+      "sources": [
+        "https://dl.google.com/android/studio/metadata/distributions.json"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-28",
+      "topic": "Galaxy S25",
+      "claim": "Samsung's official specs for the Galaxy S25: 6.2-inch FHD+ Dynamic AMOLED 2X, 'Super Smooth 120Hz refresh rate (1~120Hz)', launched with Android 15 / One UI 7, Bluetooth v5.4 (Samsung Newsroom, 23 Jan 2025). Samsung's developer emulator-skin page lists 1080 x 2340 pixels (~416 ppi).",
+      "sources": [
+        "https://news.samsung.com/global/samsung-galaxy-s25-series-sets-the-standard-of-ai-phone-as-a-true-ai-companion",
+        "https://developer.samsung.com/galaxy-emulator-skin/galaxy-s.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-29",
+      "topic": "Galaxy S25",
+      "claim": "At the default One UI display size, the S25 most likely reports density 480 dpi (xxhdpi, factor 3.0), which gives 360 x 780 dp. Two independent non-Samsung sources agree: yesviz lists the S25 at a 360 x 780 viewport with DPR 3 ('3 xxhdpi'), and Playwright 1.63's 'Galaxy S24' descriptor (same 6.2-inch 1080x2340 panel) is 360x780 at deviceScaleFactor 3. Samsung's own emulator skin download needs a Samsung account login and was not read. The owner can confirm with `adb shell wm size` and `adb shell wm density`. Changing the Screen zoom setting changes the dp size.",
+      "sources": [
+        "https://yesviz.com/devices/samsung-s25/",
+        "https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json",
+        "https://developer.samsung.com/galaxy-emulator-skin/galaxy-s.html"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "sdk-30",
+      "topic": "Galaxy S25",
+      "claim": "Android 16 is API level 36 (BAKLAVA), and Android 17 is API 37 (CINNAMON_BUN). 'It's not possible to specify that an app either targets or requires a minor SDK version', so QPR builds (e.g. 36.1) don't change minSdk or targetSdk. The stable One UI 8 rollout (Android 16) to the Galaxy S25 series began on 15 Sep 2025.",
+      "sources": [
+        "https://developer.android.com/guide/topics/manifest/uses-sdk-element",
+        "https://9to5google.com/2025/09/15/samsung-one-ui-8-galaxy-s25-stable-update/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-31",
+      "topic": "Galaxy S25",
+      "claim": "One UI quirk: 'Samsung defaults its devices to the three-button setting' and doesn't offer a gesture choice at setup; gestures are under Settings > Display > Navigation bar (reported Aug 2025, One UI 8 era). So most S25 users see the 3-button bar, where enableEdgeToEdge() draws a translucent scrim behind it. Test both navigation modes on the device.",
+      "sources": [
+        "https://9to5google.com/2025/08/04/samsung-android-gesture-navigation-one-ui-8/",
+        "https://developer.android.com/develop/ui/compose/system/setup-e2e"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "sdk-32",
+      "topic": "Galaxy S25 qualifier",
+      "claim": "Robolectric/Roborazzi qualifier for the S25: 'w360dp-h780dp-normal-long-notround-any-xxhdpi-keyshidden-nonav'. Measured with Robolectric 4.17 at SDK 26, 36 and 37: widthPixels x heightPixels 1080x2340, densityDpi 480, density 3.0, screenWidthDp x screenHeightDp 360x780, smallestScreenWidthDp 360. Roborazzi 1.77.0's RobolectricDeviceQualifiers has no Samsung constant; the closest built-in, MediumPhone/Pixel7, is 'w411dp-h914dp-normal-long-notround-any-420dpi-keyshidden-nonav'. Define e.g. `const val GalaxyS25 = \"w360dp-h780dp-normal-long-notround-any-xxhdpi-keyshidden-nonav\"` and add '+night' for dark mode. For SDK 24-25 runs, drop 'notround-any' (see sdk-25).",
+      "sources": [
+        "https://github.com/takahirom/roborazzi/blob/1.77.0/roborazzi/src/main/java/com/github/takahirom/roborazzi/RobolectricDeviceQualifiers.kt",
+        "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/tools/sdk/probe/app/src/test/java/dev/probe/minsdk/S25QualifierTest.java"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-33",
+      "topic": "Play target API",
+      "claim": "Google Play target API rule: from 31 Aug 2026, 'New apps and app updates must target Android 16 (API level 36) or higher', with an optional extension to 1 Nov 2026. Existing apps must target API 35+ to stay available to new users on newer Android versions. The pages publish no 2027 or API 37 requirement yet (checked 2026-10-28).",
+      "sources": [
+        "https://developer.android.com/google/play/requirements/target-sdk",
+        "https://support.google.com/googleplay/android-developer/answer/11926878"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-34",
+      "topic": "Android 17 status",
+      "claim": "Android 17 (API 37) is final for developers: 'Android 17 has officially reached Platform Stability with Beta 3' (26 Mar 2026), and Beta 4 (16 Apr 2026) told developers to 'start publishing your Android 17-targeted apps to the Google Play Store'. The release-notes page's newest entry is Beta 4.1 (1 Jun 2026) and does not itself announce the stable release. Robolectric 4.17 registers SDK 37 as REL.",
+      "sources": [
+        "https://developer.android.com/about/versions/17/release-notes",
+        "https://github.com/robolectric/robolectric/blob/robolectric-4.17/robolectric/src/main/java/org/robolectric/plugins/DefaultSdkProvider.java"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "sdk-35",
+      "topic": "targetSdk 37 effects",
+      "claim": "targetSdk 37 adds these behaviour changes. The temporary sw600dp opt-out from Android 16 is gone, so orientation, resizability and aspect-ratio restrictions are ignored on screens at least 600dp wide; Rouxtine must lay out on tablets, foldables and DeX-sized windows. Background audio needs a while-in-use foreground service. The ACCESS_LOCAL_NETWORK runtime permission is enforced. MessageQueue is lock-free. Certificate transparency is on by default. RFCOMM socket read() returns -1 on close. BLE GATT is not mentioned. Targeting 36 already brings mandatory edge-to-edge, default predictive back, and elegantTextHeight being ignored.",
+      "sources": [
+        "https://developer.android.com/about/versions/17/behavior-changes-17",
+        "https://developer.android.com/about/versions/16/behavior-changes-16"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "options": [
+    {
+      "name": "minSdk 23 (Android 6.0)",
+      "summary": "Lowest level Compose 1.12 allows, but only by giving up the 24-floor libraries.",
+      "pros": [
+        "+0.4 points of reach (99.5% vs 99.1%, Dec 2025 data)"
+      ],
+      "cons": [
+        "Must drop M3 Expressive (material3 1.4.0 instead of 1.5.x), pin navigation3 <=1.2.0-alpha05, navigationevent <=1.2.0-alpha01 and datastore <=1.3.0-alpha08/1.2.1",
+        "Cannot take the next Compose 1.13, lifecycle 2.12, activity 1.14, room3 3.1 or navigation3 1.3 releases (all minSdk 24)",
+        "Full AOT on 21-23, so baseline profiles do nothing there",
+        "Robolectric screenshots still impossible below 26"
+      ]
+    },
+    {
+      "name": "minSdk 24 (Android 7.0), recommended",
+      "summary": "Matches the binding floor of the chosen stack and the AndroidX default.",
+      "pros": [
+        "Builds with the exact pinned stack, including M3 Expressive (verified)",
+        "99.1% reach",
+        "Keeps all future AndroidX updates open",
+        "ICU (android.icu) and baseline profiles available"
+      ],
+      "cons": [
+        "Legacy launcher PNGs, notification-channel and other SDK guards",
+        "Desugaring needed if java.time is used",
+        "BLE scanning on 7-11 needs location permission plus location services on",
+        "API 24-25 cannot be screenshot-tested in Robolectric; needs a real or emulated device"
+      ]
+    },
+    {
+      "name": "minSdk 26 (Android 8.0)",
+      "summary": "The earlier research default; simpler code and testing at a cost of 0.8 points of reach.",
+      "pros": [
+        "java.time native, so no desugaring",
+        "Adaptive icons and notification channels everywhere",
+        "Robolectric native graphics works at the minSdk, so goldens can cover it",
+        "androidx.javascriptengine (minSdk 26) usable without gates"
+      ],
+      "cons": [
+        "Loses Android 7.0/7.1 (0.8% of Play devices in Dec 2025)",
+        "Goes against the owner's 'as many versions as possible' goal"
+      ]
+    }
+  ],
+  "openQuestions": [
+    "Confirm the S25's default density on the owner's phone with `adb shell wm size` and `adb shell wm density` (expected 1080x2340, 480). Samsung's emulator skin needs a Samsung-account login and was not read.",
+    "Does One UI 8 on the S25 show Android's predictive-back animations, and how do Samsung's gesture settings interact with in-app back handling? This needs a check on the device.",
+    "Will Rouxtine use java.time or kotlinx-datetime? If yes, enable desugaring; if not, use epoch millis plus android.icu formatting.",
+    "Is an in-app language picker wanted on Android 7-12? That decides AppCompatActivity versus plain ComponentActivity.",
+    "Is there an Android 7.x test device? A cheap used phone on 7.0/7.1, or an API 24 emulator on the owner's PC (this container has no KVM). Firebase Test Lab's device list was not readable here without auth.",
+    "The distribution data is from 1 Dec 2025. Google may publish a newer snapshot; re-check distributions.json before release.",
+    "Google has not yet announced the 2027 Play target-API deadline. Requiring API 37 by about Aug 2027 is the usual pattern but is not confirmed.",
+    "Robolectric does not draw system bars or real insets in screenshots (not verified here), so inset and edge-to-edge behaviour on the S25 still needs a device or emulator check."
+  ]
+}

@@ -1,0 +1,306 @@
+{
+ "resources": [
+  {
+   "key": "gdoc:document:1rb5M9_5CTlozLu9acFIgqq9LYYKaUdnMDX0vcLOURT4",
+   "url": "https://docs.google.com/document/d/1rb5M9_5CTlozLu9acFIgqq9LYYKaUdnMDX0vcLOURT4/edit?tab=t.0",
+   "title": "EOLR described (linked as 'EOLR Doc #2' on resources.rouxers.com and as 'EOLR Described' in the Roux Reader LSE chapter)",
+   "author": "Not stated. The author says the setups and first solutions came from 'my LSETool program'. A web search found nothing about LSETool, so the author is unidentified.",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced (for solvers moving from 4a/4b to full EOLR)",
+   "summary": "A one-tab Google Doc of about 14.7k characters, exported as text and HTML. It has no images and no links. The Roux Reader link ends in a stray ']' (%5D), which returns 404; the plain /edit URL returns 200. The doc teaches every EOLR case (EO plus the UL/UR edges) as an intuitive procedure, not as algs. Its outline follows the EO groups: Arrow, 1F-1B, 4-0, 2LR-2, 2FB-0, 0-2, 2BL-0, 2BL-2 and 4-2. In the names, X-Y means X bad edges on U and Y on D; FB/LR means an opposite pair and BL an adjacent pair. Each group is split into named sub-cases ranked from best to worst: Best, Good, Great, Alright, Decent, Stack, Adjacent, Bottom, Quick EO, 'UF is LR', Bad, Worst. The doc says the top cases matter most. Each sub-case lists the L/R placements it covers as position pairs such as UFDF or ULDB, gives one setup alg (one sub-case has three), and explains the solution in prose. Almost every solution reduces the case to one of 5 arrow sub-cases (Best, Good, Adjacent, Bottom, Bad), usually with an 'M, U, undo the M' pattern. A few cases instead go straight to EO and then 4b, or to 4c. Solutions may end with misoriented centres. The doc also points out links between groups: 2LR-2 is 4-0 after an M2, 2BL-0 cases match 2BL-2 cases without the bottom bad edges, and 1F-1B DFDB is the 'M2-adjusted brother' of UFUB. Two groups are left unwritten. 2LR-2 says 'refer to 4-0' and admits it should be written out. 4-2 (6-flip) says to look up GuRoux's 6-flip videos on YouTube. In total there are 40 sub-cases covering 104 placements; 0-2 lists 14 placements instead of 15, and ULUR is missing.",
+   "algSets": [
+    {
+     "name": "Intuitive EOLR sub-cases (EO + UL/UR), written groups",
+     "caseCount": "40 named sub-cases covering 104 L/R placements in 7 EO groups (Arrow 5/15, 1F-1B 7/15, 4-0 4/15, 2FB-0 6/15, 0-2 4/14, 2BL-0 7/15, 2BL-2 7/15)",
+     "notes": "Each sub-case has one setup alg (the 1F-1B 'UF is LR' case has 3) and a prose solution. There are no solution algs. The sub-cases are ordered best to worst."
+    },
+    {
+     "name": "2LR-2 (2 opposite bad edges on U + 2 on D)",
+     "caseCount": "0 written",
+     "notes": "The doc says to do an M2 and use the 4-0 solution. The author notes it should be written out."
+    },
+    {
+     "name": "4-2 (6-flip)",
+     "caseCount": "0 written",
+     "notes": "The doc refers to GuRoux's 6-flip repertoire on YouTube."
+    }
+   ],
+   "drills": [
+    "Learn each EO group's sub-cases in the doc's order, best first",
+    "For every non-arrow case, practise the 'M or M', then U or U', then undo the M' reduction to a named arrow case",
+    "Recognise where the L/R edges sit relative to the bad edges (stacked, adjacent, opposite, both on D, one up and one down)",
+    "Finish EO-only cases with 4b (UL/UR insertion)",
+    "4-0 bottom case: align the U layer using the DF edge colour against the left corners, then go straight to 4c"
+   ],
+   "infoTopics": [
+    "What EOLR is (EO plus solving UL/UR together, then 4c) and why it beats 4a+4b",
+    "EO group names: arrow, 1F-1B, 4-0, 2LR-2, 2FB-0, 0-2, 2BL-0, 2BL-2, 4-2 (6-flip)",
+    "Naming L/R edge placements with position pairs (UFDF, ULDB, ...)",
+    "Reducing any EOLR case to an arrow, and the 5 arrow sub-cases",
+    "Finishing with misoriented centres",
+    "How groups relate (M2 conjugates; the same case with or without bad bottom edges)"
+   ],
+   "appIdeas": [
+    "An 'Intuitive EOLR' lesson path: one unit per EO group, sub-cases tiered best to worst, all built on one rule: reduce to an arrow, then solve the arrow",
+    "A step-checking trainer: the user applies M/U moves on the virtual cube, and the app names the arrow sub-case once it is reached (Best, Good, Adjacent, Bottom, Bad)",
+    "A recognition quiz: show EO plus the L/R placement, then ask for the sub-case tier or the first move; generate setups with the app's own LSE solver instead of copying the doc's",
+    "Fill the doc's gaps with the solver: derive 2LR-2 from 4-0 via M2, and add 6-flip cases",
+    "Support both naming schemes. Map this doc's names to the Optimal EOLR sheet's (1F-1B = 1/1, 2FB-0 = 2o/0, 2LR-2 = 2o/2, 2BL-0 = 2a/0, 2BL-2 = 2a/2, Arrow = 3/1) so users of either source feel at home"
+   ],
+   "license": "None stated. The doc has no licence, credit or permission text, so default copyright applies to its prose. The case taxonomy is a fact the app may use; the app should write its own explanations, generate its own setups and link to the doc.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-6/1rb5M9_5CTlozLu9acFIgqq9LYYKaUdnMDX0vcLOURT4.txt (also eolr-described.txt and eolr-described.html)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1sLrjfuVFF41es4W371zeKBR1n98-TLXCigrqrRhnjtQ",
+   "url": "https://docs.google.com/spreadsheets/d/1sLrjfuVFF41es4W371zeKBR1n98-TLXCigrqrRhnjtQ/edit?gid=1330121609#gid=1330121609",
+   "title": "Optimal EOLR (linked as 'Optimal EOLR Spreadsheet')",
+   "author": "Not stated in the sheet. Every solved row links to a timestamp in John Mark Grimes's YouTube EOLR series (11 videos, from 'Full EOLR | Best Guide - Ep. 1' through Ep. 8½, plus '6-Flip EOLRb made Easy'; authors confirmed via YouTube oEmbed). It is very likely his companion sheet, but this is unconfirmed.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate to advanced",
+   "summary": "A single-tab sheet ('Cases', gid 1330121609), saved as CSV, xlsx (with formulas) and htmlview. It holds 64 case rows and 2 footer rows. The columns are: Case Name, EO Symmetries, LR Symmetries, AUF angles (1, 2 or 4 distinct pre-AUFs), Movecount (a formula counting M moves; values 1-11 STM), a Misoriented Centers flag, an AUF Trick flag, Image, Setup, an Intermediary Cell, Solution, an 'AUF trick' alternative, Video Link, Movecount + AUF, Probability, weighted, and Symmetries. Images are visualcube.api.cubing.net IMAGE() formulas with an LSE sticker mask. The Solution column is computed from the setup by regexreplace formulas: it is the inverse of the setup, so solution and setup are a single alg. Case names follow one system: the EO group (3/1 arrow, 1/1, 4/0, 0/2, 2o/0, 2a/0, 2o/2, 2a/2, 4/2 and 0/0, where 'o' means opposite and 'a' means adjacent for 2 bad top edges), then the orientation of the L and R edges (MM both misoriented, OM one of each, OO both oriented, M/O and O/M for which is on top), then their placement (adj or opp on U, 'both' for one on U and one on D, D for both on D). The arrow group instead uses the names Best, Good, Mediocre and D Arrow. 53 rows are fully filled with setup, solution and video timestamp. 29 of them end with misoriented centres, and 10 have an AUF-trick alternative. A trailing block of 7 '3/1' rows (one name duplicated) and 4 '0/0' (EO-solved) rows has only weights and movecounts: no setup, solution or video. The arrow weights may therefore be counted twice in the total, which is 496 symmetry units. Footer: the weighted average EOLR movecount including pre-AUF is 5.63 STM, against 7.38 STM for inserting UL/UR in step 4b. There is no prose, no recognition guide and no licence.",
+   "algSets": [
+    {
+     "name": "Optimal EOLR (M/U only)",
+     "caseCount": "53 cases with solutions in 9 EO groups: Arrow 4, 4/0 4, 0/2 4, 2o/0 6, 2a/2 7, 2a/0 7, 2o/2 6, 1/1 11, 4/2 4",
+     "notes": "One solution per case (the inverse of its setup), 1-11 STM. 29 cases end with misoriented centres. Each case links to a video timestamp."
+    },
+    {
+     "name": "AUF-trick alternatives",
+     "caseCount": "10",
+     "notes": "A second solution that uses an AUF trick, for 10 of the 53 cases"
+    },
+    {
+     "name": "3/1 (arrow) systematic rows",
+     "caseCount": "7 rows (one name repeated)",
+     "notes": "Weights and movecounts only; looks unfinished"
+    },
+    {
+     "name": "0/0 (EO already solved) rows",
+     "caseCount": "4",
+     "notes": "Weights and movecounts only, for the weighted average"
+    }
+   ],
+   "drills": [
+    "Learn cases by probability or weight: the sheet gives each case's probability and symmetry count",
+    "Watch the linked video timestamp for each case, then drill its solution",
+    "Learn the misoriented-centre finishes and the AUF-trick alternatives",
+    "Compare each case's cost with 4b (7.38 STM on average) to decide which cases to learn first"
+   ],
+   "infoTopics": [
+    "A systematic EOLR case taxonomy (EO group + L/R orientation + placement)",
+    "Case probabilities and symmetry counts",
+    "Optimal M/U movecounts and pre-AUF cost (AUF angles)",
+    "Finishing with misoriented centres",
+    "AUF tricks",
+    "EOLR versus 4a+4b move savings (5.63 vs 7.38 STM)"
+   ],
+   "appIdeas": [
+    "Use this naming system as the case IDs in an EOLR trainer, and use the symmetry weights to draw cases at their real probability",
+    "Show each case's optimal movecount, MC flag, pre-AUF count and AUF-trick alternative on its card; compute these with the app's own LSE solver instead of copying the sheet",
+    "A 'why EOLR' info card built on the footer numbers (EOLR 5.63 STM including pre-AUF, versus 7.38 for 4b)",
+    "Link out to the per-case video timestamps (John Mark Grimes's series) as optional 'watch the explanation' links; do not embed or rehost",
+    "Give a learn-order view sorted by probability times moves saved, so solvers learn the most valuable cases first"
+   ],
+   "license": "None stated. The sheet has no licence or permission text. The algs are short M/U sequences that the app can regenerate with its own solver. The sheet's presentation and the linked videos (YouTube, John Mark Grimes) are under default copyright, so the app should link to them, not copy them.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-6/1sLrjfuVFF41es4W371zeKBR1n98-TLXCigrqrRhnjtQ.alltabs.txt (also eolropt-1330121609.csv, x-eolropt-Cases.tsv with formulas, xlsx and htmlview)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1F0zPKlARw3GUTODys_wrtfP7cqgzS7Kse_Cwv67XBQA",
+   "url": "https://docs.google.com/spreadsheets/d/1F0zPKlARw3GUTODys_wrtfP7cqgzS7Kse_Cwv67XBQA/edit?gid=1547543598#gid=1547543598",
+   "title": "Advanced CEOR (linked as 'CEOR (to do CPFB instead of FB, and COLS instead of SBLP)')",
+   "author": "CubeAlgs101 made the sheet, 'with help from MikeZB and additional algs from USBB' (Info tab). The credit cells link to the YouTube channels @cubealgs101, @Mike_zb and @ulrikbredland6965.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-mixed",
+   "level": "advanced (one-handed, CP-first)",
+   "summary": "A large sheet for CEOR, a CP-first one-handed method that is NOT Roux. Its steps are: CPLine (a 1x1x3 bar at DL with corner permutation solved), then CPFB, then EO plus the DF/DB edges, then a right block with <R,U>, then 2GLL; the sheet gives 45-55 moves. The workbook has 26 tabs: 24 visible and 2 hidden ('LXS (Back)', 'EOPair'). The htmlview lists only the visible ones, so the hidden tabs were read from the xlsx. The xlsx is 26.8 MB with 1,400 embedded images: custom 3D cube renders with grey CP-tracing stickers. Many cells carry notes, which are alternative algs or mnemonics. Tab colours mark the steps; the Info tab says pink tabs are 'extra and not part of CEOR'. Each alg tab opens with 'Total Cases = N // Average Moves = X' and has colour legends (green 2-gen, red 3-gen, yellow non-intuitive; or green 'necessary to learn').\nOf all this, only the CP tools apply to the Roux family: the CPLine/CPFB tab and the 'Tracking F Moves' mnemonics. These fit CP-first Roux (RUroux/CPRoux), which the Resources tab cross-links (Edde's sheet). The 2-gen pair, slot and square sets assume EO and DF/DB already solved, so they carry over to Roux SB only partly. Everything else is out of scope for a Roux-only app: EO+DF/DB, Stripe, 2GLL, 2GR, Nautilus, APB and MI1. The hub text 'COLS instead of SBLP' has no matching tab; the nearest are Last Slot and Multislot.\nThe Resources tab links: the CEOR Discord; the CEOR Tutorial and CEOR Mega Doc (Google Docs); the CEOR Trainer (edde.github.io/CEORtrainer); the RUroux/CPRoux spreadsheet; Ulrik's CP Tracing (UCPT); and 3 sheets (CEOR Swap Pairs, CEOR Solving Corner Permutation, CP tracking F moves). 'Tracking F Moves' also links a visualiser at mike-zb.github.io/F-MovesTracking.",
+   "algSets": [
+    {
+     "name": "CPLine (1x1x3 DL line + CP; the start of CPFB)",
+     "caseCount": "114 cases, about 4.5 moves including DL",
+     "notes": "22 headings by the position and twist of the DFL corner (DFL (0), then UFL/FUL/LUF as 1o/1+/1-, through RDB as 6-), 6 columns each. Each cell gives a 2-gen and/or 3-gen alg. A 'Preferred CPLine Choice Order' is given, and 51 notes hold alternatives. ROUX-RELEVANT for CP-first Roux."
+    },
+    {
+     "name": "Tracking F Moves (how F, F' and F2 change the CP swap pair)",
+     "caseCount": "3 'singularities' + 9 named swap-corner patterns (3 with DFL in B, 6 with DFL in F)",
+     "notes": "Image sequences read left to right for F and right to left for F'. Pattern names include Bottom-up L, Front to back L, Backwards Z, Frozen Swap Corner, Opposite Swap Corner, Horizontal/Vertical/Opposite Line, with mnemonic notes. ROUX-RELEVANT for CP-first Roux."
+    },
+    {
+     "name": "EO (EO + DF/DB)",
+     "caseCount": "191 cases, 6.43 STM including pre-AUF",
+     "notes": "Grouped by centre orientation x DF/DB orientation x number of bad edges (0-8). Not Roux."
+    },
+    {
+     "name": "EO (After Stripe)",
+     "caseCount": "23 cases, 5.30 moves",
+     "notes": "Not Roux"
+    },
+    {
+     "name": "Stripe (DF+DB)",
+     "caseCount": "66 cases (20 with influencing), 4.58 moves (3.69 with influencing)",
+     "notes": "Grouped by where the DF/DB edges are. Not Roux."
+    },
+    {
+     "name": "dfR Square",
+     "caseCount": "180 cases, 6.33 STM",
+     "notes": "Grouped by the position and twist of the DFR corner. 2-gen right-block square."
+    },
+    {
+     "name": "First Slot",
+     "caseCount": "70 (35 FR + 35 BR), 6.71 moves",
+     "notes": "Right-block slot"
+    },
+    {
+     "name": "Last Slot",
+     "caseCount": "40 (20 FR + 20 BR), 7 moves",
+     "notes": "Sorted by HTM, then QTM; better algs highlighted"
+    },
+    {
+     "name": "Multislot",
+     "caseCount": "2051 cases, of which 148 have algs (7.2%); 9.57 HTM",
+     "notes": "Sorted DBR > BR > DFR > FR"
+    },
+    {
+     "name": "Pair (Back) / Pair (Front)",
+     "caseCount": "45 + 45, 4.68 moves",
+     "notes": "2-gen pair building"
+    },
+    {
+     "name": "LXS (dfR) / LXS (Back, hidden) / LXS (dFr)",
+     "caseCount": "96 / 116 / 116 (the dFr tab has only 15 algs, still in progress), 8.24 moves",
+     "notes": "Last X-slot sets grouped by corner position"
+    },
+    {
+     "name": "2GLL",
+     "caseCount": "84 cases, 13.92 moves",
+     "notes": "Headings O, T, H, P, A; 36 notes give alternatives. Not Roux."
+    },
+    {
+     "name": "Extras (pink tabs)",
+     "caseCount": "2GR Extension 117, 2GR CP 114, DiP 14 (+mirrors), L5EP 36, APB EO 21, MI1 EO 24, Nautilus EODF 56, EOPair 128 (hidden, 13 filled)",
+     "notes": "Sets for other methods (2GR, APB, Nautilus, MI1). Not Roux."
+    }
+   ],
+   "drills": [
+    "Plan CPLine/CPFB in inspection using the sheet's preferred choice order",
+    "Memorise how F, F' and F2 move the CP swap pair, using the pattern names and mnemonics",
+    "Learn the 'necessary' (green) Stripe cases first and use influencing",
+    "Prefer 2-gen over 3-gen algs (colour-coded)"
+   ],
+   "infoTopics": [
+    "CEOR method overview and history (CP-first methods by Noah Arthurs, Gilles Roux, Joseph Briggs and Yash Mehta)",
+    "CP tracing: swap corners, swap pairs, the effect of F moves",
+    "CPLine/CPFB as a 2-gen reduction for OH",
+    "Notation for corner position plus twist (0, 1o/1+/1-, ...)",
+    "Links to the CEOR and CP-first community (Discord, CEOR trainer, UCPT, RUroux sheet)"
+   ],
+   "appIdeas": [
+    "An optional 'CP-first OH Roux (RUroux)' module with a CPFB/CPLine trainer: scramble, trace CP, place the line, and score whether CP was solved. Generate cases with the app's own solver (114 CPLine states, indexed by DFL corner position and twist)",
+    "A CP-tracing drill for F moves: show a swap-pair state and an F, F' or F2, then ask the resulting state; the sheet's named patterns can guide UI wording",
+    "Treat the sheet's 'core vs extra' tab colours as a model for marking core and optional sets in the app",
+    "Keep CEOR-specific steps (EO+DF/DB, Stripe, the right block with DF/DB solved, 2GLL, 2GR, Nautilus, APB) out of the app, because the app is Roux-only. At most, link the CEOR sheet as an outside resource for OH solvers exploring CP-first"
+   ],
+   "license": "None stated. The only credits are the Info-tab line ('made by CubeAlgs101, with help from MikeZB and additional algs from USBB') and two joking quotes. There is no licence or permission text, so default copyright applies to the sheet and its custom images. The app should not copy algs or images; it should generate its own CPFB cases and link to the sheet.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-6/1F0zPKlARw3GUTODys_wrtfP7cqgzS7Kse_Cwv67XBQA.alltabs.txt (also ceor-<gid>.csv for the 24 visible tabs, x-ceor-*.tsv for all 26 tabs including the hidden ones, ceor-scan.txt with cell notes and links, and the 26.8 MB xlsx)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1EectP3O_qwQp_2WohbDrlohxhs2ee17sjFfxZr_-D1g",
+   "url": "https://docs.google.com/spreadsheets/d/1EectP3O_qwQp_2WohbDrlohxhs2ee17sjFfxZr_-D1g/edit#gid=0",
+   "title": "Roux movecount stats (linked as 'Movecount statistics' in the Roux Reader blockbuilding chapter)",
+   "author": "onionhoney: 'For any questions / requests please contact @onionhoney in RMS discord.' onionhoney is the author of the upstream Roux Trainers.",
+   "kind": "other",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced (method analysis); the headline numbers work as benchmarks at any level",
+   "summary": "A statistics workbook with 6 tabs, all visible: FB, FB Appendix, SB, LSE, 4c and 4c-detail. It contains no algs. FB tab (implicitly HTM): average moves and cumulative distributions from 100k simulations for an FB square (fixed 3.96, y 3.23, x2y 2.86, CN 2.67; a fixed square is 4.36), the FB last pair (4.08), the full FB (fixed 6.70, y 5.96, x2y 5.60, CN 5.14) and FB + DR edge in HTM (7.64 / 6.93 / 6.59 / 6.14) and in QTM. Short comments note, for example, that going from x2y to full CN raises the share of FBs in 5 moves or fewer from 0.38 to 0.69. FB Appendix is one screenshot of an exhaustive solver run: FB fixed, 5,322,240 cases, average 6.700925, full length distribution. SB tab: the front second-block square (SS, counted solved only when every piece is placed) in STM with <R,r,U,M> and with <U,D,F,B,R,r,M>. Results are split by DR state (all 6.78; DR oriented 6.45; misoriented 7.11; misoriented and not in M 7.45) and by DR and FR position (18 positions each, 6.35 to 7.68). Back SS is said to be symmetric. LSE tab (<M,U>, STM): LSE 11.14 (exact), L5E 11.08, ELL 11.54, EO-solved LSE 8.57 ('Solving EO during CMLL saves a lot of moves'), and EOLR or EOLR+FB (EOBF), with and without misoriented centres, to 'place at dfdb' (5.97-7.67) and to finish (12.78-14.00). Some of these are marked 'yet to be verified', and an 'old data that's likely wrong' section follows. Conclusions given: the EOLR/FB family averages only about 1.3 moves above optimal, EOFB saves almost a move, and EOLRFB may beat EOLR+MC. 4c tab: 4c after EOLR (pending pre-AUF and M2) in STM and SQTM over {M,U} for EOLR and EOBF, non-MC and MC (6.63-7.23 STM), and after EOLRb/EOBFb (5.00-5.67 STM). 4c-detail has an empty table and 16 solver screenshots, one per group (48-case EOLRb/EOBFb groups and 192-case 4c groups for ULUR/UFUB aligned or misaligned, each with average and distribution).",
+   "algSets": [
+    {
+     "name": "FB states (exhaustive, fixed orientation)",
+     "caseCount": "5,322,240 states, average 6.70 HTM",
+     "notes": "Statistics only; no algs"
+    },
+    {
+     "name": "4c after EOLR/EOBF, by ULUR or UFUB, aligned or misaligned",
+     "caseCount": "192 cases per group, 4 groups x 2 metrics (STM and SQTM)",
+     "notes": "Solver screenshots; averages only"
+    },
+    {
+     "name": "4c after EOLRb/EOBFb (MC / non-MC)",
+     "caseCount": "48 cases per group, 4 groups x 2 metrics",
+     "notes": "Solver screenshots; averages only"
+    }
+   ],
+   "drills": [
+    "Train colour neutrality (x2y or full CN): FB averages fall from 6.70 (fixed) to 5.14 (CN)",
+    "Influence the DR edge so it is oriented or in the M slice before the SB square (a misoriented DR outside M costs about 0.7-1.3 moves more)",
+    "Solve EO during CMLL when you can (EO-solved LSE averages 8.57 vs 11.14), but only once you know the 0/0 cases optimally",
+    "Consider EOLR+FB or misoriented-centre finishes in LSE to save moves"
+   ],
+   "infoTopics": [
+    "FB, FB-square and FB+DR movecounts by colour-neutrality level, with cumulative distributions",
+    "How DR edge position and orientation change the SB square movecount",
+    "LSE movecount baselines (LSE, L5E, ELL, EO-solved)",
+    "EOLR vs EOLR+FB (EOBF), with and without misoriented centres, and EOLRb",
+    "4c movecounts in STM vs SQTM",
+    "Metrics (HTM, STM, QTM, SQTM) and exact vs sampled statistics"
+   ],
+   "appIdeas": [
+    "Benchmarks in the stats screen: compare the user's per-step movecounts (from reconstructions or smart-cube data) with these baselines (FB 6.70 fixed / 5.14 CN, SB square 6.78, LSE 11.14)",
+    "A colour-neutrality value chart: the share of FBs or squares in N moves or fewer for each orientation set, to motivate CN training",
+    "Feedback on DR influence in the SB trainer: show the expected extra moves for a misoriented DR outside M",
+    "An info page comparing LSE strategies (4a/4b, EOLR, EOLR+MC, EOBF, EOLRb) with these averages",
+    "Regenerate all of these numbers with the app's own solver; credit onionhoney as the source of the method and of the upstream code"
+   ],
+   "license": "None stated in the sheet. onionhoney is credited only as the contact. The upstream Roux Trainers repo is GPL-3.0, but that licence does not cover this sheet. The numbers are factual and can be recomputed, so the app should regenerate them rather than copy the screenshots or tables, and cite the sheet.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-6/1EectP3O_qwQp_2WohbDrlohxhs2ee17sjFfxZr_-D1g.alltabs.txt (also movecount-<gid>.csv per tab, the xlsx and the 17 images in movecount-media/xl/media/)"
+  },
+  {
+   "key": "gdoc:spreadsheets:1EdCeGlotJ76MyVw02_N1El_SXXSIMJRhYvZn4gZkQk8",
+   "url": "https://docs.google.com/spreadsheets/d/1EdCeGlotJ76MyVw02_N1El_SXXSIMJRhYvZn4gZkQk8/edit#gid=2073570715",
+   "title": "2 Look CMLL (linked as '2 Look CMLL (Google Sheet)' from tutorial.rouxers.com /intermediate/cmll.html)",
+   "author": "Not stated. This file has the same content as sheet 1pful9u4oOiB2mzqICBZYJyHWF2VzTaRoha9fq8R8oTw (the '2 Look CMLL' / 'OH CMLL List' link deep-read in batch gdoc-2), which was built from the template of Anto's OH CMLL sheet.",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner (the first CMLL method, before full CMLL)",
+   "summary": "A DUPLICATE of the 2-look CMLL sheet already covered under key gdoc:spreadsheets:1pful9u4oOiB2mzqICBZYJyHWF2VzTaRoha9fq8R8oTw. It is a separate file ID, but the CSV exports of both visible tabs are byte-identical, the 2 embedded PNGs have identical MD5s, and the tab gids are the same (Orientation 998485561, Permutation 2073570715), as is the hidden 'template' tab. Orientation: 7 corner-orientation cases in 3 groups labelled by the number of oriented corners: 0 = H and Pi; 1 = Sune and Antisune; 2 = U, T and L. Each case has an image (rouxles.github.io =IMAGE() or an embedded PNG) and 1-2 standard two-handed algs, 11 algs in all. Permutation: 2 cases (adjacent and diagonal swap), 2 algs each. The hidden 'template' tab is a blank 42-case CMLL layout (O 2, H 4, Pi 6, U 6, T 6, S 6, AS 6, L 6) with only cubing.net visualcube image formulas. There is no prose, no recognition guide and no licence. This file is the one the tutorial site links.",
+   "algSets": [
+    {
+     "name": "2-look CMLL: corner orientation",
+     "caseCount": "7 cases (H, Pi, S, AS, U, T, L), 11 algs",
+     "notes": "Grouped by the number of oriented corners (0/1/2)"
+    },
+    {
+     "name": "2-look CMLL: corner permutation",
+     "caseCount": "2 cases (adjacent swap, diagonal swap), 4 algs",
+     "notes": "Pictured as O3 and O6"
+    },
+    {
+     "name": "Full CMLL image template (hidden tab)",
+     "caseCount": "42 image slots (O 2, H 4, Pi 6, U 6, T 6, S 6, AS 6, L 6), no algs",
+     "notes": "Leftover from the sheet template"
+    }
+   ],
+   "drills": [
+    "Recognise the orientation case: first count the oriented corners (0, 1 or 2), then read the shape",
+    "Recognise adjacent vs diagonal swap after orientation",
+    "Learn 9 cases (15 algs) as a stepping stone to full CMLL"
+   ],
+   "infoTopics": [
+    "2-look CMLL structure (orient the corners, then permute them)",
+    "Grouping the 7 orientation cases by the number of oriented corners",
+    "The 8 CMLL orientation families and their case counts (from the template)"
+   ],
+   "appIdeas": [
+    "Merge with the 1pful9u entry: one resource in the catalogue, two URLs. Link the tutorial.rouxers.com copy as the canonical one",
+    "A beginner 2-look CMLL module (7 + 2 cases) with a two-question recognition drill (how many oriented corners? which shape?) and a path on to 1.5-look and full CMLL"
+   ],
+   "license": "None stated. There is no licence or permission text, and default copyright applies to the sheet's selection and layout. The algs are standard and widely published; images are hotlinked from rouxles.github.io or embedded.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/gdoc-6/1EdCeGlotJ76MyVw02_N1El_SXXSIMJRhYvZn4gZkQk8.alltabs.txt (also 2lookcmll-<gid>.csv, x-2lookcmll-*.tsv including the hidden template, the xlsx and 2look-media/)"
+  }
+ ]
+}

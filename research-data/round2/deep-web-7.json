@@ -1,0 +1,315 @@
+{
+  "resources": [
+    {
+      "key": "https://sites.google.com/site/athefre/recognition/straughan-recognition",
+      "url": "https://sites.google.com/site/athefre/recognition/straughan-recognition",
+      "title": "Straughan Recognition (athefre Google Site), including the Three Sticker Tracking section",
+      "author": "Michael James Straughan (Athefre)",
+      "kind": "guide-text",
+      "accessible": true,
+      "rouxRelevance": "roux-mixed",
+      "level": "advanced (CMLL recognition, tracking and prediction for solvers who already know full CMLL; the NMCLL and ACMLL parts are for pseudo-block users)",
+      "summary": "A long Google Sites article (HTTP 200, rendered with Playwright, about 27k characters) that defines 'Straughan recognition', a minimum-sticker recognition concept Straughan developed in April/May 2024. Core claim: four side stickers identify any CLL/CMLL case, with no U stickers needed. By default these are the two F-colour and two R-colour stickers (FLU, FUR, RFU, RUB on a solved cube). ZBLL needs 6 stickers, 1LLL 7, OLLCP 4+3, two-sided PLL 5 and L5C (42 method) 5. Three recognition types: Object (track pre-chosen stickers wherever they are; meant for tracking, prediction and one-looking, and used by most sheets), Position (check fixed positions; for impromptu recognition) and Opportunistic (a mix). Listed advantages: minimum stickers; good for tracking and prediction; the same patterns work for CLL, TCLL+ and TCLL-; works with pseudo blocks. Listed disadvantages: each alg has 4 patterns, so CLL/CMLL means 162 patterns; Object type is not meant for in-the-moment recognition. The Roux section says the same four-sticker system applies to CMLL and ACMLL. It also offers a Three Corner CMLL variant (position type: only the visible stickers of the UFL, UFR and UBR corners) and a 'Permute First' two-look sheet. Pseudo section: NMCLL options 1 and 2 for R, R' and R2 non-matching blocks (learn the one sticker that changes), plus CCMLL options for the 42 method. Three Sticker Tracking (the section the hub points to): treat the two-sticker corner as one 'overall sticker' and track only the other two, giving a 3-sticker system. The idea is credited to Liam Highducheck and @effperm, and the purple one-colour display to Ethan Hayes. Other sections: Fourth Sticker Deduction (use colour order to infer an unseen sticker), Three Sticker Deduction (from the distinct-sticker-puzzles idea), Angles (if a tracked sticker is out of view, use other stickers on U/F/R so no AUF is needed), Organization, Rules and Observations, and Pattern Reduction Thoughts. The rules: at least 3 corners and 3 side stickers, because of a 'doppelganger effect'. Pattern reduction: learn only the best quarter of the patterns, or infer the invisible U-sticker orientation to cut 162 patterns down to 42. The non-Roux parts (2x2 CLL/EG/TCLL/LS, ZBLL, PLL, early corner permutation, Kilominx/Megaminx) are out of scope for a Roux-only app. Linked Google Sheets (fetched as CSV): the CMLL sheet has tabs Info, 2H, OH, Two Look, U Sticker, OH Codes and AUF Table. Its 2H tab holds 162 distinct pattern codes such as 'RUBRFU-FURFLU' (the positions of the two R stickers and the two F stickers), each with an alg and pre-AUF. The sheet recolours itself when a user copies it and changes the colour cells. The Three Corner CMLL sheet has tabs O, S, AS, L, U, T, Pi, H and 'Conditional Recognition', a decision procedure that starts from UFR's two non-U stickers, checks UFL, then UBR, and names the two-corner swap. The Permute First two-look sheet does corner permutation first (R U R' U' R' F R F' or F R U R' U' F' with an AUF), then OCLL-style orientation.",
+      "drills": [
+        "Track the four Straughan stickers (the two F-colour and two R-colour stickers) through SB last pair and name the CMLL case and AUF before CMLL starts",
+        "Three Sticker Tracking: track the two-sticker corner as a single 'overall sticker' plus the other two stickers during the final SB pair",
+        "Three-corner (position-type) impromptu recognition: name the CMLL case from only the visible stickers of UFL, UFR and UBR, with no AUF to look at the back",
+        "Conditional recognition: start from UFR's two non-U stickers, check UFL then UBR, and name the corner swap location instead of a memorised pattern",
+        "Fourth-sticker deduction: from three visible stickers plus corner colour order, deduce where the fourth sticker is",
+        "Pattern reduction: learn the best quarter of the 162 patterns first and actively search for them during SB",
+        "Invisible U-orientation: learn that the U sticker is counter-clockwise of FLU, clockwise of FUR, counter-clockwise of RFU and clockwise of RUB, so that 162 patterns collapse to 42 cases",
+        "NMCLL with R, R' or R2 non-matching blocks: learn the single sticker that changes at FUR for each block type (option 1), or always use left-side stickers (option 2)"
+      ],
+      "infoTopics": [
+        "Minimum-sticker recognition: four side stickers determine CMLL",
+        "Recognition types: Object (tracking), Position (impromptu), Opportunistic",
+        "Doppelganger effect: why three side stickers are not enough for corners",
+        "Rules for valid four-sticker sets (at least 3 corners, at least 3 side stickers, matching-pair constraints)",
+        "Three Sticker Tracking (the two-sticker corner as one sticker)",
+        "Fourth- and three-sticker deduction from colour order",
+        "Angles: avoid an AUF by using alternative visible stickers",
+        "Recognition for pseudo / non-matching blocks (NMCLL) and ACMLL",
+        "CMLL prediction and one-looking",
+        "Pattern count trade-off: 162 patterns versus 42 cases, and ways to reduce it",
+        "Origin: Straughan's 2006 intuitive CMLL recognition, refined in 2024"
+      ],
+      "algSets": [
+        {
+          "name": "CMLL with Straughan four-sticker (Object) recognition, 2H and OH tabs",
+          "caseCount": "42 cases (incl. solved), 162 four-sticker patterns",
+          "notes": "Google Sheet 1iaJdOZy...; tabs Info / 2H / OH / Two Look / U Sticker / OH Codes / AUF Table. Each pattern code lists the positions of the two R and two F stickers, plus an alg with pre-AUF. Recolourable by copying the sheet."
+        },
+        {
+          "name": "Three Corner CMLL (position-based) + Conditional Recognition",
+          "caseCount": "42 cases, grouped O, S, AS, L, U, T, Pi, H",
+          "notes": "Uses only the visible stickers of UFL, URF and UBR. The conditional tab replaces patterns with a corner-swap decision procedure."
+        },
+        {
+          "name": "Two-look CMLL with Straughan recognition (Orient first) and 'Permute First' two-look",
+          "caseCount": "Orient-first: 8 distinct orientation algs in step 1, then a step-2 solve table; Permute-first: 2 permutation algs (R U R' U' R' F R F' with AUF, or F R U R' U' F'), then 7 orientation algs that keep corner permutation (incl. Sune R U R' U R U2 R', Antisune R U2 R' U' R U' R' and R U2 R2 U' R2 U' R2 U2 R), each shown with 4 AUFs",
+          "notes": "Two-look variants that use the same sticker logic, with step-2 cases keyed by sticker codes such as FLULBU and URFBRU."
+        },
+        {
+          "name": "NMCLL (non-matching blocks R, R', R2), options 1 and 2",
+          "caseCount": "42 CMLL cases x 3 non-matching block types (image tables; not counted)",
+          "notes": "Roux pseudo-block extension. The 42-method CCMLL options are also on the page (a Roux-derived method, so borderline scope)."
+        },
+        {
+          "name": "Non-Roux sheets (out of scope): 2x2 CLL/EG/TCLL/LS, ZBLL 6-sticker and position-based, PLL 5-sticker, early CP, Kilominx/Megaminx L5E/L5EP",
+          "caseCount": "various",
+          "notes": "Not for Rouxtine (Roux only)."
+        }
+      ],
+      "appIdeas": [
+        "CMLL recognition trainer mode 'Straughan 4-sticker': grey out every sticker except the two F-colour and two R-colour stickers; the user names the case and AUF; stats per pattern (case x AUF = 162), not just per case",
+        "SB-last-pair prediction drill: show the state before the final SB pair with the tracked stickers highlighted (optionally Three Sticker mode, with the two-sticker corner drawn as one merged colour as Ethan Hayes suggested); the user predicts CMLL and AUF, then the final pair plays and the answer is revealed",
+        "Three-corner (position) mode: render only the UFL/UFR/UBR visible faces, so recognition never needs an AUF; add a 'conditional' mode where the answer is the swap location (none, front, right, diagonal) plus the orientation group",
+        "User-selectable tracking colours (any two adjacent side colours), like the sheet that recolours itself",
+        "Recognition-method selector in the CMLL trainer (U-sticker + pattern, Straughan object, three-corner, conditional) with per-method reaction-time charts so users can compare",
+        "Pattern-reduction curriculum: start with the patterns the user meets most often or recognises slowest (a quarter of the 162), then expand; fits the planned SRS",
+        "NMCLL extension of the same trainer: for R, R' or R2 non-matching blocks, highlight the one sticker that changes at FUR",
+        "Short explainer cards: the doppelganger effect, why four stickers is the minimum, and the 162-versus-42 pattern trade-off"
+      ],
+      "license": "No licence stated on the Google Site or the linked Sheets. Default copyright: Michael James Straughan, all rights reserved; Google Sites terms apply. The recognition concept and case logic can be reimplemented, but do not copy sheet images, text or pattern tables verbatim without the author's permission.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/straughan.txt (+ straughan.html, straughan.png, straughan-curl.html); linked sheets as CSV/htmlview in /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/straughan-sheets/"
+    },
+    {
+      "key": "https://pastebin.com/av0mbjde",
+      "url": "https://pastebin.com/av0MbjDe",
+      "title": "Fengyuan Lou's guide to Meyer (a Discord message reposted as a Pastebin guest paste)",
+      "author": "Fengyuan Lou (per the resources.rouxers.com link text); Pastebin guest paste titled with a Discord message URL, pasted 2026-07-14, 47 views",
+      "kind": "guide-text",
+      "accessible": true,
+      "rouxRelevance": "roux-bigcube",
+      "level": "intermediate to advanced (Roux solvers deciding how to solve 4x4 and up; assumes they know Yau, centres and edge pairing)",
+      "summary": "A short plain-text explainer (about 230 words; raw fetched with HTTP 200). It covers the following. Meyer is a big-cube method for Roux users. It is essentially Yau, except that after the first 2 centres you build the first block instead of the first 3 cross edges, which is 'the same as first cross edges but with the corners inserted'. Next you solve the last 4 centres as in Yau. Then you pair edges with only 2 open slots instead of 4, because the first-block corners must be preserved. Finally you do the Roux 3x3 stage with the first block already solved. Opinion: Meyer is worse than Yau (the author says they have their own views on that), but probably the best option if you really want Roux on big cubes. The author thinks about 95% of Roux users would do better to get good at another method for big cubes (Yau/Hoya/Redux). Technical note: M-slice edge pairing suits Meyer better than E-slice pairing. So people who already pair on M (rare) may try Meyer, but E-slice pairers (about 99.9%) probably should not relearn edge pairing on a different axis just for this. There are no algorithms, diagrams or parity handling. On the hub it sits next to Kian's Meyer 4x4 tutorial and Louis' parity CMLL sheet.",
+      "drills": [
+        "Meyer step practice on 4x4: first 2 centres, then first block (edges with corners), then last 4 centres, then edge pairing with only 2 free slots, then the 3x3 Roux stage",
+        "M-slice edge pairing practice (the author's recommended axis for Meyer)"
+      ],
+      "infoTopics": [
+        "What Meyer is: Yau-like big-cube reduction with the Roux first block in place of cross edges",
+        "Meyer step order",
+        "Edge pairing constraint: 2 open slots to preserve the FB corners",
+        "M-slice versus E-slice edge pairing for Meyer",
+        "Honest trade-off: Meyer versus Yau for Roux solvers"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Big-cube Roux info card: Meyer step order, the 2-open-slot pairing constraint and the M-slice pairing note, with a balanced caveat that Meyer is generally considered slower than Yau. Do not present non-Roux methods as features (the app is Roux only)",
+        "If 4x4 support is added later: a Meyer split timer (2 centres / FB / last 4 centres / edge pairing / 3x3 stage) and a 'Roux stage from FB-solved' 3x3 trainer that reuses the existing SB/CMLL/LSE trainers",
+        "Pair this card with the hub's other big-cube links (Kian's Meyer tutorial, Louis' parity CMLL sheet) as link-outs"
+      ],
+      "license": "No licence (Pastebin guest paste of a Discord message). The author keeps copyright; paraphrase and link only.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/meyer.txt (+ meyer-page.html)"
+    },
+    {
+      "key": "https://pastebin.com/rcczqywt",
+      "url": "https://pastebin.com/rcczqYWT",
+      "title": "Jayden McNeill's insight on gatekeeping information (a Discord message reposted as a Pastebin guest paste)",
+      "author": "Jayden McNeill (per the resources.rouxers.com link text); Pastebin guest paste titled with a Discord message URL, pasted 2026-08-22, 69 views",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "not-roux",
+      "level": "all levels (community and mindset advice)",
+      "summary": "A short informal opinion piece (about 300 words; raw fetched with HTTP 200), listed on the hub under 'Speedsolving Advice'. The author writes as someone who arguably would have benefited from not sharing his FMC knowledge in 2022-2024. Strategic angle: hiding a technique can help if your goal is a record. But if your goal is to be as good as possible, outside perspectives help refine what you found. And if someone else independently discovers and shares the same thing, they will probably get the naming credit. Psychological angle: he believes people who gatekeep take a bigger mental hit, because their subconscious reads it as 'I can't get a legitimate record unless I use this hidden advantage'. He links this to cubers who quit within about 5 years of WCA competition after others use and surpass their resources. He says he has always been willing to share and is confident in winning on skill. The tone is casual and includes a harsh insult toward gatekeepers. There is no Roux-specific content.",
+      "drills": [],
+      "infoTopics": [
+        "Sharing versus gatekeeping new techniques",
+        "Who gets credit and naming for techniques",
+        "Mindset, motivation and longevity in competitive cubing"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Product ethos: credit technique inventors in-app (e.g. DFDB/EOLR/Straughan recognition by Straughan, CMLLEO and table abuse by Barlow) and make custom alg sets and drill presets exportable and shareable with attribution, rather than locked",
+        "Low priority: a 'community' or 'mindset' links section; not a training feature"
+      ],
+      "license": "No licence (Pastebin guest paste of a Discord message). The author keeps copyright; link only.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/gatekeeping.txt (+ gatekeeping-page.html)"
+    },
+    {
+      "key": "https://dune.fandom.com/wiki/litany_against_fear",
+      "url": "https://dune.fandom.com/wiki/Litany_Against_Fear",
+      "title": "Litany Against Fear (Dune Wiki on Fandom)",
+      "author": "Frank Herbert (text from the novel Dune, 1965); wiki page by Fandom contributors",
+      "kind": "other",
+      "accessible": false,
+      "rouxRelevance": "not-roux",
+      "level": "all levels (competition nerves)",
+      "summary": "BLOCKED. dune.fandom.com serves a Cloudflare bot challenge. curl got HTTP 403 with a 'Just a moment...' page. Playwright through the proxy timed out on 'Performing security verification' (Cloudflare Ray ID recorded in litany.txt). This is the origin's bot protection, not the agent proxy. Per instructions it was not routed around: no archive copy and no Fandom API fetch. Context from the hub: listed under 'Important General Stuff > Competition Advice' as Frank Herbert's Litany Against Fear, 'memorize and recite if you wish'. It is the Bene Gesserit mantra from Dune about facing fear and letting it pass, offered as a calming ritual for competition anxiety. The litany itself is copyrighted novel text.",
+      "drills": [
+        "Pre-solve calming ritual: recite a short personal mantra while waiting to be called or before inspection (the hub's suggestion)"
+      ],
+      "infoTopics": [
+        "Competition anxiety and nerves",
+        "Using a memorised mantra or ritual to stay calm"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Optional competition-mode pre-solve screen with a user-editable mantra or breathing cue. Do not bundle the Dune text; let users enter their own words"
+      ],
+      "license": "Unverified (page not reachable). Fandom wiki text is normally CC BY-SA. The litany is a quotation from Dune (Frank Herbert, 1965) and under copyright, so it must not be bundled in the app.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/litany.txt (Cloudflare challenge page; + litany.html, litany.png, litany-curl-403.html)"
+    },
+    {
+      "key": "https://en.wikipedia.org/wiki/the_old_man_lost_his_horse",
+      "url": "https://en.wikipedia.org/wiki/The_old_man_lost_his_horse#Translation",
+      "title": "The old man lost his horse (Wikipedia)",
+      "author": "Wikipedia contributors; parable from the Huainanzi, chapter 18 (2nd century BC); the article's translation is from Claude Larre et al., Les grands traites du Huainan zi (1993)",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "not-roux",
+      "level": "all levels (competition mindset)",
+      "summary": "A Wikipedia article (HTTP 200; rendered text and raw wikitext saved) on the Chinese parable 'Sai Weng shi ma, yan zhi fei fu' (the old man of the frontier lost his horse; who knows if it is not good fortune). The hub links its #Translation section under 'Competition Advice'. Sections: Translation (classical Chinese and an English rendering), Plot and statement, Potential origin / chengyu / proverbs, Reception, In popular culture, Literature, References. The story: a man's horse runs away and neighbours pity him; the father asks 'who knows if this is not good luck?'. The horse returns with fine horses; 'who knows if this is not bad luck?'. The son breaks his leg riding them; then an invasion kills nine in ten local men, but the son is spared. The moral is that fortune and misfortune turn into each other and cannot be foreseen, so meet events with equanimity (the article links this to Taoist wu wei). The article also covers parallels in the Tao Te Ching, the Japanese, Korean and Vietnamese versions, Western proverbs ('blessing in disguise') and retellings (Alan Watts, Richard Wiseman). A banner says the article needs style editing (August 2024). For cubers the takeaway is: don't judge a round by one bad or good single; stay even-keeled.",
+      "drills": [
+        "Competition equanimity practice: after a bad or great single, reset with the same routine instead of reacting, and judge only after the average"
+      ],
+      "infoTopics": [
+        "Equanimity in competition: good and bad results are hard to judge in the moment",
+        "Taoist view of fortune and misfortune (Huainanzi parable)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Neutral, non-judgemental session feedback (no shaming after a bad solve or average; context instead of red alerts)",
+        "Optional post-average reflection note field, plus a link-out tips card in competition mode"
+      ],
+      "license": "Wikipedia text is CC BY-SA 4.0 (attribution and share-alike if quoted). The embedded English translation is quoted from Larre et al. 1993.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/old-man-horse.txt (+ old-man-horse.wikitext, old-man-horse.html, old-man-horse.png)"
+    },
+    {
+      "key": "https://cbst.link/s/uvbym9h8xn79c5rjrsfszr",
+      "url": "https://cbst.link/s/uvbYM9h8xn79c5rjRSfsZr",
+      "title": "6.46s Speedsolving average of 100 by UNO on Cubeast (Fahmi's 2H Roux ao100)",
+      "author": "Cubeast user 'UNO' (Fahmi, per the hub link text; account timezone Asia/Jakarta). Average shared 2022-01-08; solves recorded 2022-01-01 to 2022-01-08 on a MoYu AI (Weilong AI) smart cube",
+      "kind": "reconstructions",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "elite reference (6.46 s ao100, 2H 3x3 Roux); useful to intermediate and advanced solvers as a split benchmark",
+      "summary": "The cbst.link short link redirects by JS to app.cubeast.com/public/share/<id>, a public share of one Cubeast 'Average' (an Angular SPA explored with Playwright; its JSON API responses were captured). Header tiles: average 6.46 s, best 5.10, worst 7.52, 100 solves, 45.45 average turns (STM), 7.039 TPS. Cubeast trims the average by discarding the 5 best and 5 worst. Tabs. 'Average statistics' has sub-tabs. Overview: a stacked bar chart of recognition (blue) versus execution (orange) per step, for Pickup / Left block / Right block / CMLL / LSE / Put-down. Steps (per-step averages): Left block rec 0 / exec 0.79 / 6.60 turns / 8.30 TPS. Right block rec 0.23 / exec 2.04 (2.28 s) / 15.75 turns / 7.70 TPS. CMLL rec 0.69 / exec 0.64 (1.34 s) / 10.13 turns / 15.71 TPS / 1% skipped. LSE rec 0.52 / exec 1.49 (2.01 s) / 13.04 turns / 8.74 TPS. Cases: 'available only to Premium users'. Stats: inspection 11.63 s, pickup 0, total recognition 1.46 s, total execution 4.97 s, solving 6.45 s, penalties 0, 0.01 steps skipped. TPS: a per-step bar chart. 'Solves': a paginated table (#, Time, Turns, TPS; 25 per page, 4 pages). 'Rules': custom rules (cube, keyboard/touch and stackmat timers allowed, get-ready disabled, unlimited inspection, no custom scrambles). Clicking a solve opens a detail view: time/turns/TPS tiles, method 'Roux', ruleset, scramble with a copy button (random-state, 22 moves), and a 3D cube replay. The replay shows the current step name, time 'x s / total', move 'n / N', and rewind/step/play/step/fast-forward controls. Sub-tabs: Overview, Steps (adds a Case column), Solution (per-step move strings with rotations and inferred slice moves, e.g. 'z' y R' S R' B L F'' for left block, then RB, CMLL and LSE lines, with a copy button), Stats and TPS. Underlying data per solve: every move with a millisecond timestamp ('R'[73] D2[255] ...'), both orientation-normalised and as raw face turns, and per-step recognition time, execution time, turn metrics (face/slice/quarter) and TPS. Also inspection time, penalties flags, device (driver 'moyu', model 'MoYu AI'), colour scheme and solution rotation. Cubeast models Roux as 4 steps, each defined by a state pattern: Left block = BL FL DL DBL DLF, either side ('(LR)'); Right block adds FR BR DR DFR DRB; CMLL adds U corners with AUF 'U'; LSE = solved. So LSE is not split into EO/EOLR/4c. Sample solve #25 (6.06 s, 52 STM): LB 0.54 s, RB 1.73 s (0.09 rec), CMLL 1.05 s (0.52 rec, 0.53 exec, 20.8 TPS), LSE 2.74 s (0.48 rec). Social: 268 views, 1 like, 1 comment ('Congrats!'). There are no filters or search: one average per share. Key observation: even at 6.46, CMLL recognition (0.69 s) is longer than CMLL execution (0.64 s), and total recognition is 23% of solve time.",
+      "drills": [
+        "Benchmark your own per-step split (recognition, execution, turns, TPS) against this elite 2H Roux profile: LB about 0.8 s, RB about 2.3 s, CMLL about 1.3 s, LSE about 2.0 s",
+        "CMLL recognition and prediction drilling: at elite level CMLL recognition (0.69 s) still exceeds execution (0.64 s)",
+        "Study elite solves move by move with timestamps to find pauses (pre-CMLL and pre-LSE recognition gaps)",
+        "Smart-cube ao100 endurance sessions with per-step tracking",
+        "Second-block efficiency and TPS: RB is the longest and slowest-TPS step (15.75 turns at 7.7 TPS)"
+      ],
+      "infoTopics": [
+        "Elite Roux split benchmark (per-step time, recognition versus execution, STM, TPS)",
+        "Per-step TPS profile: CMLL is about 2x the TPS of block building",
+        "Turn metrics: STM 45.45, HTM 53.6, QTM 64.3 per solve",
+        "Smart-cube reconstruction data format (timestamped moves, inferred slices and rotations)",
+        "Trimmed averages for long sessions (5% each side for ao100)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Per-step split table for a single solve and for averages, with columns Step | Case | Recognition | Execution | Step time | Cumulative | Turns | TPS | Skipped %",
+        "Stacked recognition-versus-execution bar chart per step (Cubeast uses blue/orange), plus a per-step TPS chart",
+        "Use a finer Roux step model than Cubeast's 4 steps: FB (FS/LP), SB (SS/LP), CMLL, EO (4a), EOLR/4b, 4c, with pauses between them; Cubeast lumps LSE",
+        "Declarative stage-complete predicates as piece lists with an L-or-R wildcard (Cubeast's '(LR) ... BL FL DL DBL DLF' pattern), checked in any orientation",
+        "Store every solve as timestamped moves (e.g. R'[73]) plus derived per-step stats; import and export this text format for reconstructions",
+        "Replay screen: 3D cube, scrubber, step label, time and move counters, transport buttons, copy scramble and copy solution",
+        "Benchmark overlay: compare the user's average per step with a reference profile (e.g. a 6.46 ao100 profile entered manually, since Cubeast data can't be bundled)",
+        "Session rules: inspection unlimited or 15 s, get-ready delay, allowed timer sources (smart cube, touch, stackmat)",
+        "Turn-metric toggle (STM default for Roux, HTM, QTM) and trimmed means for long averages",
+        "Avoid paywalling case recognition (Cubeast puts it behind Premium); per-case CMLL and LSE case stats are core training value"
+      ],
+      "license": "Cubeast is proprietary SaaS by Atteo (Netherlands); no public source repo. Its terms reserve all IP and forbid republishing, reproducing or copying material from Cubeast. The solve data is the user's own; link to the share and do not bundle or redistribute it. UI ideas only.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/cubeast/ (cubeast-share.txt/.png, tab-*.txt/.png per tab, solve-detail.txt, detail-*.txt/.png, api-*.json and solveapi-*.json incl. the Roux method definition and one full solve, terms.txt); redirect stub at /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/cubeast-link-redirect.html"
+    },
+    {
+      "key": "https://www.cubinghistory.com/3x3/methods/roux",
+      "url": "https://www.cubinghistory.com/3x3/Methods/Roux",
+      "title": "Roux | Cubing History",
+      "author": "Michael James Straughan (Athefre), CubingHistory.com",
+      "kind": "history-lore",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "all levels for the lore; the technique sections name intermediate and advanced tools (NMCLL, DFDB, EOLR, ACMLL, CMLLEO, OH table abuse)",
+      "summary": "A Docusaurus page (HTTP 200; rendered text plus the Markdown source from the GitHub repo) with an annotated history of the Roux method and 48 footnotes. Many footnotes link to archive.org copies of Gilles Roux's original site, SpeedSolving threads and Discord messages. Description: proposed by Gilles Roux in 2003; steps are a left 1x2x3 block, a right 1x2x3 block, upper-layer corners, and the last six edges. Origin (from a private conversation with Roux): his earlier method ended with M/U edge algs; through Petrus with OCLL/PLL ('Petrich') he wanted F2L-like block building with an M/U finish, so he left the M slice out of F2L. Proposal: Yahoo Groups, August 2003. Also: LSE strategy evolution on Roux's site; the CMLL acronym (proposed on the site, later removed); Gilles once unofficially 2nd in the world on the speedcubing.com leaderboard. Advancements, with inventors and dates: misoriented centres (Roux's site, 2004); non-matching blocks and NMCLL 1 (Roux, Dec 2004, table completed by Straughan, Oct 2006); Hyperorientations (Robert Smith, 2007); NMCLL 2 (Straughan, Apr 2010); ATCRM (Straughan and Tim Mosher, Dec 2021); Straughan four-sticker recognition (2024). 4c recognition: FUBU (Straughan, Apr 2010, video by Michal Ciebiada); BU (popularised by Alex Lau); DFDB (Straughan, 2012, video by Bryan Rusinque; Yuta Sasaki's 2013 method to predict M2-start 3-cycles). CMLLEO (Thom Barlow, about 2010, first called KCLL). Table abuse for OH slice turns (Barlow, about 2010). EOLR/EOLRb (Straughan, Aug 2012; EOLR re-developed by Iuri Grangeiro with Kian Mansour, Aug 2016, and popularised by Kian). Pinkie Pie (Rob Stuart, Oct 2011; named by Alexander Lau, 2012). ACMLL (Straughan, proposed Apr 2020, presented Jan 2021). CMLL prediction (Zhouheng Sun's Nov 2020 NMCMLL-for-prediction idea; ATCRM and Straughan as candidates). Corner-orientation prediction (Straughan, Jul 2022: track corners during the last SB pair). The page embeds 2 YouTube videos (LKXdVfNaLao, Rusinque's 4b-to-4c; vW0bBDdoPlk), many screenshot exhibits and a solved-state cube Exhibit. Footer: 'Copyright (c) 2026 Michael James Straughan'. Source repo: github.com/mjstraughan/CubingHistory. The GitHub page was 403 via the proxy and the GitHub API is not enabled for this session. Raw README and package.json were readable; there is no LICENSE file and no licence field.",
+      "drills": [
+        "4c recognition: pick and drill one method (FUBU, BU or DFDB), plus Sasaki's M2-start prediction",
+        "NMCLL / non-matching block recognition (NMCLL 1, Hyperorientations, NMCLL 2, ATCRM, Straughan)",
+        "EOLR / EOLRb (orient and place UL/UR, or solve them directly)",
+        "CMLL corner-orientation prediction during the final SB pair",
+        "OH: table abuse for M-slice turns"
+      ],
+      "infoTopics": [
+        "Origin and proposal of Roux (Gilles Roux, 2003; Petrus/'Petrich' roots; M/U finish)",
+        "Misoriented centres",
+        "Non-matching blocks and NMCMLL recognition lineage (NMCLL 1, Hyperorientations, NMCLL 2, ATCRM, Straughan)",
+        "4c recognition methods: FUBU, BU, DFDB (+ Sasaki M2-start)",
+        "CMLLEO (formerly KCLL)",
+        "OH table abuse",
+        "EOLR versus EOLRb, history and re-development",
+        "Pinkie Pie",
+        "ACMLL (pseudo blocks fixed during CMLL)",
+        "CMLL and corner-orientation prediction",
+        "Who's who of Roux development (Roux, Straughan, Barlow, Lau, Mansour, Grangeiro, Sasaki, Sun, Mosher, Smith)"
+      ],
+      "algSets": [
+        {
+          "name": "CMLL",
+          "caseCount": "not stated in article (42 by convention)",
+          "notes": "History of the name only."
+        },
+        {
+          "name": "NMCMLL / NMCLL (non-matching blocks)",
+          "caseCount": "not stated",
+          "notes": "Several recognition systems described; no algs on the page."
+        },
+        {
+          "name": "CMLLEO (KCLL)",
+          "caseCount": "not stated",
+          "notes": "Orient LSE edges during CMLL; explored by Thom Barlow."
+        },
+        {
+          "name": "EOLR / EOLRb",
+          "caseCount": "not stated",
+          "notes": "Straughan 2012 (all EO angles; left out the final M); EOLR re-developed by Grangeiro/Mansour in 2016."
+        },
+        {
+          "name": "ACMLL",
+          "caseCount": "not stated",
+          "notes": "CMLL algs that also fix pseudo blocks."
+        },
+        {
+          "name": "Pinkie Pie",
+          "caseCount": "not stated",
+          "notes": "Named technique; no algs listed."
+        }
+      ],
+      "appIdeas": [
+        "'About this technique' cards in each trainer with inventor, year and a link to the matching cubinghistory section (e.g. DFDB: Straughan 2012, named by the community, Sasaki M2-start)",
+        "A Roux timeline / lore screen (2003 proposal, then MC 2004, NMCLL 2004-2024, FUBU/BU/DFDB 2010-2013, CMLLEO, table abuse, EOLR 2012/2016, ACMLL 2021, prediction 2020-2024) with link-outs",
+        "Recognition-method selectors that use the historical names: 4c (FUBU / BU / DFDB) and NMCLL (NMCLL 1, Hyperorientations, NMCLL 2, ATCRM, Straughan)",
+        "OH section: explain table abuse for M moves",
+        "Credit inventors in-app (fits the community's sharing ethos)"
+      ],
+      "license": "No open licence. The page footer says 'Copyright (c) 2026 Michael James Straughan'; the source repo mjstraughan/CubingHistory has no LICENSE file and no licence in package.json, so all rights are reserved. Facts and dates can be paraphrased with attribution; do not copy the text or images; link out.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/cubinghistory-roux.txt (+ cubinghistory-roux.md source, cubinghistory-roux.html, cubinghistory-roux.png, cubinghistory-repo-README.md)"
+    },
+    {
+      "key": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request",
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request",
+      "title": "Creating a pull request - GitHub Docs",
+      "author": "GitHub, Inc. (GitHub Docs)",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "not-roux",
+      "level": "n/a (contributor how-to)",
+      "summary": "GitHub's generic how-to page. The old URL now redirects to /en/pull-requests/how-tos/create-pull-requests/creating-a-pull-request (HTTP 200). It is linked from the resources.rouxers.com Contributing page, which says the hub is hosted on GitHub (rouxers/resources, Hugo Book theme) and takes new resources by pull request or the per-page 'Edit this page' button. Content: anyone with read access can create a PR; fork first if you lack write access; PRs only go between two different branches; you can link a PR to an issue so it closes on merge. Creating: pick the branch, use 'Compare & pull request', choose the base and compare branches, add a title and description, then create a ready-for-review or draft PR. After opening, push more commits or edit files on the web from 'Files changed'. There are tool tabs for GitHub CLI, web browser, Desktop and Codespaces, plus further-reading links (PR from a fork, keeping in sync, changing the base branch). No cubing content.",
+      "drills": [],
+      "infoTopics": [
+        "How to contribute to the Roux resource hub (rouxers/resources) via GitHub pull requests",
+        "Fork, branch, PR and draft PR workflow"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Keep Rouxtine's community content (alg sets, technique cards, resource links) as plain data files in the public repo and take contributions by PR, as resources.rouxers.com does; link this doc from CONTRIBUTING.md",
+        "An in-app 'Suggest an edit' action on alg and resource cards that deep-links to the data file on GitHub"
+      ],
+      "license": "GitHub Docs content is CC BY 4.0 and code samples are MIT (per the github/docs README). Not needed in the app beyond a link.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-7/github-pr.txt (+ github-pr.html, github-pr.png, github-pr-curl.html)"
+    }
+  ]
+}

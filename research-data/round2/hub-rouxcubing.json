@@ -1,0 +1,1917 @@
+{
+ "hub": "https://rouxcubing.com/",
+ "sourceRepo": "https://github.com/KnutP/RouxCubingWebsite",
+ "license": "None found. GitHub repo KnutP/RouxCubingWebsite (https://github.com/KnutP/RouxCubingWebsite): GitHub search metadata shows no license; code search finds no LICENSE file and no occurrence of \"license\"; package.json is \"private\": true. The site footer says \"Copyright © RouxCubing.com 2026\" (https://rouxcubing.com/#/). With no licence, all rights are reserved by default: link to it, do not copy its text or curation without permission from the author (Knut, Discord @_knut_). robots.txt (https://rouxcubing.com/robots.txt) has no content signals and no rules.",
+ "pages": [
+  {
+   "view": "#/ (Home)",
+   "url": "https://rouxcubing.com/#/",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/home.md",
+   "level": "mixed",
+   "summary": "Home page. \"What is Roux?\": invented by Gilles Roux; based on blockbuilding and the Corners First method. Lower movecount than CFOP/ZZ, no cube rotations, the last step is 2-gen (M/U), and the extra planning tends to mean lower TPS. Links to the community Discord, Facebook group and r/rouxcubing. Carousel of Roux group photos (NAC 2026, Worlds 2025/2023/2019, Euros 2024). \"Is Roux a Competitive Method?\" has three pie charts: r/cubers megasurvey method share is CFOP 84 / Roux 6 / other; Roux is 6% of the 3x3 average top 100 and 34% of the OH average top 100. \"Roux Weekly Competition\" shows a results image (Week #606) and an accordion \"Scrambles for this week:\", expanded for the capture. It holds Weekly Competition #607: sponsor SpeedCubeShop, rules, 5 scrambles each for 3x3/OH/4x4, 1 FMC scramble, Google-Form submission links, and last week's winning FMC solution.",
+   "topics": [
+    "what is Roux",
+    "Roux pros/cons",
+    "community (Discord, Facebook, Reddit)",
+    "Roux competitiveness statistics",
+    "weekly online Roux competition"
+   ],
+   "techniques": [],
+   "algSets": [],
+   "drills": [
+    "Weekly Roux-only online competition: 5 scrambles each for 3x3, OH and 4x4, plus 1 FMC. Follow WCA inspection/penalty rules, keyboard timing allowed, trust-based times submitted by Google Form.",
+    "FMC is counted in STM as efficiency practice, and only linear techniques are allowed (no NISS, no insertions).",
+    "Allowed methods: 3x3/OH/FMC use Roux and its variants (ZBroux, Pinky Pie); 4x4 uses Roux-based methods (Rouxduction, Meyer, Stadler)."
+   ],
+   "stubs": "A \"Rouxer Rankings\" section (sortable rankings table plus a WCA-ID sign-up form) exists only as commented-out code."
+  },
+  {
+   "view": "#/rouxtorials > ROUX FOR BEGINNERS",
+   "url": "https://rouxcubing.com/#/rouxtorials",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxtorials--roux-for-beginners.md",
+   "level": "beginner",
+   "summary": "For first-time solvers and people moving on from layer-by-layer. Video tutorials: Kian's Beginner Roux Tutorial playlist and DeeDubb's Beginner Roux Tutorial. The Text Tutorial reads \"Coming soon!\". Meanwhile it lists written tutorials: Noblion's Beginner Reference Sheet, The Roux Reader (book.rouxers.com, unfinished), CubingMethods (in progress), Gilles Roux's own site, Mark Fiend, Ruwix, Wikicube (fandom) and Trevor Scheopner. The tab is local state, so the URL stays #/rouxtorials.",
+   "topics": [
+    "beginner Roux tutorial",
+    "learning resources"
+   ],
+   "techniques": [
+    "First Block",
+    "Second Block",
+    "CMLL (2-look)",
+    "LSE (EO, ULUR, 4c)"
+   ],
+   "algSets": [],
+   "drills": [],
+   "stubs": "Text Tutorial is \"Coming soon!\". An unrendered draft, beginnerTutorial.md, covers cube basics, notation with ruwix 3D widgets, the FB/SB/CMLL steps, LSE 4a/4b/4c and \"Getting Faster\"; see _unrendered-source-content.md."
+  },
+  {
+   "view": "#/rouxtorials > ROUX FOR EXPERIENCED CUBERS",
+   "url": "https://rouxcubing.com/#/rouxtorials",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxtorials--roux-for-experienced-cubers.md",
+   "level": "beginner",
+   "summary": "A faster-paced Roux tutorial for cubers who already solve with another method. One video: Donovan's Roux Tutorial playlist. The Text Tutorial reads \"Coming soon!\".",
+   "topics": [
+    "Roux for switchers from other methods"
+   ],
+   "techniques": [],
+   "algSets": [],
+   "drills": [],
+   "stubs": "Text Tutorial is \"Coming soon!\". A commented-out outline covers the steps (treat SB like F2L but never rotate; use M/r moves instead; use CFOP-known algs for CMLL; LSE EO recognition, M' U M', EO flowchart; LR; 4c; Getting Faster)."
+  },
+  {
+   "view": "#/rouxsources > F2B > INSPECTION/FB",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=0",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m0-f2b--s0-inspection-fb.md",
+   "level": "mixed",
+   "summary": "First-block inspection and blockbuilding resources: Teoidus' \"Finding a Good FB in Inspection\" (video); Shadowslice's \"Frameworks: a structured approach to blocks\" (Google Doc); FB tips from Critical Cubing, Alex Lau, Iuri (line blockbuilding) and Kian (FB SpeedBLD; beginner-to-intermediate blockbuilding); Zhouheng's FB+DR Guide (PDF in Rouxles/roux-tutorial on GitHub); Fahmi and Neo's SB Pair Inspection (Google Sheet).",
+   "topics": [
+    "FB inspection",
+    "blockbuilding"
+   ],
+   "techniques": [
+    "FB inspection",
+    "square-first and line-first blockbuilding",
+    "FB+DR (first block plus the DR edge)",
+    "SB pair inspection",
+    "block frameworks",
+    "FB SpeedBLD"
+   ],
+   "algSets": [],
+   "drills": [
+    "Kian's First Block SpeedBLD: plan the full FB in inspection, then execute it blindfolded.",
+    "Inspect FB+DR, and SB pairs, during inspection (Zhouheng guide; Fahmi/Neo sheet)."
+   ],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > F2B > SECOND BLOCK",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=1",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m0-f2b--s1-second-block.md",
+   "level": "mixed",
+   "summary": "Second-block resources: SB Algs (Google Doc); SB last-slot algs (Google Sheet, Kian's site, SpeedCubeDB SBLS); Azusa's OH SBLP Guide (Drive PDF); Critical Cubing's SB efficiency tips; Kian's SB Multislotting and SB Pair Choice videos.",
+   "topics": [
+    "second block"
+   ],
+   "techniques": [
+    "SB efficiency",
+    "multislotting / multi-inserts",
+    "SB pair choice",
+    "SB last pair (SBLP), OH"
+   ],
+   "algSets": [
+    "SB algs",
+    "SB last slot (SBLS)",
+    "OH SBLP"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > F2B > MISC BLOCKBUILDING",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=2",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m0-f2b--s2-misc-blockbuilding.md",
+   "level": "advanced",
+   "summary": "Advanced and niche blockbuilding: Kian's Advanced Roux Techniques video (NMC, nonlinear blocks, non-matching blocks); Mr.Roux's NMC tutorial; Edde's CP Roux sheet; YruRU CPFB (devagio.github.io/YruRU); the CEOR speedsolving wiki page; Edde's CEOR trainer.",
+   "topics": [
+    "non-matching centers",
+    "nonlinear blockbuilding",
+    "non-matching blocks",
+    "corner-permutation-first Roux"
+   ],
+   "techniques": [
+    "NMC (non-matching centers)",
+    "nonlinear blockbuilding",
+    "NMB (non-matching blocks)",
+    "CP Roux / CPFB",
+    "CEOR"
+   ],
+   "algSets": [
+    "CP Roux sheet (Edde)"
+   ],
+   "drills": [
+    "Edde's CEOR trainer (external)."
+   ],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > F2B > BLOCK TRAINERS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=3",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m0-f2b--s3-block-trainers.md",
+   "level": "mixed",
+   "summary": "Links two block trainers: onionhoney roux-trainers #fb, and Cubegrass block_trainer (cubegrass.appspot.com).",
+   "topics": [
+    "block trainers"
+   ],
+   "techniques": [
+    "FB",
+    "blockbuilding practice"
+   ],
+   "algSets": [],
+   "drills": [
+    "Practise first-block solutions on onionhoney's FB trainer and on Cubegrass's block trainer."
+   ],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > CMLL > 2H CMLL ALGS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=0",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m1-cmll--s0-2h-cmll-algs.md",
+   "level": "mixed",
+   "summary": "Embeds eff's 2H CMLL Google Sheet in an iframe. Lists 2H CMLL sheets by eff, Anto, Teri, Sevilz, John Mark and Atlas. Also: Flamepelt's \"Best CMLL Algorithms and Fingertricks\" video; Bas's CMLL cheatsheet image (basilio.dev); badochov's CMLL Visualiser, which shows the EP and EO changes each CMLL causes.",
+   "topics": [
+    "CMLL algorithms (two-handed)"
+   ],
+   "techniques": [
+    "CMLL",
+    "CMLL effect on LSE edges (EP/EO)"
+   ],
+   "algSets": [
+    "CMLL (42 cases), several alg sheets"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > CMLL > OH CMLL ALGS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=1",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m1-cmll--s1-oh-cmll-algs.md",
+   "level": "mixed",
+   "summary": "Embeds Anto's OH CMLL Google Sheet. Also lists 刘埃尔's right-handed OH CMLL sheet, Sevilz' OH CMLL sheet, and Iuri's OH CMLL execution videos (Google Drive folder).",
+   "topics": [
+    "one-handed CMLL"
+   ],
+   "techniques": [
+    "OH CMLL execution"
+   ],
+   "algSets": [
+    "OH CMLL"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > CMLL > 2-LOOK CMLL ALGS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=2",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m1-cmll--s2-2-look-cmll-algs.md",
+   "level": "beginner",
+   "summary": "Embeds a 2-look CMLL Google Sheet (sheet 1pful9...; the site mislabels it \"OH CMLL (embedded above)\") and lists Derin's 1.5-Look CMLL (a Google Doc, labelled \"Google Sheets\").",
+   "topics": [
+    "2-look CMLL"
+   ],
+   "techniques": [
+    "2-look CMLL (orient corners, then permute)",
+    "1.5-look CMLL"
+   ],
+   "algSets": [
+    "2-look CMLL",
+    "1.5-look CMLL"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > CMLL > CMLL RECOGNITION",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=3",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m1-cmll--s3-cmll-recognition.md",
+   "level": "intermediate",
+   "summary": "CMLL recognition and prediction: Athefre's CMLL Prediction guides; multi-angle CMLL recognition from James Macdiarmid (\"Better CP Recog\"), John Mark (playlist), Kian, and a Google Drive folder; Iuri's L CMLL Recog doc. Under \"EO Prediction during CMLL\": Zhouheng's \"A New Framework For Predicting LSE EO From CMLL\".",
+   "topics": [
+    "CMLL recognition",
+    "CMLL prediction",
+    "LSE EO prediction"
+   ],
+   "techniques": [
+    "multi-angle CMLL recognition",
+    "CMLL prediction during SB",
+    "CP recognition",
+    "EO prediction from CMLL (CMLLEO)"
+   ],
+   "algSets": [],
+   "drills": [
+    "Recognise each CMLL case from several angles (multi-angle recognition videos)."
+   ],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > CMLL > PINKIE PIE",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=4",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m1-cmll--s4-pinkie-pie.md",
+   "level": "advanced",
+   "summary": "Pinkie Pie (pair ULUR on the D face before CMLL, then solve CMLL and EO together with OLLCP): Kian's explanation video, Sevilz's OLLCP algs (Google Sheet), and SpeedCubeDB OLLCP.",
+   "topics": [
+    "Pinkie Pie"
+   ],
+   "techniques": [
+    "Pinkie Pie (CMLL+EO via OLLCP)"
+   ],
+   "algSets": [
+    "OLLCP"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > CMLL > OTHER CMLL",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=5",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m1-cmll--s5-other-cmll.md",
+   "level": "advanced",
+   "summary": "Other CMLL variants: an NMCMLL list (sheet) and NMCMLL recognition (Athefre); ACMLL tutorial (Athefre) and ACMLL algs (sheet). TCMLL: an algs sheet by franz, cordelia, tyler and alavaro; Montu's TCMLL doc; Cordelia's TCMLL 1a execution video (Dropbox); Kian's TCMLL and Tyrannical Caterpillar explanation. Also L5C and SL5C algs (sheet) and Conjugated CxLL (speedsolving wiki).",
+   "topics": [
+    "CMLL variants"
+   ],
+   "techniques": [
+    "NMCMLL",
+    "ACMLL",
+    "TCMLL / Tic-Tac",
+    "Tyrannical Caterpillar",
+    "L5C / SL5C",
+    "conjugated CxLL"
+   ],
+   "algSets": [
+    "NMCMLL",
+    "ACMLL",
+    "TCMLL",
+    "L5C",
+    "SL5C",
+    "CxLL"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > CMLL > CMLL TRAINERS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=6",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m1-cmll--s6-cmll-trainers.md",
+   "level": "mixed",
+   "summary": "CMLL trainers, noted as including \"some COLL/ZBLL trainers which can also be used for CMLL\": onionhoney roux-trainers #cmll; Train Yu (tao-yu.github.io/Alg-Trainer); kSim 2 (ksim.kirjava.xyz); Roman's ZBLL trainer (bestsiteever.ru/zbll). The Rouxdmap table's \"Execution\" item also points here.",
+   "topics": [
+    "CMLL training"
+   ],
+   "techniques": [
+    "CMLL recognition and execution practice"
+   ],
+   "algSets": [
+    "CMLL"
+   ],
+   "drills": [
+    "Run random CMLL cases in an alg trainer (onionhoney #cmll, Train Yu, kSim 2). Roman's ZBLL trainer is a CFOP tool the site repurposes."
+   ],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > LSE > EOLR",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=0",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m2-lse--s0-eolr.md",
+   "level": "mixed",
+   "summary": "EO: Anto's EO flowchart (rouxl.es image). EOLR: full tutorials from MOG Cubing, SpeedCubeReview, Kian (playlist) and John Mark (playlist); Bas's EOLR cheatsheet; an EOLR doc; TDM's full 2H EOLR with right-hand M moves and with left-hand M moves. EOLRb: Viljo's tutorial video; the \"EOLR & EOLRb\" doc; PiKeeper's EOLRb doc. EOLRb trainers: onionhoney #eopair and enbyne.tech/tools/EOLRb.",
+   "topics": [
+    "LSE edge orientation",
+    "EOLR",
+    "EOLRb"
+   ],
+   "techniques": [
+    "EO flowchart (4a)",
+    "EOLR",
+    "EOLRb"
+   ],
+   "algSets": [
+    "EOLR (RH M and LH M versions)",
+    "EOLRb"
+   ],
+   "drills": [
+    "EOLRb trainers: onionhoney #eopair and enbyne EOLRb."
+   ],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > LSE > MISORIENTED CENTERS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=1",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m2-lse--s1-misoriented-centers.md",
+   "level": "intermediate",
+   "summary": "Misoriented centers: one link, a timestamp in Kian's Advanced Roux Techniques video (t=351).",
+   "topics": [
+    "misoriented centers"
+   ],
+   "techniques": [
+    "MC (misoriented centers) in LSE"
+   ],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > LSE > DOTS SKIPPING/UFUB",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=2",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m2-lse--s2-dots-skipping-ufub.md",
+   "level": "intermediate",
+   "summary": "Kian's Dots Skipping Tutorial, and Kian's UFUB overview (a timestamp in Advanced Roux Techniques, t=486). The Rouxdmap table also points here for \"ULUR/UFUB Neutrality\".",
+   "topics": [
+    "dots case avoidance",
+    "UFUB"
+   ],
+   "techniques": [
+    "dots skipping",
+    "UFUB (solve UF/UB instead of UL/UR)",
+    "ULUR/UFUB neutrality"
+   ],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > LSE > DFDB AND BU RECOGNITION",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=3",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m2-lse--s3-dfdb-and-bu-recognition.md",
+   "level": "intermediate",
+   "summary": "4c recognition: Kian's BU and DFDB video; Jihu's DFDB tutorial; Anto's DFDB doc and DFDB flowchart (rouxl.es image, mislabelled \"Google Docs\"); DFDB tutorials from John Mark Grimes and Richard Peng; Alex's BU recog guide (Reddit); John Mark Grimes' old EZ4c tutorial and his EZ4c/BU diagram (Drive).",
+   "topics": [
+    "4c recognition"
+   ],
+   "techniques": [
+    "DFDB recognition",
+    "BU recognition",
+    "EZ4c"
+   ],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > LSE > 6-FLIPS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=4",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m2-lse--s4-6-flips.md",
+   "level": "advanced",
+   "summary": "Six-flip (arrow, all-bad-edges) EO cases: Kavin's 6-flip M-U EOLR repertoire, Knut's 6-flip alg-based EOLR cases, and Dylan's 6-flip cycle avoidance.",
+   "topics": [
+    "6-flip EO cases"
+   ],
+   "techniques": [
+    "6-flip EOLR (M-U)",
+    "6-flip alg-based EOLR",
+    "6-flip cycle avoidance"
+   ],
+   "algSets": [
+    "6-flip EOLR cases"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > LSE > MISC LSE",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=5",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m2-lse--s5-misc-lse.md",
+   "level": "advanced",
+   "summary": "Panel heading is \"Other LSE\". 4c Influencing: Dylan's LRb Backtracking and Dylan's 4c^3. Nautilus L5E: the Nautilus Method L5e page (Google Sites).",
+   "topics": [
+    "4c influencing",
+    "L5E"
+   ],
+   "techniques": [
+    "LRb backtracking",
+    "4c^3",
+    "Nautilus L5E"
+   ],
+   "algSets": [
+    "Nautilus L5E"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > BIG CUBES > BIG CUBE TUTORIALS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=3&subTab=0",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m3-big-cubes--s0-big-cube-tutorials.md",
+   "level": "mixed",
+   "summary": "Roux-based big-cube methods: Kian's Meyer tutorial; Blobinati's Meyer and Lewis tutorial; CriticalCubing's CR4 doc; the original Stadler method site (German, speedcubing.ch).",
+   "topics": [
+    "4x4/5x5 Roux-based methods"
+   ],
+   "techniques": [
+    "Meyer",
+    "Lewis",
+    "CR4",
+    "Stadler"
+   ],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > BIG CUBES > M-SLICE EDGE PAIRING",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=3&subTab=1",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m3-big-cubes--s1-m-slice-edge-pairing.md",
+   "level": "advanced",
+   "summary": "M-slice edge pairing: 3DegreeK's 5x5 M-slice tutorial and example solve, Michal's 5x5 M-slice example solve, and Knut's 4x4 M-slice example solves.",
+   "topics": [
+    "big-cube edge pairing"
+   ],
+   "techniques": [
+    "M-slice edge pairing"
+   ],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > BIG CUBES > PARITY",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=3&subTab=2",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m3-big-cubes--s2-parity.md",
+   "level": "advanced",
+   "summary": "Big-cube parity: TDM's Parity CMLL (Google Sheet) and TDM's Parity 4c (Google Doc).",
+   "topics": [
+    "4x4 parity in Roux"
+   ],
+   "techniques": [
+    "parity CMLL",
+    "parity 4c"
+   ],
+   "algSets": [
+    "Parity CMLL",
+    "Parity 4c"
+   ],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > MISC > WEBSITES",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=4&subTab=0",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m4-misc--s0-websites.md",
+   "level": "n.a.",
+   "summary": "Roux wiki pages (speedsolving.com, ruwix, Wikicube/fandom). Roux websites: Gilles Roux (grrroux.free.fr), Kian Mansour (sites.google.com/view/kianroux), Anto Kam (rouxl.es), Athefre, Mark Fiend, CubingMethods.",
+   "topics": [
+    "reference sites"
+   ],
+   "techniques": [],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > MISC > YOUTUBE CHANNELS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=4&subTab=1",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m4-misc--s1-youtube-channels.md",
+   "level": "n.a.",
+   "summary": "Directory of 41 Rouxer YouTube channels, each linked as \"YouTube\": Abhijeet Ghodgaonkar, Akash Sreedharan, Alexey Tsvetkov, CubingWithAlex, Anto Kam (Rouxles), Cordelia Hu, CriticalCubing, Doyul Kim, Dwyane Ramos, Dylan Govic, Eden Robinson-Rechavi, Eff, Elijah La Porte, Fahmi Aulia Rachman, Fouzan Zayn, Hamish Bassig, Iuri Grangeiro, Jasper Murray, Joe Briggs (Shadowslice), Joshua Marais, Jihu Mun, Kangaroux, Kavin Tangtartharakul (Guroux), Kian Mansour, Knut Peterson, Kymo Hendriks, Louis de Mendonça (TDM), Magnus Lensch, MOG Cubing, Nicholas Archer, Rayyan Ali, Richard Peng, Reuel Franz, Sean Patrick Villanueva, Sevilz, Shawn Boucké (SpeedCubeReview), Takumi Kato, Teri McAcy, Tyler Gee, Viljo Elo, Zhouheng Sun.",
+   "topics": [
+    "community creators"
+   ],
+   "techniques": [],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > MISC > SOCIAL MEDIA",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=4&subTab=2",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m4-misc--s2-social-media.md",
+   "level": "n.a.",
+   "summary": "Community links: Discord (discord.gg/VJunGCZBGZ), Facebook group 1482303418674425, and the subreddit r/rouxcubing.",
+   "topics": [
+    "community"
+   ],
+   "techniques": [],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > MISC > OH FINGERTRICKS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=4&subTab=3",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m4-misc--s3-oh-fingertricks.md",
+   "level": "mixed",
+   "summary": "One-handed fingertrick videos: Anto's OH fingertricks, Kavin's OH LSE fingertricks, Kian's OH fingertricks, Kian's OH dots execution, and Patrick Ponce's OH fingertricks.",
+   "topics": [
+    "one-handed solving"
+   ],
+   "techniques": [
+    "OH fingertricks",
+    "OH LSE execution",
+    "OH dots execution"
+   ],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > MISC > EXAMPLE SOLVES",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=4&subTab=4",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m4-misc--s4-example-solves.md",
+   "level": "mixed",
+   "summary": "Example solves: playlists from Kian, Guroux, CriticalCubing and Kangaroux; Eff's example solves (sheet); Anto's OH example solves; Onionhoney FB+dr example solves; an Example Solves Archive (sheet). Reconstructions: reco.nz filtered to Roux, a Roux Reconstruction Database (sheet), Anto's reconstructions (r/rouxles), and Eff's smart-cube Ao100 on Cubeast.",
+   "topics": [
+    "example solves",
+    "reconstructions"
+   ],
+   "techniques": [
+    "study of example solves and reconstructions"
+   ],
+   "algSets": [],
+   "drills": [
+    "Study example solves and reconstructions; Eff's smart-cube Ao100 on Cubeast shows step-by-step smart-cube data."
+   ],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxsources > MISC > ROUX ACRONYMS AND DEFINITIONS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=4&subTab=5",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxsources--m4-misc--s5-roux-acronyms-and-definitions.md",
+   "level": "mixed",
+   "summary": "Glossary of 25 entries: 4a, 4b, 4c, BU (recognition), CMLL, CPFB, DFDB, EO, EOLR, EOLRb, EOLRc (\"the mythical one-look LSE\"), FB, L10P, LR, LSE, MC, Midori (a joke entry for Zhouheng Sun's cat, linking a YouTube video), NMB, NMC, NMCMLL, Pinkie Pie, SB, TCMLL/Tic-Tac, UFUB, ULUR. Every definition is reproduced verbatim in the saved file.",
+   "topics": [
+    "glossary"
+   ],
+   "techniques": [
+    "4a/4b/4c",
+    "BU",
+    "CPFB",
+    "DFDB",
+    "EOLR",
+    "EOLRb",
+    "EOLRc",
+    "L10P",
+    "MC",
+    "NMB",
+    "NMC",
+    "NMCMLL",
+    "Pinkie Pie",
+    "TCMLL",
+    "UFUB",
+    "ULUR"
+   ],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "#/rouxdmap (Rouxdmap to Sub-X)",
+   "url": "https://rouxcubing.com/#/rouxdmap",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/rouxdmap.md",
+   "level": "mixed",
+   "summary": "Video Roadmap: Kian's \"Why You're Not Sub-X With Roux\" YouTube playlist. Text Roadmap: \"Coming soon!\". The \"Roux Techniques Table\" is \"A loose guide for when you should learn different Roux techniques\", with columns First Block / Second Block / CMLL / LSE and these cells, verbatim. Basic: [Square/line blockbuilding; Inspect full FB] [Basic SB algs] [Algs; Execution] [EO flowchart]. Intermediate: [Inspect FB+DR] [SBLP; Multi-inserts] [Multi-angle recognition] [EOLR; DFDB; Misoriented centers; Dots skipping]. Advanced: [Inspect FB+SS; Nonlinear blockbuilding] [SS Blockbuilding] [CMLLEO] [EOLRb; 4c Influencing; ULUR/UFUB Neutrality]. Niche: [Inspect F2B; CPFB; Nonmatching centers] [Non-matching blocks; SBLP+CO (after CPFB)] [Pinkie Pie; NMCMLL/42; ACMLL/TCMLL] [Nautilus L5E]. Every item is a button that opens the matching Rouxsources sub-tab. Exceptions: SBLP and SBLP+CO open nothing (window.open('')), and CMLLEO opens a leftover http://localhost:3000 URL.",
+   "topics": [
+    "progression roadmap by level",
+    "what to learn when"
+   ],
+   "techniques": [
+    "Square/line blockbuilding",
+    "Inspect full FB",
+    "Basic SB algs",
+    "CMLL algs",
+    "CMLL execution",
+    "EO flowchart",
+    "Inspect FB+DR",
+    "SBLP",
+    "Multi-inserts",
+    "Multi-angle recognition",
+    "EOLR",
+    "DFDB",
+    "Misoriented centers",
+    "Dots skipping",
+    "Inspect FB+SS",
+    "Nonlinear blockbuilding",
+    "SS Blockbuilding",
+    "CMLLEO",
+    "EOLRb",
+    "4c Influencing",
+    "ULUR/UFUB Neutrality",
+    "Inspect F2B",
+    "CPFB",
+    "Nonmatching centers",
+    "Non-matching blocks",
+    "SBLP+CO (after CPFB)",
+    "Pinkie Pie",
+    "NMCMLL/42",
+    "ACMLL/TCMLL",
+    "Nautilus L5E"
+   ],
+   "algSets": [
+    "SB algs",
+    "CMLL",
+    "EOLR",
+    "EOLRb",
+    "NMCMLL",
+    "ACMLL",
+    "TCMLL",
+    "OLLCP (Pinkie Pie)"
+   ],
+   "drills": [
+    "Learn techniques in level order (Basic, Intermediate, Advanced, Niche) for each step, per the table."
+   ],
+   "stubs": "Text Roadmap is \"Coming soon!\". A Sub-60 to Sub-8 roadmap stepper exists in code but is not rendered. Two table items (SBLP, SBLP+CO) have no destination."
+  },
+  {
+   "view": "#/<any unknown route> (404)",
+   "url": "https://rouxcubing.com/#/does-not-exist",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/nopage-404.md",
+   "level": "n.a.",
+   "summary": "Catch-all route. Renders only \"404\" plus the footer.",
+   "topics": [],
+   "techniques": [],
+   "algSets": [],
+   "drills": [],
+   "stubs": ""
+  },
+  {
+   "view": "(source only, not rendered): drafts and commented-out blocks",
+   "url": "https://rouxcubing.com/static/js/main.9c840249.js.map",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/rouxcubing/_unrendered-source-content.md",
+   "level": "beginner",
+   "summary": "Content in the app source that no view renders. A beginner text-tutorial draft (beginnerTutorial.md: cube basics, notation with ruwix 3D widgets, FB/SB/CMLL/LSE step headings, mostly placeholders). A commented-out outline for the experienced-cuber text tutorial. A planned \"Rouxer Rankings\" section. An unused Sub-60 to Sub-8 roadmap stepper.",
+   "topics": [
+    "planned content"
+   ],
+   "techniques": [],
+   "algSets": [],
+   "drills": [],
+   "stubs": "Everything on this page is unfinished or unreleased."
+  }
+ ],
+ "links": [
+  {
+   "text": "r/cubers megasurveys",
+   "url": "https://basilio.dev/cubing/megasurvey6/",
+   "where": "#/ (Home) | Is Roux a Competitive Method?"
+  },
+  {
+   "text": "speedcubeshop.com/rouxcomp",
+   "url": "https://speedcubeshop.com/rouxcomp",
+   "where": "#/ (Home) | Weekly Competition #607"
+  },
+  {
+   "text": "https://bit.ly/RMSWeeklyCompSummary",
+   "url": "https://bit.ly/RMSWeeklyCompSummary",
+   "where": "#/ (Home) | Weekly Competition #607"
+  },
+  {
+   "text": "Submission Form",
+   "url": "https://forms.gle/H5xoCWvGKnZ92fQt8",
+   "where": "#/ (Home) | Weekly Competition #607 > 3x3: Submission Form"
+  },
+  {
+   "text": "Submission Form",
+   "url": "https://forms.gle/UgRLW3K1d5KkMGfM9",
+   "where": "#/ (Home) | Weekly Competition #607 > OH: Submission Form"
+  },
+  {
+   "text": "Submission Form",
+   "url": "https://forms.gle/1P9VUgZmA1pibwvL9",
+   "where": "#/ (Home) | Weekly Competition #607 > FMC: Submission Form"
+  },
+  {
+   "text": "Submission Form",
+   "url": "https://forms.gle/bHNjncvEcPvFWBP2A",
+   "where": "#/ (Home) | Weekly Competition #607 > 4x4: Submission Form"
+  },
+  {
+   "text": "SOLUTION",
+   "url": "https://bit.ly/4zTaaa7",
+   "where": "#/ (Home) | Weekly Competition #607 > Winning FMC solutions from last week: | Anomic, 43 moves"
+  },
+  {
+   "text": "RouxCubing.com",
+   "url": "https://RouxCubing.com/",
+   "where": "every view: footer (\"Copyright © RouxCubing.com 2026\")"
+  },
+  {
+   "text": "",
+   "url": "https://discord.gg/VJunGCZBGZ",
+   "where": "#/ (Home) | What is Roux? | icon button (discord) [window.open (IconButton onClick)]"
+  },
+  {
+   "text": "",
+   "url": "https://www.facebook.com/groups/1482303418674425/",
+   "where": "#/ (Home) | What is Roux? | icon button (facebook) [window.open (IconButton onClick)]"
+  },
+  {
+   "text": "",
+   "url": "https://www.reddit.com/r/rouxcubing/",
+   "where": "#/ (Home) | What is Roux? | icon button (reddit) [window.open (IconButton onClick)]"
+  },
+  {
+   "text": "Kian's Beginner Roux Tutorial - YouTube",
+   "url": "https://www.youtube.com/playlist?list=PLBHocHmPzgIjnAbNLHDycgaCP5IqiwnU9",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Video Tutorials"
+  },
+  {
+   "text": "DeeDubb's Beginner Roux Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=mB-y0XQiN0M&list=PLajHGvYF36nSsL1r_DqrpDY07TnJwqEpn",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Video Tutorials"
+  },
+  {
+   "text": "Beginner Reference Sheet - Google Docs",
+   "url": "https://docs.google.com/document/d/12AC3GM32M9U1IGUvFjkTOH6pq2GDPtT-v_NJgz9a4zs/",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Text Tutorial | Noblion's Beginner Reference Sheet"
+  },
+  {
+   "text": "Roux tutorial - book.rouxers.com",
+   "url": "https://book.rouxers.com/",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Text Tutorial | The Roux Reader (unfinished, but great content)"
+  },
+  {
+   "text": "Roux tutorial - cubingmethods.com",
+   "url": "https://www.cubingmethods.com/en/roux/tutorial",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Text Tutorial | CubingMethods Tutorial (in progress)"
+  },
+  {
+   "text": "Roux tutorial - grrroux",
+   "url": "http://grrroux.free.fr/method/Intro.html",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Text Tutorial | Gilles Roux's Tutorial"
+  },
+  {
+   "text": "Roux tutorial - markfiend.com",
+   "url": "http://www.markfiend.com/roux.html",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Text Tutorial | Mark Fiend's Tutorial"
+  },
+  {
+   "text": "Roux tutorial - ruwix.com",
+   "url": "https://ruwix.com/the-rubiks-cube/different-rubiks-cube-solving-methods/roux-method/",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Text Tutorial | Ruwix tutorial"
+  },
+  {
+   "text": "Roux tutorial - rubiks.fandom.com",
+   "url": "https://rubiks.fandom.com/wiki/Roux_Method",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Text Tutorial | Roux Wikicube page"
+  },
+  {
+   "text": "Roux tutorial - scheopner.com",
+   "url": "https://www.scheopner.com/cube/index.php",
+   "where": "#/rouxtorials > ROUX FOR BEGINNERS | Text Tutorial | Trevor Scheopner's Tutorial"
+  },
+  {
+   "text": "Donovan's Roux Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=ESYJ-DFx0Qo&list=PL754ADDA2E38A21AA",
+   "where": "#/rouxtorials > ROUX FOR EXPERIENCED CUBERS | Video Tutorials"
+  },
+  {
+   "text": "Teoidus' Finding a Good FB in Inspection - YouTube",
+   "url": "https://youtu.be/0Cq3YDud1dA",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | FB Inspection Guide"
+  },
+  {
+   "text": "Frameworks: a structured approach to blocks - Google Docs",
+   "url": "https://docs.google.com/document/d/1JPLt7uJmPr6sn__4jJxvWsiVTiaexGm1vt95mRtN-6I",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | Shadowslice's Block Frameworks"
+  },
+  {
+   "text": "Critical Cubing's First Block Tips - YouTube",
+   "url": "https://www.youtube.com/watch?v=b9rNvrVUsv0",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | Blockbuilding"
+  },
+  {
+   "text": "Alex Lau's First Block - YouTube",
+   "url": "https://www.youtube.com/watch?v=4sEnfMMMJyE",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | Blockbuilding"
+  },
+  {
+   "text": "Iuri's Line Blockbuilding - YouTube",
+   "url": "https://www.youtube.com/watch?v=i9zxR5mkgQs",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | Blockbuilding"
+  },
+  {
+   "text": "Kian's First Block SpeedBLD - YouTube",
+   "url": "https://www.youtube.com/watch?v=4KLFyN6ZDwk",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | Blockbuilding"
+  },
+  {
+   "text": "Kian's Beginner to Intermediate Blockbuilding - YouTube",
+   "url": "https://www.youtube.com/watch?v=LgIoz-Thh4k",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | Blockbuilding"
+  },
+  {
+   "text": "Zhouheng's FB+DR Guide - Github",
+   "url": "https://github.com/Rouxles/roux-tutorial/blob/master/fbdr/Zhouheng's%20FBDR%20Guide.pdf",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | FB+DR Guide"
+  },
+  {
+   "text": "SB Pair Inspection - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/16Ow0vWEFsGoPAGWD8LSUPrQ_L4BGskEa4gXBAnuGlvk",
+   "where": "#/rouxsources?mainTab=0&subTab=0 (F2B > INSPECTION/FB) | Inspection/First Block | Fahmi and Neo's SB Pair Inspection"
+  },
+  {
+   "text": "SB Algs - Google Docs",
+   "url": "https://docs.google.com/document/d/1bX50jAOM_veHsVJeLYGvSrH4uW9xrubep1zOSLdE4Vk/edit",
+   "where": "#/rouxsources?mainTab=0&subTab=1 (F2B > SECOND BLOCK) | Second Block | Second Block Algs"
+  },
+  {
+   "text": "SB Last Slot Algs - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1xd1LMv-0EOlEEOOPODLPzFSDZzFmd4D_KVxpgnkHrJ8/edit#gid=0",
+   "where": "#/rouxsources?mainTab=0&subTab=1 (F2B > SECOND BLOCK) | Second Block | Second Block Last Slot Algs"
+  },
+  {
+   "text": "Kian's SB Last Slot Algs - Kian's Site",
+   "url": "https://sites.google.com/view/kianroux/second-block",
+   "where": "#/rouxsources?mainTab=0&subTab=1 (F2B > SECOND BLOCK) | Second Block | Second Block Last Slot Algs"
+  },
+  {
+   "text": "SCDB SB Last Slot Algs - SCDB",
+   "url": "https://speedcubedb.com/a/3x3/SBLS",
+   "where": "#/rouxsources?mainTab=0&subTab=1 (F2B > SECOND BLOCK) | Second Block | Second Block Last Slot Algs"
+  },
+  {
+   "text": "OH SBLP Guide - Google Drive PDF",
+   "url": "https://drive.google.com/file/d/1MeXeYMFU0OQKWMfHJk1Joa3R4qOFK4c4/view",
+   "where": "#/rouxsources?mainTab=0&subTab=1 (F2B > SECOND BLOCK) | Second Block | Azusa's OH SBLP Guide"
+  },
+  {
+   "text": "Critical Cubing's SB efficiency tips - YouTube",
+   "url": "https://www.youtube.com/watch?v=_A7wDUisLDs",
+   "where": "#/rouxsources?mainTab=0&subTab=1 (F2B > SECOND BLOCK) | Second Block | Second Block Efficiency"
+  },
+  {
+   "text": "Kian's SB Multislotting - YouTube",
+   "url": "https://www.youtube.com/watch?v=izeYpYLl3-A",
+   "where": "#/rouxsources?mainTab=0&subTab=1 (F2B > SECOND BLOCK) | Second Block | Second Block Multislotting"
+  },
+  {
+   "text": "Kian's SB Pair Choice - YouTube",
+   "url": "https://www.youtube.com/watch?v=naip-4TSgdw",
+   "where": "#/rouxsources?mainTab=0&subTab=1 (F2B > SECOND BLOCK) | Second Block | Second Block Pair Choice"
+  },
+  {
+   "text": "Kian's Advanced Roux Techniques - YouTube",
+   "url": "https://youtu.be/L7pIPmSo24c?si=l_w3lasZgqWgBu2X",
+   "where": "#/rouxsources?mainTab=0&subTab=2 (F2B > MISC BLOCKBUILDING) | Misc Blockbuilding | NMC + Nonlinear Blocks + Non-Matching Blocks"
+  },
+  {
+   "text": "Mr.Roux's NMC Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=_jE-V7P7kIY",
+   "where": "#/rouxsources?mainTab=0&subTab=2 (F2B > MISC BLOCKBUILDING) | Misc Blockbuilding | Non-Matching Centers Tutorial"
+  },
+  {
+   "text": "Edde's CP Roux Sheet",
+   "url": "https://docs.google.com/spreadsheets/d/1JTHl4hlsvxWD9bOW8EJQQwMKfhwuipw1IXYVtKcvhe8/edit?usp=sharing",
+   "where": "#/rouxsources?mainTab=0&subTab=2 (F2B > MISC BLOCKBUILDING) | Misc Blockbuilding | CP Roux"
+  },
+  {
+   "text": "YruRU CPFB",
+   "url": "https://devagio.github.io/YruRU/index.html",
+   "where": "#/rouxsources?mainTab=0&subTab=2 (F2B > MISC BLOCKBUILDING) | Misc Blockbuilding | CPFB"
+  },
+  {
+   "text": "CEOR Wiki Page",
+   "url": "https://www.speedsolving.com/wiki/index.php?title=CEOR",
+   "where": "#/rouxsources?mainTab=0&subTab=2 (F2B > MISC BLOCKBUILDING) | Misc Blockbuilding | CEOR"
+  },
+  {
+   "text": "CEOR trainer",
+   "url": "https://edde.github.io/CEORtrainer/",
+   "where": "#/rouxsources?mainTab=0&subTab=2 (F2B > MISC BLOCKBUILDING) | Misc Blockbuilding | Edde's CEOR trainer"
+  },
+  {
+   "text": "onionhoney.github.io/roux-trainers/#fb",
+   "url": "https://onionhoney.github.io/roux-trainers/#fb",
+   "where": "#/rouxsources?mainTab=0&subTab=3 (F2B > BLOCK TRAINERS) | Block Trainers | Onionhoney's Trainer"
+  },
+  {
+   "text": "cubegrass.appspot.com/block_trainer/",
+   "url": "https://cubegrass.appspot.com/block_trainer/",
+   "where": "#/rouxsources?mainTab=0&subTab=3 (F2B > BLOCK TRAINERS) | Block Trainers | Cubegrass"
+  },
+  {
+   "text": "eff's 2H CMLL List - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1uMmjhGZzPCxPPODiU-N7juNagW6QYh2HKSFpF7XB42A",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | eff's 2H CMLL (embedded above)"
+  },
+  {
+   "text": "Anto's 2H CMLL List - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1uc5V3G-kRH3qV5b6Lq1yzTjnqSMS3D3dZcsCIOiJqcI",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | Anto's 2H CMLL"
+  },
+  {
+   "text": "Teri's 2H CMLL - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1sGeA4uf-f_hB4Ox7gCybm40SFy_e86_C7vP5LuD7WlE",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | Teri's 2H CMLL"
+  },
+  {
+   "text": "Sevilz's 2H CMLL - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1MCWLpopbQbQ5IW_g3m90keChY-q1jdx9w9yzSpQaGzY",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | Sevilz's 2H CMLL"
+  },
+  {
+   "text": "John Mark's 2H CMLL - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1T94xPQU6-bIXUpT0GbdVNFLbpryEgXEmeJcI77SejEk",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | John Mark's 2H CMLL"
+  },
+  {
+   "text": "Atlas' CMLL - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1Lbuks-O0WCwJmqdrkWzmBAmfUpNyvPu75rGlGnKyw6s",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | Atlas' Roux Algorithms"
+  },
+  {
+   "text": "Roux Method: The Best CMLL Algorithms and Fingertricks - YouTube",
+   "url": "https://www.youtube.com/watch?v=xHvPxLlfbzQ",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | Flamepelt's 2H CMLL Video"
+  },
+  {
+   "text": "CMLL cheatsheet - basilio.dev/cubing",
+   "url": "https://basilio.dev/cubing/images/ALGS-CMLL.jpg",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | Bas's CMLL Cheatsheet"
+  },
+  {
+   "text": "https://badochov.github.io/cmll-visualiser/",
+   "url": "https://badochov.github.io/cmll-visualiser/",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | 2H CMLL Sheets | CMLL Visualizer (shows EP and EO changes for each CMLL)"
+  },
+  {
+   "text": "",
+   "url": "https://docs.google.com/spreadsheets/d/1uMmjhGZzPCxPPODiU-N7juNagW6QYh2HKSFpF7XB42A/edit?usp=sharing?widget=true&rm=minimal&headers=false",
+   "where": "#/rouxsources?mainTab=1&subTab=0 (CMLL > 2H CMLL ALGS) | Rouxsources | embedded iframe [iframe]"
+  },
+  {
+   "text": "OH CMLL List - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1WHnksK4yyv63sv3Es-PuKfnFRtZGafqp6rEuEfOx-cg/edit",
+   "where": "#/rouxsources?mainTab=1&subTab=1 (CMLL > OH CMLL ALGS) | OH CMLL Sheets | Anto's OH CMLL (embedded above)"
+  },
+  {
+   "text": "OH CMLL List - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1n0RW9g889rg7Lk4xh1WpQlzwM-QtTgnz5O1Oj-WEXBs/edit",
+   "where": "#/rouxsources?mainTab=1&subTab=1 (CMLL > OH CMLL ALGS) | OH CMLL Sheets | 刘埃尔's Right-Handed OH CMLL"
+  },
+  {
+   "text": "Sevilz' OH CMLL - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/13B4247VUgoPhPsoEKktQVHsxiPFGuzAOmAXTxc-IsiY/edit",
+   "where": "#/rouxsources?mainTab=1&subTab=1 (CMLL > OH CMLL ALGS) | OH CMLL Sheets | Sevilz' OH CMLL"
+  },
+  {
+   "text": "OH CMLL Execution - Google Drive",
+   "url": "https://drive.google.com/drive/folders/1owfcX3SJSXQr5_Ly9Sex_4rSMLZ-gIEb",
+   "where": "#/rouxsources?mainTab=1&subTab=1 (CMLL > OH CMLL ALGS) | OH CMLL Sheets | Iuri's OH CMLL execution"
+  },
+  {
+   "text": "",
+   "url": "https://docs.google.com/spreadsheets/d/1WHnksK4yyv63sv3Es-PuKfnFRtZGafqp6rEuEfOx-cg/edit?usp=sharing?widget=true&rm=minimal&headers=false",
+   "where": "#/rouxsources?mainTab=1&subTab=1 (CMLL > OH CMLL ALGS) | Rouxsources | embedded iframe [iframe]"
+  },
+  {
+   "text": "OH CMLL List - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1pful9u4oOiB2mzqICBZYJyHWF2VzTaRoha9fq8R8oTw",
+   "where": "#/rouxsources?mainTab=1&subTab=2 (CMLL > 2-LOOK CMLL ALGS) | 2-Look CMLL Sheets | OH CMLL (embedded above)"
+  },
+  {
+   "text": "1.5-Look CMLL - Google Sheets",
+   "url": "https://docs.google.com/document/d/1YLIB3U-1UKNpTn-XiN-8VXmC8lQgeYgLyEpELgVCc1w",
+   "where": "#/rouxsources?mainTab=1&subTab=2 (CMLL > 2-LOOK CMLL ALGS) | 2-Look CMLL Sheets | Derin's 1.5-Look CMLL"
+  },
+  {
+   "text": "",
+   "url": "https://docs.google.com/spreadsheets/d/1pful9u4oOiB2mzqICBZYJyHWF2VzTaRoha9fq8R8oTw/edit?usp=sharing?widget=true&rm=minimal&headers=false",
+   "where": "#/rouxsources?mainTab=1&subTab=2 (CMLL > 2-LOOK CMLL ALGS) | Rouxsources | embedded iframe [iframe]"
+  },
+  {
+   "text": "CMLL Prediction - Aethefre's Site",
+   "url": "https://sites.google.com/site/athefre/roux/cmll-prediction",
+   "where": "#/rouxsources?mainTab=1&subTab=3 (CMLL > CMLL RECOGNITION) | CMLL Recognition/Prediction | Athefre's CMLL Prediction Guides"
+  },
+  {
+   "text": "James Macdiarmid's Better CP Recog - YouTube",
+   "url": "https://www.youtube.com/watch?v=vwBR-N29t3k",
+   "where": "#/rouxsources?mainTab=1&subTab=3 (CMLL > CMLL RECOGNITION) | CMLL Recognition/Prediction | James Macdiarmid's Multi-Angle CMLL Recognition"
+  },
+  {
+   "text": "John Mark's Multi-Angle CMLL Recog - YouTube",
+   "url": "https://youtube.com/playlist?list=PLn0ZYJiGQcT8qAf8-7g5WHqaA-Zke9ij0&si=epV0W--ZDoeOVFvw",
+   "where": "#/rouxsources?mainTab=1&subTab=3 (CMLL > CMLL RECOGNITION) | CMLL Recognition/Prediction | John Mark's Multi-Angle CMLL Recognition"
+  },
+  {
+   "text": "Kian's Multi-Angle CMLL Recog - YouTube",
+   "url": "https://www.youtube.com/watch?v=MKZ7JX-hW4g",
+   "where": "#/rouxsources?mainTab=1&subTab=3 (CMLL > CMLL RECOGNITION) | CMLL Recognition/Prediction | Kian's Multi-Angle CMLL Recognition"
+  },
+  {
+   "text": "CMLL Recog - Google Drive",
+   "url": "https://drive.google.com/drive/folders/1eysbDbEtKzKpwRBN_oih-xaKRBOjRIKA",
+   "where": "#/rouxsources?mainTab=1&subTab=3 (CMLL > CMLL RECOGNITION) | CMLL Recognition/Prediction | Multi-Angle CMLL Recognition"
+  },
+  {
+   "text": "L CMLL Recog - Google Docs",
+   "url": "https://docs.google.com/document/d/1_GJF5lYnAWwxxkxLlBSnaHFayjEVd8-PG7tnDUwk71o/edit?tab=t.0#heading=h.oa3c40cij0jg",
+   "where": "#/rouxsources?mainTab=1&subTab=3 (CMLL > CMLL RECOGNITION) | CMLL Recognition/Prediction | Iuri's L CMLL Recog"
+  },
+  {
+   "text": "A New Framework For Predicting LSE EO From CMLL - YouTube",
+   "url": "https://www.youtube.com/watch?v=rlqXLsMgAvo",
+   "where": "#/rouxsources?mainTab=1&subTab=3 (CMLL > CMLL RECOGNITION) | EO Prediction during CMLL | Zhouheng's LSE EO Prediction"
+  },
+  {
+   "text": "Kian's Pinkie Pie Explanation - YouTube",
+   "url": "https://www.youtube.com/watch?v=TPpZ-wzsZe4",
+   "where": "#/rouxsources?mainTab=1&subTab=4 (CMLL > PINKIE PIE) | Pinkie Pie | Pinkie Pie Overview"
+  },
+  {
+   "text": "OLLCP - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1jRng_UP6y8zqwbC1ptVqOlqk7FKq0AU_E6CJGLUUJmY",
+   "where": "#/rouxsources?mainTab=1&subTab=4 (CMLL > PINKIE PIE) | Pinkie Pie | Sevilz's OLLCP Algs"
+  },
+  {
+   "text": "OLLCP - SCDB",
+   "url": "https://speedcubedb.com/a/3x3/OLLCP",
+   "where": "#/rouxsources?mainTab=1&subTab=4 (CMLL > PINKIE PIE) | Pinkie Pie | OLLCP Algs"
+  },
+  {
+   "text": "NMCMLL List - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1BUt299RvoSDdtUEEMnGALo7jVqHnuhZS64-KZZ6TEKI/edit#gid=0",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | NMCMLL"
+  },
+  {
+   "text": "NMCMLL - Athefre's Site",
+   "url": "https://sites.google.com/site/athefre/roux/roux",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | NMCMLL Recognition"
+  },
+  {
+   "text": "ACMLL - Athefre's Site",
+   "url": "https://sites.google.com/site/athefre/roux/acmll",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | ACMLL Tutorial"
+  },
+  {
+   "text": "ACMLL List - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1z3GGqY9_J4124mWYgYjH_QuwaqMiGVB1WHxL8IemVeU",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | ACMLL Algs"
+  },
+  {
+   "text": "franz + cordelia + tyler + alavaro's TCMLL Algs - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1ucLxYATDLN82UuJuEaDLFuKhaVHlKUaqicId2_LNISA",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | TCMLL"
+  },
+  {
+   "text": "Montu's TCMLL Algs - Google Docs",
+   "url": "https://docs.google.com/document/d/10wenyuYdJhJd70lka0m01SdCK1OK2OgHGuaPCFMCQc4/edit?tab=t.0",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | TCMLL"
+  },
+  {
+   "text": "Cordelia's TCMLL 1a Execution - Dropbox",
+   "url": "https://www.dropbox.com/scl/fi/q9rx51ex5p8so2mrn7xxx/tcmll-1a-compilation-full.mp4?rlkey=ce2rok823r3hwmbu8e8l0afz1&e=1&st=jp38qn6q&dl=0",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | TCMLL"
+  },
+  {
+   "text": "Kian's TCMLL Explanation - YouTube",
+   "url": "https://www.youtube.com/watch?v=nJhj1uhtRvw",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | TCMLL + Tyrannical Caterpillar Explanation"
+  },
+  {
+   "text": "L5C and SL5C Algs - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1ZL1U8cAuzgVXe9xDMtpfXk5PLvG0PpcKULKiPHIDLG0",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | L5C and SL5C"
+  },
+  {
+   "text": "CxLL - Speedsolving Wiki",
+   "url": "https://www.speedsolving.com/wiki/index.php?title=Conjugated_CxLL",
+   "where": "#/rouxsources?mainTab=1&subTab=5 (CMLL > OTHER CMLL) | Other CMLL | CxLL"
+  },
+  {
+   "text": "onionhoney.github.io/roux-trainers/#cmll",
+   "url": "https://onionhoney.github.io/roux-trainers/#cmll",
+   "where": "#/rouxsources?mainTab=1&subTab=6 (CMLL > CMLL TRAINERS) | CMLL Trainers | OnionHoney"
+  },
+  {
+   "text": "tao-yu.github.io/Alg-Trainer",
+   "url": "https://tao-yu.github.io/Alg-Trainer/",
+   "where": "#/rouxsources?mainTab=1&subTab=6 (CMLL > CMLL TRAINERS) | CMLL Trainers | Train Yu"
+  },
+  {
+   "text": "ksim.kirjava.xyz",
+   "url": "http://ksim.kirjava.xyz/",
+   "where": "#/rouxsources?mainTab=1&subTab=6 (CMLL > CMLL TRAINERS) | CMLL Trainers | kSim 2"
+  },
+  {
+   "text": "bestsiteever.ru/zbll",
+   "url": "https://bestsiteever.ru/zbll/",
+   "where": "#/rouxsources?mainTab=1&subTab=6 (CMLL > CMLL TRAINERS) | CMLL Trainers | Roman's ZBLL trainer"
+  },
+  {
+   "text": "Anto's EO flowchart - rouxl.es",
+   "url": "https://rouxl.es/images/LSEEO.png",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EO | EO Flowchart"
+  },
+  {
+   "text": "MOG Cubing's Full EOLR Tutorial - YouTube",
+   "url": "https://youtu.be/R5j_1Ym82_M?si=XbrbaHwqe1coYnv6",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLR | EOLR Tutorial"
+  },
+  {
+   "text": "SpeedCubeReview's Full EOLR Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=KG0Jg71hzmE",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLR | EOLR Tutorial"
+  },
+  {
+   "text": "Kian's Full EOLR Tutorial - YouTube",
+   "url": "https://www.youtube.com/playlist?list=PLBHocHmPzgIiUBTa7Hs3-xcrBKavfD_zX",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLR | EOLR Tutorial"
+  },
+  {
+   "text": "John Mark's Full EOLR Tutorial - YouTube",
+   "url": "https://youtube.com/playlist?list=PLn0ZYJiGQcT-MMtDB67YGoV8T6JQNbhgh&si=mLr7HNmAqQa6IrdS",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLR | EOLR Tutorial"
+  },
+  {
+   "text": "EOLR cheatsheet - basilio.dev/cubing",
+   "url": "https://basilio.dev/cubing/images/ALGS-EOLR.jpg",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLR | Bas's EOLR Cheatsheet"
+  },
+  {
+   "text": "EOLR - Google Docs",
+   "url": "https://docs.google.com/document/d/1dvGERLfN-0rVwN914HH1zRPHLfdM6d5rPfe0HxOMK08",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLR | EOLR Doc"
+  },
+  {
+   "text": "TDM's full 2H EOLR (RH M moves) - Google Docs",
+   "url": "https://docs.google.com/document/d/1CV3DEwIZYn0g4bnXDN6-2bxNpc7I0woFL1tnslhYQr4",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLR | EOLR Algs(righty M)"
+  },
+  {
+   "text": "TDM's full 2H EOLR (LH M moves) - Google Docs",
+   "url": "https://docs.google.com/document/d/15At5K7N1Yg1Qfh0_KZyUJZhBqLJVmXdPvLN1hmrRYoc",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLR | EOLR Algs(lefty M)"
+  },
+  {
+   "text": "EOLRb Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=sHcGR938EPE",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLRb | Viljo's EOLRb"
+  },
+  {
+   "text": "EOLR & EOLRb - Google Docs",
+   "url": "https://docs.google.com/document/d/1OQ7hcB06bYbr8eH9SLTW2W5tozk9_nJ5MzqNgxHOnUk",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLRb | EOLRb doc"
+  },
+  {
+   "text": "EOLRb - Google Docs",
+   "url": "https://docs.google.com/document/d/1svAgKNnvBMtAfZ_K_RL-7XcK1WlrgP3cP8ph907Zaq4",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLRb | PiKeeper's EOLRb doc"
+  },
+  {
+   "text": "EOLRb Trainer - onionhoney",
+   "url": "https://onionhoney.github.io/roux-trainers/#eopair",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLRb | EOLRb Trainer"
+  },
+  {
+   "text": "EOLRb Trainer - enbyne",
+   "url": "https://enbyne.tech/tools/EOLRb",
+   "where": "#/rouxsources?mainTab=2&subTab=0 (LSE > EOLR) | EOLRb | EOLRb Trainer"
+  },
+  {
+   "text": "Kian's Misoriented Centers Overview - YouTube",
+   "url": "https://youtu.be/L7pIPmSo24c?si=66twIiBpBtOHzUjI&t=351",
+   "where": "#/rouxsources?mainTab=2&subTab=1 (LSE > MISORIENTED CENTERS) | Misoriented Centers | Misoriented Centers"
+  },
+  {
+   "text": "Kian's Dots Skipping Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=2juB7PEeTQw",
+   "where": "#/rouxsources?mainTab=2&subTab=2 (LSE > DOTS SKIPPING/UFUB) | Dots Skipping/UFUB | Dots Skipping Tutorial"
+  },
+  {
+   "text": "Kian's UFUB - YouTube",
+   "url": "https://youtu.be/L7pIPmSo24c?si=Ht7T_7EzELgJIg8f&t=486",
+   "where": "#/rouxsources?mainTab=2&subTab=2 (LSE > DOTS SKIPPING/UFUB) | Dots Skipping/UFUB | UFUB Overview"
+  },
+  {
+   "text": "Kian's BU and DFDB - YouTube",
+   "url": "https://www.youtube.com/watch?v=AwTJ5-ZDaew",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | BU and DFDB Tutorial"
+  },
+  {
+   "text": "Jihu's DFDB Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=pI0-9tUfWzg",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | Jihu's DFDB Tutorial"
+  },
+  {
+   "text": "Anto's DFDB - Google Docs",
+   "url": "https://docs.google.com/document/d/1L9v-iWOKkdnymCYud0IWmAT50cEWwWtxU443I4b21AA/edit",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | DFDB Doc"
+  },
+  {
+   "text": "Anto's DFDB - Google Docs",
+   "url": "https://rouxl.es/images/DFDB.png",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | DFDB Flowchart"
+  },
+  {
+   "text": "John Mark Grimes' DFDB Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?app=desktop&v=bHJ3KqDIQs8",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | DFDB Tutorial"
+  },
+  {
+   "text": "Richard Peng's DFDB Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=0j5E2frUGVw",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | DFDB Tutorial"
+  },
+  {
+   "text": "Alex's BU Guide - Reddit",
+   "url": "https://www.reddit.com/r/Cubers/comments/69rubn/made_a_roux_4c_cycle_bu_recog_guide/",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | BU Guide"
+  },
+  {
+   "text": "John Mark Grimes' EZ4c Tutorial (old)- YouTube",
+   "url": "https://www.youtube.com/watch?v=pWCTCA9ZM-A",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | EZ4c Tutorial"
+  },
+  {
+   "text": "John Mark Grimes' EZ4c Diagram- Google Drive",
+   "url": "https://drive.google.com/file/d/1Z_oF4Sv1A9YvTzHFD78wp_kGHGmO4Hrm/view",
+   "where": "#/rouxsources?mainTab=2&subTab=3 (LSE > DFDB AND BU RECOGNITION) | DFDB and BU Recognition | BU Diagram"
+  },
+  {
+   "text": "Kavin's 6-Flip Repertoire - YouTube",
+   "url": "https://www.youtube.com/watch?v=awvvDPldYUA",
+   "where": "#/rouxsources?mainTab=2&subTab=4 (LSE > 6-FLIPS) | 6-Flips | 6-Flip M-U EOLR"
+  },
+  {
+   "text": "Knut's 6-Flip Alg Cases - YouTube",
+   "url": "https://www.youtube.com/watch?v=TaopkUfmFF4",
+   "where": "#/rouxsources?mainTab=2&subTab=4 (LSE > 6-FLIPS) | 6-Flips | 6-Flip Alg-Based EOLR"
+  },
+  {
+   "text": "Dylan's 6-Flip Cycle Avoidance - YouTube",
+   "url": "https://www.youtube.com/watch?v=p0oO6w2QlR4",
+   "where": "#/rouxsources?mainTab=2&subTab=4 (LSE > 6-FLIPS) | 6-Flips | 6-Flip Cycle Avoidance"
+  },
+  {
+   "text": "Dylan's LRb Backtracking - YouTube",
+   "url": "https://www.youtube.com/watch?v=4zIAXfUr5vM",
+   "where": "#/rouxsources?mainTab=2&subTab=5 (LSE > MISC LSE) | 4c Influencing | LRb Backtracking"
+  },
+  {
+   "text": "Dylan's 4c^3 - YouTube",
+   "url": "https://www.youtube.com/watch?v=BpkkDfBrD9A",
+   "where": "#/rouxsources?mainTab=2&subTab=5 (LSE > MISC LSE) | 4c Influencing | 4c^3"
+  },
+  {
+   "text": "Nautilus Method L5e - Google Sites",
+   "url": "https://sites.google.com/view/nautilus-method/l5e?authuser=0",
+   "where": "#/rouxsources?mainTab=2&subTab=5 (LSE > MISC LSE) | Nautilus L5E | L5e"
+  },
+  {
+   "text": "Kian's Meyer Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=-L86AodUUzE",
+   "where": "#/rouxsources?mainTab=3&subTab=0 (BIG CUBES > BIG CUBE TUTORIALS) | Big Cube Tutorials | Meyer Tutorial"
+  },
+  {
+   "text": "Blobinati's Meyer and Lewis Tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=g8ct_J3RRPc",
+   "where": "#/rouxsources?mainTab=3&subTab=0 (BIG CUBES > BIG CUBE TUTORIALS) | Big Cube Tutorials | Meyer and Lewis Tutorial"
+  },
+  {
+   "text": "CriticalCubing's CR4 Tutorial - Google Docs",
+   "url": "https://docs.google.com/document/d/150UxosBFn5Trhi16wa4qv2u06mTweXHSsDH6iv5JeRc/edit",
+   "where": "#/rouxsources?mainTab=3&subTab=0 (BIG CUBES > BIG CUBE TUTORIALS) | Big Cube Tutorials | CR4"
+  },
+  {
+   "text": "Original Stadler Method Site (German)",
+   "url": "https://www.speedcubing.ch/l%C3%B6sungsanleitungen/4x4-stadler-methode/",
+   "where": "#/rouxsources?mainTab=3&subTab=0 (BIG CUBES > BIG CUBE TUTORIALS) | Big Cube Tutorials | Stadler"
+  },
+  {
+   "text": "3DegreeK's 5x5 M-slice tutorial - YouTube",
+   "url": "https://www.youtube.com/watch?v=glgDBb8sT4k",
+   "where": "#/rouxsources?mainTab=3&subTab=1 (BIG CUBES > M-SLICE EDGE PAIRING) | M-Slice Edge Pairing | M-Slice Tutorial"
+  },
+  {
+   "text": "3DegreeK's 5x5 M-slice example solve - YouTube",
+   "url": "https://www.youtube.com/watch?v=PvScTZIxuBo",
+   "where": "#/rouxsources?mainTab=3&subTab=1 (BIG CUBES > M-SLICE EDGE PAIRING) | M-Slice Edge Pairing | Example Solves"
+  },
+  {
+   "text": "Michal's 5x5 M-slice example solve - YouTube",
+   "url": "https://www.youtube.com/watch?v=UtxCyOa4-6A",
+   "where": "#/rouxsources?mainTab=3&subTab=1 (BIG CUBES > M-SLICE EDGE PAIRING) | M-Slice Edge Pairing | Example Solves"
+  },
+  {
+   "text": "Knut's 4x4 M-slice example solves - YouTube",
+   "url": "https://youtu.be/HjRBCxYdckE?si=gBROfBDLwEWBwo3u",
+   "where": "#/rouxsources?mainTab=3&subTab=1 (BIG CUBES > M-SLICE EDGE PAIRING) | M-Slice Edge Pairing | Example Solves"
+  },
+  {
+   "text": "TDM's Parity CMLL - Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1KY3DT86JLpPUDb98km4ck_hrpdRooC8vg2U8Y1zJipk/edit#gid=2015768980",
+   "where": "#/rouxsources?mainTab=3&subTab=2 (BIG CUBES > PARITY) | Parity | Parity CMLL"
+  },
+  {
+   "text": "TDM's Parity 4c - Google Docs",
+   "url": "https://docs.google.com/document/d/1iT22CcA3wGJHfoAQPriFbNNaTYJoUKYUOskYINH5Ypw/edit?tab=t.0",
+   "where": "#/rouxsources?mainTab=3&subTab=2 (BIG CUBES > PARITY) | Parity | Parity 4c"
+  },
+  {
+   "text": "Roux page - speedsolving.com",
+   "url": "https://www.speedsolving.com/wiki/index.php/Roux_method",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Wiki Pages | Speedsolving Wiki Page"
+  },
+  {
+   "text": "Roux page - ruwix.com",
+   "url": "https://ruwix.com/the-rubiks-cube/different-rubiks-cube-solving-methods/roux-method/",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Wiki Pages | Ruwix Wiki Page"
+  },
+  {
+   "text": "Roux page - rubiks.fandom.com",
+   "url": "https://rubiks.fandom.com/wiki/Roux_Method",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Wiki Pages | Roux Wikicube Page"
+  },
+  {
+   "text": "grrroux.free.fr/method/Intro.html",
+   "url": "http://grrroux.free.fr/method/Intro.html",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Websites | Gilles Roux"
+  },
+  {
+   "text": "sites.google.com/view/kianroux/home",
+   "url": "https://sites.google.com/view/kianroux/home",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Websites | Kian Mansour"
+  },
+  {
+   "text": "rouxl.es",
+   "url": "https://rouxl.es/",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Websites | Anto Kam"
+  },
+  {
+   "text": "sites.google.com/site/athefre/main",
+   "url": "https://sites.google.com/site/athefre/main",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Websites | Athefre"
+  },
+  {
+   "text": "markfiend.com/roux.html",
+   "url": "http://www.markfiend.com/roux.html",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Websites | Mark Fiend"
+  },
+  {
+   "text": "cubingmethods.com/en/roux",
+   "url": "https://www.cubingmethods.com/en/roux",
+   "where": "#/rouxsources?mainTab=4&subTab=0 (MISC > WEBSITES) | Roux Websites | CubingMethods"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@abhijeetghodgaonkar",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Abhijeet Ghodgaonkar"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@akashsreedharan",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Akash Sreedharan"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@alexeytsvetkov6526",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Alexey Tsvetkov"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@CubingWithAlex",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Alex (CubingWithAlex)"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@Rouxles",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Anto Kam (Rouxles)"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@coraleap",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Cordelia Hu"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@criticalcubing",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | CriticalCubing"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://youtube.com/@doyulkim2491",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Doyul Kim"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@dwyaneramos4208",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Dwyane Ramos"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@dylangovic",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Dylan Govic"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@EdenRobinson-Rechavi",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Eden Robinson-Rechavi"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@effperm",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Eff"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@ElijahLaPorte347",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Elijah La Porte"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@Fommy-Cubing",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Fahmi Aulia Rachman"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://youtube.com/@fouzanzayn",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Fouzan Zayn"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@hamishbassig",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Hamish Bassig"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@iurigrang",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Iuri Grangeiro"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@jmurraynz",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Jasper Murray"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@Shadowslice",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Joe Briggs (Shadowslice)"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://youtube.com/@joshuamaraisstuff",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Joshua Marais"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@jihu1011",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Jihu Mun"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@TheBrutux168",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Kangaroux"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@guroux",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Kavin Tangtartharakul (Guroux)"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@Kian_Mansour",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Kian Mansour"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@KnutPeterson",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Knut Peterson"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@kyh148",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Kymo Hendriks"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@TDM028",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Louis de Mendonça (TDM)"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@magnuslensch",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Magnus Lensch"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@MOGCubing",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | MOG Cubing"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@nicholas4093",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Nicholas Archer"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://youtube.com/@r0ubiks",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Rayyan Ali"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://youtube.com/@notrichardpeng",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Richard Peng"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@trianglescube",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Reuel Franz "
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@SeanVillCubing",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Sean Patrick Villanueva"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@sevilzww",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Sevilz"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@SpeedCubeReview",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Shawn Boucké (SpeedCubeReview)"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@_wilwil",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Takumi Kato"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@teriww",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Teri McAcy"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://youtube.com/@concavecuber3053",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Tyler Gee"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@ViljoElo",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Viljo Elo"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/@onionhoney1",
+   "where": "#/rouxsources?mainTab=4&subTab=1 (MISC > YOUTUBE CHANNELS) | Rouxer Youtube Channels | Zhouheng Sun"
+  },
+  {
+   "text": "https://discord.gg/VJunGCZBGZ",
+   "url": "https://discord.gg/VJunGCZBGZ",
+   "where": "#/rouxsources?mainTab=4&subTab=2 (MISC > SOCIAL MEDIA) | Social Media | Discord"
+  },
+  {
+   "text": "https://www.facebook.com/groups/1482303418674425/",
+   "url": "https://www.facebook.com/groups/1482303418674425/",
+   "where": "#/rouxsources?mainTab=4&subTab=2 (MISC > SOCIAL MEDIA) | Social Media | Facebook Group"
+  },
+  {
+   "text": "https://www.reddit.com/r/rouxcubing/",
+   "url": "https://www.reddit.com/r/rouxcubing/",
+   "where": "#/rouxsources?mainTab=4&subTab=2 (MISC > SOCIAL MEDIA) | Social Media | Subreddit"
+  },
+  {
+   "text": "https://youtu.be/4WK0cORg6CQ?si=Ia-tSyYTZCN1JhvB",
+   "url": "https://youtu.be/4WK0cORg6CQ?si=Ia-tSyYTZCN1JhvB",
+   "where": "#/rouxsources?mainTab=4&subTab=3 (MISC > OH FINGERTRICKS) | OH Fingertricks | Anto's OH fingertricks"
+  },
+  {
+   "text": "https://www.youtube.com/watch?v=5xJCt4VQYFo",
+   "url": "https://www.youtube.com/watch?v=5xJCt4VQYFo",
+   "where": "#/rouxsources?mainTab=4&subTab=3 (MISC > OH FINGERTRICKS) | OH Fingertricks | Kavin's OH LSE fingertricks"
+  },
+  {
+   "text": "https://www.youtube.com/watch?v=ggNmk4mv6Y0",
+   "url": "https://www.youtube.com/watch?v=ggNmk4mv6Y0",
+   "where": "#/rouxsources?mainTab=4&subTab=3 (MISC > OH FINGERTRICKS) | OH Fingertricks | Kian's OH fingertricks"
+  },
+  {
+   "text": "https://www.youtube.com/watch?v=hwXX6GYIHq4",
+   "url": "https://www.youtube.com/watch?v=hwXX6GYIHq4",
+   "where": "#/rouxsources?mainTab=4&subTab=3 (MISC > OH FINGERTRICKS) | OH Fingertricks | Kian's OH dots execution"
+  },
+  {
+   "text": "https://youtu.be/36ohLrCmWV8",
+   "url": "https://youtu.be/36ohLrCmWV8",
+   "where": "#/rouxsources?mainTab=4&subTab=3 (MISC > OH FINGERTRICKS) | OH Fingertricks | Patrick Ponce's OH fingertricks"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/playlist?list=PLBHocHmPzgIjAxbZuzs1cWGLqCxykhOyz",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Example Solves | Kian's Example Solves"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://youtube.com/playlist?list=PLXiPs1z2Pwm5QPrtqB5J5rJ2DH6tbBU8T&si=8LbiD3iBycB9pIGZ",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Example Solves | Guroux's Example Solves"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/playlist?list=PLqatB_kou3Nb9afWaL7ZJyP_5PhiU0Bf7",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Example Solves | CriticalCubing's Example Solves"
+  },
+  {
+   "text": "Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1WvcXC7tXIxxnzPmsMBbV43SuVs33oaUW3LSDFzVAriQ/edit",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Example Solves | Eff's Example Solves"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/watch?v=V6KIVvStcQY",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Example Solves | Anto's OH Example Solves"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/playlist?list=PL_rFXDH_hdudEspzR7g_DITZOzj47WFyO",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Example Solves | Kangaroux's Example Solves"
+  },
+  {
+   "text": "YouTube",
+   "url": "https://www.youtube.com/watch?v=PTGK37AL50E",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Example Solves | Onionhoney FB+dr Example Solves"
+  },
+  {
+   "text": "Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/1XfbJ7zC_GRNjeLxmcUX_lyGmNhLqb-coG8Jl94UGOGA/edit?fbclid=IwAR1txVyIkGt4KhylUAwdURpkxUz7XJLxEm6oCXeTegtkKp1UIS32qvu1KJE&gid=0#gid=0",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Example Solves | Example Solves Archive"
+  },
+  {
+   "text": "reco.nz",
+   "url": "https://reco.nz/?sort=id_desc&Roux=on",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Reconstructions | Roux Reconstructions"
+  },
+  {
+   "text": "Google Sheets",
+   "url": "https://docs.google.com/spreadsheets/d/16OiJavT44OOGgxPjxk8sJ4NvTnfqM8oz2miVH0rB3bs/edit",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Reconstructions | Roux Reconstruction Database"
+  },
+  {
+   "text": "Reddit",
+   "url": "https://www.reddit.com/r/rouxles/",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Reconstructions | Anto's Reconstructions"
+  },
+  {
+   "text": "Cubeast",
+   "url": "https://app.cubeast.com/public/share/oQfw8VwiRSwAU7MXcyYaj4",
+   "where": "#/rouxsources?mainTab=4&subTab=4 (MISC > EXAMPLE SOLVES) | Reconstructions | Eff's Smart Cube Ao100"
+  },
+  {
+   "text": "Zhouheng Sun's cat.",
+   "url": "https://www.youtube.com/watch?v=pwRMbsdIWHE",
+   "where": "#/rouxsources?mainTab=4&subTab=5 (MISC > ROUX ACRONYMS AND DEFINITIONS) | Roux Acronyms and Definitions | Midori (Midori-sama, Lord Midori, The Fluffiest, Cutest, Master of Roux, God-King of Rouxers, Bestest Coach, Bestower of Skill, fast™) -"
+  },
+  {
+   "text": "Kian's \"Why You're Not Sub-X With Roux\" series - YouTube",
+   "url": "https://www.youtube.com/playlist?list=PLBHocHmPzgIh_ioQur_FmQ8vdRykjQJbn",
+   "where": "#/rouxdmap | Video Roadmap:"
+  },
+  {
+   "text": "First Block",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | column header: First Block [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Second Block",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=1",
+   "where": "#/rouxdmap | Roux Techniques Table | column header: Second Block [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "CMLL",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | column header: CMLL [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "LSE",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | column header: LSE [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Square/line blockbuilding",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Square/line blockbuilding [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Inspect full FB",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Inspect full FB [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Basic SB algs",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=1",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Basic SB algs [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Algs",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Algs [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Execution",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=6",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Execution [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "EO flowchart",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: EO flowchart [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Inspect FB+DR",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Inspect FB+DR [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "SBLP",
+   "url": "'' (empty window.open)",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: SBLP [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Multi-inserts",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=1",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Multi-inserts [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Multi-angle recognition",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=3",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Multi-angle recognition [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "EOLR",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: EOLR [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "DFDB",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=3",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: DFDB [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Misoriented centers",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=1",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Misoriented centers [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Dots skipping",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=2",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Dots skipping [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Inspect FB+SS",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Inspect FB+SS [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Nonlinear blockbuilding",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=2",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Nonlinear blockbuilding [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "SS Blockbuilding",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=1",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: SS Blockbuilding [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "CMLLEO",
+   "url": "http://localhost:3000/#/rouxsources?mainTab=1&subTab=3",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: CMLLEO [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "EOLRb",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: EOLRb [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "4c Influencing",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=5",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: 4c Influencing [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "ULUR/UFUB Neutrality",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=2",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: ULUR/UFUB Neutrality [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Inspect F2B",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=0",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Inspect F2B [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "CPFB",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=2",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: CPFB [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Nonmatching centers",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=2",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Nonmatching centers [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Non-matching blocks",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=0&subTab=2",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Non-matching blocks [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "SBLP+CO (after CPFB)",
+   "url": "'' (empty window.open)",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: SBLP+CO (after CPFB) [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Pinkie Pie",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=4",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Pinkie Pie [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "NMCMLL/42",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=5",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: NMCMLL/42 [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "ACMLL/TCMLL",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=5",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: ACMLL/TCMLL [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "Nautilus L5E",
+   "url": "https://rouxcubing.com/#/rouxsources?mainTab=2&subTab=5",
+   "where": "#/rouxdmap | Roux Techniques Table | table item: Nautilus L5E [window.open (ListItemButton onClick)]"
+  },
+  {
+   "text": "RouxCubing.com",
+   "url": "#/",
+   "where": "(every view) top app bar | navbar [nav (react-router Link)]"
+  },
+  {
+   "text": "HOME",
+   "url": "#/",
+   "where": "(every view) top app bar | navbar [nav (react-router Link)]"
+  },
+  {
+   "text": "ROUXTORIALS",
+   "url": "#/rouxtorials",
+   "where": "(every view) top app bar | navbar [nav (react-router Link)]"
+  },
+  {
+   "text": "ROUXSOURCES",
+   "url": "#/rouxsources",
+   "where": "(every view) top app bar | navbar [nav (react-router Link)]"
+  },
+  {
+   "text": "ROUXDMAP TO SUB-X",
+   "url": "#/rouxdmap",
+   "where": "(every view) top app bar | navbar [nav (react-router Link)]"
+  },
+  {
+   "text": "RouxCubing.com",
+   "url": "#/",
+   "where": "(every view) phone drawer menu | drawer [nav (react-router Link)]"
+  },
+  {
+   "text": "Home",
+   "url": "#/",
+   "where": "(every view) phone drawer menu | drawer [nav (react-router Link)]"
+  },
+  {
+   "text": "Rouxtorials",
+   "url": "#/rouxtorials",
+   "where": "(every view) phone drawer menu | drawer [nav (react-router Link)]"
+  },
+  {
+   "text": "Rouxsources",
+   "url": "#/rouxsources",
+   "where": "(every view) phone drawer menu | drawer [nav (react-router Link)]"
+  },
+  {
+   "text": "Roadmap to Sub-X",
+   "url": "#/rouxdmap",
+   "where": "(every view) phone drawer menu | drawer [nav (react-router Link)]"
+  }
+ ],
+ "blocked": [
+  "api.github.com/repos/KnutP/RouxCubingWebsite (and /license, /branches): HTTP 403 \"GitHub access to this repository is not enabled for this session\". The GitHub MCP get_file_contents was also denied (only nauroth/roux-trainers and nauroth/rouxtine are allowed). Not routed around. The repo was identified and inspected through GitHub search_repositories/search_code results only.",
+  "api.github.com/repos/KnutP/RouxCubingWebsite/pages: HTTP 403 \"Access to this GitHub API path is not permitted through this proxy\"."
+ ],
+ "notes": "Method: Playwright 1.63 Chromium through the proxy at 1440x1000. Clicked every tab: Rouxtorials 2 tabs; Rouxsources 5 main tabs x 4/7/6/3/6 sub-tabs = 26 sub-tab views; Home accordion expanded. window.open and navigator.clipboard were intercepted to capture non-anchor click targets (Home social icons, all 34 Rouxdmap table buttons, the copy-link icon on each sub-tab). Also checked a 404 route and three views at phone width (384x832 CSS px): no horizontal page overflow, and sub-tabs become horizontal scrollable tab lists.\nCross-check: the site publishes its source map (static/js/main.9c840249.js.map), so the 25 original app source files were recovered into raw/src-from-map/. All 420 JSX text runs and labels appear in the saved markdown, except 8 strings that never display: the aria-labels \"Vertical tabs example\" (x5), \"simple table\" and \"open drawer\", plus a code fragment. Every app URL in the source and bundle appears in the markdown. The only URLs absent from the bundle (speedcubeshop, bit.ly, forms.gle) come from post.md, which is fetched at runtime. The bundle matches scout/rc.js byte for byte.\nrobots.txt confirmed (fetched 2026-10-28, 1248 bytes, identical to scout copy): only the commented content-signals preamble (definitions of search / ai-input / ai-train, the clause (a)/(b)/(c) wording, and the EU Directive 2019/790 Art. 4 reservation line). It has zero Content-Signal lines, zero User-agent lines, no Allow/Disallow and no Sitemap. Under its own clause (c), no permission is granted or restricted by content signal for any use.\nHosting: GitHub Pages (x-github-request-id) behind Cloudflare and Fastly/varnish. index.html is last-modified 2026-10-26 03:03 GMT, matching the repo push on 2026-10-26. The site is a Create React App + MUI v6 dark theme + react-router HashRouter app. Rouxsources sub-tabs are addressable as #/rouxsources?mainTab=N&subTab=M. The Rouxtorials tabs are not addressable.\nRouxsources tab tree: F2B [Inspection/FB, Second Block, Misc Blockbuilding, Block Trainers]; CMLL [2H CMLL Algs, OH CMLL Algs, 2-Look CMLL Algs, CMLL Recognition, Pinkie Pie, Other CMLL, CMLL Trainers]; LSE [EOLR, Misoriented Centers, Dots Skipping/UFUB, DFDB and BU Recognition, 6-Flips, Misc LSE]; Big Cubes [Big Cube Tutorials, M-slice Edge Pairing, Parity]; Misc [Websites, Youtube Channels, Social Media, OH Fingertricks, Example Solves, Roux Acronyms and Definitions].\nRoux Techniques Table (exact; rows Basic/Intermediate/Advanced/Niche x columns First Block/Second Block/CMLL/LSE) is in crawl/rouxcubing/rouxdmap.md, with each item's click target. There are 4 rows, not 3: the fourth is \"Niche\".\nLive-site defects: Rouxdmap SBLP and SBLP+CO call window.open(''); CMLLEO opens http://localhost:3000/#/rouxsources?mainTab=1&subTab=3; \"Execution\" points to CMLL Trainers. The 2-Look CMLL embedded sheet is mislabelled \"OH CMLL (embedded above)\", and the DFDB flowchart (an image) is labelled \"Google Docs\". The manifest is still the starter's \"Your Orders\". The phone drawer calls the roadmap \"Roadmap to Sub-X\"; the desktop navbar says \"Rouxdmap to Sub-X\".\nRoux-only flag for Rouxtine: the site is Roux-centric, but CMLL Trainers links a ZBLL trainer and COLL/ZBLL-capable trainers (Train Yu, kSim, bestsiteever ZBLL). Misc Blockbuilding links CEOR and YruRU, which are Roux-adjacent methods. The Rouxtorials experienced tab assumes prior CFOP/ZZ knowledge. Filter these if the app must stay strictly Roux.\nWhat this hub offers Rouxtine: a level-tagged technique ladder (the Techniques Table) that maps onto training modules; a curated, step-organised link library (F2B, CMLL, LSE, big cubes, OH, example solves); a 25-term glossary; and a weekly Roux-only competition format. The hub has almost no interactive drills of its own; it points to onionhoney, Cubegrass, enbyne, Train Yu, kSim, Edde's CEOR trainer, and others.\nOther files: crawl/rouxcubing/links.md and links.json (277 rows, 216 distinct URLs, including repeats of the per-view footer and window.open targets); _sitemap.md (route/tab tree, direct-URL checks, site metadata); robots.txt; raw/ (bundle, source map, extracted sources, crawl.json, full-page screenshots in raw/render/screens/). Scripts are in tools/rouxcubing/: crawl.js, gen_md.js, crosscheck.js, textcheck.js, extract_map.py, build_result.js."
+}

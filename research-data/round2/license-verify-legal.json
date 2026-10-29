@@ -1,0 +1,377 @@
+{
+ "verdicts": [
+  {
+   "id": "license-1",
+   "verdict": "confirmed",
+   "correction": "Small literal correction: a case-insensitive grep for 'SPDX' does hit package-lock.json, but only npm package names (spdx-*), never a licence statement. Not verified here: the sidebar label, the star and fork counts, and the gh-pages and dependabot branches (github.com was blocked, and the local clone is shallow with only master).",
+   "evidence": [
+    "diff of /home/user/roux-trainers/LICENSE against https://www.gnu.org/licenses/gpl-3.0.txt (fetched 2026-10-28): the only difference is line 674, '\\ No newline at end of file'.",
+    "The local LICENSE is byte-identical to `git show 0129460:LICENSE` and to https://raw.githubusercontent.com/onionhoney/roux-trainers/0129460a5c30082ea0e29b4489623889118078ec/LICENSE (cmp: same).",
+    "LICENSE:634-655 is the FSF's own 'How to Apply' appendix ('<one line to give the program's name and a brief idea of what it does.>', 'Copyright (C) <year>  <name of author>'). It is part of the verbatim text, so placeholders are expected there.",
+    "`git grep -i -E 'later version|SPDX|General Public'` on 0129460, excluding LICENSE, matches only npm package names in package-lock.json (spdx-correct, spdx-exceptions, spdx-expression-parse, spdx-license-ids). None of these is a licence statement. `git grep -i licen[sc]e` outside LICENSE and package-lock.json finds nothing. package.json line 4 has '\"private\": true' and no license field.",
+    "github.com/onionhoney/roux-trainers returned HTTP 403 through the session proxy (blocked), and `gh api repos/onionhoney/roux-trainers` was refused with 403. The sidebar label and the 70 stars / 13 forks were therefore not verified."
+   ]
+  },
+  {
+   "id": "license-2",
+   "verdict": "confirmed",
+   "correction": "The quotes are exact; the ellipsis only drops 'in the same repository'. The FAQ's doubt, though, is wider than 'which version'. It is whether the GPL's permissions reach the source files at all. If they did not, the fallback would be no licence at all, not a permissive one. So 'no non-GPL route' holds, but the real risk is having no permission at all. Second point: under #TranslateCode the Kotlin ports must carry 'the same versions' as upstream. If Rouxtine treats upstream as GPL-3.0 (only), the ported files should be marked GPL-3.0-only. GPL-3.0-or-later is safe only for Rouxtine's own new files, or for ported files once onionhoney states 'or later'. Asking him to add an explicit statement removes the doubt; per the FAQ it 'eliminates all doubt'.",
+   "evidence": [
+    "LICENSE:575-577: 'If the Program does not specify a version number of the GNU General Public License, you may choose any version ever published by the Free Software Foundation.'",
+    "FAQ #LicenseCopyOnly, verbatim: 'Just putting a copy of the GNU GPL in a file in your repository does not explicitly state that the code in the same repository may be used under the GNU GPL. Without such a statement, it's not entirely clear that the permissions in the license really apply to any particular source file. An explicit statement saying that eliminates all doubt.'",
+    "FAQ #TranslateCode: 'If the original program is licensed under certain versions of the GNU GPL, the translated program must be covered by the same versions of the GNU GPL.'",
+    "FAQ #NoticeInSourceFile: 'You should put a notice at the start of each source file, stating what license it carries'."
+   ]
+  },
+  {
+   "id": "license-3",
+   "verdict": "confirmed",
+   "correction": "Outside the licence-text lens, but checked against git objects.",
+   "evidence": [
+    "`git show --stat d9873e8a00547f8d8381d7e9e5fd7d1d42494bd3` (date 2020-06-26 04:10:58 -0700, author Jeffrey Sun, message 'add min2phase solver to cmll') shows 'LICENSE | 674 +++' and 'src/lib/min2phase/min2phase.js | 1313 +++'. `git show d9873e8:src/lib/min2phase/min2phase.js | wc -l` = 1313.",
+    "The local fork is a shallow clone (.git/shallow lists 1730f05 and e5b81c4). As a result 1730f05 ('address bar navigation', the same day) also shows LICENSE as added; that is an artifact of the shallow graft."
+   ]
+  },
+  {
+   "id": "license-4",
+   "verdict": "not-checked",
+   "evidence": [
+    "Outside the licence-text lens. Spot check only: `git shortlog -sne 0129460` on the shallow local clone shows only Jeffrey/Zhouheng Sun identities plus 3 commits by Eric Xu <ericxu2048@gmail.com> (43c49f3, 8745302 and 4ca9ba3, 2023-08-19). Those touch only src/components/TopBarView.tsx (+14/-5). This is consistent with the claim."
+   ]
+  },
+  {
+   "id": "license-5",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-6",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-7",
+   "verdict": "confirmed",
+   "correction": "Wording is imprecise. s.10 forbids 'any further restrictions' on GPL rights; the fee/royalty/charge is only its example ('For example ...'). 'forbids only imposing a license fee' understates s.10. The conclusion for voluntary donations is unaffected.",
+   "evidence": [
+    "LICENSE:463-466 (s.10): 'You may not impose any further restrictions on the exercise of the rights granted or affirmed under this License.  For example, you may not impose a license fee, royalty, or other charge for exercise of rights granted under this License'.",
+    "FAQ #DoesTheGPLAllowRequireFee, verbatim: 'You can charge people a fee to get a copy from you. You can't require people to pay you when they get a copy from someone else.'"
+   ]
+  },
+  {
+   "id": "license-8",
+   "verdict": "confirmed",
+   "correction": "The ellipsis in the FAQ quote drops the qualifier 'Except in one special situation' (the s.6b written offer for source, whose price is capped). That qualifier doesn't matter for Rouxtine, but the quote as given overstates the FAQ.",
+   "evidence": [
+    "LICENSE:205: 'You may charge any price or no price for each copy that you convey,'.",
+    "LICENSE:23-25 (preamble): 'the freedom to distribute copies of free software (and charge for them if you wish)'.",
+    "FAQ #DoesTheGPLAllowMoney, verbatim: 'Yes, the GPL allows everyone to do this. The right to sell copies is part of the definition of free software. Except in one special situation, there is no limit on what price you can charge. (The one exception is the required written offer to provide source code that must accompany binary-only release.)'",
+    "https://www.gnu.org/philosophy/selling.html (fetched 2026-10-28): 'Actually, we encourage people who redistribute free software to charge as much as they wish or can.'"
+   ]
+  },
+  {
+   "id": "license-9",
+   "verdict": "confirmed",
+   "correction": "Precision: s.6d is one of five alternatives (6a-6e), so 'requires' applies once 6d is the chosen method, which is the natural fit for a Play or F-Droid download. 6d lets the source live on GitHub rather than on Play, provided there are clear directions next to the binary (the listing or the About screen) and the source stays available for as long as the binary is distributed.",
+   "evidence": [
+    "FAQ #DoesTheGPLRequireAvailabilityToPublic, verbatim: 'if someone pays your fee and gets a copy, the GPL gives them the freedom to release it to the public, with or without a fee.'",
+    "FAQ #DoesTheGPLAllowDownloadFee: 'If the binaries being distributed are licensed under the GPLv3, then you must offer equivalent access to the source code in the same way through the same place at no further charge.'",
+    "LICENSE:275-278 (s.6d): 'Convey the object code by offering access from a designated place (gratis or for a charge), and offer equivalent access to the Corresponding Source in the same way through the same place at no further charge.'",
+    "LICENSE:280-284, and FAQ #SourceAndBinaryOnDifferentSites ('Yes. Section 6(d) allows this. However, you must provide clear instructions...'): the source may sit on a different server, such as GitHub, 'provided you maintain clear directions next to the object code'."
+   ]
+  },
+  {
+   "id": "license-10",
+   "verdict": "confirmed",
+   "correction": "The cited texts are accurate. But no GPL or FAQ text says outright that premium in-app purchases are 'allowed'; that is inferred from s.4 and from the absence of any prohibition. FAQ #SubscriptionFee, which the research does not mention, shows that the FSF treats a fee you must keep paying to keep running GPL software as a forbidden additional requirement (in a device setting). Any premium gate must therefore stay a purely technical feature: no EULA or ToS term, and no technical or legal barrier to removing it. The s.3 waiver (LICENSE:187-193) is more direct authority than FAQ #DRMProhibited, which is about building DRM with GPL code.",
+   "evidence": [
+    "LICENSE:134-137 (s.1): Corresponding Source 'means all the source code needed to generate, install, and (for an executable work) run the object code and to modify the work'.",
+    "LICENSE:222-226 (s.5c): 'You must license the entire work, as a whole, under this License to anyone who comes into possession of a copy.  This License will therefore apply ... to the whole of the work, and all its parts, regardless of how they are packaged.'",
+    "LICENSE:181-193 (s.3): 'No covered work shall be deemed part of an effective technological measure ...' and the conveyor 'waive[s] any legal power to forbid circumvention of technological measures to the extent such circumvention is effected by exercising rights under this License'.",
+    "FAQ #DRMProhibited: 'section 3 says that the system will not count as an effective technological \"protection\" measure'.",
+    "FAQ #GPLCommercially, verbatim: 'You are allowed to sell copies of the modified program commercially, but only under the terms of the GNU GPL.'",
+    "FAQ #SubscriptionFee: 'Can I use GPLed software on a device that will stop operating if customers do not continue paying a subscription fee? No. ... This is an additional requirement on top of the GPL, and the license prohibits it.'"
+   ]
+  },
+  {
+   "id": "license-11",
+   "verdict": "confirmed",
+   "correction": "Correct for genuinely new server code. Server code that reuses the ported GPL code (for example the cube model, to validate uploaded solves) is still a GPL-covered modification. It has no source duty while it is never conveyed, but it cannot be licensed or distributed under other terms. The in-app client code remains GPL either way.",
+   "evidence": [
+    "FAQ #GPLRequireSourcePostedPublic, verbatim: 'The GPL does not require you to release your modified version, or any part of it. ... But if you release the modified version to the public in some way, the GPL requires you to make the modified source code available to the program's users, under the GPL.'",
+    "FAQ #UnreleasedMods (the more on-point entry): 'The GPL permits anyone to make a modified version and use it without ever distributing it to others. ... the company does not have to release the modified sources. The situation is different when the modified program is licensed under the terms of the GNU Affero GPL.'",
+    "LICENSE:99-101 (s.0): 'Mere interaction with a user through a computer network, with no transfer of a copy, is not conveying.'"
+   ]
+  },
+  {
+   "id": "license-12",
+   "verdict": "confirmed",
+   "correction": "The paraphrase of s.0 drops the qualifier 'in a fashion requiring copyright permission'. That qualifier is what leaves unprotected ideas and algorithms outside 'modify' (relevant to license-50). It does not change the conclusion that a line-by-line Kotlin port is a modification.",
+   "evidence": [
+    "FAQ #TranslateCode, verbatim: 'Under copyright law, translation of a work is considered a kind of modification. ... If the original program is licensed under certain versions of the GNU GPL, the translated program must be covered by the same versions of the GNU GPL.'",
+    "LICENSE:84-86 (s.0), full sentence: 'To \"modify\" a work means to copy from or adapt all or part of the work in a fashion requiring copyright permission, other than the making of an exact copy.'"
+   ]
+  },
+  {
+   "id": "license-13",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://dl.google.com/android/maven2/com/android/billingclient/billing/9.1.0/billing-9.1.0.pom: <license><name>Android Software Development Kit License</name><url>https://developer.android.com/studio/terms.html</url>.",
+    "maven-metadata.xml: <latest>9.1.0</latest>, <release>9.1.0</release>, <lastUpdated>20260618171108</lastUpdated>.",
+    "billing-7.0.0.pom and billing-ktx-9.1.0.pom declare the same licence. So do the billing POMs for 3.0.3, 4.0.0, 5.1.0, 6.2.1, 8.0.0 and 8.3.0 (all checked 2026-10-28).",
+    "billing-9.1.0-sources.jar: HTTP 404. billing-9.1.0-javadoc.jar: HTTP 200.",
+    "billing-9.1.0.aar classes.jar holds 607 classes, 337 of them under com/google/android/gms/internal/play_billing/ (zza.class, zzaa.class, zzab.class, ...).",
+    "Contrary third-party notice: Unity purchasing 4.9's 'Third Party Notices' labels 'Google Play Billing Library v5.1.0' as 'Apache 2.0', but it links to developer.android.com/studio/terms.html and pastes MIT text. It is internally inconsistent and contradicted by Google's own POM."
+   ]
+  },
+  {
+   "id": "license-14",
+   "verdict": "confirmed",
+   "correction": "Accurate. Two additions. The POM also pulls in androidx activity and core. The datatransport artifacts are Apache-2.0 open source (they send telemetry, but they are not closed), while the play-services-* artifacts are proprietary. Option B's 'closed Google library with telemetry dependencies (datatransport)' should be read that way.",
+   "evidence": [
+    "billing-9.1.0.pom compile dependencies: androidx.activity:activity 1.2.3; androidx.core:core 1.15.0; com.google.android.datatransport transport-api 3.0.0, transport-backend-cct 3.1.8 and transport-runtime 3.1.8; com.google.android.gms play-services-base 18.5.0, play-services-basement 18.9.0, play-services-location 19.0.0 and play-services-tasks 18.2.0.",
+    "The datatransport POMs (transport-api 3.0.0, transport-backend-cct 3.1.8, transport-runtime 3.1.8) declare 'The Apache Software License, Version 2.0'. The play-services-basement 18.9.0 and play-services-location 19.0.0 POMs declare 'Android Software Development Kit License'.",
+    "AAR manifests: 9.1.0 has minSdkVersion=23 (targetSdk 35), 8.3.0 has 23, 8.0.0 has 21 and 7.1.1 has 21. All of them have uses-permission com.android.vending.BILLING and queries com.android.vending.billing.InAppBillingService.BIND and com.google.android.apps.play.billingtestcompanion.BillingOverrideService.BIND. The 9.1.0 manifest also adds meta-data com.google.android.play.billingclient.version=9.1.0.",
+    "Deprecation FAQ table: version 8 has a new-app/update deadline of August 31, 2027 (extension November 1, 2027)."
+   ]
+  },
+  {
+   "id": "license-15",
+   "verdict": "confirmed",
+   "correction": "The quotes are exact; the claim drops s.3.4's opening clause ('Except to the extent required by applicable third party licenses'). Also worth noting: the agreement grants no express right to redistribute any part of the SDK inside an app. Permission to ship the billing AAR in an APK is only implied by Google requiring it. That makes the incompatibility with GPL s.5c and s.6 (which would require relicensing the library and supplying its source) even clearer.",
+   "evidence": [
+    "https://developer.android.com/studio/terms (fetched 2026-10-28) s.3.1: 'Google grants you a limited, worldwide, royalty-free, non-assignable, non-exclusive, and non-sublicensable license to use the SDK solely to develop applications for compatible implementations of Android.'",
+    "s.3.4: 'You may not use the SDK for any purpose not expressly permitted by the License Agreement. Except to the extent required by applicable third party licenses, you may not copy (except for backup purposes), modify, adapt, redistribute, decompile, reverse engineer, disassemble, or create derivative works of the SDK or any part of the SDK.'",
+    "s.3.5: 'Use, reproduction and distribution of components of the SDK licensed under an open source software license are governed solely by the terms of that open source software license'.",
+    "The billing 9.1.0 AAR ships third_party_licenses.txt/json listing its open components (AndroidX libraries etc.), which fall under s.3.5. The obfuscated play_billing classes do not."
+   ]
+  },
+  {
+   "id": "license-16",
+   "verdict": "confirmed",
+   "correction": "Precision: the dates are the new-app/update deadlines. Each version also has an extension deadline of November 1 of the same year.",
+   "evidence": [
+    "https://developer.android.com/google/play/billing/deprecation-faq banner: 'Reminder: By Aug 31, 2026, all new apps and updates to existing apps must use Billing Library version 8 or later. If you need more time to update your app, you can request an extension until Nov 1, 2026.'",
+    "Table: 7 -> August 31, 2026 / November 1, 2026; 8 -> August 31, 2027 / November 1, 2027; 9 -> August 31, 2028 / November 1, 2028. Page footer: 'Last updated 2026-10-23 UTC.'",
+    "The same page: 'Apps must use a supported version from the table. These dependencies only appear in APKs that require the com.android.vending.BILLING permission.'"
+   ]
+  },
+  {
+   "id": "license-17",
+   "verdict": "confirmed",
+   "correction": "The claim also omits the Standard Interface branch of (b). That branch doesn't apply either, because the library's source is not public. As stated, this is an interpretation; no court ruling was found.",
+   "evidence": [
+    "LICENSE:123-132 (s.1): 'System Libraries' are things '(a) ... included in the normal form of packaging a Major Component, but which is not part of that Major Component, and (b) serves only to enable use of the work with that Major Component, or to implement a Standard Interface for which an implementation is available to the public in source code form'. A 'Major Component' is the 'kernel, window system, and so on' of the OS, 'or a compiler used to produce the work, or an object code interpreter used to run it.'",
+    "FAQ #SystemLibraryException: GPLv3 'explicitly defines \"System Libraries\" in section 1, to exclude it from the definition of \"Corresponding Source.\"'",
+    "FAQ #GPLStaticVsDynamic, verbatim: 'Linking a GPL covered work statically or dynamically with other modules is making a combined work based on the GPL covered work.'",
+    "FAQ #FSWithNFLibs, verbatim: 'Note that there may also be legal issues with combining certain nonfree libraries with GPL-covered free software.'",
+    "billing-9.1.0.aar is an Android library (classes.jar plus a manifest that is merged into the app). It is not part of the OS image.",
+    "FAQ #MereAggregation: 'If the modules are included in the same executable file, they are definitely combined in one program' while 'pipes, sockets and command-line arguments are communication mechanisms normally used between two separate programs'. So the Play Store app on the other end of the IPC is a separate program; only the bundled library creates the combined work."
+   ]
+  },
+  {
+   "id": "license-18",
+   "verdict": "confirmed",
+   "correction": "Minor: the FAQ says to remove the text in braces {...}; square brackets [...] mark the placeholders to fill in. The s.7 quote runs to LICENSE:359, one line past the cited 345-358. Worth adding: s.7 para 1 (LICENSE:349-352) means a Play-library permission placed only on Rouxtine's own files does nothing for the combined APK while onionhoney's ported files stay plain GPL. That is the textual reason his permission is needed.",
+   "evidence": [
+    "FAQ #GPLIncompatibleLibs, verbatim: 'If you want your program to link against a library not covered by the system library exception, you need to provide permission to do that.' and 'Only the copyright holders for the program can legally release their software under these terms. ... But if you want to use parts of other GPL-covered programs by other authors in your code, you cannot authorize the exception for them. You have to get the approval of the copyright holders of those programs.'",
+    "The same FAQ: 'If not everybody can distribute source for the libraries you intend to link with, you should remove the text in braces; otherwise, just remove the braces themselves.' The braces enclose '{Corresponding Source for a non-source form of such a combination shall include the source code for the parts of [name of library] used as well as that of the covered work.}'",
+    "LICENSE:357-359 (s.7): 'You may place additional permissions on material, added by you to a covered work, for which you have or can give appropriate copyright permission.'",
+    "LICENSE:354-356: 'When you convey a copy of a covered work, you may at your option remove any additional permissions from that copy, or from any part of it.'",
+    "LICENSE:349-352: 'If additional permissions apply only to part of the Program, that part may be used separately under those permissions, but the entire Program remains governed by this License without regard to the additional permissions.'"
+   ]
+  },
+  {
+   "id": "license-19",
+   "verdict": "confirmed",
+   "correction": "Confirmed only for the legal logic and the upstream authorship spot check. This lens did not check the MIT status of min2phase, smartcube-web-bluetooth and gan-web-bluetooth, or the GPL status of csTimer, open-gan and tnoodle-lib. Caveat: if upstream's vendored min2phase.js was modified by onionhoney, his changes are covered by his permission, while the unmodified parts can be taken from the MIT upstream instead.",
+   "evidence": [
+    "FAQ #GPLIncompatibleLibs: 'if you want to use parts of other GPL-covered programs by other authors in your code, you cannot authorize the exception for them. You have to get the approval of the copyright holders of those programs.' and 'When other people modify the program, they do not have to make the same exception for their code'.",
+    "Spot check of the shallow local clone: `git shortlog -sne 0129460` lists only Zhouheng/Jeffrey Sun identities and Eric Xu (3 commits, all in src/components/TopBarView.tsx, +14/-5)."
+   ]
+  },
+  {
+   "id": "license-20",
+   "verdict": "confirmed",
+   "evidence": [
+    "https://raw.githubusercontent.com/spdx/license-list-data/main/json/exceptions/GPL-3.0-linking-exception.json licenseExceptionText: 'Additional permission under GNU GPL version 3 section 7 / If you modify this Program, or any covered work, by linking or combining it with [name of library] (or a modified version of that library), containing parts covered by the terms of [name of library's license], the licensors of this Program grant you additional permission to convey the resulting work.' seeAlso: https://www.gnu.org/licenses/gpl-faq.en.html#GPLIncompatibleLibs.",
+    "GPL-3.0-linking-source-exception.json adds: 'Corresponding Source for a non-source form of such a combination shall include the source code for the parts of [name of library] used as well as that of the covered work.' Its seeAlso also lists the wget http.c example.",
+    "spdx.org/licenses/GPL-3.0-linking-exception.html and GPL-3.0-linking-source-exception.html both returned HTTP 200."
+   ]
+  },
+  {
+   "id": "license-21",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-22",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-23",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-24",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-25",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-26",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-27",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-28",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-29",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-30",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-31",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-32",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-33",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-34",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-35",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-36",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-37",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-38",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-39",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-40",
+   "verdict": "confirmed",
+   "correction": "The DDA text is as quoted (the elided words are 'modify color of, or add themes to, your Product icons'), and the DDA itself imposes nothing against GPL rights. But the 'consistent with GPL apps on Play' conclusion skips the user-facing Play ToS, which does restrict redistribution and modification. Its carve-outs ('except as specifically permitted', the Provider EULA) probably let the GPL govern, and Play has no clause like Apple's 9(c) that applies the rules 'in addition to' other terms. No FSF action against Play was found. Still, for code Rouxtine doesn't own (onionhoney's), it is cleaner if any s.7 permission also explicitly covers distribution through Google Play under its terms.",
+   "evidence": [
+    "https://play.google/developer-distribution-agreement.html: 'Effective as of September 15, 2025'. s.5.3: 'You grant to the user a nonexclusive, worldwide, and perpetual license to perform, modify color of, or add themes to, your Product icons, display (including with the color and theme modifications), and use the Product. ... If You choose, You may include a separate end user license agreement (\"EULA\") in Your Product that will govern the user's rights to the Product, but, to the extent that EULA conflicts with this Agreement, this Agreement will supersede the EULA.'",
+    "The user-facing Google Play Terms of Service (https://play.google/play-terms/, dated July 1, 2024), s.4 'Rights and Restrictions': a licence 'for your personal, non-commercial use only', and 'Restrictions: You may not: ... sell, rent, lease, redistribute, broadcast, transmit, communicate, modify, sublicense, transfer, assign any Content to any third party ... except as specifically permitted and only in the exact manner provided.' It also says: 'Your use of apps and games may be governed by the additional terms and conditions of the end user license agreement between you and the Provider.'",
+    "FSF, 'More about the App Store GPL Enforcement' (2010): store usage rules 'are exactly the kind of \"further restrictions\" that are prohibited by the GPL' and the analysis 'would apply to all versions of the GNU GPL and AGPL'."
+   ]
+  },
+  {
+   "id": "license-41",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-42",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-43",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-44",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-45",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-46",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-47",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-48",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-49",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-50",
+   "verdict": "not-checked",
+   "evidence": [
+    "17 U.S.C. s.102(b) is outside this lens. The FAQ #TranslateCode quote it relies on was verified verbatim (see license-12). The s.0 'modify' definition (LICENSE:84-86) covers only copying or adapting 'in a fashion requiring copyright permission', which is consistent with ideas being reusable."
+   ]
+  },
+  {
+   "id": "license-51",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-52",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-53",
+   "verdict": "confirmed",
+   "correction": "Accurate. Scope: onionhoney can relicense only what he wrote. That excludes Eric Xu's TopBarView lines and the vendored min2phase.js and OrbitControls.js, which are in any case available under MIT.",
+   "evidence": [
+    "FAQ #ReleaseUnderGPLAndNF, verbatim: 'If you are the copyright holder for the code, you can release it under various different non-exclusive licenses at various times.'",
+    "FAQ #DeveloperViolate: 'Strictly speaking, the GPL is a license from the developer for others to use, distribute and change the program. The developer itself is not bound by it'.",
+    "FAQ #CanDeveloperThirdParty: '[Can the developer] later license it to another party for exclusive use? No, because the public already has the right to use the program under the GPL, and this right cannot be withdrawn.'"
+   ]
+  },
+  {
+   "id": "license-54",
+   "verdict": "not-checked",
+   "evidence": [
+    "Outside this lens (Psysonic, ics-openvpn). The rationale is consistent with FAQ #GPLIncompatibleLibs: 'When other people modify the program, they do not have to make the same exception for their code—it is their choice whether to do so.'"
+   ]
+  },
+  {
+   "id": "license-55",
+   "verdict": "unclear",
+   "correction": "The s.5c quote is exact. The FSF FAQ itself acknowledges that separately licensed art/audio alongside GPL code is a recognised practice, so 'nothing settles it' overstates the uncertainty for standalone asset files. More important for Rouxtine: a Compose 'premium UI' (color schemes, shapes, typography, motion specs, layouts) is Kotlin code, squarely inside s.5c. Only standalone files (bitmaps, fonts, sounds) could plausibly be licensed separately. The OsmAnd and F-Droid facts were not checked in this lens.",
+   "evidence": [
+    "LICENSE:222-226 (s.5c): the GPL applies 'to the whole of the work, and all its parts, regardless of how they are packaged.'",
+    "LICENSE:235-243 (s.5, aggregate): separate and independent works 'which are not by their nature extensions of the covered work, and which are not combined with it such as to form a larger program' form an 'aggregate' to which the GPL does not extend.",
+    "FAQ #WhatCaseIsOutputGPL: 'Keep in mind that some programs, particularly video games, can have artwork/audio that is licensed separately from the underlying GPLed game.'"
+   ]
+  }
+ ],
+ "missing": [
+  "Google Play's user-facing Terms of Service (dated July 1, 2024), s.4, limits users to 'personal, non-commercial use only' and says they 'may not ... redistribute ... modify, sublicense ... any Content ... except as specifically permitted'. This is the same kind of store term the FSF called a prohibited 'further restriction' in its App Store case (an analysis it said 'would apply to all versions of the GNU GPL'). Play's carve-outs (the Provider EULA; 'except as specifically permitted') probably defuse it, but the research checked only the DDA. Any s.7 permission asked of onionhoney should also cover distribution through Google Play. Sources: https://play.google/play-terms/ ; https://www.fsf.org/blogs/licensing/more-about-the-app-store-gpl-enforcement",
+  "GPLv3 s.7 para 1: 'If additional permissions apply only to part of the Program, that part may be used separately under those permissions, but the entire Program remains governed by this License without regard to the additional permissions.' A Play-library permission that covers only Rouxtine's own files does not cover the combined APK; every GPL-covered part (onionhoney's ported code) needs it. Source: https://www.gnu.org/licenses/gpl-3.0.txt (LICENSE:349-352)",
+  "FAQ #SubscriptionFee: GPLed software on a device that 'will stop operating if customers do not continue paying a subscription fee' is 'an additional requirement on top of the GPL, and the license prohibits it'. This is relevant to option C or G subscriptions. The gate must be purely technical (removable, with no ToS or EULA term or legal bar), and the research's statement that premium IAP is 'allowed' is an inference, not FSF text. Source: https://www.gnu.org/licenses/gpl-faq.html#SubscriptionFee",
+  "Obligations for every conveyed Rouxtine build (Play or F-Droid) that the research did not list: s.5a 'prominent notices stating that you modified it, and giving a relevant date' on ported files. s.5d plus the s.0 'Appropriate Legal Notices': a prominent UI item (an About or licences menu entry suffices) that shows the copyright notice, the no-warranty statement, that the work may be conveyed under the GPL, and how to view the licence. s.6d / FAQ #SourceAndBinaryOnDifferentSites: source may sit on GitHub with 'clear instructions' next to the binary (the store listing or About screen), kept available as long as the binary is distributed. Corresponding Source includes the build scripts (s.1) but not signing keys (FAQ #GiveUpKeys), and need not reproduce the exact binary hash (FAQ #MustSourceBuildToMatchExactHashOfBinary). Sources: https://www.gnu.org/licenses/gpl-3.0.txt ; https://www.gnu.org/licenses/gpl-faq.html#SourceAndBinaryOnDifferentSites ; https://www.gnu.org/licenses/gpl-faq.html#GiveUpKeys ; https://www.gnu.org/licenses/gpl-faq.html#MustSourceBuildToMatchExactHashOfBinary",
+  "Ported Kotlin files and the version label: FAQ #TranslateCode requires 'the same versions of the GNU GPL' as the original. Labelling ports GPL-3.0-or-later while treating upstream as GPL-3.0 (only) would overstate the licence. Either mark ported files GPL-3.0-only, or get onionhoney's explicit 'or later' statement (FAQ #LicenseCopyOnly: 'An explicit statement saying that eliminates all doubt'). That can be the same request as the Play permission. Sources: https://www.gnu.org/licenses/gpl-faq.html#TranslateCode ; https://www.gnu.org/licenses/gpl-faq.html#LicenseCopyOnly",
+  "Billing 9.1.0's dependency licences, from Google Maven POMs: the datatransport artifacts (transport-api 3.0.0, transport-backend-cct 3.1.8, transport-runtime 3.1.8) are Apache-2.0. play-services-basement 18.9.0 and play-services-location 19.0.0 (the billing POM pulls in location) are under the proprietary Android SDK License. The proprietary surface is billing plus the play-services-* artifacts, not datatransport. Sources: https://dl.google.com/android/maven2/com/google/android/datatransport/transport-runtime/3.1.8/transport-runtime-3.1.8.pom ; https://dl.google.com/android/maven2/com/google/android/gms/play-services-location/19.0.0/play-services-location-19.0.0.pom",
+  "Do not rely on third-party notices that call the Play Billing Library 'Apache 2.0'. Unity purchasing 4.9's notice does so for v5.1.0 while linking the SDK terms and pasting MIT text. Google's own POMs for billing 3.0.3, 4.0.0, 5.1.0, 6.2.1, 7.0.0, 8.0.0, 8.3.0 and 9.1.0 all declare the 'Android Software Development Kit License'. Sources: https://docs.unity3d.com/Packages/com.unity.purchasing@4.9/license/Third%20Party%20Notices.html ; https://dl.google.com/android/maven2/com/android/billingclient/billing/5.1.0/billing-5.1.0.pom",
+  "The Android SDK License (s.3.4) forbids redistributing 'any part of the SDK' and contains no express grant to ship SDK parts inside apps. The only licence Google declares for the billing AAR therefore does not, on its face, authorise bundling it in an APK; permission is implied by Google's own requirement to use it. Source: https://developer.android.com/studio/terms",
+  "FAQ #WhatCaseIsOutputGPL acknowledges that 'some programs, particularly video games, can have artwork/audio that is licensed separately from the underlying GPLed game'. This is FSF-recognised support for separately licensed standalone assets (license-55 / option C), but it does not reach Compose theme code, which is Kotlin. Source: https://www.gnu.org/licenses/gpl-faq.html#WhatCaseIsOutputGPL",
+  "GPLv3 s.4 also expressly allows that 'you may offer support or warranty protection for a fee' (LICENSE:205-206). That is a GPL-sanctioned revenue line (paid coaching, support or priority help) that the options list omits; whether Play Billing applies to it is a Play-policy question. Source: https://www.gnu.org/licenses/gpl-3.0.txt"
+ ]
+}

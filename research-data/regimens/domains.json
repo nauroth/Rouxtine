@@ -1,0 +1,738 @@
+{
+ "claims": [
+  {
+   "id": "domains-1",
+   "topic": "aim/kovaaks",
+   "claim": "KovaaK's unit of practice is a scenario. A playlist is an ordered list of scenarios, each with its own repetition count. The public web API returns playlistName, subscribers, description, playlistCode and scenarioList entries of {scenarioName, aimType, playCount}. In the three most-subscribed playlists (2026-10-28), playCount was 1 for 27 entries, 2 for 6 and 3 for 3, so the stopping rule is a fixed number of runs per block.",
+   "sources": [
+    "https://kovaaks.com/webapp-backend/playlist/playlists?page=0&max=3",
+    "https://kovaaks.com/kovaaks/playlists"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-2",
+   "topic": "aim/kovaaks",
+   "claim": "KovaaK's playlists are shared by a word-based share code, for example 'KovaaKsTrollingDesertsandGasmask' (MICRO GOLD MINE, 97,670 subscribers) and 'KovaaKsBouncingSilverBinding' (Voltaic Novice Benchmarks S5, 46,707 subscribers). The API listed 388,182 playlists. A 2023 Steam thread shows the code differs from the display name and confused a user looking for a playlist after subscribing ('search the playlist name not the playlist code').",
+   "sources": [
+    "https://kovaaks.com/webapp-backend/playlist/playlists?page=0&max=1&search=Voltaic%20Novice%20Benchmarks%20S5",
+    "https://steamcommunity.com/app/824270/discussions/0/3774617156468221911"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-3",
+   "topic": "aim/kovaaks",
+   "claim": "In May 2020 a KovaaK's user asked for playlist sharing because 'most of players are using someone elses routine'. The developer said playlists could then only be shared by copying files from SaveGames/Playlists, and that 'We definitely plan to enable easier sharing of lists'. Borrowing other people's routines was the dominant usage before share codes existed.",
+   "sources": [
+    "https://steamcommunity.com/app/824270/discussions/0/2248931052754715779"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-4",
+   "topic": "aim/kovaaks",
+   "claim": "The kovaaks.com playlist browser shows each playlist's aim-type mix (Voltaic Novice S5: Clicking 34%, Tracking 33%, Switching 33%, 18 scenarios), author, publish date, subscriber count and per-scenario play counts. The site also has a 'Benchmark Tracker' section. Composition by skill category is surfaced before a user subscribes.",
+   "sources": [
+    "https://kovaaks.com/kovaaks/playlists"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-5",
+   "topic": "aim/benchmarks",
+   "claim": "Voltaic's Season 5 KovaaK's benchmarks (announced Dec 2024) test Novice, Intermediate and Advanced levels. Scenarios are grouped into Clicking, Tracking and Target Switching, each split into subcategories, with a new 'hybrid' subcategory per skill. Ranks reset each season, and the benchmarks ship as ordinary KovaaK's playlists. Assessment is distributed with the same playlist mechanism as training.",
+   "sources": [
+    "https://app.voltaic.gg/blog/announcing-the-voltaic-season-5-aiming-benchmarks-beta-for-kovaaks/",
+    "https://kovaaks.com/webapp-backend/playlist/playlists?page=0&max=1&search=Voltaic%20Novice%20Benchmarks%20S5"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-6",
+   "topic": "aim/aimlabs",
+   "claim": "Aimlabs playlists are built under Create > Manage Your Playlists from a task library. Users order tasks 'to match how you want to warm up, peak, and cool down during a session' and set repetitions per task ('more repetitions on tasks that you are working to drill'). Aimlabs recommends shorter, focused playlists, and other players can only find a playlist by search after it is uploaded to Steam Workshop (article dated 2025-12-26).",
+   "sources": [
+    "https://aimlabs.com/articles/aimlabs/how-to-create-and-edit-playlists-on-aimlabs/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-7",
+   "topic": "aim/aimlabs",
+   "claim": "Sharing an Aimlabs playlist copies a deeplink that 'contains all the necessary information, including the tasks, specific settings, and the order of the playlist'. Opening it asks the recipient to allow AimlabsLinkHandler, then launches the game and offers to download the playlist. Only 17 of 69 readers marked the help article helpful.",
+   "sources": [
+    "https://support.aimlabs.com/hc/en-us/articles/12140984985623-How-do-I-share-my-custom-playlist"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-8",
+   "topic": "aim/aimlabs",
+   "claim": "Aimlabs Benchmarks have three tiers (Entry, Intermediate, Elite) of 24 tasks each, across tapping, tracking and switching with four subcategories each. The best score per subcategory feeds a skill-point total that sets the rank. Aimlabs says the rank is 'a floor set by your least developed one'. It advises training the lowest subcategories with targeted playlists, then to 'come back to the Benchmarks periodically'. The season had 270,106 ranked PC players (2026-04-08).",
+   "sources": [
+    "https://aimlabs.com/articles/aimlabs/the-aimlabs-official-benchmarks-first-season-is-now-live/",
+    "https://aimlabs.com/articles/aimlabs/what-does-your-aimlabs-benchmarks-rank-actually-mean/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-9",
+   "topic": "aim/aimlabs",
+   "claim": "Aimlabs's adaptive and analytic features are paid. The console store lists 'AIMLABS+ MEMBERS ONLY FEATURES': Adaptive Tasks ('Play every task at your optimal difficulty level'), Task Tuning, Advanced Aim Analysis ('Reveal your aim strengths + weaknesses'), Playlist of the Day, Player Streaks, and Progression ('Pick a game specific training program, assess your skill, reach goals, and complete missions to increase your Tier').",
+   "sources": [
+    "https://store.playstation.com/en-is/concept/10003284"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "domains-10",
+   "topic": "aim/anti-patterns",
+   "claim": "The top-rated negative Steam reviews of Aimlabs (2023 to 2026) attack upsell and bloat around analysis. One reads: 'Every screen has 9 ads for premium service... You want to analyse your results? ADAPTIVE TASK: a screen of 3 SUBSCRIBE NOW buttons' (270 helpful). Others say 'previously free features ar now locked behind a Paywall' (140 helpful) and call it 'corporate bloated slop... getting lost navigating through this hell of a UI' (120 helpful).",
+   "sources": [
+    "https://steamcommunity.com/app/714010/negativereviews/?browsefilter=toprated&filterLanguage=english"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-11",
+   "topic": "aim/anti-patterns",
+   "claim": "The top-rated negative Steam reviews of KovaaK's object to a premium subscription inside a paid trainer: 'how are you gonna make people pay for your trainer and then have a subscription inside it too' (464 helpful), and 'I don't think its nice to put features behind a paywall in a paid product' (207 helpful).",
+   "sources": [
+    "https://steamcommunity.com/app/824270/negativereviews/?browsefilter=toprated&filterLanguage=english"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-12",
+   "topic": "typing/keybr",
+   "claim": "keybr's unit of practice is a short lesson of generated pseudo-words built from an allowed letter set. Practice starts with the most common letters (E N I T R L, minimum alphabet 6). The slowest included key becomes the 'target letter' and 'is included in every generated word'. A new letter is added only when all included letters are green. keybr warns that older letters will likely turn red again after an addition, and says this 'is expected'.",
+   "sources": [
+    "https://www.keybr.com/help",
+    "https://github.com/aradzie/keybr.com/blob/master/packages/keybr-lesson/lib/guided.ts"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-13",
+   "topic": "typing/keybr",
+   "claim": "In keybr, per-key confidence = (time-to-type at target speed) / (smoothed time-to-type), and a key is green at confidence >= 1. Time-to-type is smoothed with an exponential filter (alpha 0.1). The default target speed is 175 cpm (35 wpm), adjustable from 75 to 750. Option recoverKeys (default false) switches unlocking from best-ever confidence to current confidence. alphabetSize can force extra letters. The daily goal defaults to 30 minutes (0 to 120) of today's typing time.",
+   "sources": [
+    "https://github.com/aradzie/keybr.com/blob/master/packages/keybr-lesson/lib/target.ts",
+    "https://github.com/aradzie/keybr.com/blob/master/packages/keybr-lesson/lib/settings.ts",
+    "https://github.com/aradzie/keybr.com/blob/master/packages/keybr-lesson/lib/dailygoal.ts",
+    "https://github.com/aradzie/keybr.com/blob/master/packages/keybr-result/lib/keystats.ts"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-14",
+   "topic": "typing/keybr",
+   "claim": "Besides the adaptive guided mode, keybr offers word-list, book, custom-text, number and code lessons, with settings for capitals, punctuation and word repeats. The adaptive mode is one module among several user-selected ones.",
+   "sources": [
+    "https://github.com/aradzie/keybr.com/blob/master/packages/keybr-lesson/lib/settings.ts"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-15",
+   "topic": "typing/anti-patterns",
+   "claim": "keybr users get stuck behind the unlock gate. A 2020 Google Group thread is titled 'Been stuck on the same key and its frustrating to a point that I wanna quit learning on keybr': confidence on R and T kept dropping, and manually adding letters 'reverts back to T and R' after three or four rounds. Replies cite the 35 wpm per-key threshold and advise accuracy-first, shorter samples, and caution with forcing more letters.",
+   "sources": [
+    "https://groups.google.com/g/keybr/c/b4D1xFvS-48"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-16",
+   "topic": "typing/monkeytype",
+   "claim": "Monkeytype is test-centric: time, words or quote modes, using the 200 most common English words by default. Results report wpm, raw wpm, accuracy, character counts and 'consistency' (the coefficient of variation of raw wpm mapped to 0 to 100), plus a wpm-over-time graph.",
+   "sources": [
+    "https://monkeytype.com/about"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-17",
+   "topic": "typing/monkeytype",
+   "claim": "After a test, Monkeytype's 'Practice words...' command offers missed, slow, both or custom. It builds a follow-up test from the most-missed words (up to 20, or 10 when combined) and/or the slowest words (at most 20% of typed words; 'Test too short to classify slow words' otherwise). Weakness feedback is a one-tap, user-initiated drill, not an automatic change.",
+   "sources": [
+    "https://github.com/monkeytypegame/monkeytype/blob/master/frontend/src/ts/commandline/lists/result-screen.ts",
+    "https://github.com/monkeytypegame/monkeytype/blob/master/frontend/src/ts/test/practise-words.ts"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-18",
+   "topic": "typing/monkeytype",
+   "claim": "Monkeytype's opt-in 'weakspot' funbox keeps a per-character running average of inter-key time over about the last 50 occurrences, adds a 5000 ms penalty per error, and serves the highest-scoring of 20 random candidate words. Automatic weak-item weighting is a toggleable mode, not the default.",
+   "sources": [
+    "https://github.com/monkeytypegame/monkeytype/blob/master/frontend/src/ts/test/weak-spot.ts"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-19",
+   "topic": "typing/monkeytype",
+   "claim": "Monkeytype's 'Share test settings' builds a URL from fields the user ticks (mode, mode2, custom text, punctuation, numbers, language, difficulty, funbox), and warns 'The URL is over 2000 characters long - it might not work'. User profiles store a daily streak and maxStreak with a configurable streak hour offset (-11 to +12 h in 0.5 h steps).",
+   "sources": [
+    "https://github.com/monkeytypegame/monkeytype/blob/master/frontend/src/ts/components/modals/ShareTestSettings.tsx",
+    "https://github.com/monkeytypegame/monkeytype/blob/master/packages/schemas/src/users.ts"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-20",
+   "topic": "music/modacity",
+   "claim": "Modacity calls itself a 'Deliberate Practice System' to 'plan, record, reflect'. It offers practice playlists ('Create practice playlists or make it up as you go'), per-item time tracking, star ratings for 'what I actually need to practice', recordings to compare over time, notes shown on the practice screen, and reminders. Premium ($12.99/month or $129/year) unlocks Practice Statistics, unlimited Deliberate Practice Mode, Practice Folders, Full History Log and Practice Break Reminders. App Store: 4.28 from 286 ratings, v3.0.6 of 2026-09-24.",
+   "sources": [
+    "https://itunes.apple.com/lookup?id=1351617981",
+    "https://www.modacity.co/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-21",
+   "topic": "music/modacity",
+   "claim": "Modacity's Deliberate Practice mode is a guided loop: pick a problem category, choose an improvement strategy, optionally record, then answer 'did you improve?'. If yes, continue or move on; if no, return to choose another strategy. The app description adds 'Write what needs work mid-session, rate how it went, and come back to it next time'.",
+   "sources": [
+    "https://doublebasshq.com/2018/09/modacity-and-forscore.html",
+    "https://itunes.apple.com/lookup?id=1351617981"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "domains-22",
+   "topic": "music/melodics",
+   "claim": "Melodics Practice Mode has a BPM slider, loops on the timeline and Wait Mode ('the performance will pause until you hit the correct note'). Auto BPM will 'automatically ramp up the speed by 10 BPM if you're nailing it, until it reaches the tracks natural tempo' (article 2025-12-08).",
+   "sources": [
+    "https://support.melodics.com/en/articles/6777027-practice-mode"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-23",
+   "topic": "music/melodics",
+   "claim": "Melodics separates four progress systems. XP/Stardom is 'a dedication rating', not a skill rating. 15 Stages per instrument are gated skill checkpoints: three readiness dials fill from Stage Warm-ups and same-Grade lessons, and a Rehearse space offers loops. Lesson scores are uncapped (timing precision plus note streaks; Platinum is 'a checkpoint'). Weekly Goals are curated lessons matched to the current Stage that refresh Monday at local midnight and earn bonus XP (articles 2026-05-14).",
+   "sources": [
+    "https://support.melodics.com/en/articles/15091765-understanding-your-progress-in-melodics",
+    "https://support.melodics.com/en/articles/15091931-stages",
+    "https://support.melodics.com/en/articles/15092017-lesson-scoring",
+    "https://support.melodics.com/en/articles/15091960-weekly-goals"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-24",
+   "topic": "music/melodics",
+   "claim": "Melodics now uses Weekly Streaks: reach the daily goal on at least three days a week to 'lock in' the week, with XP growing with streak length. Streak Freezes are earned through XP and applied automatically if the week is about to break. The FAQ entry 'What happened to my daily streak?' shows a move away from daily streaks (article 2026-09-17).",
+   "sources": [
+    "https://support.melodics.com/en/articles/16979766-weekly-streaks"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-25",
+   "topic": "music/yousician",
+   "claim": "Yousician's Home offers a Daily Session and Continue Learning, which opens the linear learning Path. The Workouts tab is for collecting missing silver and gold stars. The Activity tab lets users set a per-session goal in stars or minutes. The Streaks tab counts weeks played in a row, not days.",
+   "sources": [
+    "https://support.yousician.com/hc/en-us/articles/201558312-How-to-navigate-in-Yousician"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-26",
+   "topic": "music/yousician",
+   "claim": "Yousician's Practice mode slows songs down, loops difficult sections, and offers Wait To Play and Auto-adjust speed, which raises or lowers tempo based on performance (reported as 25% to 125% in 5% steps). Yousician's advice is 'move on, then cycle back': get 'reasonably confident (e.g. collecting most silver stars)', move on for variety, and revisit later for missing stars rather than demanding gold before advancing.",
+   "sources": [
+    "https://support.yousician.com/hc/en-us/articles/206912609-The-best-way-to-practice-guitar",
+    "https://support.yousician.com/hc/en-us/articles/204796991-Practice-and-Play-modes-in-piano"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "domains-27",
+   "topic": "music/anti-patterns",
+   "claim": "Recent Yousician App Store reviews (2026) complain about a forced linear path. One says 'even if you put advanced it still makes you do like 30 minutes of beginner levels... it locks that section till you do the beginner levels'; another 'won't let you skip when it's not in your skill level'. Others cite 'only 10 playing minutes per day' on the free tier, that practice time 'won't record... unless you're actually following along', and 'less time' credited for replaying completed songs.",
+   "sources": [
+    "https://itunes.apple.com/us/rss/customerreviews/page=1/id=959883039/sortby=mostrecent/json"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-28",
+   "topic": "fitness/strong",
+   "claim": "Strong's unit is the exercise set. A Workout Template ('known previously as Routine') is created from scratch or saved from a completed workout. The free version allows 'up to 3 Workout Templates'. Templates can be organised in folders (iPhone only), archived, or hidden as sample templates.",
+   "sources": [
+    "https://help.strongapp.io/article/105-about-templates",
+    "https://help.strongapp.io/article/107-organize-templates"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-29",
+   "topic": "fitness/strong",
+   "claim": "After a workout started from a changed template, Strong prompts with four choices: Update Template (shown in red if destructive), Update Values Only, Update Template and Values, or Keep Original Template. The prompt can be hidden. Strong says it will adjust the process 'to reduce confusion'. A 2026-06-19 App Store review calls these the '3 illogical \"finish workout\" options' and says skipped sets cannot carry over without losing other changes.",
+   "sources": [
+    "https://help.strongapp.io/article/177-update-template",
+    "https://itunes.apple.com/us/rss/customerreviews/page=1/id=464254577/sortby=mostrecent/json"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-30",
+   "topic": "fitness/strong",
+   "claim": "Strong shares a workout or template through the standard OS share sheet. The recipient taps the link and must have Strong installed to import it.",
+   "sources": [
+    "https://help.strongapp.io/article/109-share-workout-or-template"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-31",
+   "topic": "fitness/anti-patterns",
+   "claim": "Strong's 3-template free cap draws complaints: 'not allowing users to create more than 3 diy workout templates unless they pay a subscription should be borderline illegal' (2026-08-07), and 'Only 3 free templates and a $99 lifetime license. Get a $1 notebook' (2026-05-16).",
+   "sources": [
+    "https://itunes.apple.com/us/rss/customerreviews/page=1/id=464254577/sortby=mostrecent/json"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-32",
+   "topic": "fitness/hevy",
+   "claim": "Hevy Free allows 4 routines, 3 months of data history and 7 custom exercises; Pro is unlimited and adds the Warm-up Calculator and Trainer. Routines are shared as a link that opens on hevy.com, where recipients 'can see the routine and save it to their profile'. Folders can also be shared as a link or saved as an image summarising each routine. An Explore library holds prebuilt programs and routines that save as folders.",
+   "sources": [
+    "https://help.hevyapp.com/hc/en-us/articles/35119778922263",
+    "https://www.hevyapp.com/features/share-folders-routines/",
+    "https://help.hevyapp.com/hc/en-us/articles/36011518408983-How-to-Access-and-Use-Hevy-s-Routine-and-Program-Library"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-33",
+   "topic": "fitness/hevy",
+   "claim": "Hevy asks 'Update Routine' or 'Keep Original Routine' only when the user reordered, added or removed exercises or sets during the workout. Changes to reps or weight never trigger the prompt and are carried forward automatically from routine settings and previous values. Structural edits need consent; parameter drift is automatic.",
+   "sources": [
+    "https://help.hevyapp.com/hc/en-us/articles/38387296276375-Update-Routine-vs-Keep-Original-Routine"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-34",
+   "topic": "fitness/hevy",
+   "claim": "Hevy Trainer (Pro only) generates a program from an onboarding questionnaire covering goal, experience, equipment, frequency, cardio, session length and focus muscle group. Its progressive-overload feature says 'when to increase your weight and by how much', and a Progress Report tracks the plan. Hevy states the programs 'are generated using an algorithm and do not rely on AI'.",
+   "sources": [
+    "https://help.hevyapp.com/hc/en-us/articles/38385724273047-Hevy-Trainer-Explained-How-It-Builds-Your-Workout-Program"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-35",
+   "topic": "fitness/fitbod",
+   "claim": "Fitbod auto-generates every workout from My Plan (goal, experience, equipment, split, duration, variability) plus logged history. Each muscle group has a 0 to 100% recovery value ('up to 7 days' to recover), shown as a heat map, and fresher muscles are prioritised. Users steer with 'Recommend More, Less, or Exclude', and skips, replacements and manual additions are learned passively. 'Max Effort Days' periodically reassess strength. Weights are eased after a break, and new users start conservative.",
+   "sources": [
+    "https://help.fitbod.me/hc/en-us/articles/360004429814-How-Fitbod-Creates-Your-Workout"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-36",
+   "topic": "fitness/fitbod",
+   "claim": "Fitbod regenerates the recommended workout whenever inputs change, including background imports from Apple Health, Health Connect, Fitbit or Strava, so 'a workout can change without you doing anything'. Edits made before starting 'aren't saved separately' and are replaced on refresh. Only tapping Start Workout locks the workout.",
+   "sources": [
+    "https://help.fitbod.me/hc/en-us/articles/42333470514455-Why-did-my-workout-change-Understanding-workout-refreshes"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-37",
+   "topic": "fitness/anti-patterns",
+   "claim": "Recent Fitbod App Store reviews (Sep to Oct 2026) complain that auto-generated plans feel unpredictable: 'So random. No logic.'; 'changes workouts every week'; 'bizarre changes and choices in training on the day-to-day... classic lifts are neglected and the weights jump up too high too fast'. One complains of the opposite, 'Same exercises month after month'.",
+   "sources": [
+    "https://itunes.apple.com/us/rss/customerreviews/page=1/id=1041517543/sortby=mostrecent/json"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-38",
+   "topic": "chess/chessable",
+   "claim": "Chessable MoveTrainer schedules each move of a variation on its own timer across 8 levels: 4 h, 1 d, 3 d, 1 w, 2 w, 1 mo, 3 mo, 6 mo. Correct answers lengthen the interval, mistakes reset it, and a position missed in a late review drops to Level 1.",
+   "sources": [
+    "https://support.chess.com/en/articles/10319267-when-will-the-variations-be-ready-for-my-review",
+    "https://support.chess.com/en/articles/10319322-how-does-the-spaced-repetition-scheduling-work"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-39",
+   "topic": "chess/chessable",
+   "claim": "Chessable markets 'review of difficult moves' as a Pro (paid) feature.",
+   "sources": [
+    "https://www.apkmirror.com/?p=5124095"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "domains-40",
+   "topic": "chess/anti-patterns",
+   "claim": "Chessable review queues snowball. A 2020 chess.com forum post says 'you can't work too fast if you want to repeat. otherwise you will wake up to 300 reviews' and reports '240 moves/positions to review one morning'. Coach Nate Solon (2023) advises 'Complete all reviews before learning new material' and a ten-minute daily timebox, letting leftover reviews wait, and says needing more time means 'you're probably trying to learn way too many lines too quickly'.",
+   "sources": [
+    "https://www.chess.com/forum/view/general/chessable-7",
+    "https://www.zwischenzug.gg/p/how-to-use-chessable"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-41",
+   "topic": "chess/anti-patterns",
+   "claim": "Chessable App Store reviews (2024 to 2026) report downloaded courses that would not open offline ('the app would not load without internet, despite claiming to support offline play'), and content moving behind the Pro paywall ('all the content I used to have was removed and I have to pay').",
+   "sources": [
+    "https://itunes.apple.com/us/rss/customerreviews/page=1/id=1523279049/sortby=mostrecent/json"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-42",
+   "topic": "chess/aimchess",
+   "claim": "Aimchess analyses a player's recent games across six aspects (Openings, Tactics, Endgames, Advantage Capitalization, Resourcefulness, Time Management) and compares the player 'to others with the same rating'. It phrases insights as concrete statistics (e.g. 'you're behind on the clock for 78% of your moves'), then builds personalised puzzles from the user's mistakes plus a weekly Personalized Study Plan. Free: one 40-game report per month, one daily training session, one daily warm-up. Premium: $7.99/month.",
+   "sources": [
+    "https://aimchess.com/",
+    "https://apps.apple.com/us/app/aimchess-learn-chess-online/id1524941307"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-43",
+   "topic": "chess/aimchess",
+   "claim": "Aimchess claims its personalised puzzles raise rating '31% faster than standard tactics puzzles', based on a 12-week randomized field experiment by University of British Columbia researchers. This is a vendor claim; the study itself was not checked.",
+   "sources": [
+    "https://aimchess.com/"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "domains-44",
+   "topic": "chess/anti-patterns",
+   "claim": "Aimchess App Store reviews criticise missing direction and noisy metrics: 'a list of lists with no particular order of difficulty, frequency, priority, expected duration... Needs direction for user to know what to start with' (2023-09-03), and 'A lot of the daily training plan takes a lot of time and doesn't help me learn. All of my statistics fluctuate and don't seem to mean much' (2024-04-19). App Store rating: 3.9 from 196 ratings.",
+   "sources": [
+    "https://itunes.apple.com/us/rss/customerreviews/page=1/id=1524941307/sortby=mostrecent/json",
+    "https://apps.apple.com/us/app/aimchess-learn-chess-online/id1524941307"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-45",
+   "topic": "chess/lichess",
+   "claim": "Lichess puzzles carry theme tags (77 theme definitions) grouped into categories: recommended, phases, motifs, advanced, mates, special moves, goals, lengths and origin. Each theme is URL-addressable (/training/:theme, optionally /white, /black or /random), alongside openings, 'From my games' and a coordinate trainer. Difficulty is set per theme as Easiest, Easier, Normal, Harder or Hardest, a rating delta of -600, -300, 0, +300 or +600.",
+   "sources": [
+    "https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzleTheme.scala",
+    "https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzleDifficulty.scala",
+    "https://github.com/lichess-org/lila/blob/master/conf/routes"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-46",
+   "topic": "chess/lichess",
+   "claim": "Lichess picks the next puzzle near the user's Glicko puzzle rating plus the difficulty delta, excluding puzzles already played. When a theme lacks unseen candidates, it widens the rating window step by step ((100 + |1500 - r|/4) x compromise, up to 4 steps) and falls back across quality tiers. This keeps narrow themes playable without leaving the learner's difficulty band.",
+   "sources": [
+    "https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzlePath.scala"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-47",
+   "topic": "chess/lichess",
+   "claim": "The Lichess Puzzle Dashboard covers a selectable window (1, 2, 3, 7, 10, 14, 21, 30, 60 or 90 days). Per-theme performance = average puzzle rating - 500 + 1000 x first-try win rate, and only themes with more than 1/40 of the window's puzzles count. 'Improvement areas' ('Train these to optimise your progress!') are up to 8 themes with at least 3 failures and performance below the global figure. 'Strengths' need at least 3 first-try wins and above-global performance. Each theme shows 'N to replay', and /training/replay/:days/:theme serves the unsolved puzzles.",
+   "sources": [
+    "https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzleDashboard.scala",
+    "https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzleReplay.scala",
+    "https://github.com/lichess-org/lila/blob/master/translation/source/puzzle.xml"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-48",
+   "topic": "chess/lichess",
+   "claim": "Lichess Puzzle Streak serves 'progressively harder puzzles' with no clock; 'One wrong move, and it's game over!', but users can skip one move per run. This is a short, self-contained challenge format alongside themed practice.",
+   "sources": [
+    "https://github.com/lichess-org/lila/blob/master/translation/source/puzzle.xml"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-49",
+   "topic": "flashcards/anki",
+   "claim": "Anki's unit is the card, grouped into decks. Options live in presets shared across decks. Defaults in current source: 20 new cards/day, 200 reviews/day, learning steps 1m 10m, relearning step 10m, leech threshold 8, desired retention 0.9, maximum interval 36,500 days. The code default leech_action is TagOnly, while the manual says leeches are tagged and suspended, a doc/code discrepancy.",
+   "sources": [
+    "https://github.com/ankitects/anki/blob/main/rslib/src/deckconfig/mod.rs",
+    "https://docs.ankiweb.net/deck-options.html",
+    "https://docs.ankiweb.net/leeches.html"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-50",
+   "topic": "flashcards/anki",
+   "claim": "Anki filtered decks build an ad-hoc session from a search (e.g. 'is:due prop:due>-7'), a limit and an order (Most lapses, Random, Relative overdueness, which becomes retrievability with FSRS, and others). A second filter can be combined in. Rescheduling is optional; turning it off gives a preview mode. Cards return to their home deck afterwards. Custom Study offers one-tap presets: raise today's limits, review forgotten cards, review ahead, preview new cards, or study by state or tag.",
+   "sources": [
+    "https://docs.ankiweb.net/filtered-decks.html"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-51",
+   "topic": "flashcards/anki",
+   "claim": "Anki flags a leech after 8 lapses and warns again every 4 further lapses. The manual's remedies are to rewrite the card, delete it, or, when similar items interfere, suspend one until the other is learned.",
+   "sources": [
+    "https://docs.ankiweb.net/leeches.html"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-52",
+   "topic": "flashcards/fsrs",
+   "claim": "FSRS models each item's Difficulty, Stability (days for recall probability to fall from 100% to 90%) and Retrievability. The user sets a desired retention ('between 70% and 97%' is reasonable) instead of tuning intervals. An optimizer fits 21 parameters (FSRS-6) to the user's own review history, with defaults trained on 'several hundred million reviews from ~10k users'. The FSRS wiki reports '20-30% fewer reviews than with SM-2' for the same retention, from simulation. Anki suggests re-optimising about monthly and has 'Easy Days' to lighten chosen weekdays.",
+   "sources": [
+    "https://github.com/open-spaced-repetition/awesome-fsrs/wiki/ABC-of-FSRS",
+    "https://docs.ankiweb.net/deck-options.html"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "domains-53",
+   "topic": "flashcards/anki",
+   "claim": "Anki shares decks as .apkg files. With 'Include scheduling information' off, Anki assumes the deck is being shared and strips review history and scheduling, including marked and leech tags, so recipients get clean content. On import, the newer version of an existing note wins.",
+   "sources": [
+    "https://docs.ankiweb.net/exporting.html"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-54",
+   "topic": "flashcards/anti-patterns",
+   "claim": "Anki review backlogs are a recurring forum problem: 806 due reviews after missing 4 days (2024), about 1,700 after two years away (2022). Volunteers answer that there is no way to 'act as if nothing happened', suggest temporarily sorting by ascending intervals, and call the backlog 'a frequent question that deserves to be in the FAQ'.",
+   "sources": [
+    "https://forums.ankiweb.net/t/restoring-number-of-reviews-to-previous-back-up/45566",
+    "https://forums.ankiweb.net/t/havent-practiced-in-ages-1700-reviews-waiting/25107",
+    "https://forums.ankiweb.net/t/how-to-shift-anki-due-cards-back-to-resume-reviews-as-if-no-days-were-missed/63114"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "domains-55",
+   "topic": "cross-domain",
+   "claim": "Streak design is moving to weekly cadence and forgiveness. Melodics (3 days/week plus auto-applied freezes) and Yousician (weeks in a row) count weekly streaks. Monkeytype keeps a daily streak but lets users shift the day boundary, and keybr uses a minutes-per-day goal. Aimlabs sells streaks as a paid feature on console.",
+   "sources": [
+    "https://support.melodics.com/en/articles/16979766-weekly-streaks",
+    "https://support.yousician.com/hc/en-us/articles/201558312-How-to-navigate-in-Yousician",
+    "https://github.com/monkeytypegame/monkeytype/blob/master/packages/schemas/src/users.ts",
+    "https://github.com/aradzie/keybr.com/blob/master/packages/keybr-lesson/lib/dailygoal.ts",
+    "https://store.playstation.com/en-is/concept/10003284"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "domains-56",
+   "topic": "cross-domain",
+   "claim": "Every domain separates 'assessment' from 'practice': Aimlabs and Voltaic Benchmarks, Melodics Stages, Fitbod Max Effort Days, Aimchess 40-game reports, and the Lichess dashboard. All of them re-measure periodically and steer practice toward the weakest category. Only Fitbod rewrites the plan automatically; the others surface weaknesses as lists or suggested goals that the user acts on.",
+   "sources": [
+    "https://aimlabs.com/articles/aimlabs/what-does-your-aimlabs-benchmarks-rank-actually-mean/",
+    "https://support.melodics.com/en/articles/15091931-stages",
+    "https://help.fitbod.me/hc/en-us/articles/360004429814-How-Fitbod-Creates-Your-Workout",
+    "https://aimchess.com/",
+    "https://github.com/lichess-org/lila/blob/master/modules/puzzle/src/main/PuzzleDashboard.scala"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "domains-57",
+   "topic": "research-gaps",
+   "claim": "Blocked or unverified during this research. bn.lichess.org blog pages returned a Cloudflare 403. GitHub web and API search for keybr issues returned 403 because this session is bound to its configured repositories (git clone worked). The Steam appreviews JSON endpoint redirected to the store homepage, so the rendered community review pages were used instead. One Yousician support article timed out in Playwright. reddit and speedsolving.com were not attempted, having been blocked in earlier sessions. No primary source was found for KovaaK's in-game share-code import UI or for Chessable's difficult-move algorithm.",
+   "sources": [
+    "local:scratchpad/tools-regimen"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "patterns": [
+  {
+   "name": "Routine = ordered blocks, each with its own stopping rule",
+   "description": "Every surveyed routine builder is an ordered list of practice units with a per-unit stopping rule: KovaaK's playCount per scenario, Aimlabs reps per task ordered warm-up/peak/cool-down, Strong and Hevy sets per exercise, Modacity timed playlist items, Melodics Weekly Goals. Stopping rules seen: fixed reps, fixed time, a score/star threshold (Melodics stars, Yousician silver stars), or a mastery gate (keybr all-green, Melodics Stage dials).",
+   "seenIn": [
+    "KovaaK's",
+    "Aimlabs",
+    "Strong",
+    "Hevy",
+    "Modacity",
+    "Melodics",
+    "Yousician",
+    "keybr"
+   ],
+   "transferToRouxtine": "Model a Rouxtine as an ordered list of Blocks: Block = {moduleId, moduleConfig (case set, filters, CN, inspection length), stopRule: reps(N) | time(T) | target(metric, threshold, window) | firstOf(...), optional role warmup/main/cooldown}. Show the estimated session length up front, as Fitbod does from exercise count."
+  },
+  {
+   "name": "Template vs session instance, with a consent prompt only for structural edits",
+   "description": "Strong and Hevy run a session from a template and ask at the end whether to fold edits back in. Hevy asks only for structural changes and carries numeric values forward automatically. Strong's four-option prompt is admitted to be confusing and draws complaints.",
+   "seenIn": [
+    "Hevy",
+    "Strong"
+   ],
+   "transferToRouxtine": "A Rouxtine is a template, and each run is an immutable session record. Ask 'Update Rouxtine?' only when blocks were added, removed or reordered. Per-block tuning (target times, case weights, metronome TPS) carries forward silently. Offer exactly two choices."
+  },
+  {
+   "name": "Self-contained share codes and links that strip personal data",
+   "description": "KovaaK's uses readable word codes resolved by a server. Aimlabs uses deeplinks carrying tasks, settings and order (server download plus a link handler). Monkeytype encodes user-selected settings in a URL and warns past 2000 characters. Hevy and Strong share links, and Hevy also an image. Anki .apkg strips scheduling and leech tags when shared. Users mostly run other people's routines (KovaaK's dev thread; Voltaic playlists dominate subscriber charts).",
+   "seenIn": [
+    "KovaaK's",
+    "Aimlabs",
+    "Monkeytype",
+    "Hevy",
+    "Strong",
+    "Anki"
+   ],
+   "transferToRouxtine": "Offline-first means no server lookup. Encode a Rouxtine as a versioned, compact text code (e.g. 'RXT1.' + base64url of deflated JSON/protobuf with a checksum), also exposed as a rouxtine:// or https app link and a QR code, plus an optional image card. Include only structure and config, never personal stats or SRS state. On import, show a preview and 'save as copy'."
+  },
+  {
+   "name": "Automatic weakest-item focus inside a block",
+   "description": "keybr puts the weakest key in every generated word and smooths per-key timing with an EMA. Monkeytype weakspot samples 20 words and picks the one heaviest in weak characters, while 'Practice words' re-drills missed and slow words. Lichess replays unsolved puzzles per theme. Anki filtered decks can order by most lapses.",
+   "seenIn": [
+    "keybr",
+    "Monkeytype",
+    "Lichess",
+    "Anki"
+   ],
+   "transferToRouxtine": "Inside CMLL, EOLR, 4c, LP and SB-last-pair blocks, weight case sampling by a smoothed per-case score (recognition ms, execution ms, error rate vs target), so cases with low confidence relative to target appear more often. After every block, offer one-tap 'Drill missed' and 'Drill slow' sub-sessions. This in-block adaptation can be automatic and low-stakes, so no consent prompt is needed."
+  },
+  {
+   "name": "Confidence-gated introduction of new items",
+   "description": "keybr unlocks a new letter only when all current letters reached target confidence, with an option to gate on best-ever vs current confidence and a manual override. Anki caps new cards per day. Melodics Stages unlock in order once readiness dials are green.",
+   "seenIn": [
+    "keybr",
+    "Anki",
+    "Melodics"
+   ],
+   "transferToRouxtine": "For learning sets (2-look to full CMLL, EOLR, NMCLL), add the next case only when every active case meets its target (recognition and execution), cap new cases per day, and gate on best-ever by default with a 'strict' option. Always allow a manual 'add next case now', since keybr users quit when stuck at the gate."
+  },
+  {
+   "name": "Per-item spaced repetition with explicit workload controls",
+   "description": "Chessable schedules each move on its own timer, from 4 h up to 6 months. Anki/FSRS schedules from a desired retention, with daily new and review caps, Easy Days, retrievability ordering for backlogs, and filtered 'catch-up' decks.",
+   "seenIn": [
+    "Anki",
+    "FSRS",
+    "Chessable"
+   ],
+   "transferToRouxtine": "SRS for alg-recall and recognition cases (CMLL, EOLR, 4c), with a daily review cap, reviews-before-new ordering and a timebox stop rule. When over cap, a backlog mode sorts by lowest retrievability and spreads the excess over several days instead of dumping it on the user."
+  },
+  {
+   "name": "Benchmarks separate from practice, re-run periodically",
+   "description": "Aimlabs and Voltaic Benchmarks (rank as a floor set by the weakest subcategory), Melodics Stages, Fitbod Max Effort Days and Aimchess reports all measure periodically. Their results drive what to practise next.",
+   "seenIn": [
+    "Aimlabs",
+    "Voltaic",
+    "Melodics",
+    "Fitbod",
+    "Aimchess"
+   ],
+   "transferToRouxtine": "Ship a 'Roux benchmark' Rouxtine: timed FB inspection-plan test, SB efficiency vs solver par, CMLL recognition test, EOLR test, and an ao12 of full solves with smart-cube splits. Present a per-stage profile, the weakest stage first, and suggest re-testing monthly."
+  },
+  {
+   "name": "Dashboard of improvement areas with sample-size thresholds and time windows",
+   "description": "Lichess computes per-theme performance against the user's own global figure. It requires minimum counts before calling a theme weak or strong, lets the user pick a 1 to 90 day window, and links each weak theme to a replay session. Aimchess compares with same-rating peers and states concrete percentages.",
+   "seenIn": [
+    "Lichess",
+    "Aimchess"
+   ],
+   "transferToRouxtine": "Stats screen with 'Improvement areas' and 'Strengths' per stage and per case group, computed against the user's own baseline over a selectable window, hidden until a minimum sample exists. Each entry has a 'Train this' button that creates or adjusts a block. Phrase findings concretely, e.g. 'CMLL recognition is 41% of your CMLL time'."
+  },
+  {
+   "name": "Suggest structural changes; never silently rewrite the plan",
+   "description": "Fitbod regenerates workouts on background data changes, overwrites unstarted edits, and gets 'random'/'no logic' reviews. Melodics Weekly Goals, Lichess 'Train these', Aimlabs 'come back to the Benchmarks' and Monkeytype 'Practice words' are all suggestions the user chooses to act on.",
+   "seenIn": [
+    "Fitbod (counter-example)",
+    "Melodics",
+    "Lichess",
+    "Aimlabs",
+    "Monkeytype"
+   ],
+   "transferToRouxtine": "Cross-block adaptation (adding a block, changing a stop rule, swapping modules) is proposed as a visible diff with the reason ('EOLR recognition 2x slower than CMLL over 14 days'), and the user accepts or dismisses it. A saved Rouxtine never changes without consent. A Fitbod-style 'Auto Rouxtine' can exist as an explicit opt-in."
+  },
+  {
+   "name": "Difficulty matching and auto-ramping",
+   "description": "Lichess picks puzzles at rating plus a chosen delta and widens the window when the pool is thin. Melodics Auto BPM ramps +10 BPM up to natural tempo. Yousician auto-adjusts speed. Aimlabs Adaptive Tasks set difficulty to skill.",
+   "seenIn": [
+    "Lichess",
+    "Melodics",
+    "Yousician",
+    "Aimlabs"
+   ],
+   "transferToRouxtine": "Per-module difficulty knobs with optional auto-ramp: inspection time 30 s down to 15 s, FB scramble difficulty by optimal movecount band, metronome-paced alg execution ramping TPS on success, and recognition time limits that shrink as accuracy holds."
+  },
+  {
+   "name": "Forgiving consistency mechanics",
+   "description": "Weekly streaks (Melodics 3 of 7 days, Yousician weeks in a row), automatic streak freezes (Melodics), a configurable day boundary (Monkeytype hour offset) and minutes-per-day goals (keybr 30-minute default, Yousician stars or minutes).",
+   "seenIn": [
+    "Melodics",
+    "Yousician",
+    "Monkeytype",
+    "keybr"
+   ],
+   "transferToRouxtine": "Weekly goal ('N practice days per week', default 3) with earned freezes, configurable rollover hour, and a daily-minutes goal. Use local notifications for reminders, which works offline. Keep streak UI secondary to skill progress."
+  },
+  {
+   "name": "Reflection and notes carried into the next session",
+   "description": "Modacity: 'Write what needs work mid-session, rate how it went, and come back to it next time', plus recordings to compare and a guided 'did you improve?' strategy loop.",
+   "seenIn": [
+    "Modacity"
+   ],
+   "transferToRouxtine": "Per-block note and a 1 to 5 'how did it go', with the last note shown at the top of the block next time. For smart-cube or timed full solves, keep reconstructions so the user can replay old and new solves side by side."
+  },
+  {
+   "name": "Dedication metrics kept separate from skill metrics",
+   "description": "Melodics states that XP/Stardom is 'a dedication rating', not a skill rating, and keeps skill in Stages and lesson scores. Aimlabs rank measures skill only.",
+   "seenIn": [
+    "Melodics",
+    "Aimlabs"
+   ],
+   "transferToRouxtine": "Show practice time, streak and sessions in one area, and per-stage skill (times, accuracy, benchmark level) in another. Never let grinding volume inflate a skill badge."
+  },
+  {
+   "name": "Curated starter routines plus a fork-and-edit library",
+   "description": "Hevy's Explore library, Strong's sample templates (which can be hidden), Voltaic and creator playlists on KovaaK's, Aimlabs Aim Basics routines, and Melodics Weekly Goals matched to the current Stage.",
+   "seenIn": [
+    "Hevy",
+    "Strong",
+    "KovaaK's",
+    "Aimlabs",
+    "Melodics"
+   ],
+   "transferToRouxtine": "Bundle starter Rouxtines keyed to the community learning path (beginner FB/SB, 2-look to full CMLL, 'CMLL by 20-30 s', 'EOLR from ~15 s', CN warm-up, smart-cube full-solve review), offline and forkable. Let a short placement benchmark pick the starter, so experienced users are not forced through beginner content."
+  },
+  {
+   "name": "Ad-hoc filtered sessions",
+   "description": "Anki filtered decks and Custom Study (search + limit + order, optional rescheduling), Lichess theme, opening and colour selectors with per-theme difficulty, and Monkeytype custom modes.",
+   "seenIn": [
+    "Anki",
+    "Lichess",
+    "Monkeytype"
+   ],
+   "transferToRouxtine": "A 'Quick session' builder: pick a module, filter cases (set, tag, lapses >= k in the last d days, SRS state), set a limit and an order (weakest first, random, most overdue), and choose whether results update SRS. It can be saved as a block in a Rouxtine."
+  }
+ ],
+ "antiPatterns": [
+  "Paywalling the adaptive and analysis layer or upselling inside the trainer. Aimlabs negative reviews: 'Every screen has 9 ads for premium... ADAPTIVE TASK: a screen of 3 SUBSCRIBE NOW buttons' (270 helpful). KovaaK's: 'make people pay for your trainer and then have a subscription inside it too' (464 helpful). Similar complaints hit Chessable and Yousician. [steamcommunity.com/app/714010/negativereviews, steamcommunity.com/app/824270/negativereviews, App Store RSS 1523279049 / 959883039]",
+  "Bloat and navigation overload around a simple practice loop. Aimlabs: 'corporate bloated slop... getting lost navigating through this hell of a UI'; 'the game is 20 GB'. [steamcommunity.com/app/714010/negativereviews]",
+  "Silently regenerating the plan and discarding the user's edits. Fitbod refreshes workouts on background imports and replaces unstarted edits, and reviews call it 'So random. No logic.' and 'bizarre changes... day-to-day'. [help.fitbod.me 42333470514455; App Store RSS 1041517543]",
+  "Rigid linear gating with no placement or skip. Yousician: 'even if you put advanced it still makes you do like 30 minutes of beginner levels'; 'won't let you skip'. keybr: 'stuck on the same key... I wanna quit'. [App Store RSS 959883039; groups.google.com/g/keybr/c/b4D1xFvS-48]",
+  "Snowballing review backlogs with no catch-up mode. Anki: 806 reviews after 4 missed days, about 1,700 after a long break; Chessable: 'wake up to 300 reviews', '240 moves/positions to review one morning'. [forums.ankiweb.net 45566 / 25107; chess.com/forum/view/general/chessable-7]",
+  "Confusing template-update prompts with too many options. Strong's four-way 'Update Template / Values Only / Template and Values / Keep Original' prompt; one review calls them '3 illogical \"finish workout\" options', and Strong itself promises changes 'to reduce confusion'. [help.strongapp.io/article/177-update-template; App Store RSS 464254577]",
+  "An undirected library with no daily starting point. Aimchess: 'a list of lists with no particular order of difficulty, frequency, priority, expected duration... Needs direction'. [App Store RSS 1524941307]",
+  "Noisy statistics shown without sample-size thresholds or explanation. Aimchess: 'All of my statistics fluctuate and don't seem to mean much'. Lichess, by contrast, requires minimum counts before naming weak themes. [App Store RSS 1524941307; lila PuzzleDashboard.scala]",
+  "Low caps on user-built routines in the free tier. Strong allows 3 templates ('should be borderline illegal'); Hevy allows 4 routines. [help.strongapp.io/article/105-about-templates; App Store RSS 464254577; help.hevyapp.com 35119778922263]",
+  "Online dependency for content the user already has. Chessable: 'the app would not load without internet, despite claiming to support offline play'. Aimlabs shared playlists need a link handler plus a download; KovaaK's codes need a server lookup. [App Store RSS 1523279049; support.aimlabs.com 12140984985623]",
+  "Share identifiers that differ from what users see. A KovaaK's user could not find a subscribed playlist because the code differs from its name. [steamcommunity.com/app/824270/discussions/0/3774617156468221911]",
+  "Practice that does not count unless it is done in the app's one sanctioned way. Yousician 'won't record your time practiced unless you're actually following along', and credits less time for replaying completed songs. [App Store RSS 959883039]",
+  "Unforgiving daily streaks. Melodics replaced daily streaks with 3-days-a-week Weekly Streaks plus automatic freezes, and Yousician counts weeks. This is inference from vendor changes; no published retention data was found. [support.melodics.com 16979766; support.yousician.com 201558312]"
+ ],
+ "recommendation": "Build the Rouxtine as a deliberately two-layer system. (1) Structure layer, user-owned. A Rouxtine is a saved, ordered list of Blocks, like a KovaaK's or Aimlabs playlist or a Strong/Hevy template. Each Block = a toggleable module plus its config plus a stop rule (reps, time, target metric over a window, or first-of), with an optional warm-up/main/cool-down role and an estimated duration. Each run is an immutable session record. At the end, ask 'Update Rouxtine?' only for added, removed or reordered blocks (Hevy model, not Strong's four-way prompt). Per-block tuning carries forward silently. (2) Adaptation layer: automatic inside a block, suggested across blocks. Inside a block, adapt without asking, as keybr and Monkeytype weakspot do. Weight case sampling by a smoothed per-case confidence vs target (recognition ms, execution ms, errors). Introduce new cases only when the active set meets target (best-ever by default, a 'strict' option, plus a manual 'add next' override). Use FSRS-style SRS for alg and recognition cases, with daily caps, reviews-before-new ordering and a backlog mode sorted by lowest retrievability. Use difficulty ramps (inspection time, TPS metronome, FB movecount band) like Melodics Auto BPM and Lichess rating deltas. Across blocks, never rewrite a saved Rouxtine (Fitbod is the counter-example). A periodic 'Roux benchmark' Rouxtine (FB inspection test, SB efficiency vs solver par, CMLL and EOLR recognition tests, ao12 with smart-cube splits) and a Lichess-style dashboard (improvement areas and strengths per stage and case group, against the user's own baseline, selectable 7/30/90-day window, minimum sample sizes) generate suggestions shown as a diff with a stated reason, which the user accepts or dismisses. A Fitbod-like 'Auto Rouxtine' can exist only as an explicit opt-in. (3) Library and sharing. Ship offline starter Rouxtines mapped to the community learning path, chosen by a short placement benchmark so experienced cubers are not forced through beginner content. Make every Rouxtine forkable. Share with a self-contained, versioned, checksummed text code plus an app link and QR code. Carry only structure and config; strip personal stats and SRS state, like an Anki .apkg without scheduling. No server lookup, which fits offline-first. Show a preview before import and save the result as a copy. (4) Motivation without pressure. Use a weekly practice-day goal (default 3 of 7) with earned freezes, a configurable rollover hour, an optional daily-minutes goal and local reminders. Keep dedication metrics (time, streak) visually separate from skill metrics. Add per-block notes and a 'how did it go' rating, surfaced at the next run (Modacity). (5) Avoid the documented anti-patterns: no paywall or upsell on analysis or adaptivity, no caps on user Rouxtines, no forced linear path, no silent plan changes, no stats shown below a minimum sample, and no feature that requires connectivity."
+}

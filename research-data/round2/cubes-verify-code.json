@@ -1,0 +1,434 @@
+{
+ "verdicts": [
+  {
+   "id": "cubes-1",
+   "verdict": "not-checked",
+   "correction": "Shop shelf counts are market data, outside the source-code lens."
+  },
+  {
+   "id": "cubes-2",
+   "verdict": "confirmed",
+   "correction": "Only the protocol part was checked; prices and retail copy were not. The fixture 'GAN16ui_FF89' (MAC 54:6C:50:89:FF:89) was added in commit 436e88a on 2026-10-19 and is replayed through gan-gen4 in gan.replay.test.ts. I decrypted its 325 notifications myself with the Gen4 MAC-salted key: 319 have a known Gen4 event type (0x01 MOVE, 0xEC GYRO, 0xED FACELETS, 0xEF BATTERY, 0xFA-0xFE HARDWARE). With the unsalted key only 4 do.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/commit/436e88a76abbf656bb460a40dae3d9d5a6d5fd51",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.replay.test.ts#L14-L45",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GAN16ui_FF89_gan-gen4_2026-10-19T17-09-34.json"
+   ]
+  },
+  {
+   "id": "cubes-3",
+   "verdict": "confirmed",
+   "correction": "Only the protocol part was checked; prices were not. The fixture GANi4_A26E (MAC 0C:3D:5E:BD:A2:6E, 2026-04-14) decrypts as Gen4 with 30 moves. The string 'Leap' appears in no code, fixture or commit of SWB, csTimer, cubing.js or open-gan, so the i4 Leap's protocol is unverified.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GANi4_A26E_gan-gen4_2026-04-14T11-38-02.json"
+   ]
+  },
+  {
+   "id": "cubes-4",
+   "verdict": "confirmed",
+   "correction": "Only the code, README and fixture parts were checked; retail availability was not. The gan-web-bluetooth README lines 91-104 list these generations exactly, and SWB's driver comments repeat them (gan-cube-protocol.ts L338-347, L529-532, L816-821). SWB's Gen4 list also includes the GAN 251 UI 2x2. Both GAN12ui fixtures decrypt as Gen2.",
+   "evidence": [
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/README.md#L91-L104",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L816-L821"
+   ]
+  },
+  {
+   "id": "cubes-5",
+   "verdict": "confirmed",
+   "correction": "Only the code and issue parts were checked; prices and stock were not. csTimer issue #407 is still open and afedotov's comment of 2024-07-27 says 'iCarry2 has very buggy firmware' and 'this cube skipping moves so bad'. The two SWB workarounds are in the code comments: requestMoveHistory caps the window at the 255->0 edge because moves past it are 'spoofed with D', and checkIfMoveMissed skips serial 0 because of the 'facelets state event at 255 move counter' bug. Two additions: the Gen3 driver has no GYRO decoding branch at all, and there is no Gen3 replay fixture in SWB.",
+   "evidence": [
+    "https://github.com/cs0x7f/cstimer/issues/407",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L561-L650"
+   ]
+  },
+  {
+   "id": "cubes-6",
+   "verdict": "confirmed",
+   "correction": "Only the code part was checked; prices and battery claims were not. No code or fixture in SWB, csTimer, cubing.js or open-gan names the i Carry E or the i Carry 4. connectGanDevice picks the Gen2, Gen3 or Gen4 driver purely from the GATT service UUIDs, after a name match on 'GAN', 'gan', 'MG' or 'AiCube'. Connection would still fail if a new model changed the base key, as the GAN 251 UI did.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.ts#L224-L311"
+   ]
+  },
+  {
+   "id": "cubes-7",
+   "verdict": "confirmed",
+   "correction": "Only the code part was checked: no driver or fixture in SWB, csTimer, cubing.js or open-gan names the 12 ui SP or the i3 V2. Retail copy was not checked."
+  },
+  {
+   "id": "cubes-8",
+   "verdict": "confirmed",
+   "correction": "Only the code part was checked; prices were not. csTimer commit 7c13949 (2024-07-29) is titled 'enable automatic MAC address discovery for bound WeiLong V10 Ai smartcubes' and sits in the moyu32 path. csTimer derives 'CF:30:16:00:XX:XX' only from 'WCU_MY32_XXXX' names. SWB commits 1e44c2c (2026-04-15, 'no-gyro moyu32 devices (cheap v10ai)') and 7bbd5e9 (2026-04-17, init burst) match the claim. Caveat: no fixture or code literally maps 'WCU_MY32' to 'V10 AI', so that link is inferred. Both WCU_MY32_A388 captures contain gyro packets (opcode 171), so the no-gyro 'cheap v10ai' itself has no fixture.",
+   "evidence": [
+    "https://github.com/cs0x7f/cstimer/commit/7c13949489d7789d3be6593bd729578b4b6284b5",
+    "https://github.com/poliva/smartcube-web-bluetooth/commit/1e44c2c8b9c4ba44f9157673e9443e4d4b44ac62",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/moyu32cube.js#L193-L204"
+   ]
+  },
+  {
+   "id": "cubes-9",
+   "verdict": "confirmed",
+   "correction": "Only the code part was checked; the claim is right that per-model support is unverified. No code names the V11 AI, Super AoLong AI or AoLong V5 AI. The drivers match by prefix, though: SWB's moyu32 protocol takes any 'WCU_' (or '^S') name, csTimer registers the prefix 'WCU_MY3', and SWB's README claims 'MoYu WRM smart cubes (WCU_MY3)'. So any WCU_MY3x cube would be tried with MoYu32. The WCU_MY33_AF9E capture decodes cleanly with the MoYu32 key, but it contains no gyro packets (no 171 or 172).",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L533-L540",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/moyu32cube.js#L401-L407",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/README.md#L43-L47"
+   ]
+  },
+  {
+   "id": "cubes-10",
+   "verdict": "confirmed",
+   "correction": "Only the protocol part was checked; prices were not. The fixture name is 'QY-QYSC-S-A0E6' (padded with spaces) and its MAC is cc:a3:00:00:a0:e6. capabilities.gyroscope starts false and is set true only when a 0xCC 0x10 quaternion packet passes its CRC (qiyi.ts L196-205). The QiYi AI capture contains no 0xCC 0x10 packets.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L183-L205"
+   ]
+  },
+  {
+   "id": "cubes-11",
+   "verdict": "confirmed",
+   "correction": "Only the protocol part was checked; SpeedCubeShop copy and prices were not. mac-candidates.ts L38-42 builds CC:A6:00:00:XX:XX. The Tornado capture (MAC cc:a6:00:00:03:4c) contains 214 16-byte 0xCC 0x10 quaternion packets. csTimer's qiyicube also accepts the 'XMD-TornadoV4-i' prefix but has no quaternion decoding. Its default-MAC regex needs a 'QY-QYSC-X-XXXX'-style name, so it gives no default MAC for the Tornado. cubing.js's QiYi driver matches only 'QY-QYSC'.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/attachment/mac-candidates.ts#L38-L42",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/qiyicube.js#L16-L22"
+   ]
+  },
+  {
+   "id": "cubes-12",
+   "verdict": "confirmed",
+   "correction": "The protocol details are right; availability was not checked. One correction: there is no official spec, but a community byte-level spec exists, oddpetersson/gocube-protocol (MIT, 2020, last edited 2025-01). It documents the UART service, the commands (0x32 battery, 0x33 state, 0x37/0x38 orientation off/on, 0x35 reset), the sum checksum and MsgOrientation. SWB's own code cites 'public GoCube UART docs'. Gyro is enabled for any 'GoCube*' name except 'GoCubeX'. Edge support rests only on SWB commit 3f35141 ('experimental gyro support for gocube edge').",
+   "evidence": [
+    "https://github.com/oddpetersson/gocube-protocol",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gocube.ts#L19-L53"
+   ]
+  },
+  {
+   "id": "cubes-13",
+   "verdict": "confirmed",
+   "correction": "The protocol details are right; availability was not checked. The DECRYPT_KEY table is 36 bytes. The battery is polled every 60 s by writing 0xb5 to aaac. Giiker can report a half turn as one move ('2' suffix, direction 2), which the other protocols do not.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/giiker.ts#L29-L68"
+   ]
+  },
+  {
+   "id": "cubes-14",
+   "verdict": "refuted",
+   "correction": "cubing.js is not the only open implementation. The maker publishes heykube/heykube_python (MIT, 22nd Solutions LLC, 2021, beta v0.5.0), a Python library built on bleak that implements the BLE protocol (service b46a791a-8273-4fc1-9e67-94d3dc2aac1c). heykube.com links it as the 'open API'. The site still shows $69.95 'IN STOCK' with a (c) 2022 footer.",
+   "evidence": [
+    "https://github.com/heykube/heykube_python/blob/6fab8c0/heykube/heykube_btle.py#L22-L57",
+    "https://www.heykube.com/pages/pythonlibrary",
+    "https://github.com/cubing/cubing.js/blob/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/smart-puzzle/Heykube.ts#L166"
+   ]
+  },
+  {
+   "id": "cubes-15",
+   "verdict": "confirmed",
+   "correction": "Only the code part was checked: neither 'TokTok' nor 'eX-Mars' appears anywhere in SWB, csTimer, cubing.js or open-gan. Price and maker were not checked."
+  },
+  {
+   "id": "cubes-16",
+   "verdict": "confirmed",
+   "correction": "The code parts are right; atoutcubes was not checked. Gen1 polls every 30 ms and reads facelets every 50 ticks. Its key comes from one of six LZ blobs chosen by firmware version, and the first 6 bytes are then salted with the Device Information System ID (0x2A23) in reverse order, not with the MAC. Gen1 decrypts its first and last blocks with plain AES and no IV.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-gen1.ts#L31-L50",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-gen1.ts#L260-L323"
+   ]
+  },
+  {
+   "id": "cubes-17",
+   "verdict": "confirmed",
+   "correction": "Correct for 3x3 GANs, with three nuances. (1) There are three base key/IV pairs, not one: GAN Gen2-4, MoYu AI 2023 ('AiCube'), and a separate GAN 251 UI (2x2) pair on Gen4 framing. (2) The salt really is mod 255 (0xFF), not 256. (3) The generation check tries Gen2, then Gen3, then Gen4. My own Python re-implementation decrypts every GAN fixture with the MAC-salted key; with the unsalted key the Gen4 frames do not decode (4-5 of 161-325 plausible).",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-definitions.ts#L44-L71",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-encrypter.ts#L29-L35"
+   ]
+  },
+  {
+   "id": "cubes-18",
+   "verdict": "confirmed",
+   "correction": "Correct, with three nuances. The driver builds the 'cube timestamp' by summing the per-move deltas itself. A delta of 0, meaning 16-bit overflow, is replaced with host elapsed time. More than 7 moves between packets are lost silently, because Gen2 has no history request.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L412-L443"
+   ]
+  },
+  {
+   "id": "cubes-19",
+   "verdict": "confirmed",
+   "correction": "Correct, with one nuance. The wire serial is a 16-bit little-endian field, but the driver does all gap and range arithmetic mod 256, and MOVE_HISTORY takes and returns an 8-bit serial. In practice the serial wraps at 8 bits.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L876-L963",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/utils.ts#L48-L78"
+   ]
+  },
+  {
+   "id": "cubes-20",
+   "verdict": "confirmed",
+   "correction": "The code and commit d517e49 (2026-03-26) match. Two caveats: neither Gen4 fixture (GANi4 with 30 moves, GAN16ui with 8) has a multi-chunk notification, and every notification is 20 bytes, so at most 2 chunks fit in one. Also, open-gan's Kotlin Gen4 driver still reads only the first chunk, which is the bug SWB fixed.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/commit/d517e49ca1460761b92595d05a11b1fecef42f33",
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/core/src/main/kotlin/app/opengan/core/gan/GanProtocolDrivers.kt#L308-L314"
+   ]
+  },
+  {
+   "id": "cubes-21",
+   "verdict": "refuted",
+   "correction": "Two parts are wrong. (1) The exceptions list leaves out Gen3. The Gen3 driver (i Carry 2) has no GYRO decoding branch, and its HARDWARE event hard-codes gyroSupported: false. Its capability flag still reads gyroscope: true, because only Gen2 updates the flag from HARDWARE. So the GAN drivers that expose a gyro are Gen2 (not AiCube), Gen4 and Gen1. (2) On Gen2 only the gyro-support bit (bit 104) comes from the HARDWARE (0x05) response. The quaternion and angular velocity arrive as their own Gen2 event type 0x01. Also, on Gen4 gyroSupported in HARDWARE means 'an 0xEC packet has been seen'. The rest is right: GAN_GEN1_CAPABILITIES sets hardware: false and reset: false, but Gen1 does have a gyro (polled and notified). AiCube's gyro is turned off by a name check.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L383-L411",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L486-L507",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L773-L792",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.ts#L26-L40",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.ts#L115-L133"
+   ]
+  },
+  {
+   "id": "cubes-22",
+   "verdict": "confirmed",
+   "correction": "Correct. My independent decryption of all 7 MoYu32 fixtures with the reversed-MAC salt gives only the opcodes 161, 163, 164, 165, 171 and 172. One addition: the driver re-anchors its accumulated 'cube time' to the host clock whenever they drift more than 2 s apart (L309-315).",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L16-L117",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L283-L360"
+   ]
+  },
+  {
+   "id": "cubes-23",
+   "verdict": "confirmed",
+   "correction": "Correct, with four nuances. (1) The varied byte is the 4th octet in display order (CF:30:16:0X:XX:XX); SWB's comment calls it the 'third byte', which holds in LSB-first wire order. (2) The probe order differs by name: MY32 tries 00/01/02, MY33 02/01/00, MY22 01/00/02. (3) Probing runs only when context.enableAddressSearch is set and the advertisement gave no MAC. (4) csTimer takes the last 6 bytes of the manufacturer data; SWB skips 2 bytes when the payload has 8 or more. The bound/unbound company-ID text is in csTimer moyu32cube.js L140-171.",
+   "evidence": [
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/moyu32cube.js#L140-L198",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/attachment/mac-candidates.ts#L47-L88"
+   ]
+  },
+  {
+   "id": "cubes-24",
+   "verdict": "refuted",
+   "correction": "The timestamp unit is wrong. One tick is 1/1.6 ms (0.625 ms), not 1.6 ms. The spec's sentence says 'units of 1.6 milliseconds' but then 'Divide it by 1.6 to convert to milliseconds'. SWB, csTimer and the spec's own Rust example app all divide by 1.6. In both QiYi fixtures the raw tick span divided by the host span is 1.586 and 1.609. Two smaller points: the spec says 'the majority', not all, of the protocol runs on fff6; and State Change messages are 94 bytes, sent as 96-byte encrypted notifications. The rest is right: fixed-key AES-128-ECB, the reversed MAC in the App Hello, 11 history slots in bytes 36-90, and CRC16-MODBUS.",
+   "evidence": [
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L42",
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/example_app/src/messages.rs#L219",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L305",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/qiyicube.js#L208"
+   ]
+  },
+  {
+   "id": "cubes-25",
+   "verdict": "confirmed",
+   "correction": "Correct, with three nuances. The issue is titled 'Tornado X4 issues of Slice moves'; it was opened 2026-05-04 by MrFanfo and closed by MrFanfo on 2026-05-12, with no maintainer reply. Neither SWB nor csTimer implements the spec's 'treat needs-ACK as solved' workaround. SWB ACKs a State Change only when byte 91 is non-zero, while csTimer ACKs every State Change.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/issues/2",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L277-L281",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/qiyicube.js#L179-L181"
+   ]
+  },
+  {
+   "id": "cubes-26",
+   "verdict": "confirmed",
+   "correction": "True for every 3x3 driver (GAN Gen1-4, MoYu32, MHC, QiYi, GoCube, Giiker), with three nuances. The 'M (L+R')' line with cubeTimestampDelta 15 comes from the reporter's own app, not from SWB. On GoCube, firmware may send a truncated type-1 frame for the second face of a pair, which SWB maps to the opposite face with the opposite direction. On the 2x2s (GAN 251 UI, MoYu MY22), firmware reports only the U/R/F axes.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gocube.ts#L223-L240",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/README.md#L100-L120"
+   ]
+  },
+  {
+   "id": "cubes-27",
+   "verdict": "confirmed",
+   "correction": "Correct, with two nuances. The v1 client is created when the write characteristic 0x1001 exists, and replies arrive on 0x1002. Turn records carry face-angle steps, and a move is emitted only when the 9-step angle crosses the 4/5 boundary. The gyro capability needs 0x1004.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu-mhc.ts#L123-L181",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu-mhc.ts#L222-L262"
+   ]
+  },
+  {
+   "id": "cubes-28",
+   "verdict": "confirmed",
+   "correction": "Correct. Since 2026-03-01 there are 37 commits by Pau Oliva and 1 by Bryan Lundberg. Dependencies are aes-js, lz-string and rxjs. The README also lists the MoYu Weipo V5 AI 2x2 (WCU_MY22) and the GAN Smart Timer and Halo. Re-checked on 2026-10-29: git ls-remote still reports HEAD 2077416, so nothing has changed since the cited commit.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/package.json#L41-L52",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/LICENSE.txt"
+   ]
+  },
+  {
+   "id": "cubes-29",
+   "verdict": "refuted",
+   "correction": "The list of 17 fixtures and what they contain (raw encrypted traffic, MAC, expected events) is right. 'Check every decoder' is wrong: there is no fixture for GAN Gen1, GAN Gen3 (i Carry 2), MoYu MHC, MoYu AI 2023 (AiCube) or the no-gyro 'cheap V10 AI'. No Gen4 fixture contains a multi-chunk MOVE notification. The undated fixture_WCU_MY22_1037 has no expected events. Giiker and GoCube fixtures carry no MAC because they need none.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/tree/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures"
+   ]
+  },
+  {
+   "id": "cubes-30",
+   "verdict": "confirmed",
+   "correction": "Correct. The licence file is LICENSE.txt, not LICENSE, so the cited URL 404s. SWB's git history contains all of afedotov's commits up to 65173e2, so it is a continuation of the same repo.",
+   "evidence": [
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/LICENSE.txt"
+   ]
+  },
+  {
+   "id": "cubes-31",
+   "verdict": "confirmed",
+   "correction": "Correct. The gancube date 2026-09-07 is the committer date; dbeb683 and the GAN 251 UI PR f2a08a8 were authored 2026-08-07 and 2026-08-06. moyucube (MHC) last changed 2025-08-02. csTimer also has drivers for gantimer, qiyitimer ('QY-Timer', 'QY-Adapter') and stackmat. Re-checked on 2026-10-29: csTimer HEAD has moved to cb4f3fa ('improve export speed', 2026-10-29). That commit does not touch src/js/hardware, so every driver line cited at 5f8e46c still holds.",
+   "evidence": [
+    "https://github.com/cs0x7f/cstimer/commit/cb4f3faac4d699c170a9c860f272eec157a3bcc5"
+   ]
+  },
+  {
+   "id": "cubes-32",
+   "verdict": "refuted",
+   "correction": "The support matrix, the licence and the 2026-10-08 date are right, but cubing.js is not the only open HeyKube driver: heykube/heykube_python (MIT) also implements it. Two additions: cubing.js's QiYi driver matches only 'QY-QYSC' (no Tornado), and cubing.js also drives the GAN Robot and the GAN Smart Timer.",
+   "evidence": [
+    "https://github.com/heykube/heykube_python",
+    "https://github.com/cubing/cubing.js/tree/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/smart-robot"
+   ]
+  },
+  {
+   "id": "cubes-33",
+   "verdict": "confirmed",
+   "correction": "Correct, with these additions. The README states the protocol was ported from gan-web-bluetooth 3.0.2, and the main feature is the GAN Robot. The Gen4 driver reads only the first 72-bit MOVE chunk, which SWB fixed in March 2026. There is no Gen1 and no GAN 251 UI support. It never calls requestMtu or requestConnectionPriority, and it scans with no filter.",
+   "evidence": [
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/core/src/main/kotlin/app/opengan/core/gan/GanProtocolDrivers.kt#L277-L314",
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/README.md#L51-L58"
+   ]
+  },
+  {
+   "id": "cubes-34",
+   "verdict": "refuted",
+   "correction": "The move and licence facts are right: the GitHub README says 'MOVED TO codeberg' (commit 2026-01-07), and the MIT licence was committed 2026-01-16 (authored 2026-01-05). The example app is in Rust. But this is not the only standalone byte-level spec for a current cube: oddpetersson/gocube-protocol (MIT) documents the GoCube protocol. cubing.js also ships docs for the GAN 356i (Gen1) and the GAN Robot.",
+   "evidence": [
+    "https://github.com/oddpetersson/gocube-protocol",
+    "https://github.com/cubing/cubing.js/tree/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/docs",
+    "https://github.com/Flying-Toast/qiyi_smartcube_protocol"
+   ]
+  },
+  {
+   "id": "cubes-35",
+   "verdict": "confirmed",
+   "correction": "No native multi-brand cube library was found. Three nuances. Cubedex depends on 'github:poliva/smartcube-web-bluetooth'. CubeDesk's licence is ambiguous: LICENSE.md is GPL-3.0, but package.json says 'CubeDesk, Inc. All Rights Reserved'. Native Android open-source BLE code does exist for smart timers: CubicTimer (GPL-3.0, Java, last release 2026-05) supports the GAN Smart Timer, GAN Halo and QiYi timer.",
+   "evidence": [
+    "https://github.com/poliva/cubedex/blob/main/package.json",
+    "https://github.com/hato-ya/CubicTimer/blob/main/app/src/main/java/com/hatopigeon/cubictimer/fragment/TimerFragment.java"
+   ]
+  },
+  {
+   "id": "cubes-36",
+   "verdict": "confirmed",
+   "correction": "The code and FAQ parts are right. The gist (gan-mac-faq.md) says 'MAC is the Bluetooth device hardware address' and that 'platform-native applications ... able to read device MAC address automatically'. Kable's AndroidPeripheral.address is documented as 'the hardware address'. csTimer's waitForAdvs needs watchAdvertisements and falls back to the MAC prompt. The Android API docs were not checked under this lens. One more limit: csTimer's waitForAdvs rejects at once on Linux and ChromeOS, because watchAdvertisements never fires there. On those platforms csTimer always falls back to typing the MAC, even with the Chrome flag on. The flag it names is chrome://flags/#enable-experimental-web-platform-features (Bluefy: 'Enable BLE Advertisements').",
+   "evidence": [
+    "https://gist.github.com/afedotov/52057533a8b27a0277598160c384ae71",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/bluetooth.js#L39-L51",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/lang/en-us.js#L616"
+   ]
+  },
+  {
+   "id": "cubes-37",
+   "verdict": "confirmed",
+   "correction": "The quotes and code references check out. SWB's GAN path already validates each decrypted packet (validateDecrypted). For MoYu32 and QiYi, SWB probes candidate MACs by decrypting. open-gan does no decrypt check."
+  },
+  {
+   "id": "cubes-38",
+   "verdict": "unclear",
+   "correction": "The API-level facts are outside this lens. Fixture MACs do match name suffixes for MoYu32 (CF:30:16:0X), QiYi (cc:a3/cc:a6) and the Gen4 GANs (..:A2:6E for A26E, ..:FF:89 for FF89). But the Gen4 GAN MACs 0C:3D:5E:... and 54:6C:50:... do not have the top two bits set. So those cubes either use public addresses or their manufacturer-data MAC is not a static random address. SWB also expects 'QY-QYSC-A' names at CC:A2:00:00 and tries a CC:A3:00:01 variant for 'QY-QYSC-S'.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/attachment/mac-candidates.ts#L16-L45"
+   ]
+  },
+  {
+   "id": "cubes-39",
+   "verdict": "not-checked",
+   "correction": "Android permission documentation is outside the source-code lens. The open-gan and Kable manifests match it (see cubes-40)."
+  },
+  {
+   "id": "cubes-40",
+   "verdict": "confirmed",
+   "correction": "Correct. One difference: open-gan declares bluetooth_le required=true, while Kable's kable-default-permissions declares required=false.",
+   "evidence": [
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/app/src/main/AndroidManifest.xml",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/kable-default-permissions/src/main/AndroidManifest.xml"
+   ]
+  },
+  {
+   "id": "cubes-41",
+   "verdict": "not-checked",
+   "correction": "Android 16 behaviour changes are outside the source-code lens."
+  },
+  {
+   "id": "cubes-42",
+   "verdict": "confirmed",
+   "correction": "Correct. AOSP main AdapterService.DeviceConfigListener sets DEFAULT_SCAN_QUOTA_COUNT = 5, DEFAULT_SCAN_QUOTA_WINDOW_MILLIS = 30 s and DEFAULT_SCAN_TIMEOUT_MILLIS = 10 min, overridable through DeviceConfig. ScanController returns SCAN_FAILED_SCANNING_TOO_FREQUENTLY to non-privileged callers.",
+   "evidence": [
+    "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/refs/heads/main/android/app/src/com/android/bluetooth/btservice/AdapterService.java",
+    "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/refs/heads/main/android/app/src/com/android/bluetooth/le_scan/ScanController.java"
+   ]
+  },
+  {
+   "id": "cubes-43",
+   "verdict": "confirmed",
+   "correction": "The config.xml values are right: high priority is 9-12 units and balanced 24-40 units, at 1.25 ms per unit. config.xml also defines '_primary' and '_secondary' variants (for example high priority 6-8 units with latency 45), so the interval actually used can differ. The API-doc parts, including the Android 14 MTU behaviour, were not checked."
+  },
+  {
+   "id": "cubes-44",
+   "verdict": "confirmed",
+   "correction": "Correct. Tag 0.45.0 is dated 2026-09-14. The AAR manifest has minSdkVersion 21 and declares no permissions. The version catalog at the tag has coroutines 1.11.0 and kotlin 2.4.10. Connection.kt has 'private val guard = Mutex()'. The 2026 commits are 140 by JUUL Mobile Bot, 32 by Travis Wyatt and 10 by others (182 in all). Maven Central answered the POM request with 429, so the POM was not re-read."
+  },
+  {
+   "id": "cubes-45",
+   "verdict": "confirmed",
+   "correction": "Correct. Tag 2.0.0-beta09 is dated 2026-10-28 (beta08 2026-10-26), and the LICENSE text is BSD 3-clause, (c) 2024 Nordic Semiconductor."
+  },
+  {
+   "id": "cubes-46",
+   "verdict": "confirmed",
+   "correction": "Correct. GattConnection.kt defines the CCCD UUID 00002902-..., branches on SDK_INT 33 for writeDescriptor and both onCharacteristicChanged signatures, and serializes operations with a Mutex (opLock).",
+   "evidence": [
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/app/src/main/kotlin/app/opengan/ble/GattConnection.kt"
+   ]
+  },
+  {
+   "id": "cubes-47",
+   "verdict": "refuted",
+   "correction": "Wrong for QiYi: its 32-bit ticks are 1/1.6 ms (0.625 ms), and drivers divide by 1.6 (see cubes-24). The rest holds, with nuances. Gen2 cube time is the driver's running sum of 16-bit deltas, with a host fallback. MoYu32 time is accumulated offsets, re-anchored to the host when drift exceeds 2 s. Gen1 passes the raw 16-bit stamps through unaccumulated, and moves are found by polling every 30 ms. GoCube, Rubik's Connected and Giiker have cubeTimestamp null (all 30-40 moves in their fixtures).",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L305",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L309-L315",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-gen1.ts#L286-L308"
+   ]
+  },
+  {
+   "id": "cubes-48",
+   "verdict": "confirmed",
+   "correction": "I reproduced the numbers from the fixtures' decoded events. Median |dHost-dCube| is 6-26 ms and the maximum 81 ms. p95 is 11-56 ms with a lower-rank percentile, or 12.6-66 ms with interpolation. The cube/host slope is 0.9905-1.0073, which is 0.993-1.010 host/cube. Two caveats: MoYu32's cube time is partly host-anchored, and the 'too coarse for EO/4c' conclusion is a judgement. Errors of tens of ms are small next to whole-step durations of 0.5 s or more. They matter mainly for per-move pauses and TPS."
+  },
+  {
+   "id": "cubes-49",
+   "verdict": "confirmed",
+   "correction": "Correct. Also, cubeTimestampLinearFit returns times relative to the first move, and SWB's host clock is Math.floor(performance.now()) (whole ms).",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/utils.ts#L9-L89"
+   ]
+  },
+  {
+   "id": "cubes-50",
+   "verdict": "confirmed",
+   "correction": "Correct, with additions. MoYu32 also drops moves until a 163 facelets reply sets its counter; SWB requests 163 during init. Battery is polled every 60 s on GoCube, MHC and GAN Gen1 too. QiYi has 11 history slots plus the current move, and csTimer reads only 9. csTimer ACKs every QiYi State Change. GAN Gen3 and Gen4 also send periodic FACELETS events on their own, so requesting facelets mainly avoids a startup delay.",
+   "evidence": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L283-L287",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gocube.ts#L315-L317"
+   ]
+  }
+ ],
+ "missing": [
+  "QiYi timestamps tick at 0.625 ms (raw / 1.6 = ms), not 1.6 ms. The option text 'Cube timestamps (1.6 ms units)' would make every QiYi split 2.56x too long if implemented literally. Source: https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/example_app/src/messages.rs#L219",
+  "Notification sizes in SWB's fixtures: GAN Gen2/Gen4, MoYu32 and Giiker are always 20 bytes or less. QiYi sends 48-byte Cube Hello and 96-byte State Change notifications (the Tornado also sends 16-byte gyro packets). GoCube and Rubik's Connected send up to 66 bytes. Both QiYi and GoCube therefore exceed the 20-byte payload of the default ATT MTU of 23. On Android, Rouxtine should call requestMtu(517) after connecting and before the QiYi App Hello or GoCube subscription. Otherwise those frames may be truncated or split. This is my inference from the fixture traffic and has not been tested on hardware; open-gan never calls requestMtu. Source: https://github.com/poliva/smartcube-web-bluetooth/tree/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures",
+  "open-gan's Kotlin GAN Gen4 driver reads only the first 72-bit MOVE chunk of each notification, the bug SWB fixed in d517e49. Reusing it as-is would drop Roux M-slice turns until MOVE_HISTORY catches up. Source: https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/core/src/main/kotlin/app/opengan/core/gan/GanProtocolDrivers.kt#L308-L314",
+  "No open driver implements the QiYi spec's 'treat needs-ACK as solved' workaround for fast slice moves. SWB ACKs only when byte 91 is set; csTimer ACKs every State Change. Rouxtine must add the workaround itself for LSE. Source: https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L277-L281",
+  "SWB's unified MOVE.direction is inconsistent across drivers. GAN, QiYi, GoCube and MHC use 0=CW, 1=CCW; MoYu32 uses 0/2 (m % 3); Giiker uses 0, 1, or 2 for a half turn. A port should normalise from the move string. Source: https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L319-L333",
+  "GoCube and Rubik's Connected firmware may send a truncated move frame for the second face of an opposite-face pair, which SWB decodes as the opposite face with inverted direction. That pair is exactly an M/E/S slice, so it matters for Rouxtine's slice merging on Particula cubes. Source: https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gocube.ts#L223-L240",
+  "The QiYi spec documents Sync State (set the cube's remembered state), Sync Confirmation, and Request State / Current State (opcode 5). SWB uses none of them: reset capability is false, and REQUEST_FACELETS re-sends the Hello. Rouxtine can implement 'reset to solved' and state polling for QiYi from the spec. Source: https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L190-L296",
+  "Smart timers are an available protocol family the research skipped. SWB supports the GAN Smart Timer and Halo; csTimer supports GAN timers, the QiYi timer ('QY-Timer', 'QY-Adapter') and Stackmat. CubicTimer (GPL-3.0, Android Java, 2026-05) is native Android open-source BLE code for the GAN Smart Timer, GAN Halo and QiYi timer. Source: https://github.com/hato-ya/CubicTimer/blob/main/app/src/main/java/com/hatopigeon/cubictimer/fragment/TimerFragment.java",
+  "A community MIT byte-level spec exists for GoCube: commands, message types, checksum and the MsgOrientation ASCII quaternion. Source: https://github.com/oddpetersson/gocube-protocol",
+  "HEYKUBE has an official MIT Python BLE library (bleak), a second reference besides cubing.js. Source: https://github.com/heykube/heykube_python",
+  "SWB ships no replay fixtures for GAN Gen1, GAN Gen3 (i Carry 2), MoYu MHC, MoYu AI 2023 or the no-gyro V10 AI, and none for Gen4 multi-chunk batches. These decoders cannot be regression-tested from captures and would need new captures or hardware. Source: https://github.com/poliva/smartcube-web-bluetooth/tree/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures",
+  "GAN Gen2 recovers at most 7 moves per packet and has no history request, so longer gaps are lost silently. MoYu32 recovers at most 5 (3x3) and only logs 'lost move events'. Facelets re-sync is the only fallback on those protocols. Source: https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L414-L418",
+  "cubing.js and open-gan also drive the GAN Robot, a cube-turning scrambler, and cubing.js documents its protocol. This is an option for automated scrambling in drills. Source: https://github.com/cubing/cubing.js/tree/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/docs",
+  "Licences of all candidate sources are compatible with a GPL-3.0 Rouxtine: SWB MIT, QiYi spec MIT, GoCube spec MIT, heykube_python MIT, csTimer GPL-3.0, cubing.js MPL-2.0 OR GPL-3.0-or-later, open-gan GPL-3.0-or-later, CubicTimer GPL-3.0. CubeDesk is ambiguous: its LICENSE.md is GPL-3.0 but package.json says 'All Rights Reserved'. Source: https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/LICENSE",
+  "SWB's MoYu32 3x3 decoder drops a whole 165 move packet if any of its five 5-bit history codes is 12 or more (invalidMove), so unknown codes are discarded instead of decoded. A port that copies this check would silently lose moves if newer WCU firmware (V11 AI, Super AoLong AI, AoLong V5 AI) used extra codes. That should be tested on those cubes. Source: https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L296-L302",
+  "Access note: in this session the proxy refused the GitHub REST API (HTTP 403) for poliva/smartcube-web-bluetooth, so the state of issue #2 and of any newer SWB issues was not re-read on 2026-10-29. git ls-remote still works, and every repo HEAD was confirmed. Source: https://github.com/poliva/smartcube-web-bluetooth/issues/2"
+ ]
+}

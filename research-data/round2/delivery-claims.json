@@ -1,0 +1,685 @@
+{
+  "shortAnswer": "Use GitHub releases plus Obtainium, not Actions artifacts. Artifacts need a GitHub login, usually arrive as a zip, and expire. On every push to main, CI builds a 'dev' variant (package id ending in .dev). It is signed with one dedicated key kept as a base64 repo secret. Every build gets a higher versionCode (github.run_number). CI deletes the rolling 'dev' pre-release and recreates it ('gh release delete dev --cleanup-tag' then 'gh release create dev --prerelease'). On the S25, turn Auto Blocker off once, install Obtainium v1.7.3 and add the repo with 'Include prereleases' and 'Use release date as version string'. Do the first install through Obtainium so later updates install silently. Pick the final package id now (io.github.nauroth.rouxtine). Google's developer verification does not affect sideloading anywhere yet (October 2026). From 2027, register the package (a free limited-distribution account works for your own phone), or use the advanced flow or adb.",
+  "recommendation": "Concrete pipeline. (1) IDs, decided now and never changed: release applicationId io.github.nauroth.rouxtine (a personal account needs no domain). CI channel: a 'dev' build type created with initWith(release), with applicationIdSuffix \".dev\", versionNameSuffix \"-dev\", label \"Rouxtine Dev\" and a different icon, and R8 on, because Compose debug builds are slow. The local 'debug' build type keeps \".debug\". If R8 rules are not ready yet, ship the debug build type (suffix .debug) at first. (2) Signing: run keytool once to make a dedicated dev keystore (RSA, validity of 25 years or more). Store it as the repo secrets DEV_KEYSTORE_B64, DEV_STORE_PASSWORD, DEV_KEY_ALIAS and DEV_KEY_PASSWORD. Gradle reads them from env and falls back to the default debug key when they are missing (fork PRs get no secrets). Keep the future release key separate and offline, or in a protected GitHub environment. Do not commit the dev key. Element X and Organic Maps do commit theirs, which is acceptable, but then anyone can sign an APK that updates your installed dev app, and from 2027 you would be registering a public key under your identity. (3) Versions: versionCode = github.run_number (plus an offset if needed; it never goes down, and Android rejects only a lower code). versionName = \"0.x.y-dev.<run>+<sha7>\". (4) Workflow dev.yml, on push to main and workflow_dispatch: set concurrency {group: dev-release, cancel-in-progress: true}. Build job: assembleDev, tests and lint, then rename the APK to rouxtine-dev-<run>-<sha7>.apk (no '#' or '()'). Publish job with permissions: contents: write and env GH_TOKEN: run 'gh release delete dev --cleanup-tag -y || true', then 'gh release create dev rouxtine-dev-*.apk --prerelease --latest=false --target \"$GITHUB_SHA\" --title \"Rouxtine dev #<run> (<sha7>)\" --notes \"<git log of recent commits>\"'. Lawnchair's nightly does the same. Leave GitHub immutable releases OFF, because they forbid moving or reusing the tag. Prefer gh over marvinpinto/action-automatic-releases, which has been unmaintained since 2022. softprops v3 and ncipollo v1.21 update a release but do not move an existing tag. The PR workflow only builds: upload-artifact@v7 with archive: false and retention-days: 7, downloaded while signed in (nightly.link only serves zips). (5) Phone, once: open Settings > Security and privacy > Auto Blocker and turn it off; on One UI 8.5 also turn off 'Turn on automatically'. Download Obtainium v1.7.3 app-arm64-v8a-release.apk from its GitHub releases and let the browser 'Install unknown apps'. In Obtainium, add https://github.com/nauroth/rouxtine with: Include prereleases ON; Filter release titles by regex ^Rouxtine dev; Filter links by regex rouxtine-dev-.*\\.apk$; Version detection = 'Use release date as version string'; background updates on. Do the first install from Obtainium, so it is the installer of record and later updates install silently (Android 12+, targetSdk 37 is at least 36 minus 3). An obtainium://app/<json> link in the README makes this one tap for testers. A GitHub fine-grained PAT in Obtainium avoids the limit of 60 unauthenticated requests per hour. Fallback: 'adb install -r' over wireless debugging; verification never applies to adb, but Auto Blocker must be off. (6) Developer verification: nothing to do in October 2026 unless the phone is in Brazil, Indonesia, Singapore or Thailand, and even there only installs from participating stores are checked. Before the 2027 global rollout, create an Android Developer Console account. For only your own devices, a free limited-distribution account (no ID, up to 20 authorized devices) can register io.github.nauroth.rouxtine.dev with the dev key. For community distribution you need full distribution ($25 plus government ID) or a Play Console account. Register io.github.nauroth.rouxtine with the release key's SHA-256, and add the Play signing key if you publish on Play. Do it early: package names with under 50 installs go first-come, first-served. Otherwise, the advanced flow (one-time 24-hour wait) or adb. (7) Later: tag v* to make a normal, non-prerelease release signed with the release key. It can feed Obtainium (stable channel), IzzyOnDroid or F-Droid. Play internal testing (up to 100 testers, minutes to roll out, auto-updates through the Play Store) is worth adding for a community beta. It costs $25, an identity check, device verification, AAB uploads and Play App Signing. Production on Play needs a closed test with at least 12 testers for 14 days for a new personal account. Firebase App Distribution is not worth it for one owner: testers need a Google sign-in and the App Tester app (itself a sideload), releases expire after 150 days, and it avoids neither Auto Blocker nor verification.",
+  "options": [
+    {
+      "name": "A. GitHub Actions artifact, installed by hand",
+      "summary": "upload-artifact@v7 (archive: false gives a bare APK). Open the run page on the phone, sign in, download, and install.",
+      "pros": [
+        "Zero extra setup",
+        "Good for PR builds",
+        "Since v7, archive: false avoids the zip"
+      ],
+      "cons": [
+        "Needs a GitHub login on the phone",
+        "Zipped by default, and nightly.link serves only zips",
+        "Expires (90 days by default, at most 90 days on public repos)",
+        "No update notifications",
+        "Updates still fail unless the signing key is stable"
+      ]
+    },
+    {
+      "name": "B. Rolling 'dev' pre-release + Obtainium (recommended)",
+      "summary": "On each main build, delete and recreate the 'dev' pre-release with one APK. Obtainium tracks it with prereleases on and the release date used as the version.",
+      "pros": [
+        "No login",
+        "Stable URL",
+        "Obtainium notifies and installs silently in the background",
+        "Proven pattern (Lawnchair nightly, plus an Obtainium crowdsourced config)",
+        "Free, all on GitHub"
+      ],
+      "cons": [
+        "Needs a stable signing key held in secrets",
+        "The asset briefly 404s between delete and create",
+        "Incompatible with immutable releases",
+        "Auto Blocker must stay off",
+        "From 2027, needs package registration or the advanced flow"
+      ]
+    },
+    {
+      "name": "C. A unique pre-release tag per build (e.g. v0.1.0-dev.123) + Obtainium",
+      "summary": "Each build gets its own pre-release tag. Obtainium uses the tag as the version, and a cleanup step deletes all but the last N.",
+      "pros": [
+        "Version detection against versionName works",
+        "No tag moving",
+        "History kept"
+      ],
+      "cons": [
+        "Clutters releases and tags",
+        "Needs a pruning job",
+        "Notification and rate-limit noise"
+      ]
+    },
+    {
+      "name": "D. Firebase App Distribution",
+      "summary": "Upload with the Firebase CLI or Gradle plugin using a service account. Testers get an email and install via App Tester.",
+      "pros": [
+        "Tester emails and groups",
+        "Release notes",
+        "Optional in-app update alerts SDK (beta)"
+      ],
+      "cons": [
+        "Firebase project and Google sign-in for testers",
+        "App Tester is itself a sideload, so Auto Blocker and 2027 verification still apply",
+        "Builds expire after 150 days",
+        "AAB needs a Play link",
+        "The SDK is proprietary (GPL concern), but the CLI-only path avoids it"
+      ]
+    },
+    {
+      "name": "E. Google Play internal testing",
+      "summary": "Upload an AAB to the internal track (up to 100 testers). Updates arrive through the Play Store.",
+      "pros": [
+        "Lowest on-phone friction",
+        "Auto-updates",
+        "No Auto Blocker problem",
+        "Verification and registration handled automatically",
+        "Paves the way to production"
+      ],
+      "cons": [
+        "$25, identity check and device verification",
+        "AAB plus Play App Signing (a different key from GitHub builds)",
+        "Store listing and policy forms",
+        "Production needs 12 testers over 14 days"
+      ]
+    },
+    {
+      "name": "F. adb (USB or wireless debugging)",
+      "summary": "adb install -r from a computer.",
+      "pros": [
+        "Exempt from developer verification",
+        "No store needed"
+      ],
+      "cons": [
+        "Needs a computer",
+        "Auto Blocker blocks USB commands",
+        "No auto-update"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "delivery-1",
+      "topic": "actions-artifacts",
+      "claim": "The artifact-url output of actions/upload-artifact only works for signed-in users: \"Users must be logged-in in order for this URL to work.\" GitHub's docs say read access to the repository is required to download artifacts.",
+      "sources": [
+        "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/README.md",
+        "https://docs.github.com/en/actions/how-tos/manage-workflow-runs/download-workflow-artifacts"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-2",
+      "topic": "actions-artifacts",
+      "claim": "The REST 'Download an artifact' endpoint returns a 302 to a download URL that expires after 1 minute. archive_format must be 'zip', and classic PATs and OAuth tokens need the repo scope.",
+      "sources": [
+        "https://docs.github.com/en/rest/actions/artifacts#download-an-artifact"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-3",
+      "topic": "actions-artifacts",
+      "claim": "Artifacts and logs are kept 90 days by default. Retention can be set from 1 to 90 days for public repositories and from 1 to 400 days for private ones. The upload-artifact input retention-days has a minimum of 1 and a maximum of 90 unless changed in repo settings.",
+      "sources": [
+        "https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization",
+        "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-4",
+      "topic": "actions-artifacts",
+      "claim": "actions/upload-artifact v7.0.0 (26 Feb) added 'archive: false' for single-file uploads without zipping. In that mode 'name' is ignored and the artifact takes the file's name. The latest release is v7.0.2 (7 Oct, download retries on HTTP 429). The README says GitHub is not taking contributions and will only ship security fixes and fixes for major breakage.",
+      "sources": [
+        "https://github.com/actions/upload-artifact/releases",
+        "https://github.com/actions/upload-artifact/blob/cf430e030ddbb5b0abf93d22962f4752f3646cd9/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-5",
+      "topic": "actions-artifacts",
+      "claim": "nightly.link gives login-free links to the latest artifact of a successful run per workflow and branch on public repos. It serves only zipped artifacts: the source answers non-zip artifacts with \"Sorry, only *.zip downloads are supported by nightly.link for the moment\" (issue #88), so archive:false APKs cannot go through it. It warns that its shared API rate limit will throttle, and its latest commit is from 2026-10-22.",
+      "sources": [
+        "https://nightly.link/",
+        "https://github.com/oprypin/nightly.link/blob/40f52e005caa271f22286b7479acb74d93ac3e46/src/nightly_link.cr"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-6",
+      "topic": "rolling-release",
+      "claim": "gh release create has the flags --prerelease, --target (branch or full SHA), --latest, --title, --notes, --generate-notes, --notes-start-tag, --verify-tag and --draft. If the tag does not exist, gh creates it \"from the latest state of the default branch\", so a rolling build should pass --target \"$GITHUB_SHA\".",
+      "sources": [
+        "https://cli.github.com/manual/gh_release_create"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-7",
+      "topic": "rolling-release",
+      "claim": "'gh release delete --cleanup-tag --yes' deletes the release and its tag without asking. 'gh release upload --clobber' deletes existing same-named assets before re-uploading, and the manual warns that if the upload fails the original assets are lost.",
+      "sources": [
+        "https://cli.github.com/manual/gh_release_delete",
+        "https://cli.github.com/manual/gh_release_upload"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-8",
+      "topic": "rolling-release",
+      "claim": "GitHub's 'latest release' is \"the most recent non-prerelease, non-draft release\", and \"Drafts and prereleases cannot be set as latest\". A pre-release-only dev channel therefore cannot be reached through /releases/latest/download/<asset> links or Obtainium's 'Verify the latest tag' option.",
+      "sources": [
+        "https://docs.github.com/en/rest/releases/releases#get-the-latest-release",
+        "https://docs.github.com/en/repositories/releasing-projects-on-github/linking-to-releases"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-9",
+      "topic": "rolling-release",
+      "claim": "GitHub immutable releases lock both assets and the tag. A tag cannot be moved. After an immutable release is deleted, its tag can be deleted but the name cannot be reused. A rolling 'dev' tag is therefore incompatible with immutable releases. They are a setting you enable; the docs do not say whether new repos have it on.",
+      "sources": [
+        "https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases",
+        "https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-10",
+      "topic": "rolling-release",
+      "claim": "softprops/action-gh-release is maintained: v3.0.3 runs on Node 24 (v2 used Node 20, which GitHub deprecated), and its latest commit is from 2026-10-17. If a release already exists for the tag, it updates that release's assets (overwrite_files defaults to true). target_commitish only sets where a new tag is created, so it does not move an existing rolling tag.",
+      "sources": [
+        "https://github.com/softprops/action-gh-release/blob/6680cc089e59314c4460b839412c25fb6a71ce3b/README.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-11",
+      "topic": "rolling-release",
+      "claim": "ncipollo/release-action v1.21.0 (node24, latest commit 2026-10-04) offers allowUpdates, removeArtifacts, replacesArtifacts (default true), immutableCreate and makeLatest. Its 'commit' input is \"used to create the tag if it does not exist\". It needs contents: write.",
+      "sources": [
+        "https://github.com/ncipollo/release-action/blob/1b9acf6ded5a3b65414f069bb0c2c847ac83a145/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-12",
+      "topic": "rolling-release",
+      "claim": "marvinpinto/action-automatic-releases, the classic rolling 'latest' release action, last changed on 2022-01-29 and is effectively unmaintained.",
+      "sources": [
+        "https://github.com/marvinpinto/action-automatic-releases"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-13",
+      "topic": "rolling-release",
+      "claim": "Precedent: Lawnchair's CI publishes a rolling 'nightly' pre-release with permissions contents: write. It runs 'gh release view \"nightly\" && gh release delete \"nightly\" -y --cleanup-tag' and then 'gh release create \"nightly\" \"./$APK_NAME\" -p -t \"Lawnchair Nightly\" --generate-notes'. APK names carry run_number and the short SHA, and a comment notes that '#' and '()' are not supported in release filenames. The keystore comes from a base64 secret (secrets.KEYSTORE | base64 --decode).",
+      "sources": [
+        "https://github.com/LawnchairLauncher/lawnchair/blob/2d072998677ff198a0abc3f19c22af9ad32b5574/.github/workflows/ci.yml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-14",
+      "topic": "rolling-release",
+      "claim": "A workflow concurrency group allows at most one running run per group, and cancel-in-progress: true cancels the older run. This stops two quick pushes from racing on deleting and recreating the 'dev' release.",
+      "sources": [
+        "https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-15",
+      "topic": "rolling-release",
+      "claim": "GitHub's docs do not say how the automatic previous tag for generated release notes is chosen, for example when the rolling tag was just deleted. Writing explicit notes (SHA plus a commit list) or passing --notes-start-tag is more predictable than --generate-notes.",
+      "sources": [
+        "https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes",
+        "https://docs.github.com/en/rest/releases/releases#generate-release-notes-content-for-a-release"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-16",
+      "topic": "obtainium",
+      "claim": "Obtainium is actively maintained. The latest release is v1.7.3 (25 Oct 2026; pubspec 1.7.3+2361; latest commit 2026-10-24), after v1.7.0 (17 Oct), v1.7.1 (18 Oct) and v1.7.2 (24 Oct). It ships per-ABI APKs such as app-arm64-v8a-release.apk with .sha256 and .sig files, and is also on IzzyOnDroid and F-Droid. Package dev.imranr.obtainium, minSdk 26.",
+      "sources": [
+        "https://github.com/ImranR98/Obtainium/releases",
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/pubspec.yaml",
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/README.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-17",
+      "topic": "obtainium",
+      "claim": "Obtainium's GitHub source reads the Releases API (/releases?per_page=100), not Actions artifacts. It skips pre-releases unless 'Include prereleases' is on, so a repo whose only release is the 'dev' pre-release needs that switch.",
+      "sources": [
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/github.dart"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-18",
+      "topic": "obtainium",
+      "claim": "For GitHub, Obtainium's version string is the release's tag_name, or the release title when 'Use release title as version string' is on. A rolling tag named 'dev' therefore gives a constant version, and new builds would not show up as updates without a pseudo-version.",
+      "sources": [
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/github.dart"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-19",
+      "topic": "obtainium",
+      "claim": "'Use release date as version string' (releaseDateAsVersion) replaces the version with the release date in microseconds and turns off OS version reconciliation. The release date is published_at, or the newest asset's upload time when 'Use latest asset upload as release date' is on. Deleting and recreating the release changes the date on every build, while replacing assets in place needs the asset-date option.",
+      "sources": [
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/providers/source_provider.dart",
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/services/version_service.dart",
+        "https://github.com/ImranR98/Obtainium-Wiki/blob/536cea30d538205c582223dc7ea1eaea9b0a3a84/pages/app_tracking.en.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-20",
+      "topic": "obtainium",
+      "claim": "Precedent: the crowdsourced Obtainium config for Lawnchair Nightly, which uses a rolling 'nightly' pre-release, is {includePrereleases: true, filterReleaseTitlesByRegEx: 'Lawnchair.Nightly', releaseDateAsVersion: true}. 124 configs in that directory use releaseDateAsVersion.",
+      "sources": [
+        "https://github.com/ImranR98/apps.obtainium.imranr.dev/blob/f989b98cffe77f34230caac23f17144f45cfde8d/public/data/apps/complex/app.lawnchair.nightly.json"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-21",
+      "topic": "obtainium",
+      "claim": "Obtainium's APK filter is 'Filter links by regex' (apkFilterRegEx), with an invert switch and an option to filter by CPU architecture. The GitHub source also supports 'Include ZIP files' and 'Filter APKs inside ZIP'.",
+      "sources": [
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/app_sources/app_source.dart",
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/assets/translations/en.json"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-22",
+      "topic": "obtainium",
+      "claim": "Obtainium's stock installer updates silently only if Obtainium is the installing package of record, the OS is Android 12 (API 31) or later, and the app's targetSdk is at least the OS SDK minus 3 (API 33+ on Android 16). The first install therefore has to come from Obtainium, not the browser or adb. The manifest requests UPDATE_PACKAGES_WITHOUT_USER_ACTION and ENFORCE_UPDATE_OWNERSHIP.",
+      "sources": [
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/lib/installers/stock_installer.dart",
+        "https://github.com/ImranR98/Obtainium/blob/fcd1807c8f8d2b8a5e27d4214ac4d472ed045598/android/app/src/main/AndroidManifest.xml"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-23",
+      "topic": "obtainium",
+      "claim": "Unauthenticated GitHub REST calls are limited to 60 per hour per IP, and a personal token gets 5,000 per hour. The Obtainium wiki suggests adding a fine-grained PAT if you hit rate limits.",
+      "sources": [
+        "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+        "https://github.com/ImranR98/Obtainium-Wiki/blob/536cea30d538205c582223dc7ea1eaea9b0a3a84/pages/sources.en.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-24",
+      "topic": "obtainium",
+      "claim": "Obtainium registers deep links. obtainium://add/<url> pre-fills the Add screen. obtainium://app/<url-encoded JSON> imports a full config including additionalSettings, after a confirmation dialog. The wiki recommends these for a 'Get it on Obtainium' badge in a project README.",
+      "sources": [
+        "https://github.com/ImranR98/Obtainium-Wiki/blob/536cea30d538205c582223dc7ea1eaea9b0a3a84/pages/deep_links.en.md"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-25",
+      "topic": "versioning",
+      "claim": "Android rejects only a lower versionCode. AOSP checkDowngrade throws INSTALL_FAILED_VERSION_DOWNGRADE when the new code is less than the installed one, and allows an equal one. Same-version rolling builds can install, but versionCode must never go down. Google Play rejects reused codes and caps versionCode at 2100000000.",
+      "sources": [
+        "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/services/core/java/com/android/server/pm/PackageManagerServiceUtils.java",
+        "https://developer.android.com/studio/publish/versioning"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-26",
+      "topic": "versioning",
+      "claim": "github.run_number starts at 1 for a workflow's first run, goes up on each new run and does not change on re-run, which makes it a suitable monotonic versionCode source. It is per workflow, so renaming or replacing the workflow restarts it, which needs an offset.",
+      "sources": [
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-27",
+      "topic": "signing",
+      "claim": "AGP's ValidateSigningTask creates the default debug keystore when it is missing (\"If the keystore is the default debug keystore, it will be created if it is missing\"). Its default location is $HOME/.android/debug.keystore. Each GitHub-hosted runner is a new VM, so every CI run signs with a freshly generated debug key.",
+      "sources": [
+        "https://android.googlesource.com/platform/tools/base/+/refs/heads/mirror-goog-studio-main/build-system/gradle-core/src/main/java/com/android/build/gradle/internal/tasks/ValidateSigningTask.kt",
+        "https://developer.android.com/studio/publish/app-signing",
+        "https://docs.github.com/en/actions/concepts/runners/github-hosted-runners"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-28",
+      "topic": "signing",
+      "claim": "Android allows an update only if the certificates match; a different certificate needs a different package name. The failure code INSTALL_FAILED_UPDATE_INCOMPATIBLE (-7) means \"a previously installed package of the same name has a different signature than the new package\".",
+      "sources": [
+        "https://developer.android.com/studio/publish/app-signing",
+        "https://android.googlesource.com/platform/frameworks/base/+/refs/heads/main/core/java/android/content/pm/PackageManager.java"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-29",
+      "topic": "signing",
+      "claim": "The debug certificate is \"insecure by design\", Google Play does not accept debug-signed apps, and the debug certificate expires 30 years after creation. Google recommends a validity of 25 years or more for app signing keys; Play requires a key valid past 22 October 2033.",
+      "sources": [
+        "https://developer.android.com/studio/publish/app-signing"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-30",
+      "topic": "signing",
+      "claim": "Precedent for a committed debug keystore: Element X Android commits app/signature/debug.keystore (alias androiddebugkey, password 'android'). Its debug build type uses applicationIdSuffix '.debug', and its '.nightly' build type is signed with a key from env or Gradle secrets and pushed to Firebase App Distribution.",
+      "sources": [
+        "https://github.com/element-hq/element-x-android/blob/046e1bce78c01af042dcc8bda93e0980fb984de3/app/build.gradle.kts",
+        "https://github.com/element-hq/element-x-android/blob/046e1bce78c01af042dcc8bda93e0980fb984de3/app/signature/debug.keystore"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-31",
+      "topic": "signing",
+      "claim": "Precedent: Organic Maps commits android/app/debug.keystore (password '12345678'). Its debug build uses applicationIdSuffix '.debug' and versionNameSuffix '-debug'. A '.beta' build type is signed with the release key from an uncommitted secure.properties.",
+      "sources": [
+        "https://github.com/organicmaps/organicmaps/blob/1b9a011b4272d69b002ee78b9d30d2483e50688d/android/groovy/application-signing.gradle"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-32",
+      "topic": "signing",
+      "claim": "GitHub secrets are not passed to the runner for workflows triggered from a fork, except GITHUB_TOKEN. Base64 may be used for small binary blobs such as a keystore, but GitHub notes it is not encryption. Secrets larger than 48 KB need the documented gpg workaround.",
+      "sources": [
+        "https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-33",
+      "topic": "signing",
+      "claim": "Inference: committing the dev or debug keystore to a public repo lets anyone sign an APK that Android accepts as an update to the owner's installed .debug or .dev app, and fork PR builds would also be update-compatible. That key must never sign the release package. If the dev package is later registered for developer verification with that public key, APKs signed by anyone are tied to the owner's identity. A key held in a secret, with a debug-key fallback for forks, avoids all of this.",
+      "sources": [
+        "https://developer.android.com/studio/publish/app-signing",
+        "https://developer.android.com/developer-verification/guides/android-developer-console"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-34",
+      "topic": "signing",
+      "claim": "The Android docs show applicationIdSuffix = \".debug\" on the debug build type, and initWith() to derive further build types such as 'staging'. A suffixed ID installs alongside the release app. Google warns: \"Once you publish your app, you should never change the application ID.\"",
+      "sources": [
+        "https://developer.android.com/build/build-variants",
+        "https://developer.android.com/build/configure-app-module"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-35",
+      "topic": "signing",
+      "claim": "The Compose performance guide advises testing in release mode with R8, because debug mode \"imposes a performance cost\". A release-like 'dev' build type (initWith(release), with its own suffix) gives the owner a truer feel for the app than a debug APK.",
+      "sources": [
+        "https://developer.android.com/develop/ui/compose/performance"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-36",
+      "topic": "developer-verification",
+      "claim": "Android developer verification requires all apps to be registered by verified developers before users can install them on certified Android devices. Developers sign up in the Android Developer Console (off-Play) or use Play Console. They verify their identity, then register each package name by linking it to the signing key's SHA-256. Proving ownership of an existing package means uploading an APK signed with the private key that contains an assets/adi-registration.properties snippet. Guides last updated 2026-08-18 and 2026-09-30.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides",
+        "https://developer.android.com/developer-verification/guides/android-developer-console",
+        "https://developer.android.com/developer-verification/guides/open-source-app-registration"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-37",
+      "topic": "developer-verification",
+      "claim": "Timeline. August 2026: developer APIs, limited distribution accounts and the advanced flow launched. 30 September 2026: protections began for installs from participating stores (Google Play, HONOR App Market, OPPO App Market, Galaxy Store, Transsion Palm Store, vivo V-Appstore, Xiaomi GetApps) in Brazil, Indonesia, Singapore and Thailand. 2027: expansion \"globally for all apps on certified Android devices\", with no exact date.",
+      "sources": [
+        "https://developer.android.com/developer-verification",
+        "https://developer.android.com/developer-verification/guides",
+        "https://android-developers.googleblog.com/2026/06/android-developer-verification.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-38",
+      "topic": "developer-verification",
+      "claim": "As of October 2026, sideloading (browser, Obtainium, Firebase App Tester) is not yet subject to verification in any region. The FAQ (15 July 2026) says that if \"users sideload your app directly, these new verification requirements won't apply to your app yet\", and recommends verifying before the 2027 global rollout.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides/faq"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-39",
+      "topic": "developer-verification",
+      "claim": "ADB installs are exempt: \"you are free to install apps without verification with ADB\". The advanced flow's 24-hour wait does not apply to ADB. Once enforcement applies, unregistered apps \"can only be installed or updated when the advanced flow is enabled or by using ADB\".",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides/faq",
+        "https://android-developers.googleblog.com/2026/06/android-developer-verification.html"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-40",
+      "topic": "developer-verification",
+      "claim": "Advanced flow: Settings > System > Developer options > 'Allow apps from unverified developers'. The one-time setup has the user confirm no one is coaching them, restart and re-authenticate, wait 24 hours, confirm with biometrics or PIN, then enable for 7 days or indefinitely. Installs still warn and need 'Install anyway'. There is no ADB command to skip the wait. Android Authority reported the rollout starting around 18 August 2026 through an 'Android Developer Verifier' system service.",
+      "sources": [
+        "https://support.google.com/android/answer/17588095?hl=en",
+        "https://developer.android.com/developer-verification/guides/faq",
+        "https://www.androidauthority.com/google-android-advanced-flow-sideloading-rollout-begins-3700073/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-41",
+      "topic": "developer-verification",
+      "claim": "The developer FAQ says enforcement covers certified devices on Android 7+, delivered through Google Play services. The user Help Center says Android 8 and up, and exempts AOSP and non-certified devices. Either way the S25 on Android 16 is covered. Samsung is listed as an Android certified partner.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides/faq",
+        "https://support.google.com/android/answer/17065026?hl=en",
+        "https://www.android.com/certified/partners/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-42",
+      "topic": "developer-verification",
+      "claim": "Limited distribution account: free and needs no government ID. It requires a Google Account with 2-Step Verification, a linked Google payments profile (legal name and address) and a contact email. It can register apps and share them with up to 20 devices that users explicitly authorize through a QR or link handshake. Accounts can move from limited to full, but not back.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides/limited-distribution",
+        "https://developer.android.com/developer-verification/guides/faq"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-43",
+      "topic": "developer-verification",
+      "claim": "A full-distribution Android Developer Console account costs a $25 fee and needs identity documents; organizations also need a D-U-N-S number and a website verified in Search Console. Developers already on Play use Play Console, which can also register off-Play apps and keys. Apps using Play App Signing are registered automatically, and one package can have several signing keys registered.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides",
+        "https://developer.android.com/developer-verification/guides/faq"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-44",
+      "topic": "developer-verification",
+      "claim": "Package-name contention is settled by known installs. A key with over 50% of installs wins. If no key has a majority, any key with 50 or more installs is eligible. Below 50 installs it is first-come, first-served, and later claimants must pick another name or request an exception. A lost signing key cannot be used to register.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides/android-developer-console",
+        "https://developer.android.com/developer-verification/guides/faq"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-45",
+      "topic": "developer-verification",
+      "claim": "The Android Developer ID Status API checks whether a package name is registered or eligible. The Android Developer Console API registers package names and keys from CI/CD. Android Studio Panda 4+ shows registration status when you generate a signed APK or AAB.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides/android-developer-console",
+        "https://developer.android.com/developer-verification/guides/faq"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-46",
+      "topic": "developer-verification",
+      "claim": "Inference for the package ID: personal accounts need no website or domain proof, so an ID like io.github.nauroth.rouxtine works. It should be final now, because it can never change after publishing and the registration links it to a key. Registering early protects a name with few installs, which is otherwise first-come, first-served. The .dev or .debug variant is a separate package that needs its own registration, or the advanced flow or ADB, from 2027.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides",
+        "https://developer.android.com/developer-verification/guides/android-developer-console",
+        "https://developer.android.com/build/configure-app-module"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-47",
+      "topic": "firebase",
+      "claim": "Firebase App Distribution: upload with 'firebase appdistribution:distribute <file> --app ...' or the Gradle plugin. Builds expire after 150 days, with at most 1,000 releases per app, 500 testers per project and 200 per group. The APK must be signed with your debug or app signing key. AAB uploads require linking the Firebase app to an app in Google Play.",
+      "sources": [
+        "https://firebase.google.com/docs/app-distribution/android/distribute-cli",
+        "https://firebase.google.com/docs/app-distribution/troubleshooting",
+        "https://firebase.google.com/docs/app-distribution/android/distribute-console",
+        "https://firebase.google.com/docs/app-distribution/android/distribute-console?apptype=aab"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-48",
+      "topic": "firebase",
+      "claim": "Firebase testers accept an email invitation by signing in with Google. They can install the Firebase App Tester app from a browser prompt, which may need 'install unknown apps'. App Tester downloads and installs builds. In-app new-build alerts need the App Distribution SDK, which is still Beta.",
+      "sources": [
+        "https://firebase.google.com/docs/app-distribution/get-set-up-as-a-tester?platform=android",
+        "https://firebase.google.com/docs/app-distribution/android/set-up-alerts"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-49",
+      "topic": "firebase",
+      "claim": "Inference: App Tester is not one of the participating stores and is not Play or Galaxy Store. Firebase builds are therefore sideloads, still subject to Samsung Auto Blocker and to the 2027 global verification rollout. Firebase brings no signing or verification advantage over GitHub releases plus Obtainium.",
+      "sources": [
+        "https://developer.android.com/developer-verification/guides",
+        "https://docs.samsungknox.com/admin/fundamentals/whitepaper/samsung-knox-mobile-security/system-security/samsung-auto-blocker/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-50",
+      "topic": "play",
+      "claim": "Google Play personal developer accounts created after 13 November 2023 must run a closed test with at least 12 testers opted in continuously for at least 14 days before the app can go to production. Internal testing has no access requirement.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/14151465?hl=en"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-51",
+      "topic": "play",
+      "claim": "Play internal testing allows up to 100 testers per app, added by email, who need a Google Account and opt in through a link. Updates reach testers within minutes, and internal tests \"might not be subject to standard Play policy or security reviews\".",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/9845334?hl=en"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-52",
+      "topic": "play",
+      "claim": "Play Console has a one-time $25 registration fee and may require a government ID. Personal account owners \"must verify access to an Android device using the Play Console mobile app before publishing apps\". New apps have had to publish as Android App Bundles since August 2021.",
+      "sources": [
+        "https://support.google.com/googleplay/android-developer/answer/6112435?hl=en",
+        "https://developer.android.com/guide/app-bundle"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-53",
+      "topic": "play",
+      "claim": "CI upload actions are maintained: r0adkll/upload-google-play is at v1.1.5 (latest commit 2026-09-06). wzieba/Firebase-Distribution-Github-Action is at v1.7.1 (latest commit 2025-03-28); its token input is deprecated in favour of serviceCredentialsFileContent.",
+      "sources": [
+        "https://github.com/r0adkll/upload-google-play",
+        "https://github.com/wzieba/Firebase-Distribution-Github-Action/blob/master/README.md"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-54",
+      "topic": "samsung",
+      "claim": "Samsung Auto Blocker (One UI 6.0+) allows app installs only from official stores such as Google Play and Galaxy Store. It also blocks commands over USB cables and non-official software updates. It is turned off under Settings > Security and privacy > Auto Blocker, after authentication. Samsung documents no per-app or per-installer allowlist: installs from other sources are blocked \"unless the feature is turned off\". It would block both Obtainium and browser installs.",
+      "sources": [
+        "https://docs.samsungknox.com/admin/fundamentals/whitepaper/samsung-knox-mobile-security/system-security/samsung-auto-blocker/",
+        "https://www.samsung.com/ca/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "delivery-55",
+      "topic": "samsung",
+      "claim": "Auto Blocker's default state has changed. When announced with One UI 6 (October 2023) it was opt-in and off by default. Samsung's Knox whitepaper now says it is on by default, and Samsung Canada says it \"should already be enabled or offered during the initial setup on many Galaxy devices\". On an S25 it is likely on unless declined during setup, so check before installing.",
+      "sources": [
+        "https://news.samsung.com/uk/protect-your-device-your-way-with-samsung-auto-blocker",
+        "https://docs.samsungknox.com/admin/fundamentals/whitepaper/samsung-knox-mobile-security/system-security/samsung-auto-blocker/",
+        "https://www.samsung.com/ca/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-56",
+      "topic": "samsung",
+      "claim": "Users report that with Auto Blocker on, USB debugging is greyed out or turned off, which matches Samsung's 'blocks commands by USB cable'. adb sideloading therefore also needs Auto Blocker off.",
+      "sources": [
+        "https://forum.developer.samsung.com/t/s24-ultra-developer-option-usb-debugging-greyed-out/29526",
+        "https://www.samsung.com/ca/support/mobile-devices/protect-your-galaxy-device-with-the-new-auto-blocker-feature/"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "delivery-57",
+      "topic": "samsung",
+      "claim": "One UI 8.5 reportedly adds an optional Auto Blocker sub-setting ('Turn on automatically') that turns it back on 30 minutes after it is switched off. Leave it off so Obtainium's background updates are not blocked later. Sources are a teardown and secondary or community reports.",
+      "sources": [
+        "https://www.androidauthority.com/one-ui-8-5-auto-blocker-auto-turn-on-apk-teardown-3599873",
+        "https://sammyguru.com/one-ui-8-5-will-let-galaxy-users-pause-auto-blocker-for-30-minutes/"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "delivery-58",
+      "topic": "samsung",
+      "claim": "Since Android 8.0 the global 'Unknown sources' switch is replaced by the per-app 'Install unknown apps' permission (REQUEST_INSTALL_PACKAGES / canRequestPackageInstalls). The S25 must grant it separately to the browser or My Files used for the first APK and to Obtainium.",
+      "sources": [
+        "https://developer.android.com/about/versions/oreo/android-8.0-changes"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "openQuestions": [
+    "Once the advanced flow is on (2027 onward), does it still allow Obtainium's silent background updates of an unregistered app, or does every install need the 'Install anyway' confirmation? Registering the .dev package avoids the question.",
+    "What is the exact 2027 date and regional order of the global verification rollout? It matters which region the owner's phone is in.",
+    "Will ImranR98 register Obtainium's own package before 2027? If not, Obtainium updates would need the advanced flow too.",
+    "Does One UI 8 or 8.5 Auto Blocker have any per-installer exception? None is documented; turning it off is the only documented path.",
+    "Do new GitHub repos have immutable releases off by default? The docs only describe enabling them. Check the setting in nauroth/rouxtine.",
+    "How does GitHub pick the previous tag for --generate-notes once the rolling tag has been deleted? Not documented.",
+    "The developer FAQ says Android 7+ and the user Help Center says Android 8+ for enforcement. The S25 is unaffected either way.",
+    "Is io.github.nauroth.rouxtine (or the chosen ID) free? Check with the Android Developer ID Status API before committing to it.",
+    "Untested: whether an unzipped (archive: false) artifact download in Samsung Internet or Chrome goes straight to the package installer.",
+    "Would the owner rather start with the plain debug build type (.debug, no R8) and move to a release-like .dev build type once R8 keep rules are in place?"
+  ]
+}

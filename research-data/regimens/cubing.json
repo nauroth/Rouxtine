@@ -1,0 +1,695 @@
+{
+ "claims": [
+  {
+   "id": "cubing-1",
+   "topic": "practice-ratio",
+   "claim": "Feliks Zemdegs (CubeSkills blog 'Cubing Practice Tips', about 2017) splits practice into conscious/deliberate practice (learning and drilling algs, experimenting, studying example solves for your inefficiencies, focusing on one aspect, 'any sort of drill or practice that isn't complete solves', new fingertricks) and subconscious/repetitive practice (timed solves and averages). If you are comfortable with your method, spend at least 50% of practice on timed solves; if you want to fundamentally improve or are unhappy with an aspect, spend much more time on deliberate practice; as you get faster, more of your practice should be timed solves. He says at least 50% of his own practice is timed solves.",
+   "sources": [
+    "https://www.cubeskills.com/blog/cubing-practice-tips"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-2",
+   "topic": "session-structure",
+   "claim": "Feliks has never followed a strict practice regimen and recommends loose schedules: plan which events to cover over a timeframe so nothing is neglected, and practise only the events of a small competition for a few weeks before it. His other points: practise only when you feel like it, since forced practice is less effective; breaks often help ('Breaks make you better'); progress comes in sudden 1-2 s jumps after long plateaus. He adds that a schedule may suit people who enjoy tracking numbers.",
+   "sources": [
+    "https://www.cubeskills.com/blog/cubing-practice-tips"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-3",
+   "topic": "level-brackets",
+   "claim": "CubeSkills 'How To Get Faster?' (Feliks, about 2017) gives advice by level: beginner (>60 s), intermediate (about 15-60 s) and advanced (<about 15 s). Beginners should fix fingertricks and drill algorithms. Intermediates should do slow untimed solves to boost lookahead and efficiency and focus on reducing movecount. Advanced solvers should 'constantly assess your weaknesses', learn extra alg sets and study fast solvers' example solves. For everyone, 'focused practice' is what turns tutorials into improvement.",
+   "sources": [
+    "https://www.cubeskills.com/blog/how-to-get-faster"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-4",
+   "topic": "session-structure",
+   "claim": "CubeSkills' 'Practicing' module (Intermediate, 7 lessons) has lessons titled Introduction, Deliberate Practice, Deliberate Practice Ideas, Components vs Full Solves, Practicing Inspection, Overcoming Barriers and Practice Schedule Thoughts. Its stated goal is 'to transform what you've consciously learned into a subconscious action'. The videos need a free or premium account and were not watched, so their content is UNVERIFIED.",
+   "sources": [
+    "https://www.cubeskills.com/tutorials/practicing",
+    "https://www.cubeskills.com/tutorials/practicing/components-vs-full-solves"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-5",
+   "topic": "practice-ratio",
+   "claim": "Jayden McNeill (blog 'Don't have enough time to practice?') bases the routine on daily time budget. With 2 h or more a day, spend at least 30 min of most days on intentional practice (new algs and tricks, efficiency work such as unlimited-inspection first-pair planning or slow solves without looking at the current pieces). Spend the rest on ao50/ao100/ao200 sessions or more focused work, and do ao50-100 sessions regularly. With only 30-60 min a day, do not mix them: alternate a solves day with an intentional-practice day. Below 2 h a day you need a careful schedule or must accept a disadvantage.",
+   "sources": [
+    "https://www.jaydenmcneillcubing.com/blog/blog-post-ten-awpyf"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-6",
+   "topic": "metrics",
+   "claim": "Jayden McNeill ('Why you should time your algorithms') says to choose algorithms and fingertricks from measured times, not feel. Time each alg as a small average (avg5, mo3, or three reps in one timing) rather than a best single, because best-single choices drift toward high-risk, low-reward algs.",
+   "sources": [
+    "https://www.jaydenmcneillcubing.com/blog/blog-post-two-92mhs"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-7",
+   "topic": "lookahead",
+   "claim": "Coaches disagree about lookahead drills. Jayden McNeill ('Why you struggle with Look Ahead') treats poor lookahead mostly as a symptom of inefficient or non-standardised solutions: fix those first, and he rejects metronome practice. CubeSkills' 'Lookahead Progression Framework' and acubemy's 2026 'Three Pillars' article both recommend metronome drills (one turn per beat; acubemy says start at 60 BPM and add 20 BPM once a full solve has no missed beats).",
+   "sources": [
+    "https://www.jaydenmcneillcubing.com/blog/blog-post-one-zm35x",
+    "https://www.cubeskills.com/blog/lookahead-progression-framework",
+    "https://acubemy.com/blog/how-to-improve-at-3x3"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-8",
+   "topic": "lookahead",
+   "claim": "CubeSkills' Lookahead Progression Framework has three levels: Spotting (look for the next pieces only after finishing the current ones), Tracking (follow the next pieces while executing) and Knowing (predict where they will end up). Drills: plan pair 1, find pair 2 before turning, then track it while executing pair 1, and repeat in isolation. Solve pairs blindfolded. Visualise where pieces go after 3-move and 7-move sequences. 'Two-look F2L': plan two pairs, execute them blind, then repeat. Predict the next step (EO/OLL) during the last pair. Isolated drills should not be forced into timed solves at the cost of time.",
+   "sources": [
+    "https://www.cubeskills.com/blog/lookahead-progression-framework"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-9",
+   "topic": "drills-roux",
+   "claim": "The Roux Reader's FB chapter recommends these drills: random last-pair cases in trainers, checked against reference solutions; untimed solves trying different ways to solve the same LP case; example solves and reconstructions ('trainers can only help you so far'); planning FB fingertricks in inspection; planning FS first if a full FB is out of reach; Zhouheng's tracking trainer. It calls Kian's Partial SpeedBLD 'arguably underrated as a practice approach. You should try to do them regularly as warmup before solves.' It also says to pick FB solutions by personal ergonomics rather than raw movecount, since ergonomics is 'more precise and correlated to actual times'.",
+   "sources": [
+    "https://book.rouxers.com/en/fb.html",
+    "https://book.rouxers.com/en/print.html",
+    "https://www.youtube.com/watch?v=4KLFyN6ZDwk"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-10",
+   "topic": "curriculum",
+   "claim": "The Roux Reader FAQ gives timing gates. Learn full CMLL as soon as possible, at the latest around a 20-30 s average. Learn EOLR only after full CMLL, around 15 s. Improve blocks by studying example solves from fast solvers (Kian, Sean) and by drilling with the Cubegrass and Zhouheng (onionhoney) block trainers.",
+   "sources": [
+    "https://book.rouxers.com/en/faqs.html"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-11",
+   "topic": "curriculum",
+   "claim": "rouxcubing.com's 'Rouxdmap to Sub-X' page has a 'Roux Techniques Table' that places techniques by level. Basic: square/line blockbuilding, inspect full FB, basic SB algs, CMLL algs and execution, EO flowchart. Intermediate: inspect FB+DR, SBLP, multi-inserts, multi-angle CMLL recognition, EOLR, DFDB, misoriented centers, dots skipping. Advanced: inspect FB+SS, nonlinear blockbuilding, SS blockbuilding, CMLLEO, EOLRb, 4c influencing, ULUR/UFUB neutrality. Niche: inspect F2B, CPFB, NMCMLL, Pinkie Pie, ACMLL/TCMLL, Nautilus L5E. The video roadmap is Kian's 'Why You're Not Sub-X With Roux' playlist, and the text roadmap says 'Coming soon'.",
+   "sources": [
+    "https://rouxcubing.com/#/rouxdmap"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-12",
+   "topic": "coach-content",
+   "claim": "Kian Mansour's 'Why You're Not Sub-X With Roux' series has five videos: Sub-20 (2016-07-25), Sub-15 (2016-08-01), Sub-12 (2016-08-13), Sub-10 (2016-08-30) and Sub-8. The four with readable descriptions (Sub-20 to Sub-10) each combine level tips, a slow-solve demonstration, and a critique, with reconstruction, of a named viewer's solve: Isaac Vega, Thibaud Ou, Iuri Grangeiro, and Waffo and Ryan Peh. Sub-15 chapter titles include 'Solving splits and targets', 'Time equation and pauses', 'Target times for each step', 'Slow solving practice', 'Deliberate practice', 'Identifying pauses' and 'Transition analysis'. Sub-12 chapters: Move Count, Inspection, Advanced Finger Tricks, Scanning the Cube, Tilt Your Head, Ugly Cases, CMLL, LSE, Slow Solve, Reconstruction. The actual target numbers were not readable (no transcript access), and the Sub-15 and Sub-10 chapter lists look auto-generated.",
+   "sources": [
+    "https://www.youtube.com/playlist?list=PLBHocHmPzgIh_ioQur_FmQ8vdRykjQJbn",
+    "https://www.youtube.com/watch?v=cM7cYmDzj24",
+    "https://www.youtube.com/watch?v=G1a9yHuLzZA",
+    "https://www.youtube.com/watch?v=hubeq4DptyI",
+    "https://www.youtube.com/watch?v=qvakHvnoyO4",
+    "https://www.youtube.com/watch?v=AOi1-Qpi5u0"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-13",
+   "topic": "coach-content",
+   "claim": "Kian Mansour's other practice-related uploads, by title and description: 'Mo10Ao5s: The Optimal Practice Method & Measure of Speed' (2019-06-05; mean of 10 averages of 5 as both practice unit and speed measure); 'How to Practice Effectively for Speedcubing Improvement' (2018-07-07); 'How I am Practising to Improve TPS (Roux)' (2017-02-12; target 8 TPS in solves); 'Partial Speed-BLD: My New Practice Technique (Roux)' (2018-04-16). Only titles and descriptions were readable.",
+   "sources": [
+    "https://www.youtube.com/watch?v=oL1cWfA9J6k",
+    "https://www.youtube.com/watch?v=DjPnRCumeGo",
+    "https://www.youtube.com/watch?v=KASTPHkU8eU",
+    "https://www.youtube.com/watch?v=4KLFyN6ZDwk"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-14",
+   "topic": "coach-content",
+   "claim": "Roux Resources' 'Speedsolving Advice' section links Charlie Eggins' practice guide ('How to get ahead of 99% of cubers', 2025-02-22) and Dylan Miller's lookahead guide (2026-01-20, 'for CFOP, but the same principles can apply to Roux'). Eggins' chapters: Fixing your fundamentals, Analyzing your solves, Targeted practice techniques, Learn and grind strategy. Miller's chapters include 'The look ahead flowchart', 'Slow turning practice drills', 'Base case prediction' and 'Two-pair prediction techniques'.",
+   "sources": [
+    "https://resources.rouxers.com/",
+    "https://www.youtube.com/watch?v=4PIMiKQHCXE",
+    "https://www.youtube.com/watch?v=pitj8kFJqn8"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-15",
+   "topic": "session-structure",
+   "claim": "Evidence for warm-ups is thin, and nothing was found on cool-downs. Roux-specific: the Roux Reader recommends Partial SpeedBLD as a pre-solve warm-up. General: dedicated warm-up videos exist ('What is the Best Way to Warm Up?', Cubed, 2020; 'The Best 5-Minute Warm-Up for Faster Cubing!', CUBEinaCUBE, 2025, in 4 parts), but their content was not readable. No coach source found describes a cool-down phase.",
+   "sources": [
+    "https://book.rouxers.com/en/fb.html",
+    "https://www.youtube.com/watch?v=HN1m7NPR6gE",
+    "https://www.youtube.com/watch?v=kjvPJUstJrU"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-16",
+   "topic": "caution",
+   "claim": "J Perm's 'HOW I PRACTICE EFFECTIVELY & IMPROVE FASTER' (2.5M views, published 2020-04-01) is an April Fools video: its description ends with '*April Fools!'. Do not use it as a practice-routine source. His real practice content includes 'How I Practice to STOP Doing Bad Habits' (2020-10-28: 'It's important to vary your practice!') and the Roux video 'How to Get Faster with the Roux Method!', whose chapters include 'Practice + Slow Solves'.",
+   "sources": [
+    "https://www.youtube.com/watch?v=9CNJtFVkXW4",
+    "https://www.youtube.com/watch?v=7xW2Lnea7MA",
+    "https://www.youtube.com/watch?v=MBGnqDjSBPE"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-17",
+   "topic": "inspection-progression",
+   "claim": "Inspection is trained by widening the planning scope step by step. Scheopner's Roux guide: a novice should find the DL edge, the L center and one pair in inspection, practising with more than 15 s until that works. An intermediate should locate all FB pieces and plan the first square or line, then track the rest. An advanced solver should fully plan FB, locate a DR edge and track it, and the very best track an SB square. acubemy says to practise without the 15 s limit, always planning one step further than usual, and to add the next step once it fits in 15 s, as Xuanyi Geng and Yiheng Wang did. Rouxer John Mark Grimes (2026) followed Xuanyi Geng's practice methods for a week and found planning F2B blind too hard. He dropped back to FB+SS, which he said was 'still probably too hard'. Antoine Cantin's video on Xuanyi's 4+ pair planning has a chapter called 'Strategic daily training'.",
+   "sources": [
+    "https://www.scheopner.com/cube/firstblock.php",
+    "https://acubemy.com/blog/how-to-improve-at-3x3",
+    "https://www.youtube.com/watch?v=eVGKGFt1KRo",
+    "https://www.youtube.com/watch?v=BUD5OJB9F6M"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-18",
+   "topic": "metrics",
+   "claim": "acubemy's blog post 'How to Improve at 3x3: The Three Pillars of Speed' (2026-10-13) frames speed as movecount, TPS while turning, and 'fluency' (the share of solve time spent turning rather than pausing). Solve time = movecount / TPS. For each solve it estimates what each pillar could save: movecount down to the method average, turning TPS up to world-record speed (14 TPS), and pauses removed. In its 16.53 s example (63 turns, 46 % fluency), removing pauses saves about 8.9 s, 14 TPS saves about 3.1 s and average movecount saves about 0.7 s. It advises lowering movecount before grinding thousands of solves, and splitting practice into 'small, targeted modules', each made measurable.",
+   "sources": [
+    "https://acubemy.com/blog/how-to-improve-at-3x3"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-19",
+   "topic": "reference-splits",
+   "claim": "CubeSkills' 'CFOP Solve Splits Tool' (about 2019) is a Google Sheet with typical Cross/F2L/OLL/PLL splits per average, from 60 s down to 8 s, interpolated to the user's average. Typical splits: 60 s = 7/35/8/10; 30 s = 4/15.5/4.5/6; 20 s = 2.8/10.2/3.0/4.0; 10 s = 1.2/5/1.65/2.15. F2L's share falls from about 58 % to 50 % and PLL's rises from about 17 % to 21.5 % as solvers get faster. A step more than 20 % above typical is flagged as 'something to focus on'; smaller deviations are called not significant. Feliks warns that splits depend on what you know: two 20 s solvers might split 4-11-2-3 and 2-9-4-5. He says the better question is which step can be improved most easily, that you should reflect on your solves before measuring, and he suggests csTimer's multi-phase timer to collect splits.",
+   "sources": [
+    "https://www.cubeskills.com/blog/cfop-solve-splits-tool",
+    "https://docs.google.com/spreadsheets/d/1jI56qznJAdqdTXqN9MyuQilijZNi7AIyLQpLjzbLqeA/export?format=xlsx"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-20",
+   "topic": "reference-splits",
+   "claim": "Roux reference split published by Scheopner's Roux guide (written July 2025): an 'Idealized Roux Step Breakdown' based on his STM-optimal step solvers, reconstructions of top solvers, and 'heavily on' Kian Mansour's similar calculation in his 2018 'Roux vs. CFOP' seminar. Ideal turns are FB 4.74, SB 9.96, CMLL 10.75, LSE 11.13. Achievable turns are 5.5, 12.75, 10.75 and 13 (42 in total). Achievable TPS is 9, 13, 13 and 11, giving 0.61/0.98/0.83/1.18 s (3.60 s). The solve fraction is FB 17 %, SB 27 %, CMLL 23 %, LSE 33 %. The author calls it a time target per step that 'is scalable to your current skill level', but it is a model of an ideal solver, not level-specific data.",
+   "sources": [
+    "https://www.scheopner.com/cube/",
+    "https://www.youtube.com/watch?v=81XdAt5m1uc"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-21",
+   "topic": "reference-splits",
+   "claim": "Measured world-class Roux splits from two public Cubeast ao100s linked by Roux Resources, using Cubeast's Steps tab. eff (5.58 s average, 48.5 turns, 8.6 TPS): FB 0.77 s (13.7 %), SB 1.84 s (32.8 %, 0.21 s recognition), CMLL 1.30 s (23.2 %, 0.61 s recognition, 15.3 execution TPS, 3 % skips), LSE 1.70 s (30.3 %, 0.37 s recognition); turns 7.3/16.4/10.7/14.2. 'Fahmi' (shared by user UNO; 6.46 s average): FB 0.79 s (12.3 %), SB 2.28 s (35.5 %), CMLL 1.34 s (20.9 %, 0.69 s recognition), LSE 2.01 s (31.3 %, 0.52 s recognition); turns 6.6/15.8/10.1/13.0. Recognition is 21-22 % of total solve time and about half of CMLL time (47-51 %). Average inspection used was 6.1 s and 11.6 s. Percentages are computed from the step times.",
+   "sources": [
+    "https://app.cubeast.com/public/share/oQfw8VwiRSwAU7MXcyYaj4",
+    "https://cbst.link/s/uvbYM9h8xn79c5rjRSfsZr",
+    "https://resources.rouxers.com/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-22",
+   "topic": "reference-splits",
+   "claim": "Derived from the two claims above: at world-class level, real FB share (12-14 %) is well below Scheopner's idealized 17 %, and SB share (33-36 %) well above 27 %, because FB is planned in inspection and executed without recognition. Reference fractions should therefore come from measured data per method and level, not from an idealized move and TPS model.",
+   "sources": [
+    "https://www.scheopner.com/cube/",
+    "https://app.cubeast.com/public/share/oQfw8VwiRSwAU7MXcyYaj4",
+    "https://cbst.link/s/uvbYM9h8xn79c5rjRSfsZr"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-23",
+   "topic": "reference-splits",
+   "claim": "No published per-level Roux split table (a Roux version of the CubeSkills CFOP tool) was found. Kian's Sub-15 video has a 'Target times for each step' chapter, but YouTube transcripts were not accessible. A search-engine snippet of a speedsolving.com post gave one solver's anecdotal splits, and speedsolving.com returns HTTP 403 here, so it could not be read. rouxcubing.com's text roadmap is 'Coming soon'.",
+   "sources": [
+    "https://www.youtube.com/watch?v=cM7cYmDzj24",
+    "https://rouxcubing.com/#/rouxdmap"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-24",
+   "topic": "movecount-targets",
+   "claim": "Scheopner's Roux guide gives movecount targets (STM) by level. FB: under 13 moves novice, under 10 intermediate, under 9 advanced. Optimal FB averages 6.21 moves with fixed orientation, 5.19 with x2y and 4.74 with full CN; work on colour neutrality once you average under 9. SB: under 22 novice, under 19 intermediate, under 16 advanced, with about 13 at speed called an ultimate goal (optimal averages 9.96). CMLL: 2-look averages 20.47 moves versus 10.75 for 1-look. LSE: the optimal average is 11.13 (median 11, 95th percentile 14).",
+   "sources": [
+    "https://www.scheopner.com/cube/firstblock.php",
+    "https://www.scheopner.com/cube/secondblock.php",
+    "https://www.scheopner.com/cube/cmll.php",
+    "https://www.scheopner.com/cube/lse.php"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-25",
+   "topic": "coach-content",
+   "claim": "Rouxer John Mark Grimes, 'Road to World Class Roux Ep. 1' (2026-01-26, 13.6 s average with full CMLL with all-angle recognition and full EOLR), builds a weekly training plan by analysing his solves. He found time losses in CMLL, LSE and second block. Chapters: Performance analysis, Identifying weak points, Training plan. This is a public example of a Roux solver turning split analysis into a weekly plan.",
+   "sources": [
+    "https://www.youtube.com/watch?v=D77Cc_aYHKM"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-26",
+   "topic": "tools-analysis",
+   "claim": "Cubeast, a closed-source web app for smart cubes, breaks a smart-cube solve into steps, each with recognition (step start to first turn), execution, step time, cumulative time, turns, TPS (turns ÷ execution time) and skipped %. It also records pickup, put-down and inspection time. For Roux the steps are 'Left block, Right block, CMLL, LSE'. Its homepage says it 'works with all major speedsolving methods'. Case recognition is Premium-only. It has a solve-filter syntax, for example 'solves where you had trouble recognizing PLL (recognition time over 2 seconds)'.",
+   "sources": [
+    "https://www.cubeast.com/",
+    "https://app.cubeast.com/public/share/oQfw8VwiRSwAU7MXcyYaj4",
+    "https://app.cubeast.com/main.843d00e3c1cda244.js"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-27",
+   "topic": "tools-analysis",
+   "claim": "csTimer (GPL-3.0) offers three relevant features. First, a manual 'Multi-phase' timer: 1-10 phases, split by pressing at each phase change; Feliks points users to this for collecting splits. Second, for smart and virtual cubes, an automatic 'Multi-phase' preset list (None|CFOP|CF+OP|CFFFFOP|CFFFFOOPP|Roux), and a reconstruction tool that splits Roux into fb/sb/cmll/l6e and reports insp (time to the first turn), exec, turns and TPS per step. Third, a metronome tool and a 'Training Stat.' panel with per-case count, best and mean for training scrambles. That panel only identifies PLL, OLL, COLL, ZBLL and 2x2 CLL, not CMLL.",
+   "sources": [
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/timer.js#L800",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/lang/en-us.js#L158-L159",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/timer/giiker.js#L201",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/lang/en-us.js#L80",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/lib/cubeutil.js#L420-L430",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/lib/cubeutil.js#L489-L490",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/stats/trainstat.js#L17-L31"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-28",
+   "topic": "tools-case-selection",
+   "claim": "Cubeast Academy (closed source) lets users build exercises of two kinds, 'Algorithm drill' and 'Intuitive solving'. Exercise options seen in the shipped app bundle: case set, case order, number of rounds, pause between cases, mirror stickers, 'Gray out irrelevant stickers', 'show hint after', 'show optimal length', min/max depth, sample-state set, cube-rotation set, and 'Hide cube after first turn' (default on for intuitive-solving exercises).",
+   "sources": [
+    "https://app.cubeast.com/main.843d00e3c1cda244.js",
+    "https://www.cubeast.com/",
+    "https://www.youtube.com/watch?v=9f0kjUJugN0"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-29",
+   "topic": "tools-case-selection",
+   "claim": "Cubeast's algorithm-drill case orders are random, prioritize_time, prioritize_recognition_time and prioritize_execution_time, with stats kept per case and per AUF state. In the prioritize modes, every case/AUF combination is first queued (3 − successes) times until each has 3 successful reps. After that, cases are ranked by the chosen time metric and the i-th slowest of n gets ceil(8·(n−i)/n) copies in a shuffled bag. The UI says 'The slowest case is 8 times more likely to be shown than fastest case.' The 'random' order serves least-practised combinations first, breaking ties at random. (Read from the minified production bundle on 2026-10-28; use as an idea only.)",
+   "sources": [
+    "https://app.cubeast.com/main.843d00e3c1cda244.js"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-30",
+   "topic": "tools-case-selection",
+   "claim": "Cubedex (MIT, poliva, commit 8a8b5b9 of 2026-10-28) has these drill options: Random Order; Slow Cases First (queue sorted by each case's best time, slowest first); Prioritize Failed Cases (a failed case is pushed back into the queue); Smart Order ('Anki-style spaced repetition'); Time Attack (all selected cases in one timed run); and Learning/Learned statuses with an optional auto-update. Smart Order grades every rep automatically, with no grade buttons. An aborted rep is 'again'. A mistake, or execution or recognition more than 1.35× the median of the last 8 successful reps, is 'hard'. A rep is 'easy' after 11 straight successes at or below the baseline; otherwise it is 'good'. Grades update an FSRS-like stability/difficulty state with due dates. Due cases are served first, most urgent first. A case auto-becomes 'learned' when 11 of its last 12 reps succeed. Recognition time runs from 'case shown' to the first move.",
+   "sources": [
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/lib/srs.ts#L42-L48",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/lib/srs.ts#L137-L202",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/lib/srs.ts#L263-L315",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/hooks/useTrainingState.ts#L287-L371",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/hooks/useTrainingState.ts#L1139-L1151",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/views/HelpView.tsx#L66-L78"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-31",
+   "topic": "tools-case-selection",
+   "claim": "Cubedex's default algorithm library now has Roux sets: CMLL (42 cases in 8 subsets), 'L6E-EO' (11) and 'L6E-EOLR' (46). Combined with smart-cube or timer modes and the SRS above, it is the closest open-source (MIT) precedent for SRS-scheduled CMLL/EOLR drilling. This settles the earlier open question about Cubedex CMLL support.",
+   "sources": [
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/data/defaultAlgs.json#L6823",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/data/defaultAlgs.json#L7033",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/data/defaultAlgs.json#L7099"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-32",
+   "topic": "tools-case-selection",
+   "claim": "SpeedcubeQuest (free web app, v1.0.384, 2026-10-28; closed source) weights drill cases with a tunable sum. Weight = 0.12 floor + Σ(slider × factor) over five factors: Case status (default 0.7; unset 1.0, failing 0.9, learning 0.75, slow 0.4, muscle memory 0.1), Freshness (0.5; not seen for a while this sitting), Accuracy (0.5; EMA miss rate), Speed (0.4; min-max normalised average time) and 'Seen too few times' (0.5; fewer than 3 drills). A case's probability is proportional to its weight. Its trainers page says the drills 'bring back the cases you fumble and let the ones you know drift away'. (Read from the shipped asset drillWeighting-B1jZBA10.js; use as an idea only.)",
+   "sources": [
+    "https://speedcube.quest/assets/drillWeighting-B1jZBA10.js",
+    "https://speedcube.quest/trainers"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-33",
+   "topic": "tools-case-selection",
+   "claim": "SpeedcubeQuest's CMLL trainer works on the 42 cases in 8 orientation groups and filters by status: Not known, Learning, Getting there, Muscle Memory, plus Failing in the FAQ. It has three modes: Flashcard (see the case, recall the alg), Scramble (set up the case on your own cube) and Virtual Cube (smart cube or keyboard), each timed or untimed. Its FAQ: 'serves the cases you are still learning, the ones you fail and the slow ones more often than the ones you already know.' The changelog adds that timer sessions can be marked 'partial practice' (e.g. cross only) so they skip personal records, that Roux solve pages get a full step breakdown, and that the Solve Analyzer breaks down Roux solves.",
+   "sources": [
+    "https://speedcube.quest/trainers/algorithms/cmll",
+    "https://speedcube.quest/change-log"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-34",
+   "topic": "tools-case-selection",
+   "claim": "jperm.net's algorithm trainer (OLL, PLL, COLL, WV, OH, 2x2 and 4x4 sets; no CMLL) chooses cases to train by All, Groups, Status (Unlearned/Learning/Finished, set by clicking a case) or the N slowest cases by average. Probability is 'Balanced' (each selected case appears equally often, 'good for learning and reviewing') or 'Realistic' (real-solve probability). A Trash option includes or excludes cases you don't plan to learn. Including them helps 'to avoid mixing them up, especially if they look similar'.",
+   "sources": [
+    "https://jperm.net/algs/pll",
+    "https://jperm.net/algs"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-35",
+   "topic": "tools-case-selection",
+   "claim": "csTimer's 'Probabilities for training-scramble states' setting has three values: Actual (natural case probabilities), Equal (uniform among selected cases) and Random order (a Miller-shuffle permutation, so each selected case appears once per cycle).",
+   "sources": [
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/scramble/scramble.js#L103-L147",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/lang/en-us.js#L31-L32"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-36",
+   "topic": "tools-case-selection",
+   "claim": "Roman Strakhov's bestsiteever trainers (OLL trainer and ZBLL trainer; both repos have no licence file) offer a 'recap' mode in which every selected case comes up once. In the ZBLL trainer's normal mode, 20 % of picks take the least-practised case (ties at random) and the rest are uniform random. rouxcubing.com lists Roman's ZBLL trainer and Tao Yu's Alg-Trainer as usable for CMLL.",
+   "sources": [
+    "https://github.com/Roman-/oll_trainer/blob/a2c6e48bc27116f2898f3a9a4523d54011a4363f/scripts/timer.js#L56-L72",
+    "https://github.com/Roman-/zbll/blob/e57eaef6b64c5eaf4bbafe3256eacd65a5e7a4bb/src/stores/SessionStore.js#L76-L97",
+    "https://rouxcubing.com/#/rouxsources?mainTab=1&subTab=6"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-37",
+   "topic": "tools-case-selection",
+   "claim": "Several common trainers pick cases uniformly at random with no performance weighting. Tao Yu's Alg-Trainer (MIT; random or 'Go in order'; includes CMLL). Twisty Timer's trainer (GPL-3.0 Android app; OLL/PLL only; last commit 2023-06-23). CubeDesk's trainer (GPL-3.0-or-later; seeded random over set and favourites filters; 2023 source mirror; has CMLL). onionhoney roux-trainers, the upstream of this repo (rand_choice over the selected CMLL cases).",
+   "sources": [
+    "https://github.com/tao-yu/Alg-Trainer/blob/cb95945c3e4839ee1e4b058d4a79bc022615b220/js/RubiksCube.js#L1392-L1402",
+    "https://github.com/aricneto/TwistyTimer/blob/2fcd6f7d2697a0810f37245ac033f1da12448382/app/src/main/java/com/aricneto/twistytimer/puzzle/TrainerScrambler.java#L115-L139",
+    "https://github.com/dominikbeveridge/cubedesk/blob/a13e2fe95db88433a588585bb3a5f77a7cad8c2f/client/components/trainer/Trainer.tsx#L83-L90",
+    "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/src/lib/Algs.tsx#L395-L405",
+    "https://github.com/onionhoney/roux-trainers/blob/0129460a5c30082ea0e29b4489623889118078ec/src/reducers/CmllStateM.tsx#L40-L41"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-38",
+   "topic": "tools-case-selection",
+   "claim": "wodzik/cube (cubetrainer.cc; GPL-3.0; built on the MPL-2.0 cubecore library; commit 4bdeb45 of 2026-10-06) is a smart-cube web app. Its step trainers generate scrambles with an exactly known optimal length, including Roux FS (2-6), FB (3-8), FB+DR (2-7), SS (3-10), SB last slot (2-9), CMLL, EOLR (3-10) and LSE (3-12). They report 'your moves / optimal', give a hint (the first optimal move) and show the optimal solutions afterwards. 'Ladder' mode adds one move to the length when at least 80 % of your last 10 attempts at the current length were optimal. 'Recognize' mode times you to your first turn. Per-case stats separate in-solve times, drill times and recognition times, and Time Attack runs every case of a set. Speedsolves are split into FB/SB/CMLL/LSE with per-stage recognition and execution. It credits onionhoney roux-trainers for the exact-depth trainer idea. Its plan doc also proposes a retry queue for non-optimal attempts ('spaced repetition-lite').",
+   "sources": [
+    "https://github.com/wodzik/cube/blob/4bdeb4557cc3dec31cd582f7395537f6b194f65d/README.md#L1-L58",
+    "https://github.com/wodzik/cube/blob/4bdeb4557cc3dec31cd582f7395537f6b194f65d/src/pages/TrainersPage.tsx#L90-L93",
+    "https://github.com/wodzik/cube/blob/4bdeb4557cc3dec31cd582f7395537f6b194f65d/plan-trainer.md#L355-L368",
+    "https://github.com/wodzik/cube/blob/4bdeb4557cc3dec31cd582f7395537f6b194f65d/src/components/stageGroups.ts#L13-L25"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-39",
+   "topic": "tools-case-selection",
+   "claim": "Cubegrass block trainer: 'Level' is the optimal solution length, chosen by hand and multi-selectable. Ranges are Roux FB 1-9, Roux SB 1-14, SB first square 1-10 and SB last pair 3-9. The solution is revealed on demand.",
+   "sources": [
+    "https://cubegrass.appspot.com/block_trainer/",
+    "https://cubegrass.appspot.com/block_trainer/block_trainer.js"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubing-40",
+   "topic": "tools-planning",
+   "claim": "acubemy is a smart-cube timer and training app with native iOS and Android apps plus a browser version (promoted in a July 2026 video that thanks it for 'Roux support'); Premium costs €4.99/month or €49.99/year. Its marketing says it 'finds the hidden flaws in your technique and builds a training plan'. It also says it benchmarks you against '3 million solves, showing you the exact recognition and execution splits you need to hit' for a goal time, and alerts you after a solve to time you could have saved, with a one-tap drill to learn the better alg. Its 'Personalized Training' (Premium) gives 'targeted drills and smart flashcards using spaced repetition', but only for OLL, PLL and F2L cases. The Insights tab has CFOP, Roux and ZZ views, and each unlocks after 12 smart-cube solves with that method. The training pages need a login, so the plan generator was not inspected.",
+   "sources": [
+    "https://acubemy.com/",
+    "https://acubemy.com/faq",
+    "https://acubemy.com/statistics/insights",
+    "https://www.youtube.com/watch?v=AMtBD3im6ac"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-41",
+   "topic": "tools-planning",
+   "claim": "CuberPal (iOS App Store listing, CFOP-centric) says: 'Tell CuberPal your current average and your goal, and follow a personalized training plan'. It also offers 'Focus Sprints' (practise one cue across a short set of solves), a 'path to your next personal best and a forecast of where your average is heading', and a 'weekly recap of your solves, your progress and what to work on next'. Other features: spaced-repetition drills where you 'grade each case and CuberPal schedules the ones you need to see again' (OLL/PLL/COLL/ZBLL/F2L), AI video feedback per CFOP phase (pauses, rotations, slow F2L pairs), streaks, awards and practice reminders.",
+   "sources": [
+    "https://apps.apple.com/us/app/id6758110729",
+    "https://www.cuberpal.com/"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-42",
+   "topic": "tools-planning",
+   "claim": "Other 2025-2026 mobile trainers track per-case status or weak cases but do not build Roux-aware plans. Cube Gym (iOS) has a full CMLL set, Learning/Learned marks to 'build a focused curriculum', named resumable sessions, and separate recognition-ID and execution drills, with all data on device. Nathan's Cube Trainer (iOS) has 'weak-case tracking and review' and a CFOP segmented timer. Neither mentions Roux-specific analysis or plan generation.",
+   "sources": [
+    "https://apps.apple.com/us/app/id6758565472",
+    "https://apps.apple.com/us/app/id6767834369"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-43",
+   "topic": "tools-planning",
+   "claim": "No surveyed tool generates a Roux-specific training plan. Plan and diagnosis features are either CFOP-only (acubemy's personalised training covers OLL/PLL/F2L; CuberPal coaches Cross/F2L/OLL/PLL) or user-built (Cubeast Academy exercises; jperm/SpeedcubeQuest/cubedex case filters). The Roux tools (onionhoney roux-trainers, Cubegrass, Jade's EOLRb trainer, wodzik/cube step trainers) offer single-module drills without a cross-module plan or weakness-driven scheduling.",
+   "sources": [
+    "https://acubemy.com/faq",
+    "https://apps.apple.com/us/app/id6758110729",
+    "https://app.cubeast.com/main.843d00e3c1cda244.js",
+    "https://github.com/wodzik/cube/blob/4bdeb4557cc3dec31cd582f7395537f6b194f65d/README.md"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-44",
+   "topic": "metrics",
+   "claim": "Weakness metrics coaches use, and where each comes from. (1) Stage splits compared with typical splits at your level: CubeSkills' CFOP tool, and John Mark Grimes' Roux training plan built from his time losses. (2) Movecount against level targets or solver optimum: Scheopner; Kian's 'Move Count' chapters. (3) Pauses, especially at transitions: Kian's 'Identifying pauses' and 'Transition analysis' chapters; acubemy's 'fluency'. (4) Recognition versus execution per step: Cubeast, csTimer and cubedex all time recognition as step or case start to first turn. (5) TPS while turning, with execution timed per alg as small averages: Jayden McNeill. (6) Fingertricks, regrips and lockups, found by reviewing solves: the Roux Reader's FB turning advice; Kian's critiques.",
+   "sources": [
+    "https://www.cubeskills.com/blog/cfop-solve-splits-tool",
+    "https://www.scheopner.com/cube/firstblock.php",
+    "https://www.youtube.com/watch?v=cM7cYmDzj24",
+    "https://acubemy.com/blog/how-to-improve-at-3x3",
+    "https://app.cubeast.com/public/share/oQfw8VwiRSwAU7MXcyYaj4",
+    "https://www.jaydenmcneillcubing.com/blog/blog-post-two-92mhs",
+    "https://book.rouxers.com/en/fb.html"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-45",
+   "topic": "metrics",
+   "claim": "Lockups and regrips are not measured by any surveyed tool. The Roux Reader says FB's F/B-heavy moveset is 'intrinsically more difficult to fingertrick', and that rushing it causes overshoots and 'bad lockups'. Its advice: plan fingertricks in inspection, limit regrips, eliminate pauses, and keep turning calm so you can track SB pieces. Smart-cube tools capture only time gaps and turn counts. The video-based CuberPal claims to detect pauses and rotations, but only for CFOP.",
+   "sources": [
+    "https://book.rouxers.com/en/fb.html",
+    "https://apps.apple.com/us/app/id6758110729"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubing-46",
+   "topic": "session-structure",
+   "claim": "A retailer blog (SpeedCubeShop, 'New Year, Faster Solves', 2026) recommends 20-30 minutes of focused practice every day, deciding the focus in advance and working on one step per session. It suggests drilling a single situation for 10-15 minutes until it needs no thought, and tracking averages rather than single solves. It also says lookahead should become a focus only once recognition and execution are easy.",
+   "sources": [
+    "https://speedcubeshop.com/a/blog/new-year-faster-solves-how-to-improve-cubing-speed-in-2026"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "cubing-47",
+   "topic": "access",
+   "claim": "Sources that could not be read in this session. speedsolving.com returned HTTP 403, so the forum practice threads appear only as search snippets and are not cited as facts. reddit (r/Roux wiki) hit a login wall (403). YouTube transcripts failed: get_transcript returned FAILED_PRECONDITION, the watch pages showed a 'Sign in to confirm you're not a bot' gate, and repeated requests got HTTP 429. Only titles, descriptions and chapters were used. Also behind a login: CubeSkills 'Practicing' lesson videos, the CubeDesk trainer, and the acubemy training page and plan generator.",
+   "sources": [
+    "https://www.speedsolving.com/goto/post?id=1361858",
+    "https://old.reddit.com/r/Roux/wiki/index",
+    "https://www.cubeskills.com/tutorials/practicing/practice-schedule-thoughts",
+    "https://www.cubedesk.io/trainer",
+    "https://acubemy.com/training"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "patterns": [
+  {
+   "name": "Reference-split diagnosis with a tolerance band",
+   "description": "Compare the user's stage splits with typical splits at the same average, interpolated between levels, and flag only steps more than about 20 % above typical. Present the result as 'which step is easiest to improve', not as an absolute target, because splits depend on the techniques the solver knows.",
+   "seenIn": [
+    "CubeSkills CFOP Solve Splits Tool (cubing-19)",
+    "John Mark Grimes' Roux training plan (cubing-25)"
+   ],
+   "transferToRouxtine": "A Diagnose step after every timed block computes FB/SB/CMLL/LSE fractions, plus EO/EOLR/4c where the smart cube or manual split entry allows. It compares them with a Roux reference table (seed: Scheopner 17/27/23/33 for the model and 13/33/22/31 measured at world-class level; refine from opt-in anonymised user data later). Steps more than 20 % over the reference are recommended as the focus, with a one-tap 'add module to Rouxtine'. Thresholds should account for the techniques the user knows: someone on 2-look CMLL should not be told their CMLL is 'slow'."
+  },
+  {
+   "name": "Three-pillar decomposition per stage",
+   "description": "Split time into movecount, TPS while turning and fluency (time not paused), then estimate how much each pillar could save.",
+   "seenIn": [
+    "acubemy 'Three Pillars' article (cubing-18)",
+    "Kian's 'time equation and pauses' chapter (cubing-12)"
+   ],
+   "transferToRouxtine": "For each Roux stage, show: moves against the solver optimum (onionhoney's analyzer already computes stage optima), TPS while turning, and pause/recognition time. Rank the counterfactual savings to choose the next module: efficiency drills (FB/SB trainers with optimal compare), recognition drills (CMLL/4c) or execution drills (alg timing)."
+  },
+  {
+   "name": "Recognition and execution timed separately",
+   "description": "Time from step or case start to the first move is recognition; the rest is execution. Each is tracked separately, and drills can prioritise either one.",
+   "seenIn": [
+    "Cubeast (cubing-26, cubing-29)",
+    "csTimer reconstruction (cubing-27)",
+    "cubedex (cubing-30)",
+    "wodzik/cube Recognize mode (cubing-38)",
+    "SpeedcubeQuest Flashcard mode (cubing-33)"
+   ],
+   "transferToRouxtine": "Every case-based module (CMLL, EOLR, 4c, SBLP) records recognitionMs and executionMs. A 'recognition-only' variant (tap to name the case, or first-turn timing on a smart cube) shares the same case statistics. World-class CMLL is about half recognition (cubing-21), so recognition is a first-class target."
+  },
+  {
+   "name": "Pluggable case-selection policy",
+   "description": "Case selection is a per-drill strategy rather than hard-coded random: natural probability, equal, recap (each once), least-seen, slowest by recognition/execution/total, failed-requeue, SRS, or a tunable weighted sum.",
+   "seenIn": [
+    "csTimer Actual/Equal/Random order (cubing-35)",
+    "jperm Balanced/Realistic/Slowest (cubing-34)",
+    "Cubeast case orders (cubing-29)",
+    "cubedex options (cubing-30)",
+    "Roman recap (cubing-36)",
+    "SpeedcubeQuest sliders (cubing-32)"
+   ],
+   "transferToRouxtine": "Define a `CaseSelector` interface. Each Rouxtine block names a module plus a selector: Recap for coverage, Weakest for focus, Realistic for simulation, SRS for retention. Show the user why a case was picked (status, slow, missed, due)."
+  },
+  {
+   "name": "Bootstrap, then weight, with a floor",
+   "description": "First give every case a minimum number of successful reps, then weight towards weak cases on a bounded scale, so known cases still come up sometimes.",
+   "seenIn": [
+    "Cubeast: 3 successes per case-AUF, then linear 8:1 weighting (cubing-29)",
+    "SpeedcubeQuest: 0.12 floor, 'seen too few times' factor (cubing-32)"
+   ],
+   "transferToRouxtine": "The default 'Weakest' selector bootstraps 3 successful reps per case (per AUF/angle for CMLL), then weights by a blended weakness score capped at about 8x the strongest case, with a non-zero floor."
+  },
+  {
+   "name": "Per-angle (AUF) statistics",
+   "description": "Stats are stored per case and AUF state, not only per case.",
+   "seenIn": [
+    "Cubeast stateAuf tracking (cubing-29)"
+   ],
+   "transferToRouxtine": "Store CMLL, EOLR and 4c stats per (case, AUF or angle). Any-angle CMLL recognition is a named Roux skill (Roux Reader; rouxcubing 'multi-angle recognition'), and per-case averages hide a weak angle."
+  },
+  {
+   "name": "Automatic SRS grading from timing and mistakes",
+   "description": "Grades come from objective signals instead of user buttons: an aborted rep is 'again'; a mistake, or more than 1.35x the median of recent reps, is 'hard'; a long success streak at or below baseline is 'easy'. These feed an FSRS-like scheduler, and 'learned' status updates automatically.",
+   "seenIn": [
+    "cubedex Smart Order (cubing-30)",
+    "SpeedcubeQuest SRS (cubing-32, cubing-33)",
+    "CuberPal manual grading (cubing-41)"
+   ],
+   "transferToRouxtine": "Use auto-grading for CMLL/EOLR/4c retention blocks, which keeps grade buttons off the touch timer, and allow a manual override. Feed the auto-learned status into the curriculum's unlock suggestions."
+  },
+  {
+   "name": "Case status ladder",
+   "description": "Each case carries a status: unlearned or unknown, learning, getting there, muscle memory, plus trash/hidden. Status filters drills and weights selection.",
+   "seenIn": [
+    "jperm Unlearned/Learning/Finished + Trash (cubing-34)",
+    "SpeedcubeQuest five statuses (cubing-33)",
+    "cubedex auto-learned (cubing-30)",
+    "Cube Gym (cubing-42)"
+   ],
+   "transferToRouxtine": "The same status model applies across all case modules. Optionally include 'trash' or not-yet-learned look-alikes in drills to train discrimination, which jperm recommends."
+  },
+  {
+   "name": "Optimal-length difficulty ladder for intuitive steps",
+   "description": "Scrambles come with a known optimal length. Difficulty moves up one move when at least 80 % of the last 10 attempts were optimal, and the app reports your moves against optimal.",
+   "seenIn": [
+    "wodzik/cube Ladder (cubing-38)",
+    "Cubegrass levels (cubing-39)",
+    "Cubeast show-optimal-length/min-max depth (cubing-28)"
+   ],
+   "transferToRouxtine": "FB, FS, FB+DR, SS, SBLP and EOLR modules support an 'Adaptive depth' mode on the existing solver/pruner: start at short optimal lengths, step up by the 80 %-of-10 rule, and step down after repeated misses."
+  },
+  {
+   "name": "Inspection-scope progression with a hide-after-first-turn check",
+   "description": "Train planning with unlimited or extended inspection and a scope that grows: DL + centre + pair, then FS or line, then FB, FB+DR, FB+SS and F2B. Hiding the cube after the first turn checks that the plan was real.",
+   "seenIn": [
+    "Scheopner novice/intermediate/advanced inspection (cubing-17)",
+    "acubemy 'plan one step further' (cubing-17)",
+    "Cubeast 'Hide cube after first turn' (cubing-28)",
+    "John Mark Grimes WCR5 (cubing-17)"
+   ],
+   "transferToRouxtine": "In the FB Inspection Planner module, each level has a target scope and time limit (unlimited, then 30 s, then 15 s). Optionally blank the cube once execution starts (on a smart cube) and compare the result with the plan. Move to the next scope once 80 % of plans succeed within 15 s."
+  },
+  {
+   "name": "Coverage runs (recap / time attack)",
+   "description": "Run every selected case once, as a single timed run or in a permuted order.",
+   "seenIn": [
+    "Roman recap (cubing-36)",
+    "csTimer Random order (cubing-35)",
+    "cubedex and wodzik Time Attack (cubing-30, cubing-38)"
+   ],
+   "transferToRouxtine": "A 'Coverage' block type for warm-ups and reviews, e.g. all 42 CMLL once, timed, as a Rouxtine warm-up."
+  },
+  {
+   "name": "Goal- and time-budget-driven plan",
+   "description": "The user gives a current average, a goal and the time available, and the app proposes a plan, sprints and a weekly recap.",
+   "seenIn": [
+    "CuberPal (cubing-41)",
+    "acubemy goal splits (cubing-40)",
+    "Jayden McNeill time-budget rules (cubing-5)"
+   ],
+   "transferToRouxtine": "A Rouxtine wizard that asks for average, goal and minutes per day (and smart-cube availability). Under about 60 min it alternates drill days and solve days; at 2 h or more it schedules at least 30 min of deliberate drills plus ao50+ solves. The deliberate share shrinks as the average drops (Feliks). The plan is regenerated weekly from the latest diagnosis."
+  },
+  {
+   "name": "Drills kept out of records",
+   "description": "Partial or drill sessions do not count toward personal bests and averages.",
+   "seenIn": [
+    "SpeedcubeQuest 'partial practice' sessions (cubing-33)"
+   ],
+   "transferToRouxtine": "Stage-drill and partial-solve blocks write to module statistics, not full-solve PBs. Only 'Timed solves' blocks feed ao5/ao12/Mo10Ao5."
+  },
+  {
+   "name": "Lookahead progression drills",
+   "description": "A spotting, tracking and knowing progression; tracking-while-executing and blindfolded-pair drills; metronome; prediction of the next step during the current one.",
+   "seenIn": [
+    "CubeSkills framework (cubing-8)",
+    "Dylan Miller guide (cubing-14)",
+    "Roux Reader tracking trainer and partial SpeedBLD (cubing-9)"
+   ],
+   "transferToRouxtine": "Modules: tracking trainer (FB execution while tracking the DR edge), partial SpeedBLD FB, SBLP-to-CMLL prediction (NMCLL recognition), optional metronome mode on any full-solve block. Label metronome as optional, since coaches disagree about it (cubing-7)."
+  },
+  {
+   "name": "Technique roadmap by level",
+   "description": "A level-tagged catalogue of techniques with timing gates.",
+   "seenIn": [
+    "rouxcubing Rouxdmap (cubing-11)",
+    "Roux Reader FAQ gates (cubing-10)",
+    "Scheopner level targets (cubing-24)",
+    "CubeSkills level brackets (cubing-3)"
+   ],
+   "transferToRouxtine": "Tag every module Basic/Intermediate/Advanced/Niche using the Rouxdmap vocabulary, and suggest the next module when a gate is met: full CMLL by 20-30 s, EOLR from about 15 s, CN once FB averages under 9 moves."
+  },
+  {
+   "name": "Averages as the progress unit",
+   "description": "Measure progress with averages, not singles: Mo10Ao5 for solves, small averages (mo3/ao5) for algorithm timing.",
+   "seenIn": [
+    "Kian Mo10Ao5 (cubing-13)",
+    "Jayden McNeill alg timing (cubing-6)"
+   ],
+   "transferToRouxtine": "The headline progress metric for a Rouxtine is its timed-solve Mo10Ao5 or ao50. Per-case 'slowest' ranking uses a recent average, not the best single."
+  },
+  {
+   "name": "Loose rotation instead of a strict calendar",
+   "description": "Plan coverage over a timeframe, and let the user skip or swap blocks when they are not in the mood.",
+   "seenIn": [
+    "Feliks practice tips (cubing-2)"
+   ],
+   "transferToRouxtine": "'Today's Rouxtine' is a suggestion with skippable and swappable blocks. Coverage is tracked over the week, so neglected modules move up, instead of fixed weekday slots."
+  }
+ ],
+ "antiPatterns": [
+  "Uniform-random case selection as the only option (Tao Yu, Twisty Timer, CubeDesk and onionhoney roux-trainers, cubing-37): reps are wasted on cases already known, and no signal says what to drill.",
+  "Over-weighting weak cases with no floor or bootstrap: known cases starve and fade. Cubeast keeps a minimum of 1 copy plus a 3-success bootstrap, and SpeedcubeQuest a 0.12 floor (cubing-29, cubing-32).",
+  "Ranking 'slow' cases or choosing algorithms by best single. Jayden McNeill warns this favours high-risk algs, yet cubedex's 'Slow Cases First' sorts by best time (cubing-6, cubing-30).",
+  "Absolute split targets that ignore what the solver knows (Feliks: two 20 s solvers can split 4-11-2-3 and 2-9-4-5, cubing-19). Applying Scheopner's idealized 17/27/23/33 to a real solver: even world-class FB share is about 13 % (cubing-22).",
+  "Strict, forced practice calendars (Feliks: never followed a strict regimen; forced practice is less effective, cubing-2). Streak pressure (CuberPal) works against this too.",
+  "Grinding thousands of timed solves with high movecount before learning the method's efficient techniques; changing technique later makes times worse first (acubemy, cubing-18).",
+  "Drilling execution of bad fingertricks, which entrenches them (acubemy; Jayden McNeill 'fingertricks are THE fundamental').",
+  "Treating lookahead as purely a slow-turning or metronome problem when the root cause is inefficient or unstandardised solutions (Jayden McNeill, cubing-7).",
+  "Counting drill or partial sessions in full-solve PBs and averages (SpeedcubeQuest's partial-practice flag fixes this, cubing-33).",
+  "Aggregating recognition time per case only, which hides weak angles for any-angle CMLL (Cubeast keys stats by case and AUF, cubing-29).",
+  "Hiding look-alike cases you are not learning: jperm suggests including them so learned and unlearned cases are not confused (cubing-34).",
+  "CFOP-only planning and diagnosis presented as general (acubemy's personalised training covers OLL/PLL/F2L; CuberPal analyses Cross/F2L/OLL/PLL). Roux stages such as EOLR, 4c and SB efficiency are left out (cubing-43).",
+  "Citing April-Fools or marketing content as practice evidence (J Perm's 2020-04-01 'HOW I PRACTICE EFFECTIVELY', cubing-16; acubemy's '3M solves' claims are unverified, cubing-40)."
+ ],
+ "recommendation": "Build the Rouxtine as an ordered list of blocks. Each block is (module, selector, stop condition, scoring). Block kinds are Warm-up, Focus drill, Coverage, Timed solves and Review. Default template: (1) Warm-up, 5 min: partial SpeedBLD FB, or a Coverage run of known CMLLs. (2) One or two Focus drills chosen by diagnosis. (3) Timed solves as ao12/ao50, or Mo10Ao5 as the headline metric. (4) Optional Review: reconstruct the worst solve and compare each stage with the solver optimum. The deliberate-versus-timed share follows Feliks and Jayden McNeill. More deliberate when the user is learning or fixing fundamentals; at least 50 % timed once the method is complete. With 30-60 min a day, alternate drill days and solve days. Drive focus selection from a per-stage diagnosis: stage fractions against a Roux reference table with a 20 % band, and per-stage movecount against solver optimum, TPS while turning and recognition time. Seed the table from Scheopner (model) and the Cubeast ao100s (measured world-class). Label it as provisional, and refine it from opt-in local data, since no per-level Roux table exists. Give every case module a pluggable CaseSelector: Recap, Realistic, Weakest (bootstrap 3 successes per case-angle, then a capped weighting with a floor), and SRS with cubedex-style automatic grading from recognition/execution timing and mistakes. Store stats per case and angle. Give intuitive modules (FB, FS, FB+DR, SS, SBLP, EOLR) an optimal-length ladder (+1 move when at least 80 % of the last 10 were optimal) on the existing solver. Give the FB inspection planner a scope ladder (DL+centre+pair, FS/line, FB, FB+DR, FB+SS) with optional hide-after-first-turn. Keep drill data out of PBs. Make the daily Rouxtine a skippable suggestion with weekly coverage rather than a strict calendar. Tag modules with the Rouxdmap levels and Roux Reader gates (full CMLL by 20-30 s, EOLR from about 15 s, CN once FB is under 9 moves) to suggest new modules. This combination does not exist in any surveyed tool: Roux-aware diagnosis, cross-module plans, and SRS/adaptive drills on touch and smart cube. acubemy and CuberPal plan only for CFOP, and the Roux trainers are single-module."
+}

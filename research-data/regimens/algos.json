@@ -1,0 +1,557 @@
+{
+ "claims": [
+  {
+   "id": "algos-1",
+   "topic": "fsrs-version",
+   "claim": "As of 2026-10-28 the newest FSRS model is FSRS-7. It has 34 weights, a dual-trace memory state (slow stability S_s, fast stability S_f, difficulty D), works in fractional days (minimum 1 s), and solves the interval numerically (up to 7 Newton steps with bisection fallback). ts-fsrs 6.0.0, published to npm on 2026-10-28T14:11Z, makes FSRS-7 the default model of DefaultScheduler. fsrs-rs 6.6.2 (crate, 2026-08-29) implements FSRS-6 and FSRS-7, picking the model by parameter count. FSRS-6 (21 weights) is still the newest version on the official algorithm wiki page and the model in py-fsrs 6.3.2. FSRS-7 is hours old in the TypeScript reference, so treat it as not yet settled.",
+   "sources": [
+    "https://github.com/open-spaced-repetition/ts-fsrs/blob/b69d6ca2dca55579198c913fd55a43d6bf703b34/packages/fsrs/CHANGELOG.md",
+    "https://github.com/open-spaced-repetition/ts-fsrs/blob/b69d6ca2dca55579198c913fd55a43d6bf703b34/docs/src/en-US/guide/model/fsrs-7.mdx",
+    "https://registry.npmjs.org/ts-fsrs (time['6.0.0'] = 2026-10-28T14:11:50Z)",
+    "https://github.com/open-spaced-repetition/fsrs-rs/blob/3be7d2af54fd186fc6a5cbb4e8c393bc9c19ca4e/README.md",
+    "https://crates.io/api/v1/crates/fsrs",
+    "https://github.com/open-spaced-repetition/awesome-fsrs/wiki/The-Algorithm",
+    "https://github.com/open-spaced-repetition/py-fsrs/blob/9446cb06605c597a063aeee49f7d188d42e34dc2/fsrs/scheduler.py#L31-L54"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-2",
+   "topic": "fsrs-6-formulas",
+   "claim": "FSRS-6 formulas, as implemented in py-fsrs 6.3.2. Ratings: Again=1, Hard=2, Good=3, Easy=4. Retrievability R(t,S) = (1 + F*t/S)^(-w20), with F = 0.9^(-1/w20) - 1, so R(S,S) = 0.9. Next interval I = (S/F)*(r^(-1/w20) - 1), rounded to whole days, at least 1 day and at most maximum_interval. Initial values: S0 = w[G-1] and D0(G) = w4 - e^(w5*(G-1)) + 1. Difficulty update: D' = clamp[1,10]( w7*D0(4) + (1-w7)*(D + (10-D)/9 * (-w6*(G-3))) ). Stability after a recall: S' = S*(1 + e^w8*(11-D)*S^(-w9)*(e^(w10*(1-R)) - 1)*[w15 if Hard]*[w16 if Easy]). Stability after a lapse: S' = min( w11*D^(-w12)*((S+1)^w13 - 1)*e^(w14*(1-R)), S/e^(w17*w18) ). Same-day reviews (elapsed whole days < 1) use S' = S*e^(w17*(G-3+w18))*S^(-w19), with the increase clamped to at least 1 for Hard, Good and Easy. Elapsed time is counted in integer days. Default weights: [0.212, 1.2931, 2.3065, 8.2956, 6.4133, 0.8334, 3.0194, 0.001, 1.8722, 0.1666, 0.796, 1.4835, 0.0614, 0.2629, 1.6483, 0.6014, 1.8729, 0.5425, 0.0912, 0.0658, 0.1542]. Scheduler defaults: desired retention 0.9, learning steps 1 min and 10 min, relearning step 10 min, maximum interval 36500 days, fuzz on (not applied below 2.5 days).",
+   "sources": [
+    "https://github.com/open-spaced-repetition/py-fsrs/blob/9446cb06605c597a063aeee49f7d188d42e34dc2/fsrs/scheduler.py#L31-L54",
+    "https://github.com/open-spaced-repetition/py-fsrs/blob/9446cb06605c597a063aeee49f7d188d42e34dc2/fsrs/scheduler.py#L164-L188",
+    "https://github.com/open-spaced-repetition/py-fsrs/blob/9446cb06605c597a063aeee49f7d188d42e34dc2/fsrs/scheduler.py#L225-L234",
+    "https://github.com/open-spaced-repetition/py-fsrs/blob/9446cb06605c597a063aeee49f7d188d42e34dc2/fsrs/scheduler.py#L640-L800",
+    "https://github.com/open-spaced-repetition/awesome-fsrs/wiki/The-Algorithm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-3",
+   "topic": "fsrs-benchmark",
+   "claim": "The srs-benchmark covers about 10k Anki users and about 727M reviews; 349.9M reviews are used for evaluation without same-day reviews. Log loss without same-day reviews (lower is better): FSRS-7 0.3401, FSRS-6 0.3460, FSRS-7 with default parameters 0.3620, FSRS-4.5 0.3625, HLR (Duolingo) 0.4694, Ebisu v2 0.4989. MOVING-AVG, a parameter-free baseline driven by recent pass/fail, scores 0.3369. With same-day reviews evaluated (519.3M reviews), FSRS-7 scores 0.3206 against FSRS-6's 0.3842. The README calls FSRS-7 'the only version that can give realistic predictions of probability of recall for same-day reviews'. Per-user optimisation matters: FSRS-7 with default weights is clearly worse than optimised FSRS-6. A row for FSRS-6 with default weights is not reported.",
+   "sources": [
+    "https://github.com/open-spaced-repetition/srs-benchmark/blob/main/README.md (fetched 2026-10-28)"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-4",
+   "topic": "fsrs-licences",
+   "claim": "Reference implementations and their licences: py-fsrs is MIT (v6.3.2 on PyPI, 2026-08-09, FSRS-6, scheduler plus an optional torch optimizer). ts-fsrs is MIT (v6.0.0, FSRS-3 to FSRS-7; its optimizer binding @open-spaced-repetition/binding is a separate package). fsrs-rs is BSD-3-Clause (crate 6.6.2; scheduler, optimizer, simulator and Cost-ADR; it is what Anki uses, as fsrs = 6.6.2 in Anki's Cargo.toml). fsrs-optimizer (Python) is BSD-3-Clause. The awesome-fsrs list is CC0-1.0.",
+   "sources": [
+    "https://github.com/open-spaced-repetition/py-fsrs/blob/9446cb06605c597a063aeee49f7d188d42e34dc2/LICENSE",
+    "https://pypi.org/pypi/fsrs/json",
+    "https://github.com/open-spaced-repetition/ts-fsrs/blob/b69d6ca2dca55579198c913fd55a43d6bf703b34/LICENSE",
+    "https://github.com/open-spaced-repetition/fsrs-rs/blob/3be7d2af54fd186fc6a5cbb4e8c393bc9c19ca4e/LICENSE",
+    "https://crates.io/api/v1/crates/fsrs",
+    "https://github.com/open-spaced-repetition/fsrs-optimizer/blob/ac2a82d222c4ea809985236e2a52e058da524c40/LICENSE",
+    "https://github.com/ankitects/anki/blob/main/Cargo.toml"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-5",
+   "topic": "fsrs-jvm-ports",
+   "claim": "No maintained, clearly licensed, pure-Kotlin/JVM library implements FSRS-6 or FSRS-7. awesome-fsrs lists FSRS-Kotlin as v6, but at commit 670f2f8 (2025-08-07) it is two files (FSRS.kt, models.kt) with no LICENSE file; the README says MIT. Its code imports app-specific classes (app.arteh.flashcard.db.*, R.color, androidx.compose), so it is a snippet from an app, not a library. android-fsrs is MIT but implements FSRS v4 inside a sample app (last commit 2023-10-17). rs-fsrs-java (MIT) is a JNI binding to the Rust rs-fsrs scheduler (FSRS-5) and needs a native .so for each ABI. awesome-fsrs also lists fsrs4s, a Scala FSRS-6 scheduler. The practical path is a small Kotlin port of py-fsrs (MIT, about 300 lines of scheduling logic), checked against py-fsrs outputs.",
+   "sources": [
+    "https://github.com/open-spaced-repetition/awesome-fsrs/blob/0ffe54907988a32500b09007090637fd85b90e04/README.md",
+    "https://github.com/open-spaced-repetition/FSRS-Kotlin/tree/670f2f895f316a9f78dfd19b991d9bc523c9b037",
+    "https://github.com/open-spaced-repetition/android-fsrs/tree/04be511631681b20b6934e72cd94ac25060adcb3",
+    "https://github.com/open-spaced-repetition/rs-fsrs-java/tree/6afdf42a42b131f3230b61aceba1cbf0d7b66f26"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-6",
+   "topic": "fsrs-android-precedent",
+   "claim": "fsrs-rs already runs on Android: Anki's Rust core depends on the fsrs crate (6.6.2), and AnkiDroid ships that core through Anki-Android-Backend. Anki-Android-Backend is GPL-3.0 and Anki is AGPL-3.0-or-later, so Rouxtine should not take code from either. If on-device optimisation is ever wanted, depend on fsrs-rs (BSD-3-Clause) directly through JNI or UniFFI. awesome-fsrs lists an app (Avorio) that exposes its own FSRS Rust core to Swift through UniFFI.",
+   "sources": [
+    "https://github.com/ankitects/anki/blob/main/Cargo.toml",
+    "https://github.com/ankitects/anki/blob/main/LICENSE",
+    "https://github.com/ankidroid/Anki-Android-Backend/blob/main/LICENSE",
+    "https://github.com/ankidroid/Anki-Android-Backend/blob/main/README.md",
+    "https://github.com/open-spaced-repetition/awesome-fsrs/blob/0ffe54907988a32500b09007090637fd85b90e04/README.md"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "algos-7",
+   "topic": "fsrs-grading-pitfalls",
+   "claim": "The Anki manual says Hard is a passing grade, not a failing one. Pressing Hard on a forgotten card makes 'all intervals ... unreasonably high'. FSRS 'may not perform well' with a low number of reviews ('less than a few hundred'). Default desired retention is 90%. A leech is flagged at 8 lapses by default, with warnings every half-threshold after that.",
+   "sources": [
+    "https://docs.ankiweb.net/deck-options.html",
+    "https://docs.ankiweb.net/leeches.html"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-8",
+   "topic": "fsrs-7-migration",
+   "claim": "FSRS-7 weights and memory states cannot be converted from FSRS-6. ts-fsrs says to rebuild S, S_fast and D by replaying the complete review history since creation or the last reset, using the actual review timestamps in fractional days. Never invent stabilityFast as 0.8*stability, and never reuse FSRS-6 weights. Review logs must keep the actual reviewTime, the previous review time and the pre-review due date. The FSRS-7 default weights shipped in fsrs-rs and ts-fsrs ([0.1104, 2.2395, 3.9221, 11.7841, ...]) differ from the FSRS-7 defaults printed in the srs-benchmark README ([0.041, 2.4175, 4.1283, 11.9709, ...]). Pin a library version and test vectors.",
+   "sources": [
+    "https://github.com/open-spaced-repetition/ts-fsrs/blob/b69d6ca2dca55579198c913fd55a43d6bf703b34/docs/src/en-US/guide/migration.mdx",
+    "https://github.com/open-spaced-repetition/ts-fsrs/blob/b69d6ca2dca55579198c913fd55a43d6bf703b34/docs/src/en-US/guide/model/fsrs-7.mdx",
+    "https://github.com/open-spaced-repetition/fsrs-rs/blob/3be7d2af54fd186fc6a5cbb4e8c393bc9c19ca4e/src/inference_v7.rs#L1-L5",
+    "https://github.com/open-spaced-repetition/ts-fsrs/blob/b69d6ca2dca55579198c913fd55a43d6bf703b34/packages/fsrs/src/models/fsrs-7/constants.ts#L60-L65",
+    "https://github.com/open-spaced-repetition/srs-benchmark/blob/main/README.md#default-parameters"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-9",
+   "topic": "sm2",
+   "claim": "SM-2 (Wozniak, in SuperMemo 1.0-3.0, 1987-89): intervals are I(1)=1 day, I(2)=6 days and I(n)=I(n-1)*EF, with fractions rounded up. EF starts at 2.5. After each repetition, EF' = EF + (0.1 - (5-q)*(0.08 + (5-q)*0.02)) for quality q in 0..5, with a floor of 1.3. If q < 3, repetitions restart from I(1) 'without changing the E-Factor'. Items scoring below 4 are repeated the same day until they score at least 4. Wozniak notes that items driven below EF 1.3 'seemed to have inherent flaws in their formulation'. The model is day-granular and has no notion of speed. The canonical super-memory.com/english/ol/sm2.htm URL was unreachable (connection reset), so the text was taken from SuperMemo's own reprint.",
+   "sources": [
+    "https://www.supermemo.com/en/blog/application-of-a-computer-to-improve-the-results-obtained-in-working-with-the-supermemo-method"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-10",
+   "topic": "keybr-confidence",
+   "claim": "keybr.com (AGPL-3.0) tracks each key with an exponential filter: value = 0.1*v + 0.9*value, where the first sample initialises the value. That is a half-life of about 6.6 samples. Per-key confidence = targetTime / filteredTime, so 1.0 means 'at target speed'. The default target is 175 characters/min (range 75 to 750). In guided mode the lesson keeps at least 6 keys, and adds a new key only when every included key has bestConfidence >= 1 (or current confidence >= 1 when 'recover keys' is on). It 'focuses' the least-confident included key that is below 1. Because the code is AGPL-3.0, Rouxtine should reimplement the idea, not copy the code.",
+   "sources": [
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-math/lib/filter.ts",
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-result/lib/keystats.ts#L109",
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-lesson/lib/target.ts",
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-lesson/lib/guided.ts#L41-L107",
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-lesson/lib/settings.ts#L18-L22",
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-lesson/lib/settings.ts#L60",
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/LICENSE"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-11",
+   "topic": "keybr-learning-rate",
+   "claim": "keybr estimates learning rate by fitting a polynomial (degree 1 for 10 samples or fewer, 2 for 11-20, 3 for more) to the last 30 filtered samples of the current session. A session breaks at a gap of more than 1 hour. The estimate is reported only if R^2 >= 0.5. 'Remaining lessons' is the first i <= 50 at which the fitted polynomial reaches the target speed.",
+   "sources": [
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-lesson/lib/learningrate.ts#L15-L104",
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-lesson/lib/learningsession.ts"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-12",
+   "topic": "ema-parametrisation",
+   "claim": "EMA parametrisations, as documented by pandas: from a half-life h, alpha = 1 - exp(-ln2/h); from a span, alpha = 2/(span+1); from a centre of mass, alpha = 1/(1+com). pandas' adjust=True corrects the start-up bias of the first observations. Conventions differ: keybr's alpha is the weight of the new sample, while Pelanek and Rihak's alpha is the weight of the old estimate (theta_k = alpha*theta_{k-1} + (1-alpha)*c_k). NIST also defines EWMA_t = lambda*Y_t + (1-lambda)*EWMA_{t-1}, with lambda usually 0.2-0.3 for control charts.",
+   "sources": [
+    "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.ewm.html",
+    "https://github.com/aradzie/keybr.com/blob/05a37bc5265f65ff538c59c613db29442f345d51/packages/keybr-math/lib/filter.ts",
+    "https://www.fi.muni.cz/~xpelanek/publications/nrhm-mastery.pdf",
+    "https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc324.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-13",
+   "topic": "elo-items",
+   "claim": "Pelanek (2016, Computers & Education, doi:10.1016/j.compedu.2016.03.017) applies Elo to student-item pairs. P(correct) = 1/(1+e^-(theta_s - d_i)); theta_s += K*(correct - P) and d_i += K*(P - correct), both starting at 0. In this form Elo is closely related to the Rasch (1PL IRT) model. Earlier work used K = 0.4. The paper recommends an 'uncertainty function' U(n) = a/(1+b*n) in place of a constant K, where n is the number of previous answers; a = 1 and b = 0.05 is 'a good starting point', fitted later by grid search. It notes that items and students may need different uncertainty functions.",
+   "sources": [
+    "https://www.fi.muni.cz/~xpelanek/publications/CAE-elo.pdf"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-14",
+   "topic": "elo-times",
+   "claim": "Pelanek's paper also gives a time-only Elo variant for problem-solving times, which are log-normally distributed (Jarusek and Pelanek 2012). The expected log time is E(t|s,p) = d_p - theta_s. Updates: theta_s += K*(E - ln t) and d_p += K*(ln t - E). The accepted manuscript misprints the second update as 'dp := theta_p + ...'.",
+   "sources": [
+    "https://www.fi.muni.cz/~xpelanek/publications/CAE-elo.pdf"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-15",
+   "topic": "high-speed-high-stakes",
+   "claim": "Math Garden (Klinkenberg et al. 2011, as summarised by Pelanek 2016) combines correctness and speed in a 'high speed, high stakes' score S = (2*correct - 1)*(a*d - a*t), where d is the time limit and a is a discrimination parameter. Fast answers carry high stakes either way, and the score tends to 0 as time runs out. Pelanek says this rule fits UIs that show a deadline. Where timing is hidden from users, a different scoring rule is needed.",
+   "sources": [
+    "https://www.fi.muni.cz/~xpelanek/publications/CAE-elo.pdf"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "algos-16",
+   "topic": "mastery-ema",
+   "claim": "Pelanek and Rihak (2018, doi:10.1080/13614568.2018.1476596) compare mastery criteria. EMA uses theta_k = alpha*theta_{k-1} + (1-alpha)*c_k with theta_0 = 0, and declares mastery when theta >= T. umimecesky.cz used alpha = 0.9 with mastery levels 0.5/0.8/0.95/0.98 (main level 0.95). Their MatMat analysis used alpha = 0.8. Their time-aware input scores a wrong answer 0 and a correct answer linearly from 1 at 0 s down to 0 at twice the median response time, so a median-speed correct answer scores 0.5. They found that the choice of input data (whether to use response times) and of the threshold matters more than the choice of learner model. Optimised 'N consecutive correct' thresholds fell between 1 and 8.",
+   "sources": [
+    "https://www.fi.muni.cz/~xpelanek/publications/nrhm-mastery.pdf"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-17",
+   "topic": "glicko2",
+   "claim": "Glicko-2 (Glickman): an unrated player starts at rating 1500, RD 350 and volatility 0.06. The system constant tau 'reasonable choices are between 0.3 and 1.2', or as low as 0.2 when improbable results are expected. Internally mu = (r-1500)/173.7178 and phi = RD/173.7178. The system 'works best when the number of games in a rating period is moderate to large, say an average of at least 10-15 games per player'. Without games in a period, only the RD inflation step applies. goochjs/glicko2 is a Java implementation under BSD-2-Clause (defaults 1500/350/0.06, tau 0.75; last commit 2016-01-07).",
+   "sources": [
+    "http://www.glicko.net/glicko/glicko2.pdf",
+    "https://github.com/goochjs/glicko2/blob/5f39e38539bc292267905acbe1dc964b9c173927/LICENCE.txt",
+    "https://github.com/goochjs/glicko2/blob/5f39e38539bc292267905acbe1dc964b9c173927/src/main/java/org/goochjs/glicko2/RatingCalculator.java#L20-L23"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-18",
+   "topic": "lichess-puzzles",
+   "claim": "Lichess rates puzzles as items. Each puzzle attempt is computed as a Glicko game between the user and the puzzle (scalachess GlickoCalculator). The update is then damped by theme weights: on 'obvious' themes a win counts 0.1. A puzzle's rating change per attempt is capped at +/-700 (maxRatingDelta), and puzzle-rating updates are rate-limited to 300 per user per day. Default volatility is 0.09. lila is AGPL-3.0. scalachess, where the chess.rating.glicko package is imported from, is MIT.",
+   "sources": [
+    "https://github.com/lichess-org/lila/blob/ffa4be8221645f143b05948dd591545f2b004225/modules/puzzle/src/main/PuzzleFinisher.scala#L87-L213",
+    "https://github.com/lichess-org/lila/blob/ffa4be8221645f143b05948dd591545f2b004225/modules/rating/src/main/Glicko.scala#L53-L69",
+    "https://github.com/lichess-org/lila/blob/ffa4be8221645f143b05948dd591545f2b004225/COPYING.md",
+    "https://github.com/lichess-org/scalachess/blob/master/LICENSE"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "algos-19",
+   "topic": "cubedex-srs",
+   "claim": "Cubedex (MIT; commit 8a8b5b9, 2026-10-28) is an offline smart-cube/timer alg trainer. Its sets include CMLL, L6E-EO and L6E-EOLR, and it already has per-case spaced review with automatic grading. Grades: an abort is 'again'. A mistake, or recognition or execution more than 1.35x the median of the last 8 successful reviews (needs at least 3), is 'hard'. 'Easy' requires the previous 11 reviews to be successes and both times to be at or below the median. Everything else is 'good'. The state is custom and FSRS-like (stability, difficulty, R = (1 + t/(9S))^-1, an FSRS-4-style curve), not real FSRS. Stability growth is throttled when a case is re-reviewed within 2 minutes. Recognition = first action - case shown, discarded above 15 s. A failed case is reinserted after a gap of 4, at most 2 repeats per pass. Its 'prioritize slow cases' mode is a deterministic queue sorted by best time. This contradicts roux-training-features.md line 75 ('None of the surveyed tools has SRS').",
+   "sources": [
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/lib/srs.ts#L1-L331",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/hooks/useTrainingState.ts#L193-L195",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/hooks/useTrainingState.ts#L287-L370",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/hooks/useTrainingState.ts#L1139-L1160",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/LICENSE",
+    "https://github.com/poliva/cubedex/blob/8a8b5b99ef69386d874bbb9662702efff165c1cd/src/data/defaultAlgs.json",
+    "/home/user/rouxtine/docs/research/roux-training-features.md:75"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-20",
+   "topic": "cstimer-recog-exec",
+   "claim": "csTimer (GPL-3.0) splits every step of a smart-cube solve into [step start, first move, step end]. 'insp' (recognition) = first move - start and 'exec' = end - first move. A step completed in a single move is merged into the next step. A session record is [[penalty, phaseN end, ..., phase1 end], scramble, comment, start timestamp, extension], with penalty 0, 2000 (+2) or -1 (DNF). Smart-cube moves are stored as 'R@1234' (ms offsets). Its HTM counter folds consecutive same-axis turns (R + R = R2).",
+   "sources": [
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/stats/recons.js#L14-L163",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/stats/stats.js#L4",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/stats/stats.js#L406",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/LICENSE"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-21",
+   "topic": "roux-trainers-selection",
+   "claim": "The upstream roux-trainers app (nauroth/roux-trainers at b85221f) picks cases uniformly at random. Selector holds 0/1 flags, and the alg helpers call rand_choice. There is no recent-performance weighting, so adaptive selection is new work for Rouxtine.",
+   "sources": [
+    "/home/user/roux-trainers/src/lib/Selector.tsx",
+    "/home/user/roux-trainers/src/lib/Algs.tsx:389-417"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-22",
+   "topic": "smartcube-timestamps",
+   "claim": "gan-web-bluetooth (MIT) reports every move with localTimestamp (host clock) and cubeTimestamp (cube clock). Both can be null for moves that were missed and later recovered. Its README says GAN cube clocks are 'not ideally calibrated' and drift against the host. Best practice, credited to Chen Shuang and csTimer, is to record both clocks and fit them with a linear regression (cubeTimestampLinearFit, which first fills missing cube stamps at +/-50 ms from neighbours). The protocol also emits GYRO events with orientation quaternions.",
+   "sources": [
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/src/gan-cube-protocol.ts#L30-L45",
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/src/gan-cube-protocol.ts#L82-L110",
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/src/utils.ts#L36-L80",
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/README.md#L127-L131",
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/LICENSE.txt"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-23",
+   "topic": "smartcube-stream-quirks",
+   "claim": "The speedcube-trainer (SCT) README documents real smart-cube stream quirks; the repo has no licence, so use the ideas only. A half turn arrives as two quarter-turn events. An M slice arrives as R and L' between 6 and 121 ms apart, and must be rebuilt as M = R L' x'; every later move must be re-framed, or stage detection fails. SCT merges slice halves within a 140 ms window. It counts a pause when the gap is at least max(180 ms, 2.2 x the median inter-move gap). A stage's pre-first-move pause belongs to that stage. It builds per-move median times to find hesitations (regrips).",
+   "sources": [
+    "https://github.com/dadadadas111/speedcube-trainer/blob/6e7606d5dc6d0e9a8c3fb1f4d9394bce0c7926d4/README.md",
+    "https://github.com/dadadadas111/speedcube-trainer/blob/6e7606d5dc6d0e9a8c3fb1f4d9394bce0c7926d4/src/cube/moveStream.ts#L75-L98",
+    "https://github.com/dadadadas111/speedcube-trainer/blob/6e7606d5dc6d0e9a8c3fb1f4d9394bce0c7926d4/src/analysis/solve.ts#L95-L106"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "algos-24",
+   "topic": "sct-reference-profile",
+   "claim": "SCT ships an unsourced 'reference profile for an intermediate solver (~20-30s)' for Roux. Expected time shares: FB 0.20, SB 0.30, CMLL 0.22, EO 0.12, LR 0.09, L4C 0.07. Moves (STM): 8/12/10/7/6/5. Acceptable pause ratios: 0.25/0.30/0.30/0.25/0.20/0.15. It ranks steps by seconds lost, excess = mean total * (step share - reference share). It classifies the cause as recognition when pause ratio > reference + 0.08, efficiency when moves > 1.25 x reference, and execution when TPS < 3.2 without heavy pausing. The numbers have no cited source, and the repo has no licence.",
+   "sources": [
+    "https://github.com/dadadadas111/speedcube-trainer/blob/6e7606d5dc6d0e9a8c3fb1f4d9394bce0c7926d4/src/analysis/recommend.ts#L1-L140"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "algos-25",
+   "topic": "contextual-interference",
+   "claim": "Shea and Morgan (1979) found that random (high-interference) practice of three motor tasks gave worse performance during acquisition than blocked practice. It gave better retention, after 10 minutes and 10 days, when tested under changed context, and better transfer, most of all to the most complex task. They also separate reaction time (RT, transforming the input into a response) from movement time (MT, initiation to termination).",
+   "sources": [
+    "https://gwern.net/doc/psychology/spaced-repetition/1979-shea.pdf",
+    "https://doi.org/10.1037/0278-7393.5.2.179"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-26",
+   "topic": "learning-curve",
+   "claim": "Heathcote, Brown and Mewhort (2000) fitted power and exponential practice functions to 40 data sets: 7,910 learning series from 475 subjects in 24 experiments. 'The exponential function fit better than the power function in all the unaveraged data sets.' Averaging across learners biases the result toward the power law. They propose APEX, an exponential-based function. For one learner's plateau detection, fit T(n) = A + B*e^(-n/tau), not a power law.",
+   "sources": [
+    "https://link.springer.com/article/10.3758/BF03212979"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-27",
+   "topic": "hick-hyman",
+   "claim": "Hick-Hyman law: mean choice reaction time T = b*log2(n+1) for n equally likely alternatives. With unequal probabilities, T = b*sum p_i*log2(1/p_i + 1) (Hyman 1953). Reported limits: little or no increase for highly familiar responses, and stimulus-response compatibility effects. Implications for Rouxtine: recognition times measured on a 42-case set and on a 7-case subset, or under adaptive over-sampling, are not directly comparable. Thoroughly learned case-to-alg mappings may flatten the slope. Primary papers were not reachable (paywalled), so this is from a secondary source.",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hick%27s_law"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "algos-28",
+   "topic": "bayes-shrinkage",
+   "claim": "Normal-normal conjugate model (BDA3 section 2.5): with prior N(mu0, tau0^2) and n observations of known variance sigma^2, the posterior mean is mu_n = (mu0/tau0^2 + n*ybar/sigma^2) / (1/tau0^2 + n/sigma^2), and the posterior precision is 1/tau0^2 + n/sigma^2. Equivalently, mu_n = (kappa*mu0 + n*ybar)/(kappa + n), with pseudo-count kappa = sigma^2/tau0^2. The data are 'shrunk' toward the prior mean by sigma^2/(sigma^2 + tau0^2) for one observation. BDA3 calls this partial pooling in hierarchical models.",
+   "sources": [
+    "http://www.stat.columbia.edu/~gelman/book/BDA3.pdf (section 2.5, eq. 2.10-2.12)"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-29",
+   "topic": "robust-trend",
+   "claim": "Theil-Sen estimator: the slope is the median of all pairwise slopes (Sen 1968, JASA 63:1379-1389; Theil 1950). scipy.stats.theilslopes implements it with a confidence interval. Apache Commons Math 3.6.1 (Apache-2.0; latest release, 2016) provides KendallsCorrelation (tau-b, O(n log n) Knight algorithm), which gives a Mann-Kendall-style trend statistic against time. Both are easy to write in Kotlin for n <= 200 points.",
+   "sources": [
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.theilslopes.html",
+    "https://commons.apache.org/proper/commons-math/javadocs/api-3.6.1/org/apache/commons/math3/stat/correlation/KendallsCorrelation.html",
+    "https://search.maven.org/solrsearch/select?q=g:org.apache.commons+AND+a:commons-math3"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-30",
+   "topic": "cusum-ewma",
+   "claim": "NIST tabular CUSUM: S_hi(i) = max(0, S_hi(i-1) + x_i - mu0 - k) and S_lo(i) = max(0, S_lo(i-1) + mu0 - k - x_i), signalling when either exceeds h. In standardised units with k = 0.5: h = 4 gives an in-control ARL of 336 and an ARL of 8.38 for a 1 sigma shift; h = 5 gives 930 and 10.4. CUSUM beats Shewhart charts for shifts of 2 sigma or less. For EWMA control charts lambda is usually 0.2-0.3, with Var(EWMA) ~ lambda/(2-lambda)*s^2 and limits at +/-3 s_ewma.",
+   "sources": [
+    "https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc323.htm",
+    "https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc3231.htm",
+    "https://www.itl.nist.gov/div898/handbook/pmc/section3/pmc324.htm"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-31",
+   "topic": "weighted-sampling",
+   "claim": "Efraimidis and Spirakis (2006, Information Processing Letters 97:181-185) give weighted random sampling without replacement (A-ES): each item draws u ~ U(0,1) and gets key u^(1/w). The m largest keys form the sample, because P[X1 <= X2] = w2/(w1+w2). This picks a batch of distinct cases for a drill block in one pass.",
+   "sources": [
+    "https://arxiv.org/pdf/1012.0256"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-32",
+   "topic": "ucb",
+   "claim": "UCB1 (Auer, Cesa-Bianchi and Fischer 2002, Machine Learning 47:235-256) picks the arm with the highest index: current average reward plus a confidence-interval term from Chernoff-Hoeffding bounds. Its regret grows logarithmically, with no prior knowledge of the reward distributions. The commonly quoted bonus is sqrt(2 ln n / n_j); it appears in a figure that could not be extracted as text. In Rouxtine this is the basis for an uncertainty bonus that keeps rarely-seen cases in rotation.",
+   "sources": [
+    "https://homes.di.unimi.it/~cesabian/Pubblicazioni/ml-02.pdf"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "algos-33",
+   "topic": "compositional",
+   "claim": "Stage shares of a solve are compositional data: they sum to 1, so one slow stage lowers every other stage's share. Aitchison's (1982) log-ratio approach is the standard treatment, reappraised by Greenacre et al. (Statistical Science 2023). Compare stages with log ratios against absolute reference times, not with raw percentage shares.",
+   "sources": [
+    "https://arxiv.org/pdf/2201.05197"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "algos-34",
+   "topic": "wca-rules",
+   "claim": "WCA Regulations (version 2026-04-01): Average of 5 removes the best and worst attempts and means the other 3, and one DNF/DNS counts as the worst. Timed results under 10 min are truncated to hundredths, and averages are rounded. Being one move from solved is a +2 penalty, and more than one move is a DNF. Inspection is strictly under 15 s; starting at 15 s or later gives +2, and at 17 s or later gives DNF. A DNF must be stored as an outcome, never as a time.",
+   "sources": [
+    "https://www.worldcubeassociation.org/regulations/ (9f1, 9f8, 9f9, 10e3, 10e4, A3a1, A4d1, A4d2)"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-35",
+   "topic": "android-clocks",
+   "claim": "Android timekeeping: System.currentTimeMillis() is the wall clock and 'may jump backwards or forwards unpredictably'. elapsedRealtime()/elapsedRealtimeNanos() are monotonic, include deep sleep, and are 'the recommend basis for general purpose interval timing'. uptimeMillis()/System.nanoTime() are monotonic but stop in deep sleep. MotionEvent.getEventTime() and getEventTimeNanos() (API 34) are in the uptimeMillis() time base. Touch-event times must therefore be subtracted only from other uptime-based stamps, never from elapsedRealtime values. timer-integration.md line 196 mentions both clocks side by side without this caveat.",
+   "sources": [
+    "https://developer.android.com/reference/android/os/SystemClock",
+    "https://developer.android.com/reference/android/view/MotionEvent",
+    "/home/user/rouxtine/docs/research/timer-integration.md:196"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "algos-36",
+   "topic": "frame-stamp",
+   "claim": "Choreographer.FrameCallback.doFrame(frameTimeNanos) gives 'the time in nanoseconds when the frame started being rendered'. Stamping the 'case shown' moment from the frame callback, rather than from when state was set, avoids counting UI-pipeline delay as recognition. Display latency after the frame starts remains a roughly constant offset. The doc page does not state the clock base, so verify it against System.nanoTime on a device.",
+   "sources": [
+    "https://developer.android.com/reference/android/view/Choreographer.FrameCallback"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "algos-37",
+   "topic": "blocked-hosts",
+   "claim": "Hosts that failed during this research: super-memory.com (TLS connection reset; HTTP gave 503), cubesolv.es (connection reset, so there is no Roux reconstruction corpus for reference split distributions), the GitHub REST API (403, session bound to configured repos; used git clone and raw.githubusercontent.com instead), doi.apa.org (403 Incapsula), journals.sagepub.com (403) and the cogprints archive via WebFetch (403). speedsolving.com and reddit were not retried (blocked in earlier sessions).",
+   "sources": [
+    "agent-proxy observations 2026-10-28"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "patterns": [
+  {
+   "name": "Append-only attempt log as the single source of truth",
+   "description": "Store every attempt as an immutable event row. Every derived estimate (EMAs, shrunk means, FSRS state, Elo, plateau flags) is a pure function of the log plus a model version, so it can be recomputed by replay. FSRS-7 migration explicitly requires replaying full history with real timestamps.",
+   "seenIn": [
+    "ts-fsrs migration guide (Reschedule.replay)",
+    "csTimer session records",
+    "Cubedex review history"
+   ],
+   "transferToRouxtine": "Room table `attempt` (append-only) plus derived tables `case_stat`, `fsrs_card` and `stage_stat` carrying `model_version`. A 'recompute' worker rebuilds them after an algorithm change. The FSRS revlog is a view over attempts flagged as scheduled reviews."
+  },
+  {
+   "name": "Two timing channels per case: recognition and execution",
+   "description": "Model recognition (the stimulus-to-first-action delay, RT) and execution (first action to done, MT) as separate skills, each with its own EMA, shrinkage, target and weakness score. Errors are a third channel. Total time is derived, never the primary signal.",
+   "seenIn": [
+    "Shea & Morgan 1979 RT/MT",
+    "csTimer insp/exec per step",
+    "Cubedex recognitionMs/executionMs",
+    "SCT pause-vs-turning split"
+   ],
+   "transferToRouxtine": "Smart cube: rec = first move - t_shown (frame-stamped); exec = stage solved - first move. Touch timer, 'reveal-then-release' protocol: show the case while the pad is held, rec = release - shown, exec = stop - release. Recognition-only drills (tap the case name) measure rec alone. Execution-only drills (case named, start when ready) measure exec alone. In full solves, call the pre-first-move gap the 'stage-entry pause', not recognition, because lookahead overlaps it."
+  },
+  {
+   "name": "Work in log time",
+   "description": "Solve and response times are right-skewed (log-normal). Keep EMAs, means, Elo expectations and stage comparisons in ln(seconds). Ratios become differences: 0.10 is about 10.5% slower.",
+   "seenIn": [
+    "Pelanek 2016 (log-normal solving times, E = d - theta)"
+   ],
+   "transferToRouxtine": "x = ln(t_ms/1000). Report exp(x) to users. Cap rec at 15 s (Cubedex) and exec at 3x the case median before updating, and log the raw value anyway."
+  },
+  {
+   "name": "keybr-style confidence and gated introduction",
+   "description": "Per-item confidence = target time / smoothed time. Introduce the next item only when the active set is confident, and always focus the least-confident item.",
+   "seenIn": [
+    "keybr guided lessons"
+   ],
+   "transferToRouxtine": "c_i = T_target,i / exp(m~_i). Add the next CMLL/EOLR case (in a user-chosen learning order) when >= 80% of active cases have c >= 1 and none has an error estimate > 0.2, capped at a daily new-case limit (default 3). Show a per-case confidence bar."
+  },
+  {
+   "name": "Expected-time normalisation (residual weakness)",
+   "description": "A long alg is not a weak case. Weakness is the residual after removing what the case should take given the user's general speed, which is Elo's E = d - theta in log time.",
+   "seenIn": [
+    "Pelanek 2016 time-Elo",
+    "SCT movecount vs reference"
+   ],
+   "transferToRouxtine": "exec: E_i = ln(L_i / TPS_u), where L_i is the STM length of the user's chosen alg and TPS_u = median over the set of L_j/t_exec,j. rec: E = the set's median recognition (per set size). Slowness s_i = m~_i - E_i."
+  },
+  {
+   "name": "Empirical-Bayes shrinkage for small samples",
+   "description": "Shrink each case's (or stage's) mean log time toward its group mean with pseudo-count kappa = sigma_within^2/tau_between^2, estimated from the user's own data by method of moments.",
+   "seenIn": [
+    "BDA3 section 2.5 / partial pooling"
+   ],
+   "transferToRouxtine": "m~_i = (kappa*mu_set + n_i*m_i)/(kappa + n_i). Use kappa = 4 until the module has >= 50 attempts, then estimate tau^2 = max(0.01^2, var(case means) - mean(sigma^2/n_i)). Posterior sd u_i = sigma/sqrt(kappa + n_i) drives the exploration bonus and the 'not enough data' UI state."
+  },
+  {
+   "name": "Stochastic weighted sampler with floor, cooldown and retry gap",
+   "description": "Draw cases with probability proportional to weakness plus a floor, so nothing starves and the order stays unpredictable (interleaved practice). Avoid immediate repeats, and re-queue failures a few items later.",
+   "seenIn": [
+    "Cubedex retry gap 4 / max 2 repeats",
+    "Efraimidis-Spirakis A-ES",
+    "Shea & Morgan random practice"
+   ],
+   "transferToRouxtine": "W_i = max(0, s_i + 0.5*u_i) + 2*p^_i + 1*(1 - R_i), where p^_i = (e_i + 1)/(n_i + 10) uses decayed counts and R_i is FSRS retrievability (or 1). P_i proportional to 0.1*mean(W) + W_i. Exclude the last min(2, N-1) cases. After a failure, reinsert 4 items later (at most 2 extra repeats per pass). Draw a block of k distinct cases with keys u^(1/P_i)."
+  },
+  {
+   "name": "FSRS for recall, EMA for fluency",
+   "description": "Use FSRS only to decide when a recall-type item needs a cold check (across days). Use EMA and shrinkage to decide how much in-session practice it gets.",
+   "seenIn": [
+    "Cubedex smart review",
+    "py-fsrs scheduler"
+   ],
+   "transferToRouxtine": "FSRS cards: CMLL alg recall, EOLR/EOLRb case solutions, 4c recognition, NMCLL-to-CMLL mapping. Not FB planning or full solves. One scheduled review per case per local day (the first, cold attempt). Due cards go first in a drill block, capped per session."
+  },
+  {
+   "name": "Objective auto-grading for FSRS",
+   "description": "Derive Again/Hard/Good/Easy from logged outcomes, not self-report, keeping Hard a passing grade.",
+   "seenIn": [
+    "Cubedex deriveReviewGrade",
+    "Anki manual on Hard"
+   ],
+   "transferToRouxtine": "Again: DNF, abort, wrong case named, wrong alg, or alg looked up. Hard: correct but a corrected mistake, or rec or exec > 1.35x the case median of the last 8 successful attempts (needs >= 3). Good: everything else. Easy: manual only (or Cubedex's 11-success rule)."
+  },
+  {
+   "name": "Stage weakness via log-ratio, shrinkage and seconds lost",
+   "description": "Compare each stage's log time with a reference, shrink the stage effect, rank by seconds lost per solve, and split the cause into pause (recognition/lookahead), turning speed (execution) and movecount (efficiency).",
+   "seenIn": [
+    "SCT 'What to work on'",
+    "Aitchison log-ratios",
+    "BDA3 shrinkage"
+   ],
+   "transferToRouxtine": "y_sj = ln t_sj - ln(pi_s*T_ref). delta^_s = n_s*ybar_s/(n_s + kappa_s), with kappa_s = sigma_s^2/tau^2 (sigma ~0.35, tau ~0.15, so kappa ~5). Flag when delta^_s - 0.84*sd_post > ln(1.1). Seconds lost = Tbar*pi_s*(e^delta^_s - 1). Route the result: FB pause -> FB inspection planner; SB pause -> SB lookahead/last-pair trainer; CMLL pause -> CMLL recognition; CMLL low TPS -> CMLL execution; EO/LR pause -> EOLR trainer; any stage with high movecount -> slow solves with solver comparison."
+  },
+  {
+   "name": "Plateau and regression detection on daily aggregates",
+   "description": "Aggregate to practice days, test for a trend robustly, check the exponential learning-curve asymptote, and use CUSUM to catch regressions.",
+   "seenIn": [
+    "NIST CUSUM",
+    "Theil-Sen/Mann-Kendall",
+    "Heathcote 2000",
+    "keybr learning rate"
+   ],
+   "transferToRouxtine": "Daily value = median ln(time) of >= 5 full solves (or of a module's attempts). Window = last 14 practice days (>= 8). Plateau when the Mann-Kendall p >= 0.10 AND the Theil-Sen projected 30-day gain (1 - e^(30b)) < 1% AND the fit A + B*e^(-n/tau) gives (T_now - A)/T_now < 3%. Regression alarm: one-sided CUSUM with sigma_d = 1.4826*MAD of residuals, k = 0.5*sigma_d, h = 4*sigma_d. Response: suggest rotating the Rouxtine to the top 'seconds lost' stage, adding cases, or switching drill type."
+  },
+  {
+   "name": "Leech handling",
+   "description": "Items that keep lapsing usually need a different representation, not more reps.",
+   "seenIn": [
+    "Anki leech threshold 8",
+    "SM-2 EF < 1.3 'inherent flaws'"
+   ],
+   "transferToRouxtine": "After 8 lapses on a case, prompt for an alternative alg (fewer regrips), a different recognition method (e.g. another CMLL recognition style), or a slow-motion execution drill. Don't keep boosting its sampling weight."
+  },
+  {
+   "name": "Smart-cube ingestion pipeline",
+   "description": "Normalise the raw BLE move stream before any timing or stage maths.",
+   "seenIn": [
+    "gan-web-bluetooth cubeTimestampLinearFit",
+    "csTimer",
+    "SCT moveStream"
+   ],
+   "transferToRouxtine": "1) Store raw events (face, direction, cube_ts, host_ts as elapsedRealtimeNanos, and a missed/recovered flag). 2) Fill missing cube stamps and linearly fit cube to host clocks per solve. 3) Merge consecutive same-face quarter turns into half turns. 4) Merge opposite-face pairs within 140 ms into slices, applying the frame rotation (M = R L' x'). 5) Detect stages, with 1-move steps merged forward (csTimer). 6) Detect pauses at gaps >= max(180 ms, 2.2 x the median gap). 7) Compute STM/ETM movecount and TPS both with and without pauses."
+  },
+  {
+   "name": "Per-attempt log schema (all modules)",
+   "description": "A common envelope plus module-specific payload, enough for FSRS replay, the optimizer, shrinkage, stage analysis and csTimer import/export.",
+   "seenIn": [
+    "csTimer record format",
+    "Cubedex CaseReviewEntry",
+    "ts-fsrs revlog fields",
+    "WCA penalties"
+   ],
+   "transferToRouxtine": "Envelope: attempt_id (UUID), session_id, rouxtine_id and block_id, module_id and module_version, drill_mode (recognition / execution / combined / full-solve / smart-cube), input_device (touch, stackmat, smart-cube model and firmware, keyboard), started_at_utc_ms plus tz_offset (for day bucketing), monotonic t_shown/t_first_action/t_exec_start/t_end (ns), rec_ms, exec_ms, total_ms, inspection_ms, outcome (ok / mistake_corrected / wrong_case / wrong_alg / DNF / +2 / abort / interrupted), mistakes_count, self_grade (optional), attempt_index_in_session, warmup flag, scheduled_review flag, derived_grade, FSRS pre/post (S, S_fast, D, R, due), app and scheduler version. Case drills add: case_set_id, case_id (canonical, AUF-invariant), presented_auf and orientation (colour on D/L, y rotation), alg_id and alg_len (STM/ETM), scramble or setup string and generator plus seed, pre-moves (e.g. SB-last-pair trigger), set size. Recognition quiz adds: answer, correct answer, option count, mask type. FB inspection planner adds: chosen FB colour/orientation, planned solution, inspection used, plan-vs-executed match, FB movecount vs solver optimum for that orientation and for the best of the allowed orientations. SB last-pair trainer adds: LP case id, solution, movecount vs optimum. EOLR/4c add: EO case, MC flag, method (EOLR/EOLRb, FUBU/BU/DFDB), movecount vs optimum. Full solves add: scramble, penalty, per-stage splits (FB, SS/FS, LP, CMLL, EO, LR, 4c) each with start, first move, end, moves, pauses, TPS, and the solver's per-stage optimum (computed asynchronously). Smart cube adds: the raw event stream, the fitted timestamps, and gyro if available."
+  }
+ ],
+ "antiPatterns": [
+  "Using a case's raw mean time as its weakness. It mixes alg length, outliers and sample size. Use shrunk log time minus expected time.",
+  "Feeding every in-session rep to FSRS as a review. It inflates stability, and FSRS-6 in py-fsrs is day-granular, treating every review within 24 h with the same-day formula. Schedule one cold review per case per day.",
+  "Grading a failure as Hard, or storing a DNF as a time (Infinity or a cap) inside an EMA. A DNF is an error-channel event.",
+  "A deterministic 'slowest first' queue (Cubedex's prioritizeSlowCases sorts by best time). It chases noise, starves other cases and becomes blocked practice. Sample stochastically with a floor.",
+  "Copying two-player Elo/Glicko into a single-user app without anchoring. With one learner, user skill and case difficulty are not separately identifiable. Fix the module-level skill or anchor case priors (e.g. on alg length).",
+  "Running Glicko-2's volatility update per attempt. Glickman designed it for rating periods of at least 10-15 games.",
+  "Comparing raw stage percentages. Shares are compositional, so one slow stage lowers the others. Use log ratios against reference times.",
+  "Treating an unsourced reference split profile (e.g. SCT's 20/30/22/12/9/7) as a norm. Label it provisional, and prefer the user's own baseline until real reference data exists.",
+  "Flagging weaknesses or plateaus from fewer than 5 attempts or 8 practice days without shrinkage. Regression to the mean will 'fix' them by itself.",
+  "Extrapolating time-to-goal with cubic polynomials (keybr). Use the exponential learning curve A + B*e^(-n/tau) and report uncertainty.",
+  "Comparing recognition times across different set sizes or skewed sampling distributions (Hick-Hyman), or against real-solve conditions without noting the drill distribution.",
+  "Ignoring AUF, presentation orientation and alg changes. Log them and segment execution stats by alg_id, because a new alg is a new motor program.",
+  "Subtracting MotionEvent.getEventTime() (uptime base) from SystemClock.elapsedRealtime() values, or timing with currentTimeMillis().",
+  "Treating smart-cube R+L' or two quarter turns as separate moves, or not re-framing after a slice. Movecount, TPS and stage detection all go wrong.",
+  "Taking code from AGPL/GPL or unlicensed sources: keybr (AGPL-3.0), lila (AGPL-3.0), csTimer (GPL-3.0), AnkiDroid backend (GPL-3.0), SCT (no licence), FSRS-Kotlin (no LICENSE file). Reimplement from the published formulas.",
+  "Adopting FSRS-7 now without test vectors. It reached the TypeScript reference on 2026-10-28, and its default weights differ between the benchmark README and the libraries."
+ ],
+ "recommendation": "Build one pure-Kotlin `skill-model` module (no Android dependencies, unit-tested on the JVM) that every Rouxtine module feeds through a shared attempt log. It holds the six layers below.\n\n1) Event log. Use an append-only Room `attempt` table with the schema in the 'Per-attempt log schema' pattern. Timestamps: UTC ms for calendar bucketing, and monotonic ns for durations (elapsedRealtimeNanos, or uptime-based stamps when working from MotionEvent times; never mix the two). Everything below is derived and recomputable by replay, versioned with `model_version`.\n\n2) Per case x channel (rec, exec), plus an error channel:\n- x = ln(seconds).\n- m <- m + a*(x - m), with a = 1 - 2^(-1/8) (~0.083, half-life 8 attempts; the first sample initialises m).\n- Decayed counts n <- l*n + 1 and e <- l*e + err, with l = 2^(-1/8). Error estimate p^ = (e+1)/(n+10).\n- Shrinkage: m~ = (k*mu_set + n*m)/(k + n), with k = 4 until it can be estimated by method of moments.\n- Expected time: exec E = ln(alg_len_STM / TPS_user); rec E = the set median.\n- Slowness s = m~ - E. Confidence c = T_target/exp(m~), where T_target is the user's goal, or by default 0.85 x the current set median.\n\n3) Selection inside a drill block:\n- FSRS-due recall cards go first (capped).\n- Fill the rest with W = max(0, s + 0.5*u) + 2*p^ + (1 - R), sampled with P proportional to 0.1*mean(W) + W.\n- Cooldown: no repeat of the last 2 cases. Retry a failure after 4 items, at most 2 extra repeats per pass.\n- Draw batches with Efraimidis-Spirakis keys u^(1/P).\n- Add new cases keybr-style: when >= 80% of active cases have c >= 1, no case has p^ > 0.2, and at most 3 per day.\n- Default to interleaved order. Allow blocked mode only for a brand-new case's first few reps (contextual interference).\n\n4) FSRS:\n- Port py-fsrs 6.3.2 (MIT; keep its copyright notice) to Kotlin as FSRS-6 with the 21 default weights, desired retention 0.9 and fuzz on.\n- Disable learning steps; in-session repetition is the sampler's job.\n- Verify the port against py-fsrs outputs on generated review sequences.\n- Apply it only to recall-type items: CMLL alg, EOLR/EOLRb solutions, 4c recognition, NMCLL mapping.\n- One scheduled review per case per local day, auto-graded (Again = DNF/wrong/looked-up; Hard = corrected mistake or > 1.35x own median; Good otherwise; Easy manual only).\n- Persist a full revlog with ms timestamps so you can later (a) replay into FSRS-7 once it is stable in more than one reference implementation, or (b) run the fsrs-rs (BSD-3-Clause) optimizer via JNI after a few hundred reviews.\n- Do not depend on FSRS-Kotlin (no LICENSE file, app-coupled), android-fsrs (FSRS-4) or rs-fsrs-java (FSRS-5, native).\n\n5) Recognition drills:\n- Use the Pelanek-Rihak time-aware value v = correct ? max(0, 1 - t/(2*median_t)) : 0, in an EMA with old-weight 0.9.\n- Mastery when the binary EMA >= 0.95 AND the time-aware EMA >= 0.5.\n- Optionally show a Klinkenberg-style deadline score when the UI has a visible time limit.\n- Keep recognition sets of different sizes separate (Hick-Hyman).\n\n6) Stage weakness and plateau:\n- For full solves with splits, compute log ratios against a reference (start from the user's own trailing 30-day baseline; mark any bundled level profile such as SCT's as provisional).\n- Shrink with k_s = sigma^2/tau^2 (~5 solves). Flag when the shrunk excess beats 10% with about 80% posterior probability.\n- Rank by seconds lost, split the cause into pause ratio, TPS while turning, and STM movecount vs solver optimum, and map the result to the module to schedule next.\n- Plateau: 14 practice-day window of daily median ln(time); Mann-Kendall p >= 0.1, Theil-Sen 30-day gain < 1%, and the exponential-curve gap (T_now - A)/T_now < 3%.\n- Regressions: CUSUM with k = 0.5*sigma, h = 4*sigma.\n- Surface the result as Rouxtine suggestions (e.g. 'SB pausing costs ~1.1 s/solve -> add the SB lookahead block'), never as automatic rewrites of the user's routine.\n\nDependencies: none are required, since every formula above fits in under ~1.5k lines of Kotlin. Optionally use Apache Commons Math 3.6.1 (Apache-2.0) for Kendall tau and regression. Avoid AGPL/GPL/unlicensed code (keybr, lila, csTimer, AnkiDroid backend, SCT). MIT/BSD sources are fine with notices: py-fsrs, ts-fsrs, fsrs-rs, Cubedex, gan-web-bluetooth, goochjs/glicko2. Skip Glicko/Elo item ratings for v1: with a single user they add little over shrunk log-time residuals. Revisit if Rouxtine ever pools anonymised community data to learn case difficulty priors."
+}

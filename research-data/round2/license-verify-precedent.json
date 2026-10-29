@@ -1,0 +1,438 @@
+{
+ "verdicts": [
+  {
+   "id": "license-1",
+   "verdict": "confirmed",
+   "correction": "All repo facts hold. The GitHub sidebar figures (70 stars, 13 forks, 'GPL-3.0 license' label) could not be re-checked: github.com web pages and api.github.com return HTTP 403 from the session proxy ('GitHub access to this repository is not enabled for this session'); not routed around.",
+   "evidence": [
+    "git clone --mirror of onionhoney/roux-trainers: master=0129460a5c30082ea0e29b4489623889118078ec (last commit 2025-07-27); LICENSE is 35,148 bytes; `diff` against the canonical GPLv3 text (/usr/share/common-licenses/GPL-3, sha256 3972dc97...6986, the well-known gnu.org gpl-3.0.txt hash) differs only by '\\ No newline at end of file' on line 674",
+    "LICENSE:634-655 holds the unfilled '<one line to give the program's name...>' template",
+    "package.json: \"name\": \"cmll-trainer\", \"private\": true, no \"license\" field; README.md has no 'licen' match; git grep -i 'licen' over src/, public/ = no hits",
+    "Case-sensitive git grep for 'later version' | 'SPDX' | 'General Public' over master, gh-pages and all 9 dependabot branches: zero hits outside LICENSE (a case-insensitive grep only hits spdx-* npm package names in package-lock.json)",
+    "/home/user/roux-trainers/LICENSE is byte-identical to upstream (cmp)"
+   ]
+  },
+  {
+   "id": "license-2",
+   "verdict": "confirmed",
+   "correction": "LICENSE wording and the absence of any version statement are confirmed. Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy).",
+   "evidence": [
+    "Upstream LICENSE:571-577 reads '...If the Program does not specify a version number of the GNU General Public License, you may choose any version ever published by the Free Software Foundation.'",
+    "No version statement anywhere else in the repo (see license-1 grep)"
+   ]
+  },
+  {
+   "id": "license-3",
+   "verdict": "confirmed",
+   "evidence": [
+    "git show --stat d9873e8a00547f8d8381d7e9e5fd7d1d42494bd3: Author Jeffrey Sun <zhouhengsun@gmail.com>, Date Fri Jun 26 2020, subject 'add min2phase solver to cmll'; adds LICENSE (674 lines) and src/lib/min2phase/min2phase.js (1313 lines); `git log --diff-filter=A -- LICENSE` returns only this commit"
+   ]
+  },
+  {
+   "id": "license-4",
+   "verdict": "confirmed",
+   "correction": "Accurate for master. Missed: there is an OPEN, unmerged PR #31 (refs/pull/31/head 400070e, 2026-08-19, 'support left handed FB/SB') by Pedro Luiz <p3dr0c4@live.com> / GitHub Pekito, +295/-9 touching src/lib/CubeLib.tsx (+71), src/reducers/BlockTrainerStateM.tsx, BlockTrainerView.tsx, Config.tsx and new Handedness.tsx/Mirror tests. If it is merged, or Rouxtine reuses its lefty code, Pedro becomes a second copyright holder of planned-port files.",
+   "evidence": [
+    "git log master: 84 commits; authors = Jeffrey Sun / Zhouheng Sun / Zhouheng (Jeffrey) Sun under 9 e-mail identities (81 commits) + Eric Xu <ericxu2048@gmail.com> (3 commits)",
+    "git blame --line-porcelain master: Solver.tsx, Pruner.tsx, CubeLib.tsx, Algs.tsx, Analyzer.ts, Evaluator.tsx, CubeSim.tsx (also Defs.tsx, Math.ts, CachedSolver.tsx) are 100% 'Jeffrey Sun'/'Zhouheng Sun'",
+    "Eric Xu commits 4ca9ba3 (+9/-3), 8745302 (+2/-2), 43c49f3 (+3) all 2023-08-19, only src/components/TopBarView.tsx = +14/-5; refs/pull/21/head 43c49f3 is an ancestor of master",
+    "All dependabot PR heads (refs/pull/1,5,7,8,9,10,13,15-20) and the 9 dependabot branches are not ancestors of master",
+    "api.github.com/repos/onionhoney/roux-trainers/contributors -> HTTP 403 from proxy (same as reported)"
+   ]
+  },
+  {
+   "id": "license-5",
+   "verdict": "confirmed",
+   "correction": "Confirmed. Note: upstream's vendored copies carry no licence/attribution header and the repo does not ship cubing's LICENSE.md or three.js's MIT notice, so Rouxtine must add those notices itself.",
+   "evidence": [
+    "cubing/min2phase.js @ a465b5e (Lucas Garron, 2018-09-19): LICENSE.md 'This code is dual-licensed under: - MIT - GPLv3 or later. Projects deriving from it may license both or just one.'; package.json \"license\": \"GPL-3.0-or-later\"",
+    "diff upstream src/lib/min2phase/min2phase.js vs cubing src/min2phase.js: 9 changed lines (both 1313 lines); index.ts and min2phase.d.ts identical; wrapper/worker/thread files differ by 3-37 lines",
+    "src/lib/three/OrbitControls.js imports from 'three' and carries three.js's OrbitControls comment text",
+    "npm registry: three 0.125.0 and latest MIT; sr-visualizer 1.0.8 ISC; comlink 4.3.1 Apache-2.0; chroma-js 2.1.0 and 3.2.0 '(BSD-3-Clause AND Apache-2.0)'"
+   ]
+  },
+  {
+   "id": "license-6",
+   "verdict": "confirmed",
+   "evidence": [
+    "git clone cs0x7f/min2phase: commit 4d183b9 2023-02-21 'Update README.md' by Chen Shuang (+22/-1 README only)",
+    "README.md:106 '# License GPLv3' ('Copyright (C) 2023 Shuang Chen ... either version 3 ... or (at your option) any later version'); README.md:123 '# License MIT' ('Copyright (c) 2023 Chen Shuang')",
+    "src/Search.java header at HEAD: 'Copyright (C) 2015 Shuang Chen ... GNU General Public License ... version 3 ... or (at your option) any later version' only"
+   ]
+  },
+  {
+   "id": "license-7",
+   "verdict": "not-checked",
+   "correction": "LICENSE:463-466 wording verified ('...you may not impose a license fee, royalty, or other charge for exercise of rights granted under this License'). Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy)."
+  },
+  {
+   "id": "license-8",
+   "verdict": "not-checked",
+   "correction": "LICENSE:205 verified ('You may charge any price or no price for each copy that you convey,'). Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy)."
+  },
+  {
+   "id": "license-9",
+   "verdict": "not-checked",
+   "correction": "LICENSE:275-286 (s.6d '...in the same way through the same place at no further charge') verified. Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy)."
+  },
+  {
+   "id": "license-10",
+   "verdict": "not-checked",
+   "correction": "LICENSE:222 verified. Precedent nuance from Tasks.org @4d77927: the generic (F-Droid) flavour unlocks all app-side pro features (Inventory.hasPro returns IS_GENERIC || ...), but it still shows a donation nag (begForMoney = !hasTasksAccount when IS_GENERIC) and the hosted Tasks.org sync is NOT unlocked: SignInActivity shows 'A GitHub sponsorship is required to use Tasks.org sync' and opens https://github.com/sponsors/abaker. So 'unlocks every pro feature' holds for local features only. Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy)."
+  },
+  {
+   "id": "license-11",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy). Precedent support: Tasks.org sells its hosted sync as a Play subscription in googleplay builds and via GitHub Sponsors in generic builds (see license-10)."
+  },
+  {
+   "id": "license-12",
+   "verdict": "not-checked",
+   "correction": "LICENSE:84 verified ('To \"modify\" a work means to copy from or adapt all or part of the work'). Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy)."
+  },
+  {
+   "id": "license-13",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Maven artifact / SDK terms / Play deprecation FAQ)."
+  },
+  {
+   "id": "license-14",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Maven artifact / SDK terms / Play deprecation FAQ)."
+  },
+  {
+   "id": "license-15",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Maven artifact / SDK terms / Play deprecation FAQ)."
+  },
+  {
+   "id": "license-16",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Maven artifact / SDK terms / Play deprecation FAQ)."
+  },
+  {
+   "id": "license-17",
+   "verdict": "not-checked",
+   "correction": "LICENSE:123-132 System Libraries text verified verbatim. Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy)."
+  },
+  {
+   "id": "license-18",
+   "verdict": "not-checked",
+   "correction": "LICENSE:345-358 s.7 text verified (downstream may remove additional permissions; 'You may place additional permissions on material, added by you...'). Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy)."
+  },
+  {
+   "id": "license-19",
+   "verdict": "confirmed",
+   "correction": "Licences hold. Caveats: (1) open PR #31 by Pedro Luiz modifies CubeLib.tsx (see license-4); (2) cubing/min2phase.js describes itself as 'A JS package for Chen Shuang's ... min2phase' and its src/min2phase.js is a translation of Chen's Java code (same getMPerm/getMid3/CubieCube structure), so Garron's 2018 MIT option depends on Chen's authorship; Chen's own 2023 MIT section is what makes the MIT route clean, so cite it.",
+   "evidence": [
+    "Upstream authorship: see license-4 (master is Zhouheng Sun + Eric Xu's TopBarView.tsx only)",
+    "cs0x7f/min2phase README.md:123 '# License MIT' (2023)",
+    "poliva/smartcube-web-bluetooth HEAD 2077416: LICENSE.txt MIT (Copyright Pau Oliva and Andy Fedotov), package.json version 4.1.0, license MIT",
+    "afedotov/gan-web-bluetooth HEAD 65173e2: LICENSE.txt MIT, package.json 3.0.2 MIT; npm 3.0.2 MIT",
+    "cs0x7f/cstimer LICENSE GPLv3; thewca/tnoodle-lib LICENSE GPLv3; turnerglenn-cmyk/open-gan LICENSE GPLv3",
+    "aricneto/TwistyTimer README: 'GNU GPL v3 ... either version 3 of the License, or (at your option) any later version'"
+   ]
+  },
+  {
+   "id": "license-20",
+   "verdict": "confirmed",
+   "evidence": [
+    "spdx/license-list-data json/exceptions/GPL-3.0-linking-exception.json: text matches the quoted wording; seeAlso https://www.gnu.org/licenses/gpl-faq.en.html#GPLIncompatibleLibs",
+    "GPL-3.0-linking-source-exception.json adds 'Corresponding Source for a non-source form of such a combination shall include the source code for the parts of [name of library] used as well as that of the covered work.'"
+   ]
+  },
+  {
+   "id": "license-21",
+   "verdict": "confirmed",
+   "correction": "(1) and (2) confirmed. (3) Psysonic issue #1772 NOT verified: github.com web/API are blocked by the session proxy (403). The Psysonic repo (HEAD a75e30c, 2026-10-27) LICENSE/NOTICE.md/CONTRIBUTING.md contain no s.7 store permission yet. Also missed: Terpoir carries a second, broader 'Application stores' s.7 permission and the SPDX tag 'GPL-3.0-or-later WITH AdditionRef-Terpoir-AppStore-exception'; it is a 'pre-development' project whose seed commit is authored 'Claude', so it is not a lawyer-vetted precedent.",
+   "evidence": [
+    "nolsen311/Terpoir origin/main LICENSING.md: '### Google Play libraries' permission; defines 'Google Play Libraries' incl. Maven groups com.google.android.play, com.google.android.gms, com.android.billingclient; '...shall not include the source code for the parts of the Google Play Libraries used, but shall include the Corresponding Source of the covered work'; 'This permission does not extend to any other library that is not free software'; 'uses these libraries only in its play build flavor. The foss flavor contains none of them, and its build fails if one appears'",
+    "Terpoir commit ba57a55 2026-10-11 09:01 -0700 'licensing: permit linking with Google Play libraries (#24)'; android/app/build.gradle.kts:421-437 lists com.android.billingclient in proprietaryGroups and fails on 'forbidden' groups",
+    "schwabe/ics-openvpn HEAD f669267 doc/LICENSE.txt: GPLv2 with 'as a special exception, Arne Schwabe gives permission to link the code of this program with the OpenSSL library' and a second one for 'Apache2 licensed' libraries; README.md:94-97 'I would like to retain my ability to relicense the project ... sign the Contributor License Agreement'"
+   ]
+  },
+  {
+   "id": "license-22",
+   "verdict": "confirmed",
+   "correction": "Substance holds (no Play-library exception in any of the four), but the literal statement 'none was found' for the search terms is wrong: 'Google' appears in all four READMEs/LICENSEs (Play badges, OsmAnd's Google Play restriction) and 'exception' appears in the GPL text itself and in OsmAnd's 'license exceptions below'. Strong supporting evidence the claim missed: Mullvad's README openly states its App Store build is distributed under Apple's EULA, not the GPL, relying on copyright ownership although its CONTRIBUTING only takes a GPL-3.0 grant from contributors.",
+   "evidence": [
+    "tasks/tasks@4d77927 LICENSE = plain GPLv3 text (674 lines); README mentions Google Play only as badges/signing info",
+    "osmandapp/OsmAnd master LICENSE: GPLv3-or-later + CC-BY-NC-ND UI/UX + 'Publishing applications using the OsmAnd UI/UX code to Google Play ... must be done with written permission'; no linking exception for Play libraries",
+    "TwistyTimer@2fcd6f7 README/LICENSE.txt: only Google Play badge and the GPL's own s.7 text",
+    "mullvad/mullvadvpn-app HEAD 2e42fef README '# License': GPL-3.0-or-later; 'the distributed app on the Apple App Store is not GPL licensed, it falls under the Apple App Store EULA'; CONTRIBUTING.md:51-57 contributions are 'licensed under GPL 3.0' with a grant to use them 'under the terms defined by the GPL 3.0 license'"
+   ]
+  },
+  {
+   "id": "license-23",
+   "verdict": "confirmed",
+   "correction": "Minor: the donate URL is opened at TaskListFragment.kt:633 (L621 is the IS_GOOGLE_PLAY branch). googleplay is the default flavour and also adds PostHog analytics, Firebase Remote Config/Messaging and Microsoft auth. Generic builds still nag for money and require a GitHub sponsorship for hosted Tasks.org sync (see license-10).",
+   "evidence": [
+    "tasks/tasks@4d77927 (2026-10-28) LICENSE GPLv3; README line 1: Astrid's open-source code 'serves as the basis of Tasks'",
+    "app/build.gradle.kts:125-133 productFlavors generic (dimension store) and googleplay (isDefault = true); L288-306 googleplayImplementation firebase BOM, crashlytics, posthog.android, firebase config/messaging, play.services.location/maps, play.billing.ktx (L295), play.review, oss.licenses, wearable, code.scanner, microsoft.authentication",
+    "app/src/generic/java/org/tasks/billing/BillingClientImpl.kt: all methods empty / emptyList()",
+    "Inventory.kt:66 purchasedThemes() = hasPro || SKU_THEMES; L68-77 hasPro getter returns IS_GENERIC || ...",
+    "TaskListFragment.kt:621 'if (TasksApplication.IS_GOOGLE_PLAY)' -> PurchaseActivity; else L633 context.openUri(R.string.url_donate); keys.xml url_donate = https://tasks.org/donate",
+    "Play US listing (2026-10-28): offer price 0, 'In-app purchases', 500K+ downloads",
+    "fdroiddata metadata/org.tasks.yml: License GPL-3.0-only, Donate https://tasks.org/donate, Liberapay tasks, Bitcoin 136mW34j...; latest build 15.12 'gradle: - generic'"
+   ]
+  },
+  {
+   "id": "license-24",
+   "verdict": "confirmed",
+   "correction": "Confirmed. Note that the shipped binary pins Billing 4.0.0 and the repo is dormant since 2023-01-06, so any update would first need Billing 8+.",
+   "evidence": [
+    "aricneto/TwistyTimer default-branch HEAD = 2fcd6f7d2697a0810f37245ac033f1da12448382, 2023-01-06 'Migrate to Storage Access Framework'",
+    "README.md:21-28 '# License (GNU GPL v3)' ... 'either version 3 of the License, or (at your option) any later version'",
+    "app/build.gradle:88 implementation 'com.anjlab.android.iab.v3:library:2.0.3'; DonateDialog.java:50-62 donation_tier5..tier1",
+    "MainActivity.java onProductPurchased -> bp.consumePurchaseAsync(...): purchases are consumed and unlock nothing (pure tip)",
+    "repo1.maven.org .../library-2.0.3.pom: 'The Apache Software License, Version 2.0'; dependency com.android.billingclient:billing:4.0.0",
+    "Play US listing: offer price 0, 'In-app purchases', 1M+ downloads; contributors.txt 9 names; fdroiddata metadata/com.aricneto.twistytimer.yml -> HTTP 404"
+   ]
+  },
+  {
+   "id": "license-25",
+   "verdict": "confirmed",
+   "correction": "Small corrections: the flavour list omits androidFull (the net.osmand.plus flavour F-Droid builds as android+full+opengl+arm64); the current F-Droid billing removal lives in the mirror repo's prebuild.sh, not inline in the yml; F-Droid also adds a build-level Tracking anti-feature.",
+   "evidence": [
+    "OsmAnd master LICENSE: 'Copyright (c) 2010-2026 OsmAnd BV'; GPLv3 'or (at your option) any later version'; UI/UX under CC-BY-NC-ND 4.0; 'Publishing applications using the OsmAnd UI/UX code to Google Play, Amazon Market, or Apple Store must be done with written permission.'",
+    "OsmAnd/build-common.gradle:413 implementation 'com.android.billingclient:billing:8.0.0' (plain implementation, so all flavours)",
+    "OsmAnd/build.gradle version flavours: nightlyFree (net.osmand.dev), androidFull (net.osmand.plus), gplayFree (net.osmand), gplayFull (net.osmand.plus), huawei (net.osmand.huawei, src-huawei + src-nogplay, huaweiImplementation com.huawei.hms:iap:6.4.0.301)",
+    "fdroiddata metadata/net.osmand.plus.yml: Name OsmAnd~, License GPL-3.0-only, Donate https://osmand.net/pricing, AntiFeatures NonFreeAssets + NonFreeNet (+ build-level Tracking: 'An unique installation ID is sent alongside map download requests'); the inline sed \"/.*com.android.billingclient.*/d\" build-common.gradle appears up to 4.2.6; from 4.2.7 the recipe calls ../../prebuild.sh, and gitlab.com/f-droid-mirrors/OsmAnd-submodules prebuild.sh:98-100 still runs that sed and stubs InAppPurchaseHelperImpl",
+    "Play US: OsmAnd+ offer price 69.99 USD, '$69.99 Buy', 'In-app purchases', 100K+",
+    "README.md:90 'By buying OsmAnd+ and subscribing to OsmAnd Pro ... you help the application become even more awesome!'"
+   ]
+  },
+  {
+   "id": "license-26",
+   "verdict": "confirmed",
+   "evidence": [
+    "codeberg iNPUTmice/Conversations master: LICENSE GPLv3; build.gradle flavours mode {quicksy, conversations} x distribution {playstore, free}; conversationsPlaystoreImplementation 'com.android.installreferrer:installreferrer:2.2' (no Firebase SDK; FCM wake-ups are Play-only per README)",
+    "README.md:90-98 table: Address book integration and Public channel search F-Droid only; 'Fallback via FCM (Google Push)' Play only; README.md:319 'If you bought the App on Google Play'",
+    "Play US listing: offer price 0, Install button, no 'In-app purchases' label, 100K+",
+    "fdroiddata eu.siacs.conversations.yml: License GPL-3.0-only, Liberapay iNPUTmice, latest build 2.21.0+free with gradle [conversations, free] and a reproducible 'binary:' from gultsch.dev"
+   ]
+  },
+  {
+   "id": "license-27",
+   "verdict": "confirmed",
+   "correction": "Confirmed; the cited blob/main-ose URL points to a branch that no longer exists (renamed to main). Missed: DAVx5 requires a CLA, which is what lets bitfire ship its Play build.",
+   "evidence": [
+    "bitfireAT/davx5-ose default branch is now 'main' (HEAD 45879a7, 2026-10-28; ls-remote shows no 'main-ose' branch); README.md:26 'DAVx5 is licensed under the GPLv3 License'; README.md:46-47 'If you want to support DAVx5, please consider donating to DAVx5 or purchasing it'",
+    "app-ose/build.gradle.kts:45-50 flavorDimensions 'distribution', single flavour 'ose'",
+    "Play US: offer price 6.49 USD, '$6.49 Buy', 'In-app purchases', 100K+",
+    "fdroiddata at.bitfire.davdroid.yml: License GPL-3.0-only, Donate https://www.davx5.com/donate, Liberapay DAVx5, Bitcoin bc1q0hvy...; build subdir app-ose, gradle ose",
+    "CONTRIBUTING.md:62-63 'our CLA bot will ask you to sign the Contributor's License Agreement'"
+   ]
+  },
+  {
+   "id": "license-28",
+   "verdict": "confirmed",
+   "correction": "Correction: the play flavour adds Google Cast (play-services-cast-framework) as well as Wear OS Play services, not only wearable.",
+   "evidence": [
+    "AntennaPod develop HEAD d3e41c6: LICENSE GPLv3; README 'licensed under the GNU General Public License (GPL-3.0)'",
+    "playFlavor.gradle: flavorDimensions 'market', flavours free and play; app/build.gradle:112 playImplementation libs.google.play.services.wearable",
+    "playback/cast/build.gradle:21-24 playApi androidx.mediarouter, playApi google.play.services.cast.framework, playImplementation media3.cast",
+    "Play US: offer price 0, no IAP label, 1M+; fdroiddata de.danoeh.antennapod.yml License GPL-3.0-only, gradle [free]; MaintainerNotes 'Upstream devs don't need more donation so donation links are removed.'"
+   ]
+  },
+  {
+   "id": "license-29",
+   "verdict": "confirmed",
+   "evidence": [
+    "mullvad/mullvadvpn-app HEAD 2e42fef android/app/build.gradle.kts:116-124 flavorDimensions BILLING + INFRASTRUCTURE; Flavors.OSS (isDefault = true) and Flavors.PLAY; L518 playImplementation(projects.lib.billing)",
+    "android/lib/billing/build.gradle.kts:31 implementation(libs.android.billingclient)",
+    "LICENSE.md GPLv3; README: 'either version 3 of the License, or (at your option) any later version'",
+    "fdroiddata net.mullvad.mullvadvpn.yml: License GPL-3.0-or-later, AntiFeatures NonFreeNet 'Depends on the Mullvad VPN service.'; recipe rm android/lib/billing and seds billing out; output ossProd",
+    "Play US: free, 'In-app purchases', 5M+"
+   ]
+  },
+  {
+   "id": "license-30",
+   "verdict": "unclear",
+   "correction": "Source-level facts are confirmed, but the Play listing carries an 'In-app purchases' label even though the public android build has no billing library. So either the Play binary differs from the public source or the label is stale. That leaves open whether SPD's Play build really has no Play Billing and whether it shows the Patreon link with perks. Do not cite it as proof that Play tolerates in-app Patreon links.",
+   "evidence": [
+    "00-Evan/shattered-pixel-dungeon HEAD 57a4e06 (2026-10-06): LICENSE.txt GPLv3; android/build.gradle has no billing dependency (release adds only services:updates:githubUpdates and services:news:shatteredNews)",
+    "TitleScene.java:174-175 adds SupportButton unconditionally -> SupporterScene; SupporterScene.java:86-91 opens https://www.patreon.com/ShatteredPixel; scenes.properties:123 lists 'Early Access to betas', 'Weekly Mini-Blogs', 'Monthly Polls', 'Physical Reward Pins'",
+    "docs/getting-started-android.md:62 'If you intend to make your version of the game available on Google Play PLEASE CONTACT ME ... your version of the game will almost certainly be taken down for impersonating...'",
+    "Play US listing (2026-10-28): offer price 0, 5M+, and it DOES show the 'In-app purchases' label",
+    "fdroiddata com.shatteredpixel.shatteredpixeldungeon.yml: License GPL-3.0-only, Donate https://www.patreon.com/ShatteredPixel"
+   ]
+  },
+  {
+   "id": "license-31",
+   "verdict": "confirmed",
+   "correction": "Confirmed. Missed: dual licensing works there because Belledonne requires a contributor agreement for every patch.",
+   "evidence": [
+    "BelledonneCommunications/linphone-android HEAD e7e7937 README.md:19-25 'Copyright (c) Belledonne Communications' ... 'Linphone is dual licensed, and is available either : - under a GNU/GPLv3 license, for free (open source) ... - under a proprietary license, for a fee, to be used in closed source applications.'",
+    "README.md:175-182 contributors must send a signed 'Contributor Agreement' (bc-contributor-agreement_0.pdf) 'to grant us peaceful exercise of our rights'"
+   ]
+  },
+  {
+   "id": "license-32",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-33",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-34",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-35",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-36",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-37",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-38",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-39",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-40",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-41",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (Google Play policy/fees/DDA)."
+  },
+  {
+   "id": "license-42",
+   "verdict": "confirmed",
+   "correction": "Quotes and precedents confirmed; the billing POM licence/dependency part was not re-checked here (other lens).",
+   "evidence": [
+    "f-droid.org/docs/Inclusion_Policy (fetched 2026-10-28): '...Google Play Services and Firebase and Crashlytics and proprietary ad/tracking SDKs are strictly forbidden in all applications. Upstream developers must implement either a FLOSS alternative or a build flavour that does not require these dependencies when such features become necessary.'; 'Those binaries must still be freely licensed, simply being included in one of those repositories is not enough.'",
+    "Precedent flavours verified: Tasks generic, AntennaPod free, Conversations free, Mullvad oss (recipe also deletes android/lib/billing); OsmAnd recipe seds com.android.billingclient out (now inside the mirror repo's prebuild.sh)"
+   ]
+  },
+  {
+   "id": "license-43",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent lens. Precedent data points: OsmAnd~ NonFreeAssets + NonFreeNet + build-level Tracking; Mullvad NonFreeNet; Tasks, AntennaPod, Conversations, DAVx5 carry none."
+  },
+  {
+   "id": "license-44",
+   "verdict": "not-checked",
+   "correction": "Only partly checked: Inclusion Policy says 'All donation links need verification by upstream developers ... F-Droid contributors can consider funding.json, FUNDING.yml or README files.' Precedent metadata uses Donate/Liberapay/Bitcoin (Tasks, DAVx5), Donate=Patreon (SPD), Donate=PayPal button URL (ics-openvpn). The Build Metadata Reference field list was not re-checked."
+  },
+  {
+   "id": "license-45",
+   "verdict": "confirmed",
+   "evidence": [
+    "Inclusion Policy: 'The application should have been actively developed for at least 3 months, unless: The application has been proven to have some users. The author has been maintaining other apps on F-Droid. The application is developed only for an event.'; 'Unique ID: All applications must have their own distinct Android Application ID'; 'It is advised to use an Application ID that stems from a domain name owned by the developer'; 'Forks: Forked applications need to obtain a fresh Android ID ... and they must receive corresponding name, icon and string changes including translation adjustments.'"
+   ]
+  },
+  {
+   "id": "license-46",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent lens (GitHub docs). Precedent: Tasks.org's README carries Bitcoin/PayPal/Liberapay donate badges and its F-Droid build uses https://github.com/sponsors/abaker as a paid rail."
+  },
+  {
+   "id": "license-47",
+   "verdict": "confirmed",
+   "correction": "Upstream numbers confirmed; whether the rest of the plan is all-new code is outside this lens.",
+   "evidence": [
+    "Upstream master line counts (git show | wc -l): CubeLib.tsx 1188, Defs.tsx 221, Math.ts 66, Pruner.tsx 1013, Solver.tsx 279, CachedSolver.tsx 69, Analyzer.ts 258, Evaluator.tsx 280, Algs.tsx 423, src/reducers/* 1448 (10 files), src/components/CubeSim.tsx 485; src/lib/two_gram_v1.json 9,112 bytes",
+    "Algs.tsx: cmll_algs_raw L28-72 (42 cases + 'solved'), '// my 2h algs' L73, ollcp_algs_raw L120, nmcll_to_cmll_mapping L163"
+   ]
+  },
+  {
+   "id": "license-48",
+   "verdict": "confirmed",
+   "correction": "Corrections: twsearch is dual 'MPL-2.0 OR GPL-3.0-or-later' per its README (Cargo.toml lists only MPL-2.0). MPL-2.0 (twsearch, cubing.js) is file-level weak copyleft, not permissive: changes to MPL files must be published. smartcube-web-bluetooth is not on npm (registry 404), so it has to be vendored from GitHub.",
+   "evidence": [
+    "ldez/cubejs LICENSE: 'Copyright (c) 2013-2017 Petri Lehtinen', 'Copyright (c) 2018 Ludovic Fernandez', MIT; README: 'implements Herbert Kociemba's two-phase algorithm'; npm cubejs 1.3.2 MIT",
+    "luckasRanarison/kewb LICENSE MIT (2023 LIOKA Ranarison Fiderana), README 'Kociemba's two-phase algorithm'",
+    "npm cubing 0.66.1 license 'MPL-2.0 OR GPL-3.0-or-later'",
+    "cubing/twsearch HEAD d85dbce: Cargo.toml license = 'MPL-2.0', but README '## License': 'dual-licensed under the Mozilla Public License 2.0 and GPL 3.0 (or any later version)', 'SPDX-License-Identifier: MPL-2.0 OR GPL-3.0-or-later'; repo has LICENSE-MPL.md and LICENSE-GPL.md",
+    "smartcube-web-bluetooth package.json 4.1.0 MIT; gan-web-bluetooth 3.0.2 MIT",
+    "hkociemba/RubiksCube-TwophaseSolver GPLv3; muodov/kociemba GPLv2; efrantar/rob-twophase GPLv3; thewca/tnoodle-lib GPLv3; cs0x7f/cstimer GPLv3; open-gan GPLv3 with NOTICE 'This product includes software ported from: gan-web-bluetooth ... MIT License, Copyright (c) Andy Fedotov'"
+   ]
+  },
+  {
+   "id": "license-49",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (estimate / statute / case law)."
+  },
+  {
+   "id": "license-50",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (estimate / statute / case law)."
+  },
+  {
+   "id": "license-51",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens (estimate / statute / case law)."
+  },
+  {
+   "id": "license-52",
+   "verdict": "confirmed",
+   "correction": "Repo facts confirmed. The copyright conclusion is outside this lens.",
+   "evidence": [
+    "Algs.tsx@0129460 L28-73: no source attribution for any alg; L29 [\"o_adjacent_swap\", \"R U R' F' R U R' U' R' F R2 U' R'\"]; L73 '// my 2h algs' precedes cmll_algs_raw_custom",
+    "git grep for 'credit|courtesy|adapted|ported' in src: only CmllTrainerView.tsx:127 'recognition schema courtesy of James Macdiarmid' (a recognition scheme, not algs) and AppView.tsx:103 'Inspired by http://cubegrass.appspot.com/'"
+   ]
+  },
+  {
+   "id": "license-53",
+   "verdict": "not-checked",
+   "correction": "Outside the precedent/repo lens: the FSF FAQ quotes were not re-fetched (www.gnu.org and web.archive.org both reset the connection through the proxy)."
+  },
+  {
+   "id": "license-54",
+   "verdict": "confirmed",
+   "correction": "Confirmed, with two caveats: Psysonic's ~30-contributor count is unverified (github.com blocked), and open PR #31 would add a second author if merged. Terpoir's CONTRIBUTING clause is a ready-made example of the 'DCO + inbound terms include the s.7 permission' model.",
+   "evidence": [
+    "Upstream code to port is by Zhouheng Sun only (license-4); vendored min2phase.js and OrbitControls.js have MIT options (license-5)",
+    "ics-openvpn README.md:94-97 CLA 'to retain my ability to relicense'",
+    "Terpoir LICENSING.md '## Contributions': 'Contributions are accepted under the same terms, including the additional permissions above, and must carry a Developer Certificate of Origin sign-off.'",
+    "DAVx5 CONTRIBUTING.md:62-63 CLA bot; linphone README.md:180 Contributor Agreement"
+   ]
+  },
+  {
+   "id": "license-55",
+   "verdict": "confirmed",
+   "correction": "Precedent facts confirmed; the s.5c legal question is outside this lens.",
+   "evidence": [
+    "OsmAnd LICENSE: UI/UX CC-BY-NC-ND 4.0 and 'Publishing applications using the OsmAnd UI/UX code to Google Play ... must be done with written permission'",
+    "fdroiddata net.osmand.plus.yml AntiFeatures NonFreeAssets: 'Artwork, layouts and prerecorded voices are under a non-commercial license'"
+   ]
+  }
+ ],
+ "missing": [
+  "Open upstream PR #31 (unmerged, 2026-08-19, 'support left handed FB/SB') by Pedro Luiz / GitHub Pekito adds 295 lines incl. +71 in src/lib/CubeLib.tsx and a lefty mirror in BlockTrainerStateM.tsx. Merging it, or reusing it for Rouxtine's lefty support, adds a second copyright holder to planned-port files. Source: git refs/pull/31/head 400070e, https://github.com/onionhoney/roux-trainers/pull/31",
+  "Upstream is dormant: master and gh-pages last changed 2025-07-27 (0129460 / a75a5bb), and the 2026-08 PR #31 is unanswered. Budget for slow or no reply when asking onionhoney for a s.7 permission or relicence (Option E). Source: https://github.com/onionhoney/roux-trainers/commits/master",
+  "Upstream's vendored min2phase.js and OrbitControls.js carry no licence or attribution header, and the repo ships neither cubing/min2phase.js's LICENSE.md nor three.js's MIT notice. Rouxtine must add the MIT notices (Lucas Garron 2018 / Chen Shuang 2023 / three.js authors) itself. Sources: https://github.com/onionhoney/roux-trainers/tree/0129460a5c30082ea0e29b4489623889118078ec/src/lib/min2phase , https://github.com/cubing/min2phase.js/blob/a465b5e458fc1850299cab3c6254973c7f4c76ae/LICENSE.md",
+  "cubing/min2phase.js calls itself 'A JS package for Chen Shuang's ... min2phase', and its src/min2phase.js is a JS translation of Chen's Java. Garron's 2018 MIT option rests on Chen's authorship, so port from cs0x7f/min2phase and cite Chen's own 2023 'License MIT' section. Sources: https://github.com/cubing/min2phase.js/blob/a465b5e458fc1850299cab3c6254973c7f4c76ae/README.md , https://github.com/cs0x7f/min2phase/blob/4d183b9eff8119cac72bc50ef35a7d8990740e06/README.md",
+  "Tasks.org is also a precedent for Option G and for GitHub Sponsors as the non-Play payment rail. Play builds sell the hosted sync subscription through Play Billing. Generic/F-Droid builds keep a donation nag, and SignInActivity says 'A GitHub sponsorship is required to use Tasks.org sync' (https://github.com/sponsors/abaker). The googleplay flavour also bundles PostHog analytics. Sources: https://github.com/tasks/tasks/blob/4d7792727f1a96c92410fa00665a5e657681600f/app/src/main/java/org/tasks/auth/SignInActivity.kt , https://github.com/tasks/tasks/blob/4d7792727f1a96c92410fa00665a5e657681600f/app/build.gradle.kts#L288-L306",
+  "Mullvad's README says its App Store build 'is not GPL licensed, it falls under the Apple App Store EULA'. Its CONTRIBUTING takes only a GPL-3.0 grant from contributors. This is an explicit case of a copyright-holder distributor relying on ownership rather than a written exception. Sources: https://github.com/mullvad/mullvadvpn-app/blob/main/README.md , https://github.com/mullvad/mullvadvpn-app/blob/main/CONTRIBUTING.md",
+  "Inbound-licence precedents for CONTRIBUTING: DAVx5 (CLA bot), linphone (Belledonne Contributor Agreement PDF, which enables dual licensing), ics-openvpn (CLA, plus 'If you need a non GPLv2 license of the source please contact me'), and Terpoir (DCO + 'Contributions are accepted under the same terms, including the additional permissions'). Sources: https://github.com/bitfireAT/davx5-ose/blob/main/CONTRIBUTING.md , https://github.com/BelledonneCommunications/linphone-android/blob/master/README.md , https://github.com/schwabe/ics-openvpn/blob/master/doc/LICENSE.txt , https://github.com/nolsen311/Terpoir/blob/main/LICENSING.md",
+  "Terpoir also carries a broader 'Application stores' s.7 permission covering store terms that are incompatible with the GPL, provided the source is available elsewhere. It tags files 'GPL-3.0-or-later WITH AdditionRef-Terpoir-AppStore-exception'. It is a pre-development project whose seed commit is authored 'Claude', so its wording is not lawyer-vetted. Source: https://github.com/nolsen311/Terpoir/blob/main/LICENSING.md",
+  "Twisty Timer's donation IAPs are consumed and unlock nothing (MainActivity.onProductPurchased -> consumePurchaseAsync). It is the closest cubing-app precedent for Option B, but it is stuck on Billing 4.0.0 via anjlab and has had no update since 2023-01-06. Source: https://github.com/aricneto/TwistyTimer/blob/2fcd6f7d2697a0810f37245ac033f1da12448382/app/src/main/java/com/aricneto/twistytimer/activity/MainActivity.java",
+  "The Shattered Pixel Dungeon Play listing (US, 2026-10-28) shows 'In-app purchases' although the public android build has no billing library. The Play binary may differ from public source, so SPD is not proof that an in-app Patreon link is accepted on Play. Source: https://play.google.com/store/apps/details?id=com.shatteredpixel.shatteredpixeldungeon",
+  "The AntennaPod play flavour also adds Google Cast (play-services-cast-framework). F-Droid removed AntennaPod's donation links ('Upstream devs don't need more donation'), which shows F-Droid curators edit donation metadata. Sources: https://github.com/AntennaPod/AntennaPod/blob/develop/playback/cast/build.gradle , https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/de.danoeh.antennapod.yml",
+  "twsearch is dual 'MPL-2.0 OR GPL-3.0-or-later' (README), and MPL-2.0 is weak copyleft, not permissive. smartcube-web-bluetooth is not published on npm, and its LICENSE.txt lists both Pau Oliva and Andy Fedotov. Sources: https://github.com/cubing/twsearch/blob/main/README.md , https://registry.npmjs.org/smartcube-web-bluetooth , https://github.com/poliva/smartcube-web-bluetooth/blob/master/LICENSE.txt",
+  "Verification gaps: github.com web pages and api.github.com returned HTTP 403 from the session proxy (GitHub stars/forks, PR/issue pages, Psysonic #1772). www.gnu.org and web.archive.org reset the connection, so FSF FAQ quotes were not re-checked. Repo facts above come from git clones, raw.githubusercontent.com, codeberg raw, gitlab raw and Play pages. Source: proxy status http://127.0.0.1:44307/__agentproxy/status"
+ ]
+}

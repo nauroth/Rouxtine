@@ -1,0 +1,377 @@
+{
+ "verdicts": [
+  {
+   "id": "license-1",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-2",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-3",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-4",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-5",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-6",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-7",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-8",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-9",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-10",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-11",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-12",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-13",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-14",
+   "verdict": "not-checked",
+   "correction": "Outside the store-policy lens; minSdk and POM contents not re-checked. Only the deadline part was checked. The deprecation FAQ table gives version 8 a new-app/update deadline of 2027-08-31, with an extension available to 2027-11-01. That matches 'usable until 2027-08-31'.",
+   "evidence": [
+    "https://developer.android.com/google/play/billing/deprecation-faq (fetched 2026-10-28, 'Last updated 2026-10-23 UTC'): table row '8 | August 31, 2027 | November 1, 2027'"
+   ]
+  },
+  {
+   "id": "license-15",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-16",
+   "verdict": "confirmed",
+   "correction": "Exact. Each version's extension runs to Nov 1 of its deadline year (v8 to 2027-11-01, v9 to 2028-11-01). The FAQ also says 'Apps must use a supported version from the table' and 'These dependencies only appear in APKs that require the com.android.vending.BILLING permission'.",
+   "evidence": [
+    "https://developer.android.com/google/play/billing/deprecation-faq (fetched 2026-10-28; page footer 'Last updated 2026-10-23 UTC'): 'Reminder: By Aug 31, 2026, all new apps and updates to existing apps must use Billing Library version 8 or later. If you need more time to update your app, you can request an extension until Nov 1, 2026.'",
+    "Same page, support timeline table: '7 | August 31, 2026 | November 1, 2026'; '8 | August 31, 2027 | November 1, 2027'; '9 | August 31, 2028 | November 1, 2028'"
+   ]
+  },
+  {
+   "id": "license-17",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-18",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-19",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-20",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-21",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-22",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-23",
+   "verdict": "not-checked",
+   "correction": "Outside the lens except the F-Droid metadata, which matches. org.tasks.yml has 'License: GPL-3.0-only', 'Donate: https://tasks.org/donate', 'Liberapay: tasks' and 'Bitcoin: 136mW34jW3cmZKhxuTDn3tHXMRwbbaRU8s'. The latest build (15.12) uses gradle flavour 'generic'. Even so, the recipe also seds gms/firebase/crashlytics/google.services lines out of the build.gradle.kts files.",
+   "evidence": [
+    "https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/org.tasks.yml (fetched 2026-10-28)"
+   ]
+  },
+  {
+   "id": "license-24",
+   "verdict": "not-checked",
+   "correction": "Only the F-Droid part was checked: fdroiddata metadata/com.aricneto.twistytimer.yml does return HTTP 404 (not in F-Droid).",
+   "evidence": [
+    "https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/com.aricneto.twistytimer.yml -> HTTP 404 (2026-10-28)"
+   ]
+  },
+  {
+   "id": "license-25",
+   "verdict": "not-checked",
+   "correction": "Outside the lens; the GitHub files could not be fetched (github.com blocked by the session proxy for non-session repos, HTTP 403). The F-Droid parts hold, with two nuances. (1) The metadata says 'Name: OsmAnd~', 'License: GPL-3.0-only' and 'Donate: https://osmand.net/pricing', with AntiFeatures NonFreeAssets ('Artwork, layouts and prerecorded voices are under a non-commercial license') and NonFreeNet. The 5.4.x builds also carry a per-build 'Tracking' anti-feature. (2) The sed line `sed -i -e \"/.*com.android.billingclient.*/d\"` appears inline in the metadata only up to version 4.2.6. Current builds run ../../prebuild.sh from the F-Droid mirror repo, which still contains that sed, plus removal of com.google.android.play, play-services-location, Huawei and Amazon IAP. Play: net.osmand.plus showed '$69.99 Buy' on 2026-10-28. A free 'OsmAnd' (net.osmand) listing also exists.",
+   "evidence": [
+    "https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/net.osmand.plus.yml",
+    "https://gitlab.com/f-droid-mirrors/OsmAnd-submodules/-/blob/master/prebuild.sh (fetched via GitLab API project 3915349), lines 98-100",
+    "https://play.google.com/store/apps/details?id=net.osmand.plus&hl=en_US&gl=US",
+    "https://play.google.com/store/apps/details?id=net.osmand&hl=en_US&gl=US"
+   ]
+  },
+  {
+   "id": "license-26",
+   "verdict": "not-checked",
+   "correction": "Only the F-Droid metadata was checked, and it matches: 'License: GPL-3.0-only', 'Liberapay: iNPUTmice'. The latest build (2.21.0+free) uses gradle flavours 'conversations', 'free'.",
+   "evidence": [
+    "https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/eu.siacs.conversations.yml"
+   ]
+  },
+  {
+   "id": "license-27",
+   "verdict": "not-checked",
+   "correction": "Only the F-Droid metadata was checked, and it matches: 'License: GPL-3.0-only', 'Donate: https://www.davx5.com/donate', 'Liberapay: DAVx5' and a Bitcoin address. Builds come from subdir app-ose.",
+   "evidence": [
+    "https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/at.bitfire.davdroid.yml"
+   ]
+  },
+  {
+   "id": "license-28",
+   "verdict": "not-checked",
+   "correction": "Only the F-Droid metadata was checked, and it matches: 'License: GPL-3.0-only'. The latest build (3.12.3) uses gradle 'free', and its prebuild also seds '/play/d' out of app-wearos and wear-interface build files.",
+   "evidence": [
+    "https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/de.danoeh.antennapod.yml"
+   ]
+  },
+  {
+   "id": "license-29",
+   "verdict": "not-checked",
+   "correction": "Only the F-Droid metadata was checked, and it matches: 'License: GPL-3.0-or-later', AntiFeatures NonFreeNet ('Depends on the Mullvad VPN service.'). Note that the F-Droid recipe builds ossProd but still has `rm: android/lib/billing` and seds '/billing/d' out of settings.gradle.kts and build.gradle.kts. A separate flavour alone was not enough for F-Droid's source scan.",
+   "evidence": [
+    "https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/net.mullvad.mullvadvpn.yml (builds 2026.11/2026.12)"
+   ]
+  },
+  {
+   "id": "license-30",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-31",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-32",
+   "verdict": "confirmed",
+   "correction": "Quotes are verbatim. 'Section 3, 8, or 9' refers to the policy's numbered items: 3 = must-not-use cases (physical goods, P2P, tax-exempt donations...); 8 = alternative billing in eligible countries/regions; 9 = leading users outside the app in eligible countries/regions, both after enrolment. The Payments policy examples also list 'Items (such as ... characters, and avatars)', so cosmetic items are covered too. That a paid upfront app needs no billing library is consistent with the deprecation FAQ: billing-library dependencies 'only appear in APKs that require the com.android.vending.BILLING permission'. The price is set in Play Console (Products > App pricing) with a payments profile.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/9858738 (fetched 2026-10-28): '1. Developers charging for app downloads from Google Play must use Google Play's billing system as the method of payment for those transactions.'",
+    "https://support.google.com/googleplay/android-developer/answer/9858738: '2. Play-distributed apps requiring or accepting payment for access to in-app features or services, including any app functionality, digital content or goods (collectively \"in-app purchases\"), must use Google Play's billing system for those transactions unless Section 3, 8, or 9 applies.' ... 'app functionality or content (such as an ad-free version of an app or new features not available in the free version)'",
+    "https://support.google.com/googleplay/android-developer/answer/9858738 items 8-9: 'Developers serving users in eligible countries/regions may offer users an alternative billing system within the app if they enroll in the applicable program...'; 'Developers may lead users in eligible countries/regions outside the app subject to program requirements, provided they enroll in the applicable program...'",
+    "https://support.google.com/googleplay/android-developer/answer/6334373: 'Make your app free or paid ... (Products > App pricing)'"
+   ]
+  },
+  {
+   "id": "license-33",
+   "verdict": "confirmed",
+   "correction": "Quote verbatim. In practice Google reads 'tax exempt' narrowly. In the AnkiDroid case (2026), Google told the developers that 'donations can only be accepted from organizations that meet the criteria of being tax-exempt (for example, 501(c)(3) organizations, etc.)'. It did not accept Open Collective (Open Source Collective, a 501(c)(6) fiscal host) as qualifying. So even routing donations through Open Collective does not unlock this exception.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/9858738: '3. Google Play's billing system must not be used in cases where: ... payments include peer-to-peer payments, online auctions, and tax exempt donations'",
+    "https://gigazine.net/gsc_news/en/20260902-ankidroid-google-play-policy-violation/ (2026-09-02), summarising https://github.com/ankidroid/Anki-Android/issues/21656. The GitHub issue itself could not be fetched: github.com returned HTTP 403 from the session proxy for repositories outside this session."
+   ]
+  },
+  {
+   "id": "license-34",
+   "verdict": "confirmed",
+   "correction": "Quotes verbatim. Enforcement is even stricter than the claim implies. The FAQ adds that the ban 'includes directly linking to a webpage that could lead to an alternate payment method'. Links to administrative pages are allowed only 'as long as the webpage does not eventually lead to an alternate payment method'. StreetComplete (2022) first had its Liberapay/GitHub Sponsors/Patreon links rejected. A plain link to its GitHub homepage, which leads on to donations, was then rejected too. It was accepted once it showed a no-link dialog saying donations are possible elsewhere. So in the Play flavour, even 'Website'/'GitHub' links can be flagged if those pages carry Sponsor/donate buttons. The FUNDING.yml Sponsor button on the repo is such a case.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/9858738 item 4: 'Other than the conditions described in Section 3, Section 8, and Section 9, apps may not lead users to a payment method other than Google Play's billing system. This prohibition includes ... An app's listing in Google Play; ... In-app webviews, buttons, links, messaging, advertisements, or other calls to action'",
+    "https://support.google.com/googleplay/android-developer/answer/10281818 (FAQ): 'Yes. Outside of your app, you are free to communicate with your users about alternative purchase options.' / 'This includes directly linking to a webpage that could lead to an alternate payment method or using language that encourages a user to purchase the digital item outside of the app.' / 'Developers can refer users to administrative information ... as long as the webpage does not eventually lead to an alternate payment method prohibited by the Payments policy.'",
+    "https://www.theregister.com/2022/03/02/google_blocks_android_tool/ : StreetComplete's donation links were rejected, then 'replaced with a simple link to the app's homepage on GitHub ... but that was rejected, too'; resolved 'by removing the link and explaining in a dialog box ... that it can't link to any donation system'",
+    "https://www.phoronix.com/news/WireGuard-Ejected-Play-Store (WireGuard removed in 2019 over an in-app donation link)"
+   ]
+  },
+  {
+   "id": "license-35",
+   "verdict": "refuted",
+   "correction": "The FAQ quote is accurate, and Google indeed does not define 'creator'. But the practical conclusion that 'a no-perks Ko-fi or Liberapay link may qualify' is contradicted by Google's enforcement record. Developer-donation links in the app have repeatedly been treated as Payments-policy violations: WireGuard 2019, StreetComplete 2022 (no-perks Liberapay/GitHub Sponsors/Patreon links) and AnkiDroid in Aug-Sep 2026 (Open Collective link). In the AnkiDroid case Google said donations are allowed only for tax-exempt recipients such as 501(c)(3) organisations. No case was found where Google accepted the creator-tip FAQ as cover for donations to the app's own developer. Plan the Play flavour as if no in-app donation link is allowed, unless the link is a Play Billing IAP or the app is enrolled in a regional program.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/10281818: 'Do direct tips or contributions from user to creator require Play's billing system? In cases where 100% of the tip or contribution from a user goes to the creator and the payment does not grant access to any digital content or services (including stickers, badges, special emojis etc.), then we regard this as a peer-to-peer payment and use of Google Play's billing system is not required. If any of these things is not true, then Google Play's billing system must be used in accordance with the policy requirements.'",
+    "https://gigazine.net/gsc_news/en/20260902-ankidroid-google-play-policy-violation/ (2026-09-02): 'According to Google, AnkiDroid is not eligible to solicit donations within the app.' and 'donations can only be accepted from organizations that meet the criteria of being tax-exempt (for example, 501(c)(3) organizations, etc.)'. Primary issue https://github.com/ankidroid/Anki-Android/issues/21656 was blocked by the session proxy (HTTP 403).",
+    "https://www.theregister.com/2022/03/02/google_blocks_android_tool/"
+   ]
+  },
+  {
+   "id": "license-36",
+   "verdict": "refuted",
+   "correction": "The individual facts quoted are accurate. Still, 'two programs exist' is out of date, and the business-registration condition does not apply to every EEA route. Since 2026-06-30, EEA developers have four opt-in routes. (1) The new billing choice program, available in the UK and EEA since 2026-06-30 and in AU and JP since 2026-09-30. It offers Play Billing alongside either in-app alternative billing or external web links, with an optional custom choice screen and billing-choice APIs. Its eligibility lists only 'an app or game on the mobile or tablet form factors in available markets', with no business-registration line. Its links 'can only direct users to your owned offers'. (2) The user choice billing pilot, which requires a registered business. (3) The EEA alternative-billing-only program, which requires a registered business. (4) The external offers program, which requires a registered business, excludes apps targeting only children, and excludes Play Billing and user choice billing. Fees: external offers 0% initial acquisition; ongoing 10% subscriptions, 20% other (15% in the Apps & Games programs), 10% on the first $1M, EUR 1.20 per linked install, effective 2026-06-04. Alternative billing without user choice: 10% on the first $1M, then 10% subscriptions / 20% new installs / 25% existing installs from 2026-06-30. None of these routes is designed for donations; each covers 'digital content and services'.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/17161464 (billing choice program): 'users should be given a choice between Google Play Billing and either alternative billing within the app or external web links'; market table: United Kingdom Jun 30, 2026; EEA Jun 30, 2026 ('Billing choice program * / Existing external offers program'); Australia and Japan Sep 30, 2026; '* In the EEA, user choice billing and the EEA program remain available.'; 'Eligibility: ... your app must be an app or game on the mobile or tablet form factors in available markets.'",
+    "https://android-developers.googleblog.com/2026/06/play-expanded-billing.html (2026-06-24): 'the new billing choice program is available to all developers globally who provide digital services or content to users within the United Kingdom and the European Economic Area'",
+    "https://support.google.com/googleplay/android-developer/answer/14372887 (external offers): 'Developer must be registered as a business.'; 'Your app must not target only children.'; 'Enrolled Play managed apps are only eligible to use alternative billing without user choice for in-app purchases and may not use Google Play Billing or user choice billing.'; fee table Standard 10% / 20% / 1.20 Euro per install; First $1M 10% / 10%; 'Effective June 4, 2026'",
+    "https://support.google.com/googleplay/android-developer/answer/12348241 (EEA alternative billing): 'Developer must be registered as a business.'; from June 30, 2026: First $1M 10/10/10, Standard 10/20/25",
+    "https://support.google.com/googleplay/android-developer/answer/12570971 (user choice billing pilot): 'Developer must be registered as a business.'"
+   ]
+  },
+  {
+   "id": "license-37",
+   "verdict": "confirmed",
+   "correction": "Accurate. Additions: the US programs apply to mobile and tablet form factors. Unlike the EEA external offers program, the US external content links and alternative billing programs may be used alongside Google Play Billing. The ECL app-download fee is a fixed $2.85 per install for apps ($3.65 for games). The billing choice FAQ says US programs are unchanged by it. The injunction wording ('will not prohibit a developer from communicating with users about the availability of a payment method other than Google Play Billing') sits next to Google's statement that 'Our current policies and programs remain in effect'. Google still channels links through enrolment, and the AnkiDroid donation-link enforcement continued in 2026.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/15582165: 'On September 12, 2025, the Ninth Circuit upheld ...'; 'as of October 29, 2025 ... Google will not require the use of Google Play Billing in apps distributed on the Google Play Store'; 'On March 4, 2026, we entered a new settlement agreement with Epic and the parties have asked the US District Court to enter a revised Modified Injunction.'; '(as launched on December 9, 2025)'; 'starting on October 1, 2026'; 'October 21, 2026, developers enrolled in external content links have until February 1, 2027 to report successful downloads and pay the relevant service fees.'",
+    "https://support.google.com/googleplay/android-developer/answer/16470497: 'Integrate with the external content links APIs ...'; 'Can I use Google Play's billing system alongside external content links? Yes'; 'Apps: $2.85'",
+    "https://support.google.com/googleplay/android-developer/answer/16497028: 'in lieu of or alongside Google Play Billing'; 'Complete the integration of the alternative billing APIs'"
+   ]
+  },
+  {
+   "id": "license-38",
+   "verdict": "refuted",
+   "correction": "Partly out of date and partly wrong. (a) The user choice billing pilot also covers the United States, and games are eligible there. India and South Korea also admit gaming and non-gaming apps. So 'outside the EEA and Japan it is limited to non-gaming apps' holds only for AU, BR, ID, ZA and UK. (b) Japan's external payments program stopped accepting new enrolments on 2026-09-30 and ends after 2027-03-31. Japan, Australia, the UK and the EEA now have the billing choice program, which offers Play Billing plus alternative billing or external web links. South Korea gets it on 2026-12-31 and the rest of the world on 2027-09-30. (c) India and South Korea do get 'reduced by 4%' (correct). (d) 'Everywhere else must use Play Billing' needs one caveat: the FAQ says the requirement 'does not apply' in countries where Play Billing is not available.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/12570971: pilot markets 'European Economic Area (EEA) countries, Australia, Brazil, Indonesia, Japan, South Africa, United Kingdom, United States'; eligibility 'An app or game on the mobile or tablet form factors with users in the United States; or ... Japan; or A non-gaming mobile or tablet app with users in all other locations'",
+    "https://support.google.com/googleplay/android-developer/answer/13821247: 'User choice billing — South Korea ... App eligibility: Gaming & non-gaming'; India same; 'Reduced by 4%'",
+    "https://support.google.com/googleplay/android-developer/answer/16787536: 'Starting September 30, 2026, the external payments program in Japan is no longer accepting new enrollments and will be discontinued after March 31, 2027. Developers can enroll in the billing choice program instead.'",
+    "https://support.google.com/googleplay/android-developer/answer/16954621: rollout table June 30, 2026 EEA, UK, US; September 30, 2026 AU, JP; December 31, 2026 KR; September 30, 2027 Rest of World",
+    "https://support.google.com/googleplay/android-developer/answer/10281818: 'As long as Google Play's billing system isn't available in a particular country, the Payments policy's requirement to use Google Play's billing system does not apply in that country.'"
+   ]
+  },
+  {
+   "id": "license-39",
+   "verdict": "confirmed",
+   "correction": "Correct for one-time items, with gaps. (1) Auto-renewing subscriptions stay at 10% (+5% billing fee via Play Billing) even above $1M. (2) The same table also covers the initial purchase of a paid app: 10% + billing fee on the first $1M, then 20% + billing fee for new installs and 25% for existing ones. (3) The new/existing split starts on 2026-06-30 for the EEA, UK and US, and on 2026-09-30 for AU and JP. (4) In the Apps Experience or Games Level Up programs, the rates drop to 15% for new installs and 20% for existing ones. (5) External web links carry no billing fee; for existing installs above the first $1M they are charged 20%. (6) In the remaining markets, the 15%-on-first-$1M rate applies to 'Developers enrolled in the 15% service fee tier'. That is an enrolment step.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/112622: 'First $1M (USD) of annual earnings: 10% + 5% billing fee'; Standard: 'Auto-renewing subscriptions 10% + 5% billing fee'; 'Other transactions (new installs) 20% + 5% billing fee'; '(existing installs) 25% + 5% billing fee OR; 20% for external web links'; '* Billing fee applies when a user completes a purchase ... using Google Play Billing or for the initial purchase of a paid app or game'; 'Developers enrolled in the 15% service fee tier: 15% for the first $1M ... 30% for earnings in excess of $1M'",
+    "https://support.google.com/googleplay/android-developer/answer/16954621: 'Initial purchase of paid app or game ... First $1M annual earnings 10% + billing fee'; 'In the AU, JP, US, UK, and the European Economic Area (EEA), the billing fee is set at 5%.'"
+   ]
+  },
+  {
+   "id": "license-40",
+   "verdict": "confirmed",
+   "correction": "Quote accurate. The full s.5.3 text is 'license to perform, modify color of, or add themes to, your Product icons, display (including with the color and theme modifications), and use the Product'. The claim's ellipses drop the icon-theming part. The claim leaves out DDA s.3.7, which matters for option D: 'Products that were initially offered free of charge to users will remain free of charge. Any additional charges will correlate with an alternative or supplemental version of the Product.' Play Console help likewise says a free app 'can't be changed to paid'. s.4.5 also bars Play products whose 'purpose ... facilitates the distribution of software applications and games ... outside of Google Play'.",
+   "evidence": [
+    "https://play.google/developer-distribution-agreement.html: 'Effective as of September 15, 2025'; s.5.3 '... If You choose, You may include a separate end user license agreement (\"EULA\") in Your Product ... to the extent that EULA conflicts with this Agreement, this Agreement will supersede the EULA.'",
+    "Same page s.3.7 and s.4.5 (quoted in correction)",
+    "https://support.google.com/googleplay/android-developer/answer/6334373: 'Once your app has been offered for free, the app can't be changed to paid. If you want to charge for the app, you need to create a new app with a new package name and set a price.'"
+   ]
+  },
+  {
+   "id": "license-41",
+   "verdict": "confirmed",
+   "correction": "Quote verbatim. Whether a paid twin is actually a risk is an interpretation, and free/paid pairs are common in practice. Free 'OsmAnd' (net.osmand) and paid 'OsmAnd+' (net.osmand.plus, $69.99) both list on Play today. The policy itself suggests the alternative: 'If these apps are each small in content volume, developers should consider creating a single app that aggregates all the content.' A single app with an IAP remains the lower-risk design, and because a free app can never become paid (DDA 3.7), a paid Play app would have to be a separate listing from day one.",
+   "evidence": [
+    "https://support.google.com/googleplay/android-developer/answer/9899034 (Spam > Repetitive Content): 'We don't allow apps that merely provide the same experience as other apps already on Google Play.' ... 'Creating multiple apps with highly similar functionality, content, and user experience. If these apps are each small in content volume, developers should consider creating a single app that aggregates all the content.'",
+    "https://play.google.com/store/apps/details?id=net.osmand&hl=en_US&gl=US ; https://play.google.com/store/apps/details?id=net.osmand.plus&hl=en_US&gl=US"
+   ]
+  },
+  {
+   "id": "license-42",
+   "verdict": "confirmed",
+   "correction": "Quotes verbatim on the current page. Nuances: (1) The OsmAnd billingclient sed now lives in the F-Droid mirror's prebuild.sh; it was inline in the metadata only up to 4.2.6. (2) A FOSS flavour alone is often not enough, because F-Droid's scanner inspects the whole source tree. Mullvad's recipe deletes android/lib/billing and seds billing out of settings.gradle.kts, and Tasks' recipe seds gms/firebase/crashlytics out of its Gradle files. AntennaPod's recipe seds play lines out of its wear modules. So Rouxtine should keep Play-only dependencies in one removable module or file. (3) The policy also requires a '100% FLOSS toolchain' and forbids apps that 'download additional executable binary files (e.g. add-ons, auto-updates, etc.) without explicit user consent'.",
+   "evidence": [
+    "https://f-droid.org/docs/Inclusion_Policy/ (fetched 2026-10-28): 'The implementation of proprietary tracking or advertising libraries and analytics tools such as Google Play Services and Firebase and Crashlytics and proprietary ad/tracking SDKs are strictly forbidden in all applications. Upstream developers must implement either a FLOSS alternative or a build flavour that does not require these dependencies when such features become necessary.'",
+    "Same page: 'Those include Maven Central, Google Maven, OSS Sonatype, OSS JFrog, JitPack.io and Clojars. Those binaries must still be freely licensed, simply being included in one of those repositories is not enough.'",
+    "https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/net.mullvad.mullvadvpn.yml ; .../org.tasks.yml ; .../de.danoeh.antennapod.yml ; .../eu.siacs.conversations.yml (latest builds use ossProd / generic / free / conversations+free)",
+    "https://gitlab.com/f-droid-mirrors/OsmAnd-submodules/-/blob/master/prebuild.sh: 'sed -i -e \"/.*com.android.billingclient.*/d\" \"$osmand_dir/build-common.gradle\"'"
+   ]
+  },
+  {
+   "id": "license-43",
+   "verdict": "confirmed",
+   "correction": "The identifiers are right, but they come from two pages. The Build Metadata Reference lists Ads, KnownVuln, NonFreeAdd, NonFreeAssets, NonFreeDep, NonFreeNet, NoSourceSince, NSFW, TetheredNet and Tracking. The Anti-Features page adds 'Disabled Algorithm' and does not list NSFW. The 'tracked or leaks, by default' wording is from the Build Metadata Reference. The final sentence needs caveats. Tracking (per the Build Metadata Reference) also covers features that by default make 'requests to a data collecting network service ... For example, activity-based down-loading of weather data, maps, avatars', and (per the Anti-Features page) 'Checking for updates without your knowledge or permission'. NonFreeNet covers apps that 'promote' a proprietary service, e.g. embedded YouTube tutorials or default online content. NonFreeAssets covers bundled NC/ND content. Scraped rouxcubing/rouxers text or images without a free licence could therefore trigger labels or rejection; the Inclusion Policy also requires that 'All assets need to have valid legal licenses'. A Rouxtine build that is offline by default and links donations only would need no label.",
+   "evidence": [
+    "https://f-droid.org/docs/Build_Metadata_Reference/ (AntiFeatures section): '* NonFreeNet - the application promotes or depends entirely on a proprietary network service.' ... '* Tracking - user or activity data is tracked or leaks, by default. True if the app or a feature can not be used without collecting and sharing such data, or doing requests to a data collecting network service ...'",
+    "https://f-droid.org/docs/Anti-Features/: list 'Ads, Disabled Algorithm, Known Vulnerability, Non-Free Addons, Non-Free Assets, Non-Free Dependencies, Non-Free Network Services, No Source Since, Tethered Network Services, Tracking'; 'Those apps will not be found in the repo at all' (proprietary ad SDKs)",
+    "https://f-droid.org/docs/Inclusion_Policy/: 'All assets need to have valid legal licenses or be in the public domain while being free of copyright infringement.'"
+   ]
+  },
+  {
+   "id": "license-44",
+   "verdict": "confirmed",
+   "correction": "Accurate. Opencollective.com and liberapay.com get user-friendly display; the dedicated Liberapay and OpenCollective fields take a user or group name, not a URL. Verification can also come from the app's main website or from a message by the source-repo account.",
+   "evidence": [
+    "https://f-droid.org/docs/Build_Metadata_Reference/: 'Donate ... Allowed URL schemes are https://, taler://, bitcoin: and litecoin:. Additionally, on our official app and website, we will present donation links to these supported platforms in a user-friendly way: opencollective.com, liberapay.com.' ... 'It is always best to use a link that the developer explicitly makes public, rather than something that is auto-generated 'button code' (e.g. PayPal, Stripe, Ko-Fi, Patreon, etc.).'",
+    "https://f-droid.org/docs/Inclusion_Policy/: 'All donation links need verification by upstream developers to stop unauthorized alterations. F-Droid contributors can consider funding.json, FUNDING.yml or README files. ... The application's main website can also host donation links.'"
+   ]
+  },
+  {
+   "id": "license-45",
+   "verdict": "confirmed",
+   "correction": "Accurate. Two related rules: 'Any application with a duplicate android application ID matching another domain name will receive automatic rejection', so do not use an onionhoney-derived or third-party-domain ID. And 'Applications that perform only minor rebranding and lack meaningful improvements over other actively maintained applications in the repo shouldn't be included'.",
+   "evidence": [
+    "https://f-droid.org/docs/Inclusion_Policy/: 'The application should have been actively developed for at least 3 months, unless: The application has been proven to have some users. The author has been maintaining other apps on F-Droid. The application is developed only for an event.'; 'Your domain: It is advised to use an Application ID that stems from a domain name owned by the developer.'; 'Forks: Forked applications need to obtain a fresh Android ID ... and they must receive corresponding name, icon and string changes including translation adjustments.'"
+   ]
+  },
+  {
+   "id": "license-46",
+   "verdict": "confirmed",
+   "correction": "Accurate. FUNDING.yml lives in the repo's .github folder on the default branch and allows one account per platform plus up to four sponsored GitHub developers. Supported keys include github, patreon, open_collective, ko_fi, tidelift, community_bridge, liberapay, issuehunt, polar, buy_me_a_coffee, thanks_dev and custom. Caveat for the Play flavour: the StreetComplete precedent shows that linking from the Play app to a repo page with a Sponsor button can itself be flagged.",
+   "evidence": [
+    "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository: 'You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in GitHub Sponsors.'",
+    "https://f-droid.org/docs/Inclusion_Policy/: 'F-Droid contributors can consider funding.json, FUNDING.yml or README files.'"
+   ]
+  },
+  {
+   "id": "license-47",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-48",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-49",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-50",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-51",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-52",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-53",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-54",
+   "verdict": "not-checked"
+  },
+  {
+   "id": "license-55",
+   "verdict": "not-checked",
+   "correction": "Outside the lens except the F-Droid side, which matches. NonFreeAssets is defined as artwork etc. 'under a license that restricts commercial usage or making derivative works (for example, any Creative Commons license with a Non-Commercial (NC) or No Derivatives (ND) restriction)'. The Inclusion Policy allows such non-functional assets if they 'allow redistribution when using non-commercial licenses'.",
+   "evidence": [
+    "https://f-droid.org/docs/Anti-Features/",
+    "https://f-droid.org/docs/Inclusion_Policy/"
+   ]
+  }
+ ],
+ "missing": [
+  "Google Play 'billing choice program' (announced 2026-03-04, live in the UK and EEA since 2026-06-30, in AU and JP since 2026-09-30; KR on 2026-12-31; rest of world on 2027-09-30). It lets an app offer Play Billing alongside in-app alternative billing or external web links to the developer's own website, with an optional custom choice screen. Eligibility lists no business-registration requirement. Links may only go to 'your owned offers' of digital features or services, so it does not obviously cover donations. Source: https://support.google.com/googleplay/android-developer/answer/17161464 ; https://android-developers.googleblog.com/2026/06/play-expanded-billing.html",
+  "Enforcement record on in-app donation links: WireGuard was removed in 2019. StreetComplete was rejected in 2022: first for Liberapay/GitHub Sponsors/Patreon links, then even for a plain link to its GitHub homepage; it was accepted with a no-link dialog. AnkiDroid was flagged in Aug-Sep 2026 for an Open Collective link; Google said only tax-exempt recipients (e.g. 501(c)(3)) qualify and rejected Open Collective's 501(c)(6) status. Sources: https://www.theregister.com/2022/03/02/google_blocks_android_tool/ ; https://www.phoronix.com/news/WireGuard-Ejected-Play-Store ; https://gigazine.net/gsc_news/en/20260902-ankidroid-google-play-policy-violation/ (primary https://github.com/ankidroid/Anki-Android/issues/21656 blocked by the session proxy, HTTP 403)",
+  "A middle ground for option A that the research missed. Consumption-only apps 'may choose to provide additional information about purchasing options without direct links'. StreetComplete's accepted fix was an About dialog saying donations exist without linking. So a Play build with no IAP may be able to mention 'Rouxtine is donation-funded, see our website' as plain text, with no link and no URL that leads to a donate page. This is still a review risk. Source: https://support.google.com/googleplay/android-developer/answer/10281818 ; https://www.theregister.com/2022/03/02/google_blocks_android_tool/",
+  "A free Play app can never be switched to paid. A paid tier would need a new package from day one (relevant to option D, and to any later change of mind). Source: https://support.google.com/googleplay/android-developer/answer/6334373 ('Once your app has been offered for free, the app can't be changed to paid') ; https://play.google/developer-distribution-agreement.html s.3.7",
+  "Monetising from a personal Play account publishes the developer's full address on Google Play. This applies to IAP tip jars (B/C), paid apps (D) and any service sold in-app (G). The listing otherwise shows legal name, country and email. Source: https://support.google.com/googleplay/android-developer/answer/13628312 ('If you decide to monetize on Google Play then Google will display your full address.')",
+  "New personal Play developer accounts (created after 2023-11-13) must run a closed test with at least 12 testers opted in continuously for 14 days before applying for production access. This is a launch-planning item for a community app. Source: https://support.google.com/googleplay/android-developer/answer/14151465",
+  "The billing fee also applies to paid-app downloads: 'Initial purchase of paid app or game' costs a 10% service fee plus the 5% billing fee on the first $1M in AU/EEA/JP/UK/US. Option D therefore pays the same 15% as an IAP. Source: https://support.google.com/googleplay/android-developer/answer/16954621 ; https://support.google.com/googleplay/android-developer/answer/112622",
+  "Play target API requirement: since 2026-08-31, new apps and updates must target Android 16 (API 36), with an extension to 2026-11-01 available. This constrains targetSdk, not minSdk, so it does not conflict with Q4's wide minSdk range. Source: https://support.google.com/googleplay/android-developer/answer/11926878",
+  "Android developer verification affects F-Droid and GitHub distribution. Enforcement began on 2026-09-30 for apps from participating stores in Brazil, Indonesia, Singapore and Thailand on certified Android 7+ devices, and expands globally in 2027. Apps from unregistered developers then install only via a one-time 'advanced flow', which has a 24-hour wait, or via ADB. Google's open-source guide lets a developer register the package and add F-Droid's re-signing key fingerprint, so F-Droid users keep the normal install flow. Free 'limited distribution' accounts allow up to 20 devices. Sources: https://developer.android.com/developer-verification ; https://developer.android.com/developer-verification/guides/open-source-app-registration ; https://developer.android.com/developer-verification/guides/faq",
+  "F-Droid reproducible builds: with the 'Binaries' field (plus AllowedAPKSigningKeys), 'F-Droid will use upstream binaries if the verification succeeded'. F-Droid then ships the developer-signed APK, so GitHub-release and F-Droid installs share one key, users can switch between them, and verification registration needs only one key. Source: https://f-droid.org/docs/Build_Metadata_Reference/",
+  "F-Droid recipes still strip Play-only code even when a FOSS flavour exists, because the source scan covers the whole tree. Mullvad's recipe uses 'rm: android/lib/billing' plus seds, Tasks' seds out gms/firebase/crashlytics, and AntennaPod's seds out play lines. Rouxtine should isolate Play Billing in a separate Gradle module or source set that can be deleted cleanly. Sources: https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/net.mullvad.mullvadvpn.yml ; https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/org.tasks.yml ; https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/de.danoeh.antennapod.yml",
+  "Self-update rules for a GitHub-release flavour. Play: 'An app distributed via Google Play may not modify, replace, or update itself using any method other than Google Play's update mechanism.' F-Droid: no downloading of executable binaries or auto-updates without opt-in consent. An update check that runs without permission earns the Tracking anti-feature. Keep any updater out of both the Play and F-Droid flavours. Sources: https://support.google.com/googleplay/android-developer/answer/9888379 ; https://f-droid.org/docs/Inclusion_Policy/ ; https://f-droid.org/docs/Anti-Features/",
+  "Content sourced from rouxcubing.com / resources.rouxers.com (Q6) has store consequences. F-Droid requires 'valid legal licenses' for all assets, and NC/ND content earns NonFreeAssets. Default online fetching or YouTube embeds can earn Tracking or NonFreeNet. Play's Spam policy flags 'Copying content from other apps without adding any original content or value'. Get permission or a licence before bundling scraped material. Sources: https://f-droid.org/docs/Inclusion_Policy/ ; https://f-droid.org/docs/Build_Metadata_Reference/ ; https://support.google.com/googleplay/android-developer/answer/9899034",
+  "Play Families policy. The Roux audience includes children, so if the Target Audience selection includes under-13s, extra rules apply. Examples: accurate Data safety/IARC answers, and apps targeting both children and older audiences 'must not transmit AAID ... from children or users of unknown age'. The EEA external offers program excludes apps that 'target only children'. Source: https://support.google.com/googleplay/android-developer/answer/9893335 ; https://support.google.com/googleplay/android-developer/answer/14372887",
+  "US specifics missing from license-37. External content links and US alternative billing can run alongside Google Play Billing, unlike the EEA external offers program. The ECL app-download fee is $2.85 per install for apps. Source: https://support.google.com/googleplay/android-developer/answer/16470497 ; https://support.google.com/googleplay/android-developer/answer/16497028",
+  "Blocked sources: github.com pages and api.github.com for repositories outside this session returned HTTP 403 from the session proxy (e.g. https://github.com/ankidroid/Anki-Android/issues/21656). The GitHub-hosted precedent files in license-23..30 were therefore not re-read for this lens."
+ ]
+}

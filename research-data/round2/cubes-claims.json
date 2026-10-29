@@ -1,0 +1,671 @@
+{
+ "claims": [
+  {
+   "id": "cubes-1",
+   "topic": "market",
+   "claim": "GAN makes about half of the smart cubes on sale. On 2026-10-28 the smart-cube collections of the two biggest US speedcube shops listed 16 GAN of 28 smart puzzles (SpeedCubeShop) and 18 of 36 (TheCubicle). MoYu had 9 and 12, and QiYi-protocol cubes (QiYi AI, X-Man Tornado V4 AI) had 3 and 5. TheCubicle also listed one TokTok. The counts include a few 2x2s and measure shelf share, not sales.",
+   "sources": [
+    "https://speedcubeshop.com/collections/smart-cubes/products.json",
+    "https://www.thecubicle.com/collections/smart-cubes-and-bluetooth/products.json"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-2",
+   "topic": "market",
+   "claim": "GAN16 ui Maglev MAX is GAN's newest flagship ('current top-tier flagship'), listed from late June / July 2026. It costs $139.99 at GAN and TheCubicle and $125.96 on sale (list $139.95) at SpeedCubeShop. It uses the GAN Gen4 protocol: on 2026-10-19 SWB added a replay capture 'GAN16ui_FF89' that its gan-gen4 driver decodes. Retail copy: gyroscope, 'high frame rate' motion capture, battery up to 45 h. No EU shop price was found.",
+   "sources": [
+    "https://www.gancube.com/products/gan16-ui-maglev-max",
+    "https://www.thecubicle.com/products/gan16-ui-maglev-max-uv-3x3-smart-cube",
+    "https://speedcubeshop.com/products/16-ui-maglev-max-uv",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GAN16ui_FF89_gan-gen4_2026-10-19T17-09-34.json",
+    "https://github.com/poliva/smartcube-web-bluetooth/commit/436e88a76abbf656bb460a40dae3d9d5a6d5fd51"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-3",
+   "topic": "market",
+   "claim": "The GAN i4 (launched Feb 2026) costs $62.96-69.99 in the US and EUR 54.99 at cuboss.com (EU, in stock). The cheaper i4 Leap (Mar-Sep 2026) costs $49.46-54.99 (US). The i4 uses GAN Gen4: SWB capture 'GANi4_A26E' (2026-04-14). The i4 Leap probably uses Gen4 too, but no capture names it. Retail copy: gyroscope, contact-free Hall-effect 'zero-loss sensing', a 30 h performance mode and a 200 h endurance mode (gyro off), 10-minute quick charge.",
+   "sources": [
+    "https://www.gancube.com/products/gan-i4-smart-cube",
+    "https://www.gancube.com/products/gan-i4-leap",
+    "https://speedcubeshop.com/products/gan-i4-3x3-leap-magnetic-ball-core-bluetooth-smart-cube",
+    "https://cuboss.com/shop/gan-i4-3x3-smart-cube/",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GANi4_A26E_gan-gen4_2026-04-14T11-38-02.json"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-4",
+   "topic": "market",
+   "claim": "gan-web-bluetooth maps the older GANs to protocol generations. Gen2: GAN Mini ui FreePlay, GAN12 ui FreePlay, GAN12 ui, GAN356 i Carry S, GAN356 i Carry, GAN356 i 3, Monster Go 3Ai, plus MoYu AI 2023. Gen3: GAN356 i Carry 2. Gen4: GAN12 ui Maglev, GAN14 ui FreePlay. SWB captures confirm Gen2 for 'GAN12ui' and 'GAN12uiFp'. In Oct 2026 the GAN12 ui Maglev is still sold ($105.99-138.99 US; EUR 139.90 for the 10th-anniversary box at atoutcubes.com, FR). The GAN14 ui and Mini ui FreePlay are no longer listed at SpeedCubeShop, TheCubicle or gancube.com.",
+   "sources": [
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/README.md#L91-L104",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GAN12ui--B3C_gan-gen2_2026-04-14T11-40-51.json",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_GAN12uiFp-753_gan-gen2_2026-04-14T11-34-36.json",
+    "https://www.gancube.com/collections/all/products.json",
+    "https://www.thecubicle.com/collections/smart-cubes-and-bluetooth/products.json",
+    "https://www.atoutcubes.com/en/smart-cubes-robots/67327-qiyi-smart-cube-3x3-bluetooth-uv-4000000007487.html"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-5",
+   "topic": "market",
+   "claim": "The GAN356 i Carry 2 is the only Gen3 model. It has no gyroscope and a button cell rated about 700 h. It costs $35.99-48.99 at GAN and $44.99 at TheCubicle, and is out of stock at SpeedCubeShop. Its firmware is unreliable. Andy Fedotov in csTimer issue #407 (still open): 'iCarry2 has very buggy firmware', 'skipping moves so bad'. SWB works around two of its bugs: move history past serial 255->0 is spoofed as 'D', and a facelets event fires at move counter 255.",
+   "sources": [
+    "https://github.com/cs0x7f/cstimer/issues/407",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L561-L650",
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/README.md#L100-L101",
+    "https://speedcubeshop.com/products/gan-356-i-carry-2-3x3-bluetooth-smart-cube-magnetic-uv-coated",
+    "https://www.gancube.com/collections/all/products.json"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-6",
+   "topic": "market",
+   "claim": "The cheapest current GANs are the GAN356 i Carry E / E V2 ($25.99 at GAN and TheCubicle, $29.95 at SpeedCubeShop, EUR 25.99 at cuboss.com) and the GAN i Carry 4 (Jan 2026, $31.46-39.99). Both use button cells rated about 150 h, and SpeedCubeShop says the i Carry E has no gyroscope. No open driver, capture or issue names either model, so their protocol generation is UNVERIFIED. If a cube advertises a 'GAN...' name and exposes the Gen2, Gen3 or Gen4 service, SWB's service-UUID detection will connect to it.",
+   "sources": [
+    "https://speedcubeshop.com/products/gan-356-i-carry-e-3x3-magnetic-bluetooth-smart-cube",
+    "https://www.thecubicle.com/products/gan356-i-carry-e-3x3",
+    "https://cuboss.com/shop/gan-356-i-carry-e-3x3-smart-cube/",
+    "https://www.gancube.com/products/gan-i-carry-4-smart-cube",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-smart-cube.ts#L143-L189"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-7",
+   "topic": "market",
+   "claim": "Two more GANs are on sale with no open implementation that names them, so their protocol is UNVERIFIED: the GAN12 ui SP (2025, $89.95-99.99; its '6 core angle sensors ... help reduce missed move detection') and the GAN356 i3 V2 ($59.99, TheCubicle).",
+   "sources": [
+    "https://speedcubeshop.com/products/gan-12-ui-sp-3x3-magnetic-uv-coated-bluetooth-smart-cube",
+    "https://www.thecubicle.com/products/gan356-i3-v2-3x3"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-8",
+   "topic": "market",
+   "claim": "The MoYu WeiLong V10 AI uses the MoYu32 protocol. It advertises 'WCU_MY32_XXXX'; csTimer commits from 2024-07-29 add MAC discovery for 'bound WeiLong V10 Ai'; SWB has WCU_MY32 captures. Prices: $53.06-80.96 at SpeedCubeShop, $32.99 for the V10 AI Lite at TheCubicle, EUR 57.99 at cuboss.com. In Apr 2026 SWB added support for a 'cheap v10ai' that has no gyro and needs an extra init burst.",
+   "sources": [
+    "https://github.com/cs0x7f/cstimer/commit/7c13949489d7789d3be6593bd729578b4b6284b5",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_WCU_MY32_A388_moyu32_2026-04-14T11-35-43.json",
+    "https://github.com/poliva/smartcube-web-bluetooth/commit/1e44c2c8b9c4ba44f9157673e9443e4d4b44ac62",
+    "https://github.com/poliva/smartcube-web-bluetooth/commit/7bbd5e969d6c27990d6fecf89ecccc1fe65521d8",
+    "https://www.thecubicle.com/products/moyu-weilong-v10-ai-3x3-lite",
+    "https://cuboss.com/wp-json/wc/store/v1/products?search=weilong"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-9",
+   "topic": "market",
+   "claim": "MoYu's newer AI 3x3s all pair with the WCU CUBE app: WeiLong V11 AI (Jul 2025, $114.95-125.99), Super AoLong AI (Nov 2025, $121.46-159.99, gyroscope core, about 30 h) and AoLong V5 AI (listed 2026-10-23, $42.99-80.95; only the MagLev variant has a gyroscope). No open driver names any of them. They are probably MoYu32: WCU-app cubes advertise 'WCU_' names, and SWB has a capture from an unidentified 3x3 named 'WCU_MY33' that its MoYu32 driver decodes. This is UNVERIFIED for each model. cuboss.com (EU) lists none of them.",
+   "sources": [
+    "https://speedcubeshop.com/collections/smart-cubes/products.json",
+    "https://www.thecubicle.com/collections/smart-cubes-and-bluetooth/products.json",
+    "https://www.thecubicle.com/products/moyu-aolong-v5-ai-3x3-smart-cube-magnetic",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_WCU_MY33_AF9E_moyu32_2026-04-14T11-53-23.json",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/moyu32cube.js#L140-L198"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "cubes-10",
+   "topic": "market",
+   "claim": "The QiYi AI 3x3 ('QiYi Smart Cube') is the cheapest current smart 3x3: $22.95 at SpeedCubeShop and $22.99 at TheCubicle ($26.95-26.99 for UV). In the EU it costs EUR 22.99 at cuboss.com (in stock) and EUR 22.90 at atoutcubes.com (FR, out of stock). It advertises 'QY-QYSC-S-XXXX' and uses the QiYi protocol. It has no gyroscope: SWB turns gyro support on only if quaternion packets arrive.",
+   "sources": [
+    "https://speedcubeshop.com/products/qiyi-ai-3x3-magnetic-bluetooth-smart-cube",
+    "https://www.thecubicle.com/products/qiyi-smart-cube-3x3",
+    "https://cuboss.com/shop/qiyi-smart-cube-3x3/",
+    "https://www.atoutcubes.com/en/smart-cubes-robots/67327-qiyi-smart-cube-3x3-bluetooth-uv-4000000007487.html",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L108-L120"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-11",
+   "topic": "market",
+   "claim": "The X-Man Tornado V4 AI ($59.99-99.99 US, EUR 79.99 at cuboss.com) uses the same QiYi protocol. It advertises 'XMD-TornadoV4-i-XXXX' (MAC CC:A6:00:00:XX:XX) and sends gyroscope quaternions (0xCC 0x10 packets). SpeedCubeShop's copy lists Roux among the tutorials in its Smart Player Pro app.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/attachment/mac-candidates.ts#L14-L44",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L183-L215",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures/fixture_XMD-TornadoV4-i-034C__qiyi_2026-04-14T11-46-25.json",
+    "https://speedcubeshop.com/products/x-man-tornado-v4-ai-3x3-magnetic-uv-coated-charging-case-bluetooth-smart-cube",
+    "https://cuboss.com/wp-json/wc/store/v1/products?search=tornado"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-12",
+   "topic": "market",
+   "claim": "Particula still sells Rubik's Connected ($49.95), the GoCube Edge Full Pack ($79.95) and the GoCube 2x2 ($49.95) on particula-tech.com (getgocube.com redirects there). SpeedCubeShop and TheCubicle no longer stock them. The protocol uses a UART-style service 6e400001-b5a3-f393-e0a9-e50e24dcca9e with no encryption, only a sum checksum. It reports facelets and battery but no cube timestamps. Orientation exists only on the classic GoCube and the Edge, not on Rubik's Connected or GoCube X. There is no official protocol documentation.",
+   "sources": [
+    "https://particula-tech.com/products.json",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gocube.ts#L11-L45",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gocube.ts#L127-L143",
+    "https://js.cubing.net/cubing/bluetooth/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-13",
+   "topic": "market",
+   "claim": "Giiker and Xiaomi are legacy, available second-hand only. GiiKER's own store lists the SUPERCUBE i3S at $39.99 but marks it unavailable, and TheCubicle lists the Xiaomi Giiker cube as discontinued. Neither SpeedCubeShop nor cuboss stocks them. The protocol (service 0xaadb, notify 0xaadc) sends the full state and the latest move, with no timestamps and no gyro. Packets whose byte 18 is 0xA7 are obfuscated with a static 36-byte table.",
+   "sources": [
+    "https://giiker.com/products.json",
+    "https://www.thecubicle.com/products/xiaomi-giiker-cube",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/giiker.ts#L11-L60",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/giiker.ts#L105-L115"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-14",
+   "topic": "market",
+   "claim": "HeyKube's availability is unclear. TheCubicle says it has been 'discontinued indefinitely' ($99.99). The maker's own site shows $69.95 'IN STOCK', but the footer says (c) 2022, and the site advertises an open Python API. Only cubing.js implements its BLE protocol.",
+   "sources": [
+    "https://www.thecubicle.com/products/heykube-3x3",
+    "https://www.heykube.com/",
+    "https://github.com/cubing/cubing.js/blob/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/smart-puzzle/Heykube.ts"
+   ],
+   "confidence": "low"
+  },
+  {
+   "id": "cubes-15",
+   "topic": "market",
+   "claim": "The TokTok Cube 3x3, made by Smart Cube Labs (the company behind the eX-Mars app), is on sale at TheCubicle for $74.99-98.99. No protocol documentation or open-source driver was found; SWB, csTimer and cubing.js do not support it.",
+   "sources": [
+    "https://www.thecubicle.com/products/toktok-cube-3x3",
+    "https://apps.apple.com/np/app/ex-mars-connect/id6451303338",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/README.md#L38-L48"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-16",
+   "topic": "market",
+   "claim": "Open code still covers three legacy protocols. GAN Gen1 (GAN356 i v1): service 0xfff0 plus Device Information, polled, key derived from LZ-compressed blobs. MoYu MHC: older MoYu AI cubes, 'MHC' names. MoYu AI 2023: 'AiCube' names, GAN Gen2 framing with its own AES key, no gyro. atoutcubes marks the Monster Go AI (EUR 26.90) as no longer distributed.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-definitions.ts#L1-L21",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-gen1.ts#L260-L312",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu-mhc.ts#L15-L35",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-smart-cube.ts#L155-L164",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.ts#L115-L123"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-17",
+   "topic": "protocols",
+   "claim": "GAN Gen2, Gen3 and Gen4 share one encryption scheme: AES-128-CBC over the first 16-byte block and the last 16-byte block of each message. Each cube's key and IV are a fixed base pair with the first 6 bytes salted by the cube's MAC in reverse order: key[i] = (base[i] + mac_rev[i]) % 255. The generation is detected from the GATT service: Gen2 6e400001-b5a3-f393-e0a9-e50e24dc4179, Gen3 8653000a-43e6-47b7-9cb0-5fc21d4ae340, Gen4 00000010-0000-fff7-fff6-fff5fff4fff0. Without the right MAC, nothing can be decrypted.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-definitions.ts#L23-L71",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-mac-salt.ts#L1-L17",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-encrypter.ts#L22-L76",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-smart-cube.ts#L140-L189"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-18",
+   "topic": "protocols",
+   "claim": "GAN Gen2 move packets carry an 8-bit serial and the last 7 moves, each with a 16-bit elapsed time in ms. Up to 6 missed moves are recovered from every packet, with cube timestamps. Recovered moves have no host timestamp.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L412-L441"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-19",
+   "topic": "protocols",
+   "claim": "GAN Gen3 and Gen4 moves carry a 32-bit cube timestamp and a 16-bit serial. A gap in the serials, or a periodic FACELETS event whose serial is ahead of the last move (checked after 500 ms idle), triggers an explicit MOVE_HISTORY request (Gen3 0x68 0x03, Gen4 0xD1 0x04). Moves recovered this way have neither cube nor host timestamps. cubeTimestampLinearFit later places them 50 ms from their neighbours.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L561-L660",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L696-L736",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L875-L965",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/utils.ts#L48-L78"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-20",
+   "topic": "protocols",
+   "claim": "GAN Gen4 can batch moves: one BLE notification may contain several 72-bit MOVE chunks, which per the SWB source is 'common on slice moves'. A driver that reads only the first chunk drops turns until MOVE_HISTORY catches up, so Roux M-slice turns are exactly the case to test.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L976-L1010",
+    "https://github.com/poliva/smartcube-web-bluetooth/commit/d517e49ca1460761b92595d05a11b1fecef42f33"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-21",
+   "topic": "protocols",
+   "claim": "GAN Gen2-4 drivers expose gyroscope (quaternion + angular velocity), battery, facelets, hardware info and reset commands. Exceptions: MoYu AI 2023 ('AiCube') has no gyro. On Gen2 the gyro is read from the HARDWARE response. Gen1 has no hardware-info or reset command.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.ts#L26-L45",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.ts#L115-L133",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L383-L411"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-22",
+   "topic": "protocols",
+   "claim": "MoYu32 uses service 0783b03e-7735-b5a0-1760-a305d2795cb0 (read ...cb1, write ...cb2). It is AES-128 with an IV XOR (CBC-style) over the first and last 16 bytes, with a fixed base key and IV whose first 6 bytes are salted by the reversed MAC, as on GAN. Opcode 165 move packets carry the last 5 moves (3x3) with 16-bit time offsets and an 8-bit counter; if more than 5 are missed, the driver logs 'lost move events'. Other opcodes: 161 hardware info, 163 facelets, 164 battery (SWB polls it every 60 s), 171 gyro (after the enable payload 172).",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L16-L117",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32-move-history.ts#L8-L24",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L280-L360",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L420-L436"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-23",
+   "topic": "protocols",
+   "claim": "MoYu32 MAC discovery. The MAC is the 6 bytes after the company ID in the manufacturer data, reversed. The company ID is the high bytes of the WCU account ID when the cube is bound in the WCU Cube app, and 0x0000 when it is unbound. csTimer derives a default MAC 'CF:30:16:00:XX:XX' from a 'WCU_MY32_XXXX' name. SWB also tries third bytes 00, 01 and 02 and checks each guess by decrypting a probe.",
+   "sources": [
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/moyu32cube.js#L140-L198",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/attachment/mac-candidates.ts#L46-L90",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L474-L530"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-24",
+   "topic": "protocols",
+   "claim": "QiYi protocol. All traffic is WRITE and NOTIFY on characteristic fff6 (service fff0). AES-128-ECB uses a fixed key, not one derived from the MAC, but the app's Hello must include the MAC in reverse order. The cube->app header carries a 4-byte big-endian timestamp 'in units of 1.6 milliseconds'. Every State Change includes battery level, the full cube state and the previous moves with their timestamps: bytes 36-90, which SWB reads as 11 history slots. Messages use a CRC16-MODBUS checksum.",
+   "sources": [
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L9-L48",
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L60-L83",
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L137-L171",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L14-L106"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-25",
+   "topic": "protocols",
+   "claim": "QiYi ACKs: the app must ACK most cube->app messages by echoing bytes 3-7. A State Change needs an ACK only when byte 91 is set, which normally means the cube is solved. The spec documents a glitch: if the cube is solved during fast slice moves (e.g. an H-perm), the solved State Change never arrives. The workaround is to treat any State Change with the needs-ACK byte set as solved. Separately, SWB issue #2 (Tornado V4, opened 2026-05-04) reports that the second face of a slice move sometimes arrives only after another face is turned. The issue was closed 2026-05-12 with no fix described. Both matter for Roux LSE.",
+   "sources": [
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L84-L106",
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L137-L145",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L253-L330",
+    "https://github.com/poliva/smartcube-web-bluetooth/issues/2"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-26",
+   "topic": "protocols",
+   "claim": "No protocol reports slice moves. Every one encodes only the six outer faces (URFDLB), so an M turn arrives as an L + R' pair. SWB issue #2's log shows the pairing as 'M (L+R')' with a 15 ms cube-timestamp gap. Rouxtine must merge opposite-face pairs that fall within a short window into M/E/S, and track centre and orientation itself.",
+   "sources": [
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L172-L188",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L419-L424",
+    "https://github.com/poliva/smartcube-web-bluetooth/issues/2"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-27",
+   "topic": "protocols",
+   "claim": "MoYu MHC uses service 0x1000: write 0x1001, read 0x1002, turns 0x1003, gyro 0x1004. Each turn record carries a 32-bit timestamp in 1/65536 s. Battery and facelets are available only when the 'v1' read/write characteristics are present.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu-mhc.ts#L15-L20",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu-mhc.ts#L123-L170",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu-mhc.ts#L222-L228"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-28",
+   "topic": "implementations",
+   "claim": "smartcube-web-bluetooth (SWB) is at v4.1.0 (HEAD 2077416, 2026-10-20) and is MIT-licensed (copyright Pau Oliva and Andy Fedotov). It is TypeScript and RxJS. It covers GAN Gen1-4 (including GAN 251 UI 2x2), Giiker/Mi/Hi-, GoCube/Rubik's Connected, MoYu AI 2023, MHC and MoYu32, and QiYi including the Tornado V4. It is active: 37 commits by Oliva since March 2026, the latest on 2026-10-20. It is the best base for porting.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/README.md#L34-L48",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/LICENSE.txt",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/package.json",
+    "https://github.com/poliva/smartcube-web-bluetooth/commits/2077416d6c828ec926dee424cf1bbfe4c0f25a47"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-29",
+   "topic": "implementations",
+   "claim": "SWB ships MIT-licensed capture fixtures: raw encrypted notifications, the cube's MAC and the expected decoded events. They cover GAN12ui and GAN12uiFp (Gen2), GANic (Gen2), GANi4 and GAN16ui (Gen4), Giiker i3SE, GoCube, Rubik's Connected, QiYi QY-QYSC-S, Tornado V4, WCU_MY32, WCU_MY33 and WCU_MY22. A Kotlin port can replay them in JVM unit tests and check every decoder without owning the cubes.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/tree/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gan.replay.test.ts",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.replay.test.ts"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-30",
+   "topic": "implementations",
+   "claim": "afedotov/gan-web-bluetooth v3.0.2 (MIT; GAN Gen2-4 cubes and GAN timers) has had no commit since 2024-08-22. SWB has taken it over and keeps its GAN API for backward compatibility.",
+   "sources": [
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/README.md",
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/LICENSE",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/README.md#L29-L32"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-31",
+   "topic": "implementations",
+   "claim": "csTimer's smart-cube drivers (GPL-3.0; gancube, giikercube, gocube, moyucube, moyu32cube, qiyicube) are still maintained. Latest changes: qiyicube 2026-10-25, gancube 2026-09-07 (GAN 251 UI), moyu32cube 2026-08-08 (company ID 0x0000 / unbound MAC). giikercube and gocube are unchanged since 2024-08-22. Chen Shuang in csTimer introduced the linear-regression fit of cube clock to host clock.",
+   "sources": [
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/LICENSE",
+    "https://github.com/cs0x7f/cstimer/commit/78ab4b0b9ddbba03bd365ab7c2dc2d8fa4444514",
+    "https://github.com/cs0x7f/cstimer/commit/dbeb68353b06ac7f3a79ece0ee113fe46aca628b",
+    "https://github.com/cs0x7f/cstimer/commit/13babe21f46ac3e4a8eb9dc3486f867bb92c955a",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/README.md#L216-L223"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-32",
+   "topic": "implementations",
+   "claim": "cubing.js bluetooth (MPL-2.0 OR GPL-3.0-or-later) supports GAN only through the Gen1 0xfff0 service, so no current GAN. It also covers GoCube, HeyKube, QiYi and GiiKER, and no MoYu. Its bluetooth code last changed on 2026-10-08. It is the only open driver for HeyKube.",
+   "sources": [
+    "https://github.com/cubing/cubing.js/blob/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/smart-puzzle/gan.ts#L151-L156",
+    "https://github.com/cubing/cubing.js/blob/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/smart-puzzle/connect.ts#L6-L18",
+    "https://github.com/cubing/cubing.js/blob/615719165e79c85453fcf5a69dee885a3124d57a/package.json",
+    "https://js.cubing.net/cubing/bluetooth/"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-33",
+   "topic": "implementations",
+   "claim": "open-gan (GPL-3.0-or-later, Kotlin; minSdk 26, targetSdk 35) has a pure-Kotlin core with GAN Gen2-4 drivers, encryption, MoYu AI 2023 and the timestamp fit, plus a Compose BLE app. It is new and unproven: 8 commits between 2026-10-22 and 2026-10-27, all with the author 'Claude', and its README says it 'has not been tested on real hardware yet'. Rouxtine can reuse it only if it stays GPL.",
+   "sources": [
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/README.md#L6-L7",
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/README.md#L15-L16",
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/README.md#L51-L58",
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/app/build.gradle.kts#L9-L14",
+    "https://github.com/turnerglenn-cmyk/open-gan/commits/27520a574f53270716f11d0386e2597b43a553a6"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-34",
+   "topic": "implementations",
+   "claim": "The QiYi protocol spec (Flying-Toast) moved from GitHub to Codeberg in Jan 2026 and gained an MIT licence on 2026-01-16. It comes with a Wireshark dissector and an example app. It is the only standalone byte-level spec found for any current smart-cube protocol; the others are documented only as code.",
+   "sources": [
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md",
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/LICENSE",
+    "https://github.com/Flying-Toast/qiyi_smartcube_protocol"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-35",
+   "topic": "implementations",
+   "claim": "No native Kotlin/Android library covers several cube brands. Other projects are web or desktop: Cubedex (PWA, built on SWB), CubeDesk (web, GPL-3.0; PR #257 adds QiYi, GAN Gen1 and MoYu AI), and Rust or Python terminal tools. The only Kotlin code is open-gan, which is GAN only.",
+   "sources": [
+    "https://github.com/poliva/cubedex",
+    "https://github.com/kash/cubedesk/pull/257",
+    "https://github.com/turnerglenn-cmyk/open-gan"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-36",
+   "topic": "android",
+   "claim": "Native Android removes the MAC-address problem. The key-derivation 'MAC is the Bluetooth device hardware address' (afedotov's FAQ, which also notes that native apps read it automatically while Web Bluetooth cannot). Android's BluetoothDevice.getAddress() 'Returns the hardware address of this BluetoothDevice', and Kable exposes it as AndroidPeripheral.address. csTimer on the web still asks users to type the MAC unless a Chrome flag is enabled.",
+   "sources": [
+    "https://gist.github.com/afedotov/52057533a8b27a0277598160c384ae71",
+    "https://developer.android.com/reference/android/bluetooth/BluetoothDevice#getAddress()",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/kable-core/src/androidMain/kotlin/AndroidPeripheral.kt#L121-L126",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/README.md#L276",
+    "https://github.com/cs0x7f/cstimer/wiki/Use-csTimer-to-connect-to-smart-cubes---%E4%BD%BF%E7%94%A8csTimer%E8%BF%9E%E6%8E%A5%E6%99%BA%E8%83%BD%E9%AD%94%E6%96%B9"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-37",
+   "topic": "android",
+   "claim": "Recommended MAC order: read it from the advertised manufacturer data first (as SWB, csTimer and open-gan do), fall back to getAddress(), and confirm by decrypting a packet. open-gan's Android code says 'Android exposes the real address, unlike Web Bluetooth; prefer the advertised one if present'. Android's ScanRecord returns every manufacturer-data entry, whereas Web Bluetooth must list up to 256 GAN or MoYu company IDs in advance. Kable's Advertisement.manufacturerData property returns only the first entry; use manufacturerData(companyId) or the raw scan bytes.",
+   "sources": [
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/app/src/main/kotlin/app/opengan/ble/DeviceManager.kt#L85-L95",
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/app/src/main/kotlin/app/opengan/ble/DeviceManager.kt#L140-L145",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-definitions.ts#L58-L59",
+    "https://github.com/cs0x7f/cstimer/blob/5f8e46cb78da6a487fc01ba913a6ce6fd101e28d/src/js/hardware/moyu32cube.js#L186-L190",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/kable-core/src/androidMain/kotlin/ScanResultAndroidAdvertisement.kt#L58-L89"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-38",
+   "topic": "android",
+   "claim": "Address-type APIs need recent Android: getAddressType() arrived in API 35, and getIdentityAddressWithType() in API 36 also needs BLUETOOTH_PRIVILEGED, so normal apps can't use it. Observed cube MACs look stable: MoYu32 CF:30:16:xx:..., QiYi CC:A3/CC:A6:..., and the last two bytes match the name suffix. A first byte with the top two bits set means a static random address. Inferred, not tested on hardware.",
+   "sources": [
+    "https://developer.android.com/reference/android/bluetooth/BluetoothDevice#getAddressType()",
+    "https://developer.android.com/reference/android/bluetooth/BluetoothDevice#getIdentityAddressWithType()",
+    "https://github.com/poliva/smartcube-web-bluetooth/tree/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures",
+    "https://github.com/cubing/cubing.js/blob/615719165e79c85453fcf5a69dee885a3124d57a/src/cubing/bluetooth/smart-puzzle/qiyi.ts#L189-L205"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-39",
+   "topic": "android",
+   "claim": "Permissions when targeting Android 12+: declare BLUETOOTH_SCAN, with android:usesPermissionFlags=\"neverForLocation\" if location is never derived (this flag filters some BLE beacons, which doesn't affect cubes), and BLUETOOTH_CONNECT. Both are runtime permissions shown to the user as 'Nearby devices'. Set maxSdkVersion=30 on the legacy BLUETOOTH and BLUETOOTH_ADMIN permissions. On Android 11 and below, scanning needs ACCESS_FINE_LOCATION (also declared with maxSdkVersion=30). The Companion Device Manager (API 26+) can pair without location permission.",
+   "sources": [
+    "https://developer.android.com/develop/connectivity/bluetooth/bt-permissions"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-40",
+   "topic": "android",
+   "claim": "open-gan's manifest and DeviceManager already follow this pattern: SCAN with neverForLocation plus CONNECT on API 31+, and FINE_LOCATION with maxSdk 30 below that. Kable declares no permissions itself, but its optional artifact com.juul.kable:kable-default-permissions adds the same set, including COARSE and FINE location with maxSdk 30, and marks bluetooth_le as not required.",
+   "sources": [
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/app/src/main/AndroidManifest.xml",
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/app/src/main/kotlin/app/opengan/ble/DeviceManager.kt#L77-L83",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/README.md#L606-L613",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/kable-default-permissions/src/main/AndroidManifest.xml"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-41",
+   "topic": "android",
+   "claim": "Android 16 has only two Bluetooth-related behaviour changes for all apps: bond-loss handling and the Companion Device Manager discovery timeout. Neither touches GATT or scanning, and the open drivers never bond with smart cubes, so nothing changes for the owner's Galaxy S25 on Android 16. No One UI 8 BLE-notification regression was found.",
+   "sources": [
+    "https://developer.android.com/about/versions/16/behavior-changes-all"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-42",
+   "topic": "android",
+   "claim": "AOSP scan limits (main branch defaults; OEMs can change them): an app may start at most 5 scans per 30-second window, after which it gets SCAN_FAILED_SCANNING_TOO_FREQUENTLY, and a scan running longer than 10 minutes counts as 'too long'. The connect UI should therefore run one filtered scan and must not restart it in a loop.",
+   "sources": [
+    "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/refs/heads/main/android/app/src/com/android/bluetooth/btservice/AdapterService.java",
+    "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/refs/heads/main/android/app/src/com/android/bluetooth/le_scan/AppScanStats.java",
+    "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/refs/heads/main/android/app/src/com/android/bluetooth/le_scan/ScanController.java"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-43",
+   "topic": "android",
+   "claim": "Connection parameters: in AOSP, requestConnectionPriority(HIGH) asks for a 11.25-15 ms interval (9-12 units), and the default BALANCED is 30-50 ms. The connection interval limits how precise host receive timestamps can be. The API docs say to request HIGH only temporarily; a timed solve session is such a case. From Android 14, requestMtu negotiates 517 for the first client.",
+   "sources": [
+    "https://android.googlesource.com/platform/packages/modules/Bluetooth/+/refs/heads/main/android/app/res/values/config.xml",
+    "https://developer.android.com/reference/android/bluetooth/BluetoothGatt#requestConnectionPriority(int)",
+    "https://developer.android.com/reference/android/bluetooth/BluetoothGatt#requestMtu(int)"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-44",
+   "topic": "android",
+   "claim": "Kable 0.45.0 is current: git tag 2026-09-14, AAR on Maven Central since 2026-09-15. It is Apache-2.0. The AAR manifest declares minSdkVersion 21, and the POM depends on kotlinx-coroutines 1.11.0 and Kotlin stdlib 2.4.10. It exposes the Android address, requestConnectionPriority, requestMtu, per-company-ID manufacturer data and raw scan bytes, and runs GATT operations one at a time behind a Mutex. Of its 182 commits in 2026, 140 are by a bot and 32 by Travis Wyatt, so it is active but rests on one main human maintainer and has a pre-1.0 API.",
+   "sources": [
+    "https://repo1.maven.org/maven2/com/juul/kable/kable-core-android/0.45.0/kable-core-android-0.45.0.aar",
+    "https://repo1.maven.org/maven2/com/juul/kable/kable-core-android/0.45.0/kable-core-android-0.45.0.pom",
+    "https://github.com/JuulLabs/kable/releases/tag/0.45.0",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/LICENSE.txt",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/kable-core/src/androidMain/kotlin/AndroidPeripheral.kt#L110-L171",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/kable-core/src/androidMain/kotlin/Connection.kt#L102",
+    "https://github.com/JuulLabs/kable/blob/ad88767b67ae60990b63cd36897b38e7d69aef61/gradle/libs.versions.toml#L3-L5"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-45",
+   "topic": "android",
+   "claim": "Nordic's Kotlin-BLE-Library 2.0 is still in beta (2.0.0-beta09, Oct 2026) and is BSD-3-Clause.",
+   "sources": [
+    "https://github.com/NordicSemiconductor/Kotlin-BLE-Library",
+    "https://github.com/NordicSemiconductor/Kotlin-BLE-Library/blob/main/LICENSE"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-46",
+   "topic": "android",
+   "claim": "With the raw platform API, an app must handle details that Kable hides. open-gan's own GattConnection writes the CCCD 0x2902 by hand, handles both pre- and post-API-33 onCharacteristicChanged/writeDescriptor signatures, and runs one GATT operation at a time.",
+   "sources": [
+    "https://github.com/turnerglenn-cmyk/open-gan/blob/27520a574f53270716f11d0386e2597b43a553a6/app/src/main/kotlin/app/opengan/ble/GattConnection.kt"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-47",
+   "topic": "timing",
+   "claim": "Cube-clock move timestamps exist on GAN Gen2 (16-bit per-move deltas), GAN Gen3/Gen4 (32-bit), MoYu32 (16-bit offsets, accumulated), MoYu MHC (32-bit, 1/65536 s), QiYi (32-bit, 1.6 ms units) and GAN Gen1 (16-bit stamps read from the move characteristic). GoCube, Rubik's Connected and Giiker/Mi report none (cubeTimestamp null), so their splits rely on host receive time only.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L412-L441",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L976-L1005",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L300-L345",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu-mhc.ts#L123-L170",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L290-L306",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-gen1.ts#L285-L310",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/gocube.ts#L127-L143",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/giiker.ts#L150-L165"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-48",
+   "topic": "timing",
+   "claim": "Measured from SWB's fixtures (Web Bluetooth hosts, 6-31 moves per file, my own calculation): the interval between moves as seen by the host differs from the cube-clock interval by a median of 6-26 ms, a 95th percentile of 11-56 ms and a maximum of 81 ms, across GAN Gen2/Gen4, MoYu32 and QiYi. The host/cube clock slope is 0.993-1.009, a skew of up to about 1%. Host timestamps alone are therefore too coarse for sub-second Roux steps such as EO or 4c; cube timestamps plus the linear fit are needed.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/tree/2077416d6c828ec926dee424cf1bbfe4c0f25a47/captures"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "id": "cubes-49",
+   "topic": "timing",
+   "claim": "Best practice from csTimer and SWB: record both the host and cube clocks for every move during a solve, fit cube->host time by linear regression, and compute splits from the fitted cube times. SWB's cubeTimestampLinearFit fills recovered moves that have no timestamp by placing them 50 ms from their neighbours, and cubeTimestampCalcSkew reports the skew in percent.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/README.md#L216-L223",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/utils.ts#L48-L90",
+    "https://github.com/afedotov/gan-web-bluetooth/blob/65173e2cdd0fa38ef384f237f6da8d76c177ed1e/README.md#L127-L134"
+   ],
+   "confidence": "high"
+  },
+  {
+   "id": "cubes-50",
+   "topic": "timing",
+   "claim": "Other protocol quirks: QiYi needs ACKs (Hello and solved-state changes). GAN, MoYu32, GoCube and Giiker need none, but MoYu32 and Giiker battery levels are polled (every 60 s in SWB), and some MoYu32 units need a repeated 161/163/164 request burst before they send status. The GAN drivers accept moves only after the first FACELETS event, so a session must request facelets first. Lost-move history depth per packet: GAN Gen2 7, MoYu32 5, QiYi 11 slots, GAN Gen3/4 on request, GoCube and Giiker none.",
+   "sources": [
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/qiyi.ts#L253-L330",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/moyu32.ts#L420-L436",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/smartcube/protocols/giiker.ts#L239-L262",
+    "https://github.com/poliva/smartcube-web-bluetooth/blob/2077416d6c828ec926dee424cf1bbfe4c0f25a47/src/gan-cube-protocol.ts#L412-L416",
+    "https://codeberg.org/Flying-Toast/qiyi_smartcube_protocol/src/commit/0c1d02eaac7097d246709fb211da58478b351863/README.md#L84-L106"
+   ],
+   "confidence": "high"
+  }
+ ],
+ "options": [
+  {
+   "name": "QiYi AI 3x3 (QiYi protocol) - recommended first buy",
+   "summary": "About EUR 23 or $23, in stock in the EU and US. One driver also covers the X-Man Tornado V4 AI.",
+   "pros": [
+    "Cheapest current smart 3x3 (EUR 22.99 at cuboss, $22.95-22.99 in the US)",
+    "Only protocol with a standalone byte-level spec (MIT, Codeberg), plus SWB (MIT), csTimer (GPL) and cubing.js implementations, and two SWB replay fixtures",
+    "Cube timestamps (1.6 ms units) and 11-slot move history with the full state in every State Change, so lost-move recovery works without extra requests",
+    "Fixed AES key; the MAC goes only into the Hello, and Android supplies it from getAddress() or the name suffix"
+   ],
+   "cons": [
+    "Not the most common family: QiYi-protocol cubes are about 10-15% of US shop listings",
+    "Must ACK messages, and it has a documented solved-detection glitch on fast slice moves, which Roux LSE triggers",
+    "No gyroscope on the QiYi AI (only on the Tornado V4 AI)"
+   ]
+  },
+  {
+   "name": "GAN i4 / i4 Leap (GAN Gen4)",
+   "summary": "EUR 54.99 at cuboss for the GAN i4, $49-55 for the i4 Leap in the US. Gen4 is the current GAN protocol (12 ui Maglev, 14 ui, i4, 16 ui).",
+   "pros": [
+    "GAN makes about half of all smart cubes on sale, and Gen2-4 share one AES and framing module",
+    "32-bit cube timestamps, gyroscope, battery, hardware info, MOVE_HISTORY recovery",
+    "Kotlin starting point exists (open-gan, GPL), plus MIT TypeScript in SWB and GAN Gen4 replay fixtures"
+   ],
+   "cons": [
+    "2-2.4 times the price of the QiYi AI",
+    "The i4 Leap's protocol is inferred, not captured",
+    "Batched multi-move notifications on slices; MAC-salted key (easy on Android, but must be right)"
+   ]
+  },
+  {
+   "name": "GAN i Carry E / i Carry 4",
+   "summary": "Cheapest GANs at EUR 26 or $26-40.",
+   "pros": [
+    "Cheap, beginner-friendly, very common at entry level"
+   ],
+   "cons": [
+    "Protocol generation not confirmed by any open implementation, so it's a gamble as the first test device",
+    "No gyroscope; button-cell battery"
+   ]
+  },
+  {
+   "name": "MoYu WeiLong V10 AI Lite / V10 AI (MoYu32)",
+   "summary": "$33 for the Lite (US), EUR 57.99 for the V10 AI (EU). Confirmed MoYu32.",
+   "pros": [
+    "Cube time offsets with 5-move history; MoYu's WCU family is the second-largest on shelves"
+   ],
+   "cons": [
+    "MAC and company-ID quirks (bound vs unbound, third-byte variants), plus an init-burst workaround for cheap units",
+    "Whether the newer V11 AI, Super AoLong AI and AoLong V5 AI also use MoYu32 is unverified"
+   ]
+  },
+  {
+   "name": "BLE stack: Kable 0.45.0 vs platform android.bluetooth",
+   "summary": "Kable (Apache-2.0, minSdk 21) wraps scanning, connection, observe flows and serialized GATT; the platform API needs a hand-written queue and API-33 shims.",
+   "pros": [
+    "Kable: coroutine Flows, Mutex-serialized ops, exposes address/manufacturer data/priority/MTU, same min API as the platform (21)",
+    "Platform: zero dependencies; exact control over the callback thread for host timestamps"
+   ],
+   "cons": [
+    "Kable: pre-1.0 API, one main maintainer; its manufacturerData property returns only the first company ID",
+    "Platform: more boilerplate and edge cases (CCCD writes, API 31/33 permission and signature splits)"
+   ]
+  }
+ ],
+ "recommendation": "Buy one QiYi AI 3x3 (Magnetic, about EUR 23 at cuboss.com or $23 at SpeedCubeShop/TheCubicle) as the first test cube. It is the cheapest current smart 3x3, its protocol is the best documented (MIT spec plus four open implementations), and it sends cube-clock timestamps and an 11-move history in every packet. Its slice-move glitch is exactly what a Roux LSE splitter must survive. Implementation order: (1) QiYi: QiYi AI and X-Man Tornado V4 AI, tested on the real cube. (2) GAN Gen4, then Gen2, then Gen3, plus MoYu AI 2023 as a Gen2 key variant: the largest family, about half of listings, including the GAN16 ui, i4 and 12 ui Maglev. Port from SWB (MIT), or reuse open-gan's GPL Kotlin if Rouxtine stays GPL; verify against SWB's replay fixtures before buying a GAN i4 (EUR 55) as the second cube. Gen3 (i Carry 2) comes last because of its buggy firmware. (3) MoYu32: WeiLong V10 AI, probably V11 AI, Super AoLong AI and AoLong V5 AI. (4) GoCube and Rubik's Connected: no crypto, but host-time-only splits, flagged as lower precision. (5) Giiker/Mi, GAN Gen1, MoYu MHC and HeyKube only on demand; TokTok and unverified GANs once someone provides a capture, so add a 'record BLE capture' export in SWB's fixture format. Build a protocol-agnostic core from day one: MAC from manufacturer data with getAddress() as fallback, opposite-face-to-slice merging, cube-timestamp linear fit, high connection priority during solves. Use Kable 0.45.0 and target minSdk 26 or lower. If spending about EUR 55 once is fine, a GAN i4 is the better single first cube for coverage, and GAN Gen4 then moves to step 1.",
+ "shortAnswer": "Buy a QiYi AI 3x3 (about EUR 23) as your first test cube. It's the cheapest smart cube on sale, its Bluetooth protocol is the best documented (an open MIT spec plus four open-source drivers), and it sends the cube's own move timestamps, which accurate Roux splits need. On Android the app reads the cube's address straight from the scan, so the address prompt that web apps need for GAN, MoYu and QiYi disappears. Build order: QiYi first, then GAN (about half of all smart cubes, including the new GAN 16 ui and i4), then MoYu's WCU cubes, then GoCube/Rubik's Connected and Giiker. Use the Kable 0.45.0 Bluetooth library. A GAN i4 (about EUR 55) is the best second cube.",
+ "openQuestions": [
+  "Which protocol do the GAN i Carry 4, i Carry E V2, GAN12 ui SP, GAN356 i3 V2 and i4 Leap speak? No open driver, capture or issue names them; a 10-second nRF Connect scan (name + services) on each would settle it.",
+  "Do the MoYu WeiLong V11 AI, Super AoLong AI and the brand-new AoLong V5 AI (2026-10-23) use MoYu32, and which product advertises 'WCU_MY33'?",
+  "TokTok Cube (Smart Cube Labs): no public protocol or driver; it needs reverse engineering or vendor contact.",
+  "Do the newer GAN models (i4 'zero-loss sensing', 16 ui 'every 1 degree' tracking) send new message types beyond Gen4 moves, gyro and facelets? SWB decodes them with the existing Gen4 driver only.",
+  "Does Samsung One UI 8 (Galaxy S25, Android 16) honour AOSP's 11.25-15 ms CONNECTION_PRIORITY_HIGH interval, or override it? Measure host-vs-cube jitter on the real phone.",
+  "Are cube MACs stable across power cycles for every model (static random vs resolvable)? MoYu32's third byte varies between 00, 01 and 02: is that per unit or per boot?",
+  "Licence: if Rouxtine stays GPL-3.0(-or-later), open-gan's GPL Kotlin GAN core and csTimer can be reused; if parts must stay permissive, port only from SWB (MIT) and the QiYi spec (MIT).",
+  "Does collecting Kable's observe Flow add measurable latency to host receive timestamps compared with timestamping in the platform callback?",
+  "HeyKube availability is contradictory (TheCubicle: discontinued; maker site: in stock, page (c) 2022).",
+  "EU prices for GAN16 ui, MoYu V11 AI and Super AoLong AI were not found: kubekings.com returned a Cloudflare 403 challenge, speedcubes.be failed with proxy CONNECT 502, speedcube.de returned 522, and cubikon.de and cubeshop.cz had TLS name mismatches (probably wrong hostnames). GitHub's REST API was not enabled for this session, and Maven Central metadata returned 429 (the 0.45.0 AAR and POM downloaded fine)."
+ ]
+}

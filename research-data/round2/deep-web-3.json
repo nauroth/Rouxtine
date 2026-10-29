@@ -1,0 +1,272 @@
+{
+ "resources": [
+  {
+   "key": "https://basilio.dev/cubing/images/algs-cmll.jpg",
+   "url": "https://basilio.dev/cubing/images/ALGS-CMLL.jpg",
+   "title": "Bas's CMLL cheat sheet (ALGS-CMLL.jpg)",
+   "author": "Basilio Noris (b4silio), basilio.dev/cubing",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "beginner-intermediate (learning full CMLL; the EO box suits beginners)",
+   "summary": "A single JPEG (1118x502 px, 285 KB) from the 'Bas's guides and algsheets' section of basilio.dev/cubing. It fits all 42 CMLL cases on one landscape image, in 8 boxes by corner-orientation group: Sune 6, Anti-Sune 6, Pi 6, H 4, O 2, U 6, T 6, L 6. Each case has a tiny U-face icon with arrows marking the side-sticker pattern, then a pattern name, then the alg with its pre-AUF in parentheses, then a one-line mnemonic built from trigger names ('Hedge [U2R]', 'Sledge rUr', 'F triple rev-sexy F', 'Antisune Backantisune'). Pattern names: Left Bar, Right Bar, Columns, Up Slash, Down Slash and X for S/AS/Pi. H uses Column, Rows, Right Bar and Row; O uses Diag and Adj. U and T add Upper Row, Bottom Row and Rows. L uses Bar V, Bar + Row, Row Climbing, Slanted F, Diag N and Diag X. About 12 algs carry a small OLL-shape icon. It marks algs that are also standard 3x3 OLL algs ('Std Fish', 'Std Turtle', 'Std Headlights', 'Std Tie'), which helps CFOP converts. A bottom-left box shows 9 LSE edge-orientation (4a) states as 3D cubes, with misoriented stickers in purple and an M/U solution under each. One of them is a 6-flip alg (R U' r' U' M' U r U r'). I transcribed every alg into the saved text file. The parent page links further sheets, including ALGS-EOLR.jpg (Roux LSE), which this batch does not cover.",
+   "drills": [
+    "Learn full CMLL group by group from one glanceable sheet (phone wallpaper or print)",
+    "Memorise each alg as a chain of named triggers, using the mnemonic line",
+    "Reuse known OLL algs for the CMLL cases where they coincide",
+    "LSE 4a: learn the 9 EO states and their M/U sequences"
+   ],
+   "infoTopics": [
+    "CMLL case naming by side-sticker pattern (bars, columns, slashes, X, rows)",
+    "Pre-AUF for each alg",
+    "Trigger vocabulary: sexy, sledge, hedge, sune and back-sune, rUr",
+    "Overlap between CMLL algs and standard OLL algs",
+    "LSE edge-orientation cases and arrow/M-U solutions"
+   ],
+   "algSets": [
+    {"name": "CMLL (2H)", "caseCount": "42", "notes": "S 6, AS 6, Pi 6, H 4, O 2, U 6, T 6, L 6; one alg per case with pre-AUF and mnemonic"},
+    {"name": "LSE EO (4a) states", "caseCount": "9", "notes": "3D diagrams with M/U solutions, incl. a 6-flip alg"}
+   ],
+   "appIdeas": [
+    "Compact 'all CMLL on one screen' overview: 8 group panels, each case with a pattern glyph, the user's chosen alg, pre-AUF and a mnemonic line. Exportable as an image or wallpaper.",
+    "Editable mnemonic field per alg, pre-filled by splitting the alg into named triggers from a trigger dictionary",
+    "Flag CMLL algs that are also standard 3x3 OLL algs, so CFOP converts can reuse muscle memory (a note on the case card, no CFOP content)",
+    "Use the bar/columns/slash/X/row pattern names as a legend and filter in the CMLL case picker",
+    "Redraw rather than reuse the image"
+   ],
+   "license": "No licence text on the image or on basilio.dev/cubing (a personal site), so all rights are reserved by default. Link to it only. The move sequences are standard community algs, but the layout and mnemonics are his.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-3/basilio-cmll-cheatsheet.txt"
+  },
+  {
+   "key": "https://badochov.github.io/cmll-visualiser",
+   "url": "https://badochov.github.io/cmll-visualiser/",
+   "title": "CMLL Visualiser",
+   "author": "Hubert Badocha (GitHub: badochov)",
+   "kind": "trainer-tool",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate-advanced (choosing CMLL algs, EO prediction)",
+   "summary": "A static jQuery tool from the repo github.com/badochov/cmll-visualiser: 11 commits from 2020-02-11 to 2022-06-22, about 900 lines of JS. You paste CMLL algs, one per line, and press Generate (or Enter). For each alg it draws a 2D diagram of the side effect on the 6 LSE edges: the four U corners with their side stickers (CLL), the UB/UL/UR/UF edges, and DB and DF as squares above and below. Flipped edges are filled (light blue by default), and red arrows show where each edge goes (EP). If the alg breaks the first two blocks, it draws a big red X. That check is coarse: it only flags block edges that are both moved and flipped, and D corners that are both moved and twisted. Navigation is by prev/next buttons or the arrow keys, with an 'n/N' counter and the alg shown above. Syntax is SiGN, with wide moves in lower case. A post-CMLL AUF is written as a bracketed premove ('[U]') at the start. Text after '//' is a comment, shown only in the PDF. The settings drawer (tune icon) has EO, EP and CLL layer toggles, Spectrum colour pickers (top, left, right, front and back faces, flipped edge, arrows, outline, background), 'Restore default colors' and a PDF file name. The Download button (or the Insert key) builds an A4 PDF with jsPDF: 6 diagrams per page in two columns, alg in bold and comment underneath. Right-click saves a single PNG. I drove it with 7 algs; the screenshots are saved. It is the only resource in this batch that shows how a CMLL alg changes the LSE state, which matters for EO prediction and for choosing between alg variants.",
+   "drills": [
+    "Before settling on a CMLL alg, compare the variants by the LSE state each leaves (bad edges, edge cycle)",
+    "Study material for predicting EO after CMLL"
+   ],
+   "infoTopics": [
+    "CMLL algs also flip and permute the 6 LSE edges",
+    "How the AUF after CMLL changes the LSE state",
+    "SiGN notation with wide moves in lower case"
+   ],
+   "algSets": [],
+   "appIdeas": [
+    "Show an 'LSE fingerprint' on every CMLL alg card: which of the 6 LSE edges flip and where they go, from the app's own cube model, with EO/EP/corner toggles",
+    "Compare alternatives side by side by LSE outcome (number of bad edges after the alg) to support choosing algs for EO prediction",
+    "'Predict EO after CMLL' quiz: show the case and the user's alg, ask which edges will be bad, then reveal",
+    "Validate user-entered algs properly (all F2B pieces, not this tool's coarse check) and auto-detect which CMLL case an alg solves",
+    "Export the user's alg sheet as PDF or PNG with per-alg comments"
+   ],
+   "license": "The repo has no LICENSE file, so all rights are reserved by default. It loads jQuery 3.6.0, Spectrum 1.8.0 and jsPDF 1.5.3 from CDNs. Do not copy the code; the idea is easy to reimplement on the app's own cube model. The session's GitHub policy refused GitHub API metadata for this repo, but a read-only git clone of the public repo worked.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-3/cmll-visualiser.txt"
+  },
+  {
+   "key": "https://drive.google.com/drive/folders/1owfcx3sjsxqr5_ly9sex_4rsmlz-gieb",
+   "url": "https://drive.google.com/drive/folders/1owfcX3SJSXQr5_Ly9Sex_4rSMLZ-gIEb",
+   "title": "Iuri's OH CMLL execution (Drive folder 'OH' inside 'Iuri's CMLLs')",
+   "author": "Iuri (surname not shown; Drive owner hidden)",
+   "kind": "video",
+   "accessible": true,
+   "rouxRelevance": "roux-oh",
+   "level": "intermediate-advanced OH",
+   "summary": "A public Google Drive folder; no sign-in needed. It has 8 subfolders by orientation group (Antisune, H, L, O, Pi, Sune, T, U), created 30 Dec 2018. Together they hold 41 MP4 execution videos (about 1.76 GB, uploaded Feb to Aug 2019). There is also a Google Sheet, 'Iuri's OH CMLLs', modified 7 Jun 2020. Videos per folder: Antisune 6, H 4, L 6, O 1 (only 'O3 (Adj)'), Pi 6 (Pi1-4 and Pi6, plus an alternative Pi3), Sune 7 (S1-S6 plus an unnamed clip), T 6, U 5 (no U2). File names give the case number and pattern nicknames, e.g. 'aS1 (Right Bar/Pure)', 'S5 (X Checkerboard/L Apple)', 'L2 (Back Comm)', 'T3 (L Sexy sledge)', 'Pi3 (X/Checkerboard) - alt'. The three thumbnails I fetched show a real cube filmed close up and held in the left hand. The sheet lists one OH alg for each of 42 cases in the same numbering: O3 and O6; H1, H2, H3, H6; Pi1-6; U1-6; T1-6; S1-6; As1-6; L1-6. Its case-image cells are broken (#REF!). The algs use R/U/F/r moves, D-move headlights (R2 D R' U2 R D' R' U2 R') and an occasional rotation (H2: R' U' R U' R' U' z U z' U' R U L'). The sheet links back to the parent 'Iuri's CMLLs' folder as 'Executions'.",
+   "drills": [
+    "For each OH CMLL case, watch the execution clip, then drill the same alg one-handed",
+    "Learn OH CMLL group by group, following the folder structure"
+   ],
+   "infoTopics": [
+    "OH CMLL alg choice: RU-heavy, D-move headlights, few rotations",
+    "OH fingertricks for CMLL, shown on video",
+    "Case nicknames (Pure, Diag, Back/Front Comm, Apple, Niklas, Checkerboard)"
+   ],
+   "algSets": [
+    {"name": "OH CMLL (Iuri's sheet)", "caseCount": "42", "notes": "One OH alg per case; image cells broken"},
+    {"name": "OH CMLL execution videos", "caseCount": "41 files (39 distinct cases)", "notes": "Missing O6, Pi5 and U2; plus an alternative Pi3 and an unnamed Sune clip"}
+   ],
+   "appIdeas": [
+    "Separate per-user alg profiles (2H and OH) for the same 42 CMLL cases, switchable in the CMLL trainer, with OH-specific timing stats",
+    "An 'execution reference' slot on each alg card holding a user-supplied link or a local clip, rather than hosting third-party video",
+    "Option to show OH algs mirrored for solvers who turn with the other hand",
+    "Local-only 'film yourself' mode: record your execution of a case and play it back next to your reference clip"
+   ],
+   "license": "No licence; the owner is hidden and these are personal videos. Link only; do not rehost, download into the app or embed copies.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-3/drive-oh-cmll-execution.txt"
+  },
+  {
+   "key": "https://sites.google.com/site/athefre/roux/cmll-prediction",
+   "url": "https://sites.google.com/site/athefre/roux/cmll-prediction",
+   "title": "CMLL Prediction (athefre's site)",
+   "author": "Michael James Straughan (Athefre)",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced",
+   "summary": "A Google Sites page (techniques developed from July 2022) on predicting CMLL during the second-block last pair, to remove the CMLL recognition pause. It compares 7 recognition systems by what you look at. Straughan, by object: find the F and R stickers. Straughan, by position: find the U-layer stickers among UFL, UFR and UBR, then check a pattern. ATCRM: orientation of the L/R or F/B stickers, then 2 fixed stickers. NMCMLL: the same first step, then 4 fixed stickers. Original NMCMLL: L/R or F/B orientation, then U-sticker orientation. U sticker + pattern: the usual method. Hyperorientations: U orientation, then F/B or L/R orientation. Sticker counts are Straughan 4, ATCRM 5, and 6 each for U sticker + pattern and Hyperorientations. Liam Highducheck points out that Straughan is really 3 tracked stickers, since one corner carries two of them. Sections: Straughan (4 patterns per alg, many of them mirrors); ATCRM (credits Zhouheng Sun with the idea that recognising non-U stickers first, as in NMCMLL, suits prediction); OCLL prediction; 'Intuitive CP'; overall thoughts. OCLL prediction links a sheet, 'View Orientation Cases', with tabs dFR and dBR. For each last-pair insert it names the 3 target corners, how they move and which to check first, plus a 3x9 grid mapping the 27 twist states of those corners to the resulting OCLL shape (O, S, AS, H, Pi, T, U, L). The inserts are r U' r' / R U' R', r U r' / R U R', R U2 R', U r' U' r / U R' U' R, and r' U r / R' U R. Intuitive CP is his own method from 2006: during the last pair, find three L/R (or F/B) stickers, check two opposite-coloured ones and the relative position of their U stickers (+ or -), then find one more U sticker. Diagonal L/R stickers always mean an adjacent swap. The named outcomes are Correct, Opposite Swap, Swap Left, Swap Right, and Front/Left/Back/Right Swap. Faster variants check F/B stickers instead of U stickers, with the rules inverted. The text mentions 'orientation sticker targeting', but that section is not on the live page.",
+   "drills": [
+    "During the SB last pair, track the 4 Straughan stickers (or 5 for ATCRM) and name the CMLL case before the pair goes in",
+    "OCLL prediction: before inserting the last pair, predict the OCLL shape from the twists of the 3 target corners",
+    "OCLL influence: choose between R U R', r U r' and R U2 R' style inserts by the OCLL each gives",
+    "Intuitive CP: name which two corners need swapping (front, left, back, right, adjacent left or right) from the L/R stickers and the +/- U-sticker rule"
+   ],
+   "infoTopics": [
+    "CMLL recognition systems compared by sticker count and order (Straughan, ATCRM, NMCMLL, U sticker + pattern, Hyperorientations)",
+    "Predicting CMLL during the second-block last pair",
+    "How each last-pair insert moves and twists the U corners",
+    "CP-centred CMLL recognition (+/- relative U-sticker rule)",
+    "History: Athefre's own 2006 recognition method"
+   ],
+   "algSets": [
+    {"name": "OCLL prediction tables (Orientation Cases sheet)", "caseCount": "5 inserts x 27 twist states", "notes": "tabs dFR (3 inserts) and dBR (2 inserts); maps states to O/S/AS/H/Pi/T/U/L"}
+   ],
+   "appIdeas": [
+    "OCLL-prediction drill: show the cube just before the last-pair insert with the 3 target corners highlighted; the user taps the predicted orientation group (O, S, AS, H, Pi, T, U, L), then the insert is animated to reveal it. Generate the data with the app's own cube model.",
+    "CMLL-prediction drill: freeze the SB last pair with only the chosen system's stickers visible (Straughan 4, ATCRM 5, U sticker + pattern 6); the user names the case, and response time is logged",
+    "Recognition-system setting in the CMLL trainer (U sticker + pattern, Straughan, L/R-first ATCRM/NMCMLL, Intuitive CP). It changes which stickers are shown and how cases are grouped.",
+    "Intuitive CP lesson and quiz: 'which two corners swap?' using the +/- rule",
+    "In SB last-pair trainers, a hint showing which insert variant gives which OCLL (influence)"
+   ],
+   "license": "No licence on athefre's Google Site or the linked sheet. The recognition systems are ideas, so reimplement them with the app's own diagrams and generated data and credit Athefre (and Zhouheng Sun and Liam Highducheck where cited).",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-3/athefre-cmll-prediction.txt"
+  },
+  {
+   "key": "https://drive.google.com/drive/folders/1eysbdbetkzkpwrbn_oih-xakrbojrika",
+   "url": "https://drive.google.com/drive/folders/1eysbDbEtKzKpwRBN_oih-xaKRBOjRIKA",
+   "title": "Multi angle CxLL recog (Drive folder of 5 Google Docs)",
+   "author": "Not named (Drive owner hidden); Anti-Sune images credited to Zhouheng Sun",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "intermediate-advanced (beginners: learn one angle; advanced: learn both)",
+   "summary": "A public Drive folder named 'Multi angle CxLL recog' with 5 Google Docs dated Jun 2020 to May 2021: Anti-Sune (a shortcut), L, O, Sune, and 'T (and U)'. There are no H or Pi docs; the T doc says its system works the same way for U. The goal is to recognise every case from whatever angle it appears, using only the R, U and F faces, without an extra AUF or peeking at L. The docs say the systems also work for CLL, EG and COLL. They list one RH CMLL alg per case only to identify it and link Anto's 2H CMLL list for algs. Each doc uses 3D cube images with only the recognition stickers coloured and arrows between them: white = same colour, pink/purple = opposite colours, grey = adjacent colours, black = swapped corners (O doc). Sune and Anti-Sune have two systems: angle 1 (4 stickers, like the usual U/T/H/Pi method) and angle 2 (3 stickers, two comparisons). L also has two: angle 1 compares the two U-face stickers (same, adjacent or opposite narrows it to 2 cases, then one extra sticker decides; for pure/diag, count whether you see 4 colours or 2), and angle 2 is U2 away, with recognitions swapped within each row. T/U uses one system from any angle, based on which oriented corner carries both U-sticker colours. O counts adjacent corner pairs solved relative to each other. Two pairs means solved; one pair means an adjacent swap of the other two. With no pairs, look for opposite colours on one face: if only one face shows them, those two corners are an adjacent swap; if both F and R do, it is a diagonal swap. I saved the text exports and the HTML exports with images.",
+   "drills": [
+    "Recognise each CMLL case from 2 (or any) angles without AUFing first",
+    "Learn one angle per set first, then add the second",
+    "O case: pair-counting recognition"
+   ],
+   "infoTopics": [
+    "Multi-angle CMLL recognition for S, AS, L, T/U and O",
+    "Sticker relations: same, adjacent or opposite colours",
+    "Recognition without pre-AUF using only R/U/F faces",
+    "Transfer to CLL, EG and COLL"
+   ],
+   "algSets": [
+    {"name": "CMLL recognition by angle (S, AS, L, T/U, O)", "caseCount": "S 6, AS 6, L 6, T 6 (U same), O 2", "notes": "recognition guides, not alg sheets; no H or Pi docs"}
+   ],
+   "appIdeas": [
+    "'No-AUF' mode in the recognition trainer: show the case at a random AUF; the user must name it without turning U; stats per case and per angle",
+    "Recognition overlay: grey out every sticker except the ones the chosen system uses, and draw relation arrows coloured by same, opposite or adjacent. A strong visual for the CMLL lessons.",
+    "Track SRS recognition per (case, angle), not just per case",
+    "Short O-case lesson using the pair-counting rule"
+   ],
+   "license": "No licence; the owner is hidden. Do not reuse the images; redraw them with the app's renderer and credit the authors where known (Zhouheng Sun for the Anti-Sune images).",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-3/drive-multi-angle-cmll-recog.txt"
+  },
+  {
+   "key": "https://speedcubedb.com/a/3x3/ollcp",
+   "url": "https://speedcubedb.com/a/3x3/OLLCP",
+   "title": "OLLCP - SpeedCubeDB",
+   "author": "SpeedCubeDB, created by Gil Zussman (algs crowd-submitted and voted)",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced-expert",
+   "summary": "An index page for OLLCP (orientation of the last layer plus corner permutation, leaving only EPLL), with a two-line description noting that COLL is a subset. It links 57 subpages, one per OLL number, and I rendered all of them. Each lists 6 corner-permutation cases, for 342 entries in total; symmetric OLLs still list 6, so some entries are duplicates. OLLCP21-27 are the edges-oriented (COLL) part. Each case shows a setup alg, the top 3-5 community algs (with rotations and wide moves) and a 'More Algorithms' expander. The page chrome is the same as SBLS on this site: cross-colour selector, Related Sets, learnt/learning flags, votes, animated player, ads and a donate link. SCDB's own trainer (/t) covers only PLL. This is a generic last-layer set, not a Roux one. rouxcubing.com lists it under CMLL > Pinkie Pie, next to Kian's explainer video and Sevilz's OLLCP sheet. Pinkie Pie is an advanced trick that uses an OLLCP alg at the CMLL step so U edges are oriented too. I did not watch the video, so its exact trigger condition is unverified. roux-trainers already has an unfinished OLLCP trainer: ollcp_algs_raw in src/lib/Algs.tsx, with groups 13, 14, 34, 39, 45, 51 and 56, and OllcpTrainerView commented out in AppView.tsx ('TODO: build this').",
+   "drills": [
+    "Learn the Roux-relevant (Pinkie Pie) OLLCP subset as an extension of CMLL",
+    "Compare community alternatives and pick one alg per case"
+   ],
+   "infoTopics": [
+    "What OLLCP is and that COLL is a subset",
+    "Setup algs per case",
+    "Rouxcubing frames it as the Pinkie Pie technique"
+   ],
+   "algSets": [
+    {"name": "OLLCP (SpeedCubeDB)", "caseCount": "342 entries (57 OLLs x 6 CP cases)", "notes": "Some symmetric duplicates; OLLCP21-27 = COLL. The Roux use (Pinkie Pie) needs only a subset; roux-trainers has groups 13, 14, 34, 39, 45, 51, 56."}
+   ],
+   "appIdeas": [
+    "Finish the roux-trainers OLLCP trainer as an optional, advanced 'Pinkie Pie' module under CMLL, presented only as a Roux technique (no CFOP framing). It should open with a short lesson on when to use it.",
+    "Generate the algs with the app's own solver; link out to the SCDB case page for community alternatives",
+    "Reuse the '6 CP cases per orientation' grid with a setup alg under each case"
+   ],
+   "license": "No licence or terms on the page. The site is ad-supported and the algs are user-submitted, so treat the data as not reusable without permission. Linking is fine.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-3/scdb-ollcp.txt"
+  },
+  {
+   "key": "https://sites.google.com/site/athefre/roux/roux",
+   "url": "https://sites.google.com/site/athefre/roux/roux",
+   "title": "NMCMLL (athefre's site)",
+   "author": "Michael James Straughan (Athefre); no byline on the page itself",
+   "kind": "alg-sheet",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced",
+   "summary": "A short Google Sites page titled 'NMCMLL', at the URL /roux/roux. NMCMLL is CMLL for non-matching blocks, where the two blocks have different D colours, so the U corners do not share one U colour. Cases are therefore defined and recognised by the L/R-colour stickers. Recognition rule: first check the orientation of the L/R stickers (drawn as white and yellow), then look for matching stickers at the spots marked by red lines. The page has one large chart: 23 orientation icons with red marker lines, each followed by the case patterns that share it, labelled like 'E1-2', 'H2/H4-1' or 'A6' (case, plus pattern 1 or 2). Below it, 8 embedded tables (groups A-H) give Case, AUF 1, AUF 2 and Alg: A1 (solved), A2, A6; B1-B6 through G1-G6; H1, H2/H4, H3/H5, H6. That is 42 algs plus solved, using R, L, U, F, B and D moves (e.g. B2: R' U' R U' R' U R' D' R U R' D R2). The two AUF columns are probably the AUFs for patterns -1 and -2. The page says an upgraded recognition called 'ACRM' exists; the CMLL prediction page calls it ATCRM. roux-trainers already has this L/R-first idea as 'NMCLL Recog Mode' (L/R or F/B), with the same 23 groups mapped to regular CMLL cases (nmcll_to_cmll_mapping and nmcll_display_parity in src/lib/Algs.tsx). The speedsolving.com wiki page on NMCMLL returned 403 from the proxy, so I did not use it.",
+   "drills": [
+    "Recognise CMLL from L/R (or F/B) sticker orientation first, then 2-4 marker stickers",
+    "Solve CMLL with non-matching blocks"
+   ],
+   "infoTopics": [
+    "Non-matching blocks and their CMLL",
+    "L/R-first recognition (8 groups A-H, 23 orientation icons)",
+    "Groundwork for CMLL prediction during the SB last pair"
+   ],
+   "algSets": [
+    {"name": "NMCMLL", "caseCount": "42 (+ solved)", "notes": "Groups A-H; H2/H4 and H3/H5 merged; each case has 2 recognition patterns with an AUF each"}
+   ],
+   "appIdeas": [
+    "Keep the existing NMCLL recognition mode (L/R or F/B) in the CMLL trainer and add a lesson that explains it with red-line marker overlays",
+    "Optional non-matching-blocks mode: FB/SB trainers that accept either D colour for the second block, followed by an NMCMLL drill",
+    "Group the case picker by L/R orientation group (A-H) when the NMCMLL or ATCRM recognition system is selected"
+   ],
+   "license": "No licence on athefre's Google Site. Algs and recognition charts are his; reimplement the recognition idea with the app's own visuals and data and credit Athefre.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-3/athefre-nmcmll.txt"
+  },
+  {
+   "key": "https://sites.google.com/site/athefre/roux/acmll",
+   "url": "https://sites.google.com/site/athefre/roux/acmll",
+   "title": "ACMLL (athefre's site)",
+   "author": "Michael James Straughan (Athefre); 2-look docs by junnoske",
+   "kind": "guide-text",
+   "accessible": true,
+   "rouxRelevance": "roux-3x3",
+   "level": "advanced-expert",
+   "summary": "A Google Sites page. ACMLL is a family of alg sets that solve CMLL when F2B is deliberately left imperfect (a pair misoriented, swapped or placed outside its block), fixing the blocks during CMLL. Listed benefits: 2-6 moves saved on SB (more if also used in FB), deeper inspection and a step towards non-linear F2B, and better ergonomics, since pairs go in with U and R only, without r U r' flips or slices. On recognition: Straughan patterns are identical to CMLL's. With U-sticker recognition there are only three orientation types (CLL, TCLL+ and TCLL-), so only TCLL+ and TCLL- are new. You know which defect you built, so you never check the blocks. Sets, each with a Straughan-recognition sheet and a U-sticker sheet: Flipped Pair (FR 9.81 moves / 11.81 MCC, BR 9.67 / 12.35, against normal CMLL 10.02 / 12.31 from the Roux Discord 2H sheet); Outside (DFr 9.63 / 13.11, DBr 10.05 / 12.47); Swapped Pairs; Front Cycle; Spiral (two adjacent pairs swapped in one block). junnoske made 2-look docs for Flipped Pair and Spiral: look 1 fixes F2B and corner orientation (sorted by the number of oriented corners), look 2 solves CP (adjacent or diagonal). Recommended order: Flipped Pair FR and BR, Outside, Swap FL/FR, Front Cycle. Guiding rule: insert the last pair keeping its current orientation, and do not move the 1x2x2 until the pair's final move. The page asks for help generating more sets and suggests a batch solver to rank them by movecount. Its 'Credit / To do' heading is empty. I downloaded all 12 linked sheets. Each Straughan tab has 162 recognition codes. The U-sticker sheets group about 43 cases per set into A-H (A 6, B 6, C 4, D 6, E 6, F 6, G 6, H 3). The sheets also hold template, AUF-table, 'OH Codes' and batch-solver tabs.",
+   "drills": [
+    "Build the last SB pair with U/R only, leave it flipped, then finish with Flipped Pair ACMLL",
+    "Learn the sets in order: Flipped Pair FR/BR, Outside, Swap FL/FR, Front Cycle",
+    "2-look ACMLL (CO and F2B fix, then CP) as a stepping stone",
+    "Learn TCLL+ and TCLL- U-sticker recognition"
+   ],
+   "infoTopics": [
+    "ACMLL concept: CMLL that also repairs imperfect blocks",
+    "Block defect types: flipped pair, outside pair, swapped pairs, front cycle, spiral",
+    "Movecount and MCC compared with standard CMLL",
+    "Recognition: Straughan unchanged; U-sticker adds TCLL+ and TCLL-",
+    "Last-pair insertion technique; towards non-linear F2B"
+   ],
+   "algSets": [
+    {"name": "ACMLL Flipped Pair (FR, BR, FL, BL)", "caseCount": "43 per slot (U-sticker groups A6 B6 C4 D6 E6 F6 G6 H3)", "notes": "best algs per Athefre; FR 9.81 moves / 11.81 MCC, BR 9.67 / 12.35; Straughan sheet tabs FR/BR/FL/BL with 162 recognition codes each"},
+    {"name": "ACMLL Outside (DFr, DBr)", "caseCount": "43 per slot", "notes": "DFr 9.63 / 13.11, DBr 10.05 / 12.47; the U-sticker sheet includes batch-solver tabs"},
+    {"name": "ACMLL Swapped Pairs (FL/FR, FL/BR, FR/BR)", "caseCount": "43 per variant", "notes": "U-sticker tabs Swap FL FR, Swap FLBR, Swap FRBR, plus a 'Straughan to U Sticker' tab"},
+    {"name": "ACMLL Front Cycle", "caseCount": "43", "notes": "single variant, tab 'F R U R'; pairs well with the dFL/dFR swap"},
+    {"name": "ACMLL Spiral (SB clockwise, counterclockwise)", "caseCount": "43 per variant", "notes": "two adjacent pairs of one block swapped"},
+    {"name": "2-look ACMLL (junnoske)", "caseCount": "about 8-10 algs per variant", "notes": "Flipped Pair FR/BR/FL/BL and Spiral C/CC; look 1 = CO + F2B fix by number of oriented corners, look 2 = Adj/Diag CP"}
+   ],
+   "appIdeas": [
+    "Expert ACMLL module (later): SB trainer variant that ends with a deliberately flipped or outside last pair, followed by the matching ACMLL case. Start with Flipped Pair FR/BR.",
+    "Recognition support for TCLL+ and TCLL- orientation types, so CMLL recognition drills can extend to ACMLL",
+    "Use the app's solvers to generate ACMLL sets and rank them by movecount/MCC (Athefre asks for exactly this)",
+    "Last-pair insertion tip in SB lessons: keep the pair's orientation and don't move the 1x2x2 until the final move"
+   ],
+   "license": "No licence on athefre's site or the linked Google Sheets. Treat the algs and recognition tables as his and junnoske's; generate the app's own data and credit them.",
+   "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-3/athefre-acmll.txt"
+  }
+ ]
+}

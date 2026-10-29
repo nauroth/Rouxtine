@@ -1,0 +1,257 @@
+{
+  "resources": [
+    {
+      "key": "https://speedcubedb.com/a/3x3/cmll/u_x",
+      "url": "https://speedcubedb.com/a/3x3/CMLL/U_X",
+      "title": "U X - CMLL - CMLL - Speed Cube Database",
+      "author": "Gil Zussman (SpeedCubeDB); algs submitted and voted on by users",
+      "kind": "alg-sheet",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate (learning full 42-case CMLL and colour-pattern recognition)",
+      "summary": "Fetched with curl (HTTP 200) and rendered with Playwright. The server sends the whole CMLL set (42 rows, all hidden), and category.js shows only the 'U X' row; the page title, meta description and og tags name the case. The case card has a plan-view thumbnail (U face plus one-row side strips; default cross colour white, so yellow is on top), the name 'U X', the breadcrumb '3x3 - CMLL - U' and a setup alg: r' D' r U r' D r U' r U r' U2'. Four top algs are shown, each with community votes, movecount (ETM/STM) and generator: U2 r U' r' U r' D' r U' r' D r (12 votes, 11 ETM/12 STM, 3GEN U D r); F R U' R' U R U R' U R U' R' F' (7, 13, 3GEN R U F); r' U r' D' r U r' D r U' r (4, 11, U D r); U' R' D R U' R U' R' U R' D' R (3, 11 ETM/12 STM, R U D). 'More Algorithms' calls GET /category.algs.php?algname=U%20X&d=0&cat=CMLL and loads 14 more (mostly 0-2 votes), 18 algs in all. Each alg row expands into a cubing.js twisty-player (stickering 'cmll', setup z2, cross colour white) with fullscreen, go-to-start, step back, play, step forward, go-to-end, a scrub bar, a speed toggle and an open-externally button. Each row also has a 3-state 'learnt' flag (graduation cap) and a bookmark star, saved with Google sign-in. Page chrome: search, print button, Cross Color selector (white/yellow/green/blue/red/orange), Related Sets (Second Block Last Slot, Edge Orientation 4a), and filter chips for the 8 groups with learnt counters (Anti Sune 0/6, H 0/4, L 0/6, Pi 0/6, Solved 0/2, Sune 0/6, T 0/6, U 0/6 = 42). Also a dark-mode toggle, Google ads ('Discover more' blocks), a PayPal donate link, a privacy policy, and the footer 'Created By Gil Zussman'. Recognition data from the thumbnail markup (data-us/ub/uf/ul/ur): both back corners have yellow facing back, their U-face stickers are opposite colours (red/orange), the front pair is also opposite (orange/red), and the side strips are L blue/green and R green/blue. The Roux Reader's CMLL chapter (book.rouxers.com, PR #21 'Add CMLL recognition', 2021-11-02) links this page in a worked example. Two opposite colours on top narrow the case to 'X' or 'Bottom Row'. A back sticker that must be blue or green then makes it X. roux-trainers calls this case u_x_checkerboard (src/lib/Algs.tsx), with the same alg as SCDB's top vote.",
+      "drills": [
+        "CMLL recognition from a partial view: from one angle, use the colours of the visible U-layer stickers to narrow a case to two candidates, then decide with one more sticker. This is the Roux Reader's worked example for U X vs U Bottom Row; the reader then rotates the cube to check.",
+        "Alg selection: compare the alternatives for a case by movecount and generator, then pick one main alg.",
+        "Self-tracking: mark each case not learnt / learning / learnt and watch the per-group counters."
+      ],
+      "infoTopics": [
+        "CMLL case 'U X' (also called U checkerboard): definition, setup alg and 18 alternative algs",
+        "SpeedCubeDB CMLL naming: groups O/Solved, H, Pi, U, T, Sune, Anti Sune, L, with bar/slash/row/column/X descriptors",
+        "Colour-pattern recognition: opposite vs adjacent vs matching colours on the U-face stickers of the two back corners",
+        "Alg metadata: ETM vs STM movecount, and the move-set ('3GEN (U D r)')"
+      ],
+      "algSets": [
+        {
+          "name": "CMLL (SpeedCubeDB)",
+          "caseCount": "42",
+          "notes": "8 groups: Solved/O 2 (O Adjacent, O Diagonal), H 4 (Columns, Rows, Column, Row), Pi 6 (Right Bar, Down Slash, X, Up Slash, Columns, Left Bar), U 6 (Up Slash, Down Slash, Bottom Row, Rows, X, Upper Row), T 6 (Left Bar, Right Bar, Rows, Bottom Row, Top Row, Columns), Sune 6 (Left Bar, X, Up Slash, Columns, Right Bar, Down Slash), Anti Sune 6 (Right Bar, Columns, Down Slash, X, Up Slash, Left Bar), L 6 (Best, Good, Pure, Front Commutator, Diagonal, Back Commutator)."
+        },
+        {
+          "name": "CMLL U X (single case)",
+          "caseCount": "1 case; 18 algs listed (4 shown + 14 under More Algorithms)",
+          "notes": "Top: U2 r U' r' U r' D' r U' r' D r. Setup: r' D' r U r' D r U' r U r' U2'."
+        }
+      ],
+      "appIdeas": [
+        "Teach U-group recognition as a decision tree, using the sticker data of the six U thumbnails. Look at the U-face colours of the two back corners. Same colour gives Rows or Upper Row, opposite gives Bottom Row or X, adjacent gives Up Slash or Down Slash. One front-row check then decides: Bottom Row has front headlights, X has opposite front colours; Rows has front headlights, Upper Row opposite front colours (green/blue). Build the same trees for the other groups from our own case data.",
+        "Add a 'partial view' recognition drill, as in the Roux Reader example. Show a random CMLL case from a fixed angle with only U/F/R visible (random AUF, random colour scheme per the user's colour-neutral setting) and ask for the case name or a 2-way choice. Afterwards let the user orbit the 3D cube to reveal the hidden stickers.",
+        "CMLL case card: a plan-view thumbnail (U face plus side strips) generated from the app's own cube model, the case name in the user's chosen naming system, the setup alg, and an expandable 3D player with step and scrub. All of it works offline.",
+        "Per-alg metadata chips (STM/ETM movecount, move-set such as <R,U>, <R,U,F>, <r,U,D>), so users can choose 2-gen algs for OH or avoid D/B moves. Compute these locally.",
+        "Alternative-alg picker per case with a 'main alg' choice, plus custom algs typed by the user. Keep the 3-state learn flag (not learnt / learning / learnt), show progress counters on group filter chips, and add a printable or exportable sheet of the user's chosen algs.",
+        "Naming map in settings, because sources disagree: SCDB/Kian-style names vs roux-trainers ids. Examples: U Bottom Row = u_front_row, U X = u_x_checkerboard, U Upper Row = u_back_row, U Up Slash = u_forward_slash, U Down Slash = u_back_slash.",
+        "Link out to the SCDB case page as an optional 'more algs' source per case; do not copy its votes or alg lists."
+      ],
+      "license": "No licence or reuse terms on the page. The site belongs to Gil Zussman, is ad-supported, and its algs and votes are user-submitted, so treat the data as not reusable without permission; linking is fine. The 3D player it embeds is cubing.js (package.json licence 'MPL-2.0 OR GPL-3.0-or-later'). Move sequences themselves are facts, and Rouxtine can use its own GPL-3.0 alg list from roux-trainers.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/scdb-cmll-U_X.html; .../web-9/scdb-cmll-U_X.curl.txt; .../web-9/scdb-cmll-U_X.rendered.txt; .../web-9/scdb-cmll-U_X.png; .../web-9/scdb-cmll-U_X.alg-open.png; .../web-9/scdb-cmll-U_X.alg-open.txt; .../web-9/scdb-moreAlgs-U_X.html; .../web-9/scdb-moreAlgs-U_X.txt (where ... = /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links)"
+    },
+    {
+      "key": "https://speedcubedb.com/a/3x3/cmll/u_bottom_row",
+      "url": "https://speedcubedb.com/a/3x3/CMLL/U_Bottom_Row",
+      "title": "U Bottom Row - CMLL - CMLL - Speed Cube Database",
+      "author": "Gil Zussman (SpeedCubeDB); algs submitted and voted on by users",
+      "kind": "alg-sheet",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate (learning full 42-case CMLL and colour-pattern recognition)",
+      "summary": "Fetched with curl (HTTP 200) and rendered with Playwright. It is the same page template as U X: the server sends all 42 CMLL rows, and JS shows only 'U Bottom Row'. Setup: R' F' R U R2' F2' U' F' U F' R2. Top four algs: R' U' R U' R' U2 R2 U R' U R U2 R' (11 votes, 13 ETM/13 STM, 2GEN R U); U' R2 F2 r U r' F R2 U2 r' U' r (8, 11 ETM/12 STM, 4GEN R U F r); R2 F U' F U F2 R2 U' R' F R (7, 11, 3GEN R U F); U2 R U R' U R U2 R2 U' R U' R' U2 R (5, 13 ETM/14 STM, 2GEN). 'More Algorithms' (GET /category.algs.php?algname=U%20Bottom%20Row&d=0&cat=CMLL) adds 18 more, 22 in all. Examples: U' R U R' U' R U' R' U2 R U' R' U2 R U R', R2 F U' F U F2 R2 U' S R' F R S', and an L-hand mirror L U L' U L U2 L2 U' L U' L' U2 L. Thumbnail data: both back corners have yellow facing back with opposite colours on top (red/orange), the front row shows matching headlights (green/green), and the side strips are L blue/red and R orange/blue. That front-row match is the 'bottom row' in the name. The rest of the page matches U X: cubing.js player per alg, votes, ETM/STM, generator, learnt flag and bookmark (Google sign-in), Cross Color, Related Sets (SBLS, EO 4a), group filter chips with counters, print, dark mode, ads, donate. The Roux Reader's CMLL recognition example offers it as the other candidate next to U X. roux-trainers calls this case u_front_row, with alg R' U' R U' R' U2 R2 U R' U R U2 R', SCDB's top vote.",
+      "drills": [
+        "Same partial-view recognition drill as U X: decide between Bottom Row and X from one angle by inferring hidden sticker colours.",
+        "Choose a main alg among 22 alternatives (2-gen R U options suit OH)."
+      ],
+      "infoTopics": [
+        "CMLL case 'U Bottom Row' (front-row headlights, opposite colours on top of the back corners)",
+        "2-gen <R,U> vs 3/4-gen alternatives for the same case",
+        "Mirror (left-hand) and S-slice variants of the same alg"
+      ],
+      "algSets": [
+        {
+          "name": "CMLL U Bottom Row (single case)",
+          "caseCount": "1 case; 22 algs listed (4 shown + 18 under More Algorithms)",
+          "notes": "Part of SpeedCubeDB CMLL (42 cases, 8 groups); U group has 6 cases. Top: R' U' R U' R' U2 R2 U R' U R U2 R'."
+        }
+      ],
+      "appIdeas": [
+        "Recognition pair drills: present the two cases that share a first-look feature (U X vs U Bottom Row) side by side and drill the deciding sticker. Shuffle such confusable pairs into a dedicated 'confusables' queue weighted by the user's errors.",
+        "Mark algs that are 2-gen <R,U> and suggest them by default in an OH profile.",
+        "Show mirror variants (L-hand) and slice variants generated by the app's own mirror and transform functions, as CubeDB's Mirror(M) does, rather than storing them as separate algs."
+      ],
+      "license": "No licence or reuse terms on the page; site and data are Gil Zussman's, ad-supported, and the algs are user-submitted. Link only; do not copy votes or alg lists. The player is cubing.js (MPL-2.0 OR GPL-3.0-or-later).",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/scdb-cmll-U_Bottom_Row.html; .../web-9/scdb-cmll-U_Bottom_Row.curl.txt; .../web-9/scdb-cmll-U_Bottom_Row.rendered.txt; .../web-9/scdb-cmll-U_Bottom_Row.png; .../web-9/scdb-moreAlgs-U_Bottom_Row.html; .../web-9/scdb-moreAlgs-U_Bottom_Row.txt (where ... = /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links)"
+    },
+    {
+      "key": "https://cube.rider.biz/visualcube.php?fmt=svg&bg=t&size=150&stage=f2b&alg=rum%27ur%27u2",
+      "url": "http://cube.rider.biz/visualcube.php?fmt=svg&bg=t&size=150&stage=f2b&alg=RUM%27UR%27U2",
+      "title": "VisualCube image (stage=f2b, alg=R U M' U R' U2)",
+      "author": "Conrad Rider (VisualCube); contributors Shotaro Makisumi, Jaume Casado Ruiz",
+      "kind": "other",
+      "accessible": false,
+      "rouxRelevance": "roux-3x3",
+      "level": "intermediate (SB last pair with an M-slice insertion); the tool itself has no level",
+      "summary": "BROKEN AT SOURCE. The http URL 301-redirects to https. That returns HTTP 200 with text/html and a 123-byte error body, 'Connect Error: <html><head><title>Current IP Check</title></head><body>Current IP Address: 35.212.158.170</body></html>', instead of an SVG. Every image request fails the same way (a PNG of alg=R too), so the image back end on cube.rider.biz is broken; it looks like a failed database/cache connection. With no parameters, visualcube.php still serves the docs page 'VisualCube (v0.5.5)', copyright 2010-2023 Conrad Rider. The same request against the visualcube.api.cubing.net mirror returned a valid 150x150 SVG. Rasterised, it shows the f2b mask: both 1x2x3 blocks coloured, everything else grey, with the last SB pair displaced after R U M' U R' U2. In the Roux Reader this image sits only in an HTML comment at the top of src/en/blockbuilding.md: a table row with the image and the solutions '(U2) R U M' U R' / (U2) R U' M U' R''. It looks like the start of a table of SB pair insertions using M moves, and it never shipped. VisualCube is a URL-parameter image API. It takes fmt (png/gif/jpg/svg/tiff/ico); pzl 1-10 (NxNxN); size up to 1024; view plan|trans; and stage masks fl, f2l, ll, cll, ell, oll, ocll, oell, coll, ocell, wv, vh, els, cls, cmll, cross, f2l_3, f2l_2, f2l_sm, f2l_1, f2b, line, 2x2x2, 2x2x3, each with an optional rotation suffix such as -x2. Further parameters: r (view rotation), alg, case (inverse alg), fd facelet definition (with n = blank, o = 'oriented' silver, t = transparent), fc facelet colours, sch colour scheme, bg, cc, co/fo opacity, dist, arw arrows (from/to/via stickers, scale, influence, colour) and ac. The page footer says 'Cube images generated by VisualCube are free to copy and distribute'. The source is the PHP project github.com/Cride5/visualcube (fetched via raw.githubusercontent.com: README, COPYING, COPYING.LESSER, visualcube.php with the stage-mask table).",
+      "drills": [
+        "None directly. The planned table would have shown SB last-pair cases solved with R/U/M insertions, such as (U2) R U' M U' R'."
+      ],
+      "infoTopics": [
+        "VisualCube URL API: stage masks including Roux-relevant f2b, cmll and line",
+        "Facelet-definition states blank / oriented (silver) / transparent for stage-specific views",
+        "Arrow overlays for showing piece cycles",
+        "SB last-pair insertion using an M-slice move (R U M' U R')"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Give the app's renderer named Roux stage masks: FB, F2B, CMLL (corners only), LSE, line (DF/DB plus centres), EO-only, using VisualCube's mask table as a checklist. roux-trainers already has masks in src/lib/CubeLib.tsx.",
+        "Support an 'oriented' sticker colour (VisualCube's silver 'o'), so LSE EO lessons can show good and bad edges without real colours.",
+        "Arrow overlays on the 2D/3D cube to show cycles: corner swaps in 2-look CMLL, LSE 4c edge cycles, the UL/UR insertion in step 4b.",
+        "A 'plan' (top-down plus side strips) view for CMLL and EO recognition cards.",
+        "Render everything on-device with Compose Canvas, with no network image API: cube.rider.biz is already broken, which shows the risk of depending on a hosted renderer."
+      ],
+      "license": "VisualCube source: GNU LGPL v3 or later (visualcube.php header and COPYING.LESSER; the docs page says 'available under the GNU Lesser General Public License'). Generated images: 'free to copy and distribute'. It is PHP with ImageMagick and an optional MySQL cache, so nothing is reusable as code in a Kotlin app. Reimplement the ideas and do not depend on the hosted service.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/rider-visualcube-f2b.error.txt; .../web-9/rider-visualcube-noargs.html; .../web-9/rider-visualcube-docs.txt; .../web-9/apicubing-visualcube-f2b.svg; .../web-9/apicubing-visualcube-f2b.png; .../web-9/visualcube-src/ (README.md, COPYING, COPYING.LESSER, visualcube.php, cube_lib.php, visualcube_config.php) (where ... = /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links)"
+    },
+    {
+      "key": "https://travis-ci.com/rouxers/book",
+      "url": "https://travis-ci.com/rouxers/book",
+      "title": "Travis CI build page for rouxers/book (README badge)",
+      "author": "Travis CI; repo by the rouxers GitHub org",
+      "kind": "other",
+      "accessible": false,
+      "rouxRelevance": "not-roux",
+      "level": "n/a (build infrastructure of the Roux Reader)",
+      "summary": "NOT FOUND. https://travis-ci.com/rouxers/book redirects to https://www.travis-ci.com/rouxers/book, which returns HTTP 404 'Page not found - Travis CI' (Playwright and curl agree); the public web UI no longer serves repo pages at that path. The badge image (api.travis-ci.com/rouxers/book.svg?branch=master) still renders 'build | passing'. The public Travis API v3 (api.travis-ci.com/repo/rouxers%2Fbook) still lists the repo: id 15893147, description 'The Roux Reader', active, default branch master, build_count 39. Latest builds: #73 passed, push 2022-01-15 22:52-23:00 UTC, 'Merge pull request #22 from stanleydesu/master - Regular EOLRb insertions and 4c'. #72 passed, PR 2022-01-14, 'Add some regular EOLRb insertions'. #71 passed, push 2021-11-02, 'Merge pull request #21 from notrichardpeng/cmll - Add CMLL recognition'. Build #73 finished at 23:00:47 UTC, just before the live site's last-modified time (23:01:14 GMT), so this is the last deploy and book.rouxers.com has been frozen since 2022-01-15. The repo's .travis.yml: language rust; install the mdBook fork Ruin0x11/mdBook (branch 'localization') for the EN/CN builds; run 'mdbook build && mdbook test'; copy book/en/* to the root; deploy to GitHub Pages with fqdn book.rouxers.com on master. No Roux content.",
+      "drills": [],
+      "infoTopics": [
+        "How the Roux Reader is built and deployed (mdBook localization fork, Travis CI, GitHub Pages)",
+        "Content freshness: last deploy 2022-01-15 (EOLRb insertions and 4c additions)"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Show a 'content last updated' date and the source link on any guide screen adapted from community docs; the Roux Reader has not changed since 2022-01-15.",
+        "If Rouxtine keeps lesson text as Markdown in its repo, add a CI check (GitHub Actions) that parses every alg string in the content with the app's notation parser. This is the role 'mdbook test' played for the book, and it catches typos in algs before release."
+      ],
+      "license": "Travis page: Travis CI site terms, nothing to reuse. The Roux Reader repo (rouxers/book) is MIT, 'Copyright (c) 2020 Rouxers', so its text can be adapted with attribution.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/travis-rouxers-book.html; .../web-9/travis-rouxers-book.rendered.txt; .../web-9/travis-rouxers-book.png; .../web-9/travis-badge.svg; .../web-9/travis-api-repo.json; .../web-9/travis-api-builds.json; .../web-9/travis-api-branches.json (where ... = /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links)"
+    },
+    {
+      "key": "https://assets1.ello.co/uploads/asset/attachment/4123434/ello-optimized-81fbd399.gif",
+      "url": "https://assets1.ello.co/uploads/asset/attachment/4123434/ello-optimized-81fbd399.gif",
+      "title": "Animated GIF of all cube moves (Ello upload)",
+      "author": "unknown (uploaded to the Ello network)",
+      "kind": "other",
+      "accessible": false,
+      "rouxRelevance": "unknown",
+      "level": "beginner (notation)",
+      "summary": "BLOCKED / DEAD HOST. The agent proxy answers CONNECT assets1.ello.co:443 with HTTP 502 Bad Gateway (upstream unreachable; same result in the earlier tutorial crawl). ello.co itself now redirects to an unrelated gambling-spam domain, so the Ello network is gone and its domain has been repurposed. The page was not kept. The archive.org availability API reports a Wayback snapshot (web.archive.org/web/20201112024405/...gif, 2020-11-12, status 200), but web.archive.org is unreachable from this session: the HTTPS tunnel was reset by peer, and plain HTTP returned 403 'Blocked by egress policy'. I recorded it as blocked and did not route around it. Context from tutorial.rouxers.com/beginners/notation.html: 'TL;DR: Look at this link for a .gif on all the possible cube moves.' The page then teaches U/L/F/R/B/D with ' and 2, x/y/z rotations and 'Moves useful for the Roux Method', using interactive TwistySim cubes. I did not see the GIF, so its exact content (whether it includes M/E/S and wide moves) is unverified.",
+      "drills": [],
+      "infoTopics": [
+        "3x3 move notation (per the linking page): face turns, primes and doubles, rotations, and presumably slice and wide moves"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Build an in-app notation reference that animates every move on the app's own 3D cube: faces, wide (r, u...), slices (M, E, S), rotations (x, y, z), with the Roux-critical moves (M, M', M2, r, r', U2) first and fingertrick hints. Do not depend on an external GIF; this one has already vanished with its host.",
+        "Let users tap any move token in an alg string to replay that single move (the tutorial uses one interactive cube per move group)."
+      ],
+      "license": "Unknown; the original uploader and terms cannot be seen. Ello is defunct. Do not reuse; generate our own animations.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/ello-moves.blocked.txt; /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/wayback-avail.json"
+    },
+    {
+      "key": "https://cubedb.net",
+      "url": "https://cubedb.net/",
+      "title": "CubeDB (by Gil Zussman)",
+      "author": "Gil Zussman",
+      "kind": "trainer-tool",
+      "accessible": true,
+      "rouxRelevance": "roux-mixed",
+      "level": "all levels (notation helper for beginners; reconstruction and alg viewer for intermediate to advanced)",
+      "summary": "HTTP 200. The page redirects client-side to ?puzzle=3x3; I explored it with Playwright. CubeDB is a reconstruction and alg viewer/editor, not a trainer. It has a three.js 3D cube with a scrub bar, fullscreen, go-to-start, step back, play, step forward, go-to-end and a speed toggle. The right panel has: Title; Copy (copies a share link); Puzzle (3x3, 2x2, 4x4-7x7, Square1, Pyraminx, Skewb, Clock) with a per-face colour-scheme editor; Playback 'Moves' or 'Algorithm' (alg mode shows the case the alg solves); 'Result (seconds)', which turns a time into TPS; a Scramble box with a Random button that gives a random-state scramble (e.g. 'U2 B2 D' U2 F2 R2 D2 F2 R2 D F2 U' F R' B2 L' D2 F2 D' U2 L2'); and a Moves box that takes '//' comments per line. Live counters show STM, HTM, QTM and ETM (observed: 'R U M' U R'' gave 5 STM / 5 HTM / 5 QTM / 5 ETM, and adding 'U2' gave 6/6/7/6, so CubeDB's HTM also counts M as one move). Transform buttons: Rotate(x), Rotate(y), Rotate(z), Mirror(M), Mirror(S), Invert, Remove Comments, plus 'Dual' in the markup and an 'old notation (r = 2R)' checkbox. Under the cube: Highlighting (Full, Cross, F2L, OLL, PLL, COLL, F2B, CMLL, Centers, Edges); Cross Color (sets the D colour); 'Roux Blocks' (Blue/Green, Red/Orange, Yellow/White), which appears when F2B or CMLL is chosen and picks the block colour pair; and a 'Back Faces' checkbox that projects the hidden stickers. All state lives in the URL: puzzle, scramble, alg, stage, crosscolor, blockscolor, with spaces encoded as '_' and primes as '-'. 'Automated Solve Critique (CFOP)' is CFOP-only: on a Roux solve it answers 'I could not find the cross'. 'New Recon' resets the editor; 'WCA Login' and a publishsolve.ajax.php endpoint point to publishing solves. Other: PayPal donate, Google Analytics. The scripts (cubedb.js, cubedbdb.js and others) are obfuscated, and I found no source repo. The Roux tutorial's notation page recommends it for checking what typed moves do; the Roux community commonly shares reconstructions as cubedb.net links.",
+      "drills": [
+        "Self-study: type a scramble and your Roux solution with per-step comments (FB / SB / CMLL / LSE), check STM and TPS, and replay with F2B or CMLL highlighting.",
+        "Notation practice for beginners: type moves and watch what they do."
+      ],
+      "infoTopics": [
+        "Move-count metrics STM, HTM, QTM, ETM (STM counts M as one move, which matters for Roux)",
+        "Alg transforms: mirror across M or S, invert, rotate",
+        "Stage highlighting for Roux (F2B, CMLL) with a choice of block colour pair and D colour (colour neutrality)",
+        "Reconstruction sharing through URL parameters"
+      ],
+      "algSets": [],
+      "appIdeas": [
+        "Reconstruction viewer/editor: scramble plus solution with per-line '// step' comments, step-coloured playback, STM/ETM/HTM/QTM counters, and TPS from an entered time.",
+        "Import and export cubedb.net links: parse ?puzzle=&scramble=&alg=&stage=&crosscolor=&blockscolor= (with '_' as space and '-' as prime). Users can then open community reconstructions in Rouxtine and share their own solves back as cubedb links.",
+        "Roux-specific solve critique, the gap CubeDB leaves (its critique is CFOP-only). Auto-split a pasted solve into FB/SB/CMLL/LSE with roux-trainers' analyze_roux_solve and compare each stage with solver optima.",
+        "Colour-neutral display settings for every Roux stage view: D colour plus block colour pair (BG/RO/YW), as in CubeDB's Cross Color and Roux Blocks.",
+        "Alg editor transforms: Mirror(M) for left-hand versions, Invert to get setups, and Rotate.",
+        "A 'show hidden faces' toggle (projected back stickers) on the 3D cube for recognition lessons."
+      ],
+      "license": "No licence or terms shown. The JS is obfuscated and proprietary-looking, and there is no public source repo. Do not copy code; linking and URL interoperability are fine.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/cubedb-net-home.html; .../web-9/cubedb-net-home.curl.txt; .../web-9/cubedb-net-home.rendered.txt; .../web-9/cubedb-net-explore.txt; .../web-9/cubedb-net-blocks.txt; .../web-9/cubedb-net-highlight-f2b.png; .../web-9/cubedb-net-cmll.png; .../web-9/cubedb-js/ (where ... = /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links)"
+    },
+    {
+      "key": "https://i.imgur.com/iiyopna.png",
+      "url": "https://i.imgur.com/IIYopnA.png",
+      "title": "Last Layer Corner Orientation (chart)",
+      "author": "unknown (anonymous imgur upload, 27 Sep 2021; used by the rouxers beginner tutorial)",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "beginner (2-look CMLL)",
+      "summary": "HTTP 200: a 2008x488 PNG (67,378 bytes, Last-Modified 2021-09-27), byte-identical to the copy from the earlier tutorial crawl. The imgur page shows an anonymous post dated September 27 2021 with 25,470 views. It is an infographic. A green panel reads 'LAST LAYER CORNER ORIENTATION - Check how many of your corners are oriented, and hold the cube in the positions specified below, before performing the corner orientation algorithm.' Next to it are three top-view diagrams, each captioned '(R U R') U (R U2 R')' (Sune). With 0 corners oriented, hold so the front-left corner's yellow faces left. With 2 corners oriented, hold so the front-left corner's yellow faces the front. With 1 corner oriented, put that corner at front-left. The edges are drawn yellow, but edge orientation does not matter at this step in Roux. tutorial.rouxers.com/beginners/cmll.html uses it as the 'Memorization Approach' to beginner corner orientation. Every case reduces to the 1-oriented-corner (Sune/Antisune) state, and then one or two more Sunes solve it. The 'Intuitive Approach' teaches checking all 4 angles to find the one that leaves 1 corner oriented.",
+      "drills": [
+        "Count oriented corners (0, 1 or 2), pick the hold from the chart, apply Sune, and repeat until all are oriented",
+        "Intuitive variant: before applying Sune, predict for each of the 4 U angles how many corners it would leave oriented"
+      ],
+      "infoTopics": [
+        "Beginner (2-look) CMLL step 1: corner orientation with Sune only",
+        "Hold positions keyed to the number of oriented corners",
+        "Why Sune works: R U R' (pair out), U, R U2 R' (pair in)"
+      ],
+      "algSets": [
+        {
+          "name": "Beginner CMLL corner orientation (Sune-only)",
+          "caseCount": "1 alg (Sune, R U R' U R U2 R'); 3 hold rules (0, 1 or 2 corners oriented)",
+          "notes": "Covers all 7 non-solved orientation cases by repeating Sune: the 0 and 2 cases first become a 1-oriented case."
+        }
+      ],
+      "appIdeas": [
+        "Beginner lesson '2-look CMLL, step 1' with hold diagrams that the app draws itself: top view, grey non-yellow stickers, a side tab for a yellow sticker facing sideways.",
+        "Hold drill: show a random oriented-corner state in top view and ask the user to tap the U-turn (AUF) that gives the correct Sune hold. Feedback animates the Sune. Track accuracy and time, then graduate the user to 'predict all 4 angles' (the intuitive approach).",
+        "Keep a path from beginner to full CMLL: once Sune holds are automatic, introduce the 7 OCLL shapes (O/H/Pi/U/T/S/AS) as the CMLL group names."
+      ],
+      "license": "No licence stated. It is an anonymous imgur upload under imgur's terms, and the rouxers/tutorial repo has no licence. Do not copy the image; redraw the same information (move sequences and positions are facts).",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/imgur-IIYopnA.png; .../web-9/imgur-IIYopnA.txt; .../web-9/imgur-page-IIYopnA.rendered.txt (where ... = /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links)"
+    },
+    {
+      "key": "https://i.imgur.com/bgthffg.png",
+      "url": "https://i.imgur.com/BgTHffg.png",
+      "title": "Last Layer Corner Permutation (chart)",
+      "author": "unknown (anonymous imgur upload, 25 Oct 2021; used by the rouxers beginner tutorial)",
+      "kind": "other",
+      "accessible": true,
+      "rouxRelevance": "roux-3x3",
+      "level": "beginner (2-look CMLL)",
+      "summary": "HTTP 200: a 1935x519 PNG (60,098 bytes, Last-Modified 2021-10-25), byte-identical to the earlier tutorial-crawl copy. The imgur page shows an anonymous post dated October 25 2021 with 25,270 views. A red panel reads 'LAST LAYER CORNER PERMUTATION - Correctly align two corners on the left side of your cube as shown, and then execute the algorithm shown. If there are initially no matching corners, perform the algorithm from any angle.' The diagram is a top view with the U face all yellow and matching blue headlights on the left side. A grey double arrow on the right column swaps the two right corners (UBR and UFR). The algorithm is '(R U R' U') (R' F R2 U') R' U' (R U R' F')', the T-perm. It also swaps the UL/UR edges, which is harmless in Roux because LSE comes after. tutorial.rouxers.com/beginners/cmll.html uses it in 'Permuting the Corners'. Its text gives the same alg, R U R' U' R' F R2 U' R' U' R U R' F'.",
+      "drills": [
+        "Find the headlights (two matching corner stickers on one side), put them on the left with U moves, and apply the alg. With no headlights (diagonal swap), apply it from any angle once, then again with the headlights on the left."
+      ],
+      "infoTopics": [
+        "Beginner (2-look) CMLL step 2: corner permutation with one alg",
+        "Headlights recognition (adjacent swap vs diagonal swap)",
+        "Why edge side effects do not matter before LSE in Roux"
+      ],
+      "algSets": [
+        {
+          "name": "Beginner CMLL corner permutation (T-perm)",
+          "caseCount": "1 alg; 2 cases (adjacent swap with headlights, diagonal swap = alg twice)",
+          "notes": "(R U R' U') (R' F R2 U') R' U' (R U R' F')"
+        }
+      ],
+      "appIdeas": [
+        "Beginner lesson '2-look CMLL, step 2' with an app-drawn diagram: headlights highlighted on L, and an arrow overlay for the corner swap.",
+        "Headlights drill: show a random corner-permutation state (top view plus side strips) and ask 'which side has headlights?' (or 'none'). Feedback shows the U-move needed before the alg.",
+        "Once 2-look CMLL is solid, point the learner to the 42-case trainer, and use the same headlights and side-pattern vocabulary in full-CMLL recognition lessons (Bottom Row, Upper Row and so on)."
+      ],
+      "license": "No licence stated. It is an anonymous imgur upload under imgur's terms, and the rouxers/tutorial repo has no licence. Do not copy the image; redraw the same information.",
+      "savedTo": "/tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links/web-9/imgur-BgTHffg.png; .../web-9/imgur-BgTHffg.txt; .../web-9/imgur-page-BgTHffg.rendered.txt (where ... = /tmp/claude-0/-home-user-roux-trainers/7854d768-c194-5c37-87d5-37b386887809/scratchpad/crawl/links)"
+    }
+  ]
+}
