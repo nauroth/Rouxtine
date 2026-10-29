@@ -11,7 +11,7 @@ Vocabulary used below (proposed, not yet in `CONTEXT.md`):
 
 ## 1. Summary
 
-- **Coaches do not publish a fixed regimen.** Feliks Zemdegs says to spend at least 50 % of practice on timed solves once you are comfortable with your method, more on deliberate practice when fixing fundamentals, and a growing share of timed solves as you get faster. He prefers loose schedules to strict ones [1]. Jayden McNeill decides the mix by daily time budget: with 30–60 min a day, alternate a solves day and a drills day [4]. The only Roux-specific warm-up advice found is partial SpeedBLD [9]. No source found describes a cool-down.
+- **Coaches do not publish a fixed regimen.** Feliks Zemdegs says to spend at least 50 % of practice on timed solves once you are comfortable with your method, more on deliberate practice when fixing fundamentals, and a growing share of timed solves as you get faster. Feliks prefers loose schedules to strict ones [1]. Jayden McNeill decides the mix by daily time budget: with 30–60 min a day, alternate a solves day and a drills day [4]. The only Roux-specific warm-up advice found is partial SpeedBLD [9]. No source found describes a cool-down.
 - **No per-level Roux split table was found.** The two references are Scheopner's idealised model (FB/SB/CMLL/LSE = 17/27/23/33 %) [27] and two measured world-class Cubeast ao100s (about 12–14/33–36/21–23/30–31 %) [38][39]. Recognition is about 21–23 % of total solve time and about half of CMLL time in those ao100s, counting AUF as recognition [38][39][42]. CubeSkills' CFOP tool flags a step more than 20 % above typical [36][37]. A Roux equivalent has to be built.
 - **Among the tools we could inspect, none builds a cross-module Roux plan.** Roux trainers are single-module [55][56][57]. SCT diagnoses Roux stages automatically from smart-cube solves (seconds lost per stage, with a cause and an action) but builds no plan [164]. Plan features are CFOP-only (CuberPal [63]) or could not be inspected (acubemy's plan generator needs a login [61]). The upstream roux-trainers picks cases uniformly at random [55].
 - **Case selection prior art is rich and copyable as ideas:** natural, equal and recap orders (csTimer, jperm, Roman's trainers) [43][48][49]; slowest-first bags with a floor (Cubeast 8:1, SpeedcubeQuest's weighted sum with a 0.12 floor) [42][45]; optimal-length ladders (wodzik/cube: +1 move at 80 % optimal over the last 10) [56]; and auto-graded SRS (Cubedex, since 2026-04-21, already with CMLL and EOLR sets) [44]. That last point contradicts `roux-training-features.md` line 75 [166].
@@ -26,9 +26,9 @@ Vocabulary used below (proposed, not yet in `CONTEXT.md`):
 ### Deliberate practice versus timed solves
 
 - Feliks Zemdegs splits practice into deliberate practice and subconscious practice (timed solves and averages) [1]. Deliberate practice includes learning and drilling algs, learning new methods, experimenting, studying example solves for inefficiencies, focusing on one aspect, new fingertricks, and "any sort of drill or practice that isn't complete solves" [1].
-- His ratio: if you are satisfied with your techniques, spend at least 50 % of practice on timed solves. If you want to improve fundamentally, spend much more on deliberate practice. As you get faster, more of your practice should be timed solves. At least 50 % of his own practice is timed solves [1].
+- Feliks' ratio: if you are satisfied with your techniques, spend at least 50 % of practice on timed solves. If you want to improve fundamentally, spend much more on deliberate practice. As you get faster, more of your practice should be timed solves. At least 50 % of Feliks' own practice is timed solves [1].
 - Jayden McNeill sets the mix by daily time budget [4]:
-  - **2 h or more a day:** at least 30 min of intentional practice on most days. His examples are unlimited inspection to plan more of the first pair, and slow solves where you force yourself not to look at what you are solving. Spend the rest on ao50/100/200 sessions or more focused practice, and do an average of 50–100 solves regularly.
+  - **2 h or more a day:** at least 30 min of intentional practice on most days. Jayden's examples are unlimited inspection to plan more of the first pair, and slow solves where you force yourself not to look at what you are solving. Spend the rest on ao50/100/200 sessions or more focused practice, and do an average of 50–100 solves regularly.
   - **30–60 min a day:** don't do solves and intentional practice on the same day. Do solves one day and only intentional practice the next.
   - **Under 1 h a day,** you must make a careful schedule and stick to it. **Under 2 h a day,** you must make sacrifices or accept a serious disadvantage. **With more than 1 h a day,** you can skip intentional practice for days if you apply ideas strictly in your solving sessions.
   - The post is CFOP-oriented and dated only "May 11".
@@ -36,8 +36,8 @@ Vocabulary used below (proposed, not yet in `CONTEXT.md`):
 
 ### Schedules
 
-- Feliks has "never followed a strict practice regimen" [1]. He finds loose schedules work better: plan which events to cover over a timeframe so nothing is neglected, and before a small competition practise only its events for a few weeks [1].
-- He also says to practise only when you feel like it, because unfocused practice is less effective. He quotes Stefan Huber: "Breaks make you better", and often hears of people setting a PB average after a week without cubing. Separately: after long stagnant periods, times often drop 1–2 s within days; stagnating is "completely natural" [1]. People who enjoy tracking numbers may still want a schedule [1].
+- Feliks has "never followed a strict practice regimen" [1]. Feliks finds loose schedules work better: plan which events to cover over a timeframe so nothing is neglected, and before a small competition practise only its events for a few weeks [1].
+- Feliks also says to practise only when you feel like it, because unfocused practice is less effective. Feliks quotes Stefan Huber: "Breaks make you better", and often hears of people setting a PB average after a week without cubing. Separately: after long stagnant periods, times often drop 1–2 s within days; stagnating is "completely natural" [1]. People who enjoy tracking numbers may still want a schedule [1].
 - CubeSkills has a 7-lesson "Practicing" module (Intermediate) with lessons including "Components vs Full Solves", "Practicing Inspection" and "Practice Schedule Thoughts". Its stated goal is "to transform what you've consciously learned into a subconscious action" [3]. The videos need an account and were not watched.
 
 ### Session shape
@@ -45,11 +45,11 @@ Vocabulary used below (proposed, not yet in `CONTEXT.md`):
 No coach source gives a step-by-step session template. What exists:
 - **Warm-up.** The Roux Reader calls Kian's partial SpeedBLD "arguably underrated as a practice approach" and says to do it "regularly as warmup before solves" [9][18]. One warm-up video gives no content in its description [22]. The other is a hand-warming routine for cold hands, not a cubing drill [23].
 - **Cool-down.** None found. Aimlabs, in aim training, tells users to order tasks "to warm up, peak, and cool down during a session" [72].
-- **Practice unit.** Kian proposes Mo10Ao5 (mean of 10 averages of 5) as both a practice unit and a measure of speed [15]. He also has videos on practising effectively and on TPS, with a stated goal of 8 TPS in solves [16][17].
+- **Practice unit.** Kian proposes Mo10Ao5 (mean of 10 averages of 5) as both a practice unit and a measure of speed [15]. Kian also has videos on practising effectively and on TPS, with a stated goal of 8 TPS in solves [16][17].
 - **Analysis, then a plan.** Kian's "Why You're Not Sub-X With Roux" series has five videos: Sub-20, Sub-15, Sub-12 and Sub-10 (2016), and Sub-8 (2017-02-08) [12][14]. The Sub-20 to Sub-10 descriptions combine level tips, a slow-solve demonstration and a critique of a named viewer's reconstructed solve (Isaac Vega, Thibaud Ou, Iuri Grangeiro, Waffo and Ryan Peh) [12]. Sub-20 has no chapters, so its slow-solve demonstration could not be checked [12]. Sub-8, "the fifth and final video", critiques a solve by Kavin Tangtartharakul (GuRoux) [14]. Sub-15 has 50+ machine-style chapters, including "Solving splits and targets", "Target times for each step", "Slow solving practice", "Deliberate practice", "Identifying pauses" and "Transition analysis" [13]. Sub-12 chapters include Move Count, Inspection, Ugly Cases, CMLL, LSE, Slow Solve and Reconstruction [12]. The target numbers could not be read.
-- **A Roux solver's weekly plan.** John Mark Grimes (13.6 s average, full CMLL with all-angle recognition, full EOLR) explains a weekly training plan he built by analysing his solves. He found time losses in CMLL, LSE and second block [33].
+- **A Roux solver's weekly plan.** John Mark Grimes (13.6 s average, full CMLL with all-angle recognition, full EOLR) explains a weekly training plan built by analysing their own solves. The analysis found time losses in CMLL, LSE and second block [33].
 - Charlie Eggins' practice guide, linked from Roux Resources, has chapters "Fixing your fundamentals", "Analyzing your solves", "Targeted practice techniques" and "Learn and grind strategy" [19][20].
-- J Perm's "HOW I PRACTICE EFFECTIVELY & IMPROVE FASTER" (2020-04-01) has a description ending "*April Fools!", attached to the final solve's reconstruction. Whether the whole video is a joke is unclear, so it is not used [24]. His other practice videos say "It's important to vary your practice!" [25], and his Roux video has a "Practice + Slow Solves" chapter [26].
+- J Perm's "HOW I PRACTICE EFFECTIVELY & IMPROVE FASTER" (2020-04-01) has a description ending "*April Fools!", attached to the final solve's reconstruction. Whether the whole video is a joke is unclear, so it is not used [24]. J Perm's other practice videos say "It's important to vary your practice!" [25], and J Perm's Roux video has a "Practice + Slow Solves" chapter [26].
 
 ### What to practise, by level
 
@@ -78,17 +78,17 @@ No coach source gives a step-by-step session template. What exists:
 - **Inspection scope grows step by step.**
   - Scheopner [28]: a novice locates the DL edge, the L center and one pair, using more than 15 s while learning. An intermediate locates all FB pieces, plans the first square or line, and tracks the rest. An advanced solver fully plans FB and locates and tracks at least one edge, usually DR. Very advanced solvers inspect and track an SB square.
   - acubemy: practise without the 15 s limit, always planning one step further, and add the next step once it fits in 15 s. "This is how Xuanyi Geng and Yiheng Wang built their prediction skills" [8].
-  - Grimes planned a week around Xuanyi Geng's methods. By Tuesday he could not plan F2B blind and dropped to FB+SS, "which was still probably too hard" [34]. Antoine Cantin's video on Xuanyi's 4+ pair planning has a "Strategic daily training" chapter [35].
+  - Grimes planned a week around Xuanyi Geng's methods. By Tuesday Grimes could not plan F2B blind and dropped to FB+SS, "which was still probably too hard" [34]. Antoine Cantin's video on Xuanyi's 4+ pair planning has a "Strategic daily training" chapter [35].
 - **Lookahead: coaches disagree** [6][7][8]:
   - CubeSkills' framework has three levels: Spotting, Tracking, Knowing. Its drills: plan pair 1, find pair 2 before turning, track it while executing; solve pairs blindfolded; visualise short sequences; "two look F2L"; predict the next step during the last pair. Do these drills in isolation; in timed solves, track only as much as doesn't slow you down [7].
   - Metronome drills appear in CubeSkills [7] and acubemy (start at 60 BPM, add 20 BPM once a full solve has no missed beats, one beat of grace on recognition steps) [8]. csTimer has a metronome tool [43].
-  - Jayden McNeill treats poor lookahead mostly as a symptom of inefficient, unstandardised solutions, and says "screw metronome practice". He grants that slow turning for a day or two can help in the right context [6].
+  - Jayden McNeill treats poor lookahead mostly as a symptom of inefficient, unstandardised solutions, and says "screw metronome practice". Jayden grants that slow turning for a day or two can help in the right context [6].
   - All three are CFOP/F2L-framed. Roux Resources links Dylan Miller's lookahead guide as "for CFOP, but the same principles can apply to Roux" [19][21].
 - **Alg choice.** Time each alg as a small average (avg5, mo3, or three reps in a row), not as a best single, which drifts toward "high risk, low reward algorithms" [5].
 
 ### Weakness metrics coaches use
 
-1. **Stage splits against typical splits at your level** (CubeSkills CFOP tool [36]); Grimes' plan from his own time losses [33].
+1. **Stage splits against typical splits at your level** (CubeSkills CFOP tool [36]); Grimes' plan from their own time losses [33].
 2. **Movecount against level targets or the optimum** (Scheopner [28][29]); Kian's "Move Count" chapter [12].
 3. **Pauses, especially at transitions** (Kian's "Identifying pauses" and "Transition analysis" [13]); acubemy's "fluency", the share of solve time spent turning [8].
 4. **Recognition versus execution per step.** csTimer measures recognition as first move minus step start [43], and Cubedex as first move minus "case shown" [44]. Cubeast counts AUF turns as part of recognition [42], so its numbers are not directly comparable.
@@ -102,12 +102,12 @@ acubemy's "Three Pillars" article frames time as movecount ÷ TPS, with fluency 
 - **CubeSkills CFOP Solve Splits Tool** [36][37]:
   - Typical Cross/F2L/OLL/PLL splits for averages from 60 s to 8 s, interpolated linearly. Examples: 60 s = 7/35/8/10, 30 s = 4/15.5/4.5/6, 20 s = 2.8/10.2/3.0/4.0, 10 s = 1.2/5/1.65/2.15.
   - Under 20 % deviation is "not very significant". Only the single largest positive deviation over 20 % is flagged as "something to focus on". The data are "partially based on sub 10 solver data" from a speedsolving thread.
-  - Feliks warns that splits depend on what you know: two 20 s solvers might split 4-11-2-3 and 2-9-4-5. He says the better question is which step can be improved most easily, and to reflect on your solves before gathering data. He points to csTimer's multi-phase timer for collecting splits [36].
+  - Feliks warns that splits depend on what you know: two 20 s solvers might split 4-11-2-3 and 2-9-4-5. Feliks says the better question is which step can be improved most easily, and to reflect on your solves before gathering data. Feliks points to csTimer's multi-phase timer for collecting splits [36].
 - **Roux splits:**
 
 | Source | FB | SB | CMLL | LSE | Notes |
 |---|---|---|---|---|---|
-| Scheopner "Idealized Roux Step Breakdown" [27] | 17 % | 27 % | 23 % | 33 % | A model: STM-optimal step solvers, top-solver reconstructions, and "heavily" Kian's calculation from his 2018 seminar [32]. Achievable turns 5.5/12.75/10.75/13 at 9/13/13/11 TPS = 3.60 s. Assumes no pauses. Written July 2025. The author offers the solve fractions as per-step targets "scalable to your current skill level" [27]; the measured ao100s below differ (FB 12–14 % vs 17 %) [38][39]. |
+| Scheopner "Idealized Roux Step Breakdown" [27] | 17 % | 27 % | 23 % | 33 % | A model: STM-optimal step solvers, top-solver reconstructions, and "heavily" Kian's calculation from a 2018 seminar [32]. Achievable turns 5.5/12.75/10.75/13 at 9/13/13/11 TPS = 3.60 s. Assumes no pauses. Written July 2025. The author offers the solve fractions as per-step targets "scalable to your current skill level" [27]; the measured ao100s below differ (FB 12–14 % vs 17 %) [38][39]. |
 | eff, Cubeast ao100, 5.58 s [38] | 13.7 % | 32.8 % | 23.2 % | 30.3 % | Measured (about 2025). Turns 7.3/16.4/10.7/14.2; 48.5 turns at 8.6 TPS. Recognition: SB 0.21 s, CMLL 0.61 s, LSE 0.37 s. Inspection used 6.1 s. |
 | Fahmi, Cubeast ao100, 6.46 s [39] | 12.3 % | 35.5 % | 20.9 % | 31.3 % | Measured (about 2021). Turns 6.6/15.8/10.1/13.0. Recognition: SB 0.23 s, CMLL 0.69 s, LSE 0.52 s; none shown for FB. Inspection used 11.6 s. |
 | SCT "intermediate (~20-30s)" profile [164] | 20 % | 30 % | 22 % | EO 12 + LR 9 + 4c 7 | No source given in the code; the repo has no licence. |
@@ -208,7 +208,7 @@ Nathan's Cube Trainer (iOS) has "weak-case tracking and review" and a CFOP segme
 - **Weighting weak cases with no floor or bootstrap,** so known cases starve. Cubeast keeps at least one copy per case after a bootstrap; SpeedcubeQuest has a 0.12 floor [42][45].
 - **Ranking cases by best single,** which favours high-risk algs [5]. Cubedex's "Slow Cases First" sorts by best time [44].
 - **Ranking by accumulated sums.** Cubeast's client tracker appears to rank by running sums per case, not means, so frequently seen cases would look slower and be shown even more [42]. Use means or EMAs.
-- **Absolute split targets that ignore what the solver knows** [36]. Using Scheopner's fractions as per-level targets, as his page suggests, conflicts with measured shares; this is our inference from [27][38][39].
+- **Absolute split targets that ignore what the solver knows** [36]. Using Scheopner's fractions as per-level targets, as Scheopner's page suggests, conflicts with measured shares; this is our inference from [27][38][39].
 - **Strict, forced calendars** [1].
 - **Paywalled analysis and upsells inside a trainer.** Aimlabs: "Every screen has 9 ads for premium service" (270 helpful) [78]. KovaaK's: "make people pay for your trainer and then have a subscription inside it too" (464 helpful) [79].
 - **Bloated navigation around a simple loop:** "getting lost navigating through this hell of a UI" [78].
@@ -314,7 +314,7 @@ Studying top solvers' example solves and reconstructions (Roux Reader [9][10], C
 | Under 30 | One focus block per day | Proposal; cf. SpeedCubeShop's 20–30 min on one step [40] |
 | 30–60 | A/B day variants: intentional practice only one day (A), timed solves the next (B) | Jayden McNeill [4] |
 | 60–120 | One daily Rouxtine: a focus block plus an ao50 timed block. Focus blocks may be skipped for some days if the solves apply their ideas | Proposal; the skip rule is Jayden's for more than 1 h a day [4] |
-| 120 or more | At least 30 min of focus blocks on most days (his examples: unlimited-inspection planning and slow solves); the rest timed solves (ao50–ao200 sessions) or more focus work, with an ao50–ao100 regularly | Jayden McNeill [4] |
+| 120 or more | At least 30 min of focus blocks on most days (Jayden's examples: unlimited-inspection planning and slow solves); the rest timed solves (ao50–ao200 sessions) or more focus work, with an ao50–ao100 regularly | Jayden McNeill [4] |
 
 ### 5.4 Templates vs builder vs auto-generated
 
