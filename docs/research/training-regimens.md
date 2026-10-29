@@ -1,5 +1,7 @@
 # Training regimens: prior art and a design space for modules and Rouxtines
 
+> Section 5 was decided with the owner on 2026-10-29. The outcome is [rouxtine-design.md](../rouxtine-design.md), which wins where the two differ: daily streak plus weekly goal, generated Rouxtines in R1, share formats including an https link. Offline-first with no backend or accounts is now in HANDOFF. HANDOFF no longer has numbered Open items.
+
 Researched 2026-10-28 from coach blogs and videos (titles, descriptions and chapters only), trainer source code and shipped bundles, app-store listings and reviews, help centres, and papers. Every claim was checked by a second pass; where that pass corrected a claim, the corrected version is used. `[n]` refers to the numbered sources at the bottom. Section 5 is design, not fact: the options are proposals for the owner, who has not decided them yet (HANDOFF "Open" item 6 [165]).
 
 Vocabulary used below (proposed, not yet in `CONTEXT.md`):

@@ -60,6 +60,8 @@ Not read: the speedsolving.com wiki and forum (HTTP 403) and reddit/r/Roux (fetc
 
 ## 2. Proposed feature map (by stage)
 
+> Priorities here (MVP/v1/later) are superseded by [scope.md](../scope.md) (R1/R2+/Later/Out): for example, SRS and the roadmap are R1 and smart cubes R2+. The evidence and reuse refs still apply, with one correction: `src/Config.tsx:340` is the LSE stage selector, so the 4c recognition-method setting (FUBU/BU/DFDB) is new work, not a port.
+
 Priority: **MVP** = first release, **v1** = next, **later**. The Reuse column lists code or data to port or read.
 
 **0 Foundations**

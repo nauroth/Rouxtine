@@ -2,6 +2,8 @@
 
 > Carried over on 2026-10-29 from `nauroth/roux-trainers` master, where a parallel session wrote it.
 > Decisions taken there are recorded in [HANDOFF](../HANDOFF.md).
+>
+> **Superseded in part (2026-10-29).** HANDOFF "Money": paid extras are cosmetic (Supporter themes) or one specific add-on; no tips; stats, analysis, "what to work on", smart-cube analytics and exports stay free in every build. Corrections from [play-billing-gpl.md](play-billing-gpl.md) §8: asking onionhoney is a legal precondition for Play Billing, not etiquette; Thunderbird is Apache-2.0, so it is no GPL precedent, and Twisty Timer and Tasks.org show tolerance, not permission; AnkiDroid's `play` flavour has no billing library; min2phase can be used under Chen Shuang's MIT grant. F-Droid can ship our own signature with reproducible builds ([licensing-monetization.md](licensing-monetization.md) §1.2). Never say in the `play` build or its listing that the GitHub build is free or has everything (HANDOFF "Don't").
 
 Researched 2026-10-29 for an individual developer with a personal Play account and a GPL-3.0 app.
 Every claim links to its source. **UNVERIFIED** means no primary source confirmed it, and
@@ -159,7 +161,7 @@ Every claim links to its source. **UNVERIFIED** means no primary source confirme
 - **Community etiquette:**
   - roux-trainers is a free community tool ("A trainer collection that caters to all your Roux training needs ❤️", README).
   - Before monetizing, ask onionhoney. If min2phase is used, consider telling cs0x7f too; it is GPL-3.0-or-later (see [roux-training-features.md §4](roux-training-features.md)).
-  - Credit both prominently in About and in the store listing. Never charge for features ported from their work, and don't use the "Roux Trainers"/onionhoney name without permission (see the HANDOFF open decisions).
+  - Credit both prominently in About and in the store listing. Never charge for features ported from their work, and don't use the "Roux Trainers"/onionhoney name without permission (see HANDOFF "Money" and "Open").
   - State plainly in the listing: open source (GPL-3.0), all trainers free, the Supporter unlock funds development, and the F-Droid/GitHub build has everything.
   - Optionally offer onionhoney a revenue share. Note that a link to *their* donation page would itself be an external payment link in the Play build.
 

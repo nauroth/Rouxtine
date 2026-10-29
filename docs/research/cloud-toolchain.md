@@ -1,5 +1,7 @@
 # Cloud toolchain: build and *see* a Compose app in this container (verified 2026-10-28)
 
+> Superseded by [HANDOFF](../HANDOFF.md) in two points: `minSdk = 24` (not 26 as in the build snippet), and phone delivery is the rolling GitHub pre-release plus Obtainium, with the dev key in Actions secrets, not a zipped Actions artifact ([min-sdk-and-delivery.md](min-sdk-and-delivery.md) Part B).
+
 Spike: a hand-written Kotlin + Compose + Material 3 app (Scaffold, TopAppBar, Card, FilterChips,
 Button, Extended FAB, plus a custom `Canvas` isometric 3x3 cube) built in the Claude Code cloud container
 (Linux x86_64, 4 CPU, 15 GB RAM, OpenJDK 21.0.12, **no /dev/kvm**). Everything below was run here.

@@ -19,4 +19,4 @@ Single-context: one `CONTEXT.md` and `docs/adr/` at the repo root. See `docs/age
 
 ### Writing
 
-Run every piece of user-facing text (in-app strings, lessons, store listing, release notes) through the `humanizer` skill.
+Run every piece of user-facing text (in-app strings, lessons, store listing, release notes) through the `humanizer` skill. Exception: licence texts, copyright and permission notices, and quoted legal wording are copied verbatim, never humanized. Privacy-policy and consent text may be humanized, then checked against the Data safety answers.

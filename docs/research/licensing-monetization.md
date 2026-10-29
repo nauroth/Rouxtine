@@ -1,5 +1,7 @@
 # Licensing and monetization: the Ko-fi link, in-app purchases and GPL duties
 
+> **Superseded in part by [HANDOFF](../HANDOFF.md) "Money" (2026-10-29):** the app is free, with an optional Supporter unlock through Play Billing once onionhoney's written s.7 permission is in hand, so the "Ko-fi only, no in-app purchases" decision below no longer holds. The flavours are `play` and `foss` (this note's `full`). The owner accepts that the address is shown, so the "privacy bonus" in §1.5 is moot. Twisty Timer and Tasks.org carry code from other copyright holders, so they rely on nobody objecting, not on their main holder (§4; [play-billing-gpl.md](play-billing-gpl.md) §4). The GPL duties in §5 still apply.
+
 Researched 2026-10-28 (Play, F-Droid and Android pages re-read 2026-10-29) to settle how Rouxtine may ask for money, and what the GPL requires of every build. `[n]` refers to the numbered sources at the bottom. `LICENSE:n` is a line of the GPLv3 text [44] in this repo's `LICENSE`, which is byte-identical to upstream's [48]. **This is research, not legal advice.**
 
 **Owner's decision (given):** the only monetization is a Ko-fi link in the app. No paywalled features, no ads, no in-app purchases, so no Play Billing library. Licence: GPL-3.0-only.
