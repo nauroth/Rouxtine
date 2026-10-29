@@ -31,11 +31,24 @@ but it is a new Kotlin app, not a wrapper of the web app.
 - **Repo:** `nauroth/rouxtine`, public, not a fork.
 - **Name:** Rouxtine. **Package id:** `io.github.nauroth.rouxtine`, with debug builds on
   `io.github.nauroth.rouxtine.debug` so both can be installed at once. No domain.
-- **Money:** a Ko-fi link in the app, nothing more. No paywalled features, no ads, no in-app
-  purchases, so no Play Billing library. Research: Google Play bans in-app donation links to
-  the developer in every region, so a Play build would need a `play` flavour without the link;
-  F-Droid and GitHub builds may keep it
-  ([licensing-monetization.md](research/licensing-monetization.md)).
+- **Money (decided 2026-10-29 in a parallel session, replacing "Ko-fi only"):**
+  - The app is **free** with **zero ads**. Every training function is free: never paywall a
+    trainer, the solver, stats or analysis.
+  - Paid extras are only **cosmetic** (a one-time **Supporter** unlock for themes) or a
+    **specific add-on** (possibly a paid smart-cube module), sold through **Play Billing** in
+    the `play` flavour, with the 15 % fee tier enabled.
+  - **Ko-fi lives off Play only:** GitHub README, `foss` build, F-Droid metadata. No donate link
+    or wording in the Play build, and no link to a page that shows one.
+  - **Blocker before the first paid feature:** Play Billing is a closed library. Shipping it in
+    one APK with onionhoney's GPL code needs onionhoney's written permission (a GPL s.7
+    additional permission); see [licensing-monetization.md](research/licensing-monetization.md)
+    and [monetization.md](research/monetization.md). Being verified.
+  - **Play account:** personal. Once anything is sold, Google shows the developer's full address
+    publicly; the owner accepts this. Local business, tax and social-security setup is the
+    owner's to arrange before the first paid feature ships.
+- **Crash reporting and analytics (decided 2026-10-29):** wanted, for fixing bugs and improving
+  the app. Opt-in, open-source SDK where possible, plus Play's Android vitals. No advertising
+  ID, nothing personal, everything declared in the Play Data safety form. Which tool: open.
 - **Licence:** GPL-3.0-only (SPDX `GPL-3.0-only`), matching onionhoney's upstream exactly. GPL
   is required because the app ports their GPL solver and data.
 - **minSdk 24** (Android 7.0), compileSdk/targetSdk 37. The owner asked for "as low as the stack
@@ -55,8 +68,8 @@ but it is a new Kotlin app, not a wrapper of the web app.
   translations through **Weblate** (Hosted Weblate's free plan for libre projects), set up once
   the first screens exist.
 - **Distribution:** **Google Play is the main release** (`play` flavour, no donation link),
-  plus a signed APK on GitHub releases (`full` flavour with the Ko-fi link), which also serves
-  Obtainium users. One app signing key for both, uploaded to Play App Signing, so users can
+  plus a signed APK on GitHub releases (`foss` flavour: no proprietary libraries, everything
+  unlocked, Ko-fi link), which also serves Obtainium users. One app signing key for both, uploaded to Play App Signing, so users can
   switch between them. F-Droid later, if wanted. A new personal Play account needs $25, ID,
   and a closed test with 12 testers for 14 days before production.
 - **Signing:** keys live in GitHub Actions secrets, never in the repo. The debug key goes in
@@ -146,6 +159,9 @@ Grilling finished 2026-10-29. The design decisions are settled.
   - `min-sdk-and-delivery.md`: minSdk floor, S25 profile, CI-to-phone pipeline, signing,
     developer verification, Samsung Auto Blocker.
   - `smart-cubes.md`: cube to buy, protocol matrix and order, Android BLE, timing, code to port.
+  - `monetization.md`: Play options (donations, Supporter unlock, tips, paid, ads), account
+    setup, GPL precedents. Written in a parallel session.
+  - `extra-skills.md`: nine more skills reviewed; only Humanizer installed.
 - `docs/scope.md` and `docs/rouxtine-design.md`: the decided scope and Rouxtine design.
 - Branch `wip/research-data`: the structured intermediate outputs (claims, verifier verdicts,
   crawl summaries, YouTube index) and workflow scripts behind those notes. Raw page texts were
@@ -153,7 +169,7 @@ Grilling finished 2026-10-29. The design decisions are settled.
 - `scripts/setup-android-sdk.sh`: idempotent SDK + Gradle-mirror setup (52 s fresh, 0 s warm).
   Not wired up yet: hook it into a SessionStart hook or the environment setup script.
 - `.claude/settings.json`: plugins `ponytail`, `android-skills` (Google, official),
-  `chrisbanes-skills`. They load at session start.
+  `chrisbanes-skills`, `humanizer`. They load at session start.
 - `.claude/skills/`: vendored `md3e`, `material-design-3-ui`, `design-critique` and
   `accessibility-review`. Sources, commits and licences are in `.claude/skills/VENDORED.md`.
 - `CLAUDE.md` and `docs/agents/`: the mattpocock-skills setup (GitHub Issues tracker on this
@@ -213,6 +229,8 @@ the first build.
 - **Design:** `md3e` (M3 Expressive API and theme generator), `material-design-3-ui` (design
   judgment), then `design-critique` and `accessibility-review` on Roborazzi PNGs, read with
   Android rules (see VENDORED.md).
+- **Writing:** `humanizer` for every piece of user-facing text: in-app strings, lessons,
+  store listing, release notes.
 - **Environment:** `session-start-hook` to wire `scripts/setup-android-sdk.sh`;
   `mattpocock-skills:research` for any new research question.
 
@@ -223,6 +241,7 @@ the first build.
   `gdlbo/material-skill` have no licence, so all rights are reserved.
 - Don't use TNoodle (AGPL) or unlicensed alg data (SpeedCubeDB, Kian's sheets) without
   permission. Use onionhoney's GPL alg data, solver-generated algs or user-entered algs.
-- Don't add paywalls, ads or in-app purchases. The only monetization is a donation link.
+- Don't add ads. Never paywall a trainer, the solver, stats or analysis. No donate link or
+  wording in the `play` build. No Play Billing until onionhoney's written permission is in hand.
 - Don't portrait-lock the timer. targetSdk 36+ ignores orientation locks on screens 600dp
   and wider.

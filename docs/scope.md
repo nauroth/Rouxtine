@@ -13,7 +13,7 @@ evidence and the code to reuse. How Rouxtines work is in [rouxtine-design.md](ro
 
 Rules that apply to every item:
 - Roux and everything that applies to Roux, nothing else. Niche Roux techniques (NMB, CPFB, Pinkie Pie, TCMLL, ACMLL…) count as Roux. Other methods, including Roux-like ones with their own steps (CEOR, Nautilus, 42…), are out: no lessons, no sets, no glossary entries.
-- No paywalls, ads or in-app purchases. Our own text everywhere. Third-party content only with a licence or written consent (see [roux-community-resources.md §10](research/roux-community-resources.md) item 7).
+- No ads. Every trainer, the solver, stats and analysis are free in every build. Paid extras (Supporter themes, maybe a smart-cube add-on) exist only in the `play` build through Play Billing, and only after onionhoney's written permission (HANDOFF "Money"). Our own text everywhere, written with the `humanizer` skill. Third-party content only with a licence or written consent (see [roux-community-resources.md §10](research/roux-community-resources.md) item 7).
 - Every trainer is a **module** (see the design doc) from day one.
 
 ## R1: first release
@@ -30,7 +30,8 @@ Rules that apply to every item:
 - Attempt log (append-only) and the skill model that every module feeds ([rouxtine-design.md](rouxtine-design.md) §5, §9).
 - Settings, light/dark theme, Material 3 Expressive, English strings in resources.
 - About / Licences screen with the GPL notices, source location as plain text, and MIT notices.
-- Two build flavours: `play` (no donation link anywhere) and `full` (Ko-fi link; GitHub APK).
+- Two build flavours: `play` (Google Play; no donation link or wording; Play Billing once paid extras ship) and `foss` (GitHub APK, later F-Droid; no proprietary libraries, everything unlocked, Ko-fi link).
+- Crash reporting and usage analytics: Play's Android vitals, plus an opt-in, open-source SDK (tool to be chosen). No advertising ID, nothing personal.
 
 ### The Rouxtine engine (owner: all of it in R1)
 
@@ -97,6 +98,7 @@ Codes are from [roux-community-resources.md §4.1](research/roux-community-resou
 8. **Learn-more links** to videos and sheets, with link-health checks. The owner rates this low priority.
 9. **Translations** through Weblate, once R1 strings settle.
 10. **Move-set profile** (2H / no-F) for solver ranking.
+11. **Paid extras in the `play` build:** a one-time Supporter unlock (themes), maybe a paid smart-cube add-on. Not before onionhoney's written permission for Play Billing (HANDOFF "Money").
 
 ## Later
 
@@ -113,5 +115,5 @@ Codes are from [roux-community-resources.md §4.1](research/roux-community-resou
 
 - Any non-Roux method, step, alg set or scramble type, including glossary entries for other methods.
 - Mindset and quote content.
-- Paywalls, ads, in-app purchases, accounts or a server of our own.
+- Ads; paywalling any trainer, the solver, stats or analysis; user accounts or a server of our own. (Opt-in crash reporting and analytics through a third-party service are the one exception.)
 - Copying text, images or alg sheets from sources without a licence or consent.
