@@ -9,6 +9,22 @@ Paths like `src/lib/Pruner.tsx:471` in these docs refer to
 onionhoney's web Roux Trainers (GPL-3.0) that this app ports from. Attach that repo read-only
 when porting.
 
+## Next session: start here (paused 2026-10-29, owner out of usage)
+
+1. **Review branch `wip/audit-fixes`** (`git diff main...wip/audit-fixes`). It holds a pre-code
+   audit's fixes to HANDOFF, scope, design and research notes, applied by an agent and **not
+   reviewed**; the run was stopped before its check pass. Raw findings are in
+   `audit-data/audit-results.json` on that branch. Keep what is right, confirm no owner
+   decision changed, merge into `main`.
+2. **Apply the note corrections** listed in
+   [related-projects.md "What changes in our plans"](research/related-projects.md) (min2phase
+   licence wording, CaseVisualizer, a few line fixes), unless the audit branch already did.
+3. **Bring the owner the final questions** from the audit, plus these from the new notes:
+   R1 with no closed Google library and the onionhoney permission request
+   ([play-billing-gpl.md](research/play-billing-gpl.md) §9); crash/analytics setup and its
+   owner questions ([crash-analytics.md](research/crash-analytics.md)). Then start coding
+   (plan below).
+
 ## Goal (owner's words, condensed)
 
 A **native Android app** with a **great-looking, modern UI** (Material 3 Expressive motion and
@@ -162,6 +178,12 @@ Grilling finished 2026-10-29. The design decisions are settled.
   - `monetization.md`: Play options (donations, Supporter unlock, tips, paid, ads), account
     setup, GPL precedents. Written in a parallel session.
   - `extra-skills.md`: nine more skills reviewed; only Humanizer installed.
+  - `play-billing-gpl.md`: Play Billing needs onionhoney's written s.7 permission; R1 ships with
+    no closed Google library; draft request; paid "Supporter key" app as the fallback.
+  - `crash-analytics.md`: Android vitals + Sentry EU for crashes, in-house client to PostHog EU
+    for usage stats, opt-in and off by default; F-Droid, consent and Data safety.
+  - `related-projects.md`: eleven GitHub repos the owner found, each with a verdict
+    (min2phase: port; Roux Reader: reuse; five: borrow ideas; two: reference; two: skip).
 - `docs/scope.md` and `docs/rouxtine-design.md`: the decided scope and Rouxtine design.
 - Branch `wip/research-data`: the structured intermediate outputs (claims, verifier verdicts,
   crawl summaries, YouTube index) and workflow scripts behind those notes. Raw page texts were
