@@ -27,12 +27,20 @@ but it is a new Kotlin app, not a wrapper of the web app.
 - **Name:** Rouxtine. **Package id:** `io.github.nauroth.rouxtine`, with debug builds on
   `io.github.nauroth.rouxtine.debug` so both can be installed at once. No domain.
 - **Money:** a Ko-fi link in the app, nothing more. No paywalled features, no ads, no in-app
-  purchases, so no Play Billing library. Whether a donation link is allowed in a Play build is
-  being checked (see "Open").
+  purchases, so no Play Billing library. Research: Google Play bans in-app donation links to
+  the developer in every region, so a Play build would need a `play` flavour without the link;
+  F-Droid and GitHub builds may keep it
+  ([licensing-monetization.md](research/licensing-monetization.md)).
 - **Licence:** GPL-3.0-only (SPDX `GPL-3.0-only`), matching onionhoney's upstream exactly. GPL
   is required because the app ports their GPL solver and data.
-- **minSdk:** as low as the stack allows. Owner's test phone: **Samsung Galaxy S25, Android 16
-  (One UI 8)**; use it as the Roborazzi device profile.
+- **minSdk 24** (Android 7.0), compileSdk/targetSdk 37. The owner asked for "as low as the stack
+  allows", and 24 is that floor: material3 1.5.0-beta02, navigation3, navigationevent and
+  DataStore declare 24, and a merge at 23 fails (measured). It reaches 99.4 % of Play devices.
+  Evidence: [min-sdk-and-delivery.md](research/min-sdk-and-delivery.md) Part A.
+- **Test phone:** Samsung Galaxy S25, Android 16 (One UI 8; One UI 9 / Android 17 has been
+  rolling out since 2026-09-28). Roborazzi qualifier
+  `w360dp-h780dp-normal-long-notround-any-xxhdpi-keyshidden-nonav` (confirm the density with
+  `adb shell wm density`).
 - **Audience and curriculum:** drills and training for every Roux level. The owner's own level
   doesn't matter. Content research covers rouxcubing.com, resources.rouxers.com and everything
   they link (onionhoney's trainers are already known).
@@ -42,9 +50,12 @@ but it is a new Kotlin app, not a wrapper of the web app.
   translations through **Weblate** (Hosted Weblate's free plan for libre projects), set up once
   the first screens exist.
 - **Builds onto the phone:** the owner prefers whatever is safest and most widely used.
-  Proposed: CI publishes each `main` build to a rolling GitHub pre-release, and Obtainium on the
-  phone tracks it. Plain download from the release page is the fallback, with no login and no
-  zip. Debug builds are signed with a fixed key. Verification pending (see "Open").
+  Confirmed by research: CI publishes each `main` build to a rolling GitHub pre-release, and
+  Obtainium on the phone tracks it ("Include prereleases" and "Use release date as version
+  string" on). Plain download from the release page is the fallback, with no login and no zip.
+  The owner must turn **Samsung Auto Blocker** off (and keep its auto-re-enable off), or every
+  install outside Play/Galaxy Store is blocked. Details:
+  [min-sdk-and-delivery.md](research/min-sdk-and-delivery.md) Part B.
 - **Stack:** Kotlin + Jetpack Compose + Material 3, accepted as researched in
   [android-ui-stack.md](research/android-ui-stack.md): AGP 9.5.0, Kotlin 2.4.21, Compose BOM
   2026.09.00, Navigation 3, Hilt + KSP, Room 3, DataStore, Vico, Kable later for BLE.
@@ -54,7 +65,8 @@ but it is a new Kotlin app, not a wrapper of the web app.
   opt-in.
 - **Feature map:** accepted as proposed in
   [roux-training-features.md §2](research/roux-training-features.md) (MVP / v1 / later per
-  Roux stage). It will be extended with the community-site research.
+  Roux stage). The community-site research proposes changes and new rows in
+  [roux-community-resources.md §9](research/roux-community-resources.md); not yet accepted.
 - **Timer:** the app keeps **its own timer and stats** (the source of truth) and has an
   **"Export to Twisty/Cubic Timer"** action. It writes Twisty's *backup* `.txt` format, which
   both apps import, with categories like "Roux FB" / "CMLL". Format, gotchas and dedupe rules
@@ -69,22 +81,52 @@ but it is a new Kotlin app, not a wrapper of the web app.
 
 ## Open: settle with the owner before building
 
-Research for these is in progress (notes will land in `docs/research/`):
+Grilling is in progress (`mattpocock-skills:grilling`). Research for every item below has
+landed in `docs/research/`. Question numbers continue the session's numbering.
 
-1. **Donation link on Play:** whether Google Play allows a Ko-fi link, by region. If not, the
-   Play build drops it and other builds keep it.
-2. **minSdk number:** the binding floor of the pinned libraries (probably 23), and what each
-   lower level costs.
-3. **Delivery checks:** Obtainium status, Google's developer-verification rules for sideloaded
-   apps, Samsung Auto Blocker. Signing is settled: a dedicated debug keystore committed to the
-   repo for `.debug` builds; a release key only the owner holds, kept in GitHub Actions
-   secrets, when public releases start.
-4. **Which smart cube to buy first,** and the order to implement protocols.
-5. **Curriculum and content scope:** from the community-site analysis, e.g. teaching from zero,
-   OH, embedding vs linking videos, content that needs permission.
-6. **Rouxtine design:** what a module is, how a Rouxtine is built (blocks, stopping rules,
-   schedule), templates vs custom vs adaptive, how weaknesses are detected and fed back,
-   sharing. Prior-art research in progress (`docs/research/training-regimens.md`).
+**Asked, waiting for the owner's answer** (the recommendation is in brackets; the regimen
+research in [training-regimens.md §5](research/training-regimens.md) backs each one):
+
+- **Q11 What "toggleable" means** [both: an app-wide toggle hides a module everywhere;
+  Rouxtines compose modules; any visible module also runs alone as a Quick session].
+- **Q12 Who builds a Rouxtine** [templates and a hand builder in the first release, picked by a
+  short placement test; app-generated Rouxtines later, opt-in only].
+- **Q13 How much the app adapts** [automatically inside a block (weak cases more often, SRS);
+  across blocks only suggestions with a reason, which the user accepts; a saved Rouxtine never
+  changes silently].
+- **Q14 Rouxtines in the first release?** [yes, simple: run as a guided session, edit blocks, a
+  few templates; every trainer built as a module from day one].
+- **Q15 Sharing** [v1: versioned text code with checksum, also as link, file and QR; structure
+  only, no stats; no server].
+
+**Next round, not yet asked:**
+
+1. **Signing, reopened.** Research corrects the earlier "commit the debug keystore" choice:
+   with a public key anyone can sign an APK that updates the owner's `.debug` app, and from
+   2027 registering `.debug` would tie such APKs to the owner's identity. Recommended: debug
+   key in four GitHub Actions secrets, the release key as environment secrets behind owner
+   approval, plus an offline backup.
+2. **Distribution channels:** Play, F-Droid, GitHub releases, or a mix. Play needs a `play`
+   flavour without the Ko-fi link, and the GPL source directions must not link to a page with
+   a donate button. Also: register the package names in the Android Developer Console before
+   developer verification goes global in 2027 (free limited-distribution account for own
+   devices; $25 full account for public distribution).
+3. **Which smart cube to buy:** QiYi AI 3x3 first (about EUR 20–23; best-documented protocol,
+   cube timestamps). GAN i4 second, or first if only one cube will ever be bought. Protocol
+   order and code to port: [smart-cubes.md](research/smart-cubes.md).
+4. **Content scope:** the 12 questions in
+   [roux-community-resources.md §10](research/roux-community-resources.md) (teach from zero,
+   switchers, OH as a profile, big cubes later, the Roux-variant boundary, link vs embed videos,
+   permissions to ask, adapting the MIT Roux Reader, recognition naming, M-hand/OH-hand
+   defaults, community links, mindset content).
+5. **Feature-map delta:** accept or trim the changed and new rows in
+   [roux-community-resources.md §9](research/roux-community-resources.md) and the proposed
+   module catalogue in §4.1 and [training-regimens.md §5.1](research/training-regimens.md).
+6. **Rouxtine internals** (after Q11–Q15): one active Rouxtine driving "Today"; block stop
+   rules; a weekly practice-days goal (default 3) instead of a daily streak; day variants for
+   30–60 min budgets; placement test shape ([training-regimens.md §5.3–5.9](research/training-regimens.md)).
+7. **Write to onionhoney** once (optional, non-blocking): tell them about Rouxtine and ask for
+   an explicit licence statement ([licensing-monetization.md §6](research/licensing-monetization.md)).
 
 ## What exists now
 
@@ -98,6 +140,19 @@ Research for these is in progress (notes will land in `docs/research/`):
     port assessment with `path:line` refs into roux-trainers, licensing.
   - `timer-integration.md`: Twisty Timer / Cubic Timer analysis and the export format spec.
   - `design-plugins.md`: which design skills cover Compose/M3, and which to skip and why.
+  - `roux-community-resources.md`: full analysis of rouxcubing.com, resources.rouxers.com,
+    the Roux Reader, the rouxers tutorial and everything they link: curriculum by level,
+    drill and learning-content catalogues, alg sets with licences, tools, video index,
+    feature-map delta, scope questions.
+  - `training-regimens.md`: prior art and design space for modules and Rouxtines, per-attempt
+    log schema, adaptive algorithms (FSRS-6, log-time EMAs).
+  - `licensing-monetization.md`: Ko-fi on Play/F-Droid/GitHub, GPL duties for every build.
+  - `min-sdk-and-delivery.md`: minSdk floor, S25 profile, CI-to-phone pipeline, signing,
+    developer verification, Samsung Auto Blocker.
+  - `smart-cubes.md`: cube to buy, protocol matrix and order, Android BLE, timing, code to port.
+- Branch `wip/research-data`: the structured intermediate outputs (claims, verifier verdicts,
+  crawl summaries, YouTube index) and workflow scripts behind those notes. Raw page texts were
+  not kept (most sources have no licence).
 - `scripts/setup-android-sdk.sh`: idempotent SDK + Gradle-mirror setup (52 s fresh, 0 s warm).
   Not wired up yet: hook it into a SessionStart hook or the environment setup script.
 - `.claude/settings.json`: plugins `ponytail`, `android-skills` (Google, official),
@@ -127,8 +182,9 @@ the first build.
 
 ## Suggested plan
 
-1. **Setup:** finish the open decisions above; Gradle skeleton; CI workflow that builds the APK
-   and publishes the rolling pre-release; SessionStart hook running `setup-android-sdk.sh`.
+1. **Setup:** finish the open decisions above; Gradle skeleton (minSdk 24); CI workflow that
+   builds the APK and publishes the rolling pre-release; SessionStart hook running
+   `setup-android-sdk.sh`.
 2. **Domain model:** `CONTEXT.md` with the Roux glossary (FB, SB, FS, SS, DR, LP, CMLL, NMCLL,
    LSE, EO, EOLR(b), MC, 4c, x2y/CN, AUF), via `domain-modeling`.
 3. **Spec and tickets:** turn the feature map's MVP rows into a spec, then into tickets in
