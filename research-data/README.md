@@ -12,3 +12,6 @@ re-synthesise without crawling again. Not part of the app.
 
 Paths inside these files point at a session scratchpad that no longer exists. The raw page
 texts were not kept: most sources have no licence, so they must not be republished.
+- `audit/`: the 2026-10-29 pre-code audit (`audit-results.json`: four audit lenses, Play
+  Billing and analytics research with verdicts) and its 2026-10-31 review
+  (`check-2026-10-31.json`). The reviewed fixes were merged into `main` on 2026-10-31.

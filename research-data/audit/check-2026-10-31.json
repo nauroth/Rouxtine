@@ -1,0 +1,131 @@
+{
+ "unapplied": [
+  {
+   "id": "design-22",
+   "severity": "minor",
+   "issue": "Partly applied. HANDOFF 'Crash reporting and analytics' now has consent-before-send, separate choices, no user text and delete-on-revoke. Three things are still missing from HANDOFF, scope and design: a fixed allowlist of usage events (no free text, times, names or codes) that also feeds the Data safety form; when the consent card is shown (once after onboarding, never blocking it, behind the Q13 age picker); and a cap on the offline queue.",
+   "fix": "Add to HANDOFF 'Crash reporting and analytics' (or a new rouxtine-design.md section): 'Usage events come only from docs/analytics-events.md, which is also the source for Data safety. The consent card appears once after onboarding and never blocks it. The upload queue is capped, and it is cleared when consent is withdrawn.'",
+   "needsOwner": false
+  },
+  {
+   "id": "compliance-5",
+   "severity": "minor",
+   "issue": "Partly applied. HANDOFF now names the controller duties (privacy policy, processing agreement, EU hosting, IP storage off). It still gives no retention period, and it doesn't map the reports to Data safety categories (Crash logs, Diagnostics, App interactions, and Device or other IDs only if an ID is sent). crash-analytics.md has that mapping, but tickets written from HANDOFF won't carry it.",
+   "fix": "Add one sub-bullet under 'Crash reporting and analytics': 'Retention: the vendor's shortest setting (e.g. 30 or 90 days), stated in the privacy policy. Data safety: Crash logs and Diagnostics; App interactions once usage stats ship; Device or other IDs only if an ID is sent (Sentry's installation ID is removed in beforeSend, crash-analytics.md).'",
+   "needsOwner": false
+  },
+  {
+   "id": "compliance-1",
+   "severity": "minor",
+   "issue": "The R1 hard rule and the CI guard are applied. The part about what happens after permission is not recorded: once onionhoney's permission arrives, closed artifacts go only into the play flavour, in a separate module or source set that the foss build and an F-Droid recipe can leave out. The CI guard must then apply to foss only. As written, the guard blocks both flavours forever, and scope R2+ item 11 doesn't say where Play Billing will live.",
+   "fix": "Add to scope.md R2+ item 11 (or HANDOFF 'Money'): 'Play Billing goes in a play-only module (e.g. :store-play). From then on the closed-library CI guard applies to the foss classpath only.'",
+   "needsOwner": false
+  },
+  {
+   "id": "evidence-6",
+   "severity": "minor",
+   "issue": "Partly applied. The L4C row now ships DFDB and says BU and FUBU 'may move to R2+'. They are not in the R2+ list (item 6), not in Open and not in Defaults, so whether they are R1 scope is undecided and nobody owns the decision. The Config.tsx:340 correction was applied.",
+   "fix": "Add an owner question (or a Default): 'BU/FUBU 4c recognition: drop from R1 and list in R2+ item 6 next to EZ4c until a readable source is found?' Then make the L4C row match.",
+   "needsOwner": true
+  }
+ ],
+ "problems": [
+  {
+   "file": "docs/scope.md",
+   "location": "scope.md:136 (Later); HANDOFF.md:121-127 (Content scope) and :258-260 (question 22)",
+   "problem": "The owner answered research Q19.12 'Mindset and lore content' with 'No'. The branch still lists 'Lore and timeline cards' under Later, flags it as open, and re-asks it as question 22. HANDOFF 'Content scope' still says only 'no mindset content'. This leaves an owner answer unapplied.",
+   "fix": "Move 'Lore and timeline cards' to Out (no mantra field, no Midori text). Change HANDOFF 'Content scope' to 'no mindset or lore content'. Drop question 22 and renumber. Keep the inventor-credit rule from Q19.7."
+  },
+  {
+   "file": "docs/HANDOFF.md",
+   "location": "Open > Owner to-dos > 'Before going public', steps 4-6 and the internal-testing note (lines 283-300)",
+   "problem": "The list is now explicitly ordered, but step 6 'Generate the release key' comes after step 4 'Start the closed test'. The same key must already sign the GitHub APK and go to Play App Signing ('One app signing key for both'). Any Play upload, the internal-track trial suggested below the list included, needs that key first, and the first upload fixes the app signing key. Main's list was unordered, so the branch introduced this error.",
+   "fix": "Move 'Generate the release key on your own computer (offline backup)' to step 2, right after creating the account and before any upload. Say that the first Play upload must use 'use my own key' so Play and GitHub share it."
+  },
+  {
+   "file": "docs/rouxtine-design.md",
+   "location": "\u00a72 line 31 vs \u00a73 line 57 and \u00a76 line 197",
+   "problem": "A new contradiction. \u00a72 gives LSX the selector `none` ('modules without cases, such as TIM and LSX'). \u00a73 and the '10-minute warm-up' template then define the R1 warm-up as 'a Recap coverage run of cases the user knows (CMLL or LSX)'. Recap and `coverage` can't apply to a module with no cases, and template CI (\u00a76) would reject such a block.",
+   "fix": "R1 warm-up = a Recap `coverage` block over the known CMLL cases (CMX or CMR), optionally followed by a short `time(T)` LSX block with selector none. Reword \u00a73 line 57 and the template line to match."
+  },
+  {
+   "file": "docs/research/training-regimens.md",
+   "location": "line 3 (new banner) vs lines 5 and 271",
+   "problem": "The banner says 'HANDOFF no longer has numbered Open items', but the branch's own HANDOFF now numbers questions 1-24. Lines 5 and 271 still cite 'HANDOFF \"Open\" item 6' and 'Open item 5', which now resolve to unrelated questions (6 = contributor terms and Weblate; 5 = the smart-cube add-on).",
+   "fix": "Replace the last sentence of the banner with: 'The \"Open item 5/6\" references below point to an older HANDOFF. Those items were settled in docs/scope.md and docs/rouxtine-design.md and are not today's numbered questions.'"
+  },
+  {
+   "file": "docs/scope.md",
+   "location": "header line 3 ('Decided 2026-10-29 with the owner'); R1 lines 24, 36, 40, 45, 56, 77, 85, 89; R2+ lines 101-121; Later lines 132-133; HANDOFF.md:305-323 (Defaults)",
+   "problem": "scope.md still says it was decided with the owner. The branch adds R1 items the owner never approved: the orientation-set setting, the accessibility list, misaligned-centre 4c (E5), the ULUR/UFUB target (E12), upstream L4C stages, the physical-cube self-report protocol, and the privacy page. It also narrows approved R1 rows: per-stage cause analysis moves to R2+, INS comparisons are limited, and BU/FUBU may leave R1. In R2+ and Later it adds Gen3, BLE capture, W2/W3, F4-F6/F10/F15, S3/S5/S6, C10, E10, E13, C20, E15 and E18. None of this is listed under 'Defaults the agent chose' or in Open. R1 was already 41 items (compliance-10).",
+   "fix": "Mark the agent additions and narrowings in scope.md (e.g. '(agent, pending owner)'), or list them under HANDOFF 'Defaults the agent chose'. Add one owner question: 'Accept the audit's R1 additions (list) and the R1 narrowings forced by what R1 can measure (analysis, INS, L4C)?'"
+  },
+  {
+   "file": "docs/rouxtine-design.md",
+   "location": "\u00a72 'Toggles (Q11)' line 35; \u00a73 'Runs' line 59",
+   "problem": "Paragraphs the owner approved were changed without a *(default)* mark. The 'counts toward stats and SRS' switch now applies to Quick sessions only ('Blocks in a Rouxtine always count'). That matches training-regimens \u00a75.2 but narrows the approved text. 'Update Rouxtine?' now also fires on swapped blocks and on mid-run edits to settings, selector or stop rule, where the approved text said only 'added, removed or reordered' and allowed swapping during a run.",
+   "fix": "Mark both rules *(default)* and add them to HANDOFF 'Defaults the agent chose', or revert to the approved wording and put the narrower rules in the Data model / Run lifecycle defaults."
+  },
+  {
+   "file": "docs/HANDOFF.md",
+   "location": "'Decided (confirmed by the owner)': Offline-first (lines 31-33), 'Contributors are copyright holders too' (55-57), crash sub-bullets (69-80)",
+   "problem": "Agent-derived rules now sit under the owner-confirmed heading: the Offline-first wording, the contributor rule, 'Debug and CI builds never send', and 'Only FLOSS SDKs' (the owner said 'open-source SDK where possible'). Also, 'Sharing (link, code, QR, file) in R1' is still listed as an agent default, although the owner chose it (Q15: 'Link, QR, or file'; the whole engine in R1). Later agents will treat the agent rules as owner decisions, and the owner's choice as overridable.",
+   "fix": "Put the derived rules under a sub-heading like 'What follows (agent, from the decisions above)', or move them to Defaults. Remove the sharing line from Defaults, because it is owner-decided."
+  },
+  {
+   "file": "docs/HANDOFF.md",
+   "location": "plan step 1 line 403 ('a DCO check'); rouxtine-design.md:202; scope.md:42-43; vs Open questions 6, 7 and 19",
+   "problem": "Several items are stated as settled while HANDOFF asks the owner about them. Plan step 1 and design \u00a76 make DCO a CI check, but question 6 asks whether to use DCO. scope.md:43 states 'No closed Google library in either flavour' for R1, but question 7 asks exactly that. scope.md:42 says foss is 'later F-Droid', but question 19 and the Defaults put IzzyOnDroid first.",
+   "fix": "Add '(pending Open question 6/7/19)' at each place, or word them as the recommended default until the answer comes."
+  },
+  {
+   "file": "docs/HANDOFF.md",
+   "location": "merge with main commit b7ef9be ('Next session: start here'; 'What exists now'); docs/research/related-projects.md line refs",
+   "problem": "The branch forked before b7ef9be. `git merge-tree` shows a merge with no textual conflicts, but the result is wrong in three ways. 'What exists now' gets two entries each for play-billing-gpl.md and crash-analytics.md. Main's 'Next session: start here' (review this branch) goes stale. related-projects.md cites line numbers that the branch shifts or rewrites (scope.md:24/:32/:44/:53/:56/:70-71/:73/:82-83/:87/:95-99, rouxtine-design.md:70, HANDOFF.md:138, roux-training-features.md:72/:171, monetization.md:161, roux-community-resources.md:660, training-regimens.md:207).",
+   "fix": "After the merge: keep one entry per note; rewrite 'Next session' as the owner-question round plus the related-projects corrections; change related-projects' line refs to section names, or update them."
+  },
+  {
+   "file": "docs/HANDOFF.md",
+   "location": "question 8 (lines 197-198) and plan step 4 (lines 413-415)",
+   "problem": "related-projects.md on main found that min2phase is 'MIT or GPL-3.0-or-later' and recommends vendoring Chen Shuang's five Java files unchanged as a `:min2phase` module under MIT. The branch says 'port' and still recommends asking Chen to confirm that the MIT grant covers Search.java. After the merge the two docs disagree.",
+   "fix": "Plan step 4: 'vendor min2phase's Java unchanged as :min2phase (MIT; keep Search.java's header; MIT notice on the Licences screen)'. Drop question 8, or reduce it to an optional courtesy note."
+  },
+  {
+   "file": "audit-data/README.md",
+   "location": "audit-data/ (new directory)",
+   "problem": "HANDOFF keeps intermediate workflow outputs on branch `wip/research-data`, not on main. Merging audit-data/ (a 2,774-line JSON plus a README that says the fixes are 'not reviewed') puts raw data on main, and the README goes stale as soon as the review is done.",
+   "fix": "Before merging, move audit-data/ to wip/research-data (or drop it), and add one line to HANDOFF's wip/research-data entry that the audit results live there."
+  },
+  {
+   "file": "docs/research/training-regimens.md",
+   "location": "line 23 vs HANDOFF.md:481-483 (new 'Don't')",
+   "problem": "The new 'Don't' forbids copying code that adds copyright holders to the Play-permission question, but it names only PR #31, smartcube-gym and csTimer. training-regimens.md:23 still calls csTimer, wodzik/cube and FsrsKt 'licence-compatible' and offers FsrsKt (GPL-3.0) as an option. smart-cubes.md lists open-gan (GPL), and related-projects.md lists VisualCube (LGPL). An agent could reuse any of these.",
+   "fix": "Extend the 'Don't' examples to FsrsKt, wodzik/cube, open-gan and Cride5/tdecker VisualCube (ideas only; port py-fsrs, which is MIT). Or add that caveat to the training-regimens banner."
+  },
+  {
+   "file": "docs/HANDOFF.md",
+   "location": "question 11 (lines 210-214)",
+   "problem": "It re-opens the Ko-fi scope on the premise that the parallel session said 'Ko-fi on GitHub only'. The recorded decision, which is the owner's (commit a0d1600 and HANDOFF 'Money'), is 'Ko-fi off Play only: GitHub README, foss build, F-Droid metadata'.",
+   "fix": "Drop the scope question. Keep the to-do (create the Ko-fi page, then the README line) and record FUNDING.yml as an optional default."
+  },
+  {
+   "file": "docs/rouxtine-design.md",
+   "location": "\u00a77 'File' line 218",
+   "problem": "Filtering ACTION_VIEW on */* and ACTION_SEND on */* puts Rouxtine in the 'Open with' list and share targets for every file type (PDFs, photos, APKs), just to read a short text code.",
+   "fix": "Accept ACTION_SEND text/plain (and image/* if 'Import from image' should come from the share sheet). Drop the */* VIEW and SEND filters. Keep 'Import from file' (ACTION_OPEN_DOCUMENT) and 'Paste code' as the ways in."
+  },
+  {
+   "file": "docs/rouxtine-design.md",
+   "location": "\u00a76 generator step 5 (line 183) vs \u00a73 line 57 and \u00a75 headline (line 151)",
+   "problem": "The generator makes an 'ao50' timed block at 60 min or more, but the template default shape and the headline use Mo10Ao5, which also takes 50 solves. Two names for the same 50-solve block.",
+   "fix": "Use 'Mo10Ao5 (50 solves)' in step 5, or say that an ao50 block also feeds Mo10Ao5."
+  },
+  {
+   "file": "docs/HANDOFF.md",
+   "location": "question 20 (lines 248-249)",
+   "problem": "'No public release before R1' conflicts with the rolling `dev` pre-release, which is public on GitHub. The GPL-duties list and compliance-1 treat it as published.",
+   "fix": "Say 'no tagged or Play release before R1; the rolling dev pre-release stays public, with its source at the `dev` tag'."
+  }
+ ],
+ "verdict": "Merge after the listed fixes. No owner decision is reversed, and 77 of the 81 audit findings are applied or recorded as owner questions. Before merging: move lore to Out, fix the release-key order, the LSX warm-up contradiction and the training-regimens banner, flag the unapproved scope additions to the owner, and reconcile with main's b7ef9be (duplicate entries, stale 'Next session', related-projects line refs, min2phase)."
+}
