@@ -32,7 +32,7 @@ Every module declares:
 
 **Shared statistics** *(default)*: the skill model is keyed by case, not by module: (case set, case, angle where relevant, channel, protocol). Every module and mode that trains a case set reads and writes the same per-case estimates, so CMX and CMR share one FSRS card per (case set, case). Recognition estimates stay separate per protocol (§9). Module ids stay the unit for the library, toggles and suggestion routing.
 
-**Toggles (Q11):** an app-wide toggle hides a module from the library, Quick sessions and suggestions. Rouxtines do the composing. A Rouxtine may contain a hidden module, for example an imported one; the app offers to show it and never blocks the run. Any visible module runs as a Quick session. A Quick session has a "counts toward stats and SRS" switch, on by default, which lets a user practise without moving their numbers. Blocks in a Rouxtine always count.
+**Toggles (Q11):** an app-wide toggle hides a module from the library, Quick sessions and suggestions. Rouxtines do the composing. A Rouxtine may contain a hidden module, for example an imported one; the app offers to show it and never blocks the run. Any visible module runs as a Quick session. A Quick session has a "counts toward stats and SRS" switch, on by default, which lets a user practise without moving their numbers. *(default)* Blocks in a Rouxtine always count, so the switch is for Quick sessions only.
 
 ## 3. Rouxtines
 
@@ -54,9 +54,9 @@ A **block** has:
 
 A BEG block can set `lesson = next`, which resolves to the next unfinished lesson, so the "first solve" template is written with blocks like any other.
 
-**Default shape of a template:** warm-up (about 5 min) → one or two focus blocks → timed solves (ao12, or Mo10Ao5) → optional review. In R1 a warm-up is a Recap coverage run of cases the user knows (CMLL or LSX); the researched Roux warm-up, partial SpeedBLD FB, comes with INS in R2+. Drill blocks and timed-solve blocks stay separate, and drill attempts never feed PBs or averages.
+**Default shape of a template:** warm-up (about 5 min) → one or two focus blocks → timed solves (ao12, or Mo10Ao5) → optional review. In R1 a warm-up is a Recap `coverage` block over the known CMLL cases (CMX or CMR), optionally followed by a short `time(T)` LSX block with selector `none`; the researched Roux warm-up, partial SpeedBLD FB, comes with INS in R2+. Drill blocks and timed-solve blocks stay separate, and drill attempts never feed PBs or averages.
 
-**Runs:** a run follows the blocks in order, and any block can be skipped or swapped. At the end the app shows a summary. It asks "Update Rouxtine?" only after a structural change, with two choices: Update or Keep. A structural change is a block added, removed, reordered or swapped, or the user editing a block's settings, selector or stop rule during the run. Follow-up blocks ("Drill missed", "Drill slow") and skips are not structural. Tuning inside a block, such as case weights or ladder depth, carries forward silently. It is derived from the attempt log and never stored in the Rouxtine, so the saved Rouxtine does not change. Each block's personal note and "how did it go" rating stay with the run, show again at the next run, and are never shared.
+**Runs:** a run follows the blocks in order, and any block can be skipped or swapped. At the end the app shows a summary. It asks "Update Rouxtine?" only after a structural change, with two choices: Update or Keep. *(default)* A structural change is a block added, removed, reordered or swapped, or the user editing a block's settings, selector or stop rule during the run. Follow-up blocks ("Drill missed", "Drill slow") and skips are not structural. Tuning inside a block, such as case weights or ladder depth, carries forward silently. It is derived from the attempt log and never stored in the Rouxtine, so the saved Rouxtine does not change. Each block's personal note and "how did it go" rating stay with the run, show again at the next run, and are never shared.
 
 ### Data model *(default)*
 
@@ -180,7 +180,7 @@ Below a threshold the dashboard shows progress toward it (e.g. "CMLL: 12 of 20 a
   2. Shape: the budget table in [training-regimens.md §5.3](research/training-regimens.md). 30–60 min a day gives variants A (drills) and B (solves).
   3. Warm-up: picked from a level → warm-up table.
   4. Focus: the top two findings by seconds lost, ties broken FB → SB → CMLL → LSE. Each goes through the routing table to the first visible module in this release, preferring one whose gate is met, with the pool narrowed to the finding's case group and the module's default selector. With no findings, the level template's focus blocks.
-  5. Timed block: ao12 under 60 min a day, ao50 from 60 min.
+  5. Timed block: ao12 under 60 min a day, Mo10Ao5 (50 solves) from 60 min.
   6. Duration per block: the user's median seconds per rep for that module and mode over 30 days (with 20 attempts or more), else the module's `defaultSecondsPerRep`, times the reps, capped by `time(T)`. To fit the budget, focus blocks shrink down to 3 minutes; then the lowest-priority focus block goes.
   7. Each block stores its reason (finding id and reason code), which the UI shows. The result is named "Made for you, <date>", with provenance {generatorVersion, inputsHash}. The app asks "Make it active?" and never activates it on its own.
   8. No randomness: the same inputs give the same Rouxtine, covered by golden tests.
@@ -194,12 +194,12 @@ Below a threshold the dashboard shows progress toward it (e.g. "CMLL: 12 of 20 a
   - CMLL push;
   - FB/inspection planning;
   - LSE efficiency;
-  - 10-minute warm-up (Recap coverage runs of known CMLLs and LSX);
+  - 10-minute warm-up (a Recap `coverage` block of known CMLLs, then a short `time(T)` LSX block);
   - 30–60 min A/B week.
 - **Community templates (Q12, Q15)** *(the pipeline is a default)*:
   - Templates are JSON files in this repo under `templates/`, in the same schema as share codes, plus template-only metadata: `id`, `revision`, `authors` (GitHub handles, shown on the template card) and `budgetMinutes`.
   - Contributors **make** a template by pull request, or **suggest** one through a GitHub issue form, "Suggest a Rouxtine template" (share code, level, goal, notes). A maintainer or agent turns an accepted suggestion into a `templates/*.json` pull request with a `:tools:decodeShareCode` task. The issue form is the `/triage` surface; template pull requests get a review by hand. Any in-app link to the form or the repo is in the `foss` build only, because the repo page shows Ko-fi.
-  - CONTRIBUTING.md states the terms (open: HANDOFF "Open") and asks for a DCO sign-off, which CI checks. The pull-request checklist covers Roux only, realistic durations, and text passed through `humanizer`.
+  - CONTRIBUTING.md states the terms and asks for a DCO sign-off, which CI checks (both pending HANDOFF "Open" question 6). The pull-request checklist covers Roux only, realistic durations, and text passed through `humanizer`.
   - One pure-Kotlin `:format` module holds the format and the module registry (ids, versions, settings serializers, case sets). The app and CI both use it. It generates `templates/schema.json` for contributors' editors, and CI checks that file is current.
   - A CI JVM test decodes every template strictly: the file name equals `id`; ids are unique; `revision` goes up whenever the content changes against `main`; module ids exist and `moduleVersion` is not newer than the module; settings decode with no unknown keys; case ids exist; selectors, stop rules and roles are allowed by their module; every stop rule is bounded; level and goal tags come from the enums; text fits the caps and the share code fits the QR budget (§7); the estimated duration is within ±20 % of `budgetMinutes`. It warns when a template overrides a profile setting (§7).
   - A Gradle task copies `templates/` into the app's assets at build time, and an app test loads every bundled template. A maintainer reviews and merges, and the next release bundles the result.
@@ -215,7 +215,7 @@ Below a threshold the dashboard shows progress toward it (e.g. "CMLL: 12 of 20 a
 - **Caps** *(default)*: name up to 60 characters, description 280, block description 140; up to 4 variants and 12 blocks per variant. A measured 7-block A/B Rouxtine with descriptions gave a 1,124-character code, which is QR version 27 at error correction M. The QR and link budget is 2,000 characters (version 38 at M). Above it, the QR and link options are hidden with a reason, and the text code and file still work. Before building sharing, encode every bundled template and measure it.
 - **Untrusted input** *(default)*: inflate with a hard output cap (64 KiB); refuse files over 256 KiB before reading; a lenient decoder range-checks every field and never crashes past the preview screen.
 - **QR:** made with ZXing core (Apache-2.0) in both flavours, in byte mode, holding the text code. Scanning uses CameraX and ZXing and asks for the camera only when used. "Import from image" decodes a QR in a screenshot chosen with the photo picker, because QR codes travel as images in chats. Google's code scanner and ML Kit are closed and stay out (HANDOFF "Money").
-- **File:** holds the text code. The app accepts ACTION_SEND (text/plain, */*) and ACTION_VIEW (*/*) and checks for the `RXT` prefix, because a `.rouxtine` path filter does not match the content:// URIs that file managers hand out. The documented ways in are "Import from file" (ACTION_OPEN_DOCUMENT) and "Paste code".
+- **File:** holds the text code. The app accepts ACTION_SEND with text/plain and checks for the `RXT` prefix. It has no `*/*` VIEW or SEND filter, which would put Rouxtine in "Open with" and the share sheet for every file type. A `.rouxtine` path filter does not match the content:// URIs that file managers hand out, so the ways in for a file are "Import from file" (ACTION_OPEN_DOCUMENT) and "Paste code".
 - **Profile settings** *(default)*: settings that come from the profile (M-hand, orientation set, colour scheme, naming scheme, recognition system) are `inherit` in a block by default. Share codes encode `inherit`, never the sender's values. A block overrides one only when the drill depends on it (e.g. an x2y planning block), and the import preview shows the override.
 - **Import:** the app shows a preview and saves the result as a copy. Re-imports and unknown or newer modules follow §10.
 

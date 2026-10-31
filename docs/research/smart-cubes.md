@@ -283,6 +283,8 @@ No native Kotlin/Android library covers several cube brands. The only Kotlin cub
 | Reuse open-gan's Kotlin core | Already Kotlin; GPL is fine for Rouxtine | GAN only; untested on hardware; Gen4 single-chunk bug; brand new, single author |
 | Port csTimer | Maintained; the reference for the linear fit | GPL-3.0 (fine here, but blocks a later permissive split); no Tornado gyro; reads 9 QiYi history moves; tied to csTimer globals |
 
+open-gan and csTimer: ideas only (HANDOFF "Don't").
+
 The licensing note prefers MIT sources for new code to keep options open [77]. It also asks to confirm that SWB's linear fit is not copied csTimer code before relying on its MIT status; under GPL-3.0-only this does not matter [77].
 
 **Other hardware the same code could reach.** GAN Smart Timer and Halo (SWB, csTimer, CubicTimer) and the QiYi timer (csTimer, CubicTimer) are covered in [76]. The GAN Robot, a cube-turning scrambler, is driven by cubing.js and open-gan, and cubing.js documents its protocol [CJS:src/cubing/bluetooth/docs/gan-robot.md][OG:README.md#L1-L20]. It could scramble automatically for drills (not evaluated).

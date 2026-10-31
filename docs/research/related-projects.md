@@ -14,7 +14,7 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
 - **Two are reference only:** Cride5/visualcube (parameter docs, mask strings) and midori-timer (one licence fact about onionhoney).
 - **Two are skips:** chronocube (a basic 2016 timer) and 15Puzzle_OptimalSolver (a sliding-puzzle solver whose main technique does not work on a cube).
 - **Licences block nothing we plan to take.** cubesplit and 15Puzzle have no licence, Alg-Trainer's and briefcubing's alg data are third-party compilations, and tdecker91's ISC label conflicts with its inherited LGPL. In each case we take ideas only, or write fresh code.
-- **Existing notes need small fixes** (details in "What changes in our plans"): roux-training-features.md:72 (CaseVisualizer is a third-party wrapper), the min2phase licence in roux-training-features.md and monetization.md, roux-community-resources.md:371, :423, :432, :437, :542 and :660, and training-regimens.md:207.
+- **Existing notes needed small fixes**, applied on 2026-10-31 (details in "What changes in our plans"): roux-training-features.md §2 (CaseVisualizer is a third-party wrapper), the min2phase licence in roux-training-features.md and monetization.md, roux-community-resources.md §6.1, §7, §8.6 and §10, and training-regimens.md §4.
 
 | Repo | What it is | Last commit | Licence | Verdict | Why |
 |---|---|---|---|---|---|
@@ -45,17 +45,17 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
   - The mask greys the solved-state stickers first and only then applies the alg or case (`VCT:src/cube/stickers.ts:47-69`), so the grey follows the pieces. `maskAlg` turns the mask without moving colours (`stickers.ts:13-20`), so one mask can serve the M-hand mirror and x2y orientations [1].
   - Masks are per-face predicates (`VCT:src/cube/masking.ts:10-195`); only `cmll` (`:127-134`) and `f2b` (`:179-186`) are Roux masks [1]. Rouxtine's masks stay piece-level, from `src/lib/CubeLib.tsx:777-873` [28]. These two sticker patterns make cheap golden fixtures for the piece-to-sticker mask code.
   - Sticker states beyond grey: `n` (blank), `o` (oriented, grey) and `t` (transparent) (`VCT:src/constants.ts:4-14`, `:68-72`) [1]. "Oriented" suits EO-only views for EO and EOLR; "transparent" gives a "show only this stage" view.
-  - Arrows (`VCT:src/cube/models/arrow.ts`; `drawing.ts:277-345`): from, to, optional via point, scale 0–20, influence 0–50, colour; a quadratic curve, stroke 0.12/N with round caps, a triangular head [1]. Useful for 4c/EP arrows and the R2+ item "CMLL→LSE effect on alg cards" (scope.md:95). In Compose: `Path.quadraticTo` plus a round-cap `Stroke`.
+  - Arrows (`VCT:src/cube/models/arrow.ts`; `drawing.ts:277-345`): from, to, optional via point, scale 0–20, influence 0–50, colour; a quadratic curve, stroke 0.12/N with round caps, a triangular head [1]. Useful for 4c/EP arrows and the R2+ item "CMLL→LSE effect on alg cards" (scope.md R2+ item 5). In Compose: `Path.quadraticTo` plus a round-cap `Stroke`.
   - Leave out svg.js rendering, `cubePNG` (`index.ts:49-74`), the sticker simulator (`simulation.ts`) and the URL parser (`parsing/options.ts`) [1].
 - **Risks.**
-  - The licence label conflicts with the history. Write the Kotlin renderer fresh from these notes; if any function is translated, add the notices above.
+  - The licence label conflicts with the history. Write the Kotlin renderer fresh from these notes; do not translate functions (HANDOFF "Don't": it would add copyright holders to the Play question).
   - Bugs to avoid when reading it as a spec [1]: `renderArrow` takes s2's and s3's positions from s1's face (`drawing.ts:292-293`, `:309-310`), so arrows across faces are wrong (Cride5's `gen_arrow` is right). A mask suffix such as `stage=f2b-y` is passed through as the mask name and throws (`parsing/options.ts:29-31`, then `masking.ts:198-200`). `parseInt(v) || 100` makes opacity 0 impossible (`parsing/options.ts:54`, `:57`). The arrow regex (`parsing/arrow.ts:10`) accepts `-s` only before `-i` and uses a one-character class, so scale or influence above 9 cannot be parsed from a string. `ac` and `trans` are not implemented (`parsing/options.ts:68-71`).
   - Faces are ordered URFDLB; the web app and our model use UDFBLR (remap in `src/components/CaseVisualizer.tsx:22-30`) [28]. Remap any copied fixture.
   - No upstream to follow.
 - **Against existing notes.**
-  - roux-training-features.md:72 lists `CaseVisualizer.tsx` next to `CubeSim2D.tsx` as the web app's 2D CMLL visualiser to reuse. CaseVisualizer only wraps the npm package, so it holds no onionhoney drawing code to port. Only CubeSim2D.tsx is onionhoney's own [28][30].
+  - roux-training-features.md §2 (the 2D/3D cube view row) lists `CaseVisualizer.tsx` next to `CubeSim2D.tsx` as the web app's 2D CMLL visualiser to reuse. CaseVisualizer only wraps the npm package, so it holds no onionhoney drawing code to port. Only CubeSim2D.tsx is onionhoney's own [28][30].
   - licensing-monetization.md §2.3 lists vendored third-party code (min2phase, three.js). Leaving out sr-visualizer is accurate, because it is an npm dependency. Still, the web app's case thumbnails are Conrad Rider's and Tyson Decker's code, which the onionhoney authorship finding does not cover [30].
-  - android-ui-stack.md:53 and :74 describe masked stickers as "a grey fill with a coloured border". That is CubeSim.tsx; the case thumbnails use this library's flat #404040 [1][30].
+  - android-ui-stack.md §2 ("Rendering the virtual cube") describes masked stickers as "a grey fill with a coloured border". That is CubeSim.tsx; the case thumbnails use this library's flat #404040 [1][30].
 
 ## 2. AshleyF/briefcubing
 
@@ -64,7 +64,7 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
 - **Status.** Alive, but changes rarely. Last commit `ce43db4` on 2026-07-15 [5]. 163 commits since 2018-09-29: 2018 62, 2019 58, 2020 5, 2021 25, 2022 3, none in 2023–2025, 2026 10 (9 in April, 1 in July) [5]. One maintainer, with merged code from outside authors: kliu99 (12 commits, PRs #12–#14, 2021), ExcuseMi (2, PRs #8–#9, 2020) and Khoa Nguyen (1, PR #10, 2021) [5]. 31 stars, 8 forks; 7 open issues (newest #19, "Add support for GAN 356 i3", 2024-09-15) and 2 open PRs: #20 (egga22, 2026-10-09, GAN Gen4) and #18 (mlg404, 2023-11-17, Brazilian Portuguese) [6][27].
 - **Licence.** The repo is MIT, "Copyright (c) 2018 Ashley Nathan Feniello", added through PR #2 (merge `3031e68`, 2019-02-12) [5]. But `BC:btcube.js:1-2` says it modifies lgarron's cuble.js and csTimer's GAN decryption [5]. csTimer is GPLv3 [9]. cuble.js was MIT when its licence file appeared (`80a47c7`, 2018-07-13) and became GPL-3.0-or-later in `edd5f2c` on 2018-09-03 [8]. briefcubing's cuble.js-derived `giiker.js` first appeared on 2018-09-29 (`6b7d044`), and was renamed `btcube.js` in `e2fabdc` (2019-06-05) [5]. Which cuble.js snapshot was copied is unknown, but the csTimer part alone makes `btcube.js` GPL-derived. The sounds, `Hotdog.gif` and stamp images have no stated source [5].
 - **GPL-3.0-only fit.** MIT code: yes, with its notice. `btcube.js`: compatible as GPL code, but it must never be described as MIT. We take ideas only, so nothing goes on the Licences screen.
-- **Verdict: borrow ideas** for smart-cube case drills (scope.md:83). Skip the Bluetooth code: smartcube-web-bluetooth covers more protocols, better (smart-cubes.md §6) [30].
+- **Verdict: borrow ideas** for smart-cube case drills (scope.md R2+ item 1). Skip the Bluetooth code: smartcube-web-bluetooth covers more protocols, better (smart-cubes.md §6) [30].
 - **What to take.**
   - *Case solved in the app.* The start state is the alg applied in reverse to a solved cube (`BC:ui.js:532-588`; `BC:cube.js:305-312`). Incoming face turns are added to it (`ui.js:289-311`). The physical cube's state is never read [5]. This could be an optional "execution drill" input next to "scramble the real cube". The trade-off: you recognise the case on screen, not on the cube.
   - *Solved check without slice merging.* After each move it compares the state with a pattern in all 24 whole-cube orientations (`ui.js:272-288`). Patterns name pieces by face letter, with `.` as a wildcard (`cube.js:500-515`; `algs.js:4-6`). A leftover AUF, a leftover M2 (as L2 R2) and a leftover M or M' (as L' R or L R') are accepted (`ui.js:214-238`) [5]. So a case drill never has to merge L + R' into M. If we reuse the matcher, add the check it lacks: two face letters must not map to the same colour.
@@ -80,7 +80,7 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
   - The MIT label hides GPL-derived Bluetooth code. Never cite `btcube.js` as MIT.
   - On-screen recognition trains a different skill from recognition on the cube. Label the mode and keep its stats separate.
   - Turn gestures can fire during regrips or AUFs; the only guard is 600 ms. Rouxtine needs a setting to turn them off.
-- **Against existing notes.** No note mentions briefcubing [30]. It confirms smart-cubes.md:108 (Monster Go 3Ai uses GAN Gen2) and refines smart-cubes.md §3.5: slice merging is needed for reconstructions and splits, not to judge a case drill [5][30].
+- **Against existing notes.** No note mentions briefcubing [30]. It confirms smart-cubes.md §3.2 (Monster Go 3Ai uses GAN Gen2) and refines smart-cubes.md §3.5: slice merging is needed for reconstructions and splits, not to judge a case drill [5][30].
 
 ## 3. cs0x7f/min2phase
 
@@ -107,10 +107,10 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
   - Do not use TNoodle's Maven copy (`scrambler-min2phase` 0.19.2: an older copy with the GPLv3-only README) or the JavaScript ports [13].
 - **Risks.** README grant and file header disagree (handled above). Android timings unmeasured. Process-wide static state. No upstream fixes: bugs get fixed in our vendored copy with notices. Do not copy `example/`.
 - **Against existing notes.**
-  - roux-training-features.md:7, :41 and :171 and monetization.md:161 call min2phase GPL-3.0-or-later. Since `4d183b9` (2023-02-21) it is MIT or GPL-3.0-or-later [10][30].
-  - licensing-monetization.md:199 is right but incomplete: the README keeps both licences (dual, not replaced), only Search.java has a header, and there is no LICENSE file. Its "rely on the README grant" (:383) holds, since Chen Shuang is the sole code author [10][30].
-  - roux-training-features.md:41's "about 200 ms" is the desktop full init. The automatic partial init (about 60 ms) is enough for scrambles [10].
-  - roux-training-features.md:70 cites csTimer's M-slice handling; roux-trainers covers only M2, so we must generalise [28][30].
+  - roux-training-features.md (the `M2P` source line, the Summary and the §4 min2phase row) and monetization.md ("GPL and community notes") call min2phase GPL-3.0-or-later. Since `4d183b9` (2023-02-21) it is MIT or GPL-3.0-or-later [10][30].
+  - licensing-monetization.md §2.3 is right but incomplete: the README keeps both licences (dual, not replaced), only Search.java has a header, and there is no LICENSE file. Its "rely on the README grant" ("Open questions / unverified") holds, since Chen Shuang is the sole code author [10][30].
+  - The "about 200 ms" in roux-training-features.md's Summary is the desktop full init. The automatic partial init (about 60 ms) is enough for scrambles [10].
+  - roux-training-features.md §2 (the random-state stage scrambles row) cites csTimer's M-slice handling; roux-trainers covers only M2, so we must generalise [28][30].
 
 ## 4. tao-yu/Alg-Trainer
 
@@ -129,13 +129,13 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
   - *Set statistics card* (`RubiksCube.js:1201-1228`, `1636-1658`): mean STM and SQTM of each case's first alg, with and without AUF [14]. Idea: a CMX set card with case count and the average movecount of the user's main algs.
   - *Review flow* (`RubiksCube.js:1712-1882`): step back through earlier cases with their scrambles and solutions [14]. Idea: swipe back to the previous case in case modules.
   - *Bulk paste of user algs* (`RubiksCube.js:1553-1584`): one alg per line, `#` comments, curly apostrophes normalised, invalid algs listed and dropped [14]. Idea for CMX "the user's main alg per case"; our own extra would be classifying each pasted alg into its CMLL case by simulating it.
-  - *Skip:* the timer (`Date.now()` with a 1 ms interval, time parsed back from the display text, `RubiksCube.js:1404-1457`), "Mean of N" stats that are never saved (`1461-1482`), the Giiker hook-up, and every 42-method set ("42 (Shadowslice)", L5E; `js/alg_list.js:11-46`, `475-484`, `660-664`), which scope.md:15 puts out of scope [14][29].
+  - *Skip:* the timer (`Date.now()` with a 1 ms interval, time parsed back from the display text, `RubiksCube.js:1404-1457`), "Mean of N" stats that are never saved (`1461-1482`), the Giiker hook-up, and every 42-method set ("42 (Shadowslice)", L5E; `js/alg_list.js:11-46`, `475-484`, `660-664`), which the rules at the top of scope.md put out of scope [14][29].
 - **Risks.** Alg data provenance. Dormant, with unanswered PRs from 2020–2025, so permission requests may get no reply. The even-M generator list would bias CMLL scrambles if copied.
 - **Against existing notes.**
-  - training-regimens.md:207 lists it under "uniform random as the only case order". It also has "Go in order" (`RubiksCube.js:1394-1396`). Still no shuffled recap or weighting, so the point holds; only "only" is wrong [14][30].
-  - roux-community-resources.md:423 says "x2/y preorientation" and "self-test mode". The preorientation is generic (any rotation plus two random axes, or full CN), and "self-test mode" is not a feature name; the virtual cube mode is the closest [14][30].
-  - roux-community-resources.md:371 gives the "credit or ASK" caution for the OH CMLL list only. The CMLL list is also third-party (algdb.net) [14][30].
-  - roux-community-resources.md:378's "672 combinations" is right (42 × 16), but that set belongs to the 42 method, now out of scope [14][29].
+  - training-regimens.md §4 ("Anti-patterns") lists it under "uniform random as the only case order". It also has "Go in order" (`RubiksCube.js:1394-1396`). Still no shuffled recap or weighting, so the point holds; only "only" is wrong [14][30].
+  - roux-community-resources.md §7 (the Alg-Trainer row) says "x2/y preorientation" and "self-test mode". The preorientation is generic (any rotation plus two random axes, or full CN), and "self-test mode" is not a feature name; the virtual cube mode is the closest [14][30].
+  - roux-community-resources.md §6.1 (the OH CMLL row) gives the "credit or ASK" caution for the OH CMLL list only. The CMLL list is also third-party (algdb.net) [14][30].
+  - The "672 combinations" in roux-community-resources.md §6.1 (conjugated CMLL) is right (42 × 16), but that set belongs to the 42 method, now out of scope [14][29].
 
 ## 5. mwong510ca/15Puzzle_OptimalSolver
 
@@ -145,11 +145,11 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
 - **GPL-3.0-only fit.** Not for code or data without the author's permission. The algorithms come from published work the README cites (Felner, Korf and Hanan [17]; Takahashi; Kociemba) and can be reimplemented from there.
 - **Verdict: skip.**
   - Additive pattern databases do not transfer. Summing tables is admissible only when each move moves pieces of one group. In the 15 puzzle a move slides one tile, and blank moves are free in the table (`PatternDatabase.java:360-463`, `483-625`) [16]. A cube turn moves 4–8 pieces across groups. Keep the TS solver's maximum over tables (`src/lib/Solver.tsx:155`) [28].
-  - Its tables are dense, one byte per entry: 1.57 MB, 11.5 MB and 576.6 MB for the three splits (from `PatternConstants.java:17-20`), with `-Xms2g` needed for the largest (`PatternDatabase.java:26`) [16]. That is the dense-table problem our sparse plan avoids (HANDOFF.md:112-114).
-  - What does transfer is standard and already in roux-training-features.md §5: a gap-free permutation × combination index (`PatternElement.java:346-416`, `492-548`; `SolverSetup.java:423-460`; for fbdr this gives 190,080 × 504 = 95.8 M, matching roux-training-features.md:219) and incremental index updates through precomputed link tables (`SolverSetup.java:485-574`), the same idea as flat move tables [16][30]. min2phase shows both on an actual cube [10].
+  - Its tables are dense, one byte per entry: 1.57 MB, 11.5 MB and 576.6 MB for the three splits (from `PatternConstants.java:17-20`), with `-Xms2g` needed for the largest (`PatternDatabase.java:26`) [16]. That is the dense-table problem our sparse plan avoids (HANDOFF.md "Solver").
+  - What does transfer is standard and already in roux-training-features.md §5: a gap-free permutation × combination index (`PatternElement.java:346-416`, `492-548`; `SolverSetup.java:423-460`; for fbdr this gives 190,080 × 504 = 95.8 M, matching roux-training-features.md §5) and incremental index updates through precomputed link tables (`SolverSetup.java:485-574`), the same idea as flat move tables [16][30]. min2phase shows both on an actual cube [10].
   - Everything else is sliding-puzzle-specific or unneeded: parity steps of 2, cycle pruning, walking distance, root move ordering, learned "reference boards" (`SolverTemplate.java:463-476`, `737-826`; `SolverPdb78Enh.java:256-323`; `SupplementaryEstimator.java:171-241`) [16]. Its whole-space BFS scans (`PatternDatabase.java:483-780`) are the wrong model; the TS list-based frontier (`src/lib/Pruner.tsx:76-95`) suits sparse tables [16][28].
 - **Risks.** No licence. Applying additivity to cube tables would make the heuristic inadmissible and lose optimal solutions.
-- **Against existing notes.** None mention it. It agrees with roux-training-features.md:194 and :219 [30].
+- **Against existing notes.** None mention it. It agrees with roux-training-features.md §5 [30].
 
 ## 6. pablopunk/chronocube
 
@@ -157,7 +157,7 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
 - **Status.** Abandoned; the GitHub description begins "[UNMANTAINED]" [18]. Last commit `96273da` on 2021-06-10 (drops the custom domain); last code change `e8d06c6` on 2018-08-29, a build attempt marked "not working yet" [18]. 216 commits: 2015 87, 2016 121, 2017 2, 2018 5, 2021 1, almost all by Pablo Varela. Branches `react` and `refactor` hold unmerged 2016 work [18]. 62 stars, 8 forks, 0 open issues [27]. The demo still loads [18].
 - **Licence.** MIT, "Copyright (c) 2015 Pablo Varela" (`CC:LICENSE:1-3`) [18]. `CC:src/js/scramble_333.js:1-11` names min2phase but states no licence; `CC:src/fonts/DS-DIGI.TTF` is a commercial font shipped with no licence file [18].
 - **GPL-3.0-only fit.** The MIT code would fit, but nothing is worth taking. Do not take the scrambler or the font.
-- **Verdict: skip.** timer-integration.md and scope.md:29 already specify a better timer [29][30]. Flaws worth knowing as anti-examples [18]:
+- **Verdict: skip.** timer-integration.md and scope.md's Timer item (R1, "Platform and foundations") already specify a better timer [29][30]. Flaws worth knowing as anti-examples [18]:
   - Inspection only counts; the display stops at 15 s (`CC:src/js/chrono.js:34`). No +2, no DNF, no 8 s/12 s cues.
   - Press arms at once and release starts (`CC:src/js/Input.js:57-85`); there is no minimum hold.
   - The stored time comes from the last 10 ms display tick, not the stop event (`chrono.js:13-36`, `:53-56`).
@@ -173,12 +173,12 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
 - **GPL-3.0-only fit.** Copying needs onionhoney's permission. We take ideas only and reimplement them, which needs no notice and adds no copyright holder, so the Play Billing s.7 question is unchanged.
 - **Verdict: borrow ideas.**
 - **What to take.**
-  - *Roll-ups* (`CS:src/Table.tsx:42-79`): FB = [FB], SB = [SS, SP], CMLL, LSE = [EOLRb, EP]; then F2B and L10P [19]. Idea: store the finest stages once (FB, SS, LP, CMLL, EO, LR, 4c) and derive the 4-step and 2-step views. Manual and smart-cube splits then share one table, and the csTimer-style 4-step export (timer-integration.md:169-172) is just a roll-up [30].
-  - *Delta against your own baseline* (`CS:src/App.tsx:102-130`; thresholds `Table.tsx:22-41`): per-stage session mean dropping best and worst when there are more than 3 solves; under −10 % green, −10–0 % yellow, 0–10 % white, over +10 % red [19]. This matches rouxtine-design.md:70 [29]. In Rouxtine, use M3 colour roles plus a sign or arrow, not colour alone.
+  - *Roll-ups* (`CS:src/Table.tsx:42-79`): FB = [FB], SB = [SS, SP], CMLL, LSE = [EOLRb, EP]; then F2B and L10P [19]. Idea: store the finest stages once (FB, SS, LP, CMLL, EO, LR, 4c) and derive the 4-step and 2-step views. Manual and smart-cube splits then share one table, and the csTimer-style 4-step export (timer-integration.md, "C. csTimer formats") is just a roll-up [30].
+  - *Delta against your own baseline* (`CS:src/App.tsx:102-130`; thresholds `Table.tsx:22-41`): per-stage session mean dropping best and worst when there are more than 3 solves; under −10 % green, −10–0 % yellow, 0–10 % white, over +10 % red [19]. This matches rouxtine-design.md §5 ("Across blocks") [29]. In Rouxtine, use M3 colour roles plus a sign or arrow, not colour alone.
   - *"Guess the pause"* (`App.tsx:25-33`): each stage's moves start after min(250 ms, 30 % of the stage time) and are spread evenly over the rest [19]. About 10 lines; it lets us animate solves that only have per-stage times (manual-split timer solves, REC imports). Smart-cube solves have real per-move timestamps.
   - *Replay synced to the split table* (`Table.tsx:171-201`; `App.tsx:11`, `74-88`): the current stage is highlighted, with a scramble card before the solve [19]. A UI idea for SC solve review and REC.
   - *Do not take* `src/Cube.tsx` (an experimental cubing.js 0.10.4 API that no longer exists), the video controls, or `src/Sample.tsx` (4 unattributed hand-timed solves) [19].
-  - Automatic splitting stays with `analyze_roux_solve` (`src/lib/Analyzer.ts:59-130`), as roux-training-features.md:126 says [28][30]. The same author added it 7 months later (`fc27f0e`, 2020-12-20) [21]. It stops at "lse", so we still write our own EO/LR/4c predicates.
+  - Automatic splitting stays with `analyze_roux_solve` (`src/lib/Analyzer.ts:59-130`), as roux-training-features.md §2 (the reconstruction import row) says [28][30]. The same author added it 7 months later (`fc27f0e`, 2020-12-20) [21]. It stops at "lse", so we still write our own EO/LR/4c predicates.
 - **Risks.** No licence. Prototype quality: the only test is the failing CRA boilerplate, and stage averages break when a later solve uses a different stage name (`App.tsx:117-123`) [19]. `"cubing": "*"` would not build against current cubing.js [19].
 - **Against existing notes.** None mention it. It confirms licensing-monetization.md §2.3: Jeffrey Sun <zhouhengsun@gmail.com> is onionhoney [19][30].
 
@@ -187,14 +187,14 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
 - **What it is.** A 5-day scaffold (June 2021) for a planned cloud cube timer with session sync and hosted weekly competitions, on Create React App, Chakra UI and Firebase (Google sign-in, Realtime Database). Despite the name it has **no timer, scrambler or statistics code**: a sign-in screen, a debug card, a create-competition form, an unfinished submit-times form, and `MT:design.md` with planned views, schema and sync rules [20].
 - **Status.** Abandoned. 8 commits, 2021-06-06 to 2021-06-10 (`6918bf9`): Zhouheng Sun 7, Antonio Kam 1 (`958b144`) [20]. 1 star, 0 forks, 0 issues [27]. `midori-timer.web.app` returns 404 [20].
 - **Licence.** `MT:package.json:5` says `"GPL-3.0-only"`, added in `2ac5685` (2021-06-06, Zhouheng Sun, the repo's second commit; the first, `297e804`, is the CRA template without it). There is no licence text in the repo [20].
-- **GPL-3.0-only fit.** In principle yes. But Antonio Kam wrote 83 of the 103 lines of `MT:src/SubmitTimesForm.js`, so taking code would add a copyright holder whose s.7 permission Play Billing would also need [20]. Firebase does not fit the `foss` build or scope.md:118 (no accounts, no server) [29]. Nothing is worth porting.
+- **GPL-3.0-only fit.** In principle yes. But Antonio Kam wrote 83 of the 103 lines of `MT:src/SubmitTimesForm.js`, so taking code would add a copyright holder whose s.7 permission Play Billing would also need [20]. Firebase does not fit the `foss` build or scope.md "Out" (no accounts, no server) [29]. Nothing is worth porting.
 - **Verdict: reference only.**
 - **What to take.**
-  - One licence fact: in June 2021 the roux-trainers author chose `GPL-3.0-only` for a new project [20]. That supports, but does not settle, the GPL-3.0-only reading of upstream (licensing-monetization.md:380) [30]. Mention it when writing to onionhoney (licensing-monetization.md:296).
+  - One licence fact: in June 2021 the roux-trainers author chose `GPL-3.0-only` for a new project [20]. That supports, but does not settle, the GPL-3.0-only reading of upstream (licensing-monetization.md, "Open questions / unverified") [30]. Mention it when writing to onionhoney (licensing-monetization.md §6, item 6).
   - Found while checking authorship: roux-trainers' LICENSE first appeared in `d9873e8` (2020-06-26, "add min2phase solver to cmll"), the same commit that vendored `src/lib/min2phase/*`. The repo had run without a licence since `45fbdae` (2019-11-21) [21]. Whether the GPL was chosen because of the solver is a guess; ask, do not assume.
   - "Solve timestamp as id" (`design.md:202-213`) is a reasonable de-duplication key for importing backups or Twisty/Cubic Timer files [20].
   - Do not take `src/firebase.js:14-23` (committed Firebase config) or `database.rules.json:1-6` (the whole database is world-readable and world-writable) [20].
-- **Against existing notes.** No conflict on licensing. On "Midori": the repo says only "Meow-ow-Meow." (README) and "assets/ (midori pics belong here)" (`MT:reading-notes.md:61`) [20]. roux-community-resources.md:534 lists "Coaching session with Midori (Zhouheng Sun)"; YouTube gives the title "Coaching session with Midori" and the channel "Zhouheng Sun (jeffrey)", so that parenthetical names the channel owner [22][30]. No source says who or what Midori is. Add nothing about it.
+- **Against existing notes.** No conflict on licensing. On "Midori": the repo says only "Meow-ow-Meow." (README) and "assets/ (midori pics belong here)" (`MT:reading-notes.md:61`) [20]. roux-community-resources.md §8.5 lists "Coaching session with Midori (Zhouheng Sun)"; YouTube gives the title "Coaching session with Midori" and the channel "Zhouheng Sun (jeffrey)", so that parenthetical names the channel owner [22][30]. No source says who or what Midori is. Add nothing about it.
 
 ## 9. rouxers/book (The Roux Reader)
 
@@ -202,9 +202,9 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
 - **Status.** Abandoned. 95 commits from 2020-09-15 to 2022-01-15 (49, 38, 8) and 22 PRs [23]. Last commit `1a621b2`, merging Stanley Su's EOLRb insertions and dots-skip cases; last deploy `7c89dfa`, both 2022-01-15 [23]. The site is up (`/en/fb.html` HTTP 200 on 2026-10-29) [23]. 14 stars, 5 forks, 0 open issues or PRs [27]. Branch `translate-cn` has one CI-only commit not in master (`e42c46d`); `fb-edit` is fully merged. The repo's homepage field now points to book-dun.vercel.app [23].
 - **Licence.** MIT, "Copyright (c) 2020 Rouxers" (`RR:LICENSE:1-21`), no per-file headers. `RR:src/en/twistysim.js:1-3` has a version banner and no licence [23].
 - **GPL-3.0-only fit.** Yes. Keep the copyright line and MIT notice on the Licences screen, also for reworded sections that keep a substantial part. Credit authors by name from git blame, because `RR:src/en/contributors.md:4-7` lists only Zhouheng Sun, Antonio Kam, Vincent Wong and Stanley Su: Stanley Su wrote 336 of `fb.md`'s 397 lines and 151 of `lse.md`'s 175; Jiankun (Richard) Peng wrote the CMLL recognition and L10P text; Ryan Peh wrote the FAQ [23]. Do not copy `twistysim.js`. The Google Docs, sheets and videos it links to are unlicensed: link only.
-- **Verdict: reuse data** (adapt text and example sets, with notice), for scope.md:97 (technique library) and HANDOFF.md:83 [29].
+- **Verdict: reuse data** (adapt text and example sets, with notice), for scope.md R2+ item 7 (technique library) and HANDOFF.md "Content scope" [29].
 - **What to take** (paths in `RR:src/en/`) [23]:
-  - *Roadmap gates* (scope.md:56): `faqs.md:3-7`, full CMLL at the latest around 20–30 s, EOLR only after full CMLL, from about 15 s. training-regimens.md:60 already uses this [30].
+  - *Roadmap gates* (scope.md R1 "Learn"): `faqs.md:3-7`, full CMLL at the latest around 20–30 s, EOLR only after full CMLL, from about 15 s. training-regimens.md §2 ("What to practise, by level") already uses this [30].
   - *BEG and CMR:* `cmll.md:15-27` (2-look needs only orientation; with full CMLL, know which angle shows the colours) and `cmll.md:29-64` (deduction rules for recognising from any angle, with a worked example). Link Kian's video at `:64`; do not embed it.
   - *BEG LSE intro:* `l10p.md:10-16` (CMLL algs use Rw because M is free; LSE is only M and U; learn it intuitively). Drop `:7`, which compares with OLL+PLL.
   - *INS and orientation:* `blockbuilding.md:12-20` (FB is planned in inspection, SB tracked in real time) and `:23-32` (x2y gives 8 FB options; y and x2y2 give 4; CN gives 24). The "60 % → 80 %" claim at `:36` comes from an unlicensed sheet: recompute it with our FB solver before using it.
@@ -212,19 +212,19 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
   - *17 FB influencing examples* (`fb.md:72-348`; solutions at `:79 :95 :110 :126 :143 :158 :173 :189 :204 :219 :235 :250 :265 :285 :300 :315 :333`). TwistySim's `case()` sets up the inverse of the solution, so every other piece is solved and gives the answer away. Show them FB-masked (the book uses a mask at `:78`) or put the FB pieces into a random state. Check each with our FB solver.
   - *SS lesson:* `sb.md:4-12` and the footnote at `:39` (DR-first is what most resources assume; freestyle is a superset).
   - *EOLR lesson:* the three EOLRb insertions at `lse.md:18`, `:30`, `:42`, mirrored for left-hand M; and `lse.md:160`, "It is not recommended to memorize algsheets for EOLR."
-  - *EOLRb 4c influencing* (scope.md:96): 8 non-cycle cases at `lse.md:49-152`, solutions at `:68 :79 :90 :101 :113 :125 :137 :148`. Recognition cues deleted in `7c7f42d` survive in its parent (`7c7f42d^:src/en/lse.md:36,47,59,71`). Check each with the LSE solver.
-  - *Weblate glossary* (scope.md:99): Chinese orientation terms at `RR:src/cn/blockbuilding.md:23-44`.
+  - *EOLRb 4c influencing* (scope.md R2+ item 6): 8 non-cycle cases at `lse.md:49-152`, solutions at `:68 :79 :90 :101 :113 :125 :137 :148`. Recognition cues deleted in `7c7f42d` survive in its parent (`7c7f42d^:src/en/lse.md:36,47,59,71`). Check each with the LSE solver.
+  - *Weblate glossary* (scope.md R2+ item 9): Chinese orientation terms at `RR:src/cn/blockbuilding.md:23-44`.
   - *Skip:* `intro.md`, `overview.md`, the link lists (except as learn-more links), every empty section, `switching.md` and `.switching.md` (a heading each; CFOP topic), and `twistysim.js`.
 - **Risks.** Content from 2020–2022; re-check dated claims, such as DR-first being used by "most of the world-level rouxers today" (`RR:src/en/sb.md:6`). Numbers from unlicensed sheets must be recomputed. The book does not cover a from-zero beginner course; we still write that.
-- **Against existing notes.** roux-community-resources.md:47 is confirmed (MIT, TwistySim without header, 17 examples, 8 non-cycle cases, frozen since 2022-01-15) [30]. Additions: roux-community-resources.md:542 under-credits (add Jiankun (Richard) Peng and Ryan Peh) [23]. The Switching page 404s because `RR:src/en/SUMMARY.md:20` links `.switching.md`; both files hold only a heading, so nothing is lost [23].
+- **Against existing notes.** roux-community-resources.md §2.1 (the Roux Reader row) is confirmed (MIT, TwistySim without header, 17 examples, 8 non-cycle cases, frozen since 2022-01-15) [30]. Additions: roux-community-resources.md §8.6 under-credits (add Jiankun (Richard) Peng and Ryan Peh) [23]. The Switching page 404s because `RR:src/en/SUMMARY.md:20` links `.switching.md`; both files hold only a heading, so nothing is lost [23].
 
 ## 10. Cride5/visualcube
 
 - **What it is.** The original VisualCube (v0.5.5) by Conrad Rider: a PHP script that turns URL query parameters into an SVG cube image (ImageMagick for PNG/GIF/JPG, optional MySQL cache) [3]. It supports 1x1 to NxN (capped at 10 in the config), alg or case, facelets, 24 named stage masks with an optional rotation suffix, colour schemes, `plan` and `trans` views, opacity and arrows [3]. Its URL API is the usual way cube images are embedded in wikis and alg sheets.
 - **Status.** Dormant. Last commit `5e3d38a` on 2023-04-19, a README-link merge [3]. 40 commits: 2009 3, 2010 9, 2015 7, 2016 14, 2017 1, 2022 4 (a Dockerfile on `php:7.4-apache`, Lucas Garron's PHP 8 rename), 2023 2 [3]. 162 stars, 48 forks, 9 open issues and PRs [27]; PR #21 (2025) and tdecker91's TypeScript port PR #14 are unmerged [3]. On 2026-10-29 the public host answered a CMLL plan-view request with HTTP 200, "Connect Error:" and an IP-check page instead of an SVG [4].
 - **Licence.** LGPL-3.0-or-later, "Copyright (C) 2010 Conrad Rider" (`VCR:visualcube.php:9-24`; `VCR:cube_lib.php:9-23`); contributors named in the header: Shotaro Makisumi, Jaume Casado Ruiz. "Cube images generated by VisualCube are free to copy and distribute" (`VCR:visualcube_api.php:318`) [3].
-- **GPL-3.0-only fit.** Yes, by the same LGPL-to-GPL route as section 1, with Conrad Rider's copyright line and a modification notice on anything translated.
-- **Verdict: reference only.** Same geometry as the TypeScript fork, which is easier to read. Its value is the parameter documentation and the features the fork dropped. It is server code and the host is broken, so on-device rendering stays the plan (roux-community-resources.md:74, :437) [30].
+- **GPL-3.0-only fit.** Yes, by the same LGPL-to-GPL route as section 1, with Conrad Rider's copyright line and a modification notice on anything translated, but per HANDOFF "Don't" we take ideas only.
+- **Verdict: reference only.** Same geometry as the TypeScript fork, which is easier to read. Its value is the parameter documentation and the features the fork dropped. It is server code and the host is broken, so on-device rendering stays the plan (roux-community-resources.md §2.3 and §7) [30].
 - **What to take.**
   - The parameter table (`visualcube_api.php:179-295`) as a checklist for `CubeImageSpec`, minus format, size and cookies [3].
   - `plan` is the top-down CMLL view (rotate x-90, `visualcube.php:504-506`; side rim `:806-828`). `trans` is a different view: a silver body at 50 % opacity with masked stickers hidden (`:279-293`, `:448-455`), i.e. "show only this stage's pieces". It could later show the FB pieces floating for block-building visuals [3].
@@ -233,15 +233,15 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
   - Arrows: `parse_arrow` (`visualcube.php:665-699`) takes influence, scale and colour in any order; `gen_arrow` (`:844-876`) uses each sticker's own face, so it is the correct reference for arrows across faces [3].
   - Named palettes and schemes (`visualcube.php:115-172`, `:129-133`) suggest named colour-scheme presets in settings [3].
 - **Risks.** Nothing can be reused as code. Never put VisualCube image URLs in Rouxtine content or exported sheets: the host shows an error. The `line` mask is easy to mistake for a Roux mask.
-- **Against existing notes.** roux-community-resources.md:437 lists `f2b`, `cmll` and `line` as masks of interest. `line` (`visualcube.php:418-420`) covers DF, DB and the F/D/B centres: ZZ's EOLine, not a Roux line [3][30]. The rest of that row holds.
+- **Against existing notes.** roux-community-resources.md §7 (the VisualCube row) lists `f2b`, `cmll` and `line` as masks of interest. `line` (`visualcube.php:418-420`) covers DF, DB and the F/D/B centres: ZZ's EOLine, not a Roux line [3][30]. The rest of that row holds.
 
 ## 11. cubing/alg.cubing.net
 
 - **What it is.** Lucas Garron's alg and reconstruction viewer/editor (AngularJS, twisty.js on Three.js, a jison alg parser). All state lives in the URL: `alg`, `setup`, `type`, `stage`, `puzzle`, `scheme`, `title`, `view` [24]. The README says development is frozen, "v2" is the Twizzle editor in cubing.js (`ACN:README.md:1-8`), and traffic will eventually redirect there (`:56-59`). On 2026-10-29 it still served v1 (HTTP 200, `VERSION.txt` = `a4423df`) with an "Open in Twizzle" button [24].
 - **Status.** Frozen but deployed. 386 commits since 2012-02-28, 376 by Lucas Garron, 269 of them in 2013–2014. Frozen since `6e126b5` (2021-07-03); since then 17 Twizzle-link commits in 2022, 2 CDN updates in 2024 and 4 maintenance commits in 2026 (last `c245b37`, 2026-06-04) [24]. 206 stars, 36 forks, 95 open issues and PRs; the description now reads "Superseded by Twizzle" [27]. Twizzle in cubing.js is active (HEAD `6157191`, 2026-10-24) [25].
 - **Licence.** MIT, "Copyright (c) 2014 Lucas Garron" (`ACN:LICENSE.md:1-22`); bundled twisty.js and alg.js are MIT, Font Awesome fonts OFL (`:25-36`) [24]. cubing.js is "MPL-2.0 OR GPL-3.0-or-later" (`CJS:package.json:6`) [25].
-- **GPL-3.0-only fit.** Yes. URL formats and notation are interoperability facts, so a clean Kotlin importer needs no notice. If the escape functions or the grammar are ported line by line, keep the MIT notice. cubing.js code can be taken under its GPL-3.0-or-later option.
-- **Verdict: borrow ideas** for REC import (scope.md:86) [29]. Not for rendering: twisty.js, Three.js and WebView are out (HANDOFF.md:109-111).
+- **GPL-3.0-only fit.** Yes. URL formats and notation are interoperability facts, so a clean Kotlin importer needs no notice. If the escape functions or the grammar are ported line by line, keep the MIT notice. Take cubing.js for ideas only (HANDOFF "Don't"); the URL format needs no code.
+- **Verdict: borrow ideas** for REC import (scope.md R2+ item 2) [29]. Not for rendering: twisty.js, Three.js and WebView are out (HANDOFF.md "Virtual cube").
 - **What to take.**
   - *URL codec* (`ACN:src/alg.cubing.net/alg.cubing.net.js:295-320`). After percent-decoding: `-` → `'` then `&#45;` → `-`; `+` → space then `&#2b;` → `+`; `_` → space then `&#95;` → `_` [24]. A plain decoder turns `2-3Rw` into `2'3Rw`. About 20 lines of Kotlin, with round-trip tests.
   - *Parameters* (`alg.cubing.net.js:80-230`). `type` decides the anchor: `moves` and `reconstruction` mean setup is the start state; `alg` and `reconstruction-end-with-setup` mean setup is the end state, so the start is setup + inverse(alg) (`:116-161`). Only non-default values are written, and `fbclid` is stripped (`:322-358`) [24].
@@ -252,39 +252,39 @@ Path prefixes name the repo at the commit in its source entry: `VCT:` tdecker91/
   - *Defect, do not copy:* `alg.cubing.net.js:383` tests for type id `algorithm`, but the id is `alg` (`:140`), so "Open in Twizzle" drops the end anchor for alg links [24]. Apply the type rule ourselves.
   - *Twizzle side:* the editor reads `alg`, `setup-alg`, `setup-anchor`, `puzzle`, `stickering`, `title` and more (`CJS:src/cubing/twisty/views/twizzle/url-params.ts:119-129`), remaps the old `experimental-*` names (`CJS:src/sites/alpha.twizzle.net/edit/main.ts:24-28`), and still emits `experimental-stickering` itself (`CJS:src/cubing/twisty/model/TwistyPlayerModel.ts:273`) [25]. Accept both spellings.
   - *Export target:* `https://alpha.twizzle.net/edit/?setup-alg=…&alg=…&title=…` with `// FB`, `// SB`, `// CMLL`, `// LSE` comments. Per-step links can use the Roux stickerings `FirstBlock`, `SecondBlock`, `CMLL`, `L10P`, `L6E`, `L6EO` (`CJS:src/cubing/puzzles/stickerings/puzzle-stickerings.ts:44-49`) [25]. On 2026-10-29 `twizzle.net/` redirected (307) to `alpha.twizzle.net/` and `twizzle.net/edit/` returned 404, so alpha is still the editor host [26].
-  - *Android intake* (our suggestion, not from the repo): paste plus an `ACTION_SEND` text share target, parsed offline. App Links are not an option for domains we do not own, which fits HANDOFF.md:138.
+  - *Android intake* (our suggestion, not from the repo): paste plus an `ACTION_SEND` text share target, parsed offline. App Links are not an option for domains we do not own, which fits rouxtine-design.md §7 (App Links only for our own `nauroth.github.io`).
 - **Risks.** Twizzle is still "alpha" and has renamed its parameters once; test against live links. Naive decoding silently corrupts algs. Do not bundle AngularJS, twisty.js, Three.js or Font Awesome.
-- **Against existing notes.** roux-community-resources.md:432 is confirmed [30]. Two precisions: alg.cubing.net does not redirect yet, so scope.md:86 is right to list it as its own format [24][29]; and `setup=` / `alg=` are alg.cubing.net's parameters, while Twizzle uses `setup-alg` plus `setup-anchor=end` for end-anchored algs [25].
+- **Against existing notes.** roux-community-resources.md §7 (the alg.cubing.net row) is confirmed [30]. Two precisions: alg.cubing.net does not redirect yet, so scope.md R2+ item 2 is right to list it as its own format [24][29]; and `setup=` / `alg=` are alg.cubing.net's parameters, while Twizzle uses `setup-alg` plus `setup-anchor=end` for end-anchored algs [25].
 
 ## What changes in our plans
 
-None of this changes a decision in HANDOFF.md or scope.md. It adds detail to existing items and corrects a few notes.
+None of this changes a decision in HANDOFF.md or scope.md. It adds detail to existing items and corrects a few notes. The note fixes below were applied on 2026-10-31.
 
-1. **Random-state scrambles** (scope.md:24; HANDOFF.md "Solver"; plan step 4).
+1. **Random-state scrambles** (scope.md R1 "Platform and foundations"; HANDOFF.md "Solver"; plan step 4).
    - Add a `:min2phase` java-library module with M2P's five files, unchanged, taken under MIT [10].
    - The masked sampler stays our port of `get_random_with_mask`. Add the M^k centre step for all four M-slice offsets; roux-trainers covers only M2 [28]. Alg-Trainer's generator shows how easy it is to miss M and M' [14].
    - Collapse whitespace in min2phase output. Init off the main thread, prefetch, and benchmark on a low-end device before R1.
-2. **Licences screen and licence notes** (scope.md:32; HANDOFF.md "Money").
+2. **Licences screen and licence notes** (scope.md R1 "Platform and foundations"; HANDOFF.md "Money").
    - Add the min2phase MIT notice and keep Search.java's GPL header [10].
-   - Fix roux-training-features.md:7, :41, :171 and monetization.md:161 to "MIT or GPL-3.0-or-later". Taking the MIT branch means the planned s.7 Play Billing permission still needs only onionhoney [10][30].
+   - Fix roux-training-features.md (source line, Summary, §4) and monetization.md ("GPL and community notes") to "MIT or GPL-3.0-or-later". Taking the MIT branch means the planned s.7 Play Billing permission still needs only onionhoney [10][30].
    - licensing-monetization.md §2.3: add midori-timer's `GPL-3.0-only` and the `d9873e8` licence timing as supporting evidence for the GPL-3.0-only reading [20][21]. Add a line that the web app's case thumbnails come from npm `sr-visualizer` (Conrad Rider, Tyson Decker), not onionhoney [1][28].
-3. **Canvas cube and case thumbnails** (scope.md:25; HANDOFF.md "Virtual cube").
+3. **Canvas cube and case thumbnails** (scope.md R1 "Platform and foundations"; HANDOFF.md "Virtual cube").
    - Build CMX/CMR thumbnails from one static projector with a plan view, following VisualCube's geometry, instead of a separate top-view drawing [1].
    - Use an immutable `CubeImageSpec`; sticker states masked / oriented / hidden; apply the mask before the case so the grey follows the pieces [1].
-   - Decide the masked look: flat #404040 (the web app's thumbnails) or grey with a coloured border (CubeSim, android-ui-stack.md:53, :74) [1][30].
-   - Fix roux-training-features.md:72: CaseVisualizer.tsx is not code to port [28].
-   - Arrows later, for L4C and "CMLL→LSE effect on alg cards" (scope.md:95). Write fresh; if translating, add the LGPL-derived notice.
-4. **Notation parser and REC import** (scope.md:23, :86).
+   - Decide the masked look: flat #404040 (the web app's thumbnails) or grey with a coloured border (CubeSim, android-ui-stack.md §2) [1][30].
+   - Fix roux-training-features.md §2: CaseVisualizer.tsx is not code to port [28].
+   - Arrows later, for L4C and "CMLL→LSE effect on alg cards" (scope.md R2+ item 5). Write fresh (ideas only, HANDOFF "Don't").
+4. **Notation parser and REC import** (scope.md R1 "Platform and foundations"; R2+ item 2).
    - The parser fix should cover `/* */` comments, `Rw`, repeated groups, commutators, conjugates and pauses, and reject big-cube layer moves [24][28].
    - Add the alg.cubing.net URL codec and Twizzle parameter reading (`setup-alg`, `setup-anchor`, both stickering spellings); export to `alpha.twizzle.net/edit/` [24][25].
-   - Take links by paste and share target (HANDOFF.md:138). Fix roux-community-resources.md:432's parameter wording.
-5. **Smart-cube input in case modules** (scope.md:83; smart-cubes.md §3.5). Add briefcubing's ideas to the R2 plan: an optional "solve in app" drill, a 24-orientation matcher tolerant of AUF/M/M2 with a distinctness check, a 50 ms settle window, turn-to-advance behind a setting, and separate stats for on-screen recognition. Slice merging is still needed for SC splits and REC [5].
-6. **CMX/CMR and selectors** (scope.md:44, :70-71). Candidate options from Alg-Trainer: case colour (fixed / x2y / full CN), random L/R mirror, a set statistics card, bulk paste with case classification, swipe back to the previous case [14]. Fix training-regimens.md:207 ("only"), roux-community-resources.md:371 (extend the caution to the CMLL list) and :423 (wording) [14][30].
-7. **Learn content** (scope.md:53, :56, :73, :96, :97, :99). Use the Roux Reader list in section 9; credit authors by git blame; recompute its numbers with our solvers; bundle the 17 FB and 3 + 8 LSE examples after solver checks [23]. Fix roux-community-resources.md:542 (credits) and :660 ("half empty" is about 40 %).
-8. **SC splits, benchmark cards, analysis** (scope.md:82, :87; rouxtine-design.md:70). Store the finest stages once and derive 4-step and 2-step views; show deltas with a sign or arrow, not colour alone; use "guess the pause" to replay solves without per-move times [19].
-9. **Small fix:** roux-community-resources.md:437, `line` is not a Roux mask [3].
+   - Take links by paste and share target (rouxtine-design.md §7). Fix the parameter wording in roux-community-resources.md §7.
+5. **Smart-cube input in case modules** (scope.md R2+ item 1; smart-cubes.md §3.5). Add briefcubing's ideas to the R2 plan: an optional "solve in app" drill, a 24-orientation matcher tolerant of AUF/M/M2 with a distinctness check, a 50 ms settle window, turn-to-advance behind a setting, and separate stats for on-screen recognition. Slice merging is still needed for SC splits and REC [5].
+6. **CMX/CMR and selectors** (scope.md R1 "The Rouxtine engine" and "Modules in R1"). Candidate options from Alg-Trainer: case colour (fixed / x2y / full CN), random L/R mirror, a set statistics card, bulk paste with case classification, swipe back to the previous case [14]. Fix training-regimens.md §4 ("only"), roux-community-resources.md §6.1 (extend the caution to the CMLL list) and §7 (wording) [14][30].
+7. **Learn content** (scope.md R1 "Learn" and "Modules in R1"; R2+ items 6, 7 and 9). Use the Roux Reader list in section 9; credit authors by git blame; recompute its numbers with our solvers; bundle the 17 FB and 3 + 8 LSE examples after solver checks [23]. Fix roux-community-resources.md §8.6 (credits) and §10 item 8 ("half empty" is about 40 %).
+8. **SC splits, benchmark cards, analysis** (scope.md R2+ items 1 and 3; rouxtine-design.md §5). Store the finest stages once and derive 4-step and 2-step views; show deltas with a sign or arrow, not colour alone; use "guess the pause" to replay solves without per-move times [19].
+9. **Small fix:** roux-community-resources.md §7, `line` is not a Roux mask [3].
 10. **No change** from chronocube or 15Puzzle_OptimalSolver. The latter confirms roux-training-features.md §5: keep the maximum over tables and sparse storage [16][18].
-11. **Lore:** write nothing about who or what Midori is (roux-community-resources.md:352, :534, :664) [22].
+11. **Lore:** write nothing about who or what Midori is (roux-community-resources.md §5, §8.5 and §10 item 12) [22].
 
 ## Sources
 
@@ -315,7 +315,7 @@ None of this changes a decision in HANDOFF.md or scope.md. It adds detail to exi
 [25]: https://github.com/cubing/cubing.js/tree/615719165e79c85453fcf5a69dee885a3124d57a (sparse clone: src/cubing/twisty, src/cubing/puzzles, src/sites/alpha.twizzle.net; package.json)
 [26]: https://twizzle.net/ (307 to https://alpha.twizzle.net/), https://twizzle.net/edit/ (404), https://alpha.twizzle.net/edit/ (200), all 2026-10-29
 [27]: GitHub repository search through the GitHub MCP server, 2026-10-29 (stars, forks, open issue and PR counts for all eleven repos). The issues and PR APIs were refused for repos not enabled in this session, so issue threads were not read except where a source above says so.
-[28]: nauroth/roux-trainers, local checkout `/home/user/roux-trainers` at `b85221f` (the cited `src/` files are identical at `0129460`): src/components/CaseVisualizer.tsx, CubeSim2D.tsx; src/lib/CubeLib.tsx, Solver.tsx, Pruner.tsx, CachedSolver.tsx, Analyzer.ts; src/reducers/CmllStateM.tsx, BlockTrainerStateM.tsx; package.json; package-lock.json
+[28]: https://github.com/nauroth/roux-trainers at `b85221f` (read-only clone; the cited `src/` files are identical at `0129460`): src/components/CaseVisualizer.tsx, CubeSim2D.tsx; src/lib/CubeLib.tsx, Solver.tsx, Pruner.tsx, CachedSolver.tsx, Analyzer.ts; src/reducers/CmllStateM.tsx, BlockTrainerStateM.tsx; package.json; package-lock.json
 [29]: Rouxtine docs: scope.md, HANDOFF.md, rouxtine-design.md
 [30]: Rouxtine research notes: roux-training-features.md, licensing-monetization.md, monetization.md, roux-community-resources.md, training-regimens.md, smart-cubes.md, timer-integration.md, android-ui-stack.md
 

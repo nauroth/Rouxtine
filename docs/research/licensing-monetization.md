@@ -190,6 +190,7 @@ android {
   - Nothing says "only" or "or later". `package.json` has no licence field, and no source file has a header [48].
   - s.14: if no version is specified, "you may choose any version ever published by the Free Software Foundation" (`LICENSE:575-577`).
   - FAQ #LicenseCopyOnly: a copy of the GPL in the repo "does not explicitly state that the code in the same repository may be used under the GNU GPL", while "An explicit statement saying that eliminates all doubt" [45]. If the permissions did not apply, the result would be no licence at all, not a permissive one. Upstream is GPL-3.0 in practice, but only an explicit statement settles it.
+  - Supporting evidence, not proof ([related-projects.md §8](related-projects.md)): in June 2021 the same author chose `GPL-3.0-only` for a new project, onionhoney/midori-timer (`package.json`). Upstream's `LICENSE` first appeared in `d9873e8` (2020-06-26), the commit that vendored `src/lib/min2phase/*`; the repo had no licence before. Whether the GPL was chosen because of the solver is a guess.
 - **Ports keep the same version.** FAQ #TranslateCode: translation is modification, and "the translated program must be covered by the same versions of the GNU GPL" [45]. GPL-3.0-only for the Kotlin ports is consistent with what upstream ships.
 - **Authors.**
   - A `git blame` of master `0129460` gives every line of `Solver`, `Pruner`, `CubeLib`, `Algs`, `Analyzer`, `Evaluator` and `CubeSim` (also `Defs`, `Math`, `CachedSolver`) to Zhouheng "Jeffrey" Sun, GitHub onionhoney [49].
@@ -200,6 +201,7 @@ android {
   - `src/lib/min2phase/*` is a lightly modified copy of cubing/min2phase.js. Lucas Garron's 2018 licence says it is "dual-licensed under: MIT, GPLv3 or later" [51]. The package calls itself "A JS package for Chen Shuang's ... min2phase" [51].
   - Chen Shuang's own cs0x7f/min2phase has had a "License MIT" section in its README since commit `4d183b9` (2023-02-21). `src/Search.java` still has a GPL-3.0-or-later-only header [52]. This corrects roux-training-features.md §4, which lists min2phase as GPL-3.0-or-later only [67].
   - `src/lib/three/OrbitControls.js` comes from three.js (MIT) [53].
+  - The web app's case thumbnails come from the npm package `sr-visualizer` (Conrad Rider and Tyson Decker; an ISC label over inherited LGPL-3.0-or-later code), called from `src/components/CaseVisualizer.tsx`. It is a dependency, not a vendored copy, and not onionhoney's code ([related-projects.md §1](related-projects.md)).
   - Upstream's copies carry no licence or attribution header, and the repo ships neither MIT notice (checked in `src/lib/min2phase/` and `src/lib/three/`). Rouxtine must add them itself.
 - **Smart-cube and solver libraries:**
   - MIT: smartcube-web-bluetooth (Pau Oliva and Andy Fedotov; not on npm), gan-web-bluetooth, cube.js and kewb [54][55].

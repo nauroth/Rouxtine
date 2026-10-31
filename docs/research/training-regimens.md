@@ -1,6 +1,6 @@
 # Training regimens: prior art and a design space for modules and Rouxtines
 
-> Section 5 was decided with the owner on 2026-10-29. The outcome is [rouxtine-design.md](../rouxtine-design.md), which wins where the two differ: daily streak plus weekly goal, generated Rouxtines in R1, share formats including an https link. Offline-first with no backend or accounts is now in HANDOFF. HANDOFF no longer has numbered Open items.
+> Section 5 was decided with the owner on 2026-10-29. The outcome is [rouxtine-design.md](../rouxtine-design.md), which wins where the two differ: daily streak plus weekly goal, generated Rouxtines in R1, share formats including an https link. Offline-first with no backend or accounts is now in HANDOFF. The "Open item 5/6" references below point to an older HANDOFF. Those items were settled in docs/scope.md and docs/rouxtine-design.md and are not today's numbered questions. HANDOFF "Don't" limits csTimer, wodzik/cube and FsrsKt to ideas only: port py-fsrs (MIT).
 
 Researched 2026-10-28 from coach blogs and videos (titles, descriptions and chapters only), trainer source code and shipped bundles, app-store listings and reviews, help centres, and papers. Every claim was checked by a second pass; where that pass corrected a claim, the corrected version is used. `[n]` refers to the numbered sources at the bottom. Section 5 is design, not fact: the options are proposals for the owner, who has not decided them yet (HANDOFF "Open" item 6 [165]).
 
@@ -206,7 +206,7 @@ Nathan's Cube Trainer (iOS) has "weak-case tracking and review" and a CFOP segme
 
 ### Anti-patterns
 
-- **Uniform random as the only case order.** Tao Yu's Alg-Trainer, Twisty Timer's trainer, CubeDesk and the upstream roux-trainers all pick uniformly [52][53][54][55]. Reps go to known cases, and nothing says what to drill.
+- **Uniform random as the main case order.** Tao Yu's Alg-Trainer, Twisty Timer's trainer, CubeDesk and the upstream roux-trainers all pick uniformly [52][53][54][55]. Alg-Trainer also has "Go in order", but no shuffled recap or weighting ([related-projects.md §4](related-projects.md)). Reps go to known cases, and nothing says what to drill.
 - **Weighting weak cases with no floor or bootstrap,** so known cases starve. Cubeast keeps at least one copy per case after a bootstrap; SpeedcubeQuest has a 0.12 floor [42][45].
 - **Ranking cases by best single,** which favours high-risk algs [5]. Cubedex's "Slow Cases First" sorts by best time [44].
 - **Ranking by accumulated sums.** Cubeast's client tracker appears to rank by running sums per case, not means, so frequently seen cases would look slower and be shown even more [42]. Use means or EMAs.

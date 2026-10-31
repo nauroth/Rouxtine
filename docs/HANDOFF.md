@@ -9,21 +9,14 @@ Paths like `src/lib/Pruner.tsx:471` in these docs refer to
 onionhoney's web Roux Trainers (GPL-3.0) that this app ports from. Attach that repo read-only
 when porting.
 
-## Next session: start here (paused 2026-10-29, owner out of usage)
+## Next session: start here
 
-1. **Review branch `wip/audit-fixes`** (`git diff main...wip/audit-fixes`). It holds a pre-code
-   audit's fixes to HANDOFF, scope, design and research notes, applied by an agent and **not
-   reviewed**; the run was stopped before its check pass. Raw findings are in
-   `audit-data/audit-results.json` on that branch. Keep what is right, confirm no owner
-   decision changed, merge into `main`.
-2. **Apply the note corrections** listed in
-   [related-projects.md "What changes in our plans"](research/related-projects.md) (min2phase
-   licence wording, CaseVisualizer, a few line fixes), unless the audit branch already did.
-3. **Bring the owner the final questions** from the audit, plus these from the new notes:
-   R1 with no closed Google library and the onionhoney permission request
-   ([play-billing-gpl.md](research/play-billing-gpl.md) §9); crash/analytics setup and its
-   owner questions ([crash-analytics.md](research/crash-analytics.md)). Then start coding
-   (plan below).
+1. **The owner answers the Open questions:** 1–26, plus A (which EU country they live in,
+   asked in question 13) and B (the name to sign the onionhoney request with, asked in
+   question 1). Questions 11 and 22 are settled and need no answer.
+2. **Record the answers** in "Decided", [scope.md](scope.md) and
+   [rouxtine-design.md](rouxtine-design.md), and remove the "pending" marks they settle.
+3. **Start coding** at plan step 1 ("Suggested plan" below).
 
 ## Goal (owner's words, condensed)
 
@@ -44,9 +37,6 @@ but it is a new Kotlin app, not a wrapper of the web app.
   file; daily streak with freezes plus a weekly goal. All of it in the first release.
 - **Scope:** **[scope.md](scope.md)** says what ships in R1, R2+, later, and never. It
   supersedes the priorities in the feature-map notes.
-- **Offline-first:** every trainer, stats and Rouxtine feature works with no network. No
-  accounts and no server of our own. The only network use is opt-in crash and usage reports
-  (and, Later, an opt-in template refresh from GitHub).
 - **Repo:** `nauroth/rouxtine`, public, not a fork.
 - **Name:** Rouxtine. **Package id:** `io.github.nauroth.rouxtine`, with debug builds on
   `io.github.nauroth.rouxtine.debug` so both can be installed at once. No domain.
@@ -68,9 +58,6 @@ but it is a new Kotlin app, not a wrapper of the web app.
     APK until a permission covers it, and CI enforces that from plan step 1. Background:
     [licensing-monetization.md](research/licensing-monetization.md) and
     [monetization.md](research/monetization.md).
-  - **Contributors are copyright holders too.** Before the first outside pull request is
-    merged, templates included, CONTRIBUTING.md must state the inbound terms (Open,
-    question 6). Otherwise each contributor becomes one more person to ask.
   - **Play account:** personal. Once anything is sold, Google shows the developer's full address
     publicly; the owner accepts this. Every account also declares trader or non-trader status
     when it is created, and from 2027-03-01 Play shows an individual trader's phone number too
@@ -82,18 +69,7 @@ but it is a new Kotlin app, not a wrapper of the web app.
   the app. Opt-in, open-source SDK where possible, plus Play's Android vitals. No advertising
   ID, nothing personal, everything declared in the Play Data safety form. Which tool: open; the
   recommendation is in [crash-analytics.md](research/crash-analytics.md) (Open, question 12).
-  What follows from these decisions:
-  - Nothing leaves the phone before the user agrees: no SDK starts (auto-init off), nothing is
-    queued for upload, no ID is created. Crash reports and usage stats are separate choices,
-    both changeable in Settings. Turning one off stops sending and deletes queued data and any
-    ID.
-  - Reports never carry user-entered text (Rouxtine names, notes, share codes) or attempt
-    times. Debug and CI builds never send.
-  - "Nothing personal" in practice: no account, no advertising ID, no user-entered content. The
-    receiving server still sees IP addresses, so the owner acts as data controller: a privacy
-    policy, the vendor's processing agreement, EU hosting, IP storage off.
-  - Only FLOSS SDKs, since closed Google libraries are barred (see "Money"). The `foss` build can
-    then carry the same code and keep "no proprietary libraries".
+  The rules that follow are under "Follows from the decisions (agent)" below.
 - **Licence:** GPL-3.0-only (SPDX `GPL-3.0-only`), matching onionhoney's upstream exactly. GPL
   is required because the app ports their GPL solver and data. **Duties in every published
   build** ([licensing-monetization.md §5](research/licensing-monetization.md)):
@@ -139,8 +115,8 @@ but it is a new Kotlin app, not a wrapper of the web app.
   for other methods); videos linked, not embedded, low priority; third-party material only with
   consent, and inventors credited where their technique is taught; adapt Roux Reader sections
   (MIT) with notice; U-sticker + pattern CMLL recognition with standard names; OH hand only
-  with OH later; community links maybe later; no mindset content. M-hand is an agent default
-  for now (see "Defaults" and Open, question 21).
+  with OH later; community links maybe later; no mindset or lore content. M-hand is an agent
+  default for now (see "Defaults" and Open, question 21).
 - **Builds onto the phone:** the owner prefers whatever is safest and most widely used.
   Confirmed by research: CI builds both flavours of each `main` build and publishes the
   `foss` debug build to a rolling GitHub pre-release (see "Defaults"), and Obtainium on the
@@ -171,12 +147,47 @@ but it is a new Kotlin app, not a wrapper of the web app.
 - **Solver:** port the TS solver to Kotlin with sparse/hashed pruning tables. Do not embed the
   JS: its dense tables allocate 191–382 MB. Evidence:
   [roux-training-features.md §5](research/roux-training-features.md).
+- **No accounts and no server of our own** ([scope.md](scope.md) "Out").
+
+### Follows from the decisions (agent)
+
+The agent derived these rules from the decisions above. They are not owner decisions, and the
+owner may change them.
+
+- **Offline-first** (from the owner's brief and scope.md "Out"): every trainer, stats and
+  Rouxtine feature works with no network. The only network use is opt-in crash and usage
+  reports (and, Later, an opt-in template refresh from GitHub).
+- **Contributors are copyright holders too** (from "Money"). Before the first outside pull
+  request is merged, templates included, CONTRIBUTING.md must state the inbound terms (Open,
+  question 6). Otherwise each contributor becomes one more person to ask.
+- **Crash reporting and analytics** (from that decision):
+  - Nothing leaves the phone before the user agrees: no SDK starts (auto-init off), nothing is
+    queued for upload, no ID is created. Crash reports and usage stats are separate choices,
+    both changeable in Settings. Turning one off stops sending and deletes queued data and any
+    ID.
+  - Reports never carry user-entered text (Rouxtine names, notes, share codes) or attempt
+    times. Debug and CI builds never send.
+  - "Nothing personal" in practice: no account, no advertising ID, no user-entered content. The
+    receiving server still sees IP addresses, so the owner acts as data controller: a privacy
+    policy, the vendor's processing agreement, EU hosting, IP storage off.
+  - Usage events come only from `docs/analytics-events.md`, which is also the source for Data
+    safety. The consent card appears once after onboarding and never blocks it. The upload
+    queue is capped, and it is cleared when consent is withdrawn.
+  - Retention: the vendor's shortest setting (e.g. 30 or 90 days), stated in the privacy
+    policy. Data safety: Crash logs and Diagnostics; App interactions once usage stats ship;
+    Device or other IDs only if an ID is sent (Sentry's installation ID is removed in
+    `beforeSend` and session tracking is off, `enableAutoSessionTracking=false`;
+    [crash-analytics.md](research/crash-analytics.md)).
+  - Only FLOSS SDKs, since closed Google libraries are barred (see "Money"); the owner asked
+    for "open-source SDK where possible". The `foss` build can then carry the same code and
+    keep "no proprietary libraries".
 
 ## Open
 
 Grilling finished 2026-10-29. The pre-code audit the same day checked the docs against the
-research and raised the questions below. Each has a recommendation after the arrow. None blocks
-the first code (plan steps 1–5) unless it says so.
+research and raised questions 1–25. Question 26 comes from the acubemy note (2026-10-31). Each
+has a recommendation after the arrow. None blocks the first code (plan steps 1–5) unless it
+says so.
 
 **Questions for the owner**
 
@@ -210,8 +221,10 @@ the first code (plan steps 1–5) unless it says so.
 7. **R1 without closed Google libraries, even if onionhoney says yes in time?** → Yes: FLOSS
    reporting tools, ZXing for QR, AboutLibraries for the licences screen, no Play Core review
    or update prompts. The build stays simple and F-Droid-clean, and R1 doesn't wait on anyone.
-8. **min2phase.** → Port Chen Shuang's Java under its 2023 MIT grant, and send Chen a one-line
-   request to confirm it also covers the GPL-headed `Search.java`. Don't wait on the reply.
+8. **min2phase.** → Vendor min2phase's five Java files unchanged as a `:min2phase` module under
+   its MIT option: keep `Search.java`'s GPL header, and put the MIT notice on the Licences
+   screen ([related-projects.md §3](research/related-projects.md)). A note to Chen Shuang is an
+   optional courtesy, not a blocker.
 9. **EU Cyber Resilience Act.** Selling an unlock probably makes Rouxtine a product supplied in
    a commercial activity: manufacturer duties from 2027-12-11, and reporting of actively
    exploited vulnerabilities since 2026-09-11. Donations alone don't count. → Keep R1 and the
@@ -223,11 +236,10 @@ the first code (plan steps 1–5) unless it says so.
     2027-03-01 Play also shows an individual trader's phone number. → Declare non-trader at
     account creation while nothing is sold on Play, if your own assessment agrees. Switch
     before the first paid product, once you are OK with the phone number being public.
-11. **Ko-fi scope.** The parallel session said "Ko-fi on GitHub only"; "Money" reads it as the
-    README, the `foss` build and the F-Droid metadata. → Keep that reading: all three are off
-    Play. Add the README line once the Ko-fi page exists. A `.github/FUNDING.yml` Sponsor button
-    is optional; it changes nothing for Play, because the `play` build never links to the repo
-    page.
+11. **Ko-fi scope.** Settled (owner decision in HANDOFF "Money": Ko-fi off Play only: GitHub
+    README, `foss` build, F-Droid metadata); no answer needed. To-do: create the Ko-fi page,
+    then add the README line. A `.github/FUNDING.yml` Sponsor button is an optional default; it
+    changes nothing for Play, because the `play` build never links to the repo page.
 
 *Privacy, crash reports and analytics* (evidence: [crash-analytics.md](research/crash-analytics.md)):
 
@@ -262,7 +274,8 @@ the first code (plan steps 1–5) unless it says so.
     own signed APK, so users can still switch. The F-Droid main repo only with reproducible
     builds, so it ships our signature too. Keep the `foss` flavour F-Droid-clean from day one.
 20. **When to open the closed test.** → At milestone M5 (plan step 7), with 15–20 testers, so
-    the 14 days and the review overlap the last milestone. No public release before R1.
+    the 14 days and the review overlap the last milestone. No tagged or Play release before R1;
+    the rolling `dev` pre-release stays public, with its source at the `dev` tag.
 
 *Content and design*:
 
@@ -271,9 +284,9 @@ the first code (plan steps 1–5) unless it says so.
     and righty halves. → Keep M-hand as an R1 setting, right by default. Don't ask it in
     onboarding; ask once, in context, the first time the user opens an LSE lesson or module.
     OH hand waits for the OH module (Later), as you suggested.
-22. **Lore (your Q19.12 "No").** scope.md still lists "Lore and timeline cards" under Later. →
-    Read "No" as covering lore too: move them to Out, with no mantra field and no Midori joke.
-    Plain inventor credits in lessons and the glossary stay (Q19.7).
+22. **Lore (your Q19.12 "No").** Settled: the owner's Q19.12 "No" covers mindset and lore
+    content; lore and timeline cards are Out ([scope.md](scope.md)); inventor credits stay
+    (Q19.7).
 23. **Streak plus weekly goal ("Or do both?").** With a 3-day goal, a user who meets it misses
     four days a week, so the two clash unless rest days are defined. → Flexible rest days
     ([rouxtine-design.md §8](rouxtine-design.md)): a missed day is a rest day while the week
@@ -283,6 +296,36 @@ the first code (plan steps 1–5) unless it says so.
     Both in R1: Android Auto Backup, set to keep only the source-of-truth tables (under its
     25 MB cap) and rebuild caches after a restore; and a manual "Export all data" / "Import
     data" zip through the Storage Access Framework. No cloud sync.
+
+*Scope additions*:
+
+25. **Accept the audit's R1 additions and narrowings?** [scope.md](scope.md) marks each one
+    "(audit default, pending Q25)". Additions: the orientation-set setting (fixed, y2, x2y,
+    CN); the accessibility list; misaligned-centre 4c; the ULUR/UFUB target in EOLR; upstream's
+    L4C stages (4b for MC, M2 to 4c, 4c); the physical-cube self-report protocol (after the
+    reveal, the user reports or types the moves); the privacy page. Narrowings: two forced by
+    what R1 can measure (splitting a stage's lost time into pauses, movecount and TPS waits for
+    R2+ until move data exists; INS compares FB+DR plans only in the chosen orientation and
+    shows FB+SS bests as approximate), and one for lack of a source (BU/FUBU 4c recognition
+    moves to R2+ next to EZ4c until a readable source exists). → Accept.
+26. **Adopt these acubemy ideas?** From [acubemy.md](research/acubemy.md) §2. They are not in
+    scope.md yet. The arrow gives the note's recommended release. For R1, with no hardware:
+    - a "prove you know it" card per case, so a known case skips the learning queue → R1;
+    - a "too hard" flag per case, which relaxes its goal so one case doesn't stall a block → R1;
+    - "beat your goal 3 times in a row" to clear a case, with goals from the user's own recent
+      times, not a split table → R1;
+    - ao100 and ao1000 next to ao5, ao12 and Mo10Ao5 → R1;
+    - scramble history, for a scramble applied wrongly → R1;
+    - keep the screen on during timer and drill screens → R1.
+
+    For R2+, with smart cubes:
+    - a per-solve step table (recognition, execution, turns and TPS for each Roux step) → R2+
+      with SC;
+    - a wrong-alg alert after a solve that feeds the CMR confusables queue → R2+ with SC;
+    - scrambles from the cube's current state, so it never needs a reset between reps → R2 with
+      SC (needs min2phase);
+    - gyro data to tell M from L+R′ → R2, tested on the GAN i4 (the QiYi AI has no gyro, so
+      time-window merging stays the fallback).
 
 **Owner to-dos (none block the first code):**
 - Buy a QiYi AI 3x3 and a GAN i4.
@@ -299,28 +342,29 @@ the first code (plan steps 1–5) unless it says so.
 - Before going public, in this order:
   1. Create the Google Play developer account ($25, ID), declaring trader or non-trader status
      at creation (question 10).
-  2. Publish the privacy policy on `nauroth.github.io`; link it in Play Console and in
+  2. Generate the release key on your own computer, with an offline backup, before any Play
+     upload. The first upload fixes the app signing key, so at that upload choose "use my own
+     key" in Play App Signing. Play and the GitHub APK then share it.
+  3. Publish the privacy policy on `nauroth.github.io`; link it in Play Console and in
      Settings > About in both builds.
-  3. Complete Play's App content: privacy policy URL, Data safety, IARC content rating, target
+  4. Complete Play's App content: privacy policy URL, Data safety, IARC content rating, target
      audience (question 13), ads = none, app access.
-  4. Start the closed test with 15–20 testers (the Roux Discord is a good place), so drop-outs
+  5. Start the closed test with 15–20 testers (the Roux Discord is a good place), so drop-outs
      don't take it below 12. The 14 days must be consecutive; a tester who leaves and rejoins
      starts over.
-  5. Allow 14 days of closed test plus up to 7 days of production review before R1.
-  6. Generate the release key on your own computer.
+  6. Allow 14 days of closed test plus up to 7 days of production review before R1.
   7. Register `io.github.nauroth.rouxtine` for developer verification before the 2027 rollout,
      and `.debug` with the dev key's SHA-256 (a limited-distribution account), or plan on the
      advanced flow for the dev channel.
 
-  Until steps 2–3 are done, the `play` flavour can be tried on Play's internal testing track,
-  which doesn't need the Data safety form.
+  After step 2, and until steps 3–4 are done, the `play` flavour can be tried on Play's
+  internal testing track, which doesn't need the Data safety form.
 - Before the first paid feature: onionhoney's written permission, trader status (question 10),
   the CRA check (question 9), and your business, tax and social-security setup.
 - Later: ask content authors for consent ([roux-community-resources.md §10](research/roux-community-resources.md) item 7).
 
 **Defaults the agent chose (the owner may override):**
 - Smart cubes in R2, not R1, to keep R1 shippable.
-- Sharing (link, code, QR, file) in R1, because templates use the same format.
 - Community templates are bundled per release; no online fetch in R1. Suggestions come in
   through a GitHub issue form, and maintainers turn them into pull requests.
 - M-hand as an R1 setting (right by default, mirrors LSE solutions, not asked in onboarding),
@@ -337,6 +381,15 @@ the first code (plan steps 1–5) unless it says so.
 - Everything marked *(default)* in [rouxtine-design.md](rouxtine-design.md): data model, run
   lifecycle, ids and versions, wire format, selector, suggestion, generator, Today, day and
   accessibility rules.
+- Two rules that narrow owner-approved text in rouxtine-design.md, marked *(default)* there:
+  the "counts toward stats and SRS" switch is for Quick sessions only, because blocks in a
+  Rouxtine always count (§2); and "Update Rouxtine?" also follows a swapped block or a mid-run
+  edit to a block's settings, selector or stop rule (§3).
+- The R1 additions and narrowings marked "(audit default, pending Q25)" in scope.md, until
+  question 25 is answered.
+- The audit's R2+ and Later additions in scope.md: Gen3 in the protocol order, the "Record BLE
+  capture" export, W2/W3, F4–F6, F10 and F15 (INS), S3, S5 and S6 (SLP), C10 (CMLL mirror),
+  E10 and E13 (LSE), C20 (conjugated CMLL), E15 (EOdM) and E18 (Gilles' EO shortcuts).
 
 ## What exists now
 
@@ -366,21 +419,20 @@ the first code (plan steps 1–5) unless it says so.
     `play-billing-gpl.md` §8.
   - `play-billing-gpl.md`: whether Play Billing may ship next to onionhoney's GPL code (not
     without their s.7 permission), who holds the copyright, other closed Google SDKs, the
-    options, and the draft message to onionhoney.
-  - `crash-analytics.md`: crash and usage reporting for both flavours (Sentry EU and an
-    in-house PostHog client recommended), consent UX, Data safety, F-Droid rules, EU consent
-    law.
+    options (a paid "Supporter key" app as the fallback), and the draft message to onionhoney.
+  - `crash-analytics.md`: crash and usage reporting for both flavours (Android vitals, Sentry
+    EU for crashes and an in-house PostHog EU client for usage stats recommended), consent UX,
+    Data safety, F-Droid rules, EU consent law.
   - `extra-skills.md`: nine more skills reviewed; only Humanizer installed.
-  - `play-billing-gpl.md`: Play Billing needs onionhoney's written s.7 permission; R1 ships with
-    no closed Google library; draft request; paid "Supporter key" app as the fallback.
-  - `crash-analytics.md`: Android vitals + Sentry EU for crashes, in-house client to PostHog EU
-    for usage stats, opt-in and off by default; F-Droid, consent and Data safety.
   - `related-projects.md`: eleven GitHub repos the owner found, each with a verdict
     (min2phase: port; Roux Reader: reuse; five: borrow ideas; two: reference; two: skip).
+  - [`acubemy.md`](research/acubemy.md): the acubemy smart-cube app from public sources, and
+    which of its ideas fit Rouxtine (question 26).
 - `docs/scope.md` and `docs/rouxtine-design.md`: the decided scope and Rouxtine design.
 - Branch `wip/research-data`: the structured intermediate outputs (claims, verifier verdicts,
-  crawl summaries, YouTube index) and workflow scripts behind those notes. Raw page texts were
-  not kept (most sources have no licence).
+  crawl summaries, YouTube index) and workflow scripts behind those notes, plus the pre-code
+  audit's raw results and check (`research-data/audit/`). Raw page texts were not kept (most
+  sources have no licence).
 - `scripts/setup-android-sdk.sh`: idempotent SDK + Gradle-mirror setup (52 s fresh, 0 s warm).
   Not wired up yet: hook it into a SessionStart hook or the environment setup script.
 - `.claude/settings.json`: enables the plugins `ponytail`, `android-skills` (Google, official),
@@ -414,7 +466,7 @@ the first build.
 ## Suggested plan
 
 Each milestone (M0–M6) ends with a `dev` build the owner checks on the S25 through Obtainium.
-R1 stays the first public release.
+R1 stays the first tagged and Play release (question 20).
 
 1. **Setup (M0):** Gradle skeleton (minSdk 24) with the `play` and `foss` flavours. CI runs
    `assembleFossDebug assemblePlayDebug`, tests and lint, and publishes
@@ -422,9 +474,9 @@ R1 stays the first public release.
    pre-release. CI guards: fail if any runtime classpath of either flavour holds an artifact
    from `com.google.android.gms`, `com.google.firebase`, `com.google.android.play`,
    `com.google.mlkit` or `com.android.billingclient`; fail if the `play` bundle contains
-   "ko-fi" or "donat"; an SPDX check (e.g. REUSE lint); a DCO check. An About/Licences stub.
-   CONTRIBUTING.md with the inbound terms once question 6 is answered, and in any case before
-   the first outside pull request is merged. SessionStart hook running
+   "ko-fi" or "donat"; an SPDX check (e.g. REUSE lint); a DCO check (pending question 6). An
+   About/Licences stub. CONTRIBUTING.md with the inbound terms once question 6 is answered, and
+   in any case before the first outside pull request is merged. SessionStart hook running
    `setup-android-sdk.sh`.
 2. **Domain model:** `CONTEXT.md` with the Roux glossary (FB, SB, FS, SS, DR, LP, CMLL, NMCLL,
    LSE, EO, EOLR(b), MC, 4c, x2y/CN, AUF), via `domain-modeling`. Define every case key by cube
@@ -433,8 +485,9 @@ R1 stays the first public release.
 3. **Spec and tickets:** turn [scope.md](scope.md) R1 and [rouxtine-design.md](rouxtine-design.md)
    into a spec, then into tickets in GitHub Issues.
 4. **Core and solver, test-first (M1):** port `CubieCube` / `Move` / `MoveSeq` with the parser
-   fix noted in the feature map, the masks and the random-state generator; min2phase from
-   Chen Shuang's Java (MIT) for scrambles; the Roux solver with sparse tables. Port the existing
+   fix noted in the feature map, the masks and the random-state generator; for scrambles,
+   vendor min2phase's Java unchanged as `:min2phase` (MIT; keep `Search.java`'s header; MIT
+   notice on the Licences screen); the Roux solver with sparse tables. Port the existing
    TS tests (`src/lib/*.test.ts`) as the spec, and add golden tests against the TS code. Add a
    benchmark build for the S25 (table build time, memory) that also times the INS searches:
    `analyze_fb` over x2y and CN, and FB+DR from scratch with the sparse `fbdr` table. Porting
@@ -502,7 +555,8 @@ R1 stays the first public release.
   permission. Use onionhoney's GPL alg data, solver-generated algs or user-entered algs.
 - Don't copy code from sources that would add copyright holders to the Play question:
   onionhoney's open PR #31 (write the M-hand setting independently), AJGDsn's smartcube-gym,
-  csTimer. Use them for ideas only.
+  csTimer, FsrsKt, wodzik/cube, open-gan, and Cride5's and tdecker91's VisualCube. Use them for
+  ideas only. For FSRS, port py-fsrs (MIT).
 - Don't add ads. Never paywall a trainer, the solver, stats or analysis. No donate link or
   wording in the `play` build. No Play Billing, or any other closed Google library, until
   onionhoney's written permission covers it.

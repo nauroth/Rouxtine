@@ -368,7 +368,7 @@ Ways to obtain: **GPL** = onionhoney's GPL data (roux-trainers `src/lib/Algs.tsx
 | 1.5-look CMLL | 9 base algs; 42 recipes (9 one-look) | [58] | None | SOL (decompose in-app) |
 | CMLL (2H) | 42 | [45]–[50][51][37][112] | None | **GPL** (`src/lib/Algs.tsx:28-72`); alternatives USR/SOL |
 | CMLL statistics | 42 + skip | [48][49] | None | Compute |
-| OH CMLL (LH and RH) | 42 each | [53][54][55][56][37] | None | USR; SOL with OH move-set ranking; Tao Yu's OH CMLL list ships in MIT code but is a compilation, so credit or ASK [73] |
+| OH CMLL (LH and RH) | 42 each | [53][54][55][56][37] | None | USR; SOL with OH move-set ranking; Tao Yu's OH CMLL and CMLL lists ship in MIT code but are compilations (the CMLL list comes from algdb.net), so credit or ASK [73] ([related-projects.md §4](related-projects.md)) |
 | NMCMLL | 42 + solved; 84 patterns | [64][65][121] | None | **GPL** map (`src/lib/Algs.tsx:163-296`); compute patterns |
 | Straughan four-sticker patterns | 162 for 42 cases | [101] | None | Compute from the cube model |
 | OLLCP (Pinkie Pie) | 331 [62]; 342 entries [63] | [62][63] | None | GPL partial (`src/lib/Algs.tsx:120`, 7 groups); SOL for the rest |
@@ -420,7 +420,7 @@ CMLL 42 with names (`src/lib/Algs.tsx:28-72`), the NMCLL→CMLL map and display 
 | Cubegrass block trainer [44] | FB, SB, SS, SB-LP at a chosen optimal length; masked 2D net; all optimal solutions | Multi-select of lengths; show all optima, then rank by ergonomics | None; server closed |
 | Jade's EOLRb trainer [83] | Keyboard LSE; 8 EO pattern checkboxes; 960-state precomputed optimal table; "your solution vs optimal"; mirrors, random AUF only where it changes the case, 24 colour orientations | Precompute tables at build time; add 6-flip and misaligned centres (missing there); touch input | None (code readable, unlicensed) |
 | LaSEr v0.1 (Jade) [84] | Full LSE, 4a, EOLR, EOLR-b, 4c; on-screen M/U buttons; weights per EO state; efficiency score | One LSE trainer with five targets; generate the target state first, then solve it (its MC bug comes from building cases as inverses of truncated solutions) | None |
-| Tao Yu Alg-Trainer [73] | CMLL and OH CMLL drilling; obfuscated scrambles with a random LSE before the case; x2/y preorientation; mirror across M/S; user-defined sets; set statistics; Giiker | Scramble with a random LSE state; self-test mode; set statistics card | **MIT** |
+| Tao Yu Alg-Trainer [73] | CMLL and OH CMLL drilling; obfuscated scrambles with a random LSE before the case; preorientation (a fixed rotation plus two random axes, e.g. x2 and y, or full CN); mirror across M/S; user-defined sets; set statistics; Giiker | Scramble with a random LSE state; virtual cube mode; set statistics card | **MIT** |
 | kSim 2 [74] | Simulator with random-state CMLL (LSE edges greyed) and LSE (random M2) scramblers; ACube optimal solver; timer; move-history rewind | "Stage complete when unmasked stickers are solved" predicate; LSE scrambles with offset centres | None (ISC boilerplate only) |
 | Roman's ZBLL trainer [75] | Not Roux. Case-group grid with tri-state selection; recap mode; least-practised weighting (20 %); equal-length scrambles; presets; notes per case; 19 languages | Selection grid, recap, presets for CMLL/EOLR/TCMLL | None |
 | Edde's CEOR trainer [43] | Block trainer by exact optimal length with OH move sets (`RrUu`, `RrUuFfS`, RU), incl. Roux SS and CPFB; session CSV export | Exact-length case generation; move-set profiles; left/right mirror | None |
@@ -429,12 +429,12 @@ CMLL 42 with names (`src/lib/Algs.tsx:28-72`), the NMCLL→CMLL map and display 
 | SpeedCubeDB [38][63][112] | CMLL, SBLS 65, EO4A 9; votes; 3-state learnt flag; group counters; animated player; Practice covers PLL only | Learnt counters per group; setup alg per case; offline | None; ads |
 | Cubedex [138] | Smart-cube alg drilling with auto-graded SRS, including CMLL and EOLR sets (since 2026-04-21) | SRS for case sets | MIT (per FM) |
 | cubedb.net [113] | Recon editor/viewer: STM/HTM/QTM/ETM, Roux F2B/CMLL highlighting with block colour pair, mirror/invert, state in the URL; CFOP-only critique | Import/export cubedb links; a Roux solve critique (the gap) | None; obfuscated |
-| alg.cubing.net / Twizzle [117][141] | Recon links with `setup=` and `alg=`; Twizzle is the successor | URL import/export | MIT / MPL-2.0 or GPL-3.0+ |
+| alg.cubing.net / Twizzle [117][141] | Recon links with `setup=` and `alg=` (alg.cubing.net); Twizzle, the successor, uses `alg`, `setup-alg` and `setup-anchor=end` for end-anchored algs ([related-projects.md §11](related-projects.md)) | URL import/export | MIT / MPL-2.0 or GPL-3.0+ |
 | reco.nz [103] | 1,186 Roux reconstructions (527 3x3, 659 OH); filters; split table FB/SS/SP/CMLL/EOLR/EP with STM and TPS | Link per filter (the `Roux=on` parameter is case-sensitive); same split vocabulary | None; ask before bundling |
 | cubesolv.es [110] | 5,239 reconstructions; Roux steps labelled; a `3x3RouxLSE` event; unmaintained since 2020–2022 | Step vocabulary; "LSE sprint" idea | None shown |
 | Cubeast [105][106] | Smart-cube ao100 shares; Roux as 4 steps (left block, right block, CMLL, LSE) with recognition vs execution; per-case stats are Premium | Finer Roux steps; free per-case stats | Proprietary |
 | smart-roux-timer (eff) [140] | Xiaomi smart cube Roux phase detection (FB/SB/CMLL/EO/EP) | Reference for phase detection | GPL-3.0 |
-| VisualCube [114] | Image API with stage masks incl. `f2b`, `cmll`, `line` | Mask list as a checklist; render on-device (the host is broken) | LGPL-3.0+; images free to copy |
+| VisualCube [114] | Image API with stage masks incl. `f2b` and `cmll` (its `line` mask is ZZ's EOLine, not a Roux line; [related-projects.md §10](related-projects.md)) | Mask list as a checklist; render on-device (the host is broken) | LGPL-3.0+; images free to copy |
 | basilio.dev tools [77] | Audio Timer (microphone pause detection, look vs turn time), Recon Viewer | Pause detection without a smart cube (later idea) | None |
 | Batch Solver, HARCS | Named as the generators behind many sheets [40][68][71] and in FMC teaching [126] | Not examined | Unknown |
 
@@ -539,7 +539,7 @@ Titles and channels come from YouTube oEmbed; nothing was watched. "Linked from"
 - rouxcubing.com lists 41 Rouxer YouTube channels [4]:
   - A–J: Abhijeet Ghodgaonkar, Akash Sreedharan, Alexey Tsvetkov, CubingWithAlex, Anto Kam (Rouxles), Cordelia Hu, CriticalCubing, Doyul Kim, Dwyane Ramos, Dylan Govic, Eden Robinson-Rechavi, Eff, Elijah La Porte, Fahmi Aulia Rachman, Fouzan Zayn, Hamish Bassig, Iuri Grangeiro, Jasper Murray, Joe Briggs (Shadowslice), Joshua Marais, Jihu Mun.
   - K–Z: Kangaroux, Kavin Tangtartharakul (Guroux), Kian Mansour, Knut Peterson, Kymo Hendriks, Louis de Mendonça (TDM), Magnus Lensch, MOG Cubing, Nicholas Archer, Rayyan Ali, Richard Peng, Reuel Franz, Sean Patrick Villanueva, Sevilz, Shawn Boucké (SpeedCubeReview), Takumi Kato, Teri McAcy, Tyler Gee, Viljo Elo, Zhouheng Sun.
-- The Roux Reader credits Zhouheng Sun, Antonio Kam, Vincent Wong and Stanley Su [17].
+- The Roux Reader credits Zhouheng Sun, Antonio Kam, Vincent Wong and Stanley Su [17]. Its git history adds Jiankun (Richard) Peng (CMLL recognition and L10P text) and Ryan Peh (FAQ) ([related-projects.md §9](related-projects.md)).
 
 ## 9. Feature-map delta
 
@@ -661,7 +661,7 @@ Each has a recommended answer.
    - The authors of the EOLR, TCMLL and OH CMLL sheets [78][68][53].
    - reco.nz: any bundled reconstructions [103]. eff: the example-solve set [107].
    - *Recommend:* ship with solver-generated and user-entered data; send polite requests; add sets only after written consent; credit inventors everywhere.
-8. **Embed the Roux Reader?** It is MIT [17]. *Recommend:* adapt selected sections (FB chapter, orientation, DR-first, CMLL recognition, EOLRb insertions and influencing, FAQ milestones) with the MIT notice on the Licences screen. Do not mirror the whole book: it is frozen since 2022 and half empty [9][17].
+8. **Embed the Roux Reader?** It is MIT [17]. *Recommend:* adapt selected sections (FB chapter, orientation, DR-first, CMLL recognition, EOLRb insertions and influencing, FAQ milestones) with the MIT notice on the Licences screen. Do not mirror the whole book: it is frozen since 2022 and about 40 % of its English headings are empty [9][17].
 9. **Default recognition system and naming.** *Recommend:* U-sticker + pattern recognition by default; group+slot ids with Kian/SpeedCubeDB pattern names shown; other schemes as settings (6.3).
 10. **M-hand and OH-hand defaults.** Sheets exist for both hands [76][79][80][53][54]. *Recommend:* ask both during onboarding, changeable later.
 11. **Community links (Discord, subreddit, Facebook).** *Recommend:* one Community card with outbound links only. Do not scrape community content: Reddit and Facebook posts belong to their authors [118][119].

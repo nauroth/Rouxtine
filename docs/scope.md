@@ -1,12 +1,14 @@
 # Rouxtine feature scope
 
-Decided 2026-10-29 with the owner, from the research in `docs/research/`. This file is the
-source of truth for what ships when. It supersedes the priorities in
+Decided 2026-10-29 with the owner, from the research in `docs/research/`. Items marked
+"(audit default, pending Q25)" were added or narrowed by the pre-code audit and wait for the
+owner's answer to HANDOFF "Open" question 25. This file is the source of truth for what ships
+when. It supersedes the priorities in
 [roux-training-features.md §2](research/roux-training-features.md) and the delta in
 [roux-community-resources.md §9](research/roux-community-resources.md); those notes keep the
 evidence and the code to reuse. How Rouxtines work is in [rouxtine-design.md](rouxtine-design.md).
 
-- **R1** = first public release (Google Play + GitHub APK).
+- **R1** = first tagged release (Google Play + GitHub APK). Before it, the rolling `dev` pre-release is public, with no version tag (HANDOFF "Open" question 20).
 - **R2+** = following releases, roughly in the order listed.
 - **Later** = wanted, not planned yet.
 - **Out** = never in the app.
@@ -33,16 +35,16 @@ Rules that apply to every item:
 
   Naming-scheme setting, U-sticker + pattern recognition by default.
 - M-hand setting (right by default; mirrors LSE solutions). It is not asked during onboarding. (Agent default until the owner answers HANDOFF "Open".)
-- Orientation set (fixed, y2, x2y, CN; which colour pairs can be FB), app-wide. FBT, INS, FLP, SS and SLP scrambles, solver comparisons and the attempt log read it.
+- Orientation set (fixed, y2, x2y, CN; which colour pairs can be FB), app-wide. FBT, INS, FLP, SS and SLP scrambles, solver comparisons and the attempt log read it. (audit default, pending Q25)
 - Timer: touch timer, sessions, ao5/ao12/Mo10Ao5, manual per-stage splits. Twisty/Cubic Timer export.
 - Attempt log (append-only, with amendments for +2, DNF and deletes) and the skill model that every module feeds ([rouxtine-design.md](rouxtine-design.md) §5, §9).
 - Settings, light/dark theme, Material 3 Expressive, English strings in resources.
-- Accessibility: cube colour-scheme presets (high-contrast, colour-blind-friendly), no case identity in content descriptions before the answer, an accessible timer control, reduced motion, 48 dp pad targets, 200 % font scale ([rouxtine-design.md](rouxtine-design.md) §11).
+- Accessibility: cube colour-scheme presets (high-contrast, colour-blind-friendly), no case identity in content descriptions before the answer, an accessible timer control, reduced motion, 48 dp pad targets, 200 % font scale ([rouxtine-design.md](rouxtine-design.md) §11). (audit default, pending Q25)
 - About / Licences screen with the GPL notices, source location as plain text, and MIT notices. In the `play` build the only source link is the tag's source archive, never the repo page (it shows Ko-fi). The licence list is built with a FLOSS library (e.g. AboutLibraries), not Google's `oss-licenses` plugin.
-- Two build flavours: `play` (Google Play; no donation link or wording; Play Billing once paid extras ship) and `foss` (GitHub APK, later F-Droid; no proprietary libraries, everything unlocked, Ko-fi link).
-- No closed Google library in either flavour (HANDOFF "Money"): QR with ZXing, no Play Core review or update prompts, no Firebase or ML Kit.
+- Two build flavours: `play` (Google Play; no donation link or wording; Play Billing once paid extras ship) and `foss` (GitHub APK, later F-Droid, timing pending HANDOFF "Open" question 19; no proprietary libraries, everything unlocked, Ko-fi link).
+- No closed Google library in either flavour (HANDOFF "Money"; pending HANDOFF "Open" question 7): QR with ZXing, no Play Core review or update prompts, no Firebase or ML Kit.
 - Crash reporting and usage analytics: Play's Android vitals, plus opt-in FLOSS reporting (tool open; the recommendation is in [crash-analytics.md](research/crash-analytics.md)). Nothing is sent before the user agrees, crash reports and usage stats are separate choices, no advertising ID, nothing personal.
-- Privacy policy on `nauroth.github.io` (no Ko-fi), linked in Play Console and in Settings > About in both builds.
+- Privacy policy on `nauroth.github.io` (no Ko-fi), linked in Play Console and in Settings > About in both builds. (audit default, pending Q25)
 
 ### The Rouxtine engine (owner: all of it in R1)
 
@@ -53,7 +55,7 @@ Rules that apply to every item:
 - Bundled templates by level and goal, including community templates merged via GitHub pull requests or suggested through a GitHub issue form.
 - Onboarding wizard plus a short placement test that picks or assembles a starter Rouxtine.
 - Case selectors inside blocks: Recap, Equal/Realistic, Weakest, SRS (FSRS-6) and Ladder.
-- Practice-data analysis on what R1 can measure, shown on a dashboard: drill findings per case group (recognition from app-drawn cases, execution, efficiency where moves are known or self-reported) and stage findings from manual TIM splits. Splitting a stage's lost time into pauses, movecount and TPS needs move data and comes with SC, SLOW and REC in R2+ ([rouxtine-design.md](rouxtine-design.md) §5).
+- Practice-data analysis on what R1 can measure, shown on a dashboard: drill findings per case group (recognition from app-drawn cases, execution, efficiency where moves are known or self-reported) and stage findings from manual TIM splits. Splitting a stage's lost time into pauses, movecount and TPS needs move data and comes with SC, SLOW and REC in R2+ ([rouxtine-design.md](rouxtine-design.md) §5). (audit default, pending Q25)
 - Suggestions: modules to add and things to focus on, shown as a diff with a reason. The user accepts or dismisses them, and saved Rouxtines never change silently.
 - Generated Rouxtines: "make me a Rouxtine" from wizard answers and practice data. The result is always a new Rouxtine.
 - Sharing: a tappable link, a text code, a QR code or a file, carrying structure only.
@@ -74,19 +76,19 @@ Codes are from [roux-community-resources.md §4.1](research/roux-community-resou
 |---|---|---|
 | BEG | Beginner course | Lessons and mini-drills above |
 | FBT | FB trainer | Random-state FB/FS/line, solution reveal ranked for ergonomics, optimal-length ladder |
-| INS | Inspection planner | Timed inspection, scope ladder (DL+centre+pair → FS → FB → FB+DR → FB+SS), plans compared with the solver: at FS/line/FB scope against the best over x2y or full CN (port of `analyze_fb`); FB+DR in the chosen orientation only, once the sparse `fbdr` table passes a from-scratch benchmark; FB+SS checked for validity, with its FB part compared and any best shown labelled approximate |
+| INS | Inspection planner | Timed inspection, scope ladder (DL+centre+pair → FS → FB → FB+DR → FB+SS), plans compared with the solver: at FS/line/FB scope against the best over x2y or full CN (port of `analyze_fb`); FB+DR in the chosen orientation only, once the sparse `fbdr` table passes a from-scratch benchmark; FB+SS checked for validity, with its FB part compared and any best shown labelled approximate (audit default, pending Q25) |
 | FLP | FB last pair (+DR) | Position filters |
 | SS | SB square | Front/back, DR filters, DR-first |
 | SLP | SB last pair | 65-case taxonomy, front and back slot, solver-generated reference |
 | CMX | CMLL cases | 2-look and full 42, the user's main alg per case, random AUF, optional SB-LP pre-moves |
 | CMR | CMLL recognition | Tap-to-name, per-(case, angle) stats, confusables queue |
 | EO | EO (4a) | Misoriented centres, flowchart mode, LR-edge control |
-| EOLR | EOLR / EOLRb | Non-MC / MC / both / where-optimal filters; ULUR/UFUB target (upstream) |
-| L4C | 4b / 4c | DFDB recognition and DFDB prediction during 4b; upstream stages (4b for MC, M2 to 4c, 4c) and misaligned-centre 4c. BU and FUBU need a readable source first (none was found), so they may move to R2+ next to EZ4c |
+| EOLR | EOLR / EOLRb | Non-MC / MC / both / where-optimal filters; ULUR/UFUB target (upstream) (audit default, pending Q25) |
+| L4C | 4b / 4c | DFDB recognition and DFDB prediction during 4b; upstream stages (4b for MC, M2 to 4c, 4c) (audit default, pending Q25); misaligned-centre 4c (audit default, pending Q25). BU and FUBU recognition move to R2+ (item 6, next to EZ4c) until a readable source is found (audit default, pending Q25) |
 | LSX | LSE sandbox | Full LSE free-solve, efficiency %, QTM |
 | TIM | Timed solves | Timer module, so solves can be a Rouxtine block |
 
-Block drills on a physical cube (FBT, INS, FLP, SS, SLP) can't see the user's moves in R1. After the reveal, the user reports the moves used or types the solution ([rouxtine-design.md](rouxtine-design.md) §5, "What R1 can measure").
+Block drills on a physical cube (FBT, INS, FLP, SS, SLP) can't see the user's moves in R1. After the reveal, the user reports the moves used or types the solution ([rouxtine-design.md](rouxtine-design.md) §5, "What R1 can measure"). (audit default, pending Q25)
 
 **Data sources for R1 content** (never unlicensed sheets; HANDOFF "Don't"):
 - BEG corners: Sune plus one swap alg, in our own text.
@@ -118,12 +120,12 @@ Block drills on a physical cube (FBT, INS, FLP, SS, SLP) can't see the user's mo
    - peeking and hidden-sticker modes; trigger drills; NMCMLL/ATCRM recognition systems;
    - mirror across M or S (C10);
    - CMLL→LSE effect on alg cards.
-6. **LSE:** two-step EOLR recognition stepper; EO-pattern weights; LSE sprint; EZ4c; EOLRb 4c influencing; EOLRb corner-relation drill (E10); 6-flip repertoire (E13).
+6. **LSE:** two-step EOLR recognition stepper; EO-pattern weights; LSE sprint; EZ4c; BU and FUBU 4c recognition, once a readable source is found (audit default, pending Q25); EOLRb 4c influencing; EOLRb corner-relation drill (E10); 6-flip repertoire (E13).
 7. **Technique library:** adapted sections of the Roux Reader (MIT, with notice).
 8. **Learn-more links** to videos and sheets, with link-health checks. The owner rates this low priority.
 9. **Translations** through Weblate, once R1 strings settle.
 10. **Move-set profile** (2H / no-F) for solver ranking.
-11. **Paid extras in the `play` build:** a one-time Supporter unlock (themes), maybe a paid smart-cube add-on (what it may contain is open: HANDOFF "Open"). Not before onionhoney's written permission for Play Billing, the trader declaration and a Cyber Resilience Act check (HANDOFF "Money").
+11. **Paid extras in the `play` build:** a one-time Supporter unlock (themes), maybe a paid smart-cube add-on (what it may contain is open: HANDOFF "Open"). Not before onionhoney's written permission for Play Billing, the trader declaration and a Cyber Resilience Act check (HANDOFF "Money"). Play Billing goes in a `play`-only module (e.g. `:store-play`). From then on the closed-library CI guard applies to the `foss` classpath only.
 
 ## Later
 
@@ -133,7 +135,6 @@ Block drills on a physical cube (FBT, INS, FLP, SS, SLP) can't see the user's mo
 - Niche LSE: EOdM target (E15); Gilles' centre-orientation EO shortcuts (E18).
 - Weekly-competition mode: needs Knut Peterson's agreement and a scramble feed.
 - Community card with outbound links (Discord, subreddit): owner says maybe.
-- Lore and timeline cards (the owner answered "No" to mindset and lore content; whether this moves to Out is open: HANDOFF "Open").
 - Online refresh of the community template library from GitHub. R1 bundles templates in each release.
 - F-Droid or IzzyOnDroid listing. GitHub releases already cover Obtainium users.
 
@@ -141,5 +142,6 @@ Block drills on a physical cube (FBT, INS, FLP, SS, SLP) can't see the user's mo
 
 - Any non-Roux method, step, alg set or scramble type, including glossary entries for other methods.
 - Mindset and quote content.
+- Lore and timeline cards (the owner answered "No" to mindset and lore content): no mantra field, no Midori text. Inventors are still credited where their technique is taught.
 - Ads; paywalling any trainer, the solver, stats or analysis; user accounts; a server of our own. The app is offline-first: its only network use in R1 is opt-in crash and usage reporting through a third-party service.
 - Copying text, images or alg sheets from sources without a licence or consent.
