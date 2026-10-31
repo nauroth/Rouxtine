@@ -4,7 +4,7 @@ Researched 2026-10-28 from rouxcubing.com, resources.rouxers.com, the Roux Reade
 
 Conventions:
 - A bare `src/...:N` is a line in [nauroth/roux-trainers](https://github.com/nauroth/roux-trainers) (the fork of onionhoney/roux-trainers that Rouxtine ports from) at `0129460`, v2.3.
-- **FM** = section 2 of [roux-training-features.md](roux-training-features.md) (the accepted feature map) [136]. **TR** = `docs/research/training-regimens.md` in nauroth/rouxtine [138]. **HANDOFF** = `docs/HANDOFF.md` there [137].
+- **FM** = section 2 of [roux-training-features.md](roux-training-features.md) (priorities superseded by [scope.md](../scope.md)) [136]. **TR** = `docs/research/training-regimens.md` in nauroth/rouxtine [138]. **HANDOFF** = `docs/HANDOFF.md` there [137].
 - Levels used throughout: **L0** first-time solver, **L1** switching from a beginner method or CFOP, **L2** beginner Roux, **L3** intermediate, **L4** advanced, **L5** expert (defined in 3.2).
 - Method: pages were rendered with Playwright, Google Docs and Sheets were exported (including hidden tabs), git repos were cloned read-only, and licences were checked in repos and footers. YouTube videos were **not watched**: only their titles and channels (via oEmbed) and where they are linked were used, so what a video covers is inferred from those.
 
@@ -543,6 +543,8 @@ Titles and channels come from YouTube oEmbed; nothing was watched. "Linked from"
 
 ## 9. Feature-map delta
 
+> Superseded by [scope.md](../scope.md), which places every row in R1, R2+, Later or Out.
+
 Against FM §2 [136]. Priorities: **MVP**, **v1**, **later**.
 
 ### 9.1 Changed rows
@@ -637,6 +639,8 @@ Against FM §2 [136]. Priorities: **MVP**, **v1**, **later**.
 | CP-first OH pack (W14) | later, only if 10.5 says yes | — |
 
 ## 10. Scope questions for the owner
+
+> Answered by the owner on 2026-10-29 (Q19). The answers are in HANDOFF "Content scope" and [scope.md](../scope.md), and several differ from the recommendations below.
 
 Each has a recommended answer.
 

@@ -1,5 +1,7 @@
 # Android UI stack: Roux trainer (as of 2026-10-28)
 
+> minSdk is 24, not 26: superseded by [HANDOFF](../HANDOFF.md) "minSdk 24" ([min-sdk-and-delivery.md](min-sdk-and-delivery.md) Part A).
+
 Input for an AI developer working in a Linux x86_64 container with **no /dev/kvm and no emulator**.
 Versions come from Google Maven / Maven Central metadata or official release notes; links are inline.
 `UNVERIFIED` means no primary source confirmed the claim.

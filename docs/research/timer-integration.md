@@ -194,6 +194,7 @@ Real line from the repo's sample file (`TT:Solves_333_Sample.txt#L1`):
 ## Timing solves in our own app
 
 - **On-screen stackmat-style touch timer:** hold for about 0.3–0.55 s to arm, release to start, tap to stop. Use `MotionEvent.getEventTime()` and `SystemClock.elapsedRealtime*()`. Reference: Twisty's `TT:.../fragment/TimerFragment.java#L140-L143` (`HOLD_FOR_START_DELAY = 500L`) and `TT:.../layout/ChronometerMilli.java`.
+  - Clock bases (correction, [training-regimens.md](training-regimens.md) §6.1): time an attempt in the uptime base (`getEventTime()`, frame times); use `elapsedRealtime*()` only for spans that may cross deep sleep; never subtract stamps from different bases.
 - **GAN Smart Timer / GAN Halo over BLE:** service `0000fff0-0000-1000-8000-00805f9b34fb`, state characteristic `0000fff5-…` (`CT:.../fragment/TimerFragment.java#L293-L294`). Protocol references:
   - [afedotov/gan-web-bluetooth](https://github.com/afedotov/gan-web-bluetooth) `src/gan-smart-timer.ts` (MIT, TypeScript; also GAN smart cubes)
   - csTimer [`src/js/hardware/gantimer.js`](https://github.com/cs0x7f/cstimer/blob/master/src/js/hardware/gantimer.js) (GPL-3.0)

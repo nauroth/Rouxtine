@@ -180,6 +180,8 @@ The only official per-version data is the feed behind Android Studio's New Proje
 
 ### B3. The pipeline in detail
 
+> With the `play` and `foss` flavours (HANDOFF), CI builds both and publishes `fossDebug` from `app/build/outputs/apk/foss/debug/app-foss-debug.apk`. The workflow sketch below predates the flavours, and the owner generates the dev key as in §B8.
+
 **Build type.** CI ships the `debug` build type (`.debug`), as the owner decided. Google advises judging Compose performance on a release build with R8, because debug mode "imposes a performance cost" [133]. When R8 keep rules exist, add a release-like build type for the phone, as Element X does with its `nightly` type: `initWith(release)` plus its own suffix and signing [34]. A different suffix installs as a second app.
 
 **Signing (sketch, not built).** Gradle reads the dev key from environment variables and falls back to the default debug key when they are missing, as Lawnchair does [33]:
